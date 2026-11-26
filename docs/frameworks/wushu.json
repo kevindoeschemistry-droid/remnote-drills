@@ -5,7 +5,9 @@
  "draft": 1,
  "track": "athletics",
  "requires": [],
- "domains": [],
+ "domains": [
+  "wushu"
+ ],
  "basis": {
   "primary": "iwuf-taolu-2024",
   "wanted": [
@@ -983,7 +985,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "ws-score-split",
+        "ws-panel-roles"
+       ]
       },
       {
        "id": "B",
@@ -997,7 +1002,10 @@
        "needs": [
         "WS-7.1.A"
        ],
-       "drills": []
+       "drills": [
+        "ws-panel-average",
+        "ws-panel-spread"
+       ]
       }
      ]
     },
@@ -1070,6 +1078,20 @@
      },
      "los": [
       {
+       "id": "C",
+       "do": "Compute the head judge's time deduction for a routine of given length and event.",
+       "ek": [
+        "Changquan, nanquan, weapons: adult optional 1:20–1:35; 0.1 per started 2 s outside. Taiji, group: 0.1 per started 5 s outside."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "ws-time-deduction",
+        "ws-final-score"
+       ]
+      },
+      {
        "id": "A",
        "do": "Place a described performance into a B band and grade, justifying it with the criteria.",
        "ek": [
@@ -1086,17 +1108,6 @@
        "do": "Assign the choreography code and value for a described structural or content fault.",
        "ek": [
         "80 missing/extra/altered technique — 0.1 or 0.2 · 81 missing/extra step — 0.1 · 82 missing nanquan vocalisation — 0.2 · 83 static pause > 3 s — 0.1 · 84 facing averted > 45° (changquan) or > 90° (taiji) — 0.1 · 85 no music or music with lyrics — 0.5."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Compute the head judge's time deduction for a routine of given length and event.",
-       "ek": [
-        "Changquan, nanquan, weapons: adult optional 1:20–1:35; 0.1 per started 2 s outside. Taiji, group: 0.1 per started 5 s outside."
        ],
        "p": [
         "P3"
@@ -1652,7 +1663,10 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "ws-duanwei-tiers",
+        "ws-duanwei-use"
+       ]
       },
       {
        "id": "B",
@@ -2074,16 +2088,22 @@
    "code": "WS-7.1.A",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ws-score-split",
+    "ws-panel-roles"
+   ],
    "partial": []
   },
   {
    "code": "WS-7.1.B",
    "unit": 7,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ws-panel-average",
+    "ws-panel-spread"
+   ],
    "partial": []
   },
   {
@@ -2111,6 +2131,17 @@
    "partial": []
   },
   {
+   "code": "WS-7.3.C",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "ws-time-deduction",
+    "ws-final-score"
+   ],
+   "partial": []
+  },
+  {
    "code": "WS-7.3.A",
    "unit": 7,
    "topic": 3,
@@ -2120,14 +2151,6 @@
   },
   {
    "code": "WS-7.3.B",
-   "unit": 7,
-   "topic": 3,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "WS-7.3.C",
    "unit": 7,
    "topic": 3,
    "status": "gap",
@@ -2370,8 +2393,11 @@
    "code": "WS-11.2.A",
    "unit": 11,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "ws-duanwei-tiers",
+    "ws-duanwei-use"
+   ],
    "partial": []
   },
   {

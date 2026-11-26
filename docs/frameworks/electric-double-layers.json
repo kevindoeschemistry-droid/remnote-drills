@@ -59,6 +59,23 @@
      "title": "Charges, fields and the double-layer concept",
      "los": [
       {
+       "id": "D",
+       "std": [
+        "petsev-edl:1"
+       ],
+       "do": "Place electrolyte models in the book's hierarchy.",
+       "ek": [
+        "Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-model-hierarchy",
+        "el-model-capabilities"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "petsev-edl:1"
@@ -107,23 +124,6 @@
        "drills": [
         "el-schulze-hardy",
         "el-ccc-predict"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "petsev-edl:1"
-       ],
-       "do": "Place electrolyte models in the book's hierarchy.",
-       "ek": [
-        "Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "el-model-hierarchy",
-        "el-model-capabilities"
        ]
       }
      ]
@@ -458,6 +458,23 @@
      "title": "Integral equations",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "petsev-edl:4"
+       ],
+       "do": "Recognise the common closures.",
+       "ek": [
+        "PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-closures",
+        "el-closure-forms"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "petsev-edl:4"
@@ -489,23 +506,6 @@
        "drills": [
         "el-hs-pressure",
         "el-cs-vs-py-virial"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "petsev-edl:4"
-       ],
-       "do": "Recognise the common closures.",
-       "ek": [
-        "PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "el-closures",
-        "el-closure-forms"
        ]
       },
       {
@@ -746,6 +746,23 @@
      "title": "Classical DFT for electrolytes",
      "los": [
       {
+       "id": "D",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Know what fundamental-measure theory weights.",
+       "ek": [
+        "n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "el-fmt-weights",
+        "el-fmt-measures"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "petsev-edl:7"
@@ -794,23 +811,6 @@
        "drills": [
         "el-cs-free-energy",
         "el-cs-chemical-potential"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "petsev-edl:7"
-       ],
-       "do": "Know what fundamental-measure theory weights.",
-       "ek": [
-        "n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "el-fmt-weights",
-        "el-fmt-measures"
        ]
       },
       {
@@ -1166,6 +1166,17 @@
  ],
  "rows": [
   {
+   "code": "EL-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-model-hierarchy",
+    "el-model-capabilities"
+   ],
+   "partial": []
+  },
+  {
    "code": "EL-1.1.A",
    "unit": 1,
    "topic": 1,
@@ -1195,17 +1206,6 @@
    "full": [
     "el-schulze-hardy",
     "el-ccc-predict"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EL-1.1.D",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "el-model-hierarchy",
-    "el-model-capabilities"
    ],
    "partial": []
   },
@@ -1386,6 +1386,17 @@
    "partial": []
   },
   {
+   "code": "EL-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-closures",
+    "el-closure-forms"
+   ],
+   "partial": []
+  },
+  {
    "code": "EL-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -1404,17 +1415,6 @@
    "full": [
     "el-hs-pressure",
     "el-cs-vs-py-virial"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EL-3.1.C",
-   "unit": 3,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "el-closures",
-    "el-closure-forms"
    ],
    "partial": []
   },
@@ -1551,6 +1551,17 @@
    "partial": []
   },
   {
+   "code": "EL-4.2.D",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-fmt-weights",
+    "el-fmt-measures"
+   ],
+   "partial": []
+  },
+  {
    "code": "EL-4.2.A",
    "unit": 4,
    "topic": 2,
@@ -1580,17 +1591,6 @@
    "full": [
     "el-cs-free-energy",
     "el-cs-chemical-potential"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EL-4.2.D",
-   "unit": 4,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "el-fmt-weights",
-    "el-fmt-measures"
    ],
    "partial": []
   },

@@ -218,12 +218,12 @@ Big ideas: MAT
 
 
 
-- ● **DN-4.2.A** (jcnde-domain:CC30) Compute radiant exposure, depth of cure, shrinkage, C-factor and water sorption.
-  - EK: J/cm² = mW/cm² × s / 1000; depth = scraped length / 2; shrinkage = 1 − ρu/ρc.
-  - P1 · drills: dn-radiant-exposure, dn-depth-of-cure, dn-shrinkage, dn-c-factor, dn-water-sorption
 - ● **DN-4.2.B** Explain what each composite component does and how filler changes properties.
   - EK: Silane couples filler; camphorquinone absorbs blue light; oxygen inhibits the surface.
   - P3 · drills: dn-composite-types, dn-composite-choice
+- ● **DN-4.2.A** (jcnde-domain:CC30) Compute radiant exposure, depth of cure, shrinkage, C-factor and water sorption.
+  - EK: J/cm² = mW/cm² × s / 1000; depth = scraped length / 2; shrinkage = 1 − ρu/ρc.
+  - P1 · drills: dn-radiant-exposure, dn-depth-of-cure, dn-shrinkage, dn-c-factor, dn-water-sorption
 - ● **DN-4.2.C** (jcnde-domain:CC30) Compute degree of conversion from FTIR peak ratios.
   - EK: DC = 1 − (A₁₆₃₈/A₁₆₀₈)cured ÷ (A₁₆₃₈/A₁₆₀₈)uncured; the aromatic band is the internal standard.
   - P1 · drills: dn-degree-conversion, dn-ratio-for-dc
@@ -255,23 +255,23 @@ Big ideas: MAT
 - ● **DN-4.4.C** (jcnde-domain:CC30) Classify adhesive systems and choose one for a situation.
   - EK: Etch-and-rinse (3- or 2-step), self-etch (2- or 1-step), universal; the hybrid layer; 10-MDP bonds chemically to hydroxyapatite and zirconia.
   - P2 · P3 · drills: dn-adhesive-class, dn-adhesive-scenario
-- ● **DN-4.4.D** Compute bond strength from a shear or microtensile test.
-  - EK: σ = F/A; microtensile beams are about 1 mm².
-  - P1 · drills: dn-bond-strength, dn-load-for-strength
 - ● **DN-4.4.E** (jcnde-domain:CC31) Compare zirconia and glass-ceramic classes by strength, translucency and bonding.
   - EK: 3Y-TZP strongest and most opaque; 5Y more translucent, weaker; lithium disilicate is etchable with HF.
   - P2 · P3 · drills: dn-ceramic-class, dn-ceramic-scenario
+- ● **DN-4.4.D** Compute bond strength from a shear or microtensile test.
+  - EK: σ = F/A; microtensile beams are about 1 mm².
+  - P1 · drills: dn-bond-strength, dn-load-for-strength
 
 ### 4.5 Alloys, gypsum and impression materials
 
 
 
-- ● **DN-4.5.A** (jcnde-domain:CC31) Classify a casting alloy by noble-metal content.
-  - EK: High noble ≥ 60% noble with ≥ 40% gold; noble ≥ 25%; silver is not noble.
-  - P1 · P3 · drills: dn-noble-class, dn-noble-total
 - ● **DN-4.5.B** (jcnde-domain:CC56) Mix gypsum at the right water/powder ratio and choose and handle impression materials.
   - EK: W/P 0.50 plaster, 0.30 stone, 0.24 die stone; pour alginate at once; PVS is the most stable.
   - P1 · P3 · drills: dn-gypsum-water, dn-impression
+- ● **DN-4.5.A** (jcnde-domain:CC31) Classify a casting alloy by noble-metal content.
+  - EK: High noble ≥ 60% noble with ≥ 40% gold; noble ≥ 25%; silver is not noble.
+  - P1 · P3 · drills: dn-noble-class, dn-noble-total
 
 ## Unit 5 · Dental anatomy and occlusion (FK1)
 
@@ -341,15 +341,15 @@ Big ideas: DX
 
 
 
-- ● **DN-8.1.A** (jcnde-domain:FK8, jcnde-domain:CC26) Recall analgesic choices and limits for dental pain.
-  - EK: Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum).
-  - P3 · drills: dn-analgesics, dn-acetaminophen-tablets
 - ● **DN-8.1.B** (jcnde-domain:FK8, jcnde-domain:CC26, jcnde-domain:CC27) Choose antibiotics and know their dental side effects.
   - EK: Amoxicillin first line; penicillin allergy: azithromycin or doxycycline (clindamycin no longer recommended for prophylaxis, AHA 2021).
   - P3 · drills: dn-antibiotics, dn-antibiotic-risks
 - ● **DN-8.1.C** (jcnde-domain:FK8, jcnde-domain:CC27, jcnde-domain:CC8) Recognise drug interactions and complications that change dental care.
   - EK: Epinephrine with nonselective β-blockers: hypertension and reflex bradycardia. Antiresorptives: MRONJ. Bisphosphonates and denosumab before extractions.
   - P3 · drills: dn-interactions, dn-interaction-scenarios
+- ● **DN-8.1.A** (jcnde-domain:FK8, jcnde-domain:CC26) Recall analgesic choices and limits for dental pain.
+  - EK: Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum).
+  - P3 · drills: dn-analgesics, dn-acetaminophen-tablets
 - ● **DN-8.1.D** (jcnde-domain:FK8, jcnde-domain:CC26) Calculate a weight-based pediatric antibiotic dose.
   - EK: Endocarditis prophylaxis: amoxicillin 50 mg/kg, not above the adult 2 g.
   - P1 · drills: dn-peds-amoxicillin, dn-suspension-volume
@@ -368,12 +368,12 @@ Big ideas: DX
 - ● **DN-9.1.A** (jcnde-domain:FK7, jcnde-domain:CC21, jcnde-domain:CC22) Link oral diseases to their organisms.
   - EK: Caries: S. mutans starts, lactobacilli advance. Periodontitis: the red complex (P. gingivalis, T. forsythia, T. denticola).
   - P3 · drills: dn-oral-microbes, dn-organism-lesion
-- ● **DN-9.1.B** (jcnde-domain:FK7, jcnde-domain:CC51) Know bloodborne pathogen risk and the response to an exposure.
-  - EK: Percutaneous transmission risk, unvaccinated source-positive: HBV up to about 30%, HCV about 1.8%, HIV about 0.3%.
-  - P3 · drills: dn-exposure, dn-exposure-expected
 - ● **DN-9.1.C** (jcnde-domain:FK5) Classify hypersensitivity reactions met in dentistry.
   - EK: Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates).
   - P3 · drills: dn-hypersensitivity, dn-hypersensitivity-more
+- ● **DN-9.1.B** (jcnde-domain:FK7, jcnde-domain:CC51) Know bloodborne pathogen risk and the response to an exposure.
+  - EK: Percutaneous transmission risk, unvaccinated source-positive: HBV up to about 30%, HCV about 1.8%, HIV about 0.3%.
+  - P3 · drills: dn-exposure, dn-exposure-expected
 
 ## Unit 10 · Oral and general pathology (FK6, CC23)
 

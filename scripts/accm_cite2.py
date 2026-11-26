@@ -1,9 +1,11 @@
-"""Register the ACS general, organic and inorganic content maps in drills/standards.yaml (from scripts/accm_maps.py)
+"""Register the ACS general, organic, inorganic and analytical content maps in drills/standards.yaml (from scripts/accm_maps.py)
 and write their citations onto the Library objectives (add-only, idempotent). Usage: python3 scripts/accm_cite2.py"""
 import glob, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 from accm_maps import MAPS
+import accm_anal
+MAPS = dict(MAPS); MAPS["acs-accm-analytical"] = (accm_anal.ITEMS, accm_anal.CITE)
 
 META = {
     "acs-accm-general": ("ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)",
@@ -15,6 +17,9 @@ META = {
     "acs-accm-inorganic": ("ACS Exams Institute Anchoring Concepts Content Map: Inorganic Chemistry (Marek, Raker, Holme & Murphy, J. Chem. Educ. 2018, 95, 233)",
                            "https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00498",
                            "The supporting-information outline was read in full (Nov 2026; Kevin supplied the PDF): 201 subdisciplinary articulations; titles are our paraphrases. Citations are kept in scripts/accm_maps.py."),
+    "acs-accm-analytical": ("ACS Exams Institute Anchoring Concepts Content Map: Analytical Chemistry (Holme, Bauer, Trate, Reed, Raker & Murphy, J. Chem. Educ. 2020, ed9b00856)",
+                            "https://pubs.acs.org/doi/10.1021/acs.jchemed.9b00856",
+                            "The supporting-information outline (April 2020 version) was read in full (Nov 2026; Kevin supplied the PDF): 109 subdisciplinary articulations; titles are our paraphrases. Citations are kept in scripts/accm_anal.py."),
 }
 
 sp = os.path.join(ROOT, "drills/standards.yaml"); S = open(sp).read()

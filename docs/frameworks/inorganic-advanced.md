@@ -52,7 +52,7 @@ Big ideas: COUNT
 - ● **IA-1.1.C** (acs-accm-inorganic:X.D.5) Decide from a Latimer diagram whether a species disproportionates.
   - EK: E_right > E_left: it disproportionates.
   - Needs: IA-1.1.B
-  - P1 · P3 · drills: cw-disproportionation, cw-disprop-cases
+  - P1 · P3 · drills: cw-disprop-cases, cw-disproportionation
 
 ## Unit 2 · Hydrogen (ch. 2)
 
@@ -77,15 +77,15 @@ Big ideas: TREND
 
 
 
-- ● **IA-3.1.A** (acs-accm-general:V.E.1, acs-accm-inorganic:III.G.1) Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.
-  - EK: Li₂O, Na₂O₂, KO₂; O −2, −1, −½.
-  - P1 · P2 · drills: cw-alkali-burn, cw-dioxygen-anion-ox
 - ● **IA-3.1.B** Rank the thermal stability of group 2 carbonates.
   - EK: Rises down the group as cations grow less polarising.
   - P3 · drills: cw-carbonate-stability, cw-group2-thermal
 - ● **IA-3.1.C** (acs-accm-inorganic:III.G.2) Use the diagonal relationship.
   - EK: Li–Mg, Be–Al, B–Si.
   - P2 · drills: cw-diagonal, cw-diagonal-cases
+- ● **IA-3.1.A** (acs-accm-general:V.E.1, acs-accm-inorganic:III.G.1) Give the product of burning an alkali metal, and the oxidation state in oxides, peroxides and superoxides.
+  - EK: Li₂O, Na₂O₂, KO₂; O −2, −1, −½.
+  - P1 · P2 · drills: cw-alkali-burn, cw-dioxygen-anion-ox
 
 ## Unit 4 · Boron and group 13 (ch. 5–6)
 
@@ -95,12 +95,12 @@ Big ideas: COUNT, TREND
 
 
 
-- ● **IA-4.1.A** (acs-accm-inorganic:II.A.4, acs-accm-inorganic:III.A.4, acs-accm-inorganic:III.B.2) Classify a borane as closo, nido or arachno with Wade's rules.
-  - EK: n+1, n+2, n+3 skeletal pairs.
-  - P1 · P3 · drills: cw-wade, cw-skeletal-pairs
 - ● **IA-4.1.B** Rank boron trihalide Lewis acidity and explain it by π donation.
   - EK: BF₃ < BCl₃ < BBr₃.
   - P3 · drills: cw-bx3-acid, cw-bx3-consequence
+- ● **IA-4.1.A** (acs-accm-inorganic:II.A.4, acs-accm-inorganic:III.A.4, acs-accm-inorganic:III.B.2) Classify a borane as closo, nido or arachno with Wade's rules.
+  - EK: n+1, n+2, n+3 skeletal pairs.
+  - P1 · P3 · drills: cw-wade, cw-skeletal-pairs
 - ● **IA-4.1.C** (acs-accm-inorganic:III.G.4) Use the inert-pair effect, and find average oxidation states in mixed-valence group 13 compounds.
   - EK: Tl(I), Pb(II), Bi(III); GaCl₂ = Ga⁺[GaCl₄]⁻.
   - P1 · P2 · drills: cw-inert-pair, cw-group13-ox
@@ -121,7 +121,7 @@ Big ideas: COUNT
   - P1 · drills: cw-isoelectronic-bond-order, cw-odd-electron-bond-order
 - ● **IA-5.1.C** (acs-accm-inorganic:III.A.5, acs-accm-inorganic:III.H.7) Relate silicate structure to O:Si ratio, and predict group 14 shapes.
   - EK: O/Si = 4 − s/2; Sn(II) has a lone pair.
-  - P1 · P3 · drills: cw-silicate-ratio, cw-group14-shape
+  - P1 · P3 · drills: cw-group14-shape, cw-silicate-ratio
 
 ## Unit 6 · Nitrogen and group 15 (ch. 9–10)
 
@@ -169,7 +169,7 @@ Big ideas: COUNT, TREND
   - P3 · drills: cw-interhalogen-shape, cw-interhalogen-sn
 - ● **IA-8.1.B** (acs-accm-inorganic:V.E.3) Give halogen oxidation states in oxoanions and rank oxoacid strength.
   - EK: +1 to +7; HClO₄ strongest.
-  - P1 · P3 · drills: cw-halogen-ox, cw-oxoacid-strength
+  - P1 · P3 · drills: cw-oxoacid-strength, cw-halogen-ox
 - ● **IA-8.1.C** (acs-accm-inorganic:V.F.7) Predict shapes and oxidation states of xenon compounds.
   - EK: XeF₂ linear, XeF₄ square planar; even states +2 to +8.
   - P1 · P3 · drills: cw-xenon-shape, cw-xenon-ox
@@ -197,14 +197,14 @@ Big ideas: COUNT
 - ● **IA-10.1.A** Find the d count and the number of unpaired electrons of a complex.
   - EK: dⁿ = group − oxidation state; fill t₂g/e_g by spin.
   - P1 · drills: cw-d-count, cw-complex-unpaired
-- ● **IA-10.1.B** (acs-accm-inorganic:II.C.3) Compute spin-only moments and CFSE.
-  - EK: μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g.
-  - Needs: IA-10.1.A
-  - P1 · drills: cw-spin-only-moment, cw-cfse
 - ● **IA-10.1.C** (acs-accm-inorganic:II.E.5) Use the spectrochemical series and predict Jahn–Teller distortions.
   - EK: I⁻ < … < CN⁻ < CO; uneven e_g distorts.
   - Needs: IA-10.1.A
   - P3 · drills: cw-spectrochemical, cw-jahn-teller
+- ● **IA-10.1.B** (acs-accm-inorganic:II.C.3) Compute spin-only moments and CFSE.
+  - EK: μ = √(n(n+2)); CFSE = −0.4 t₂g + 0.6 e_g.
+  - Needs: IA-10.1.A
+  - P1 · drills: cw-spin-only-moment, cw-cfse
 - ● **IA-10.1.D** (acs-accm-inorganic:VI.B.3, acs-accm-inorganic:VI.D.4, acs-accm-inorganic:VII.A.1) Predict whether a complex is labile or inert.
   - EK: d³ and low-spin d⁶ are inert.
   - Needs: IA-10.1.B
@@ -265,12 +265,12 @@ Big ideas: COUNT, TREND
 
 
 
-- ● **IA-12.1.A** Find metal–metal bond orders from d counts.
-  - EK: σ²π⁴δ² is a quadruple bond.
-  - P1 · drills: cw-metal-metal-bond, cw-mm-after-redox
 - ● **IA-12.1.B** (acs-accm-inorganic:III.G.3, acs-accm-inorganic:V.F.8) Explain the lanthanide contraction, low spin in 4d/5d, and the trans effect.
   - EK: Zr ≈ Hf; heavy complexes low spin; cisplatin route.
   - P2 · P3 · drills: cw-heavy-tm-facts, cw-heavy-tm-why
+- ● **IA-12.1.A** Find metal–metal bond orders from d counts.
+  - EK: σ²π⁴δ² is a quadruple bond.
+  - P1 · drills: cw-metal-metal-bond, cw-mm-after-redox
 
 ### 12.2 Zr to Au, pair by pair
 
@@ -337,7 +337,7 @@ Big ideas: COUNT
 - ● **IA-14.1.B** (acs-accm-inorganic:V.B.1, acs-accm-inorganic:V.D.3, acs-accm-inorganic:VIII.A.1) Follow electron count and oxidation state through oxidative addition and the other elementary steps.
   - EK: OA: +2 ox, +2 CN, +2 e.
   - Needs: IA-14.1.A
-  - P1 · P2 · drills: cw-oxidative-addition, cw-reaction-step, cw-beta-hydride
+  - P1 · P2 · drills: cw-reaction-step, cw-beta-hydride, cw-oxidative-addition
 
 ### 14.2 Catalytic cycles
 
@@ -414,7 +414,7 @@ Big ideas: COUNT, TREND
 - ● **IA-15.3.E** (acs-accm-inorganic:VI.B.2, acs-accm-inorganic:VII.A.2, acs-accm-inorganic:VII.C.5, acs-accm-inorganic:IX.A.2) Compute the barrier of a fluxional process from NMR coalescence.
   - EK: At coalescence k = πΔν/√2; ΔG‡ = RT ln(k_B T/(h k)); Berry pseudorotation exchanges axial and equatorial sites of a trigonal bipyramid.
   - P1 · drills: ia-coalescence-k, ia-coalescence-dg
-- ● **IA-15.3.F** (acs-accm-inorganic:VIII.F.3, acs-accm-inorganic:VIII.D.1, acs-accm-inorganic:VIII.C.1) Combine stepwise formation constants and find the fraction of each complex at a given ligand concentration.
+- ● **IA-15.3.F** (acs-accm-inorganic:VIII.F.3, acs-accm-inorganic:VIII.D.1, acs-accm-inorganic:VIII.C.1, acs-accm-analytical:VIII.D.6) Combine stepwise formation constants and find the fraction of each complex at a given ligand concentration.
   - EK: β_n = K₁K₂…K_n; α_ML = β₁[L]/(1 + β₁[L] + β₂[L]² + …); Irving–Williams: Mn < Fe < Co < Ni < Cu > Zn.
   - P1 · drills: ia-beta-from-k, ia-alpha-ml
 - ● **IA-15.3.G** (acs-accm-inorganic:VIII.G.2, acs-accm-inorganic:V.F.5, acs-accm-inorganic:V.F.6, acs-accm-inorganic:V.D.1) Predict acid–base behaviour in nonaqueous solvents, levelling and superacids.
@@ -437,10 +437,10 @@ Big ideas: COUNT, TREND
 - ● **IA-15.4.B** (acs-accm-inorganic:IX.D.7, acs-accm-inorganic:I.B.5) Compute an effective magnetic moment from a measured susceptibility and infer the number of unpaired electrons.
   - EK: μ_eff = 2.828 √(χ_M T) (cgs) ≈ √(8χ_M T); spin-only μ = √(n(n + 2)).
   - P1 · drills: ia-mu-from-chi, ia-unpaired-from-chiT
-- ● **IA-15.4.C** (acs-accm-inorganic:IX.D.3) Predict multiplets in multinuclear NMR from spin I and the number of equivalent coupled nuclei.
+- ● **IA-15.4.C** (acs-accm-inorganic:IX.D.3, acs-accm-analytical:I.A.3) Predict multiplets in multinuclear NMR from spin I and the number of equivalent coupled nuclei.
   - EK: Lines = 2nI + 1: three ¹⁹F split ³¹P into a 1:3:3:1 quartet; deuterium (I = 1) splits ¹³C of CDCl₃ into a 1:1:1 triplet.
   - P1 · drills: ia-nmr-lines, ia-nmr-intensity
-- ● **IA-15.4.D** (acs-accm-inorganic:VIII.G.4, acs-accm-inorganic:IX.A.1, acs-accm-inorganic:IX.A.4, acs-accm-inorganic:V.C.1) Use an ion-selective electrode's Nernstian response, and choose a microscopy or luminescence technique.
+- ● **IA-15.4.D** (acs-accm-inorganic:VIII.G.4, acs-accm-inorganic:IX.A.1, acs-accm-inorganic:IX.A.4, acs-accm-inorganic:V.C.1, acs-accm-analytical:I.G.2, acs-accm-analytical:III.H.2, acs-accm-analytical:IX.D.3) Use an ion-selective electrode's Nernstian response, and choose a microscopy or luminescence technique.
   - EK: ΔE = (RT ln 10/zF)·Δlog a, 59.16/z mV per decade at 25 °C; fluorescence is spin-allowed and fast (ns), phosphorescence spin-forbidden and slow; STM and AFM reach atoms.
   - P1 · drills: ia-ise-response, ia-microscopy-luminescence
 

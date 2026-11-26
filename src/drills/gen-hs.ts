@@ -144,6 +144,7 @@ const linExp: Gen = (r) => {
   }
   const a = r.int(2, 8), d = r.nz(-5, 7), b = r.pick([2, 3]);
   const ys = [0, 1, 2, 3].map((x) => (t === 0 ? a + d * x : t === 1 ? a * b ** x : a + x * x + (x === 3 ? 1 : 0)));
+  require_(!ys.slice(0, 3).includes(0)); // a zero term has no ratio to the next
   return draft(`A table: ${m([0, 1, 2, 3].map((x, i) => `(${x}, ${ys[i]})`).join(",\\ "))}. Is the function linear, exponential, or neither?`, choice(LE, LE[t]), `\\text{${LE[t]}}`,
     [`Differences: ${ys.slice(1).map((y, i) => y - ys[i]).join(", ")}; ratios: ${ys.slice(1).map((y, i) => q(y, ys[i]).tex()).map((s) => m(s)).join(", ")}. Equal differences ⇒ linear; equal ratios ⇒ exponential.`], { mx: "le-table", ys });
 };

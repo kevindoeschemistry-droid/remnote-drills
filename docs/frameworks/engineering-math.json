@@ -558,6 +558,21 @@
      },
      "los": [
       {
+       "id": "D",
+       "std": [],
+       "do": "Solve a first-order linear ODE whose forcing switches on or off at a given time.",
+       "ek": [
+        "Solve on each interval and carry y across the switch: the solution is continuous even where the forcing jumps."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "lin-switch-off",
+        "lin-switch-on"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:DE2.1"
@@ -628,21 +643,6 @@
        "needs": [
         "EM-2.4.A"
        ]
-      },
-      {
-       "id": "D",
-       "std": [],
-       "do": "Solve a first-order linear ODE whose forcing switches on or off at a given time.",
-       "ek": [
-        "Solve on each interval and carry y across the switch: the solution is continuous even where the forcing jumps."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "lin-switch-off",
-        "lin-switch-on"
-       ]
       }
      ]
     },
@@ -686,6 +686,21 @@
       ]
      },
      "los": [
+      {
+       "id": "E",
+       "std": [],
+       "do": "Model a mixing tank whose volume changes because inflow and outflow differ.",
+       "ek": [
+        "V(t) = V₀ + (q_in − q_out)t; x′ = c_in q_in − q_out x/V(t) is linear with a variable coefficient."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "model-tank-growing",
+        "model-tank-overflow"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -754,21 +769,6 @@
        ],
        "drills": [
         "em-phase-line"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [],
-       "do": "Model a mixing tank whose volume changes because inflow and outflow differ.",
-       "ek": [
-        "V(t) = V₀ + (q_in − q_out)t; x′ = c_in q_in − q_out x/V(t) is linear with a variable coefficient."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "model-tank-growing",
-        "model-tank-overflow"
        ]
       }
      ]
@@ -898,6 +898,21 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [],
+       "do": "Solve a second-order boundary-value problem and decide whether it has none, one or infinitely many solutions.",
+       "ek": [
+        "Fit the general solution to the two boundary values; the system is singular exactly when the boundary points sit at zeros of the homogeneous solution."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bvp-unique",
+        "bvp-how-many"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:DE3.3",
@@ -939,21 +954,6 @@
        ],
        "needs": [
         "EM-3.2.A"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [],
-       "do": "Solve a second-order boundary-value problem and decide whether it has none, one or infinitely many solutions.",
-       "ek": [
-        "Fit the general solution to the two boundary values; the system is singular exactly when the boundary points sit at zeros of the homogeneous solution."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "bvp-unique",
-        "bvp-how-many"
        ]
       }
      ]
@@ -1254,6 +1254,21 @@
      },
      "los": [
       {
+       "id": "D",
+       "std": [],
+       "do": "Find the roots of the auxiliary equation of a third-order Euler–Cauchy ODE.",
+       "ek": [
+        "Try y = x^m: x^m factors out of every term, leaving m(m − 1)(m − 2) + a m(m − 1) + b m + c = 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hi-ec-roots",
+        "hi-ec-solution"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:DE3.11"
@@ -1308,21 +1323,6 @@
        "needs": [
         "EM-4.1.B"
        ]
-      },
-      {
-       "id": "D",
-       "std": [],
-       "do": "Find the roots of the auxiliary equation of a third-order Euler–Cauchy ODE.",
-       "ek": [
-        "Try y = x^m: x^m factors out of every term, leaving m(m − 1)(m − 2) + a m(m − 1) + b m + c = 0."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "hi-ec-roots",
-        "hi-ec-solution"
-       ]
       }
      ]
     },
@@ -1335,6 +1335,21 @@
       ]
      },
      "los": [
+      {
+       "id": "B",
+       "std": [],
+       "do": "Write the form of a particular solution of a higher-order ODE, multiplying by x as often as the root repeats.",
+       "ek": [
+        "A forcing term whose exponent matches a characteristic root of multiplicity k needs x^k times the usual trial."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "hi-trial-form",
+        "hi-trial-coefficient"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -1354,21 +1369,6 @@
        "needs": [
         "EM-3.5.A",
         "EM-4.1.C"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [],
-       "do": "Write the form of a particular solution of a higher-order ODE, multiplying by x as often as the root repeats.",
-       "ek": [
-        "A forcing term whose exponent matches a characteristic root of multiplicity k needs x^k times the usual trial."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "hi-trial-form",
-        "hi-trial-coefficient"
        ]
       }
      ]
@@ -1562,6 +1562,22 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [
+        "webwork-opl:DE5.9"
+       ],
+       "do": "Sketch a phase portrait with eigenvector directions and trajectory orientation.",
+       "ek": [
+        "Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "em-phase-portrait"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:DE5.9"
@@ -1594,22 +1610,6 @@
        ],
        "drills": [
         "phase-stability"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "webwork-opl:DE5.9"
-       ],
-       "do": "Sketch a phase portrait with eigenvector directions and trajectory orientation.",
-       "ek": [
-        "Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one."
-       ],
-       "p": [
-        "P6"
-       ],
-       "drills": [
-        "em-phase-portrait"
        ]
       }
      ]
@@ -2056,6 +2056,21 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [],
+       "do": "Find f(0⁺) and f(∞) from F(s) with the initial- and final-value theorems, and say when the final-value theorem fails.",
+       "ek": [
+        "f(0⁺) = lim s→∞ sF(s); f(∞) = lim s→0 sF(s), valid only if every pole of sF(s) lies in the open left half-plane."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "lt-final-value",
+        "lt-initial-value"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:DE4.1"
@@ -2093,21 +2108,6 @@
         "transfer-poles",
         "transfer-stable"
        ]
-      },
-      {
-       "id": "C",
-       "std": [],
-       "do": "Find f(0⁺) and f(∞) from F(s) with the initial- and final-value theorems, and say when the final-value theorem fails.",
-       "ek": [
-        "f(0⁺) = lim s→∞ sF(s); f(∞) = lim s→0 sF(s), valid only if every pole of sF(s) lies in the open left half-plane."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "lt-final-value",
-        "lt-initial-value"
-       ]
       }
      ]
     },
@@ -2120,6 +2120,21 @@
       ]
      },
      "los": [
+      {
+       "id": "D",
+       "std": [],
+       "do": "Transform a periodic function with the one-period formula.",
+       "ek": [
+        "L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT))."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "lt-square-wave",
+        "lt-sawtooth"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -2175,21 +2190,6 @@
        "needs": [
         "EM-7.3.A",
         "EM-7.4.A"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [],
-       "do": "Transform a periodic function with the one-period formula.",
-       "ek": [
-        "L{f} = ∫₀ᵀ e^(−st) f(t) dt ÷ (1 − e^(−sT))."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "lt-square-wave",
-        "lt-sawtooth"
        ]
       }
      ]
@@ -2598,6 +2598,21 @@
      },
      "los": [
       {
+       "id": "E",
+       "std": [],
+       "do": "Find what a Fourier series converges to at a jump, and sum a series of coefficients with Parseval's identity.",
+       "ek": [
+        "At a jump the series gives the average of the one-sided limits; Parseval: a₀²/2 + Σ(aₙ² + bₙ²) = (1/π)∫f² over a period (period 2π, a₀ the full constant)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "fs-jump-value",
+        "fs-parseval"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:CA7.20",
@@ -2671,21 +2686,6 @@
         "EM-9.1.A",
         "EM-3.6.A"
        ]
-      },
-      {
-       "id": "E",
-       "std": [],
-       "do": "Find what a Fourier series converges to at a jump, and sum a series of coefficients with Parseval's identity.",
-       "ek": [
-        "At a jump the series gives the average of the one-sided limits; Parseval: a₀²/2 + Σ(aₙ² + bₙ²) = (1/π)∫f² over a period (period 2π, a₀ the full constant)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "fs-jump-value",
-        "fs-parseval"
-       ]
       }
      ]
     },
@@ -2698,6 +2698,21 @@
       ]
      },
      "los": [
+      {
+       "id": "F",
+       "std": [],
+       "do": "Find the eigenvalues and eigenfunctions of y″ + λy = 0 with periodic boundary conditions.",
+       "ek": [
+        "y(−L) = y(L), y′(−L) = y′(L): λ₀ = 0 with a constant, then λₙ = (nπ/L)² each with two eigenfunctions cos and sin."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sl-periodic-eigen",
+        "sl-periodic-facts"
+       ]
+      },
       {
        "id": "A",
        "do": "Rewrite a second-order eigenvalue ODE in Sturm–Liouville form and identify p, q and r.",
@@ -2777,21 +2792,6 @@
        ],
        "needs": [
         "EM-9.2.C"
-       ]
-      },
-      {
-       "id": "F",
-       "std": [],
-       "do": "Find the eigenvalues and eigenfunctions of y″ + λy = 0 with periodic boundary conditions.",
-       "ek": [
-        "y(−L) = y(L), y′(−L) = y′(L): λ₀ = 0 with a constant, then λₙ = (nπ/L)² each with two eigenfunctions cos and sin."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "sl-periodic-eigen",
-        "sl-periodic-facts"
        ]
       }
      ]
@@ -2913,6 +2913,24 @@
      },
      "los": [
       {
+       "id": "B",
+       "do": "Substitute u = X(x)T(t) (or X(x)Y(y)), split into two ODEs with a separation constant, and decide the constant's sign from the boundary conditions.",
+       "ek": [
+        "Only the sign that gives sines and cosines can meet two zero boundary conditions nontrivially."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "mt-separate",
+        "mt-sign-of-constant",
+        "mt-ode-solution"
+       ],
+       "needs": [
+        "EM-3.1.A"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:DE1.2",
@@ -2930,24 +2948,6 @@
         "pde-classify",
         "pde-verify"
        ]
-      },
-      {
-       "id": "B",
-       "do": "Substitute u = X(x)T(t) (or X(x)Y(y)), split into two ODEs with a separation constant, and decide the constant's sign from the boundary conditions.",
-       "ek": [
-        "Only the sign that gives sines and cosines can meet two zero boundary conditions nontrivially."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "mt-separate",
-        "mt-sign-of-constant",
-        "mt-ode-solution"
-       ],
-       "needs": [
-        "EM-3.1.A"
-       ]
       }
      ]
     },
@@ -2961,25 +2961,6 @@
       ]
      },
      "los": [
-      {
-       "id": "A",
-       "do": "Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.",
-       "ek": [
-        "F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t)."
-       ],
-       "p": [
-        "P2",
-        "P3"
-       ],
-       "drills": [
-        "pde-rates",
-        "mt-heat-time-constant"
-       ],
-       "needs": [
-        "EM-9.2.C",
-        "EM-10.1.B"
-       ]
-      },
       {
        "id": "D",
        "do": "Find the eigenvalues and eigenfunctions for Dirichlet, Neumann, mixed and convective (Robin) ends.",
@@ -3017,6 +2998,25 @@
        "needs": [
         "EM-9.1.C",
         "EM-10.2.D"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Separate u = F(x)G(t) in the heat equation and find each mode's decay rate.",
+       "ek": [
+        "F″ + kF = 0 (an S–L problem), G′ + c²kG = 0 ⇒ G = e^(−c²λ_n t)."
+       ],
+       "p": [
+        "P2",
+        "P3"
+       ],
+       "drills": [
+        "pde-rates",
+        "mt-heat-time-constant"
+       ],
+       "needs": [
+        "EM-9.2.C",
+        "EM-10.1.B"
        ]
       },
       {
@@ -3282,6 +3282,21 @@
      },
      "los": [
       {
+       "id": "D",
+       "std": [],
+       "do": "Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.",
+       "ek": [
+        "G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "gf-image-fixed",
+        "gf-image-insulated"
+       ]
+      },
+      {
        "id": "A",
        "do": "Solve a PDE on a semi-infinite or infinite domain by Laplace or Fourier transform.",
        "ek": [
@@ -3338,21 +3353,6 @@
        "needs": [
         "EM-10.5.B",
         "EM-10.2.C"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [],
-       "do": "Write the heat kernel as the Green's function of the diffusion equation and use images for a fixed or insulated end.",
-       "ek": [
-        "G = e^(−(x−x₀)²/4κt)/√(4πκt) on the line; on x > 0 subtract the mirror image for u(0) = 0, add it for an insulated end."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "gf-image-fixed",
-        "gf-image-insulated"
        ]
       }
      ]
@@ -3624,22 +3624,6 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Compute the gradient, divergence, curl and Laplacian of a field in Cartesian coordinates.",
-       "ek": [
-        "∇f, ∇·v, ∇×v, ∇²f = ∇·∇f."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "~mv-partial",
-        "cm-gradient",
-        "cm-div-curl",
-        "cm-laplacian"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "webwork-opl:FM4.2"
@@ -3698,6 +3682,22 @@
        "drills": [
         "vc-div-radial",
         "vc-flux-conservation"
+       ]
+      },
+      {
+       "id": "A",
+       "do": "Compute the gradient, divergence, curl and Laplacian of a field in Cartesian coordinates.",
+       "ek": [
+        "∇f, ∇·v, ∇×v, ∇²f = ∇·∇f."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "~mv-partial",
+        "cm-gradient",
+        "cm-div-curl",
+        "cm-laplacian"
        ]
       }
      ]
@@ -3825,6 +3825,22 @@
      "title": "Complex equations, regions and functions",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX3.1"
+       ],
+       "do": "Decide whether a point lies in a region of the plane.",
+       "ek": [
+        "|z − z₀| < r is the open disc of radius r about z₀."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-complex-region"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:CX2.1"
@@ -3854,22 +3870,6 @@
        ],
        "drills": [
         "em-complex-sqrt"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "webwork-opl:CX3.1"
-       ],
-       "do": "Decide whether a point lies in a region of the plane.",
-       "ek": [
-        "|z − z₀| < r is the open disc of radius r about z₀."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "em-complex-region"
        ]
       },
       {
@@ -3911,6 +3911,22 @@
      "title": "Analytic functions",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX5.3"
+       ],
+       "do": "Recognise entire functions.",
+       "ek": [
+        "Entire = analytic at every point of the plane."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-entire"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "webwork-opl:CX5.1"
@@ -3943,22 +3959,6 @@
        ]
       },
       {
-       "id": "C",
-       "std": [
-        "webwork-opl:CX5.3"
-       ],
-       "do": "Recognise entire functions.",
-       "ek": [
-        "Entire = analytic at every point of the plane."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "em-entire"
-       ]
-      },
-      {
        "id": "D",
        "std": [
         "webwork-opl:CX5.4"
@@ -3981,22 +3981,6 @@
      "title": "Integration and series",
      "los": [
       {
-       "id": "A",
-       "std": [
-        "webwork-opl:CX7.1"
-       ],
-       "do": "Use Cauchy's integral formula.",
-       "ek": [
-        "∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "em-cauchy-formula"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "webwork-opl:CX8.1"
@@ -4010,6 +3994,22 @@
        ],
        "drills": [
         "em-complex-sequence"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "webwork-opl:CX7.1"
+       ],
+       "do": "Use Cauchy's integral formula.",
+       "ek": [
+        "∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "em-cauchy-formula"
        ]
       },
       {
@@ -4286,6 +4286,17 @@
    "partial": []
   },
   {
+   "code": "EM-2.4.D",
+   "unit": 2,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "lin-switch-off",
+    "lin-switch-on"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-2.4.A",
    "unit": 2,
    "topic": 4,
@@ -4328,17 +4339,6 @@
    "partial": []
   },
   {
-   "code": "EM-2.4.D",
-   "unit": 2,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "lin-switch-off",
-    "lin-switch-on"
-   ],
-   "partial": []
-  },
-  {
    "code": "EM-2.5.A",
    "unit": 2,
    "topic": 5,
@@ -4349,6 +4349,17 @@
     "recog-linear",
     "recog-bernoulli",
     "recog-exact"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-2.6.E",
+   "unit": 2,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "model-tank-growing",
+    "model-tank-overflow"
    ],
    "partial": []
   },
@@ -4390,17 +4401,6 @@
    "status": "ok",
    "full": [
     "em-phase-line"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-2.6.E",
-   "unit": 2,
-   "topic": 6,
-   "status": "ok",
-   "full": [
-    "model-tank-growing",
-    "model-tank-overflow"
    ],
    "partial": []
   },
@@ -4455,6 +4455,17 @@
    "partial": []
   },
   {
+   "code": "EM-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bvp-unique",
+    "bvp-how-many"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-3.2.A",
    "unit": 3,
    "topic": 2,
@@ -4473,17 +4484,6 @@
    "status": "ok",
    "full": [
     "char-ivp"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-3.2.C",
-   "unit": 3,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "bvp-unique",
-    "bvp-how-many"
    ],
    "partial": []
   },
@@ -4633,6 +4633,17 @@
    "partial": []
   },
   {
+   "code": "EM-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "hi-ec-roots",
+    "hi-ec-solution"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-4.1.A",
    "unit": 4,
    "topic": 1,
@@ -4666,13 +4677,13 @@
    "partial": []
   },
   {
-   "code": "EM-4.1.D",
+   "code": "EM-4.2.B",
    "unit": 4,
-   "topic": 1,
+   "topic": 2,
    "status": "ok",
    "full": [
-    "hi-ec-roots",
-    "hi-ec-solution"
+    "hi-trial-form",
+    "hi-trial-coefficient"
    ],
    "partial": []
   },
@@ -4687,17 +4698,6 @@
    "partial": [
     "uc-general"
    ]
-  },
-  {
-   "code": "EM-4.2.B",
-   "unit": 4,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "hi-trial-form",
-    "hi-trial-coefficient"
-   ],
-   "partial": []
   },
   {
    "code": "EM-5.1.A",
@@ -4778,6 +4778,16 @@
    "partial": []
   },
   {
+   "code": "EM-5.3.C",
+   "unit": 5,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-phase-portrait"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-5.3.A",
    "unit": 5,
    "topic": 3,
@@ -4796,16 +4806,6 @@
    "status": "ok",
    "full": [
     "phase-stability"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-5.3.C",
-   "unit": 5,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "em-phase-portrait"
    ],
    "partial": []
   },
@@ -4994,6 +4994,17 @@
    "partial": []
   },
   {
+   "code": "EM-7.3.C",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "lt-final-value",
+    "lt-initial-value"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-7.3.A",
    "unit": 7,
    "topic": 3,
@@ -5020,13 +5031,13 @@
    "partial": []
   },
   {
-   "code": "EM-7.3.C",
+   "code": "EM-7.4.D",
    "unit": 7,
-   "topic": 3,
+   "topic": 4,
    "status": "ok",
    "full": [
-    "lt-final-value",
-    "lt-initial-value"
+    "lt-square-wave",
+    "lt-sawtooth"
    ],
    "partial": []
   },
@@ -5060,17 +5071,6 @@
     "step-ivp-on",
     "step-ivp-pulse",
     "em-chain-laplace-pulse"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-7.4.D",
-   "unit": 7,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "lt-square-wave",
-    "lt-sawtooth"
    ],
    "partial": []
   },
@@ -5256,6 +5256,17 @@
    "partial": []
   },
   {
+   "code": "EM-9.1.E",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "fs-jump-value",
+    "fs-parseval"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-9.1.A",
    "unit": 9,
    "topic": 1,
@@ -5299,13 +5310,13 @@
    "partial": []
   },
   {
-   "code": "EM-9.1.E",
+   "code": "EM-9.2.F",
    "unit": 9,
-   "topic": 1,
+   "topic": 2,
    "status": "ok",
    "full": [
-    "fs-jump-value",
-    "fs-parseval"
+    "sl-periodic-eigen",
+    "sl-periodic-facts"
    ],
    "partial": []
   },
@@ -5358,17 +5369,6 @@
     "sl-shift-eigenvalues",
     "sl-shift-eigenfunctions",
     "sl-shift-negative"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-9.2.F",
-   "unit": 9,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "sl-periodic-eigen",
-    "sl-periodic-facts"
    ],
    "partial": []
   },
@@ -5426,17 +5426,6 @@
    "partial": []
   },
   {
-   "code": "EM-10.1.A",
-   "unit": 10,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pde-classify",
-    "pde-verify"
-   ],
-   "partial": []
-  },
-  {
    "code": "EM-10.1.B",
    "unit": 10,
    "topic": 1,
@@ -5449,13 +5438,13 @@
    "partial": []
   },
   {
-   "code": "EM-10.2.A",
+   "code": "EM-10.1.A",
    "unit": 10,
-   "topic": 2,
+   "topic": 1,
    "status": "ok",
    "full": [
-    "pde-rates",
-    "mt-heat-time-constant"
+    "pde-classify",
+    "pde-verify"
    ],
    "partial": []
   },
@@ -5481,6 +5470,17 @@
     "mt-coefficient-formula",
     "mt-sine-coefficient-constant",
     "mt-sine-coefficient-linear"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-10.2.A",
+   "unit": 10,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "pde-rates",
+    "mt-heat-time-constant"
    ],
    "partial": []
   },
@@ -5617,6 +5617,17 @@
    "partial": []
   },
   {
+   "code": "EM-10.5.D",
+   "unit": 10,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "gf-image-fixed",
+    "gf-image-insulated"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-10.5.A",
    "unit": 10,
    "topic": 5,
@@ -5648,17 +5659,6 @@
    "status": "ok",
    "full": [
     "pde-method-choice"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-10.5.D",
-   "unit": 10,
-   "topic": 5,
-   "status": "ok",
-   "full": [
-    "gf-image-fixed",
-    "gf-image-insulated"
    ],
    "partial": []
   },
@@ -5805,20 +5805,6 @@
    "partial": []
   },
   {
-   "code": "EM-12.1.A",
-   "unit": 12,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "cm-gradient",
-    "cm-div-curl",
-    "cm-laplacian"
-   ],
-   "partial": [
-    "mv-partial"
-   ]
-  },
-  {
    "code": "EM-12.1.B",
    "unit": 12,
    "topic": 1,
@@ -5860,6 +5846,20 @@
     "vc-flux-conservation"
    ],
    "partial": []
+  },
+  {
+   "code": "EM-12.1.A",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "cm-gradient",
+    "cm-div-curl",
+    "cm-laplacian"
+   ],
+   "partial": [
+    "mv-partial"
+   ]
   },
   {
    "code": "EM-13.1.A",
@@ -5912,6 +5912,16 @@
    "partial": []
   },
   {
+   "code": "EM-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-region"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-14.1.A",
    "unit": 14,
    "topic": 1,
@@ -5928,16 +5938,6 @@
    "status": "ok",
    "full": [
     "em-complex-sqrt"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-14.1.C",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "em-complex-region"
    ],
    "partial": []
   },
@@ -5962,6 +5962,16 @@
    "partial": []
   },
   {
+   "code": "EM-14.2.C",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "em-entire"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-14.2.A",
    "unit": 14,
    "topic": 2,
@@ -5982,16 +5992,6 @@
    "partial": []
   },
   {
-   "code": "EM-14.2.C",
-   "unit": 14,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "em-entire"
-   ],
-   "partial": []
-  },
-  {
    "code": "EM-14.2.D",
    "unit": 14,
    "topic": 2,
@@ -6002,22 +6002,22 @@
    "partial": []
   },
   {
-   "code": "EM-14.3.A",
-   "unit": 14,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "em-cauchy-formula"
-   ],
-   "partial": []
-  },
-  {
    "code": "EM-14.3.B",
    "unit": 14,
    "topic": 3,
    "status": "ok",
    "full": [
     "em-complex-sequence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.A",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-cauchy-formula"
    ],
    "partial": []
   },

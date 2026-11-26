@@ -17,7 +17,8 @@
   "also": [
    "icho-appendix-c",
    "icho-syllabus",
-   "acs-accm-organic"
+   "acs-accm-organic",
+   "acs-accm-analytical"
   ],
   "note": "Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list."
  },
@@ -73,20 +74,6 @@
      "title": "Acid–base and solubility",
      "los": [
       {
-       "id": "A",
-       "do": "Compute the pH of a polyprotic acid or one of its salts from the full charge balance.",
-       "ek": [
-        "Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-polyprotic-ph",
-        "co-phosphate-fraction"
-       ]
-      },
-      {
        "id": "B",
        "do": "Compute a buffer's pH after strong acid is added.",
        "ek": [
@@ -98,6 +85,23 @@
        "drills": [
         "co-buffer-acid",
         "co-buffer-capacity-acid"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-analytical:VIII.F.5"
+       ],
+       "do": "Compute the pH of a polyprotic acid or one of its salts from the full charge balance.",
+       "ek": [
+        "Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-phosphate-fraction",
+        "co-polyprotic-ph"
        ]
       },
       {
@@ -221,8 +225,8 @@
         "P1"
        ],
        "drills": [
-        "co-born-haber",
-        "co-lattice-compare"
+        "co-lattice-compare",
+        "co-born-haber"
        ]
       },
       {
@@ -343,6 +347,9 @@
       },
       {
        "id": "C",
+       "std": [
+        "acs-accm-analytical:I.A.3"
+       ],
        "do": "Count the lines of a first-order NMR multiplet.",
        "ek": [
         "(n + 1)(m + 1), collapsing when J are equal."
@@ -603,23 +610,6 @@
      "title": "Gases, liquids and solids",
      "los": [
       {
-       "id": "A",
-       "std": [
-        "usnco:3"
-       ],
-       "do": "Find a density from a cubic unit cell.",
-       "ek": [
-        "ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-unit-cell-density",
-        "co-molar-mass-from-cell"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "usnco:3"
@@ -634,6 +624,40 @@
        "drills": [
         "co-coordination-structure",
         "co-structure-cn"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Rank substances by boiling or melting point.",
+       "ek": [
+        "Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-boiling-rank",
+        "co-mp-rank"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "usnco:3"
+       ],
+       "do": "Find a density from a cubic unit cell.",
+       "ek": [
+        "ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-unit-cell-density",
+        "co-molar-mass-from-cell"
        ]
       },
       {
@@ -669,23 +693,6 @@
         "co-graham",
         "co-graham-mass"
        ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "usnco:3"
-       ],
-       "do": "Rank substances by boiling or melting point.",
-       "ek": [
-        "Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-boiling-rank",
-        "co-mp-rank"
-       ]
       }
      ]
     }
@@ -707,6 +714,23 @@
      "n": 1,
      "title": "Thermodynamics",
      "los": [
+      {
+       "id": "D",
+       "std": [
+        "usnco:4"
+       ],
+       "do": "Predict the sign of ΔS.",
+       "ek": [
+        "More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-entropy-sign",
+        "co-ds-sign-2"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -756,23 +780,6 @@
        "drills": [
         "co-enthalpy-solution",
         "co-temp-change-solution"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "usnco:4"
-       ],
-       "do": "Predict the sign of ΔS.",
-       "ek": [
-        "More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-entropy-sign",
-        "co-ds-sign-2"
        ]
       },
       {
@@ -842,8 +849,8 @@
         "P1"
        ],
        "drills": [
-        "co-preequilibrium-order",
-        "co-mechanism-rate-law"
+        "co-mechanism-rate-law",
+        "co-preequilibrium-order"
        ]
       },
       {
@@ -1059,7 +1066,8 @@
       {
        "id": "C",
        "std": [
-        "usnco:7"
+        "usnco:7",
+        "acs-accm-analytical:VI.E.1"
        ],
        "do": "Use the Nernst equation.",
        "ek": [
@@ -1076,7 +1084,9 @@
       {
        "id": "D",
        "std": [
-        "usnco:7"
+        "usnco:7",
+        "acs-accm-analytical:VIII.F.1",
+        "acs-accm-analytical:VIII.G.5"
        ],
        "do": "Find K from a standard cell potential.",
        "ek": [
@@ -1128,6 +1138,23 @@
      "title": "Atomic structure",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "usnco:8"
+       ],
+       "do": "Explain anomalies in periodic trends.",
+       "ek": [
+        "Half-filled and filled subshells resist adding or removing electrons."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-trend-anomaly",
+        "co-anomaly-explain"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "usnco:8"
@@ -1159,23 +1186,6 @@
        "drills": [
         "co-quantum-count",
         "co-max-electrons"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "usnco:8"
-       ],
-       "do": "Explain anomalies in periodic trends.",
-       "ek": [
-        "Half-filled and filled subshells resist adding or removing electrons."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-trend-anomaly",
-        "co-anomaly-explain"
        ]
       },
       {
@@ -1330,8 +1340,8 @@
         "P1"
        ],
        "drills": [
-        "co-resonance-bond-order",
-        "co-bond-length-rank"
+        "co-bond-length-rank",
+        "co-resonance-bond-order"
        ]
       }
      ]
@@ -1354,6 +1364,43 @@
      "n": 1,
      "title": "Organic and biochemistry",
      "los": [
+      {
+       "id": "C",
+       "std": [
+        "usnco:10",
+        "acs-accm-analytical:I.B.1",
+        "acs-accm-analytical:II.F.1",
+        "acs-accm-analytical:III.F.1"
+       ],
+       "do": "Assign an infrared band.",
+       "ek": [
+        "O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-ir-band",
+        "co-ir-tell"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "usnco:10"
+       ],
+       "do": "Identify the monomer of a polymer.",
+       "ek": [
+        "Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "co-monomer",
+        "co-polymer-from-monomer"
+       ]
+      },
       {
        "id": "A",
        "std": [
@@ -1389,26 +1436,12 @@
        ]
       },
       {
-       "id": "C",
-       "std": [
-        "usnco:10"
-       ],
-       "do": "Assign an infrared band.",
-       "ek": [
-        "O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²)."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-ir-band",
-        "co-ir-tell"
-       ]
-      },
-      {
        "id": "D",
        "std": [
-        "usnco:10"
+        "usnco:10",
+        "acs-accm-organic:III.D.2",
+        "acs-accm-analytical:I.A.3",
+        "acs-accm-analytical:III.D.1"
        ],
        "do": "Count ¹H NMR environments.",
        "ek": [
@@ -1420,23 +1453,6 @@
        "drills": [
         "co-nmr-environments",
         "co-nmr-env-2"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "usnco:10"
-       ],
-       "do": "Identify the monomer of a polymer.",
-       "ek": [
-        "Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "co-monomer",
-        "co-polymer-from-monomer"
        ]
       },
       {
@@ -1492,8 +1508,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-common-ion",
-        "co-ksp-from-common-ion"
+        "co-ksp-from-common-ion",
+        "co-p2-common-ion"
        ]
       },
       {
@@ -1510,8 +1526,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-cell-entropy",
-        "co-dedt-from-ds"
+        "co-dedt-from-ds",
+        "co-p2-cell-entropy"
        ]
       },
       {
@@ -1528,8 +1544,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-entropy-from-k",
-        "co-vant-hoff-k"
+        "co-vant-hoff-k",
+        "co-p2-entropy-from-k"
        ]
       },
       {
@@ -1546,8 +1562,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-iodometric",
-        "co-iodometric-copper"
+        "co-iodometric-copper",
+        "co-p2-iodometric"
        ]
       },
       {
@@ -1564,8 +1580,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-perovskite",
-        "co-tolerance-factor"
+        "co-tolerance-factor",
+        "co-p2-perovskite"
        ]
       },
       {
@@ -1582,8 +1598,8 @@
         "P1"
        ],
        "drills": [
-        "co-p2-photon-kj",
-        "co-threshold-wavelength"
+        "co-threshold-wavelength",
+        "co-p2-photon-kj"
        ]
       }
      ]
@@ -1593,17 +1609,6 @@
  ],
  "rows": [
   {
-   "code": "CO-1.1.A",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-polyprotic-ph",
-    "co-phosphate-fraction"
-   ],
-   "partial": []
-  },
-  {
    "code": "CO-1.1.B",
    "unit": 1,
    "topic": 1,
@@ -1611,6 +1616,17 @@
    "full": [
     "co-buffer-acid",
     "co-buffer-capacity-acid"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-phosphate-fraction",
+    "co-polyprotic-ph"
    ],
    "partial": []
   },
@@ -1675,8 +1691,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "co-born-haber",
-    "co-lattice-compare"
+    "co-lattice-compare",
+    "co-born-haber"
    ],
    "partial": []
   },
@@ -1868,17 +1884,6 @@
    "partial": []
   },
   {
-   "code": "CO-7.1.A",
-   "unit": 7,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-unit-cell-density",
-    "co-molar-mass-from-cell"
-   ],
-   "partial": []
-  },
-  {
    "code": "CO-7.1.B",
    "unit": 7,
    "topic": 1,
@@ -1886,6 +1891,28 @@
    "full": [
     "co-coordination-structure",
     "co-structure-cn"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.E",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-boiling-rank",
+    "co-mp-rank"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-unit-cell-density",
+    "co-molar-mass-from-cell"
    ],
    "partial": []
   },
@@ -1912,13 +1939,13 @@
    "partial": []
   },
   {
-   "code": "CO-7.1.E",
-   "unit": 7,
+   "code": "CO-8.1.D",
+   "unit": 8,
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-boiling-rank",
-    "co-mp-rank"
+    "co-entropy-sign",
+    "co-ds-sign-2"
    ],
    "partial": []
   },
@@ -1956,17 +1983,6 @@
    "partial": []
   },
   {
-   "code": "CO-8.1.D",
-   "unit": 8,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-entropy-sign",
-    "co-ds-sign-2"
-   ],
-   "partial": []
-  },
-  {
    "code": "CO-8.1.E",
    "unit": 8,
    "topic": 1,
@@ -1994,8 +2010,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-preequilibrium-order",
-    "co-mechanism-rate-law"
+    "co-mechanism-rate-law",
+    "co-preequilibrium-order"
    ],
    "partial": []
   },
@@ -2143,6 +2159,17 @@
    "partial": []
   },
   {
+   "code": "CO-12.1.C",
+   "unit": 12,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-trend-anomaly",
+    "co-anomaly-explain"
+   ],
+   "partial": []
+  },
+  {
    "code": "CO-12.1.A",
    "unit": 12,
    "topic": 1,
@@ -2161,17 +2188,6 @@
    "full": [
     "co-quantum-count",
     "co-max-electrons"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CO-12.1.C",
-   "unit": 12,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-trend-anomaly",
-    "co-anomaly-explain"
    ],
    "partial": []
   },
@@ -2258,8 +2274,30 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-resonance-bond-order",
-    "co-bond-length-rank"
+    "co-bond-length-rank",
+    "co-resonance-bond-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-ir-band",
+    "co-ir-tell"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CO-14.1.E",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "co-monomer",
+    "co-polymer-from-monomer"
    ],
    "partial": []
   },
@@ -2286,17 +2324,6 @@
    "partial": []
   },
   {
-   "code": "CO-14.1.C",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-ir-band",
-    "co-ir-tell"
-   ],
-   "partial": []
-  },
-  {
    "code": "CO-14.1.D",
    "unit": 14,
    "topic": 1,
@@ -2304,17 +2331,6 @@
    "full": [
     "co-nmr-environments",
     "co-nmr-env-2"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CO-14.1.E",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "co-monomer",
-    "co-polymer-from-monomer"
    ],
    "partial": []
   },
@@ -2335,8 +2351,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-common-ion",
-    "co-ksp-from-common-ion"
+    "co-ksp-from-common-ion",
+    "co-p2-common-ion"
    ],
    "partial": []
   },
@@ -2346,8 +2362,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-cell-entropy",
-    "co-dedt-from-ds"
+    "co-dedt-from-ds",
+    "co-p2-cell-entropy"
    ],
    "partial": []
   },
@@ -2357,8 +2373,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-entropy-from-k",
-    "co-vant-hoff-k"
+    "co-vant-hoff-k",
+    "co-p2-entropy-from-k"
    ],
    "partial": []
   },
@@ -2368,8 +2384,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-iodometric",
-    "co-iodometric-copper"
+    "co-iodometric-copper",
+    "co-p2-iodometric"
    ],
    "partial": []
   },
@@ -2379,8 +2395,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-perovskite",
-    "co-tolerance-factor"
+    "co-tolerance-factor",
+    "co-p2-perovskite"
    ],
    "partial": []
   },
@@ -2390,8 +2406,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "co-p2-photon-kj",
-    "co-threshold-wavelength"
+    "co-threshold-wavelength",
+    "co-p2-photon-kj"
    ],
    "partial": []
   }

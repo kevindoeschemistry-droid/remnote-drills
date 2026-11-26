@@ -50,11 +50,11 @@ units:
           - { id: A, std: ["ngss-hs:PS1-1"], do: "PS1-1: Periodic patterns of outer electrons predict properties.", ek: ["Practised through: CH-1.5.B, CH-1.8.A, CH-1.8.B, CH-1.9.A."], p: [P1], drills: [ac-unpaired-electrons, ac-ion-charge-formula, ac-analogous-compound, ac-quantum-numbers-allowed], needs: [CH-1.5.B, CH-1.8.A, CH-1.8.B, CH-1.9.A] }
           - { id: B, std: ["ngss-hs:PS1-2"], do: "PS1-2: Reaction outcomes from outer electrons and periodic trends.", ek: ["Practised through: CH-1.5.B, CH-1.9.A, CH-4.1.A, CH-4.2.B."], p: [P1], drills: [ac-unpaired-electrons, ac-quantum-numbers-allowed, ac-balance-coefficient, ac-spectator-ions], needs: [CH-1.5.B, CH-1.9.A, CH-4.1.A, CH-4.2.B] }
           - { id: C, std: ["ngss-hs:PS1-3"], do: "PS1-3: Bulk properties infer strength of electrical forces between particles.", ek: ["Practised through: CH-3.1.A, CH-3.1.B, CH-3.9.A, CH-3.10.A."], p: [P1], drills: [ac-imf-identify, ac-boiling-rank, ac-rf-value, ac-solubility-polar], needs: [CH-3.1.A, CH-3.1.B, CH-3.9.A, CH-3.10.A] }
-          - { id: D, std: ["ngss-hs:PS1-4"], do: "PS1-4: Bond energy changes account for energy released or absorbed.", ek: ["Practised through: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A."], p: [P1], drills: [pc-dh-du, ac-energy-diagram, ac-heating-curve, ac-bond-enthalpy], needs: [CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A] }
-          - { id: E, std: ["ngss-hs:PS1-5"], do: "PS1-5: Temperature and concentration effects on reaction rate.", ek: ["Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B."], p: [P1], drills: [ac-rate-coefficients, pc-initial-rates, ac-zero-order, ch-surface-area-cut], needs: [CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B] }
           - { id: F, std: ["ngss-hs:PS1-6"], do: "PS1-6: Changing conditions to shift equilibrium toward product.", ek: ["Practised through: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B."], p: [P1], drills: [ac-le-chatelier, ac-dynamic-equilibrium, ac-le-chatelier-k, ac-q-vs-k], needs: [CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B] }
           - { id: G, std: ["ngss-hs:PS1-7"], do: "PS1-7: Conservation of atoms and mass in reactions (mathematical).", ek: ["Practised through: CH-4.5.A, CH-4.5.D, CH-4.5.F, CH-4.7.B."], p: [P1], drills: [ac-mass-mass, ac-solution-stoich, ch-metal-from-ore, ac-predict-products], needs: [CH-4.5.A, CH-4.5.D, CH-4.5.F, CH-4.7.B] }
           - { id: H, std: ["ngss-hs:PS1-8"], do: "PS1-8: Fission, fusion and radioactive decay.", ek: ["Practised through: DAT-2.12.B, DAT-2.12.A, DAT-2.12.C, NU-1.1.A."], p: [P1], drills: [nu-fraction-remaining, ac-nuclear-equation, nu-binding-energy, nu-neutron-number], needs: [DAT-2.12.B, DAT-2.12.A, DAT-2.12.C, NU-1.1.A] }
+          - { id: D, std: ["ngss-hs:PS1-4"], do: "PS1-4: Bond energy changes account for energy released or absorbed.", ek: ["Practised through: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A."], p: [P1], drills: [pc-dh-du, ac-energy-diagram, ac-heating-curve, ac-bond-enthalpy], needs: [CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A] }
+          - { id: E, std: ["ngss-hs:PS1-5"], do: "PS1-5: Temperature and concentration effects on reaction rate.", ek: ["Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B."], p: [P1], drills: [ac-rate-coefficients, pc-initial-rates, ac-zero-order, ch-surface-area-cut], needs: [CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B] }
   - id: ps2
     n: 2
     title: "PS2 · Motion and stability: forces and interactions"
@@ -65,12 +65,12 @@ units:
       - n: 1
         title: "Motion and stability: forces and interactions"
         los:
+          - { id: F, std: ["ngss-hs:PS2-6"], do: "PS2-6: Molecular structure and the function of designed materials.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-designed-materials] }
           - { id: A, std: ["ngss-hs:PS2-1"], do: "PS2-1: Newton's second law from data.", ek: ["Practised through: PH-2.5.A, PH-2.5.B, PH-2.7.A, PH-1.3.B."], p: [P1], drills: [ph-newton-second, ph-atwood, ph-kinetic-friction, ph-suvat-speed], needs: [PH-2.5.A, PH-2.5.B, PH-2.7.A, PH-1.3.B] }
           - { id: B, std: ["ngss-hs:PS2-2"], do: "PS2-2: Conservation of momentum.", ek: ["Practised through: PH-4.3.A, PH-4.3.B, PH-4.1.A, PH-4.2.A."], p: [P1], drills: [ph-recoil, ph-momentum-2d, ph-system-momentum, ph-impulse-velocity], needs: [PH-4.3.A, PH-4.3.B, PH-4.1.A, PH-4.2.A] }
           - { id: C, std: ["ngss-hs:PS2-3"], do: "PS2-3: Design a device that reduces collision force.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-collision-force] }
           - { id: D, std: ["ngss-hs:PS2-4"], do: "PS2-4: Newton's gravitation and Coulomb's law.", ek: ["Practised through: PH-10.1.A, PH-10.1.B, PH-10.1.C, PH-10.1.D."], p: [P1], drills: [em-coulomb-force, ph-charge-levitation, ph-coulomb-in-medium, ph-force-superposition], needs: [PH-10.1.A, PH-10.1.B, PH-10.1.C, PH-10.1.D] }
           - { id: E, std: ["ngss-hs:PS2-5"], do: "PS2-5: Currents and magnetic fields produce each other.", ek: ["Practised through: PH-12.1.A, PH-12.2.A, PH-12.2.B, PH-12.3.A."], p: [P1], drills: [ph-magnetic-dipole, em-magnetic-force, em-cyclotron-radius, em-field-of-wire], needs: [PH-12.1.A, PH-12.2.A, PH-12.2.B, PH-12.3.A] }
-          - { id: F, std: ["ngss-hs:PS2-6"], do: "PS2-6: Molecular structure and the function of designed materials.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-designed-materials] }
   - id: ps3
     n: 3
     title: "PS3 · Energy"
@@ -111,12 +111,12 @@ units:
       - n: 1
         title: "From molecules to organisms: structures and processes"
         los:
-          - { id: A, std: ["ngss-hs:LS1-1"], do: "LS1-1: DNA structure determines protein structure and function.", ek: ["Practised through: BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A."], p: [P1], drills: [bi-dna-evidence, bi-replication-enzyme, bi-eukaryote-regulation, bi-mutation-type], needs: [BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A] }
           - { id: B, std: ["ngss-hs:LS1-2"], do: "LS1-2: Hierarchical organisation of interacting body systems.", ek: ["Practised through: BI-9.4.A, BI-9.1.A, BI-9.1.B, BI-9.2.A."], p: [P1], drills: [bi-blood-path, bi-action-potential, bi-synapse, bi-hormone-action], needs: [BI-9.4.A, BI-9.1.A, BI-9.1.B, BI-9.2.A] }
           - { id: C, std: ["ngss-hs:LS1-3"], do: "LS1-3: Feedback mechanisms and homeostasis.", ek: ["Practised through: BI-4.5.A, BI-4.5.B, BI-4.5.C, BI-4.1.A."], p: [P1], drills: [bi-feedback-type, bi-negative-feedback, bi-positive-feedback, bi-contact-signal], needs: [BI-4.5.A, BI-4.5.B, BI-4.5.C, BI-4.1.A] }
           - { id: D, std: ["ngss-hs:LS1-4"], do: "LS1-4: Mitosis and differentiation.", ek: ["Practised through: BI-4.6.B, BI-4.1.A, BI-4.1.B, BI-4.2.A."], p: [P1], drills: [bi-mitosis-stage, bi-contact-signal, bi-signal-range, bi-signal-stages], needs: [BI-4.6.B, BI-4.1.A, BI-4.1.B, BI-4.2.A] }
           - { id: E, std: ["ngss-hs:LS1-5"], do: "LS1-5: Photosynthesis converts light to chemical energy.", ek: ["Practised through: BI-3.5.A, BI-3.2.A, BI-3.4.B, BI-3.1.A."], p: [P1], drills: [bi-photosynthesis-overview, bi-enzyme-energy, bi-energy-input, bi-active-site], needs: [BI-3.5.A, BI-3.2.A, BI-3.4.B, BI-3.1.A] }
           - { id: F, std: ["ngss-hs:LS1-6"], do: "LS1-6: Carbon, hydrogen and oxygen from sugars build large molecules.", ek: ["Practised through: BI-1.1.A, BI-1.1.B, BI-1.2.A, BI-1.3.A."], p: [P1], drills: [bi-water-interaction, bi-water-property, bi-macromolecule-elements, bi-dehydration-hydrolysis], needs: [BI-1.1.A, BI-1.1.B, BI-1.2.A, BI-1.3.A] }
+          - { id: A, std: ["ngss-hs:LS1-1"], do: "LS1-1: DNA structure determines protein structure and function.", ek: ["Practised through: BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A."], p: [P1], drills: [bi-dna-evidence, bi-replication-enzyme, bi-eukaryote-regulation, bi-mutation-type], needs: [BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A] }
           - { id: G, std: ["ngss-hs:LS1-7"], do: "LS1-7: Cellular respiration as bond breaking and forming.", ek: ["Practised through: BI-3.6.D, BI-3.6.E, BI-3.1.A, BI-3.2.A."], p: [P1], drills: [bi-fermentation, bi-respirometer, bi-active-site, bi-enzyme-energy], needs: [BI-3.6.D, BI-3.6.E, BI-3.1.A, BI-3.2.A] }
   - id: ls2
     n: 6
@@ -128,14 +128,14 @@ units:
       - n: 1
         title: "Ecosystems: interactions, energy and dynamics"
         los:
+          - { id: E, std: ["ngss-hs:LS2-5"], do: "LS2-5: Carbon cycling.", ek: ["Practised through: BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A."], p: [P1], drills: [bi-biogeochemical, bi-behavior-response, bi-behavior-signal, bi-thermoregulation], needs: [BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A] }
+          - { id: F, std: ["ngss-hs:LS2-6"], do: "LS2-6: Ecosystem stability and change.", ek: ["Practised through: BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C."], p: [P1], drills: [bi-ecosystem-stability, bi-succession, bi-community-data], needs: [BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C] }
+          - { id: H, std: ["ngss-hs:LS2-8"], do: "LS2-8: Group behaviour and survival.", ek: ["Practised through: BI-8.1.B, BI-8.1.A."], p: [P1], drills: [bi-behavior-signal, bi-behavior-response], needs: [BI-8.1.B, BI-8.1.A] }
           - { id: A, std: ["ngss-hs:LS2-1"], do: "LS2-1: Carrying capacity.", ek: ["Practised through: BI-8.4.A, BI-8.3.A, BI-8.2.B."], p: [P1], drills: [bi-logistic-growth, bi-population-rates, bi-energy-availability], needs: [BI-8.4.A, BI-8.3.A, BI-8.2.B] }
           - { id: B, std: ["ngss-hs:LS2-2"], do: "LS2-2: Biodiversity and population size (mathematical).", ek: ["Practised through: BI-8.5.A, BI-8.3.A, BI-8.4.A, BI-8.2.B."], p: [P1], drills: [bi-simpson-index, bi-population-rates, bi-logistic-growth, bi-energy-availability], needs: [BI-8.5.A, BI-8.3.A, BI-8.4.A, BI-8.2.B] }
           - { id: C, std: ["ngss-hs:LS2-3"], do: "LS2-3: Matter and energy in aerobic and anaerobic conditions.", ek: ["Practised through: BI-8.2.B, BI-8.2.C, BI-8.1.A, BI-8.1.B."], p: [P1], drills: [bi-energy-availability, bi-trophic-energy, bi-behavior-response, bi-behavior-signal], needs: [BI-8.2.B, BI-8.2.C, BI-8.1.A, BI-8.1.B] }
           - { id: D, std: ["ngss-hs:LS2-4"], do: "LS2-4: Matter and energy flow among organisms (mathematical).", ek: ["Practised through: BI-8.1.A, BI-8.1.B, BI-8.2.B, BI-8.2.C."], p: [P1], drills: [bi-behavior-response, bi-behavior-signal, bi-energy-availability, bi-trophic-energy], needs: [BI-8.1.A, BI-8.1.B, BI-8.2.B, BI-8.2.C] }
-          - { id: E, std: ["ngss-hs:LS2-5"], do: "LS2-5: Carbon cycling.", ek: ["Practised through: BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A."], p: [P1], drills: [bi-biogeochemical, bi-behavior-response, bi-behavior-signal, bi-thermoregulation], needs: [BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A] }
-          - { id: F, std: ["ngss-hs:LS2-6"], do: "LS2-6: Ecosystem stability and change.", ek: ["Practised through: BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C."], p: [P1], drills: [bi-ecosystem-stability, bi-succession, bi-community-data], needs: [BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C] }
           - { id: G, std: ["ngss-hs:LS2-7"], do: "LS2-7: Reduce human impact on the environment and biodiversity.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-species-area] }
-          - { id: H, std: ["ngss-hs:LS2-8"], do: "LS2-8: Group behaviour and survival.", ek: ["Practised through: BI-8.1.B, BI-8.1.A."], p: [P1], drills: [bi-behavior-signal, bi-behavior-response], needs: [BI-8.1.B, BI-8.1.A] }
   - id: ls3
     n: 7
     title: "LS3 · Heredity: inheritance and variation of traits"
@@ -161,9 +161,9 @@ units:
         los:
           - { id: A, std: ["ngss-hs:LS4-1"], do: "LS4-1: Evidence for common ancestry.", ek: ["Practised through: BI-7.7.B, BI-7.7.A, BI-7.13.A, BI-7.9.A."], p: [P1], drills: [bi-universal-features, bi-origin-of-life, bi-molecular-relatedness], needs: [BI-7.7.B, BI-7.7.A, BI-7.13.A, BI-7.9.A] }
           - { id: B, std: ["ngss-hs:LS4-2"], do: "LS4-2: Four factors of evolution.", ek: ["Practised through: BI-7.11.A, BI-7.3.B, BI-7.6.A, BI-7.8.A."], p: [P1], drills: [bi-extinction, bi-convergent, bi-evolution-evidence, bi-ongoing-evolution], needs: [BI-7.11.A, BI-7.3.B, BI-7.6.A, BI-7.8.A] }
-          - { id: C, std: ["ngss-hs:LS4-3"], do: "LS4-3: Statistics of advantageous traits.", ek: ["Practised through: BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A."], p: [P1], drills: [bi-hardy-weinberg, bi-fitness, bi-hw-test, bi-selection-type], needs: [BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A] }
           - { id: D, std: ["ngss-hs:LS4-4"], do: "LS4-4: Natural selection leads to adaptation.", ek: ["Practised through: BI-7.1.A, BI-7.1.B, BI-7.2.A, BI-7.3.B."], p: [P1], drills: [bi-selection-conditions, bi-fitness, bi-selection-type, bi-convergent], needs: [BI-7.1.A, BI-7.1.B, BI-7.2.A, BI-7.3.B] }
           - { id: E, std: ["ngss-hs:LS4-5"], do: "LS4-5: Environmental change and speciation or extinction.", ek: ["Practised through: BI-7.11.B, BI-7.11.C, BI-7.10.A, BI-7.11.A."], p: [P1], drills: [bi-extinction, bi-speciation], needs: [BI-7.11.B, BI-7.11.C, BI-7.10.A, BI-7.11.A] }
+          - { id: C, std: ["ngss-hs:LS4-3"], do: "LS4-3: Statistics of advantageous traits.", ek: ["Practised through: BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A."], p: [P1], drills: [bi-hardy-weinberg, bi-fitness, bi-hw-test, bi-selection-type], needs: [BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A] }
           - { id: F, std: ["ngss-hs:LS4-6"], do: "LS4-6: Simulate solutions to biodiversity threats.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-harvest-simulation] }
   - id: ess1
     n: 9
@@ -191,13 +191,13 @@ units:
       - n: 1
         title: "Earth's systems"
         los:
+          - { id: C, std: ["ngss-hs:ESS2-3"], do: "ESS2-3: Thermal convection in the mantle.", ek: ["Practised through: ES-2.1.B, ES-2.1.A."], p: [P1], drills: [es-seismic, es-plate-boundary], needs: [ES-2.1.B, ES-2.1.A] }
+          - { id: G, std: ["ngss-hs:ESS2-7"], do: "ESS2-7: Coevolution of Earth systems and life.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-coevolution] }
           - { id: A, std: ["ngss-hs:ESS2-1"], do: "ESS2-1: Internal and surface processes form landforms.", ek: ["Practised through: ES-2.1.A, ES-2.1.B, ES-2.2.A, ES-2.2.B."], p: [P1], drills: [es-plate-boundary, es-seismic, es-radiometric, es-dating-method], needs: [ES-2.1.A, ES-2.1.B, ES-2.2.A, ES-2.2.B] }
           - { id: B, std: ["ngss-hs:ESS2-2"], do: "ESS2-2: Feedbacks among Earth systems.", ek: ["Practised through: ES-3.1.D, ES-3.1.A, ES-3.1.B, ES-3.1.C."], p: [P1], drills: [es-feedback, es-equilibrium-temp, es-one-layer, es-co2-forcing], needs: [ES-3.1.D, ES-3.1.A, ES-3.1.B, ES-3.1.C] }
-          - { id: C, std: ["ngss-hs:ESS2-3"], do: "ESS2-3: Thermal convection in the mantle.", ek: ["Practised through: ES-2.1.B, ES-2.1.A."], p: [P1], drills: [es-seismic, es-plate-boundary], needs: [ES-2.1.B, ES-2.1.A] }
           - { id: D, std: ["ngss-hs:ESS2-4"], do: "ESS2-4: Energy flow and climate change.", ek: ["Practised through: ES-3.1.A, ES-3.1.C, ES-3.1.D, ES-3.1.B."], p: [P1], drills: [es-equilibrium-temp, es-co2-forcing, es-feedback, es-one-layer], needs: [ES-3.1.A, ES-3.1.C, ES-3.1.D, ES-3.1.B] }
           - { id: E, std: ["ngss-hs:ESS2-5"], do: "ESS2-5: Properties of water and surface processes.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-ice-expansion] }
           - { id: F, std: ["ngss-hs:ESS2-6"], do: "ESS2-6: Carbon cycling among Earth systems (quantitative).", ek: ["Practised through: ES-3.2.A, ES-3.1.A, ES-3.1.B, ES-3.1.C."], p: [P1], drills: [es-carbon-mass, es-equilibrium-temp, es-one-layer, es-co2-forcing], needs: [ES-3.2.A, ES-3.1.A, ES-3.1.B, ES-3.1.C] }
-          - { id: G, std: ["ngss-hs:ESS2-7"], do: "ESS2-7: Coevolution of Earth systems and life.", ek: ["Practised here; no subject framework reaches it yet."], p: [P2], drills: [ng-coevolution] }
   - id: ess3
     n: 11
     title: "ESS3 · Earth and human activity"

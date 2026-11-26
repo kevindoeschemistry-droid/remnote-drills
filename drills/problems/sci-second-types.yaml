@@ -983,7 +983,7 @@
     authored: true
 - template: nr-precautions-2
   skill: nurs.risk-reduction
-  pace: quick
+  pace: recall
   cases:
   - q: 'A client with suspected pulmonary tuberculosis needs:'
     o1: 'Airborne precautions: negative-pressure room and N95 respirator'
@@ -1021,7 +1021,7 @@
     authored: true
 - template: nr-ppe-2
   skill: nurs.risk-reduction
-  pace: quick
+  pace: recall
   cases:
   - q: 'When removing PPE, the first item off is usually:'
     o1: Gloves
@@ -1054,7 +1054,7 @@
     authored: true
 - template: nr-safety-2
   skill: nurs.safety
-  pace: quick
+  pace: recall
   cases:
   - q: 'Before giving a medication, identify the client by:'
     o1: Two identifiers, such as name and date of birth
@@ -1092,7 +1092,7 @@
     authored: true
 - template: nr-erikson-2
   skill: nurs.health-promotion
-  pace: quick
+  pace: recall
   cases:
   - q: 'A 2-year-old insisting on feeding themselves reflects:'
     o1: Autonomy vs shame and doubt
@@ -1125,7 +1125,7 @@
     authored: true
 - template: nr-milestones-2
   skill: nurs.health-promotion
-  pace: quick
+  pace: recall
   cases:
   - q: 'An infant usually doubles birth weight by about:'
     o1: 5–6 months
@@ -1204,7 +1204,7 @@
       v: 0 if apgar(hr, resp, tone, refl, color) >= 7 else (1 if apgar(hr, resp, tone, refl, color) >= 4 else 2)
 - template: nr-gtpal-2
   skill: nurs.health-promotion
-  pace: quick
+  pace: recall
   cases:
   - q: 'G3 T1 P1 A0 L2 means:'
     o1: Three pregnancies, one term and one preterm birth, no abortions, two living children
@@ -1317,7 +1317,7 @@
     authored: true
 - template: nr-defense-2
   skill: nurs.psychosocial
-  pace: quick
+  pace: recall
   cases:
   - q: 'A man angry at his boss yells at his children:'
     o1: Displacement
@@ -1355,7 +1355,7 @@
     authored: true
 - template: nr-diet-2
   skill: nurs.basic-care
-  pace: quick
+  pace: recall
   cases:
   - q: A client taking warfarin should keep which intake consistent?
     o1: Vitamin K (leafy greens)
@@ -1427,7 +1427,7 @@
       v: (a + b) - (u + d)
 - template: nr-position-2
   skill: nurs.basic-care
-  pace: quick
+  pace: recall
   cases:
   - q: 'After a lumbar puncture, a usual position is:'
     o1: Flat (supine) for a time per policy
@@ -1493,7 +1493,7 @@
       v: floor(Rational(vial, D))
 - template: nr-iv-comp-2
   skill: nurs.pharm
-  pace: quick
+  pace: recall
   cases:
   - q: 'An IV site is cool, pale and swollen with slowed flow. This is:'
     o1: 'Infiltration: stop the infusion, remove the catheter, elevate'
@@ -1577,7 +1577,7 @@
       v: abo_ok(rec, rrh, don, drh)
 - template: nr-transfusion-2
   skill: nurs.pharm
-  pace: quick
+  pace: recall
   cases:
   - q: 'A client develops chills, back pain and fever 10 minutes into a transfusion. First:'
     o1: Stop the transfusion and keep the IV open with normal saline
@@ -1610,7 +1610,7 @@
     authored: true
 - template: nr-suffix-2
   skill: nurs.pharm
-  pace: quick
+  pace: recall
   cases:
   - q: 'Metoprolol, atenolol (-olol):'
     o1: Beta blockers
@@ -1648,7 +1648,7 @@
     authored: true
 - template: nr-antidote-2
   skill: nurs.pharm
-  pace: quick
+  pace: recall
   cases:
   - q: 'Antidote for opioid overdose:'
     o1: Naloxone
@@ -1686,7 +1686,7 @@
     authored: true
 - template: nr-insulin-2
   skill: nurs.pharm
-  pace: quick
+  pace: recall
   cases:
   - q: 'When mixing regular and NPH in one syringe, draw up:'
     o1: Regular (clear) first, then NPH (cloudy)
@@ -1719,7 +1719,7 @@
     authored: true
 - template: nr-levels-2
   skill: nurs.pharm
-  pace: quick
+  pace: recall
   cases:
   - q: 'A usual therapeutic digoxin level is about:'
     o1: 0.5–2.0 ng/mL
@@ -1752,7 +1752,7 @@
     authored: true
 - template: nr-ranges-2
   skill: nurs.risk-reduction
-  pace: quick
+  pace: recall
   cases:
   - q: 'A usual adult serum potassium range is:'
     o1: 3.5–5.0 mEq/L
@@ -1790,7 +1790,7 @@
     authored: true
 - template: nr-flag-2
   skill: nurs.risk-reduction
-  pace: quick
+  pace: recall
   cases:
   - q: 'A potassium of 6.2 mEq/L is:'
     o1: 'High: check the ECG and report'
@@ -1885,7 +1885,7 @@
       v: 0 if gcs(et, vt, mt) >= 13 else (1 if gcs(et, vt, mt) >= 9 else 2)
 - template: nr-electrolyte-2
   skill: nurs.physiological
-  pace: quick
+  pace: recall
   cases:
   - q: 'Peaked T waves on the ECG suggest:'
     o1: Hyperkalemia
@@ -1940,7 +1940,7 @@
       v: 100*Min(w, 10) + 50*Min(Max(w - 10, 0), 10) + 20*Max(w - 20, 0)
 - template: nr-chest-tube-2
   skill: nurs.physiological
-  pace: quick
+  pace: recall
   cases:
   - q: 'Continuous bubbling in the water-seal chamber suggests:'
     o1: An air leak in the system or from the client
@@ -1973,7 +1973,7 @@
     authored: true
 - template: nr-oxygen-2
   skill: nurs.physiological
-  pace: quick
+  pace: recall
   cases:
   - q: 'A nasal cannula delivers up to about:'
     o1: 6 L/min (about 24–44% O₂)

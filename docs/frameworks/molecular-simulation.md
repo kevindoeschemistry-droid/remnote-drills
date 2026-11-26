@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/molecular-simulation.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**106 learning objectives** in 15 units (100 core): 106 drilled, 0 partly, 0 with no drills. Core: 100 / 100 drilled.
+**121 learning objectives** in 17 units (100 core): 121 drilled, 0 partly, 0 with no drills. Core: 100 / 100 drilled.
 
 ## Big ideas
 
@@ -34,8 +34,10 @@ Generated from `drills/frameworks/molecular-simulation.yaml` by `scripts/framewo
 | 5 · Periodic boundaries and long-range electrostatics | core | — | 6 | 6 | 0 | 0 |
 | 6 · System preparation and equilibration | core | — | 7 | 7 | 0 | 0 |
 | 7 · Sampling, convergence and uncertainty | core | — | 7 | 7 | 0 | 0 |
+| 16 · Free-energy foundations and expectations | extension | — | 4 | 4 | 0 | 0 |
 | 8 · Free-energy theory and estimators | core | — | 11 | 11 | 0 | 0 |
 | 9 · Thermodynamic cycles, binding and stability | core | — | 8 | 8 | 0 | 0 |
+| 17 · Free-energy practice: protocol, convergence and reporting | extension | — | 11 | 11 | 0 | 0 |
 | 10 · λ dynamics and multisite λ dynamics | core | — | 9 | 9 | 0 | 0 |
 | 11 · Adaptive Landscape Flattening in practice | core | — | 9 | 9 | 0 | 0 |
 | 12 · Trajectory analysis | core | — | 6 | 6 | 0 | 0 |
@@ -292,6 +294,32 @@ Book: livecoms-uq §2, §3, §4.2, §4.4, §7.7; livecoms-afe §4.2
   - EK: Checks can rule out good sampling but never prove it. Independent runs from diverse starts that disagree beyond their error bars signal unvisited states ('dark uncertainty').
   - P5 · drills: md-dark-uncertainty
 
+## Unit 16 · Free-energy foundations and expectations (extension)
+
+Big ideas: PATH, ALCH
+
+### 16.1 Words and ideas
+
+
+
+- ● **MD-16.1.A** (alchemistry-wiki:FUND, livecoms-afe:1, livecoms-afe:3) Define the vocabulary of alchemical free energies: end states, λ, decoupling versus annihilation, and phase-space overlap.
+  - EK: Alchemical intermediates are unphysical states that bridge two physical end states; only free-energy differences are defined; neighbouring states must overlap in phase space.
+  - P5 · drills: fe-vocab, fe-vocab-2
+- ● **MD-16.1.B** (livecoms-afe:4) State the accuracy and reproducibility to expect from alchemical calculations and convert an energy error into a fold error in K.
+  - EK: Favourable cases reach about 1–2 kcal/mol RMS error; 1.36 kcal/mol is a tenfold change in K at 298 K; repeat 2–3 times, ideally from different starting coordinates.
+  - P5 · drills: fe-error-fold, fe-expect
+
+### 16.2 Is the calculation worth running?
+
+
+
+- ● **MD-16.2.A** (livecoms-afe:4.5, livecoms-afe:4.6) Estimate the compute a free-energy campaign needs, and decide when a pilot study or an experiment is the better use of time.
+  - EK: Typical calculations use 20–40 or more λ states per leg; GPU throughput is a few hundred ns/day; run a small pilot before committing.
+  - P5 · drills: fe-campaign-cost, fe-worth-it
+- ● **MD-16.2.B** (livecoms-afe:5.3, livecoms-afe:7.1.1) Design a perturbation network: star maps, denser networks with cycles, and how many independent cycles a network has.
+  - EK: A star map links each ligand to one hub (N − 1 edges); a connected network with E edges on N ligands has E − N + 1 independent cycles for closure checks.
+  - P5 · drills: fe-network-cycles, fe-network
+
 ## Unit 8 · Free-energy theory and estimators
 
 Big ideas: BOLTZ, PATH, SAMPLE
@@ -394,6 +422,58 @@ Book: livecoms-afe §4.1, §4.3, §5.1, §5.4
 - ● **MD-9.3.B** Match simulation conditions (pH, salt, temperature, construct, protonation) to the experiment being reproduced.
   - EK: The T4 lysozyme sites were measured at pH 3.0 (L99, M106, F153) and 5.4 (V149), so two folded-state setups are needed.
   - P1 · P2 · drills: md-match-conditions
+
+## Unit 17 · Free-energy practice: protocol, convergence and reporting (extension)
+
+Big ideas: SAMPLE, WORK
+
+### 17.1 Protocol choices
+
+
+
+- ● **MD-17.1.A** (alchemistry-wiki:BP, livecoms-afe:7.2.3) Apply the pathway rules: soft-core for Lennard-Jones, never charges without LJ, fewest insertions, and electrostatics off before LJ.
+  - EK: Use soft-core when LJ is removed (α = 0.5 unless there is a reason not to); remove charges before LJ or soften Coulomb faster; prefer mutating atoms to inserting them.
+  - P5 · drills: fe-path-rules, fe-path-rules-2
+- ● **MD-17.1.B** (livecoms-afe:7.1.1, livecoms-afe:12) Make the relative-calculation choices: topology, atom mapping, constraints on transformed bonds and perturbation size.
+  - EK: Single, dual or hybrid topology; keep transformations to about 1–5 heavy atoms; don't constrain bonds to transforming atoms (use about a 1 fs step); ring breaking is hard.
+  - P5 · drills: fe-relative-choices, fe-topology-pick
+- ● **MD-17.1.C** (livecoms-afe:7.1.2, livecoms-afe:7.2.1, livecoms-afe:7.2.2) Make the absolute-calculation choices: restraint type, the standard state, weak binders and net charge changes.
+  - EK: Harmonic, flat-bottom (does not restrain rotation) or Boresch (all six rigid-body degrees of freedom); correct to 1 M; net charge changes need co-alchemical ions or corrections.
+  - P5 · drills: fe-restraints, fe-charge-weak
+- ● **MD-17.1.D** (alchemistry-wiki:BP, livecoms-afe:7.2.4) Choose a sampling scheme and equilibrate correctly at every λ.
+  - EK: Independent fixed-λ runs, Hamiltonian replica exchange (recommended), single-replica λ moves, or nonequilibrium switching; equilibrate each λ separately and for equal lengths.
+  - P5 · drills: fe-sampling-scheme, fe-equilibrate
+
+### 17.2 Convergence and analysis
+
+
+
+- ● **MD-17.2.C** (alchemistry-wiki:BP, livecoms-afe:8.3, livecoms-afe:8.4, livecoms-afe:8.5) Choose and cross-check estimators and read the diagnostics: overlap, forward–reverse drift and estimator disagreement.
+  - EK: Prefer TI, BAR or MBAR; EXP is biased; first off-diagonal overlap at least 0.03; estimators disagreeing by more than 1 kcal/mol, or forward–reverse by more than 1 kT, means not converged.
+  - P5 · drills: fe-overlap-pick, fe-estimators
+- ● **MD-17.2.A** (livecoms-afe:7.2.5, livecoms-afe:8.1, livecoms-afe:8.2) Detect equilibration and decorrelate data: count effectively uncorrelated samples per state.
+  - EK: Discard the early part; N_eff = (T − t₀)/g; aim for at least about 50 per state; if T is not about 20 times t₀, the run is short.
+  - P5 · drills: fe-neff, fe-equil-detect
+- ● **MD-17.2.B** (livecoms-afe:7.2.5) Plan what to save: the energies each estimator needs and how often to write them.
+  - EK: TI needs dU/dλ, EXP one-direction ΔU, BAR both neighbours, MBAR every state; write roughly every 50–100 steps; set the target uncertainty before running.
+  - P5 · drills: fe-frames, fe-what-to-save
+- ● **MD-17.2.D** (alchemistry-wiki:BP, livecoms-afe:8.4, livecoms-afe:8.7) Compute an uncertainty from independent repeats and combine the uncertainties of independent legs.
+  - EK: The gold standard is independent copies and their standard error; an estimator's own error assumes uncorrelated data and usually underestimates; independent legs add in quadrature.
+  - P5 · drills: fe-leg-error, fe-repeat-se
+
+### 17.3 Verify and report
+
+
+
+- ● **MD-17.3.C** (livecoms-afe:8.6, livecoms-afe:7.2.6) Diagnose common failures from their symptoms.
+  - EK: Ligand leaving the site, inconsistent estimators, poor replica mixing, slow torsions, rough ΔG(λ), drift, and starting-pose dependence; wrong binding modes are common.
+  - P5 · drills: fe-diagnose, fe-binding-mode
+- ● **MD-17.3.A** (alchemistry-wiki:BP, livecoms-afe:8.5, livecoms-afe:12) Verify a result: alternate cycles, cycle closure, repeat spread against the error bar, and the checklist's red flags.
+  - EK: Results from different cycles should agree; repeats should differ by about what their error bars allow; standard error above 1 kcal/mol or |ΔΔG| above about 15 kcal/mol is suspect.
+  - P5 · drills: fe-repeat-consistent, fe-cycle-closure-3
+- ● **MD-17.3.B** (livecoms-afe:8.7) Report a benchmark the way the field expects: replicates, MUE and RMSE, correlation and ranking statistics, and honest plots.
+  - EK: At least three replicates; RMSE and MUE for relative results (correlation depends on sign convention); bootstrap statistics; equal axes with 1 and 2 kcal/mol bands.
+  - P5 · drills: fe-mue, fe-reporting
 
 ## Unit 10 · λ dynamics and multisite λ dynamics
 

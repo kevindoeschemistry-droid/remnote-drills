@@ -1000,6 +1000,9 @@ Big ideas: EQ
 
 
 
+- ● **TD-22.4.E** (webwork-opl:TH17.7, webwork-opl:TH17.8, webwork-opl:TH17.11) Know what group-contribution and other activity models need.
+  - EK: UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters.
+  - P1 · drills: td-activity-models, td-model-pick
 - ● **TD-22.4.A** (webwork-opl:TH17.4) Use the van Laar model.
   - EK: ln γ₁ = A₁₂(A₂₁x₂/(A₁₂x₁ + A₂₁x₂))².
   - P1 · drills: td-van-laar, td-van-laar-infinite
@@ -1012,9 +1015,6 @@ Big ideas: EQ
 - ● **TD-22.4.D** (webwork-opl:TH17.10) Use the NRTL model at infinite dilution.
   - EK: ln γ₁^∞ = τ₂₁ + τ₁₂ exp(−ατ₁₂).
   - P1 · drills: td-nrtl-infinite, td-nrtl-gamma2-inf
-- ● **TD-22.4.E** (webwork-opl:TH17.7, webwork-opl:TH17.8, webwork-opl:TH17.11) Know what group-contribution and other activity models need.
-  - EK: UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters.
-  - P1 · drills: td-activity-models, td-model-pick
 
 ## Drills not yet placed on the map
 

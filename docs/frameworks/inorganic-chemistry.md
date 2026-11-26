@@ -56,19 +56,19 @@ Big ideas: COUNT, TREND
 - ● **IN-2.1.B** (icho-appendix-c:d5) Find the ratio of atoms reduced to atoms oxidised in a disproportionation.
   - EK: Electrons lost = electrons gained.
   - Needs: IN-2.1.A
-  - P1 · drills: in-disproportionation, in-disprop-which
+  - P1 · drills: in-disprop-which, in-disproportionation
 
 ### 2.2 Oxides and oxoacids
 
 
 
-- ● **IN-2.2.A** (icho-appendix-c:d4, acs-accm-general:IX.C.1) Name a halogen, sulfur or nitrogen oxoacid from its formula.
-  - EK: hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state.
-  - Needs: IN-2.1.A
-  - P2 · drills: in-oxoacid-name, in-oxoacid-state
 - ● **IN-2.2.B** (icho-appendix-c:d3, acs-accm-inorganic:I.C.3, acs-accm-inorganic:III.G.5, acs-accm-inorganic:V.E.3) Classify an oxide as acidic, basic, amphoteric or neutral.
   - EK: Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral.
   - P2 · P3 · drills: in-oxide-character, in-oxide-trend
+- ● **IN-2.2.A** (icho-appendix-c:d4, acs-accm-general:IX.C.1, acs-accm-analytical:IX.B.1) Name a halogen, sulfur or nitrogen oxoacid from its formula.
+  - EK: hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state.
+  - Needs: IN-2.1.A
+  - P2 · drills: in-oxoacid-name, in-oxoacid-state
 
 ## Unit 3 · The d block and coordination compounds
 
@@ -78,6 +78,9 @@ Big ideas: COUNT, SPLIT
 
 
 
+- ● **IN-3.1.D** (acs-accm-inorganic:III.A.2, acs-accm-inorganic:III.F.1) Rank ligands by the size of the splitting they cause.
+  - EK: I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO.
+  - P2 · drills: in-spectrochemical, in-spectro-consequence
 - ● **IN-3.1.A** Find the metal's d-electron count in a complex.
   - EK: dⁿ = group − oxidation state.
   - Needs: IN-2.1.A
@@ -90,20 +93,17 @@ Big ideas: COUNT, SPLIT
   - EK: −0.4Δ_o per t₂g electron, +0.6Δ_o per e_g electron.
   - Needs: IN-3.1.A
   - P1 · drills: in-cfse, in-cfse-gain
-- ● **IN-3.1.D** (acs-accm-inorganic:III.A.2, acs-accm-inorganic:III.F.1) Rank ligands by the size of the splitting they cause.
-  - EK: I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO.
-  - P2 · drills: in-spectrochemical, in-spectro-consequence
 
 ### 3.2 Structure and colour
 
 
 
-- ● **IN-3.2.A** (icho-appendix-c:a1, acs-accm-inorganic:III.E.2) Count the stereoisomers of an octahedral or square-planar complex.
-  - EK: Geometric isomers by trans pairs, then check each for chirality.
-  - P3 · drills: in-isomer-count, in-isomer-type
 - ● **IN-3.2.B** (icho-appendix-c:d6, acs-accm-inorganic:III.A.2, acs-accm-inorganic:IX.D.2, acs-accm-inorganic:X.A.3) Name the colour of a common transition-metal ion or oxoanion in water.
   - EK: Colour is the complement of the light absorbed; d⁰ and d¹⁰ are colourless unless charge transfer.
   - P2 · drills: in-ion-colour, in-colour-identify
+- ● **IN-3.2.A** (icho-appendix-c:a1, acs-accm-inorganic:III.E.2) Count the stereoisomers of an octahedral or square-planar complex.
+  - EK: Geometric isomers by trans pairs, then check each for chirality.
+  - P3 · drills: in-isomer-type, in-isomer-count
 
 ## Unit 4 · Redox and qualitative analysis
 
@@ -169,7 +169,7 @@ Big ideas: PACK
 
 
 
-- ● **IN-5.2.A** (icho-appendix-c:a1, acs-accm-inorganic:I.D.2, acs-accm-inorganic:IX.A.3, acs-accm-inorganic:IX.D.6) Apply Bragg's law with cubic plane spacings.
+- ● **IN-5.2.A** (icho-appendix-c:a1, acs-accm-inorganic:I.D.2, acs-accm-inorganic:IX.A.3, acs-accm-inorganic:IX.D.6, acs-accm-analytical:III.H.1) Apply Bragg's law with cubic plane spacings.
   - EK: nλ = 2d sin θ; d = a/√(h²+k²+l²).
   - P1 · drills: in-bragg, in-bragg-edge
 

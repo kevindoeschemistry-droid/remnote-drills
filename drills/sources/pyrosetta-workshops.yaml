@@ -1,0 +1,22 @@
+# The PyRosetta Jupyter Notebook workshops (RosettaCommons/PyRosetta.notebooks), read as a table of contents in
+# Nov 2026 and mapped to the design.* skills of the Computational Protein Design framework (CPD). Chapter 1 is
+# installation and chapters 10, 11, 13 and 14 (symmetry, density, carbohydrates, RNA) are not drilled here.
+id: pyrosetta-workshops
+title: "PyRosetta Jupyter Notebook workshops"
+short: "PyRosetta notebooks"
+year: 2021
+field: protein-design
+chapters:
+  - { n: 1, title: "Protein geometry and rotamers (workshops 2.4-2.5, 6.1)", skills: [design.structure] }
+  - { n: 2, title: "Introduction to PyRosetta: poses and geometry", skills: [design.representation] }
+  - { n: 3, title: "Energy score functions", skills: [design.energy] }
+  - { n: 4, title: "Introduction to folding", skills: [design.sampling] }
+  - { n: 5, title: "Structure refinement", skills: [design.sampling] }
+  - { n: 6, title: "Packing and design", skills: [design.sequence] }
+  - { n: 7, title: "Docking", skills: [design.interfaces] }
+  - { n: 8, title: "Ligand refinement", skills: [design.interfaces] }
+  - { n: 9, title: "Loop modelling", skills: [design.denovo] }
+  - { n: 12, title: "Working with antibodies", skills: [design.interfaces] }
+  - { n: 15, title: "Modelling membrane proteins", skills: [design.validation] }
+  - { n: 16, title: "Running Rosetta in parallel", skills: [design.validation] }
+  - { n: 17, title: "Learned prediction and design pipelines (DL4Proteins companion workshops)", skills: [design.ml] }

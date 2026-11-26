@@ -50,14 +50,6 @@ Big ideas: PE
   - EK: Practised through: CH-3.1.A, CH-3.1.B, CH-3.9.A, CH-3.10.A.
   - Needs: CH-3.1.A, CH-3.1.B, CH-3.9.A, CH-3.10.A
   - P1 · drills: ac-imf-identify, ac-boiling-rank, ac-rf-value, ac-solubility-polar
-- ● **NG-1.1.D** (ngss-hs:PS1-4) PS1-4: Bond energy changes account for energy released or absorbed.
-  - EK: Practised through: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A.
-  - Needs: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A
-  - P1 · drills: pc-dh-du, ac-energy-diagram, ac-heating-curve, ac-bond-enthalpy
-- ● **NG-1.1.E** (ngss-hs:PS1-5) PS1-5: Temperature and concentration effects on reaction rate.
-  - EK: Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B.
-  - Needs: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B
-  - P1 · drills: ac-rate-coefficients, pc-initial-rates, ac-zero-order, ch-surface-area-cut
 - ● **NG-1.1.F** (ngss-hs:PS1-6) PS1-6: Changing conditions to shift equilibrium toward product.
   - EK: Practised through: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B.
   - Needs: CH-7.9.A, CH-7.1.A, CH-7.10.A, CH-7.3.B
@@ -70,6 +62,14 @@ Big ideas: PE
   - EK: Practised through: DAT-2.12.B, DAT-2.12.A, DAT-2.12.C, NU-1.1.A.
   - Needs: DAT-2.12.B, DAT-2.12.A, DAT-2.12.C, NU-1.1.A
   - P1 · drills: nu-fraction-remaining, ac-nuclear-equation, nu-binding-energy, nu-neutron-number
+- ● **NG-1.1.D** (ngss-hs:PS1-4) PS1-4: Bond energy changes account for energy released or absorbed.
+  - EK: Practised through: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A.
+  - Needs: CH-6.10.B, CH-6.2.A, CH-6.5.B, CH-6.7.A
+  - P1 · drills: pc-dh-du, ac-energy-diagram, ac-heating-curve, ac-bond-enthalpy
+- ● **NG-1.1.E** (ngss-hs:PS1-5) PS1-5: Temperature and concentration effects on reaction rate.
+  - EK: Practised through: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B.
+  - Needs: CH-5.1.A, CH-5.2.A, CH-5.3.A, CH-5.5.B
+  - P1 · drills: ac-rate-coefficients, pc-initial-rates, ac-zero-order, ch-surface-area-cut
 
 ## Unit 2 · PS2 · Motion and stability: forces and interactions
 
@@ -79,6 +79,9 @@ Big ideas: PE
 
 
 
+- ● **NG-2.1.F** (ngss-hs:PS2-6) PS2-6: Molecular structure and the function of designed materials.
+  - EK: Practised here; no subject framework reaches it yet.
+  - P2 · drills: ng-designed-materials
 - ● **NG-2.1.A** (ngss-hs:PS2-1) PS2-1: Newton's second law from data.
   - EK: Practised through: PH-2.5.A, PH-2.5.B, PH-2.7.A, PH-1.3.B.
   - Needs: PH-2.5.A, PH-2.5.B, PH-2.7.A, PH-1.3.B
@@ -98,9 +101,6 @@ Big ideas: PE
   - EK: Practised through: PH-12.1.A, PH-12.2.A, PH-12.2.B, PH-12.3.A.
   - Needs: PH-12.1.A, PH-12.2.A, PH-12.2.B, PH-12.3.A
   - P1 · drills: ph-magnetic-dipole, em-magnetic-force, em-cyclotron-radius, em-field-of-wire
-- ● **NG-2.1.F** (ngss-hs:PS2-6) PS2-6: Molecular structure and the function of designed materials.
-  - EK: Practised here; no subject framework reaches it yet.
-  - P2 · drills: ng-designed-materials
 
 ## Unit 3 · PS3 · Energy
 
@@ -165,10 +165,6 @@ Big ideas: PE
 
 
 
-- ● **NG-5.1.A** (ngss-hs:LS1-1) LS1-1: DNA structure determines protein structure and function.
-  - EK: Practised through: BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A.
-  - Needs: BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A
-  - P1 · drills: bi-dna-evidence, bi-replication-enzyme, bi-eukaryote-regulation, bi-mutation-type
 - ● **NG-5.1.B** (ngss-hs:LS1-2) LS1-2: Hierarchical organisation of interacting body systems.
   - EK: Practised through: BI-9.4.A, BI-9.1.A, BI-9.1.B, BI-9.2.A.
   - Needs: BI-9.4.A, BI-9.1.A, BI-9.1.B, BI-9.2.A
@@ -189,6 +185,10 @@ Big ideas: PE
   - EK: Practised through: BI-1.1.A, BI-1.1.B, BI-1.2.A, BI-1.3.A.
   - Needs: BI-1.1.A, BI-1.1.B, BI-1.2.A, BI-1.3.A
   - P1 · drills: bi-water-interaction, bi-water-property, bi-macromolecule-elements, bi-dehydration-hydrolysis
+- ● **NG-5.1.A** (ngss-hs:LS1-1) LS1-1: DNA structure determines protein structure and function.
+  - EK: Practised through: BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A.
+  - Needs: BI-6.1.B, BI-6.2.A, BI-6.5.A, BI-6.7.A
+  - P1 · drills: bi-dna-evidence, bi-replication-enzyme, bi-eukaryote-regulation, bi-mutation-type
 - ● **NG-5.1.G** (ngss-hs:LS1-7) LS1-7: Cellular respiration as bond breaking and forming.
   - EK: Practised through: BI-3.6.D, BI-3.6.E, BI-3.1.A, BI-3.2.A.
   - Needs: BI-3.6.D, BI-3.6.E, BI-3.1.A, BI-3.2.A
@@ -202,6 +202,18 @@ Big ideas: PE
 
 
 
+- ● **NG-6.1.E** (ngss-hs:LS2-5) LS2-5: Carbon cycling.
+  - EK: Practised through: BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A.
+  - Needs: BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A
+  - P1 · drills: bi-biogeochemical, bi-behavior-response, bi-behavior-signal, bi-thermoregulation
+- ● **NG-6.1.F** (ngss-hs:LS2-6) LS2-6: Ecosystem stability and change.
+  - EK: Practised through: BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C.
+  - Needs: BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C
+  - P1 · drills: bi-ecosystem-stability, bi-succession, bi-community-data
+- ● **NG-6.1.H** (ngss-hs:LS2-8) LS2-8: Group behaviour and survival.
+  - EK: Practised through: BI-8.1.B, BI-8.1.A.
+  - Needs: BI-8.1.B, BI-8.1.A
+  - P1 · drills: bi-behavior-signal, bi-behavior-response
 - ● **NG-6.1.A** (ngss-hs:LS2-1) LS2-1: Carrying capacity.
   - EK: Practised through: BI-8.4.A, BI-8.3.A, BI-8.2.B.
   - Needs: BI-8.4.A, BI-8.3.A, BI-8.2.B
@@ -218,21 +230,9 @@ Big ideas: PE
   - EK: Practised through: BI-8.1.A, BI-8.1.B, BI-8.2.B, BI-8.2.C.
   - Needs: BI-8.1.A, BI-8.1.B, BI-8.2.B, BI-8.2.C
   - P1 · drills: bi-behavior-response, bi-behavior-signal, bi-energy-availability, bi-trophic-energy
-- ● **NG-6.1.E** (ngss-hs:LS2-5) LS2-5: Carbon cycling.
-  - EK: Practised through: BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A.
-  - Needs: BI-8.2.D, BI-8.1.A, BI-8.1.B, BI-8.2.A
-  - P1 · drills: bi-biogeochemical, bi-behavior-response, bi-behavior-signal, bi-thermoregulation
-- ● **NG-6.1.F** (ngss-hs:LS2-6) LS2-6: Ecosystem stability and change.
-  - EK: Practised through: BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C.
-  - Needs: BI-8.6.A, BI-8.6.B, BI-8.5.D, BI-8.5.C
-  - P1 · drills: bi-ecosystem-stability, bi-succession, bi-community-data
 - ● **NG-6.1.G** (ngss-hs:LS2-7) LS2-7: Reduce human impact on the environment and biodiversity.
   - EK: Practised here; no subject framework reaches it yet.
   - P2 · drills: ng-species-area
-- ● **NG-6.1.H** (ngss-hs:LS2-8) LS2-8: Group behaviour and survival.
-  - EK: Practised through: BI-8.1.B, BI-8.1.A.
-  - Needs: BI-8.1.B, BI-8.1.A
-  - P1 · drills: bi-behavior-signal, bi-behavior-response
 
 ## Unit 7 · LS3 · Heredity: inheritance and variation of traits
 
@@ -271,10 +271,6 @@ Big ideas: PE
   - EK: Practised through: BI-7.11.A, BI-7.3.B, BI-7.6.A, BI-7.8.A.
   - Needs: BI-7.11.A, BI-7.3.B, BI-7.6.A, BI-7.8.A
   - P1 · drills: bi-extinction, bi-convergent, bi-evolution-evidence, bi-ongoing-evolution
-- ● **NG-8.1.C** (ngss-hs:LS4-3) LS4-3: Statistics of advantageous traits.
-  - EK: Practised through: BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A.
-  - Needs: BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A
-  - P1 · drills: bi-hardy-weinberg, bi-fitness, bi-hw-test, bi-selection-type
 - ● **NG-8.1.D** (ngss-hs:LS4-4) LS4-4: Natural selection leads to adaptation.
   - EK: Practised through: BI-7.1.A, BI-7.1.B, BI-7.2.A, BI-7.3.B.
   - Needs: BI-7.1.A, BI-7.1.B, BI-7.2.A, BI-7.3.B
@@ -283,6 +279,10 @@ Big ideas: PE
   - EK: Practised through: BI-7.11.B, BI-7.11.C, BI-7.10.A, BI-7.11.A.
   - Needs: BI-7.11.B, BI-7.11.C, BI-7.10.A, BI-7.11.A
   - P1 · drills: bi-extinction, bi-speciation
+- ● **NG-8.1.C** (ngss-hs:LS4-3) LS4-3: Statistics of advantageous traits.
+  - EK: Practised through: BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A.
+  - Needs: BI-7.5.A, BI-7.1.B, BI-7.5.C, BI-7.2.A
+  - P1 · drills: bi-hardy-weinberg, bi-fitness, bi-hw-test, bi-selection-type
 - ● **NG-8.1.F** (ngss-hs:LS4-6) LS4-6: Simulate solutions to biodiversity threats.
   - EK: Practised here; no subject framework reaches it yet.
   - P2 · drills: ng-harvest-simulation
@@ -328,6 +328,13 @@ Big ideas: PE
 
 
 
+- ● **NG-10.1.C** (ngss-hs:ESS2-3) ESS2-3: Thermal convection in the mantle.
+  - EK: Practised through: ES-2.1.B, ES-2.1.A.
+  - Needs: ES-2.1.B, ES-2.1.A
+  - P1 · drills: es-seismic, es-plate-boundary
+- ● **NG-10.1.G** (ngss-hs:ESS2-7) ESS2-7: Coevolution of Earth systems and life.
+  - EK: Practised here; no subject framework reaches it yet.
+  - P2 · drills: ng-coevolution
 - ● **NG-10.1.A** (ngss-hs:ESS2-1) ESS2-1: Internal and surface processes form landforms.
   - EK: Practised through: ES-2.1.A, ES-2.1.B, ES-2.2.A, ES-2.2.B.
   - Needs: ES-2.1.A, ES-2.1.B, ES-2.2.A, ES-2.2.B
@@ -336,10 +343,6 @@ Big ideas: PE
   - EK: Practised through: ES-3.1.D, ES-3.1.A, ES-3.1.B, ES-3.1.C.
   - Needs: ES-3.1.D, ES-3.1.A, ES-3.1.B, ES-3.1.C
   - P1 · drills: es-feedback, es-equilibrium-temp, es-one-layer, es-co2-forcing
-- ● **NG-10.1.C** (ngss-hs:ESS2-3) ESS2-3: Thermal convection in the mantle.
-  - EK: Practised through: ES-2.1.B, ES-2.1.A.
-  - Needs: ES-2.1.B, ES-2.1.A
-  - P1 · drills: es-seismic, es-plate-boundary
 - ● **NG-10.1.D** (ngss-hs:ESS2-4) ESS2-4: Energy flow and climate change.
   - EK: Practised through: ES-3.1.A, ES-3.1.C, ES-3.1.D, ES-3.1.B.
   - Needs: ES-3.1.A, ES-3.1.C, ES-3.1.D, ES-3.1.B
@@ -351,9 +354,6 @@ Big ideas: PE
   - EK: Practised through: ES-3.2.A, ES-3.1.A, ES-3.1.B, ES-3.1.C.
   - Needs: ES-3.2.A, ES-3.1.A, ES-3.1.B, ES-3.1.C
   - P1 · drills: es-carbon-mass, es-equilibrium-temp, es-one-layer, es-co2-forcing
-- ● **NG-10.1.G** (ngss-hs:ESS2-7) ESS2-7: Coevolution of Earth systems and life.
-  - EK: Practised here; no subject framework reaches it yet.
-  - P2 · drills: ng-coevolution
 
 ## Unit 11 · ESS3 · Earth and human activity
 

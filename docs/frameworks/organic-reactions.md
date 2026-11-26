@@ -145,6 +145,9 @@ Big ideas: RULES, REAGENT
 
 
 
+- ● **OR-6.1.D** (acs-accm-organic:V.D.2) Predict nucleophilic aromatic substitution: when it happens and where.
+  - EK: SNAr needs a leaving group with strong withdrawing groups (NO₂) ortho or para to it to stabilise the Meisenheimer complex; F is the best leaving group here. Without them, a strong base can go by benzyne.
+  - P1 · drills: or-snar, or-snar-2
 - ● **OR-6.1.A** (bruice-8e:18, acs-accm-organic:V.D.2) Predict the product of brominating, nitrating and acylating benzene.
   - EK: Substitution, not addition: the ring gets its aromaticity back.
   - P1 · P2 · drills: rx-predict-aromatic-bromination, rx-reagent-aromatic-bromination, rx-predict-aromatic-nitration, rx-reagent-aromatic-nitration, rx-predict-aromatic-acylation, rx-reagent-aromatic-acylation
@@ -154,9 +157,6 @@ Big ideas: RULES, REAGENT
 - ● **OR-6.1.C** (bruice-8e:18) Predict the product of reducing a nitro group and of oxidising or brominating a benzylic position.
   - EK: Nitro to amino; any benzylic C–H side chain to CO₂H; NBS brominates the benzylic carbon.
   - P1 · P2 · drills: rx-predict-aromatic-nitro-reduction, rx-reagent-aromatic-nitro-reduction, rx-predict-aromatic-side-chain-oxidation, rx-reagent-aromatic-side-chain-oxidation, rx-predict-aromatic-benzylic-bromination, rx-reagent-aromatic-benzylic-bromination
-- ● **OR-6.1.D** (acs-accm-organic:V.D.2) Predict nucleophilic aromatic substitution: when it happens and where.
-  - EK: SNAr needs a leaving group with strong withdrawing groups (NO₂) ortho or para to it to stabilise the Meisenheimer complex; F is the best leaving group here. Without them, a strong base can go by benzyne.
-  - P1 · drills: or-snar, or-snar-2
 
 ## Unit 7 · Making carbon–carbon bonds
 
@@ -178,6 +178,15 @@ Big ideas: RULES
 
 
 
+- ● **OR-8.1.E** (acs-accm-organic:VII.C.3, acs-accm-organic:I.B.2, acs-accm-organic:I.B.3) Read a step's curved arrows: name the nucleophilic and electrophilic atoms and the formal charges that result.
+  - EK: An arrow starts at a lone pair or a bond and ends at an atom or bond; the atom that gains a bond from a lone pair loses formal negative charge, the donor gains positive.
+  - P1 · drills: or-arrow-read, or-arrow-sites
+- ● **OR-8.1.F** (acs-accm-organic:VII.C.1, acs-accm-organic:VIII.G.1) Put the steps of an acid- or base-catalysed carbonyl mechanism in order.
+  - EK: Acid catalysis: protonate, add, deprotonate, protonate, eliminate, deprotonate (PADPED for Fischer esterification and acetal formation).
+  - P1 · drills: or-mech-order, or-mech-intermediate
+- ● **OR-8.1.G** (acs-accm-organic:V.D.1, acs-accm-organic:VII.F.2) Predict carbocation rearrangements by hydride and alkyl shifts.
+  - EK: A 1,2-hydride or 1,2-methyl shift happens when it turns a 1° or 2° cation into a more stable 2° or 3° (or resonance-stabilised) one; ring expansion relieves strain.
+  - P1 · drills: or-rearrangement, or-rearrangement-2
 - ● **OR-8.1.A** (acs-accm-organic:VII.C.3, acs-accm-organic:VII.D.1) Draw the SN2 mechanism: both arrows and the products.
   - EK: Backside attack and loss of the leaving group in one step; inversion.
   - P1 · drills: st-mech-sn2-1, or-sn2-requirements
@@ -190,15 +199,6 @@ Big ideas: RULES
 - ● **OR-8.1.D** Draw the two steps of nucleophilic acyl substitution, with the tetrahedral intermediate.
   - EK: Addition to C=O, then elimination of the leaving group.
   - P1 · drills: st-mech-acyl-substitution-1, st-mech-acyl-substitution-2
-- ● **OR-8.1.E** (acs-accm-organic:VII.C.3, acs-accm-organic:I.B.2, acs-accm-organic:I.B.3) Read a step's curved arrows: name the nucleophilic and electrophilic atoms and the formal charges that result.
-  - EK: An arrow starts at a lone pair or a bond and ends at an atom or bond; the atom that gains a bond from a lone pair loses formal negative charge, the donor gains positive.
-  - P1 · drills: or-arrow-read, or-arrow-sites
-- ● **OR-8.1.F** (acs-accm-organic:VII.C.1, acs-accm-organic:VIII.G.1) Put the steps of an acid- or base-catalysed carbonyl mechanism in order.
-  - EK: Acid catalysis: protonate, add, deprotonate, protonate, eliminate, deprotonate (PADPED for Fischer esterification and acetal formation).
-  - P1 · drills: or-mech-order, or-mech-intermediate
-- ● **OR-8.1.G** (acs-accm-organic:V.D.1, acs-accm-organic:VII.F.2) Predict carbocation rearrangements by hydride and alkyl shifts.
-  - EK: A 1,2-hydride or 1,2-methyl shift happens when it turns a 1° or 2° cation into a more stable 2° or 3° (or resonance-stabilised) one; ring expansion relieves strain.
-  - P1 · drills: or-rearrangement, or-rearrangement-2
 
 ## Unit 9 · Physical organic chemistry and practice (extension)
 

@@ -83,6 +83,10 @@ Big ideas: SYI, ENE, IST
   - EK: Monosaccharide–glycosidic; amino acid–peptide; nucleotide–phosphodiester; glycerol + fatty acids–ester.
   - Needs: BI-1.3.A
   - P1 · P2 · drills: bi-monomer-bond, bi-bond-identify
+- ● **BI-1.4.E** (iupac-aa-1983:3AA-1) Draw the structure of each of the 20 coded amino acids from its name, and name each from its structure.
+  - EK: Every one is H2N–CH(R)–COOH; only R changes (proline's R closes back onto the N).
+  - Needs: BI-1.4.A
+  - P1 · P2 · drills: aa-draw-gly, aa-name-gly, aa-draw-ala, aa-name-ala, aa-draw-val, aa-name-val, aa-draw-leu, aa-name-leu, aa-draw-ile, aa-name-ile, aa-draw-ser, aa-name-ser, aa-draw-thr, aa-name-thr, aa-draw-cys, aa-name-cys, aa-draw-met, aa-name-met, aa-draw-asp, aa-name-asp, aa-draw-glu, aa-name-glu, aa-draw-asn, aa-name-asn, aa-draw-gln, aa-name-gln, aa-draw-lys, aa-name-lys, aa-draw-arg, aa-name-arg, aa-draw-his, aa-name-his, aa-draw-phe, aa-name-phe, aa-draw-tyr, aa-name-tyr, aa-draw-trp, aa-name-trp, aa-draw-pro, aa-name-pro
 - ● **BI-1.4.B** (SYI-1.B) Classify an amino acid side chain as nonpolar, polar or charged and predict where it sits in a folded soluble protein.
   - EK: Nonpolar R groups bury in the core; polar and charged ones face water.
   - Needs: BI-1.4.A, BI-1.1.A
@@ -93,10 +97,6 @@ Big ideas: SYI, ENE, IST
 - ● **BI-1.4.D** (SYI-1.B) Tell structural from storage polysaccharides by linkage and branching.
   - EK: Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse.
   - P1 · drills: bi-polysaccharide, bi-polysaccharide-scenario
-- ● **BI-1.4.E** (iupac-aa-1983:3AA-1) Draw the structure of each of the 20 coded amino acids from its name, and name each from its structure.
-  - EK: Every one is H2N–CH(R)–COOH; only R changes (proline's R closes back onto the N).
-  - Needs: BI-1.4.A
-  - P1 · P2 · drills: aa-draw-gly, aa-name-gly, aa-draw-ala, aa-name-ala, aa-draw-val, aa-name-val, aa-draw-leu, aa-name-leu, aa-draw-ile, aa-name-ile, aa-draw-ser, aa-name-ser, aa-draw-thr, aa-name-thr, aa-draw-cys, aa-name-cys, aa-draw-met, aa-name-met, aa-draw-asp, aa-name-asp, aa-draw-glu, aa-name-glu, aa-draw-asn, aa-name-asn, aa-draw-gln, aa-name-gln, aa-draw-lys, aa-name-lys, aa-draw-arg, aa-name-arg, aa-draw-his, aa-name-his, aa-draw-phe, aa-name-phe, aa-draw-tyr, aa-name-tyr, aa-draw-trp, aa-name-trp, aa-draw-pro, aa-name-pro
 
 ### 1.5 Structure and function of biological macromolecules
 

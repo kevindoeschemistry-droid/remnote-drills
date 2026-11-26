@@ -16,7 +16,8 @@
   "primary": "asbmb-core-2013",
   "also": [
    "asbmb-cert",
-   "aamc-mcat-outline"
+   "aamc-mcat-outline",
+   "acs-accm-analytical"
   ],
   "note": "Concepts and statements from ASBMB (core concepts paper and exam objectives); the objective list is ours."
  },
@@ -78,7 +79,10 @@
      "los": [
       {
        "id": "A",
-       "std": [],
+       "std": [
+        "asbmb-core-2013:3.1",
+        "asbmb-core-2013:3.3"
+       ],
        "do": "Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.",
        "ek": [
         "pH = pKa + log([A⁻]/[HA]); phosphate (pKa 6.86) and bicarbonate (6.1) buffer cells and blood."
@@ -93,7 +97,9 @@
       },
       {
        "id": "B",
-       "std": [],
+       "std": [
+        "asbmb-core-2013:3.1"
+       ],
        "do": "Compute the fraction of an ionisable side chain protonated at a given pH.",
        "ek": [
         "f(HA) = 1/(1 + 10^(pH − pKa)); His (pKa ≈ 6.0) switches near physiological pH."
@@ -132,7 +138,8 @@
       {
        "id": "B",
        "std": [
-        "aamc-mcat-outline:1A"
+        "aamc-mcat-outline:1A",
+        "asbmb-core-2013:5.2"
        ],
        "do": "Compute the net charge of a peptide at a given pH from its ionisable groups.",
        "ek": [
@@ -155,8 +162,8 @@
    "n": 2,
    "title": "Protein structure and folding",
    "std": [
-    "asbmb-core-2013:T15",
-    "asbmb-core-2013:T16",
+    "asbmb-core-2013:5.1",
+    "asbmb-core-2013:5.2",
     "asbmb-cert:2.1",
     "asbmb-cert:2.3",
     "asbmb-cert:1.3",
@@ -175,7 +182,8 @@
       {
        "id": "A",
        "std": [
-        "asbmb-cert:2.1"
+        "asbmb-cert:2.1",
+        "asbmb-core-2013:5.1"
        ],
        "do": "Relate secondary-structure geometry to length: residues per turn and rise per residue.",
        "ek": [
@@ -192,7 +200,8 @@
       {
        "id": "B",
        "std": [
-        "asbmb-cert:2.3"
+        "asbmb-cert:2.3",
+        "asbmb-core-2013:5.2"
        ],
        "do": "Identify the interactions that stabilise a structure and predict the effect of a substitution.",
        "ek": [
@@ -215,8 +224,9 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T16",
-        "asbmb-cert:1.3"
+        "asbmb-core-2013:5.2",
+        "asbmb-cert:1.3",
+        "asbmb-core-2013:5.5"
        ],
        "do": "Compute ΔG of folding, the melting temperature and the fraction folded for a two-state protein.",
        "ek": [
@@ -233,7 +243,7 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T16",
+        "asbmb-core-2013:5.2",
         "asbmb-cert:2.3"
        ],
        "do": "Convert a mutation's ΔΔG into a change in stability, folding equilibrium constant or fraction unfolded.",
@@ -251,7 +261,9 @@
       {
        "id": "C",
        "std": [
-        "asbmb-cert:1.3"
+        "asbmb-cert:1.3",
+        "asbmb-core-2013:5.2",
+        "asbmb-core-2013:5.5"
        ],
        "do": "Explain the hydrophobic effect and why folding is not a random search.",
        "ek": [
@@ -264,6 +276,23 @@
         "bc-hydrophobic",
         "bc-levinthal"
        ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "asbmb-core-2013:5.6"
+       ],
+       "do": "Recognise intrinsically disordered proteins from their composition and say how they still function.",
+       "ek": [
+        "Few hydrophobic residues and high net charge keep a chain unfolded; disordered regions bind by folding on contact, often to many partners, and are common in signalling."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "bc-idp-facts",
+        "bc-idp-charge"
+       ]
       }
      ]
     }
@@ -274,8 +303,8 @@
    "n": 3,
    "title": "Binding, cooperativity and allostery",
    "std": [
-    "asbmb-core-2013:T17",
-    "asbmb-core-2013:T18",
+    "asbmb-core-2013:5.3",
+    "asbmb-core-2013:5.7",
     "asbmb-cert:2.2",
     "aamc-mcat-outline:1A"
    ],
@@ -291,7 +320,8 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T17"
+        "asbmb-core-2013:5.3",
+        "asbmb-core-2013:5.4"
        ],
        "do": "Compute fractional saturation and the binding free energy from K_d.",
        "ek": [
@@ -308,7 +338,8 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T17"
+        "asbmb-core-2013:5.3",
+        "asbmb-core-2013:5.4"
        ],
        "do": "Compute the ΔΔG of binding between two variants from their K_d values.",
        "ek": [
@@ -331,7 +362,8 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T18"
+        "asbmb-core-2013:5.7",
+        "asbmb-core-2013:5.4"
        ],
        "do": "Use the Hill equation and read cooperativity from n_H.",
        "ek": [
@@ -348,7 +380,7 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T18",
+        "asbmb-core-2013:5.7",
         "asbmb-cert:1.1"
        ],
        "do": "Explain haemoglobin's cooperativity and its regulation by H⁺, CO₂ and 2,3-BPG.",
@@ -372,7 +404,7 @@
    "n": 4,
    "title": "Enzymes",
    "std": [
-    "asbmb-core-2013:T5",
+    "asbmb-core-2013:2.2",
     "asbmb-cert:1.5",
     "asbmb-cert:2.4",
     "aamc-mcat-outline:5E"
@@ -389,8 +421,9 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T5",
-        "asbmb-cert:2.4"
+        "asbmb-core-2013:2.2",
+        "asbmb-cert:2.4",
+        "acs-accm-analytical:VII.E.1"
        ],
        "do": "Compute an initial rate from V_max, K_M and [S].",
        "ek": [
@@ -407,7 +440,7 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T5"
+        "asbmb-core-2013:2.2"
        ],
        "do": "Compute k_cat and catalytic efficiency and compare with the diffusion limit.",
        "ek": [
@@ -424,8 +457,9 @@
       {
        "id": "C",
        "std": [
-        "asbmb-core-2013:T5",
-        "asbmb-cert:2.4"
+        "asbmb-core-2013:2.2",
+        "asbmb-cert:2.4",
+        "acs-accm-analytical:X.A.2"
        ],
        "do": "Read K_M and V_max from a Lineweaver–Burk plot.",
        "ek": [
@@ -528,8 +562,8 @@
    "n": 5,
    "title": "Bioenergetics",
    "std": [
-    "asbmb-core-2013:T6",
-    "asbmb-core-2013:T7",
+    "asbmb-core-2013:2.3",
+    "asbmb-core-2013:2.4",
     "asbmb-cert:1.4",
     "aamc-mcat-outline:1D"
    ],
@@ -545,7 +579,7 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T6"
+        "asbmb-core-2013:2.3"
        ],
        "do": "Compute ΔG of ATP hydrolysis at cellular concentrations from ΔG°′ and the mass-action ratio.",
        "ek": [
@@ -562,7 +596,7 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T7",
+        "asbmb-core-2013:2.4",
         "asbmb-cert:1.4"
        ],
        "do": "Find the overall ΔG°′ and K′ of a coupled reaction.",
@@ -586,7 +620,8 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T6"
+        "asbmb-core-2013:2.3",
+        "asbmb-core-2013:2.1"
        ],
        "do": "Compute ΔG°′ of an electron transfer from standard reduction potentials.",
        "ek": [
@@ -603,7 +638,8 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T8"
+        "asbmb-core-2013:3.2",
+        "asbmb-core-2013:2.1"
        ],
        "do": "Compute the proton-motive force and the free energy per proton moved into the matrix.",
        "ek": [
@@ -641,7 +677,9 @@
      "los": [
       {
        "id": "A",
-       "std": [],
+       "std": [
+        "asbmb-core-2013:2.1"
+       ],
        "do": "Compute the Nernst equilibrium potential of an ion.",
        "ek": [
         "E = (RT/zF) ln([out]/[in]); about 61.5/z mV per decade at 37 °C."
@@ -657,7 +695,8 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T8"
+        "asbmb-core-2013:3.2",
+        "asbmb-core-2013:2.1"
        ],
        "do": "Compute the free energy of moving a charged solute across a membrane.",
        "ek": [
@@ -697,8 +736,8 @@
    "n": 7,
    "title": "Metabolism",
    "std": [
-    "asbmb-core-2013:T6",
-    "asbmb-core-2013:T9",
+    "asbmb-core-2013:2.3",
+    "asbmb-core-2013:3.5",
     "asbmb-cert:1.1",
     "asbmb-cert:1.2",
     "aamc-mcat-outline:1D"
@@ -716,7 +755,8 @@
       {
        "id": "A",
        "std": [
-        "asbmb-cert:1.1"
+        "asbmb-cert:1.1",
+        "asbmb-core-2013:3.4"
        ],
        "do": "Account for the ATP and NADH of glycolysis and name its control points.",
        "ek": [
@@ -734,7 +774,8 @@
        "id": "B",
        "std": [
         "asbmb-cert:1.1",
-        "asbmb-cert:1.2"
+        "asbmb-cert:1.2",
+        "asbmb-core-2013:3.4"
        ],
        "do": "Explain how gluconeogenesis bypasses glycolysis's irreversible steps and what it costs.",
        "ek": [
@@ -757,7 +798,7 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T6"
+        "asbmb-core-2013:2.3"
        ],
        "do": "Compute the ATP yield of complete glucose oxidation from P/O ratios.",
        "ek": [
@@ -797,8 +838,9 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T9",
-        "asbmb-cert:1.1"
+        "asbmb-core-2013:3.5",
+        "asbmb-cert:1.1",
+        "asbmb-core-2013:3.6"
        ],
        "do": "Predict how insulin, glucagon and allosteric effectors regulate fuel metabolism.",
        "ek": [
@@ -814,7 +856,9 @@
       },
       {
        "id": "B",
-       "std": [],
+       "std": [
+        "asbmb-core-2013:3.4"
+       ],
        "do": "Account for the cost and logic of nitrogen disposal through the urea cycle.",
        "ek": [
         "Urea carries two N (one from NH₄⁺ via carbamoyl phosphate, one from aspartate); 4 high-energy phosphate bonds per urea."
@@ -836,10 +880,10 @@
    "n": 8,
    "title": "Nucleic acids and information flow",
    "std": [
-    "asbmb-core-2013:T11",
-    "asbmb-core-2013:T12",
-    "asbmb-core-2013:T13",
-    "asbmb-core-2013:T14",
+    "asbmb-core-2013:4.1",
+    "asbmb-core-2013:4.2",
+    "asbmb-core-2013:4.3",
+    "asbmb-core-2013:4.4",
     "asbmb-cert:3.1",
     "asbmb-cert:3.2",
     "asbmb-cert:3.3",
@@ -858,7 +902,8 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T12"
+        "asbmb-core-2013:4.2",
+        "asbmb-core-2013:4.1"
        ],
        "do": "Use Chargaff's rules to find base composition.",
        "ek": [
@@ -875,7 +920,7 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T12"
+        "asbmb-core-2013:4.2"
        ],
        "do": "Estimate a short duplex's melting temperature and say why GC content raises it.",
        "ek": [
@@ -899,7 +944,7 @@
        "id": "A",
        "std": [
         "asbmb-cert:3.1",
-        "asbmb-core-2013:T4"
+        "asbmb-core-2013:1.5"
        ],
        "do": "Predict a mutation's effect on the protein: silent, missense, nonsense or frameshift.",
        "ek": [
@@ -916,7 +961,7 @@
       {
        "id": "B",
        "std": [
-        "asbmb-core-2013:T14"
+        "asbmb-core-2013:4.4"
        ],
        "do": "Compute the expected number of replication errors per genome from the error rate.",
        "ek": [
@@ -940,7 +985,8 @@
        "id": "A",
        "std": [
         "asbmb-cert:3.2",
-        "asbmb-cert:3.3"
+        "asbmb-cert:3.3",
+        "asbmb-core-2013:4.2"
        ],
        "do": "Predict gene-expression changes from regulatory logic (lac operon, activators, repressors).",
        "ek": [
@@ -956,7 +1002,9 @@
       },
       {
        "id": "B",
-       "std": [],
+       "std": [
+        "asbmb-core-2013:4.3"
+       ],
        "do": "Compute PCR amplification and a qPCR fold change by the ΔΔCt method.",
        "ek": [
         "Copies = N₀·2ⁿ at full efficiency; fold change = 2^(−ΔΔCt)."
@@ -979,7 +1027,7 @@
    "title": "Signalling and regulation",
    "std": [
     "asbmb-cert:3.5",
-    "asbmb-core-2013:T9"
+    "asbmb-core-2013:3.5"
    ],
    "scope": "core",
    "ideas": [
@@ -1046,7 +1094,9 @@
      "los": [
       {
        "id": "A",
-       "std": [],
+       "std": [
+        "acs-accm-analytical:I.D.3"
+       ],
        "do": "Compute protein concentration from A₂₈₀ with the Beer–Lambert law.",
        "ek": [
         "A = εcl; ε₂₈₀ ≈ 5500·nW + 1490·nY + 125·(cystines) M⁻¹ cm⁻¹."
@@ -1097,7 +1147,9 @@
       },
       {
        "id": "B",
-       "std": [],
+       "std": [
+        "acs-accm-analytical:IV.B.1"
+       ],
        "do": "Choose a separation (ion exchange, gel filtration, affinity) from a protein's pI, size or binding.",
        "ek": [
         "Below its pI a protein is positive and binds a cation exchanger; gel filtration elutes large proteins first."
@@ -1119,12 +1171,12 @@
    "n": 11,
    "title": "Evolution and homeostasis",
    "std": [
-    "asbmb-core-2013:T1",
-    "asbmb-core-2013:T2",
-    "asbmb-core-2013:T3",
-    "asbmb-core-2013:T4",
-    "asbmb-core-2013:T8",
-    "asbmb-core-2013:T10",
+    "asbmb-core-2013:1.1",
+    "asbmb-core-2013:1.3",
+    "asbmb-core-2013:1.4",
+    "asbmb-core-2013:1.5",
+    "asbmb-core-2013:3.2",
+    "asbmb-core-2013:3.6",
     "asbmb-cert:2.5",
     "asbmb-cert:3.4",
     "asbmb-cert:1.6"
@@ -1142,8 +1194,9 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T2",
-        "asbmb-core-2013:T3"
+        "asbmb-core-2013:1.3",
+        "asbmb-core-2013:1.4",
+        "asbmb-core-2013:1.2"
        ],
        "do": "Estimate divergence time from sequence differences with a molecular clock.",
        "ek": [
@@ -1161,7 +1214,8 @@
        "id": "B",
        "std": [
         "asbmb-cert:2.5",
-        "asbmb-core-2013:T4"
+        "asbmb-core-2013:1.5",
+        "asbmb-core-2013:1.2"
        ],
        "do": "Judge homology from sequence identity and explain conserved function with changed sequence.",
        "ek": [
@@ -1184,8 +1238,9 @@
       {
        "id": "A",
        "std": [
-        "asbmb-core-2013:T8",
-        "asbmb-core-2013:T10"
+        "asbmb-core-2013:3.2",
+        "asbmb-core-2013:3.6",
+        "asbmb-core-2013:3.3"
        ],
        "do": "Use the mass-action ratio to tell near-equilibrium steps from regulated, far-from-equilibrium ones.",
        "ek": [
@@ -1301,6 +1356,17 @@
    "full": [
     "bc-hydrophobic",
     "bc-levinthal"
+   ],
+   "partial": []
+  },
+  {
+   "code": "BC-2.2.D",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "bc-idp-facts",
+    "bc-idp-charge"
    ],
    "partial": []
   },

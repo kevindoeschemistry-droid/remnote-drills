@@ -11,27 +11,28 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Financial Accounting (CPA FAR) | Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR) | exam-spec | read in part | — | — | 26 | 26 | 0 |
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
-| Analytical Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic | acs-accm | 18 | 18 | 0 |
-| Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general | — | 14 | 12 | 2 |
+| Analytical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Analytical Chemistry (Holme, Bauer, Trate, Reed, Raker & Murphy, J. Chem. Educ. 2020, ed9b00856) | standard | read in full | icho-appendix-c, gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic | — | 42 | 42 | 0 |
+| Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general, acs-accm-analytical | — | 14 | 12 | 2 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | — | — | 88 | 0 | 88 |
-| Biochemistry | ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013) | standard | read in part | asbmb-cert, aamc-mcat-outline | — | 48 | 48 | 0 |
+| Biochemistry | ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013) | standard | read in full | asbmb-cert, aamc-mcat-outline, acs-accm-analytical | — | 49 | 49 | 0 |
 | Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 42 | 42 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
-| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic | — | 73 | 73 | 0 |
-| Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 188 | 188 | 0 |
+| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic, acs-accm-analytical | — | 73 | 73 | 0 |
+| Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 188 | 188 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
+| Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 178 | 135 | 43 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | UC Irvine Chemical and Biomolecular Engineering graduate core: CBE 200, 210, 220A, 220B and 240 (catalogue descriptions, 2025-26) | course | read in part | pe-chemical | — | 38 | 38 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in full | — | — | 81 | 81 | 0 |
 | Information Systems | MSIS 2016 Global Competency Model | standard | read in full | — | — | 53 | 0 | 53 |
-| Advanced Inorganic Chemistry (Cotton & Wilkinson) | ACS Exams Institute Anchoring Concepts Content Map: Inorganic Chemistry (Marek, Raker, Holme & Murphy, J. Chem. Educ. 2018, 95, 233) | standard | read in full | cotton-wilkinson-6e, icho-appendix-c, gre-chemistry, acs-accm-general, acs-accm-organic | — | 80 | 51 | 29 |
-| Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025, acs-accm-general, acs-accm-inorganic | — | 23 | 23 | 0 |
+| Advanced Inorganic Chemistry (Cotton & Wilkinson) | ACS Exams Institute Anchoring Concepts Content Map: Inorganic Chemistry (Marek, Raker, Holme & Murphy, J. Chem. Educ. 2018, 95, 233) | standard | read in full | cotton-wilkinson-6e, icho-appendix-c, gre-chemistry, acs-accm-general, acs-accm-organic, acs-accm-analytical | — | 80 | 51 | 29 |
+| Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025, acs-accm-general, acs-accm-inorganic, acs-accm-analytical | — | 23 | 23 | 0 |
 | Linear Algebra | MAA CUPM Linear Algebra Course Area Report (August 17, 2023) | standard | read in full | cupm-2015-la, lay-5e, webwork-opl, lacsg-2 | — | 60 | 60 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
@@ -39,18 +40,19 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
-| Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | — | — | 106 | 0 | 106 |
-| NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 39 | 39 | 0 |
+| Molecular Simulation | LiveCoMS best-practice papers for molecular simulation | course | read in part | livecoms-afe, alchemistry-wiki | — | 121 | 15 | 106 |
+| NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
-| Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics | — | 19 | 19 | 0 |
+| Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics, acs-accm-analytical | — | 19 | 19 | 0 |
 | Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
 | Organic Reactions: Predict the Product | ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443) | standard | read in full | bruice-8e, ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry, acs-accm-general, acs-accm-inorganic | — | 46 | 42 | 4 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c, acs-accm-general, acs-accm-inorganic | — | 15 | 15 | 0 |
-| Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 158 | 158 | 0 |
+| Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 158 | 158 | 0 |
 | Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 9 | 9 | 0 |
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
+| Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 51 | 51 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 46 | 33 | 13 |
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
@@ -66,7 +68,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Financial Accounting (CPA FAR)**: Units are the FAR blueprint's three areas and topics are its groups; the objectives are ours, written against the group titles (the representative tasks were not read).
 - **AI Basics**: Units follow the ten modules of Harper Carroll's free Academy course. Only her module titles were readable, so the objectives under them are a house list.
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
-- **Analytical Chemistry**: Topics named by IChO Appendix C (read in full), the GRE Chemistry analytical area and MCAT 5C. The ACS analytical content map was not read; objectives and their order are ours.
+- **Analytical Chemistry**: Primary since Nov 2026: the ACS analytical content map, read in full; every articulation is answered (unit 6 was built for the ones nothing else reached). Earlier topics were named by IChO Appendix C, GRE Chemistry and MCAT 5C. Objectives and their order are ours.
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard lists these values; the ACS Physical Chemistry content map (read) asks for the mole-scale and Boltzmann reasoning they serve, and AQ objectives cite those articulations.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biochemistry**: Concepts and statements from ASBMB (core concepts paper and exam objectives); the objective list is ours.
@@ -76,6 +78,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: Every topic in units 1–9 cites its College Board learning objectives (92 of 92, read Nov 2026). Objectives past Unit 2 were first written from topic titles; check them against the LO text when revising.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Electric Double Layers**: A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
+- **Electronic Structure**: No accredited standard exists at this level. The Psi4NumPy modules are the closest published curriculum and the MolSSI lesson fixes the practical units; Szabo & Ostlund is a theory reference only. Objectives are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
 - **Graduate Chemical Engineering Core**: UCI's graduate core courses by catalogue description (read in part); no syllabus or past comprehensive exam was read, so the objectives are ours. PE Chemical is the nearest published exam and stops below this level.
@@ -100,6 +103,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Physical Chemistry**: Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md.
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Process Design, Economics and Safety**: Topics from FE Chemical areas 13, 15, 16 and PE Chemical area 7 (read in full); objectives and their order are ours.
+- **Computational Protein Design**: No accredited standard exists. The notebook workshops are the closest published curriculum; the energy-function paper, the deep-learning workshops and the review fix the content of the later units. Objectives are ours.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
 - **Separations**: Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
@@ -117,13 +121,13 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **AI Safety**: course, read in full
 - **Anchor Quantities**: reference, read in part
 - **Basketball**: standard, read in part
-- **Biochemistry**: standard, read in part
 - **Biology (AP)**: standard, read in part
 - **Biosecurity**: course, read in part
 - **Chemistry Olympiad**: exam-spec, read in part
 - **Chemistry (AP)**: standard, read in part
 - **Earth and Space Science**: standard, read in part
 - **Electric Double Layers**: textbook, read in part
+- **Electronic Structure**: course, read in part
 - **Applied Engineering Mathematics**: textbook, read in full
 - **Graduate Chemical Engineering Core**: course, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
@@ -134,6 +138,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
 - **Physics (AP)**: standard, read in part
+- **Computational Protein Design**: course, read in part
 - **Speaking and Articulation**: rubric, read in full
 - **SQL**: exam-spec, read through a crosswalk
 - **Statistics**: standard, read in part
@@ -2268,18 +2273,100 @@ https://dlcp.dc.gov/sites/default/files/dc/sites/DLCP/publication/attachments/Un
 
 https://nclex.com/files/2026_RN_Test%20Plan_English-F.pdf
 
-8 of 8 items have at least one objective answering to them.
+90 of 90 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| MOC | Management of Care (15-21%) | 3 | 3 | nclex-rn (3) |
-| SIPC | Safety and Infection Prevention and Control (10-16%) | 3 | 3 | nclex-rn (3) |
-| HPM | Health Promotion and Maintenance (6-12%) | 6 | 6 | nclex-rn (6) |
-| PSY | Psychosocial Integrity (6-12%) | 2 | 2 | nclex-rn (2) |
-| BCC | Basic Care and Comfort (6-12%) | 3 | 3 | nclex-rn (3) |
-| PPT | Pharmacological and Parenteral Therapies (13-19%) | 12 | 12 | nclex-rn (12) |
-| RRP | Reduction of Risk Potential (9-15%) | 6 | 6 | nclex-rn (6) |
-| PA | Physiological Adaptation (11-17%) | 4 | 4 | nclex-rn (4) |
+| MOC | Management of Care (15-21%) | 6 | 6 | nclex-rn (6) |
+| SIPC | Safety and Infection Prevention and Control (10-16%) | 5 | 5 | nclex-rn (5) |
+| HPM | Health Promotion and Maintenance (6-12%) | 10 | 10 | nclex-rn (10) |
+| PSY | Psychosocial Integrity (6-12%) | 9 | 9 | nclex-rn (9) |
+| BCC | Basic Care and Comfort (6-12%) | 6 | 6 | nclex-rn (6) |
+| PPT | Pharmacological and Parenteral Therapies (13-19%) | 15 | 15 | nclex-rn (15) |
+| RRP | Reduction of Risk Potential (9-15%) | 9 | 9 | nclex-rn (9) |
+| PA | Physiological Adaptation (11-17%) | 7 | 7 | nclex-rn (7) |
+| MOC.1 | Advance directives, self-determination and life planning | 1 | 1 | nclex-rn (1) |
+| MOC.2 | Advocacy | 1 | 1 | nclex-rn (1) |
+| MOC.3 | Assignment, delegation and supervision | 1 | 1 | nclex-rn (1) |
+| MOC.4 | Case management | 1 | 1 | nclex-rn (1) |
+| MOC.5 | Client rights | 1 | 1 | nclex-rn (1) |
+| MOC.6 | Collaboration with the multidisciplinary team | 1 | 1 | nclex-rn (1) |
+| MOC.7 | Concepts of management | 1 | 1 | nclex-rn (1) |
+| MOC.8 | Confidentiality and information security | 1 | 1 | nclex-rn (1) |
+| MOC.9 | Continuity of care | 1 | 1 | nclex-rn (1) |
+| MOC.10 | Establishing priorities | 1 | 1 | nclex-rn (1) |
+| MOC.11 | Ethical practice | 1 | 1 | nclex-rn (1) |
+| MOC.12 | Informed consent | 1 | 1 | nclex-rn (1) |
+| MOC.13 | Information technology | 1 | 1 | nclex-rn (1) |
+| MOC.14 | Legal rights and responsibilities | 1 | 1 | nclex-rn (1) |
+| MOC.15 | Performance (quality) improvement | 1 | 1 | nclex-rn (1) |
+| MOC.16 | Referrals | 1 | 1 | nclex-rn (1) |
+| SIPC.1 | Accident, error and injury prevention | 1 | 1 | nclex-rn (1) |
+| SIPC.2 | Emergency response plan | 1 | 1 | nclex-rn (1) |
+| SIPC.3 | Ergonomic principles | 1 | 1 | nclex-rn (1) |
+| SIPC.4 | Handling hazardous and infectious materials | 1 | 1 | nclex-rn (1) |
+| SIPC.5 | Home safety | 1 | 1 | nclex-rn (1) |
+| SIPC.6 | Reporting incidents and variances | 1 | 1 | nclex-rn (1) |
+| SIPC.7 | Safe use of equipment | 1 | 1 | nclex-rn (1) |
+| SIPC.8 | Security plan | 1 | 1 | nclex-rn (1) |
+| SIPC.9 | Standard and transmission-based precautions; surgical asepsis | 2 | 2 | nclex-rn (2) |
+| SIPC.10 | Use of restraints and safety devices | 1 | 1 | nclex-rn (1) |
+| HPM.1 | Aging process | 1 | 1 | nclex-rn (1) |
+| HPM.2 | Ante-, intra- and postpartum and newborn care | 3 | 3 | nclex-rn (3) |
+| HPM.3 | Developmental stages and transitions | 2 | 2 | nclex-rn (2) |
+| HPM.4 | Health promotion and disease prevention | 1 | 1 | nclex-rn (1) |
+| HPM.5 | Health screening | 1 | 1 | nclex-rn (1) |
+| HPM.6 | High-risk behaviors | 1 | 1 | nclex-rn (1) |
+| HPM.7 | Lifestyle choices | 1 | 1 | nclex-rn (1) |
+| HPM.8 | Self-care | 1 | 1 | nclex-rn (1) |
+| HPM.9 | Techniques of physical assessment | 2 | 2 | nclex-rn (2) |
+| PSY.1 | Abuse or neglect | 1 | 1 | nclex-rn (1) |
+| PSY.2 | Behavioral interventions | 1 | 1 | nclex-rn (1) |
+| PSY.3 | Chemical and other dependencies; substance use disorder | 1 | 1 | nclex-rn (1) |
+| PSY.4 | Coping mechanisms | 1 | 1 | nclex-rn (1) |
+| PSY.5 | Crisis intervention | 1 | 1 | nclex-rn (1) |
+| PSY.6 | Cultural awareness and influences on health | 1 | 1 | nclex-rn (1) |
+| PSY.7 | End-of-life care | 1 | 1 | nclex-rn (1) |
+| PSY.8 | Family dynamics | 1 | 1 | nclex-rn (1) |
+| PSY.9 | Grief and loss | 1 | 1 | nclex-rn (1) |
+| PSY.10 | Mental health concepts | 1 | 1 | nclex-rn (1) |
+| PSY.11 | Religious and spiritual influences on health | 1 | 1 | nclex-rn (1) |
+| PSY.12 | Sensory and perceptual alterations | 1 | 1 | nclex-rn (1) |
+| PSY.13 | Stress management | 1 | 1 | nclex-rn (1) |
+| PSY.14 | Support systems | 1 | 1 | nclex-rn (1) |
+| PSY.15 | Therapeutic communication | 1 | 1 | nclex-rn (1) |
+| PSY.16 | Therapeutic environment | 1 | 1 | nclex-rn (1) |
+| BCC.1 | Assistive devices | 1 | 1 | nclex-rn (1) |
+| BCC.2 | Elimination | 1 | 1 | nclex-rn (1) |
+| BCC.3 | Mobility and immobility | 2 | 2 | nclex-rn (2) |
+| BCC.4 | Nonpharmacological comfort interventions | 1 | 1 | nclex-rn (1) |
+| BCC.5 | Nutrition and oral hydration | 2 | 2 | nclex-rn (2) |
+| BCC.6 | Personal hygiene | 1 | 1 | nclex-rn (1) |
+| BCC.7 | Rest and sleep | 1 | 1 | nclex-rn (1) |
+| PPT.1 | Adverse effects, contraindications, side effects and interactions | 3 | 3 | nclex-rn (3) |
+| PPT.2 | Blood and blood products | 2 | 2 | nclex-rn (2) |
+| PPT.3 | Central venous access devices | 1 | 1 | nclex-rn (1) |
+| PPT.4 | Dosage calculations | 3 | 3 | nclex-rn (3) |
+| PPT.5 | Expected actions and outcomes | 2 | 2 | nclex-rn (2) |
+| PPT.6 | Medication administration | 2 | 2 | nclex-rn (2) |
+| PPT.7 | Parenteral and intravenous therapies | 3 | 3 | nclex-rn (3) |
+| PPT.8 | Pharmacological pain management | 1 | 1 | nclex-rn (1) |
+| PPT.9 | Total parenteral nutrition | 1 | 1 | nclex-rn (1) |
+| RRP.1 | Changes and abnormalities in vital signs | 2 | 2 | nclex-rn (2) |
+| RRP.2 | Diagnostic tests | 1 | 1 | nclex-rn (1) |
+| RRP.3 | Laboratory values | 4 | 4 | nclex-rn (4) |
+| RRP.4 | Potential for alterations in body systems | 1 | 1 | nclex-rn (1) |
+| RRP.5 | Potential complications of diagnostic tests, treatments and procedures | 1 | 1 | nclex-rn (1) |
+| RRP.6 | Potential complications of surgery and health alterations | 1 | 1 | nclex-rn (1) |
+| RRP.7 | System-specific assessments | 1 | 1 | nclex-rn (1) |
+| RRP.8 | Therapeutic procedures | 2 | 2 | nclex-rn (2) |
+| PA.1 | Alterations in body systems | 1 | 1 | nclex-rn (1) |
+| PA.2 | Fluid and electrolyte imbalances | 4 | 4 | nclex-rn (4) |
+| PA.3 | Hemodynamics | 2 | 2 | nclex-rn (2) |
+| PA.4 | Illness management | 2 | 2 | nclex-rn (2) |
+| PA.5 | Medical emergencies | 2 | 2 | nclex-rn (2) |
+| PA.6 | Pathophysiology | 1 | 1 | nclex-rn (1) |
+| PA.7 | Unexpected response to therapies | 1 | 1 | nclex-rn (1) |
 
 ## JCNDE, Domain of Dentistry (INBDE content domain), July 2018
 
@@ -2464,7 +2551,7 @@ https://students-residents.aamc.org/mcatexam
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1A | Proteins and amino acids | 34 | 34 | biochemistry (11), biology (16), structures (7) |
+| 1A | Proteins and amino acids | 35 | 35 | biochemistry (12), biology (16), structures (7) |
 | 1B | Gene to protein | 25 | 25 | biochemistry (6), biology (19) |
 | 1C | Heredity and genetic diversity | 21 | 21 | biochemistry (6), biology (15) |
 | 1D | Bioenergetics and fuel metabolism | 28 | 28 | biochemistry (10), biology (18) |
@@ -3094,6 +3181,66 @@ https://www.ets.org/gre/score-users/subject-test-changes.html
 | OR | Organic chemistry | 7 | 7 | organic-reactions (7) |
 | PH | Physical chemistry | 8 | 8 | physical-chemistry (8) |
 
+## ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013)
+
+https://doi.org/10.1002/bmb.20727
+
+26 of 26 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1 | Evolution: The central importance of evolution to the biological sciences | 3 | 3 | biochemistry (3) |
+| 1.2 | Evolution: The basics of Darwin's theory | 2 | 2 | biochemistry (2) |
+| 1.3 | Evolution: Natural selection | 4 | 4 | biochemistry (4) |
+| 1.4 | Evolution: Evidence for evolution | 4 | 4 | biochemistry (4) |
+| 1.5 | Evolution: The molecular basis of natural selection | 5 | 5 | biochemistry (5) |
+| 2.1 | Matter and energy transformation: Forms of energy in biological processes | 4 | 4 | biochemistry (4) |
+| 2.2 | Matter and energy transformation: Catalysis | 10 | 10 | biochemistry (10) |
+| 2.3 | Matter and energy transformation: Coupling exergonic and endergonic processes | 13 | 13 | biochemistry (13) |
+| 2.4 | Matter and energy transformation: The nature of biological energy | 5 | 5 | biochemistry (5) |
+| 3.1 | Homeostasis: Biological needs for homeostasis | 2 | 2 | biochemistry (2) |
+| 3.2 | Homeostasis: Linked steady-state processes | 6 | 6 | biochemistry (6) |
+| 3.3 | Homeostasis: Quantifying homeostasis | 2 | 2 | biochemistry (2) |
+| 3.4 | Homeostasis: Organisation of chemical processes | 3 | 3 | biochemistry (3) |
+| 3.5 | Homeostasis: Control mechanisms | 9 | 9 | biochemistry (9) |
+| 3.6 | Homeostasis: Cellular and organismal homeostasis | 5 | 5 | biochemistry (5) |
+| 4.1 | Biological information: The genome | 7 | 7 | biochemistry (7) |
+| 4.2 | Biological information: Information in the gene: sequence to function | 9 | 9 | biochemistry (9) |
+| 4.3 | Biological information: Genome transmission between generations | 7 | 7 | biochemistry (7) |
+| 4.4 | Biological information: Genome maintenance | 7 | 7 | biochemistry (7) |
+| 5.1 | Macromolecular structure and function: Macromolecules are large and complex | 7 | 7 | biochemistry (7) |
+| 5.2 | Macromolecular structure and function: Structure is set by several factors | 11 | 11 | biochemistry (11) |
+| 5.3 | Macromolecular structure and function: Structure and function are related | 6 | 6 | biochemistry (6) |
+| 5.4 | Macromolecular structure and function: Macromolecular interactions | 3 | 3 | biochemistry (3) |
+| 5.5 | Macromolecular structure and function: Structures are dynamic | 2 | 2 | biochemistry (2) |
+| 5.6 | Macromolecular structure and function: Some macromolecules are intrinsically unstructured | 1 | 1 | biochemistry (1) |
+| 5.7 | Macromolecular structure and function: Function is regulated | 6 | 6 | biochemistry (6) |
+
+## ASBMB accreditation and certification exam: foundational concepts and learning objectives
+
+https://www.asbmb.org/education/certification-exam
+
+16 of 16 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1 | Energy and metabolism: objective 1 | 10 | 10 | biochemistry (10) |
+| 1.2 | Energy and metabolism: objective 2 | 8 | 8 | biochemistry (8) |
+| 1.3 | Energy and metabolism: objective 3 | 8 | 8 | biochemistry (8) |
+| 1.4 | Energy and metabolism: objective 4 | 5 | 5 | biochemistry (5) |
+| 1.5 | Energy and metabolism: objective 5 | 8 | 8 | biochemistry (8) |
+| 1.6 | Energy and metabolism: objective 6 | 3 | 3 | biochemistry (3) |
+| 2.1 | Macromolecular structure and function: objective 1 | 11 | 11 | biochemistry (11) |
+| 2.2 | Macromolecular structure and function: objective 2 | 4 | 4 | biochemistry (4) |
+| 2.3 | Macromolecular structure and function: objective 3 | 8 | 8 | biochemistry (8) |
+| 2.4 | Macromolecular structure and function: objective 4 | 12 | 12 | biochemistry (12) |
+| 2.5 | Macromolecular structure and function: objective 5 | 4 | 4 | biochemistry (4) |
+| 3.1 | Information storage and flow: objective 1 | 7 | 7 | biochemistry (7) |
+| 3.2 | Information storage and flow: objective 2 | 7 | 7 | biochemistry (7) |
+| 3.3 | Information storage and flow: objective 3 | 7 | 7 | biochemistry (7) |
+| 3.4 | Information storage and flow: objective 4 | 3 | 3 | biochemistry (3) |
+| 3.5 | Information storage and flow: objective 5 | 4 | 4 | biochemistry (4) |
+
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
 https://pubs.acs.org/doi/10.1021/ed500712k
@@ -3284,7 +3431,7 @@ https://pubs.acs.org/doi/10.1021/ed400175w
 | III.B.2 | Shape and stereochemistry | 1 | 1 | dat (1) |
 | III.C.1 | Molecular modelling programs | 1 | 1 | physical-chemistry (1) |
 | III.D.1 | Spectroscopy and molecular symmetry | 1 | 1 | physical-chemistry (1) |
-| III.D.2 | Symmetry-equivalent nuclei in NMR | 1 | 1 | dat (1) |
+| III.D.2 | Symmetry-equivalent nuclei in NMR | 2 | 2 | chemistry-olympiad (1), dat (1) |
 | III.E.1 | Enantiomers and diastereomers | 1 | 1 | dat (1) |
 | III.E.2 | Regio- and stereospecific versus selective reactions | 1 | 1 | organic-reactions (1) |
 | III.E.3 | Stereochemistry carried from reactant to product | 2 | 2 | dat (2) |
@@ -3569,54 +3716,331 @@ https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00498
 | X.D.8 | Unit-cell and plan drawings | 1 | 1 | inorganic-chemistry (1) |
 | X.D.9 | Energy profiles for kinetics | 1 | 1 | chemistry (1) |
 
-## ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013)
+## ACS Exams Institute Anchoring Concepts Content Map: Analytical Chemistry (Holme, Bauer, Trate, Reed, Raker & Murphy, J. Chem. Educ. 2020, ed9b00856)
 
-https://doi.org/10.1002/bmb.20727
+https://pubs.acs.org/doi/10.1021/acs.jchemed.9b00856
 
-18 of 18 items have at least one objective answering to them.
-
-| Item | Topic | Objectives | With a drill | Where |
-|---|---|---|---|---|
-| T1 | Evolution: statement 1 | 3 | 3 | biochemistry (3) |
-| T2 | Evolution: statement 2 | 4 | 4 | biochemistry (4) |
-| T3 | Evolution: statement 3 | 4 | 4 | biochemistry (4) |
-| T4 | Evolution: statement 4 | 5 | 5 | biochemistry (5) |
-| T5 | Matter and energy transformation: statement 1 | 10 | 10 | biochemistry (10) |
-| T6 | Matter and energy transformation: statement 2 | 13 | 13 | biochemistry (13) |
-| T7 | Matter and energy transformation: statement 3 | 5 | 5 | biochemistry (5) |
-| T8 | Homeostasis: statement 1 | 6 | 6 | biochemistry (6) |
-| T9 | Homeostasis: statement 2 | 9 | 9 | biochemistry (9) |
-| T10 | Homeostasis: statement 3 | 4 | 4 | biochemistry (4) |
-| T11 | Biological information: statement 1 | 6 | 6 | biochemistry (6) |
-| T12 | Biological information: statement 2 | 8 | 8 | biochemistry (8) |
-| T13 | Biological information: statement 3 | 6 | 6 | biochemistry (6) |
-| T14 | Biological information: statement 4 | 7 | 7 | biochemistry (7) |
-| T15 | Macromolecular structure and function: statement 1 | 5 | 5 | biochemistry (5) |
-| T16 | Macromolecular structure and function: statement 2 | 7 | 7 | biochemistry (7) |
-| T17 | Macromolecular structure and function: statement 3 | 6 | 6 | biochemistry (6) |
-| T18 | Macromolecular structure and function: statement 4 | 6 | 6 | biochemistry (6) |
-
-## ASBMB accreditation and certification exam: foundational concepts and learning objectives
-
-https://www.asbmb.org/education/certification-exam
-
-16 of 16 items have at least one objective answering to them.
+109 of 109 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1.1 | Energy and metabolism: objective 1 | 10 | 10 | biochemistry (10) |
-| 1.2 | Energy and metabolism: objective 2 | 8 | 8 | biochemistry (8) |
-| 1.3 | Energy and metabolism: objective 3 | 7 | 7 | biochemistry (7) |
-| 1.4 | Energy and metabolism: objective 4 | 5 | 5 | biochemistry (5) |
-| 1.5 | Energy and metabolism: objective 5 | 8 | 8 | biochemistry (8) |
-| 1.6 | Energy and metabolism: objective 6 | 3 | 3 | biochemistry (3) |
-| 2.1 | Macromolecular structure and function: objective 1 | 10 | 10 | biochemistry (10) |
-| 2.2 | Macromolecular structure and function: objective 2 | 4 | 4 | biochemistry (4) |
-| 2.3 | Macromolecular structure and function: objective 3 | 7 | 7 | biochemistry (7) |
-| 2.4 | Macromolecular structure and function: objective 4 | 12 | 12 | biochemistry (12) |
-| 2.5 | Macromolecular structure and function: objective 5 | 4 | 4 | biochemistry (4) |
-| 3.1 | Information storage and flow: objective 1 | 7 | 7 | biochemistry (7) |
-| 3.2 | Information storage and flow: objective 2 | 7 | 7 | biochemistry (7) |
-| 3.3 | Information storage and flow: objective 3 | 7 | 7 | biochemistry (7) |
-| 3.4 | Information storage and flow: objective 4 | 3 | 3 | biochemistry (3) |
-| 3.5 | Information storage and flow: objective 5 | 4 | 4 | biochemistry (4) |
+| I.A.1 | Isotopic composition is measurable (ICP-MS) | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| I.A.2 | Core-level energies scale with nuclear charge (XRF) | 1 | 1 | analytical-chemistry (1) |
+| I.A.3 | Nuclear spin and NMR structure information | 3 | 3 | chemistry-olympiad (2), inorganic-advanced (1) |
+| I.B.1 | Bond strength and vibrational frequency | 2 | 2 | chemistry-olympiad (1), physical-chemistry (1) |
+| I.B.2 | Unpaired electrons, paramagnetism and EPR | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| I.C.1 | Chemically similar elements interfere | 1 | 1 | analytical-chemistry (1) |
+| I.D.1 | Spectroscopy as transitions between quantized levels | 2 | 2 | anchor-quantities (1), chemistry (1) |
+| I.D.2 | Absorption, emission, scattering and radiationless paths | 26 | 26 | analytical-chemistry (26) |
+| I.D.3 | Beer–Lambert law and its limits | 5 | 5 | analytical-chemistry (2), biochemistry (1), chemistry (1), physical-chemistry (1) |
+| I.D.4 | Spectral regions match kinds of transition; choose λmax | 2 | 2 | analytical-chemistry (1), anchor-quantities (1) |
+| I.D.5 | Relaxation routes after excitation; emission ∝ concentration | 1 | 1 | analytical-chemistry (1) |
+| I.E.1 | Stoichiometry in wet analysis | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| I.E.2 | Units for reporting amount, including ppm and ppb | 1 | 1 | chemistry (1) |
+| I.E.3 | Accounting for matter through dilutions | 1 | 1 | chemistry (1) |
+| I.F.1 | Analysis of radioactive samples | 2 | 2 | chemistry (1), nuclear (1) |
+| I.G.1 | Conjugate pairs and buffers for pH control | 1 | 1 | chemistry (1) |
+| I.G.2 | Ion properties in IC, MS, electrophoresis and potentiometry | 3 | 3 | analytical-chemistry (1), inorganic-advanced (1), physical-chemistry (1) |
+| I.G.3 | Ionic strength and activity coefficients | 2 | 2 | physical-chemistry (2) |
+| II.A.1 | Solvent ionic strength affects the solute | 2 | 2 | analytical-chemistry (1), physical-chemistry (1) |
+| II.D.1 | Energy to atomize or ionize samples; hard and soft ionization | 1 | 1 | analytical-chemistry (1) |
+| II.E.1 | UV–visible transitions between molecular orbitals | 2 | 2 | analytical-chemistry (1), physical-chemistry (1) |
+| II.F.1 | Bond order and vibrational response | 2 | 2 | chemistry-olympiad (1), physical-chemistry (1) |
+| III.B.1 | Molecular shape and polarity in analysis | 1 | 1 | chemistry (1) |
+| III.D.1 | IR, Raman and NMR selection by structure | 2 | 2 | analytical-chemistry (1), chemistry-olympiad (1) |
+| III.E.1 | Chirality in CD, polarimetry and chiral separations | 1 | 1 | physical-chemistry (1) |
+| III.F.1 | Functional groups in spectra and separations | 2 | 2 | analytical-chemistry (1), chemistry-olympiad (1) |
+| III.G.1 | Periodic trends guide method choice | 1 | 1 | analytical-chemistry (1) |
+| III.H.1 | X-ray diffraction identifies crystals | 2 | 2 | inorganic-chemistry (1), physical-chemistry (1) |
+| III.H.2 | Microscopy of extended systems | 1 | 1 | inorganic-advanced (1) |
+| III.H.3 | Thermal analysis (TGA, DSC) | 1 | 1 | analytical-chemistry (1) |
+| IV.A.1 | Intermolecular forces and activity | 1 | 1 | physical-chemistry (1) |
+| IV.B.1 | Separation by molecular size | 1 | 1 | biochemistry (1) |
+| IV.C.1 | Intermolecular forces drive extraction and chromatography | 3 | 3 | analytical-chemistry (2), chemistry (1) |
+| IV.C.2 | Normal- versus reverse-phase mechanisms | 1 | 1 | analytical-chemistry (1) |
+| IV.D.1 | Solute–solvent forces and solvatochromic shifts | 1 | 1 | chemistry (1) |
+| V.A.1 | Stoichiometric ratios to the analyte and the equivalence point | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| V.A.2 | Mass balance | 2 | 2 | analytical-chemistry (2) |
+| V.B.1 | Spectroscopy changes states, not species | 1 | 1 | physical-chemistry (1) |
+| V.B.2 | Reactions that improve detection (tagging) | 1 | 1 | analytical-chemistry (1) |
+| V.B.3 | Fragmentation in mass spectrometry | 1 | 1 | analytical-chemistry (1) |
+| V.B.4 | Electron transfer at an electrode in voltammetry | 1 | 1 | analytical-chemistry (1) |
+| V.C.1 | Probes and indicators to follow a titration | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| V.D.1 | Complexation, acid–base, precipitation and redox methods | 4 | 4 | analytical-chemistry (4) |
+| V.F.1 | Precipitation in qualitative ion analysis | 2 | 2 | chemistry (2) |
+| V.F.2 | Matching titration conditions and indicator | 1 | 1 | analytical-chemistry (1) |
+| V.F.3 | Derivatization for GC and detection | 1 | 1 | analytical-chemistry (1) |
+| VI.A.1 | Instruments stimulate and measure a response | 1 | 1 | analytical-chemistry (1) |
+| VI.B.1 | Energy input matched to the analyte | 2 | 2 | analytical-chemistry (2) |
+| VI.C.1 | Redox cells and electrochemical instruments | 1 | 1 | chemistry (1) |
+| VI.D.1 | Calorimetric thermal analysis (DSC) | 1 | 1 | analytical-chemistry (1) |
+| VI.E.1 | Cell potential, standard potentials and Nernst | 3 | 3 | chemistry-olympiad (1), chemistry (2) |
+| VI.F.1 | Energy storage devices | 1 | 1 | chemistry (1) |
+| VII.A.1 | Measurement time scale matched to the process | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| VII.E.1 | Enzyme and catalytic sensors | 2 | 2 | analytical-chemistry (1), biochemistry (1) |
+| VIII.A.1 | Tracking equilibria by colour, pH or potential | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| VIII.B.1 | Dynamic equilibrium | 1 | 1 | chemistry (1) |
+| VIII.C.1 | Equilibrium calculations and the systematic treatment | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| VIII.C.2 | Solubility equilibria and complex formation | 2 | 2 | analytical-chemistry (2) |
+| VIII.D.1 | Acid strength, fractional composition and distribution diagrams | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| VIII.D.2 | Large K for quantitative wet analysis | 2 | 2 | analytical-chemistry (2) |
+| VIII.D.3 | Ksp ranking and the inert-salt effect | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| VIII.D.4 | Reverse reactions and pK relationships | 2 | 2 | chemistry (2) |
+| VIII.D.5 | Combining equilibrium constants | 1 | 1 | chemistry (1) |
+| VIII.D.6 | Formation and conditional formation constants | 2 | 2 | analytical-chemistry (1), inorganic-advanced (1) |
+| VIII.E.1 | Le Châtelier reasoning | 1 | 1 | chemistry (1) |
+| VIII.E.2 | Common-ion effect | 1 | 1 | analytical-chemistry (1) |
+| VIII.E.3 | Buffers and Henderson–Hasselbalch | 2 | 2 | chemistry (2) |
+| VIII.F.1 | Thermodynamics controls equilibrium; Nernst positions | 1 | 1 | chemistry-olympiad (1) |
+| VIII.F.2 | K and ΔG° | 1 | 1 | chemistry (1) |
+| VIII.F.3 | Temperature dependence of K | 1 | 1 | chemistry (1) |
+| VIII.F.4 | Cell potential and ΔG | 1 | 1 | chemistry (1) |
+| VIII.F.5 | All equilibria satisfied together | 2 | 2 | analytical-chemistry (1), chemistry-olympiad (1) |
+| VIII.G.1 | Titrations as manipulated equilibria | 1 | 1 | analytical-chemistry (1) |
+| VIII.G.2 | Partition coefficients in extraction and retention | 1 | 1 | analytical-chemistry (1) |
+| VIII.G.3 | Chromatography as continuous re-equilibration; retention factor | 1 | 1 | analytical-chemistry (1) |
+| VIII.G.4 | Acid–base equilibria and pH | 1 | 1 | chemistry (1) |
+| VIII.G.5 | Redox equilibria | 1 | 1 | chemistry-olympiad (1) |
+| IX.A.1 | Detection limit, linear range and sensitivity | 1 | 1 | analytical-chemistry (1) |
+| IX.A.2 | Analyte stability during the method | 1 | 1 | analytical-chemistry (1) |
+| IX.A.3 | Matrix effects; standard addition and internal standards | 2 | 2 | analytical-chemistry (2) |
+| IX.B.1 | Reading properties from a compound's name | 2 | 2 | chemistry (1), inorganic-chemistry (1) |
+| IX.C.1 | Indirect methods: back titration and labelling | 2 | 2 | analytical-chemistry (2) |
+| IX.C.2 | Quantitative conversion and recovery | 1 | 1 | analytical-chemistry (1) |
+| IX.D.1 | Gravimetric methods | 1 | 1 | analytical-chemistry (1) |
+| IX.D.2 | Spectrometer components and geometries | 1 | 1 | analytical-chemistry (1) |
+| IX.D.3 | Electroanalytical methods and electrodes | 2 | 2 | analytical-chemistry (1), inorganic-advanced (1) |
+| IX.D.4 | Mass spectrometry: ionization, analyzers, resolution | 2 | 2 | analytical-chemistry (1), physical-chemistry (1) |
+| IX.D.5 | Choosing and optimizing methods | 25 | 25 | analytical-chemistry (25) |
+| IX.E.1 | Documenting conditions for replication | 1 | 1 | chemistry (1) |
+| IX.E.2 | Sample changes in storage | 1 | 1 | analytical-chemistry (1) |
+| IX.E.3 | Representative sampling strategies | 1 | 1 | analytical-chemistry (1) |
+| IX.F.1 | Traceability, reference materials and primary standards | 1 | 1 | analytical-chemistry (1) |
+| IX.F.2 | Replication and precision | 2 | 2 | analytical-chemistry (2) |
+| IX.F.3 | Calibration and bracketing standards | 1 | 1 | analytical-chemistry (1) |
+| IX.F.4 | Quality control, error types, glassware tolerance and propagation | 26 | 26 | analytical-chemistry (26) |
+| IX.F.5 | Statistics: t-tests, regression, outliers | 2 | 2 | analytical-chemistry (2) |
+| IX.G.1 | Waste minimization and cost | 1 | 1 | chemistry (1) |
+| IX.G.2 | Laboratory and instrument safety | 1 | 1 | chemistry (1) |
+| IX.H.1 | Qualitative analysis before quantitative | 1 | 1 | chemistry (1) |
+| IX.H.2 | Sample preparation to isolate the analyte | 1 | 1 | analytical-chemistry (1) |
+| IX.H.3 | Interferences, background subtraction and channel selection | 1 | 1 | analytical-chemistry (1) |
+| IX.H.4 | Specificity can replace separation | 1 | 1 | analytical-chemistry (1) |
+| X.A.1 | Instrument output as particulate information | 1 | 1 | analytical-chemistry (1) |
+| X.A.2 | Nonlinear fitting (e.g. Michaelis–Menten) | 2 | 2 | biochemistry (1), physical-chemistry (1) |
+| X.B.1 | Visualizing how a method encodes molecular information | 1 | 1 | analytical-chemistry (1) |
+| X.C.1 | Statistical comparison of results | 1 | 1 | analytical-chemistry (1) |
+| X.D.1 | Calibration functions and linear dynamic range | 3 | 3 | analytical-chemistry (3) |
+| X.D.2 | Reading spectra, chromatograms and voltammograms | 2 | 2 | analytical-chemistry (1), chemistry (1) |
+| X.D.3 | Derivative and log plots; removing outliers | 1 | 1 | analytical-chemistry (1) |
+
+## Alchemistry.org wiki (free energy methods)
+
+https://alchemistry.org/wiki/Main_Page
+
+2 of 3 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| FUND | Free energy fundamentals: definitions, differences only, phase-space overlap | 5 | 5 | molecular-simulation (5) |
+| BP | Best practices: setup, pathways, running, analysis, verification | 16 | 16 | molecular-simulation (16) |
+| EX | Example calculations: ethanol solvation, toluene→phenol in T4 lysozyme, absolute toluene binding | — | — | **nothing yet** |
+
+## Mey et al., Best Practices for Alchemical Free Energy Calculations, LiveCoMS 2 (2020) 18378
+
+https://doi.org/10.33011/livecoms.2.1.18378
+
+24 of 24 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | What alchemical methods are | 5 | 5 | molecular-simulation (5) |
+| 3 | Why alchemical calculations work | 5 | 5 | molecular-simulation (5) |
+| 4 | What to expect: accuracy, reproducibility, suitability, cost | 5 | 5 | molecular-simulation (5) |
+| 4.5 | Cost | 1 | 1 | molecular-simulation (1) |
+| 4.6 | Exploratory pilot studies | 1 | 1 | molecular-simulation (1) |
+| 5.3 | Input setup and scale; perturbation maps | 1 | 1 | molecular-simulation (1) |
+| 7 | Choosing a protocol | 11 | 11 | molecular-simulation (11) |
+| 7.1.1 | Relative-only choices: topology, mapping, rings, maps, constraints | 2 | 2 | molecular-simulation (2) |
+| 7.1.2 | Absolute-only requirements: standard state and restraints | 1 | 1 | molecular-simulation (1) |
+| 7.2.1 | Weak binders | 1 | 1 | molecular-simulation (1) |
+| 7.2.2 | Net charge changes | 1 | 1 | molecular-simulation (1) |
+| 7.2.3 | Alchemical pathway and soft-core | 1 | 1 | molecular-simulation (1) |
+| 7.2.4 | Sampling schemes | 1 | 1 | molecular-simulation (1) |
+| 7.2.5 | Run length and saved data | 2 | 2 | molecular-simulation (2) |
+| 7.2.6 | Binding modes | 1 | 1 | molecular-simulation (1) |
+| 8 | Analysis | 11 | 11 | molecular-simulation (11) |
+| 8.1 | Equilibration detection | 1 | 1 | molecular-simulation (1) |
+| 8.2 | Decorrelation | 1 | 1 | molecular-simulation (1) |
+| 8.3 | Estimators | 1 | 1 | molecular-simulation (1) |
+| 8.4 | Uncertainty | 2 | 2 | molecular-simulation (2) |
+| 8.5 | Simulation quality: overlap and cycle closure | 2 | 2 | molecular-simulation (2) |
+| 8.6 | Common problems | 1 | 1 | molecular-simulation (1) |
+| 8.7 | Reporting | 2 | 2 | molecular-simulation (2) |
+| 12 | Checklist | 13 | 13 | molecular-simulation (13) |
+
+## PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414
+
+https://github.com/RosettaCommons/PyRosetta.notebooks
+
+30 of 33 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Getting started | — | — | **nothing yet** |
+| 2 | Introduction to PyRosetta: poses, residues, geometry, visualisation | 2 | 2 | protein-design (2) |
+| 2.1 | Pose basics | 6 | 6 | protein-design (6) |
+| 2.2 | Working with pose residues | 5 | 5 | protein-design (5) |
+| 2.4 | Spatial features of a pose | 1 | 1 | protein-design (1) |
+| 2.5 | Protein geometry | 6 | 6 | protein-design (6) |
+| 3 | Energy score functions | 1 | 1 | protein-design (1) |
+| 4.1 | Basic folding algorithm | 6 | 6 | protein-design (6) |
+| 4.2 | Low-resolution scoring and fragments | 2 | 2 | protein-design (2) |
+| 5.1 | High-resolution movers | 5 | 5 | protein-design (5) |
+| 5.2 | Refinement protocol | 1 | 1 | protein-design (1) |
+| 6.1 | Side-chain conformations and Dunbrack energies | 2 | 2 | protein-design (2) |
+| 6.2 | Packing and relax | 6 | 6 | protein-design (6) |
+| 6.3 | Design with a resfile and FastRelax | 8 | 8 | protein-design (8) |
+| 6.4 | Protein design 2 | 7 | 7 | protein-design (7) |
+| 6.5 | Hydrogen-bond networks before design | 5 | 5 | protein-design (5) |
+| 6.6 | De novo parametric backbone design | 6 | 6 | protein-design (6) |
+| 6.7 | De novo protein design | 5 | 5 | protein-design (5) |
+| 6.8 | Point mutation scan | 8 | 8 | protein-design (8) |
+| 7.1 | Fourier-transform-based docking | 5 | 5 | protein-design (5) |
+| 7.2 | Docking moves | 6 | 6 | protein-design (6) |
+| 8.1 | Global ligand docking | 5 | 5 | protein-design (5) |
+| 8.2 | Ligand docking with a Cartesian score function | 1 | 1 | protein-design (1) |
+| 9.1 | Loop modelling with generalised kinematic closure | 10 | 10 | protein-design (10) |
+| 10 | Symmetry | 10 | 10 | protein-design (10) |
+| 11 | Working with density | 10 | 10 | protein-design (10) |
+| 12.1 | Antibody framework modelling | 10 | 10 | protein-design (10) |
+| 12.2 | Antibody design | 10 | 10 | protein-design (10) |
+| 13 | Carbohydrates | — | — | **nothing yet** |
+| 14 | RNA | — | — | **nothing yet** |
+| 15.1 | Setting up a membrane protein | 10 | 10 | protein-design (10) |
+| 15.2 | Predicting ΔΔG of single point mutations | 5 | 5 | protein-design (5) |
+| 16 | Running in parallel and reproducible distribution | 11 | 11 | protein-design (11) |
+
+## Alford et al., The Rosetta all-atom energy function for macromolecular modeling and design, JCTC 13 (2017) 3031
+
+https://doi.org/10.1021/acs.jctc.7b00125
+
+6 of 6 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| form | The score as a weighted linear sum of terms | 8 | 8 | protein-design (8) |
+| table | The terms and their published weights | 8 | 8 | protein-design (8) |
+| ref | Per-amino-acid reference energies and their role in design | 9 | 9 | protein-design (9) |
+| units | Units: parameterisation in kcal/mol rather than arbitrary energy units | 8 | 8 | protein-design (8) |
+| guidance | Interpreting energies: per-term decomposition, residue and atom-pair tables, ΔΔG of mutation, interface energies | 5 | 5 | protein-design (5) |
+| fa_dun | Backbone-dependent rotamer energy | 1 | 1 | protein-design (1) |
+
+## Chungyoun et al., DL4Proteins Jupyter Notebooks (Gray lab), arXiv 2511.02128
+
+https://arxiv.org/abs/2511.02128
+
+7 of 10 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| WS01 | Neural networks from scratch | — | — | **nothing yet** |
+| WS02 | Neural networks in a framework | — | — | **nothing yet** |
+| WS03 | Convolutional networks | — | — | **nothing yet** |
+| WS04 | Language models for text and protein sequences | 7 | 7 | protein-design (7) |
+| WS05 | Language-model embeddings and transfer learning | 1 | 1 | protein-design (1) |
+| WS06 | Structure prediction as a black box: inputs and confidence metrics | 8 | 8 | protein-design (8) |
+| WS07 | Graph neural networks for proteins | 7 | 7 | protein-design (7) |
+| WS08 | Denoising diffusion models | 7 | 7 | protein-design (7) |
+| WS09 | End-to-end design: diffusion, inverse folding and structure prediction | 9 | 9 | protein-design (9) |
+| WS10 | All-atom diffusion for small-molecule binders | 7 | 7 | protein-design (7) |
+
+## Kuhlman & Bradley, Advances in protein structure prediction and design, Nat Rev Mol Cell Biol 20 (2019) 681
+
+https://doi.org/10.1038/s41580-019-0163-x
+
+6 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Introduction: prediction and the inverse problem | — | — | **nothing yet** |
+| 2 | Navigating energy landscapes: minimisation, Monte Carlo, molecular dynamics | 5 | 5 | protein-design (5) |
+| 3 | Folding forces, energy functions and multi-resolution modelling | 5 | 5 | protein-design (5) |
+| 4 | Structure prediction: templates, fragments, coevolution, deep learning | 7 | 7 | protein-design (7) |
+| 5 | Protein design: de novo, template-based, sequence optimisation, negative and multi-state, interfaces, ligands | 25 | 25 | protein-design (25) |
+| 6 | Validating computational predictions | 7 | 7 | protein-design (7) |
+| 7 | Applications and open challenges | 5 | 5 | protein-design (5) |
+
+## Johns Hopkins 545.614 Computational Protein Structure Prediction and Design (course topic list)
+
+https://ep.jhu.edu/courses/545614-computational-protein-structure-prediction-and-design/
+
+5 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| T1 | Protein folding and docking | 2 | 2 | protein-design (2) |
+| T2 | Design of ligand-binding sites | 1 | 1 | protein-design (1) |
+| T3 | Design of turns and folds | 2 | 2 | protein-design (2) |
+| T4 | Design of protein interfaces | 1 | 1 | protein-design (1) |
+| T5 | Structure, biophysics, optimisation and informatics underlying the field | 3 | 3 | protein-design (3) |
+
+## Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504)
+
+https://github.com/psi4/psi4numpy
+
+8 of 19 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 01 | Psi4NumPy basics: molecules, wavefunctions and integrals | 7 | 7 | electronic-structure (7) |
+| 03 | Hartree-Fock (module group) | 13 | 13 | electronic-structure (13) |
+| 03a | Restricted Hartree-Fock | — | — | **nothing yet** |
+| 03b | Direct inversion of the iterative subspace | — | — | **nothing yet** |
+| 03c | Unrestricted Hartree-Fock | — | — | **nothing yet** |
+| 03d | Restricted open-shell Hartree-Fock | — | — | **nothing yet** |
+| 04 | Density functional theory (module group) | 9 | 9 | electronic-structure (9) |
+| 04a | Density functional theory: grids and quadrature | — | — | **nothing yet** |
+| 04b | LDA kernel | — | — | **nothing yet** |
+| 04c | GGA and meta-GGA kernels | — | — | **nothing yet** |
+| 04d | VV10 non-local correlation | — | — | **nothing yet** |
+| 04e | DFT with exact exchange | — | — | **nothing yet** |
+| 05 | Moller-Plesset perturbation theory (module group) | 9 | 9 | electronic-structure (9) |
+| 05a | Conventional MP2 | — | — | **nothing yet** |
+| 05b | Density-fitted MP2 | — | — | **nothing yet** |
+| 06 | Molecular properties: dipoles, polarisabilities and response | 8 | 8 | electronic-structure (8) |
+| 07 | Symmetry-adapted perturbation theory | 8 | 8 | electronic-structure (8) |
+| 08 | CEPA0 and coupled-cluster doubles | 9 | 9 | electronic-structure (9) |
+| 11 | One- and two-electron integrals and density fitting | 7 | 7 | electronic-structure (7) |
+
+## MolSSI Education, Quantum Mechanics Tools (lesson)
+
+https://education.molssi.org/qm-tools/
+
+5 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Geometry optimisation | 7 | 7 | electronic-structure (7) |
+| 2 | Intramolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
+| 3 | Intermolecular potential energy surfaces | 7 | 7 | electronic-structure (7) |
+| 4 | Basis-set convergence of geometries | 9 | 9 | electronic-structure (9) |
+| 5 | Basis-set convergence of vibrational frequencies | 7 | 7 | electronic-structure (7) |
+| 6 | Standard redox potentials | — | — | **nothing yet** |
+| 7 | Version control for computational projects | — | — | **nothing yet** |
+
+## Szabo & Ostlund, Modern Quantum Chemistry (Dover, 1996)
+
+https://store.doverpublications.com/products/9780486691862
+
+0 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Mathematical review and notation | — | — | **nothing yet** |
+| 2 | Many-electron wavefunctions and operators | — | — | **nothing yet** |
+| 3 | The Hartree-Fock approximation | — | — | **nothing yet** |
+| 4 | Configuration interaction | — | — | **nothing yet** |
+| 5 | Pair and coupled-pair theories | — | — | **nothing yet** |
+| 6 | Many-body perturbation theory | — | — | **nothing yet** |
+| 7 | The one-particle Green's function | — | — | **nothing yet** |

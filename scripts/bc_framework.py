@@ -22,7 +22,7 @@ cert_items = [{"code": f"{a}.{b}", "title": f"{t}: objective {b}"} for a, t, m i
               for b in range(1, m + 1)]
 STDS = [
     {"id": "asbmb-core-2013", "name": "ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013)",
-     "publisher": "American Society for Biochemistry and Molecular Biology", "kind": "standard", "read": "part",
+     "publisher": "American Society for Biochemistry and Molecular Biology", "kind": "standard", "read": "full",
      "url": "https://doi.org/10.1002/bmb.20727",
      "note": "Read through a summary of the paper (Nov 2026): five core concepts and their eighteen 'students should be able to' statements, numbered T1-T18 in concept order by us; the statements' own wording is not copied here.",
      "items": core_items},

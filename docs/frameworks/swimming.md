@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/swimming.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**88 learning objectives** in 12 units (84 core): 0 drilled, 0 partly, 88 with no drills. Core: 0 / 84 drilled.
+**88 learning objectives** in 12 units (84 core): 21 drilled, 0 partly, 67 with no drills. Core: 21 / 84 drilled.
 
 ## Big ideas
 
@@ -31,10 +31,10 @@ Generated from `drills/frameworks/swimming.yaml` by `scripts/framework.mjs`. ●
 | 3 · Butterfly in depth | core | 14–16% | 14 | 0 | 0 | 14 |
 | 4 · Breaststroke and individual medley | core | 6–8% | 6 | 0 | 0 | 6 |
 | 5 · Starts, turns and underwaters | core | 10–12% | 10 | 0 | 0 | 10 |
-| 6 · Rules, officiating and disqualifications | core | 6–8% | 4 | 0 | 0 | 4 |
-| 7 · Race analysis and pacing | core | 12–14% | 10 | 0 | 0 | 10 |
+| 6 · Rules, officiating and disqualifications | core | 6–8% | 4 | 4 | 0 | 0 |
+| 7 · Race analysis and pacing | core | 12–14% | 10 | 8 | 0 | 2 |
 | 8 · Energy systems and training physiology | core | 8–10% | 4 | 0 | 0 | 4 |
-| 9 · Training science — CSS, intervals, periodization and taper | core | 10–12% | 10 | 0 | 0 | 10 |
+| 9 · Training science — CSS, intervals, periodization and taper | core | 10–12% | 10 | 9 | 0 | 1 |
 | 10 · Self-analysis and video critique | core | 6–8% | 6 | 0 | 0 | 6 |
 | 11 · Practice design | core | 6–8% | 6 | 0 | 0 | 6 |
 | 12 · Coaching others | extension | — | 4 | 0 | 0 | 4 |
@@ -282,23 +282,23 @@ Big ideas: RULES
 
 Book: world-aquatics-rules §SW 10.2, §SW 10.4, §SW 10.7, §SW 10.9, §SW 10.11, §SW 10.12, §SW 10.13, §SW 10.18; usa-swimming §101.7; usms §101.7
 
-- ○ **SW-6.1.A** Call legal or illegal: a described race incident (pulling on the lane rope, changing lanes, standing on the bottom in free, pace device).
+- ● **SW-6.1.A** Call legal or illegal: a described race incident (pulling on the lane rope, changing lanes, standing on the bottom in free, pace device).
   - EK: SW 10.4 same lane; SW 10.7 no pulling on the lane rope; SW 10.9 no aids or tape; SW 10.18 no pace-making device.
-  - P3
-- ○ **SW-6.1.B** Call legal or illegal: a described relay exchange from touch time and the next swimmer's feet-off time.
+  - P3 · drills: sw-legal-call, sw-legal-call-2
+- ● **SW-6.1.B** Call legal or illegal: a described relay exchange from touch time and the next swimmer's feet-off time.
   - EK: SW 10.11 / USA 101.7.3F: feet must stay on the platform until the incoming swimmer touches; exchange = feet-off − touch, negative = early. Electronic platforms are confirmed by human judges.
-  - P3 · P4
-- ○ **SW-6.1.C** Compute a relay leg's split and its reaction-time gain over a flat start from a result sheet.
+  - P3 · P4 · drills: sw-relay-exchange, sw-exchange-diff
+- ● **SW-6.1.C** Compute a relay leg's split and its reaction-time gain over a flat start from a result sheet.
   - EK: Leg split = cumulative time at its touch − previous touch; relay legs run fast because the exchange (~0.2–0.3 s) replaces a reaction to the gun.
-  - P4
+  - P4 · drills: sw-relay-gain, sw-relay-total
 
 ### 6.2 How officiating works
 
 Book: world-aquatics-rules §SW 2; usms §101
 
-- ○ **SW-6.2.A** Explain who can disqualify, what they must see, and why the benefit of the doubt goes to the swimmer.
+- ● **SW-6.2.A** Explain who can disqualify, what they must see, and why the benefit of the doubt goes to the swimmer.
   - EK: Stroke and turn judges report what they observe in their jurisdiction; the referee decides; an infraction must be seen, not inferred.
-  - P3
+  - P3 · drills: sw-dq-authority, sw-dq-process
 
 ## Unit 7 · Race analysis and pacing
 
@@ -308,49 +308,49 @@ Big ideas: RHYTHM, LOOP, ENERGY
 
 Book: toussaint-2006 §velocity per lap
 
-- ○ **SW-7.1.A** Compute average velocity (m/s) and pace per 100 from a distance and time.
+- ● **SW-7.1.A** Compute average velocity (m/s) and pace per 100 from a distance and time.
   - EK: v = d/t; pace/100 = 100·t/d; 1 yd = 0.9144 m.
-  - P4
-- ○ **SW-7.1.B** Compute splits and split differentials from cumulative times and classify a swim as even, positive or negative split.
+  - P4 · drills: sw-pace-100, sw-velocity
+- ● **SW-7.1.B** Compute splits and split differentials from cumulative times and classify a swim as even, positive or negative split.
   - EK: Split = cumulative_i − cumulative_(i−1); negative split ⇒ second half faster than the first.
-  - P4
-- ○ **SW-7.1.C** Compute clean-swimming velocity for a 25 or 50 by removing the 15 m off the wall and the 5 m in.
+  - P4 · drills: sw-split-diff, sw-split-classify
+- ● **SW-7.1.C** Compute clean-swimming velocity for a 25 or 50 by removing the 15 m off the wall and the 5 m in.
   - EK: Clean velocity = mid-pool distance / mid-pool time; it isolates swimming from walls.
   - Needs: SW-7.1.A
-  - P4
+  - P4 · drills: sw-clean-velocity, sw-start-segment
 
 ### 7.2 Stroke rate, distance per stroke and stroke index
 
 Book: toussaint-2006 §SR vs SL in fatigue
 
-- ○ **SW-7.2.A** Compute stroke rate (cycles/min), distance per cycle and velocity from any two of them, or from a cycle count and lap time.
+- ● **SW-7.2.A** Compute stroke rate (cycles/min), distance per cycle and velocity from any two of them, or from a cycle count and lap time.
   - EK: v = SR·DPS with SR in cycles/s; SR (cyc/min) = 60 / cycle time; DPS = distance swum / cycles.
-  - P4
+  - P4 · drills: sw-dps, sw-stroke-rate
+- ● **SW-7.2.C** Compute stroke index (v × DPS) and compare the efficiency of two swims at different speeds.
+  - EK: SI = v·DPS (m²/s); higher SI at the same speed means more distance per cycle.
+  - P4 · drills: sw-stroke-index, sw-si-compare
+- ● **SW-7.2.D** Predict the new velocity when SR or DPS changes by a given percentage, and the trade-off needed to hold pace.
+  - EK: (1 + Δv) = (1 + ΔSR)(1 + ΔDPS); +5% SR with −5% DPS ≈ −0.25% speed.
+  - P4 · P6 · drills: sw-sr-dps-tradeoff, sw-dps-needed
 - ○ **SW-7.2.B** Explain from data whether a swimmer slowed in a race by losing stroke rate or distance per stroke.
   - EK: Toussaint 2006: in a 100 m sprint, velocity fell 12% while SR fell 11% — slowing tracked SR, not SL.
   - Needs: SW-7.2.A
   - P1 · P2
-- ○ **SW-7.2.C** Compute stroke index (v × DPS) and compare the efficiency of two swims at different speeds.
-  - EK: SI = v·DPS (m²/s); higher SI at the same speed means more distance per cycle.
-  - P4
-- ○ **SW-7.2.D** Predict the new velocity when SR or DPS changes by a given percentage, and the trade-off needed to hold pace.
-  - EK: (1 + Δv) = (1 + ΔSR)(1 + ΔDPS); +5% SR with −5% DPS ≈ −0.25% speed.
-  - P4 · P6
 
 ### 7.3 Pacing strategy
 
 Book: maglischo-1997 §energy metabolism
 
+- ● **SW-7.3.C** Diagnose a pacing error from a split sheet (dying third 50, flat middle, too-easy start) and prescribe the change.
+  - EK: Compare each split to the plan; the largest drop-off shows where effort or technique broke.
+  - P5 · drills: sw-pacing-diagnose, sw-pacing-fix
+- ● **SW-7.3.B** Build target splits for a goal time with a chosen front-half/back-half differential.
+  - EK: Split targets sum to the goal; first 50 includes the dive (~1.5–2.5 s faster than later 50s).
+  - Needs: SW-7.1.B
+  - P4 · P6 · drills: sw-target-splits, sw-back-half
 - ○ **SW-7.3.A** Choose a pacing profile for a 100 and 200 fly and justify it from energy supply and drag.
   - EK: Going out too fast spends glycolytic capacity early and drives acidosis; since power ∝ v³, uneven pace costs more energy than even pace for the same average speed.
   - P2 · P6
-- ○ **SW-7.3.B** Build target splits for a goal time with a chosen front-half/back-half differential.
-  - EK: Split targets sum to the goal; first 50 includes the dive (~1.5–2.5 s faster than later 50s).
-  - Needs: SW-7.1.B
-  - P4 · P6
-- ○ **SW-7.3.C** Diagnose a pacing error from a split sheet (dying third 50, flat middle, too-easy start) and prescribe the change.
-  - EK: Compare each split to the plan; the largest drop-off shows where effort or technique broke.
-  - P5
 
 ## Unit 8 · Energy systems and training physiology
 
@@ -387,53 +387,53 @@ Big ideas: ENERGY, LOOP
 
 Book: css §Wakayoshi 1992, §Ginn 1993, §% CSS zones
 
-- ○ **SW-9.1.A** Compute CSS (m/s and pace per 100) from 400 and 200 time-trial times.
+- ● **SW-9.1.C** Explain what CSS approximates and its limits, including for butterfly.
+  - EK: CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately.
+  - P2 · drills: sw-css-limits, sw-css-use
+- ● **SW-9.1.A** Compute CSS (m/s and pace per 100) from 400 and 200 time-trial times.
   - EK: CSS = (400 − 200)/(T₄₀₀ − T₂₀₀) m/s; pace/100 = (T₄₀₀ − T₂₀₀)/2 s. Variant: 350/(T₄₀₀ − T₅₀).
-  - P4
-- ○ **SW-9.1.B** Compute target paces per 100 for a training zone given CSS and a %CSS.
+  - P4 · drills: sw-css, sw-css-pace
+- ● **SW-9.1.B** Compute target paces per 100 for a training zone given CSS and a %CSS.
   - EK: Pace/100 = 100 / (f·CSS); zones roughly 70% recovery, 80–87% endurance, ~95% threshold, 100–110% VO₂max.
   - Needs: SW-9.1.A
-  - P4
-- ○ **SW-9.1.C** Explain what CSS approximates and its limits, including for butterfly.
-  - EK: CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately.
-  - P2
+  - P4 · drills: sw-css-zone, sw-zone-time
 
 ### 9.2 Interval training
 
 Book: maglischo-1997 §basic, §threshold, §overload, §lactate tolerance, §lactate production, §power
 
-- ○ **SW-9.2.A** Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.
-  - EK: Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest.
-  - P4
-- ○ **SW-9.2.B** Classify a described set (e.g. 10×100 @ threshold on :15 rest; 6×50 max on 3:00) into its training category.
+- ● **SW-9.2.B** Classify a described set (e.g. 10×100 @ threshold on :15 rest; 6×50 max on 3:00) into its training category.
   - EK: Maglischo: basic (≥1000, 4–5 s/100 slower than threshold, :05–:30 rest); threshold (2000–3000, :10–:30); lactate tolerance (75–200 repeats, 3–7 min rest, 600–1000 total); lactate production (25–50, 1–3 min); power (5–25, 100–300 total).
-  - P3 · P6
-- ○ **SW-9.2.C** Explain why rest interval, not distance, mostly sets which system a repeat trains.
+  - P3 · P6 · drills: sw-set-type, sw-set-volume
+- ● **SW-9.2.C** Explain why rest interval, not distance, mostly sets which system a repeat trains.
   - EK: Short rest keeps the aerobic system loaded; long rest restores phosphagens and lets each repeat go glycolytic or maximal.
-  - P2
+  - P2 · drills: sw-rest-decides, sw-set-time
+- ● **SW-9.2.A** Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.
+  - EK: Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest.
+  - P4 · drills: sw-rest-interval, sw-work-rest
 
 ### 9.3 Periodization and load
 
 Book: asca §L3 Season Planning Framework; maglischo-1997 §balancing training
 
+- ● **SW-9.3.B** Compute a week's volume by training category and compare it with a recommended balance.
+  - EK: Maglischo: warm-up/swim-down 15–20%, threshold + overload 20–25%, basic 40–50%, sprint 5–10%.
+  - P4 · P6 · drills: sw-week-volume, sw-volume-share
 - ○ **SW-9.3.A** Lay out a season into macro-, meso- and microcycles around a target meet.
   - EK: General prep → specific prep → competition → taper; volume peaks before intensity peaks.
   - P6
-- ○ **SW-9.3.B** Compute a week's volume by training category and compare it with a recommended balance.
-  - EK: Maglischo: warm-up/swim-down 15–20%, threshold + overload 20–25%, basic 40–50%, sprint 5–10%.
-  - P4 · P6
 
 ### 9.4 Taper
 
 Book: bosquet-2007 §meta-analysis of 27 studies
 
-- ○ **SW-9.4.A** Design a taper by the evidence: duration, volume cut, intensity and frequency.
+- ● **SW-9.4.A** Design a taper by the evidence: duration, volume cut, intensity and frequency.
   - EK: Bosquet 2007: ~2 weeks, cut volume 41–60% exponentially, keep intensity and session frequency.
-  - P6
-- ○ **SW-9.4.B** Compute daily yardage for an exponential taper from starting volume and target reduction.
+  - P6 · drills: sw-taper-rules, sw-taper-weeks
+- ● **SW-9.4.B** Compute daily yardage for an exponential taper from starting volume and target reduction.
   - EK: V(t) = V₀·e^(−t/τ); choose τ so V(end) = (1 − cut)·V₀.
   - Needs: SW-9.4.A
-  - P4
+  - P4 · drills: sw-taper-volume, sw-taper-daily
 
 ## Unit 10 · Self-analysis and video critique
 

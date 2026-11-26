@@ -20,7 +20,8 @@
    "ib-physics-2025",
    "icho-appendix-c",
    "aamc-mcat-outline",
-   "gre-physics"
+   "gre-physics",
+   "acs-accm-analytical"
   ],
   "note": "Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at."
  },
@@ -191,9 +192,9 @@
         "P2"
        ],
        "drills": [
+        "nu-shielding-choice",
         "nu-half-value-layers",
-        "nu-attenuation-coefficient",
-        "nu-shielding-choice"
+        "nu-attenuation-coefficient"
        ]
       }
      ]
@@ -252,8 +253,8 @@
         "P1"
        ],
        "drills": [
-        "nu-macroscopic-cross-section",
-        "nu-mean-free-path"
+        "nu-mean-free-path",
+        "nu-macroscopic-cross-section"
        ]
       }
      ]
@@ -318,8 +319,8 @@
         "P2"
        ],
        "drills": [
-        "nu-six-factor",
-        "nu-criticality-state"
+        "nu-criticality-state",
+        "nu-six-factor"
        ]
       },
       {
@@ -478,8 +479,8 @@
         "P3"
        ],
        "drills": [
-        "nu-fuel-consumption",
-        "nu-decay-heat"
+        "nu-decay-heat",
+        "nu-fuel-consumption"
        ]
       }
      ]
@@ -522,7 +523,8 @@
       {
        "id": "B",
        "std": [
-        "doe-hdbk-1019:1"
+        "doe-hdbk-1019:1",
+        "acs-accm-analytical:I.F.1"
        ],
        "do": "Calculate an activity from a mass and a half-life, and convert between becquerels and curies.",
        "ek": [
@@ -533,8 +535,8 @@
         "P3"
        ],
        "drills": [
-        "ra-activity-from-mass",
-        "ra-becquerel-curie"
+        "ra-becquerel-curie",
+        "ra-activity-from-mass"
        ]
       },
       {
@@ -568,8 +570,8 @@
         "P2"
        ],
        "drills": [
-        "ra-q-value",
-        "ra-secular-equilibrium"
+        "ra-secular-equilibrium",
+        "ra-q-value"
        ]
       }
      ]
@@ -629,9 +631,9 @@
    "topic": 1,
    "status": "ok",
    "full": [
+    "nu-shielding-choice",
     "nu-half-value-layers",
-    "nu-attenuation-coefficient",
-    "nu-shielding-choice"
+    "nu-attenuation-coefficient"
    ],
    "partial": []
   },
@@ -652,8 +654,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "nu-macroscopic-cross-section",
-    "nu-mean-free-path"
+    "nu-mean-free-path",
+    "nu-macroscopic-cross-section"
    ],
    "partial": []
   },
@@ -674,8 +676,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "nu-six-factor",
-    "nu-criticality-state"
+    "nu-criticality-state",
+    "nu-six-factor"
    ],
    "partial": []
   },
@@ -740,8 +742,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "nu-fuel-consumption",
-    "nu-decay-heat"
+    "nu-decay-heat",
+    "nu-fuel-consumption"
    ],
    "partial": []
   },
@@ -762,8 +764,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ra-activity-from-mass",
-    "ra-becquerel-curie"
+    "ra-becquerel-curie",
+    "ra-activity-from-mass"
    ],
    "partial": []
   },
@@ -784,8 +786,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ra-q-value",
-    "ra-secular-equilibrium"
+    "ra-secular-equilibrium",
+    "ra-q-value"
    ],
    "partial": []
   }

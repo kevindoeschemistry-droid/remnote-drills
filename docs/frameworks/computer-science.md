@@ -86,15 +86,15 @@ Book: cs2023 §MSF-Discrete
 
 Book: cs2023 §MSF-Probability, §MSF-Statistics
 
+- ● **CS-1.4.C** Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.
+  - EK: CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run.
+  - P2 · P6 · drills: cs-bench-ci, cs-bench-practice
 - ● **CS-1.4.A** Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.
   - EK: E[ΣX_i] = ΣE[X_i] even when the X_i are dependent; E[indicator] = P(event).
   - P2 · drills: cs-expected-collisions, cs-birthday-pairs
 - ● **CS-1.4.B** (webwork-opl:PB1.5) Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.
   - EK: P(A|B) = P(B|A)P(A)/P(B); a low base rate makes most positives false even for an accurate test.
   - P2 · P7 · drills: cs-bayes-alert, cs-false-alerts
-- ● **CS-1.4.C** Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.
-  - EK: CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run.
-  - P2 · P6 · drills: cs-bench-ci, cs-bench-practice
 
 ## Unit 2 · Algorithm analysis
 
@@ -223,13 +223,13 @@ Big ideas: COST, CORR, REP
 
 Book: cs2023 §AL-Foundational, §SDF-Algorithms
 
-- ● **CS-4.1.A** Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.
-  - EK: Insertion sort keeps a sorted prefix; selection places the k-th smallest at pass k; Lomuto/Hoare partitions differ in pivot placement.
-  - P3 · drills: pr-sort-pass, cs-bubble-swaps
 - ● **CS-4.1.B** Pick a sort for a scenario by worst-case time, stability, extra space and adaptivity, and explain when counting or radix sort beats Ω(n log n).
   - EK: Comparison sorts need Ω(n log n) comparisons; merge sort is stable, heapsort in-place, quicksort fast on average; radix sort is O(d(n + k)).
   - Needs: CS-2.3.A
   - P2 · P4 · drills: cs-sort-pick, cs-sort-facts
+- ● **CS-4.1.A** Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.
+  - EK: Insertion sort keeps a sorted prefix; selection places the k-th smallest at pass k; Lomuto/Hoare partitions differ in pivot placement.
+  - P3 · drills: pr-sort-pass, cs-bubble-swaps
 
 ### 4.2 Greedy algorithms
 
@@ -246,12 +246,12 @@ Book: cs2023 §AL-Strategies
 
 Book: cs2023 §AL-Strategies
 
-- ● **CS-4.3.A** Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.
-  - EK: Each cell is a subproblem combined from already-filled cells; traceback through choices recovers the solution.
-  - P3 · drills: cs-dp, cs-knapsack-coins
 - ● **CS-4.3.B** Write the state, recurrence and base cases for a described optimisation problem and give its time and space.
   - EK: Time ≈ (# states) × (work per state); overlapping subproblems + optimal substructure ⇒ DP.
   - P1 · P2 · drills: cs-dp-design, cs-dp-cells
+- ● **CS-4.3.A** Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.
+  - EK: Each cell is a subproblem combined from already-filled cells; traceback through choices recovers the solution.
+  - P3 · drills: cs-dp, cs-knapsack-coins
 
 ### 4.4 Graph traversal
 
@@ -269,13 +269,13 @@ Book: cs2023 §AL-Foundational
 
 Book: cs2023 §AL-Foundational
 
+- ● **CS-4.5.B** Run Bellman–Ford to find distances or detect a negative cycle, and explain why Dijkstra fails with negative edges.
+  - EK: V − 1 rounds of relaxing every edge; an improvement in round V means a negative cycle.
+  - P3 · P6 · drills: cs-bellman-dist, cs-neg-cycle
 - ● **CS-4.5.A** Trace Dijkstra's distance array and settled set after k extractions.
   - EK: Greedily settle the closest unsettled vertex and relax its edges; O((V + E) log V) with a binary heap.
   - Needs: CS-3.4.A
   - P3 · drills: cs-shortest-path, cs-dijkstra-order
-- ● **CS-4.5.B** Run Bellman–Ford to find distances or detect a negative cycle, and explain why Dijkstra fails with negative edges.
-  - EK: V − 1 rounds of relaxing every edge; an improvement in round V means a negative cycle.
-  - P3 · P6 · drills: cs-bellman-dist, cs-neg-cycle
 - ● **CS-4.5.C** Compute an MST's weight with Kruskal or Prim and give the order in which edges are chosen.
   - EK: Cut property: the lightest edge crossing any cut is safe; Kruskal uses union-find.
   - Needs: CS-3.5.B
@@ -289,15 +289,15 @@ Big ideas: CORR, COST
 
 Book: cs2023 §AL-Models
 
-- ● **CS-5.1.A** Trace a DFA or NFA on an input string and decide whether it accepts.
-  - EK: A DFA has exactly one transition per symbol; an NFA accepts if any path does; every NFA has an equivalent DFA.
-  - P3 · drills: cs-dfa, cs-subset-states
 - ● **CS-5.1.B** Write a regular expression or DFA for a described language, or argue it is not regular.
   - EK: Regular languages cannot count unboundedly (e.g. aⁿbⁿ); pumping lemma gives the contradiction.
   - P1 · P5 · drills: cs-regex-pick, cs-not-regular
 - ● **CS-5.1.C** Derive a string from a context-free grammar and show the grammar is ambiguous by giving two parse trees.
   - EK: CFGs capture nesting (balanced brackets) that regular expressions cannot; ambiguity = two leftmost derivations.
   - P3 · drills: cs-cfg-steps, cs-ambiguity
+- ● **CS-5.1.A** Trace a DFA or NFA on an input string and decide whether it accepts.
+  - EK: A DFA has exactly one transition per symbol; an NFA accepts if any path does; every NFA has an equivalent DFA.
+  - P3 · drills: cs-dfa, cs-subset-states
 
 ### 5.2 Computability and NP-completeness
 
@@ -360,13 +360,13 @@ Book: cs2023 §SE-Validation
 
 Book: cs2023 §SE-Reliability, §SE-Formal, §SF-Reliability
 
-- ● **CS-6.5.A** Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.
-  - EK: A = MTBF/(MTBF + MTTR); series multiply A; parallel 1 − Π(1 − A_i); 99.9% ≈ 8.8 h/yr down.
-  - P2 · drills: cs-availability, cs-replicas-needed
 - ● **CS-6.5.B** Write pre- and postconditions for a function and decide whether a given Hoare triple holds.
   - EK: {P} S {Q}: if P holds before S and S terminates, Q holds after; assignment rule substitutes backward.
   - Needs: CS-2.4.A
   - P6 · drills: cs-wp-assign, cs-hoare
+- ● **CS-6.5.A** Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.
+  - EK: A = MTBF/(MTBF + MTTR); series multiply A; parallel 1 − Π(1 − A_i); 99.9% ≈ 8.8 h/yr down.
+  - P2 · drills: cs-availability, cs-replicas-needed
 
 ## Unit 7 · Databases and data management
 
@@ -391,13 +391,13 @@ Book: cs2023 §DM-Querying
   - EK: WHERE filters rows before grouping, HAVING filters groups after; every non-aggregated SELECT column must be grouped.
   - Needs: CS-7.1.B
   - P5 · drills: sq-join-pick, sq-group-rows
-- ● **CS-7.2.B** Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.
-  - EK: NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs.
-  - P3 · drills: sq-join-count, sq-null-trap, sq-aggregate
 - ● **CS-7.2.C** Write a query using a correlated subquery, CTE or window function (rank, running total, top-n per group).
   - EK: Window functions compute over a PARTITION BY … ORDER BY frame without collapsing rows.
   - Needs: CS-7.2.A
   - P5 · drills: sq-window, sq-top-per-group, sq-subquery-count
+- ● **CS-7.2.B** Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.
+  - EK: NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs.
+  - P3 · drills: sq-join-count, sq-null-trap, sq-aggregate
 
 ### 7.3 Functional dependencies and normal forms
 
@@ -419,13 +419,13 @@ Book: cs2023 §DM-Relational, §DM-Modeling
 
 Book: cs2023 §DM-Processing, §DM-Internals
 
-- ● **CS-7.4.A** Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.
-  - EK: READ COMMITTED stops dirty reads; REPEATABLE READ stops non-repeatable reads; SERIALIZABLE stops phantoms and write skew.
-  - P3 · P6 · drills: cs-isolation-anomaly, cs-isolation-levels
 - ● **CS-7.4.B** Decide whether a schedule is conflict-serializable by drawing its precedence graph, and give an equivalent serial order.
   - EK: Conflicts: two ops on the same item, different transactions, at least one write; acyclic precedence graph ⇔ conflict-serializable.
   - Needs: CS-4.4.B
   - P3 · P6 · drills: cs-conflict-serial, cs-2pl
+- ● **CS-7.4.A** Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.
+  - EK: READ COMMITTED stops dirty reads; REPEATABLE READ stops non-repeatable reads; SERIALIZABLE stops phantoms and write skew.
+  - P3 · P6 · drills: cs-isolation-anomaly, cs-isolation-levels
 
 ### 7.5 Storage, indexing and query processing
 
@@ -555,12 +555,12 @@ Book: cs2023 §OS-Memory
 
 Book: cs2023 §OS-Files, §OS-Devices, §OS-Protection
 
-- ● **CS-9.5.A** Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.
-  - EK: Pointers per block = block size / pointer size; max = (direct + p + p² + p³) × block size.
-  - P2 · drills: cs-inode-size, cs-direct-single
 - ● **CS-9.5.B** Decide whether a user can read, write or execute a file from its Unix permission bits, owner and group (e.g. chmod 754).
   - EK: Three octal digits for owner/group/other; r = 4, w = 2, x = 1; the first matching class applies.
   - P3 · drills: cs-unix-perm, cs-chmod-octal
+- ● **CS-9.5.A** Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.
+  - EK: Pointers per block = block size / pointer size; max = (direct + p + p² + p³) × block size.
+  - P2 · drills: cs-inode-size, cs-direct-single
 
 ### 9.6 Virtualization
 
@@ -609,6 +609,10 @@ Book: cs2023 §NC-Reliability
 
 Book: cs2023 §NC-Routing
 
+- ● **CS-10.4.C** Compute a router's table after one round of distance-vector updates, or by link-state Dijkstra.
+  - EK: DV: D_x(y) = min_v (c(x,v) + D_v(y)); link-state floods topology then runs Dijkstra locally.
+  - Needs: CS-4.5.A
+  - P3 · drills: cs-dv-update, cs-routing
 - ● **CS-10.4.A** Compute the network address, broadcast address, usable host range and host count for an IPv4 CIDR block, or subnet it into k pieces — auto-checked.
   - EK: Mask = prefix ones; network = IP AND mask; hosts = 2^(32 − prefix) − 2; borrowing b bits makes 2^b subnets.
   - Needs: CS-8.1.A
@@ -617,10 +621,6 @@ Book: cs2023 §NC-Routing
   - EK: Among matching prefixes, the longest (most specific) wins; 0.0.0.0/0 is the default route.
   - Needs: CS-10.4.A
   - P3 · drills: cs-longest-prefix, cs-prefix-size
-- ● **CS-10.4.C** Compute a router's table after one round of distance-vector updates, or by link-state Dijkstra.
-  - EK: DV: D_x(y) = min_v (c(x,v) + D_v(y)); link-state floods topology then runs Dijkstra locally.
-  - Needs: CS-4.5.A
-  - P3 · drills: cs-dv-update, cs-routing
 
 ### 10.5 Network security
 
@@ -747,19 +747,19 @@ Book: cs2023 §AI-Search
 
 Book: cs2023 §AI-ML
 
-- ● **CS-13.2.A** Compute accuracy, precision, recall and F1 from a confusion matrix and pick the metric a scenario needs.
-  - EK: Precision = TP/(TP + FP); recall = TP/(TP + FN); imbalanced classes make accuracy misleading.
-  - P2 · P4 · drills: cs-f1, cs-f1-from-pr
 - ● **CS-13.2.B** Diagnose under- or overfitting from training and validation curves and choose a remedy.
   - EK: High train and val error ⇒ bias; low train, high val ⇒ variance; regularise, add data or simplify for variance.
   - P6 · drills: cs-fit-diagnose, cs-fit-diagnose-2
+- ● **CS-13.2.D** Classify a point by k-NN, or compute the information gain or Gini decrease of a decision-tree split.
+  - EK: Entropy H = −Σ p log₂ p; gain = H(parent) − weighted H(children); Gini = 1 − Σ p².
+  - P3 · P2 · drills: cs-gini-gain, cs-info-gain
+- ● **CS-13.2.A** Compute accuracy, precision, recall and F1 from a confusion matrix and pick the metric a scenario needs.
+  - EK: Precision = TP/(TP + FP); recall = TP/(TP + FN); imbalanced classes make accuracy misleading.
+  - P2 · P4 · drills: cs-f1, cs-f1-from-pr
 - ● **CS-13.2.C** Compute one gradient-descent update for linear or logistic regression on a tiny dataset.
   - EK: w ← w − η∇L; for MSE ∇_w = (2/n)Xᵀ(Xw − y); too large η diverges.
   - Needs: CS-1.4.A
   - P3 · drills: ab-gd-step, cs-gd-mse
-- ● **CS-13.2.D** Classify a point by k-NN, or compute the information gain or Gini decrease of a decision-tree split.
-  - EK: Entropy H = −Σ p log₂ p; gain = H(parent) − weighted H(children); Gini = 1 − Σ p².
-  - P3 · P2 · drills: cs-gini-gain, cs-info-gain
 
 ### 13.3 Language models
 
@@ -786,13 +786,13 @@ Big ideas: CONC, COST
 
 Book: cs2023 §PDC-Programs, §PDC-Evaluation
 
+- ● **CS-14.1.B** Compute strong- and weak-scaling efficiency from timings and explain the gap with Amdahl and Gustafson.
+  - EK: Efficiency = S/p; Gustafson: scaled speedup = p − α(p − 1) when the problem grows with p.
+  - P2 · drills: cs-strong-eff, cs-gustafson
 - ● **CS-14.1.A** Compute work, span and parallelism of a task DAG and bound the runtime on p processors.
   - EK: T₁ = work, T∞ = span; parallelism = T₁/T∞; greedy scheduling gives T_p ≤ T₁/p + T∞.
   - Needs: CS-8.4.B
   - P2 · drills: cs-work-span, cs-brent
-- ● **CS-14.1.B** Compute strong- and weak-scaling efficiency from timings and explain the gap with Amdahl and Gustafson.
-  - EK: Efficiency = S/p; Gustafson: scaled speedup = p − α(p − 1) when the problem grows with p.
-  - P2 · drills: cs-strong-eff, cs-gustafson
 
 ### 14.2 Ordering and coordination
 

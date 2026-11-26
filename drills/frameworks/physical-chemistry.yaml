@@ -37,7 +37,7 @@ domains: [pchem, quantum, kinetics]
 
 basis:
   primary: acs-accm-pchem
-  also: [engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic]
+  also: [engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical]
   note: "Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md."
 
 big_ideas:
@@ -90,22 +90,22 @@ units:
         title: "The ideal gas as a reference state"
         book: { engel-reid-3e: ["1.4"] }
         los:
-          - { id: A, std: ["webwork-opl:TH2.12", "webwork-opl:TH12.2", "acs-accm-pchem:IV.A.4", "acs-accm-pchem:VI.G.4", "acs-accm-pchem:X.A.3", "acs-accm-pchem:X.D.5"], do: "Calculate the pressure, volume, amount or temperature of an ideal gas from the other three.", ek: ["PV = nRT with T in kelvin; R = 8.314 J/mol·K = 0.08314 L·bar/mol·K."], p: [P3], drills: ["pc-ideal-gas", pc-gas-density] }
+          - { id: A, std: ["webwork-opl:TH2.12", "webwork-opl:TH12.2", "acs-accm-pchem:IV.A.4", "acs-accm-pchem:VI.G.4", "acs-accm-pchem:X.A.3", "acs-accm-pchem:X.D.5"], do: "Calculate the pressure, volume, amount or temperature of an ideal gas from the other three.", ek: ["PV = nRT with T in kelvin; R = 8.314 J/mol·K = 0.08314 L·bar/mol·K."], p: [P3], drills: [pc-gas-density, "pc-ideal-gas"] }
       - n: 2
         title: "Work and heat along a path"
         book: { engel-reid-3e: ["2.8", "2.8", "2.5", "3.4", "2.11"] }
         los:
-          - { id: A, std: ["webwork-opl:TH1.11", "webwork-opl:TH1.12", "acs-accm-pchem:VI.G.6", "acs-accm-pchem:VI.G.3"], do: "Calculate the work of an expansion or compression against a constant external pressure.", ek: ["w = −P_ext ΔV; work done on the system is positive, so expansion gives w < 0."], p: [P3], drills: ["pc-work-irrev", pc-volume-from-work] }
+          - { id: A, std: ["webwork-opl:TH1.11", "webwork-opl:TH1.12", "acs-accm-pchem:VI.G.6", "acs-accm-pchem:VI.G.3"], do: "Calculate the work of an expansion or compression against a constant external pressure.", ek: ["w = −P_ext ΔV; work done on the system is positive, so expansion gives w < 0."], p: [P3], drills: [pc-volume-from-work, "pc-work-irrev"] }
           - { id: B, std: ["webwork-opl:TH1.12", "acs-accm-pchem:VI.G.3", "acs-accm-pchem:VI.G.6", "acs-accm-pchem:VI.G.2"], do: "Calculate the work and heat of a reversible isothermal expansion of an ideal gas.", ek: ["w = −nRT ln(V₂/V₁); ΔU = 0 for an ideal gas at constant T, so q = −w."], p: [P3], drills: ["th-fl-isothermal", "sc-isothermal-work-ratio"] }
-          - { id: C, std: ["webwork-opl:TH1.9", "webwork-opl:TH2.10", "acs-accm-pchem:VI.G.7", "acs-accm-pchem:VI.G.2"], do: "Calculate the heat and internal-energy change for heating at constant volume.", ek: ["q_V = ΔU = nC_V ΔT; no P–V work is done."], p: [P3], drills: ["th-fl-isochoric", td-isochoric-pressure] }
-          - { id: D, std: ["webwork-opl:TH1.10", "webwork-opl:TH2.11", "webwork-opl:TH2.14", "acs-accm-pchem:VI.G.8"], do: "Calculate the heat and enthalpy change for heating at constant pressure.", ek: ["q_P = ΔH = nC_P ΔT; C_P − C_V = R for an ideal gas."], p: [P3], drills: ["th-fl-isobaric", td-isobaric-dh] }
-          - { id: E, std: ["webwork-opl:TH7.16", "acs-accm-pchem:VI.G.3", "acs-accm-pchem:VI.G.5"], do: "Calculate the final temperature and the work of a reversible adiabatic expansion.", ek: ["T₁V₁^(γ−1) = T₂V₂^(γ−1) with γ = C_P/C_V; q = 0, so w = ΔU = nC_V ΔT."], p: [P3], drills: ["th-fl-adiabatic", td-adiabatic-work] }
+          - { id: C, std: ["webwork-opl:TH1.9", "webwork-opl:TH2.10", "acs-accm-pchem:VI.G.7", "acs-accm-pchem:VI.G.2"], do: "Calculate the heat and internal-energy change for heating at constant volume.", ek: ["q_V = ΔU = nC_V ΔT; no P–V work is done."], p: [P3], drills: [td-isochoric-pressure, "th-fl-isochoric"] }
+          - { id: D, std: ["webwork-opl:TH1.10", "webwork-opl:TH2.11", "webwork-opl:TH2.14", "acs-accm-pchem:VI.G.8"], do: "Calculate the heat and enthalpy change for heating at constant pressure.", ek: ["q_P = ΔH = nC_P ΔT; C_P − C_V = R for an ideal gas."], p: [P3], drills: [td-isobaric-dh, "th-fl-isobaric"] }
+          - { id: E, std: ["webwork-opl:TH7.16", "acs-accm-pchem:VI.G.3", "acs-accm-pchem:VI.G.5"], do: "Calculate the final temperature and the work of a reversible adiabatic expansion.", ek: ["T₁V₁^(γ−1) = T₂V₂^(γ−1) with γ = C_P/C_V; q = 0, so w = ΔU = nC_V ΔT."], p: [P3], drills: [td-adiabatic-work, "th-fl-adiabatic"] }
       - n: 3
         title: "Enthalpy and internal energy"
         book: { engel-reid-3e: ["2.9"] }
         los:
-          - { id: A, std: ["webwork-opl:TH1.10", "acs-accm-pchem:VI.G.8", "acs-accm-pchem:VI.G.7"], do: "Convert between ΔH and ΔU for a process that changes the moles of gas.", ek: ["ΔH = ΔU + Δn_gas RT; condensed phases contribute almost nothing to Δ(PV)."], p: [P3], drills: ["pc-dh-du", pc-du-from-dh] }
-          - { id: B, std: ["acs-accm-pchem:VI.A.1", "acs-accm-pchem:VI.A.2", "acs-accm-pchem:VI.A.3", "acs-accm-pchem:VI.B.2", "acs-accm-pchem:VI.G.10"], do: "Keep first-law books: choose the system, sign q and w, and find ΔU.", ek: ["ΔU = q + w with q > 0 into the system and w > 0 done on it; open, closed and isolated systems differ in what crosses; thermodynamics is silent on rates."], p: [P1], drills: [pc-du-signs, pc-system-types] }
+          - { id: B, std: ["acs-accm-pchem:VI.A.1", "acs-accm-pchem:VI.A.2", "acs-accm-pchem:VI.A.3", "acs-accm-pchem:VI.B.2", "acs-accm-pchem:VI.G.10"], do: "Keep first-law books: choose the system, sign q and w, and find ΔU.", ek: ["ΔU = q + w with q > 0 into the system and w > 0 done on it; open, closed and isolated systems differ in what crosses; thermodynamics is silent on rates."], p: [P1], drills: [pc-system-types, pc-du-signs] }
+          - { id: A, std: ["webwork-opl:TH1.10", "acs-accm-pchem:VI.G.8", "acs-accm-pchem:VI.G.7"], do: "Convert between ΔH and ΔU for a process that changes the moles of gas.", ek: ["ΔH = ΔU + Δn_gas RT; condensed phases contribute almost nothing to Δ(PV)."], p: [P3], drills: [pc-du-from-dh, "pc-dh-du"] }
 
   # ── 2 ────────────────────────────────────────────────────────────────────
   - id: thermochemistry
@@ -119,9 +119,9 @@ units:
         title: "Reaction enthalpies"
         book: { engel-reid-3e: ["4.2", "4.3", "4.4"] }
         los:
-          - { id: A, std: ["webwork-opl:TH13.5", "acs-accm-pchem:VI.A.4", "acs-accm-pchem:VI.G.7", "acs-accm-pchem:VI.G.8"], do: "Convert a constant-volume (bomb calorimeter) reaction energy into a reaction enthalpy.", ek: ["A bomb measures q_V = ΔU; ΔH = ΔU + Δn_gas RT, with Δn counted from the balanced equation."], p: [P3], drills: ["~pc-dh-du", pc-bomb-calorimeter] }
-          - { id: B, std: ["webwork-opl:TH13.3", "webwork-opl:TH13.4", "acs-accm-pchem:VI.G.9", "acs-accm-pchem:VI.D.1", "acs-accm-pchem:IV.E.4"], do: "Calculate a standard reaction enthalpy from standard enthalpies of formation.", ek: ["ΔH°_rxn = Σ ν ΔH°_f(products) − Σ ν ΔH°_f(reactants); elements in their standard states are zero."], p: [P3], drills: ["pc-hess", pc-hess-combine] }
-          - { id: C, std: ["acs-accm-pchem:VI.G.5", "acs-accm-pchem:VI.G.9"], do: "Correct a reaction enthalpy to a different temperature with Kirchhoff's law.", ek: ["ΔH(T₂) = ΔH(T₁) + ΔC_P (T₂ − T₁) when ΔC_P is constant over the range."], p: [P3], drills: ["pc-kirchhoff", pc-dcp-from-two] }
+          - { id: A, std: ["webwork-opl:TH13.5", "acs-accm-pchem:VI.A.4", "acs-accm-pchem:VI.G.7", "acs-accm-pchem:VI.G.8"], do: "Convert a constant-volume (bomb calorimeter) reaction energy into a reaction enthalpy.", ek: ["A bomb measures q_V = ΔU; ΔH = ΔU + Δn_gas RT, with Δn counted from the balanced equation."], p: [P3], drills: [pc-bomb-calorimeter, "~pc-dh-du"] }
+          - { id: B, std: ["webwork-opl:TH13.3", "webwork-opl:TH13.4", "acs-accm-pchem:VI.G.9", "acs-accm-pchem:VI.D.1", "acs-accm-pchem:IV.E.4"], do: "Calculate a standard reaction enthalpy from standard enthalpies of formation.", ek: ["ΔH°_rxn = Σ ν ΔH°_f(products) − Σ ν ΔH°_f(reactants); elements in their standard states are zero."], p: [P3], drills: [pc-hess-combine, "pc-hess"] }
+          - { id: C, std: ["acs-accm-pchem:VI.G.5", "acs-accm-pchem:VI.G.9"], do: "Correct a reaction enthalpy to a different temperature with Kirchhoff's law.", ek: ["ΔH(T₂) = ΔH(T₁) + ΔC_P (T₂ − T₁) when ΔC_P is constant over the range."], p: [P3], drills: [pc-dcp-from-two, "pc-kirchhoff"] }
 
   # ── 3 ────────────────────────────────────────────────────────────────────
   - id: entropy
@@ -135,15 +135,15 @@ units:
         title: "Heat engines"
         book: { engel-reid-3e: ["5.2"] }
         los:
-          - { id: A, std: ["webwork-opl:TH6.6", "acs-accm-pchem:VI.F.1", "acs-accm-pchem:VI.F.2", "acs-accm-pchem:VI.H.4"], do: "Calculate the efficiency of a Carnot engine and the work it delivers from a given heat input.", ek: ["η = 1 − T_C/T_H = w/q_H, temperatures in kelvin; no engine between the same reservoirs does better."], p: [P3], drills: ["pc-carnot", pc-carnot-rejected] }
+          - { id: A, std: ["webwork-opl:TH6.6", "acs-accm-pchem:VI.F.1", "acs-accm-pchem:VI.F.2", "acs-accm-pchem:VI.H.4"], do: "Calculate the efficiency of a Carnot engine and the work it delivers from a given heat input.", ek: ["η = 1 − T_C/T_H = w/q_H, temperatures in kelvin; no engine between the same reservoirs does better."], p: [P3], drills: [pc-carnot-rejected, "pc-carnot"] }
       - n: 2
         title: "Entropy changes"
         book: { engel-reid-3e: ["5.4", "5.4", "5.4", "5.10"] }
         los:
-          - { id: A, std: ["webwork-opl:TH7.10", "acs-accm-pchem:VI.H.2", "acs-accm-pchem:VI.H.3"], do: "Calculate the entropy change of an ideal gas that expands isothermally.", ek: ["ΔS = nR ln(V₂/V₁) = nR ln(P₁/P₂); a state function, so the path need not be reversible."], p: [P3], drills: ["pc-ds-expansion", pc-volume-from-ds] }
-          - { id: B, std: ["webwork-opl:TH7.10", "acs-accm-pchem:VI.H.2"], do: "Calculate the entropy change for heating at constant pressure.", ek: ["ΔS = nC_P ln(T₂/T₁) for constant C_P; kelvin inside the logarithm."], p: [P3], drills: ["pc-ds-heating", pc-temperature-from-ds] }
-          - { id: C, std: ["webwork-opl:TH7.8", "acs-accm-pchem:VI.H.2", "acs-accm-pchem:IV.D.1"], do: "Calculate the entropy change of a phase transition at its transition temperature.", ek: ["ΔS_tr = ΔH_tr/T_tr; Trouton's rule puts ΔS_vap near 85–88 J/mol·K for many liquids."], p: [P3], drills: ["pc-ds-phase", pc-trouton-boiling] }
-          - { id: D, std: ["webwork-opl:TH13.12", "acs-accm-pchem:VI.H.7", "acs-accm-pchem:III.H.3", "acs-accm-general:VI.H.3"], do: "Calculate a standard reaction entropy from absolute molar entropies.", ek: ["ΔS°_rxn = Σ ν S°(products) − Σ ν S°(reactants); the third law fixes S° on an absolute scale."], p: [P2, P5], drills: ["pc-reaction-entropy", pc-reaction-entropy-t] }
+          - { id: A, std: ["webwork-opl:TH7.10", "acs-accm-pchem:VI.H.2", "acs-accm-pchem:VI.H.3"], do: "Calculate the entropy change of an ideal gas that expands isothermally.", ek: ["ΔS = nR ln(V₂/V₁) = nR ln(P₁/P₂); a state function, so the path need not be reversible."], p: [P3], drills: [pc-volume-from-ds, "pc-ds-expansion"] }
+          - { id: B, std: ["webwork-opl:TH7.10", "acs-accm-pchem:VI.H.2"], do: "Calculate the entropy change for heating at constant pressure.", ek: ["ΔS = nC_P ln(T₂/T₁) for constant C_P; kelvin inside the logarithm."], p: [P3], drills: [pc-temperature-from-ds, "pc-ds-heating"] }
+          - { id: C, std: ["webwork-opl:TH7.8", "acs-accm-pchem:VI.H.2", "acs-accm-pchem:IV.D.1"], do: "Calculate the entropy change of a phase transition at its transition temperature.", ek: ["ΔS_tr = ΔH_tr/T_tr; Trouton's rule puts ΔS_vap near 85–88 J/mol·K for many liquids."], p: [P3], drills: [pc-trouton-boiling, "pc-ds-phase"] }
+          - { id: D, std: ["webwork-opl:TH13.12", "acs-accm-pchem:VI.H.7", "acs-accm-pchem:III.H.3", "acs-accm-general:VI.H.3"], do: "Calculate a standard reaction entropy from absolute molar entropies.", ek: ["ΔS°_rxn = Σ ν S°(products) − Σ ν S°(reactants); the third law fixes S° on an absolute scale."], p: [P2, P5], drills: [pc-reaction-entropy-t, "pc-reaction-entropy"] }
 
   # ── 4 ────────────────────────────────────────────────────────────────────
   - id: gibbs
@@ -157,15 +157,15 @@ units:
         title: "Gibbs energy"
         book: { engel-reid-3e: ["6.1", "6.3"] }
         los:
-          - { id: A, std: ["webwork-opl:TH13.15", "acs-accm-pchem:VI.H.6", "acs-accm-pchem:VI.H.1"], do: "Calculate ΔG from ΔH and ΔS and decide whether a process is spontaneous at a given temperature.", ek: ["ΔG = ΔH − TΔS; spontaneous at constant T and P when ΔG < 0; the sign flips at T = ΔH/ΔS."], p: [P3], drills: ["pc-dg", pc-crossover-t] }
-          - { id: B, std: ["acs-accm-pchem:VI.H.6", "acs-accm-pchem:VI.G.5"], do: "Calculate the change in Gibbs energy of an ideal gas with pressure.", ek: ["G(P) = G° + nRT ln(P/P°), so ΔG = nRT ln(P₂/P₁) at constant T."], p: [P3], drills: ["pc-g-pressure", pc-pressure-for-dg] }
+          - { id: A, std: ["webwork-opl:TH13.15", "acs-accm-pchem:VI.H.6", "acs-accm-pchem:VI.H.1"], do: "Calculate ΔG from ΔH and ΔS and decide whether a process is spontaneous at a given temperature.", ek: ["ΔG = ΔH − TΔS; spontaneous at constant T and P when ΔG < 0; the sign flips at T = ΔH/ΔS."], p: [P3], drills: [pc-crossover-t, "pc-dg"] }
+          - { id: B, std: ["acs-accm-pchem:VI.H.6", "acs-accm-pchem:VI.G.5"], do: "Calculate the change in Gibbs energy of an ideal gas with pressure.", ek: ["G(P) = G° + nRT ln(P/P°), so ΔG = nRT ln(P₂/P₁) at constant T."], p: [P3], drills: [pc-pressure-for-dg, "pc-g-pressure"] }
       - n: 2
         title: "The equilibrium constant"
         book: { engel-reid-3e: ["6.7", "6.10"] }
         los:
-          - { id: A, std: ["webwork-opl:TH13.2", "acs-accm-pchem:VIII.F.2", "acs-accm-pchem:VIII.D.1", "acs-accm-pchem:VIII.D.2", "acs-accm-pchem:VIII.C.1"], do: "Calculate an equilibrium constant from a standard reaction Gibbs energy, and the reverse.", ek: ["ΔG° = −RT ln K; a negative ΔG° gives K > 1."], p: [P3], drills: ["th-ce-k", td-k-temperature-free] }
-          - { id: B, std: ["acs-accm-pchem:VIII.E.2", "acs-accm-pchem:VIII.E.1"], do: "Calculate how an equilibrium constant shifts with temperature using the van't Hoff equation.", ek: ["ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁); K rises with T for an endothermic reaction."], p: [P3], drills: ["th-ce-vant-hoff", "sc-equilibrium-constant-temperature"] }
           - { id: C, std: ["acs-accm-pchem:V.A.1", "acs-accm-pchem:V.A.2", "acs-accm-pchem:VIII.A.1", "acs-accm-pchem:VIII.B.2", "acs-accm-pchem:VIII.G.1"], do: "Use the extent of reaction and convert between chemical and biochemical standard states.", ek: ["nᵢ = nᵢ⁰ + νᵢξ; ΔG°′ (pH 7) = ΔG° + ν(H⁺)·RT ln 10⁻⁷ for a reaction producing ν protons."], p: [P1], drills: [pc-extent, pc-biochem-standard] }
+          - { id: A, std: ["webwork-opl:TH13.2", "acs-accm-pchem:VIII.F.2", "acs-accm-pchem:VIII.D.1", "acs-accm-pchem:VIII.D.2", "acs-accm-pchem:VIII.C.1"], do: "Calculate an equilibrium constant from a standard reaction Gibbs energy, and the reverse.", ek: ["ΔG° = −RT ln K; a negative ΔG° gives K > 1."], p: [P3], drills: [td-k-temperature-free, "th-ce-k"] }
+          - { id: B, std: ["acs-accm-pchem:VIII.E.2", "acs-accm-pchem:VIII.E.1"], do: "Calculate how an equilibrium constant shifts with temperature using the van't Hoff equation.", ek: ["ln(K₂/K₁) = −(ΔH°/R)(1/T₂ − 1/T₁); K rises with T for an endothermic reaction."], p: [P3], drills: ["th-ce-vant-hoff", "sc-equilibrium-constant-temperature"] }
 
   # ── 5 ────────────────────────────────────────────────────────────────────
   - id: real-gases
@@ -179,10 +179,10 @@ units:
         title: "Departures from ideality"
         book: { engel-reid-3e: ["7.3", "7.2", "7.4", "7.5"] }
         los:
-          - { id: A, std: ["webwork-opl:TH2.15", "acs-accm-pchem:IV.A.5", "acs-accm-pchem:IV.A.2"], do: "Calculate the compression factor of a gas and say whether attraction or repulsion dominates.", ek: ["Z = PV_m/RT; Z < 1 means attractions dominate, Z > 1 repulsions."], p: [P3], drills: ["pc-compression-z", pc-volume-from-z] }
-          - { id: B, std: ["webwork-opl:TH15.5", "acs-accm-pchem:IV.A.5", "acs-accm-pchem:IV.A.2"], do: "Calculate the pressure of a gas from the van der Waals equation.", ek: ["P = RT/(V_m − b) − a/V_m²; b is excluded volume, a measures attraction."], p: [P3], drills: ["pc-vdw", pc-boyle-vdw] }
-          - { id: C, std: ["webwork-opl:TH15.6", "acs-accm-pchem:IV.A.5", "acs-accm-pchem:IV.D.7"], do: "Calculate reduced variables and use corresponding states to compare gases.", ek: ["T_r = T/T_c, P_r = P/P_c; gases at the same reduced state have about the same Z."], p: [P2, P5], drills: ["pc-reduced-temperature", pc-vdw-critical-t] }
-          - { id: D, std: ["webwork-opl:TH15.10", "acs-accm-pchem:VIII.C.3", "acs-accm-pchem:IV.D.1"], do: "Calculate a fugacity from a fugacity coefficient and relate it to chemical potential.", ek: ["f = φP; μ = μ° + RT ln(f/P°); φ → 1 as P → 0."], p: [P2, P5], drills: ["pc-fugacity-potential", pc-mu-from-phi] }
+          - { id: A, std: ["webwork-opl:TH2.15", "acs-accm-pchem:IV.A.5", "acs-accm-pchem:IV.A.2"], do: "Calculate the compression factor of a gas and say whether attraction or repulsion dominates.", ek: ["Z = PV_m/RT; Z < 1 means attractions dominate, Z > 1 repulsions."], p: [P3], drills: [pc-volume-from-z, "pc-compression-z"] }
+          - { id: B, std: ["webwork-opl:TH15.5", "acs-accm-pchem:IV.A.5", "acs-accm-pchem:IV.A.2"], do: "Calculate the pressure of a gas from the van der Waals equation.", ek: ["P = RT/(V_m − b) − a/V_m²; b is excluded volume, a measures attraction."], p: [P3], drills: [pc-boyle-vdw, "pc-vdw"] }
+          - { id: C, std: ["webwork-opl:TH15.6", "acs-accm-pchem:IV.A.5", "acs-accm-pchem:IV.D.7"], do: "Calculate reduced variables and use corresponding states to compare gases.", ek: ["T_r = T/T_c, P_r = P/P_c; gases at the same reduced state have about the same Z."], p: [P2, P5], drills: [pc-vdw-critical-t, "pc-reduced-temperature"] }
+          - { id: D, std: ["webwork-opl:TH15.10", "acs-accm-pchem:VIII.C.3", "acs-accm-pchem:IV.D.1"], do: "Calculate a fugacity from a fugacity coefficient and relate it to chemical potential.", ek: ["f = φP; μ = μ° + RT ln(f/P°); φ → 1 as P → 0."], p: [P2, P5], drills: [pc-mu-from-phi, "pc-fugacity-potential"] }
 
   # ── 6 ────────────────────────────────────────────────────────────────────
   - id: phases
@@ -196,13 +196,13 @@ units:
         title: "Phase diagrams"
         book: { engel-reid-3e: ["8.3", "8.6", "8.8"] }
         los:
-          - { id: A, std: ["webwork-opl:TH2.1", "acs-accm-pchem:VIII.F.1", "acs-accm-pchem:IV.D.2", "acs-accm-pchem:X.D.1"], do: "Apply the Gibbs phase rule to count the degrees of freedom of a system.", ek: ["F = C − P + 2; a pure substance at its triple point has F = 0."], p: [P3], drills: ["pc-phase-rule", pc-max-phases] }
-          - { id: B, std: ["webwork-opl:TH15.3", "acs-accm-pchem:IV.D.5", "acs-accm-pchem:IV.D.3"], do: "Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.", ek: ["ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap."], p: [P3], drills: ["th-pe-cc-pressure", "th-pe-cc-enthalpy", "th-pe-cc-temperature", "sc-vapour-pressure-ten-degrees"] }
-          - { id: C, std: ["acs-accm-pchem:IV.D.4"], do: "Calculate the pressure difference across a curved liquid surface.", ek: ["ΔP = 2γ/r for a droplet or a bubble in a liquid; smaller radius, larger excess pressure."], p: [P3], drills: ["pc-laplace-pressure", pc-bubble-pressure] }
           - { id: D, std: ["acs-accm-pchem:IV.A.1", "acs-accm-pchem:IV.A.2", "acs-accm-pchem:IV.A.3", "acs-accm-pchem:IV.C.2", "acs-accm-pchem:IV.C.3", "acs-accm-pchem:IV.C.5"], do: "Read a Lennard-Jones potential and scale dispersion energies with distance and polarisability.", ek: ["V = 4ε[(σ/r)¹² − (σ/r)⁶]: zero at σ, minimum −ε at 2^(1/6)σ; London energy ∝ −α₁α₂/r⁶."], p: [P1], drills: [pc-lj-minimum, pc-london-scale] }
           - { id: E, std: ["acs-accm-pchem:IV.C.1", "acs-accm-pchem:IV.C.4", "acs-accm-pchem:IV.C.6", "acs-accm-pchem:IV.C.7", "acs-accm-pchem:IV.B.1", "acs-accm-pchem:IV.B.2", "acs-accm-pchem:IV.B.3", "acs-accm-pchem:IV.E.3"], do: "Classify the interactions between molecules and inside biomolecules, and how they scale with distance.", ek: ["Ion–ion ∝ 1/r, ion–dipole 1/r², dipole–dipole (fixed) 1/r³, rotating dipoles and dispersion 1/r⁶; the hydrophobic effect drives folding and micelles."], p: [P1], drills: [pc-imf-type, pc-dipole-scale] }
-          - { id: F, std: ["acs-accm-pchem:IX.A.1", "acs-accm-pchem:III.H.2", "acs-accm-pchem:III.H.4", "acs-accm-pchem:II.G.1", "acs-accm-general:II.G.2", "acs-accm-inorganic:II.G.2", "acs-accm-inorganic:X.A.2"], do: "Use Bragg's law and cubic lattice spacings, and explain conduction in metals and semiconductors by bands.", ek: ["nλ = 2d sin θ; cubic d_hkl = a/√(h² + k² + l²); a band gap sets whether a solid conducts."], p: [P1], drills: [pc-bragg, pc-bands] }
+          - { id: F, std: ["acs-accm-pchem:IX.A.1", "acs-accm-pchem:III.H.2", "acs-accm-pchem:III.H.4", "acs-accm-pchem:II.G.1", "acs-accm-general:II.G.2", "acs-accm-inorganic:II.G.2", "acs-accm-inorganic:X.A.2", "acs-accm-analytical:III.H.1"], do: "Use Bragg's law and cubic lattice spacings, and explain conduction in metals and semiconductors by bands.", ek: ["nλ = 2d sin θ; cubic d_hkl = a/√(h² + k² + l²); a band gap sets whether a solid conducts."], p: [P1], drills: [pc-bragg, pc-bands] }
           - { id: G, std: ["acs-accm-pchem:V.F.2", "acs-accm-pchem:IX.C.2", "acs-accm-inorganic:III.H.4", "acs-accm-inorganic:X.A.1"], do: "Estimate the share of atoms at a nanoparticle's surface and explain size-dependent properties.", ek: ["Fraction in an outer shell of thickness t: 1 − (1 − t/R)³; small particles melt lower, and quantum dots absorb at shorter wavelength as they shrink."], p: [P1], drills: [pc-surface-fraction, pc-nanoscale] }
+          - { id: A, std: ["webwork-opl:TH2.1", "acs-accm-pchem:VIII.F.1", "acs-accm-pchem:IV.D.2", "acs-accm-pchem:X.D.1"], do: "Apply the Gibbs phase rule to count the degrees of freedom of a system.", ek: ["F = C − P + 2; a pure substance at its triple point has F = 0."], p: [P3], drills: [pc-max-phases, "pc-phase-rule"] }
+          - { id: B, std: ["webwork-opl:TH15.3", "acs-accm-pchem:IV.D.5", "acs-accm-pchem:IV.D.3"], do: "Calculate a vapour pressure, a boiling temperature or an enthalpy of vaporisation from the Clausius–Clapeyron equation.", ek: ["ln(P₂/P₁) = −(ΔH_vap/R)(1/T₂ − 1/T₁); assumes an ideal vapour and constant ΔH_vap."], p: [P3], drills: ["th-pe-cc-pressure", "th-pe-cc-enthalpy", "th-pe-cc-temperature", "sc-vapour-pressure-ten-degrees"] }
+          - { id: C, std: ["acs-accm-pchem:IV.D.4"], do: "Calculate the pressure difference across a curved liquid surface.", ek: ["ΔP = 2γ/r for a droplet or a bubble in a liquid; smaller radius, larger excess pressure."], p: [P3], drills: [pc-bubble-pressure, "pc-laplace-pressure"] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
   - id: solutions
@@ -216,21 +216,21 @@ units:
         title: "Ideal solutions"
         book: { engel-reid-3e: ["9.3", "9.4", "9.5"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:IV.D.6", "acs-accm-pchem:VIII.C.2"], do: "Calculate partial and total vapour pressures above an ideal solution.", ek: ["p_i = x_i P_i*; the total is the mole-fraction-weighted sum."], p: [P3], drills: ["th-so-raoult", td-bubble-from-dew] }
-          - { id: B, std: ["acs-accm-pchem:X.D.1"], do: "Apply the lever rule to find the amounts of two phases in a two-phase region.", ek: ["n_α(z − z_α) = n_β(z_β − z); the phase nearer the overall composition is the larger one."], p: [P2, P5], drills: ["pc-lever-rule", pc-overall-composition] }
-          - { id: C, std: ["webwork-opl:TH15.9", "acs-accm-pchem:VIII.F.1", "acs-accm-pchem:VIII.C.2"], do: "Use the Gibbs–Duhem equation to relate changes in the chemical potentials of two components.", ek: ["x₁ dμ₁ + x₂ dμ₂ = 0 at constant T and P."], p: [P3], drills: ["~th-fe-gibbs-duhem", pc-gibbs-duhem-dmu] }
+          - { id: A, std: ["acs-accm-pchem:IV.D.6", "acs-accm-pchem:VIII.C.2"], do: "Calculate partial and total vapour pressures above an ideal solution.", ek: ["p_i = x_i P_i*; the total is the mole-fraction-weighted sum."], p: [P3], drills: [td-bubble-from-dew, "th-so-raoult"] }
+          - { id: B, std: ["acs-accm-pchem:X.D.1"], do: "Apply the lever rule to find the amounts of two phases in a two-phase region.", ek: ["n_α(z − z_α) = n_β(z_β − z); the phase nearer the overall composition is the larger one."], p: [P2, P5], drills: [pc-overall-composition, "pc-lever-rule"] }
+          - { id: C, std: ["webwork-opl:TH15.9", "acs-accm-pchem:VIII.F.1", "acs-accm-pchem:VIII.C.2"], do: "Use the Gibbs–Duhem equation to relate changes in the chemical potentials of two components.", ek: ["x₁ dμ₁ + x₂ dμ₂ = 0 at constant T and P."], p: [P3], drills: [pc-gibbs-duhem-dmu, "~th-fe-gibbs-duhem"] }
       - n: 2
         title: "Colligative properties"
         book: { engel-reid-3e: ["9.7", "9.8"] }
         los:
-          - { id: A, std: ["webwork-opl:TH18.1", "acs-accm-pchem:VIII.F.1"], do: "Calculate a boiling-point elevation or freezing-point depression from molality.", ek: ["ΔT_b = K_b m and ΔT_f = K_f m; depends on the amount of solute, not what it is."], p: [P3], drills: ["pc-colligative", pc-molar-mass-freezing] }
-          - { id: B, std: ["webwork-opl:TH18.1", "acs-accm-pchem:VIII.F.1"], do: "Calculate an osmotic pressure, or a molar mass from a measured osmotic pressure.", ek: ["Π = cRT with c in mol/m³ (or mol/L with R = 0.08314 L·bar/mol·K)."], p: [P3], drills: ["pc-osmotic", pc-osmotic-column] }
+          - { id: A, std: ["webwork-opl:TH18.1", "acs-accm-pchem:VIII.F.1"], do: "Calculate a boiling-point elevation or freezing-point depression from molality.", ek: ["ΔT_b = K_b m and ΔT_f = K_f m; depends on the amount of solute, not what it is."], p: [P3], drills: [pc-molar-mass-freezing, "pc-colligative"] }
+          - { id: B, std: ["webwork-opl:TH18.1", "acs-accm-pchem:VIII.F.1"], do: "Calculate an osmotic pressure, or a molar mass from a measured osmotic pressure.", ek: ["Π = cRT with c in mol/m³ (or mol/L with R = 0.08314 L·bar/mol·K)."], p: [P3], drills: [pc-osmotic-column, "pc-osmotic"] }
       - n: 3
         title: "Real solutions"
         book: { engel-reid-3e: ["9.11", "9.12"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:IV.D.8", "acs-accm-pchem:VIII.C.3"], do: "Calculate an activity and an activity coefficient from a measured partial pressure.", ek: ["a_i = p_i/P_i* = γ_i x_i; γ > 1 is a positive deviation from Raoult's law."], p: [P3], drills: ["~th-so-activity", pc-pressure-from-gamma] }
-          - { id: B, std: ["acs-accm-pchem:IV.D.8"], do: "Calculate the partial pressure or solubility of a dilute solute with Henry's law.", ek: ["p_A = k_H x_A; Henry for the dilute solute, Raoult for the solvent."], p: [P3], drills: ["th-so-henry", td-henry-pressure] }
+          - { id: A, std: ["acs-accm-pchem:IV.D.8", "acs-accm-pchem:VIII.C.3"], do: "Calculate an activity and an activity coefficient from a measured partial pressure.", ek: ["a_i = p_i/P_i* = γ_i x_i; γ > 1 is a positive deviation from Raoult's law."], p: [P3], drills: [pc-pressure-from-gamma, "~th-so-activity"] }
+          - { id: B, std: ["acs-accm-pchem:IV.D.8"], do: "Calculate the partial pressure or solubility of a dilute solute with Henry's law.", ek: ["p_A = k_H x_A; Henry for the dilute solute, Raoult for the solvent."], p: [P3], drills: [td-henry-pressure, "th-so-henry"] }
 
   # ── 8 ────────────────────────────────────────────────────────────────────
   - id: electrolytes
@@ -243,10 +243,10 @@ units:
         title: "Ions in solution"
         book: { engel-reid-3e: ["10.1", "10.3", "10.4", "10.5"] }
         los:
-          - { id: A, std: ["webwork-opl:TH18.2", "acs-accm-pchem:IV.E.2"], do: "Calculate the ionic strength of an electrolyte solution.", ek: ["I = ½ Σ m_i z_i²; a 1:1 salt gives I = m, a 2:1 salt I = 3m."], p: [P3], drills: ["pc-ionic-strength", pc-molarity-from-i] }
-          - { id: B, std: ["acs-accm-pchem:IV.E.2", "acs-accm-pchem:VIII.C.3"], do: "Calculate a mean ionic molality and a mean ionic activity.", ek: ["m_± = (m₊^ν₊ m₋^ν₋)^(1/ν); a_± = γ_± m_±/m°."], p: [P2, P5], drills: ["pc-mean-ionic-molality", pc-nu-pm-factor] }
-          - { id: C, std: ["webwork-opl:TH18.2", "acs-accm-pchem:IV.E.2", "acs-accm-pchem:IV.D.8"], do: "Estimate a mean activity coefficient with the Debye–Hückel limiting law.", ek: ["log₁₀ γ_± = −A|z₊z₋|√I with A = 0.509 in water at 298 K; valid only at low I."], p: [P3], drills: ["pc-debye-huckel", pc-i-from-gamma] }
-          - { id: D, std: ["acs-accm-pchem:VIII.C.3", "acs-accm-pchem:IV.E.2"], do: "Calculate the solubility of a sparingly soluble salt, with and without activity corrections.", ek: ["K_sp = a₊a₋ = (γ_± m/m°)² for a 1:1 salt; added inert salt lowers γ_± and raises solubility."], p: [P2, P5], drills: ["pc-solubility-activity", pc-solubility-ab2] }
+          - { id: A, std: ["webwork-opl:TH18.2", "acs-accm-pchem:IV.E.2", "acs-accm-analytical:I.G.3"], do: "Calculate the ionic strength of an electrolyte solution.", ek: ["I = ½ Σ m_i z_i²; a 1:1 salt gives I = m, a 2:1 salt I = 3m."], p: [P3], drills: [pc-molarity-from-i, "pc-ionic-strength"] }
+          - { id: B, std: ["acs-accm-pchem:IV.E.2", "acs-accm-pchem:VIII.C.3"], do: "Calculate a mean ionic molality and a mean ionic activity.", ek: ["m_± = (m₊^ν₊ m₋^ν₋)^(1/ν); a_± = γ_± m_±/m°."], p: [P2, P5], drills: [pc-nu-pm-factor, "pc-mean-ionic-molality"] }
+          - { id: C, std: ["webwork-opl:TH18.2", "acs-accm-pchem:IV.E.2", "acs-accm-pchem:IV.D.8", "acs-accm-analytical:I.G.3", "acs-accm-analytical:II.A.1", "acs-accm-analytical:IV.A.1"], do: "Estimate a mean activity coefficient with the Debye–Hückel limiting law.", ek: ["log₁₀ γ_± = −A|z₊z₋|√I with A = 0.509 in water at 298 K; valid only at low I."], p: [P3], drills: [pc-i-from-gamma, "pc-debye-huckel"] }
+          - { id: D, std: ["acs-accm-pchem:VIII.C.3", "acs-accm-pchem:IV.E.2"], do: "Calculate the solubility of a sparingly soluble salt, with and without activity corrections.", ek: ["K_sp = a₊a₋ = (γ_± m/m°)² for a 1:1 salt; added inert salt lowers γ_± and raises solubility."], p: [P2, P5], drills: [pc-solubility-ab2, "pc-solubility-activity"] }
 
   # ── 9 ────────────────────────────────────────────────────────────────────
   - id: electrochemistry
@@ -260,10 +260,10 @@ units:
         title: "Cell potentials"
         book: { engel-reid-3e: ["11.5", "11.6", "11.4", "11.7"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:VI.E.2", "acs-accm-pchem:IX.D.3"], do: "Calculate a standard cell potential from two standard reduction potentials.", ek: ["E°_cell = E°_cathode − E°_anode; potentials are intensive and are never multiplied by stoichiometric coefficients."], p: [P3], drills: ["pc-cell-potential", pc-unknown-half] }
-          - { id: B, std: ["acs-accm-pchem:VI.E.2", "acs-accm-pchem:VI.C.3"], do: "Calculate the standard reaction Gibbs energy from a standard cell potential.", ek: ["ΔG° = −nFE°; a positive E° means a spontaneous cell reaction."], p: [P3], drills: ["pc-cell-potential", pc-e-from-dg] }
-          - { id: C, std: ["webwork-opl:TH18.3", "acs-accm-pchem:VI.E.2", "acs-accm-pchem:V.F.1"], do: "Calculate a cell potential away from standard conditions with the Nernst equation.", ek: ["E = E° − (RT/nF) ln Q; at 298 K, RT/F = 0.02569 V."], p: [P3], drills: ["pc-nernst", pc-nernst-ratio] }
-          - { id: D, std: ["acs-accm-pchem:VIII.F.2", "acs-accm-pchem:VI.E.2"], do: "Calculate an equilibrium constant from a standard cell potential.", ek: ["ln K = nFE°/RT; at equilibrium E = 0 and Q = K."], p: [P2, P5], drills: ["pc-cell-equilibrium-constant", pc-e-from-k] }
+          - { id: A, std: ["acs-accm-pchem:VI.E.2", "acs-accm-pchem:IX.D.3"], do: "Calculate a standard cell potential from two standard reduction potentials.", ek: ["E°_cell = E°_cathode − E°_anode; potentials are intensive and are never multiplied by stoichiometric coefficients."], p: [P3], drills: [pc-unknown-half, "pc-cell-potential"] }
+          - { id: B, std: ["acs-accm-pchem:VI.E.2", "acs-accm-pchem:VI.C.3"], do: "Calculate the standard reaction Gibbs energy from a standard cell potential.", ek: ["ΔG° = −nFE°; a positive E° means a spontaneous cell reaction."], p: [P3], drills: [pc-e-from-dg, "pc-cell-potential"] }
+          - { id: C, std: ["webwork-opl:TH18.3", "acs-accm-pchem:VI.E.2", "acs-accm-pchem:V.F.1"], do: "Calculate a cell potential away from standard conditions with the Nernst equation.", ek: ["E = E° − (RT/nF) ln Q; at 298 K, RT/F = 0.02569 V."], p: [P3], drills: [pc-nernst-ratio, "pc-nernst"] }
+          - { id: D, std: ["acs-accm-pchem:VIII.F.2", "acs-accm-pchem:VI.E.2"], do: "Calculate an equilibrium constant from a standard cell potential.", ek: ["ln K = nFE°/RT; at equilibrium E = 0 and Q = K."], p: [P2, P5], drills: [pc-e-from-k, "pc-cell-equilibrium-constant"] }
 
   # ── 10 ────────────────────────────────────────────────────────────────────
   - id: quantum-origins
@@ -276,11 +276,11 @@ units:
         title: "Quantisation and wave–particle duality"
         book: { engel-reid-3e: ["12.3", "12.4", "12.5", "12.7"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:I.D.1", "acs-accm-pchem:IX.D.1"], do: "Calculate the energy of a photon, or of n quanta, from a frequency or a wavelength.", ek: ["E = hν = hc/λ; h = 6.626 × 10⁻³⁴ J·s."], p: [P3], drills: ["pc-photon", pc-photon-rate] }
-          - { id: B, std: ["acs-accm-pchem:I.D.1"], do: "Calculate the kinetic energy of a photoelectron and the threshold frequency of a metal.", ek: ["KE = hν − Φ; no electrons below ν₀ = Φ/h however intense the light."], p: [P3], drills: ["pc-photoelectric", pc-threshold-wavelength] }
-          - { id: C, std: ["acs-accm-pchem:I.B.1"], do: "Calculate the de Broglie wavelength of a moving particle.", ek: ["λ = h/p = h/mv; only noticeable when λ is comparable to the size of the system."], p: [P3], drills: ["pc-de-broglie", pc-voltage-for-wavelength] }
-          - { id: D, std: ["acs-accm-pchem:I.D.3", "acs-accm-pchem:I.A.1"], do: "Calculate hydrogen energy levels and the wavelength of a transition between them.", ek: ["E_n = −13.6 eV/n²; ΔE = 13.6 eV (1/n₁² − 1/n₂²) = hc/λ."], p: [P3], drills: ["pc-bohr", pc-series-limit] }
-          - { id: E, std: ["acs-accm-pchem:I.G.2", "acs-accm-pchem:IX.D.4", "acs-accm-pchem:VI.I.1", "acs-accm-pchem:I.F.1", "acs-accm-organic:I.D.2"], do: "Compute mass-spectrometry m/z values and nuclear energies from mass changes.", ek: ["[M + zH]ᶻ⁺ appears at (M + z·1.00728)/z; E = Δm·c², about 931.5 MeV per u."], p: [P1], drills: [pc-ms-mz, pc-mass-energy] }
+          - { id: E, std: ["acs-accm-pchem:I.G.2", "acs-accm-pchem:IX.D.4", "acs-accm-pchem:VI.I.1", "acs-accm-pchem:I.F.1", "acs-accm-organic:I.D.2", "acs-accm-analytical:I.G.2", "acs-accm-analytical:IX.D.4"], do: "Compute mass-spectrometry m/z values and nuclear energies from mass changes.", ek: ["[M + zH]ᶻ⁺ appears at (M + z·1.00728)/z; E = Δm·c², about 931.5 MeV per u."], p: [P1], drills: [pc-ms-mz, pc-mass-energy] }
+          - { id: A, std: ["acs-accm-pchem:I.D.1", "acs-accm-pchem:IX.D.1"], do: "Calculate the energy of a photon, or of n quanta, from a frequency or a wavelength.", ek: ["E = hν = hc/λ; h = 6.626 × 10⁻³⁴ J·s."], p: [P3], drills: [pc-photon-rate, "pc-photon"] }
+          - { id: B, std: ["acs-accm-pchem:I.D.1"], do: "Calculate the kinetic energy of a photoelectron and the threshold frequency of a metal.", ek: ["KE = hν − Φ; no electrons below ν₀ = Φ/h however intense the light."], p: [P3], drills: [pc-threshold-wavelength, "pc-photoelectric"] }
+          - { id: C, std: ["acs-accm-pchem:I.B.1"], do: "Calculate the de Broglie wavelength of a moving particle.", ek: ["λ = h/p = h/mv; only noticeable when λ is comparable to the size of the system."], p: [P3], drills: [pc-voltage-for-wavelength, "pc-de-broglie"] }
+          - { id: D, std: ["acs-accm-pchem:I.D.3", "acs-accm-pchem:I.A.1"], do: "Calculate hydrogen energy levels and the wavelength of a transition between them.", ek: ["E_n = −13.6 eV/n²; ΔE = 13.6 eV (1/n₁² − 1/n₂²) = hc/λ."], p: [P3], drills: [pc-series-limit, "pc-bohr"] }
 
   # ── 11 ────────────────────────────────────────────────────────────────────
   - id: postulates
@@ -294,22 +294,22 @@ units:
         title: "Operators and eigenfunctions"
         book: { engel-reid-3e: ["13.5", "13.6", "13.7"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:X.A.2"], do: "Test whether a function is an eigenfunction of an operator and find the eigenvalue.", ek: ["Âψ = aψ; applying the operator must return the same function times a constant."], p: [P2, P5], drills: ["qm-eigenvalue", pc-second-derivative-eigen] }
+          - { id: A, std: ["acs-accm-pchem:X.A.2"], do: "Test whether a function is an eigenfunction of an operator and find the eigenvalue.", ek: ["Âψ = aψ; applying the operator must return the same function times a constant."], p: [P2, P5], drills: [pc-second-derivative-eigen, "qm-eigenvalue"] }
           - { id: B, std: ["acs-accm-pchem:I.B.4"], do: "Show that two wavefunctions are orthogonal and normalise a wavefunction.", ek: ["∫ψ_m*ψ_n dτ = δ_mn; eigenfunctions of a Hermitian operator with different eigenvalues are orthogonal."], p: [P2, P5], drills: ["qm-orthogonality", "qm-normalization-constant"] }
-          - { id: C, std: ["acs-accm-pchem:X.A.2"], do: "Expand a function in a complete set of eigenfunctions and compute a coefficient.", ek: ["f = Σ c_n ψ_n with c_n = ∫ψ_n* f dτ."], p: [P2, P5], drills: ["qm-expansion-coefficient", pc-expansion-probability] }
+          - { id: C, std: ["acs-accm-pchem:X.A.2"], do: "Expand a function in a complete set of eigenfunctions and compute a coefficient.", ek: ["f = Σ c_n ψ_n with c_n = ∫ψ_n* f dτ."], p: [P2, P5], drills: [pc-expansion-probability, "qm-expansion-coefficient"] }
       - n: 2
         title: "Measurement"
         book: { engel-reid-3e: ["14.1", "14.4", "14.5"] }
         los:
           - { id: A, std: ["acs-accm-pchem:I.B.4", "acs-accm-pchem:X.A.1"], do: "Calculate the probability of finding a particle in a region from its wavefunction.", ek: ["P = ∫|ψ|² dτ over the region; the total over all space is 1."], p: [P2, P5], drills: ["qm-pib-probability", "qm-superposition-probability"] }
-          - { id: B, std: ["acs-accm-pchem:X.A.1"], do: "Calculate the expectation value of an observable.", ek: ["⟨A⟩ = ∫ψ*Âψ dτ; equals the eigenvalue when ψ is an eigenfunction of Â."], p: [P2, P5], drills: ["qm-expectation-energy", pc-x2-expectation] }
-          - { id: C, std: ["acs-accm-pchem:I.D.5"], do: "Write the time dependence of a superposition and say when a probability density changes with time.", ek: ["Each term carries e^(−iE_n t/ħ); a single eigenstate is stationary, a superposition beats at (E_m − E_n)/h."], p: [P2, P5], drills: ["qm-time-dependence", pc-beat-period] }
+          - { id: B, std: ["acs-accm-pchem:X.A.1"], do: "Calculate the expectation value of an observable.", ek: ["⟨A⟩ = ∫ψ*Âψ dτ; equals the eigenvalue when ψ is an eigenfunction of Â."], p: [P2, P5], drills: [pc-x2-expectation, "qm-expectation-energy"] }
+          - { id: C, std: ["acs-accm-pchem:I.D.5"], do: "Write the time dependence of a superposition and say when a probability density changes with time.", ek: ["Each term carries e^(−iE_n t/ħ); a single eigenstate is stationary, a superposition beats at (E_m − E_n)/h."], p: [P2, P5], drills: [pc-beat-period, "qm-time-dependence"] }
       - n: 3
         title: "Commutation and uncertainty"
         book: { engel-reid-3e: ["17.1", "17.3"] }
         los:
           - { id: A, std: ["acs-accm-pchem:X.A.1"], do: "Evaluate a commutator and decide whether two observables can be known together.", ek: ["[x̂, p̂_x] = iħ; observables whose operators commute share eigenfunctions."], p: [P2, P5], drills: ["qm-commutator", "qm-compatible-observables"] }
-          - { id: B, std: ["acs-accm-pchem:I.B.1"], do: "Estimate the minimum uncertainty in momentum or position from the uncertainty principle.", ek: ["Δx Δp_x ≥ ħ/2."], p: [P3], drills: ["pc-uncertainty", pc-min-dx] }
+          - { id: B, std: ["acs-accm-pchem:I.B.1"], do: "Estimate the minimum uncertainty in momentum or position from the uncertainty principle.", ek: ["Δx Δp_x ≥ ħ/2."], p: [P3], drills: [pc-min-dx, "pc-uncertainty"] }
 
   # ── 12 ────────────────────────────────────────────────────────────────────
   - id: model-systems
@@ -323,26 +323,26 @@ units:
         title: "The particle in a box"
         book: { engel-reid-3e: ["15.2", "15.2", "15.3", "16.3"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:X.A.4"], do: "Calculate particle-in-a-box energy levels and the wavelength of a transition between them.", ek: ["E_n = n²h²/8mL²; spacing grows with n and shrinks as the box or the mass gets larger."], p: [P3], drills: ["pc-pib-energy", pc-box-from-wavelength] }
+          - { id: A, std: ["acs-accm-pchem:X.A.4"], do: "Calculate particle-in-a-box energy levels and the wavelength of a transition between them.", ek: ["E_n = n²h²/8mL²; spacing grows with n and shrinks as the box or the mass gets larger."], p: [P3], drills: [pc-box-from-wavelength, "pc-pib-energy"] }
           - { id: B, std: ["acs-accm-pchem:I.B.4", "acs-accm-pchem:X.D.4", "acs-accm-inorganic:I.B.1", "acs-accm-inorganic:X.D.4"], do: "Use the particle-in-a-box wavefunction to locate nodes and compute a probability.", ek: ["ψ_n = √(2/L) sin(nπx/L); n − 1 interior nodes."], p: [P2, P5], drills: ["qm-pib-node", "qm-pib-probability"] }
-          - { id: C, std: ["acs-accm-pchem:X.A.4"], do: "Calculate energies and degeneracies for a particle in a three-dimensional box.", ek: ["E = (h²/8m)(n_x²/a² + n_y²/b² + n_z²/c²); a cube makes permutations of the quantum numbers degenerate."], p: [P2, P5], drills: ["qm-3d-box-degeneracy", pc-rect-box-energy] }
-          - { id: D, std: ["acs-accm-pchem:X.A.4", "acs-accm-pchem:III.A.2"], do: "Estimate the absorption wavelength of a conjugated molecule with the free-electron model.", ek: ["Fill levels two electrons at a time; ΔE(HOMO→LUMO) = (2n + 1)h²/8m_eL²."], p: [P3], drills: ["qm-free-electron-absorption", pc-chain-from-color] }
+          - { id: C, std: ["acs-accm-pchem:X.A.4"], do: "Calculate energies and degeneracies for a particle in a three-dimensional box.", ek: ["E = (h²/8m)(n_x²/a² + n_y²/b² + n_z²/c²); a cube makes permutations of the quantum numbers degenerate."], p: [P2, P5], drills: [pc-rect-box-energy, "qm-3d-box-degeneracy"] }
+          - { id: D, std: ["acs-accm-pchem:X.A.4", "acs-accm-pchem:III.A.2"], do: "Estimate the absorption wavelength of a conjugated molecule with the free-electron model.", ek: ["Fill levels two electrons at a time; ΔE(HOMO→LUMO) = (2n + 1)h²/8m_eL²."], p: [P3], drills: [pc-chain-from-color, "qm-free-electron-absorption"] }
       - n: 2
         title: "Finite wells and tunnelling"
         book: { engel-reid-3e: ["16.1", "16.5", "16.6"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:X.A.1"], do: "Calculate the decay constant of a wavefunction inside a classically forbidden region.", ek: ["ψ ∝ e^(−κx) with κ = √(2m(V₀ − E))/ħ."], p: [P2, P5], drills: ["qm-tunnelling-decay-constant", pc-penetration-depth] }
-          - { id: B, std: ["acs-accm-pchem:X.A.1"], do: "Estimate the transmission probability through a barrier.", ek: ["T ≈ e^(−2κL); exponentially sensitive to width, mass and barrier height."], p: [P2, P5], drills: ["qm-tunnelling-probability", pc-barrier-width] }
-          - { id: C, std: ["acs-accm-pchem:X.A.1"], do: "Compare tunnelling probabilities when the mass or the barrier width changes.", ek: ["Electrons tunnel far more readily than protons; an STM current falls about tenfold per ångström."], p: [P2, P5], drills: ["qm-tunnelling-compare", pc-tunnel-height] }
+          - { id: A, std: ["acs-accm-pchem:X.A.1"], do: "Calculate the decay constant of a wavefunction inside a classically forbidden region.", ek: ["ψ ∝ e^(−κx) with κ = √(2m(V₀ − E))/ħ."], p: [P2, P5], drills: [pc-penetration-depth, "qm-tunnelling-decay-constant"] }
+          - { id: B, std: ["acs-accm-pchem:X.A.1"], do: "Estimate the transmission probability through a barrier.", ek: ["T ≈ e^(−2κL); exponentially sensitive to width, mass and barrier height."], p: [P2, P5], drills: [pc-barrier-width, "qm-tunnelling-probability"] }
+          - { id: C, std: ["acs-accm-pchem:X.A.1"], do: "Compare tunnelling probabilities when the mass or the barrier width changes.", ek: ["Electrons tunnel far more readily than protons; an STM current falls about tenfold per ångström."], p: [P2, P5], drills: [pc-tunnel-height, "qm-tunnelling-compare"] }
       - n: 3
         title: "Vibration and rotation"
         book: { engel-reid-3e: ["18.3", "18:rotation-2d", "18.5", "18.6", "18:spherical-harmonics"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:II.C.2", "acs-accm-pchem:II.F.2"], do: "Calculate the vibrational frequency, level spacing and zero-point energy of a harmonic oscillator.", ek: ["E_v = (v + ½)hν with ν = (1/2π)√(k/μ); zero-point energy ½hν."], p: [P3], drills: ["pc-harmonic", pc-zpe-molar] }
-          - { id: B, std: ["acs-accm-pchem:X.A.4"], do: "Calculate the energy levels of a particle on a ring.", ek: ["E_m = m²ħ²/2I, m = 0, ±1, ±2, …; all levels except m = 0 are doubly degenerate."], p: [P2, P5], drills: ["qm-ring-transition", pc-ring-wavelength] }
-          - { id: C, std: ["acs-accm-pchem:III.A.3"], do: "Calculate the moment of inertia, rotational levels and level spacings of a diatomic rigid rotor.", ek: ["E_J = J(J + 1)ħ²/2I with I = μr²; each level is (2J + 1)-fold degenerate."], p: [P3], drills: ["pc-rigid-rotor", pc-rotational-line] }
-          - { id: D, std: ["acs-accm-pchem:I.B.1"], do: "Calculate the magnitude and z-component of an angular momentum from its quantum numbers.", ek: ["|L| = √(J(J + 1)) ħ; L_z = m_J ħ."], p: [P2, P5], drills: ["qm-angular-momentum-magnitude", pc-angular-momentum-angle] }
-          - { id: E, std: ["acs-accm-pchem:I.B.1"], do: "Identify the eigenvalues of L̂² and L̂_z for a spherical harmonic.", ek: ["L̂²Y_l^m = l(l + 1)ħ²Y_l^m; L̂_zY_l^m = mħY_l^m."], p: [P2, P5], drills: ["qm-spherical-harmonic-eigenvalue", pc-harmonic-count] }
+          - { id: A, std: ["acs-accm-pchem:II.C.2", "acs-accm-pchem:II.F.2"], do: "Calculate the vibrational frequency, level spacing and zero-point energy of a harmonic oscillator.", ek: ["E_v = (v + ½)hν with ν = (1/2π)√(k/μ); zero-point energy ½hν."], p: [P3], drills: [pc-zpe-molar, "pc-harmonic"] }
+          - { id: B, std: ["acs-accm-pchem:X.A.4"], do: "Calculate the energy levels of a particle on a ring.", ek: ["E_m = m²ħ²/2I, m = 0, ±1, ±2, …; all levels except m = 0 are doubly degenerate."], p: [P2, P5], drills: [pc-ring-wavelength, "qm-ring-transition"] }
+          - { id: C, std: ["acs-accm-pchem:III.A.3"], do: "Calculate the moment of inertia, rotational levels and level spacings of a diatomic rigid rotor.", ek: ["E_J = J(J + 1)ħ²/2I with I = μr²; each level is (2J + 1)-fold degenerate."], p: [P3], drills: [pc-rotational-line, "pc-rigid-rotor"] }
+          - { id: D, std: ["acs-accm-pchem:I.B.1"], do: "Calculate the magnitude and z-component of an angular momentum from its quantum numbers.", ek: ["|L| = √(J(J + 1)) ħ; L_z = m_J ħ."], p: [P2, P5], drills: [pc-angular-momentum-angle, "qm-angular-momentum-magnitude"] }
+          - { id: E, std: ["acs-accm-pchem:I.B.1"], do: "Identify the eigenvalues of L̂² and L̂_z for a spherical harmonic.", ek: ["L̂²Y_l^m = l(l + 1)ħ²Y_l^m; L̂_zY_l^m = mħY_l^m."], p: [P2, P5], drills: [pc-harmonic-count, "qm-spherical-harmonic-eigenvalue"] }
 
   # ── 13 ────────────────────────────────────────────────────────────────────
   - id: rovib-spectroscopy
@@ -356,12 +356,12 @@ units:
         title: "Reading diatomic spectra"
         book: { engel-reid-3e: ["19.3", "19.4", "19.6", "19:einstein"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:II.F.2", "acs-accm-pchem:I.A.3", "acs-accm-pchem:III.A.3"], do: "Calculate a vibrational wavenumber from a force constant and reduced mass, and the reverse.", ek: ["ν̃ = (1/2πc)√(k/μ); heavier isotopes shift the band to lower wavenumber."], p: [P3], drills: ["~pc-harmonic", pc-force-constant] }
-          - { id: B, std: ["acs-accm-pchem:III.D.2", "acs-accm-pchem:III.A.2"], do: "Apply selection rules to decide whether a vibration or rotation absorbs.", ek: ["Δv = ±1 with a changing dipole; ΔJ = ±1 with a permanent dipole."], p: [P2, P5], drills: ["qm-selection-rules", pc-mode-count] }
-          - { id: C, std: ["acs-accm-pchem:III.A.3", "acs-accm-pchem:III.C.2"], do: "Calculate a bond length from the spacing of lines in a rotational spectrum.", ek: ["Lines at 2B̃(J + 1), spaced 2B̃, with B̃ = h/8π²cI."], p: [P3], drills: ["~pc-rigid-rotor", pc-rotational-constant] }
-          - { id: D, std: ["acs-accm-pchem:I.D.5"], do: "Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.", ek: ["B₁₂ = B₂₁; A₂₁/B₂₁ = 8πhν³/c³, so spontaneous emission dominates at high frequency."], p: [P2, P5], drills: ["qm-einstein-coefficients", pc-spontaneous-ratio] }
-          - { id: E, std: ["acs-accm-pchem:VII.A.4", "acs-accm-pchem:I.A.3", "acs-accm-organic:I.A.1", "acs-accm-inorganic:I.A.2"], do: "Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.", ek: ["ν ∝ √(k/μ), so C–D vibrates near ν(C–H)/√2; a primary KIE ≈ exp(Δ(ZPE)/k_BT), about 7 at room temperature for C–H/C–D."], p: [P1], drills: [pc-isotope-shift, pc-kie] }
+          - { id: E, std: ["acs-accm-pchem:VII.A.4", "acs-accm-pchem:I.A.3", "acs-accm-organic:I.A.1", "acs-accm-inorganic:I.A.2", "acs-accm-analytical:I.B.1", "acs-accm-analytical:II.F.1"], do: "Predict isotope shifts in vibrational frequencies and estimate a kinetic isotope effect.", ek: ["ν ∝ √(k/μ), so C–D vibrates near ν(C–H)/√2; a primary KIE ≈ exp(Δ(ZPE)/k_BT), about 7 at room temperature for C–H/C–D."], p: [P1], drills: [pc-isotope-shift, pc-kie] }
           - { id: F, std: ["acs-accm-pchem:III.F.2", "acs-accm-pchem:III.A.1", "acs-accm-inorganic:II.D.2"], do: "Assign infrared bands to functional groups and compare stretches by force constant.", ek: ["O–H ≈ 3300 cm⁻¹ (broad), C–H ≈ 2900, C≡N ≈ 2250, C=O ≈ 1700, C–O ≈ 1100; at fixed μ, ν ∝ √k."], p: [P1], drills: [pc-ir-group, pc-force-constant-ratio] }
+          - { id: A, std: ["acs-accm-pchem:II.F.2", "acs-accm-pchem:I.A.3", "acs-accm-pchem:III.A.3"], do: "Calculate a vibrational wavenumber from a force constant and reduced mass, and the reverse.", ek: ["ν̃ = (1/2πc)√(k/μ); heavier isotopes shift the band to lower wavenumber."], p: [P3], drills: [pc-force-constant, "~pc-harmonic"] }
+          - { id: B, std: ["acs-accm-pchem:III.D.2", "acs-accm-pchem:III.A.2"], do: "Apply selection rules to decide whether a vibration or rotation absorbs.", ek: ["Δv = ±1 with a changing dipole; ΔJ = ±1 with a permanent dipole."], p: [P2, P5], drills: [pc-mode-count, "qm-selection-rules"] }
+          - { id: C, std: ["acs-accm-pchem:III.A.3", "acs-accm-pchem:III.C.2"], do: "Calculate a bond length from the spacing of lines in a rotational spectrum.", ek: ["Lines at 2B̃(J + 1), spaced 2B̃, with B̃ = h/8π²cI."], p: [P3], drills: [pc-rotational-constant, "~pc-rigid-rotor"] }
+          - { id: D, std: ["acs-accm-pchem:I.D.5"], do: "Relate the Einstein coefficients for absorption, stimulated emission and spontaneous emission.", ek: ["B₁₂ = B₂₁; A₂₁/B₂₁ = 8πhν³/c³, so spontaneous emission dominates at high frequency."], p: [P2, P5], drills: [pc-spontaneous-ratio, "qm-einstein-coefficients"] }
 
   # ── 14 ────────────────────────────────────────────────────────────────────
   - id: atoms
@@ -375,24 +375,24 @@ units:
         title: "The hydrogen atom"
         book: { engel-reid-3e: ["20.3", "20.4", "20:radial-prob"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:I.A.1", "acs-accm-pchem:I.G.1"], do: "Calculate hydrogen-like energy levels and ionisation energies.", ek: ["E_n = −13.606 eV Z²/n²."], p: [P3], drills: ["qm-hydrogenlike-ionization", pc-hydrogenlike-transition] }
-          - { id: B, std: ["acs-accm-pchem:I.B.1", "acs-accm-pchem:I.C.1"], do: "List the allowed quantum numbers and count the orbitals in a shell.", ek: ["l = 0 … n − 1, m_l = −l … l; n² orbitals and 2n² electrons per shell."], p: [P2, P5], drills: ["qm-orbitals-in-shell", pc-radial-nodes] }
-          - { id: C, std: ["acs-accm-pchem:I.C.2", "acs-accm-pchem:X.D.4"], do: "Find the most probable radius from a radial distribution function.", ek: ["P(r) = r²|R(r)|²; for 1s the maximum is at a₀."], p: [P2, P5], drills: ["qm-most-probable-radius", pc-mean-radius] }
+          - { id: A, std: ["acs-accm-pchem:I.A.1", "acs-accm-pchem:I.G.1"], do: "Calculate hydrogen-like energy levels and ionisation energies.", ek: ["E_n = −13.606 eV Z²/n²."], p: [P3], drills: [pc-hydrogenlike-transition, "qm-hydrogenlike-ionization"] }
+          - { id: B, std: ["acs-accm-pchem:I.B.1", "acs-accm-pchem:I.C.1"], do: "List the allowed quantum numbers and count the orbitals in a shell.", ek: ["l = 0 … n − 1, m_l = −l … l; n² orbitals and 2n² electrons per shell."], p: [P2, P5], drills: [pc-radial-nodes, "qm-orbitals-in-shell"] }
+          - { id: C, std: ["acs-accm-pchem:I.C.2", "acs-accm-pchem:X.D.4"], do: "Find the most probable radius from a radial distribution function.", ek: ["P(r) = r²|R(r)|²; for 1s the maximum is at a₀."], p: [P2, P5], drills: [pc-mean-radius, "qm-most-probable-radius"] }
       - n: 2
         title: "Many-electron atoms"
         book: { engel-reid-3e: ["21.4", "21.6", "21:hf-scf"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:II.E.2"], do: "Use the variational principle to judge and improve a trial wavefunction.", ek: ["⟨E⟩_trial ≥ E₀ for any trial function; lower is better."], p: [P2, P5], drills: ["qm-variational-principle", pc-gaussian-variational] }
-          - { id: B, std: ["acs-accm-pchem:III.G.1", "acs-accm-pchem:I.C.1"], do: "Estimate an effective nuclear charge with Slater's rules.", ek: ["Z_eff = Z − σ; same-shell electrons shield about 0.35, the shell below 0.85, deeper shells 1.00."], p: [P2, P5], drills: ["qm-slater-zeff", pc-slater-orbital-energy] }
+          - { id: A, std: ["acs-accm-pchem:II.E.2"], do: "Use the variational principle to judge and improve a trial wavefunction.", ek: ["⟨E⟩_trial ≥ E₀ for any trial function; lower is better."], p: [P2, P5], drills: [pc-gaussian-variational, "qm-variational-principle"] }
+          - { id: B, std: ["acs-accm-pchem:III.G.1", "acs-accm-pchem:I.C.1"], do: "Estimate an effective nuclear charge with Slater's rules.", ek: ["Z_eff = Z − σ; same-shell electrons shield about 0.35, the shell below 0.85, deeper shells 1.00."], p: [P2, P5], drills: [pc-slater-orbital-energy, "qm-slater-zeff"] }
           - { id: C, std: ["acs-accm-pchem:II.E.1", "acs-accm-pchem:II.B.2", "acs-accm-pchem:I.B.3"], do: "Describe how the Hartree–Fock energy is built from one-electron, Coulomb and exchange terms.", ek: ["E_HF = Σ h_i + Σ(2J_ij − K_ij); it is not the sum of orbital energies."], p: [P2, P5], drills: ["qm-hf-closed-shell-energy", "qm-hf-two-electron-energy"] }
       - n: 3
         title: "Atomic states and spectra"
         book: { engel-reid-3e: ["22.1", "22:config-energy", "22.3"] }
         los:
+          - { id: D, std: ["acs-accm-pchem:I.D.2", "acs-accm-pchem:I.D.4", "acs-accm-pchem:III.D.3", "acs-accm-pchem:I.G.3"], do: "Apply atomic selection rules and parity to decide whether a transition is allowed.", ek: ["One-electron electric-dipole transitions need Δl = ±1 (parity must change), ΔS = 0, ΔJ = 0, ±1 (not 0 → 0)."], p: [P1], drills: [pc-atomic-selection, pc-allowed-count] }
           - { id: A, std: ["acs-accm-pchem:I.B.2", "acs-accm-pchem:I.B.3"], do: "Write the term symbols that arise from an electron configuration.", ek: ["²ˢ⁺¹L_J with J from |L − S| to L + S."], p: [P2, P5], drills: ["~qm-ground-term", "~qm-ground-level-j"] }
           - { id: B, std: ["acs-accm-pchem:I.B.2"], do: "Use Hund's rules to pick the ground-state term.", ek: ["Highest S first, then highest L; J = |L − S| for a less-than-half-filled shell, L + S for more."], p: [P2, P5], drills: ["qm-ground-term", "qm-ground-level-j"] }
-          - { id: C, std: ["acs-accm-pchem:I.B.2"], do: "Calculate the spin–orbit splitting between levels of a term.", ek: ["ΔE = ½A[J(J + 1) − L(L + 1) − S(S + 1)]."], p: [P2, P5], drills: ["qm-lande-interval", pc-spin-orbit-constant] }
-          - { id: D, std: ["acs-accm-pchem:I.D.2", "acs-accm-pchem:I.D.4", "acs-accm-pchem:III.D.3", "acs-accm-pchem:I.G.3"], do: "Apply atomic selection rules and parity to decide whether a transition is allowed.", ek: ["One-electron electric-dipole transitions need Δl = ±1 (parity must change), ΔS = 0, ΔJ = 0, ±1 (not 0 → 0)."], p: [P1], drills: [pc-atomic-selection, pc-allowed-count] }
+          - { id: C, std: ["acs-accm-pchem:I.B.2"], do: "Calculate the spin–orbit splitting between levels of a term.", ek: ["ΔE = ½A[J(J + 1) − L(L + 1) − S(S + 1)]."], p: [P2, P5], drills: [pc-spin-orbit-constant, "qm-lande-interval"] }
 
   # ── 15 ────────────────────────────────────────────────────────────────────
   - id: bonding
@@ -406,26 +406,26 @@ units:
         title: "Diatomic molecules"
         book: { engel-reid-3e: ["23:h2-plus", "23.3", "23:homonuclear", "23.7"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:II.B.2", "acs-accm-pchem:II.E.3"], do: "Calculate the bonding and antibonding energies of H₂⁺ from the LCAO integrals.", ek: ["E_± = (H_AA ± H_AB)/(1 ± S_AB)."], p: [P2, P5], drills: ["qm-lcao-bonding-energy", pc-lcao-gap] }
-          - { id: B, std: ["acs-accm-pchem:II.E.3", "acs-accm-pchem:II.B.1"], do: "Explain why the antibonding orbital is raised more than the bonding orbital is lowered.", ek: ["ψ_± = (ψ_A ± ψ_B)/√(2(1 ± S)); the overlap S makes the splitting asymmetric."], p: [P2, P5], drills: ["~qm-lcao-bonding-energy", pc-antibonding-asymmetry] }
-          - { id: C, std: ["acs-accm-pchem:II.E.3", "acs-accm-pchem:II.F.1"], do: "Fill a molecular-orbital diagram for a homonuclear diatomic and predict magnetism.", ek: ["Fill in energy order, two per orbital, Hund's rule in degenerate pairs; unpaired electrons mean paramagnetic."], p: [P2, P5], drills: ["qm-paramagnetism", pc-unpaired-diatomic] }
-          - { id: D, std: ["acs-accm-pchem:II.F.1", "acs-accm-pchem:II.F.2"], do: "Calculate a bond order and use it to rank bond length and strength.", ek: ["Bond order = (n_bonding − n_antibonding)/2; higher order, shorter and stronger bond."], p: [P2, P5], drills: ["qm-bond-order", pc-bond-order-change] }
           - { id: E, std: ["acs-accm-pchem:II.A.1", "acs-accm-pchem:II.A.3"], do: "Build a molecular Hamiltonian's Coulomb terms and state what the Born–Oppenheimer approximation separates.", ek: ["For N nuclei and n electrons: n(n − 1)/2 electron–electron, nN electron–nucleus and N(N − 1)/2 nucleus–nucleus terms; BO fixes the nuclei while solving for electrons."], p: [P1], drills: [pc-hamiltonian-terms, pc-born-oppenheimer] }
           - { id: F, std: ["acs-accm-pchem:III.D.1", "acs-accm-pchem:II.F.3"], do: "Find the spin multiplicity and term symbol of a diatomic's ground state from its MO filling.", ek: ["2S + 1 from the unpaired electrons in the highest occupied MOs; Σ/Π from Λ, g/u from inversion, ± from reflection: O₂ is ³Σg⁻, N₂ ¹Σg⁺."], p: [P1], drills: [pc-diatomic-multiplicity, pc-term-symbol] }
+          - { id: A, std: ["acs-accm-pchem:II.B.2", "acs-accm-pchem:II.E.3"], do: "Calculate the bonding and antibonding energies of H₂⁺ from the LCAO integrals.", ek: ["E_± = (H_AA ± H_AB)/(1 ± S_AB)."], p: [P2, P5], drills: [pc-lcao-gap, "qm-lcao-bonding-energy"] }
+          - { id: B, std: ["acs-accm-pchem:II.E.3", "acs-accm-pchem:II.B.1"], do: "Explain why the antibonding orbital is raised more than the bonding orbital is lowered.", ek: ["ψ_± = (ψ_A ± ψ_B)/√(2(1 ± S)); the overlap S makes the splitting asymmetric."], p: [P2, P5], drills: [pc-antibonding-asymmetry, "~qm-lcao-bonding-energy"] }
+          - { id: C, std: ["acs-accm-pchem:II.E.3", "acs-accm-pchem:II.F.1"], do: "Fill a molecular-orbital diagram for a homonuclear diatomic and predict magnetism.", ek: ["Fill in energy order, two per orbital, Hund's rule in degenerate pairs; unpaired electrons mean paramagnetic."], p: [P2, P5], drills: [pc-unpaired-diatomic, "qm-paramagnetism"] }
+          - { id: D, std: ["acs-accm-pchem:II.F.1", "acs-accm-pchem:II.F.2"], do: "Calculate a bond order and use it to rank bond length and strength.", ek: ["Bond order = (n_bonding − n_antibonding)/2; higher order, shorter and stronger bond."], p: [P2, P5], drills: [pc-bond-order-change, "qm-bond-order"] }
       - n: 2
         title: "Polyatomic molecules"
         book: { engel-reid-3e: ["24.2", "24.5", "24:huckel"] }
         los:
           - { id: A, std: ["acs-accm-pchem:III.B.2"], do: "Assign hybridisation and predict geometry from the number of electron domains.", ek: ["sp linear 180°, sp² trigonal 120°, sp³ tetrahedral 109.5°."], p: [P2, P5], drills: ["qm-hybridisation"] }
           - { id: B, std: ["acs-accm-pchem:III.B.3"], do: "Use qualitative MO theory to identify the HOMO and LUMO and predict a geometry.", ek: ["A Walsh diagram tracks orbital energy against angle; the HOMO decides the shape."], p: [P2, P5], drills: ["~qm-walsh-ah2"] }
-          - { id: C, std: ["acs-accm-pchem:II.E.1"], do: "Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.", ek: ["E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative."], p: [P2, P5], drills: ["qm-huckel-chain", pc-polyene-gap] }
+          - { id: C, std: ["acs-accm-pchem:II.E.1"], do: "Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.", ek: ["E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative."], p: [P2, P5], drills: [pc-polyene-gap, "qm-huckel-chain"] }
       - n: 3
         title: "Computational chemistry"
         book: { engel-reid-3e: ["26:hf", "26:pes", "26:post-hf"] }
         los:
           - { id: A, std: ["acs-accm-pchem:II.E.1", "acs-accm-pchem:II.B.2"], do: "Compute a Hartree–Fock energy from given one- and two-electron integrals.", ek: ["E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals."], p: [P2, P5], drills: ["qm-hf-two-electron-energy"] }
-          - { id: B, std: ["acs-accm-pchem:III.C.3", "acs-accm-pchem:III.C.1", "acs-accm-pchem:V.B.4", "acs-accm-general:III.C", "acs-accm-organic:III.C.1", "acs-accm-inorganic:III.C.1"], do: "Classify stationary points on a potential-energy surface.", ek: ["All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one."], p: [P2, P5], drills: ["qm-stationary-point", pc-hessian-classify] }
-          - { id: C, std: ["acs-accm-pchem:II.A.2", "acs-accm-pchem:II.E.1"], do: "Calculate a correlation energy and rank methods by the correlation they recover.", ek: ["E_corr = E_exact − E_HF, always negative; HF < MP2 < CCSD(T) toward the exact answer."], p: [P2, P5], drills: ["~qm-correlation-energy", pc-correlation-recovered] }
+          - { id: B, std: ["acs-accm-pchem:III.C.3", "acs-accm-pchem:III.C.1", "acs-accm-pchem:V.B.4", "acs-accm-general:III.C", "acs-accm-organic:III.C.1", "acs-accm-inorganic:III.C.1"], do: "Classify stationary points on a potential-energy surface.", ek: ["All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one."], p: [P2, P5], drills: [pc-hessian-classify, "qm-stationary-point"] }
+          - { id: C, std: ["acs-accm-pchem:II.A.2", "acs-accm-pchem:II.E.1"], do: "Calculate a correlation energy and rank methods by the correlation they recover.", ek: ["E_corr = E_exact − E_HF, always negative; HF < MP2 < CCSD(T) toward the exact answer."], p: [P2, P5], drills: [pc-correlation-recovered, "~qm-correlation-energy"] }
 
   # ── 16 ────────────────────────────────────────────────────────────────────
   - id: electronic-spectroscopy
@@ -439,11 +439,11 @@ units:
         title: "Absorption and emission"
         book: { engel-reid-3e: ["25.1", "25.5", "25:franck-condon", "25.7"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:IX.D.1", "acs-accm-pchem:III.A.2"], do: "Convert between the energy, wavelength and wavenumber of an electronic transition.", ek: ["ΔE = hν = hc/λ = hcν̃."], p: [P3], drills: ["~pc-photon", pc-ev-from-wavenumber] }
-          - { id: B, std: ["acs-accm-pchem:IX.D.1", "acs-accm-pchem:VII.A.3"], do: "Calculate an absorbance, a concentration or a molar absorption coefficient.", ek: ["A = εcl = −log₁₀(I/I₀)."], p: [P3], drills: ["pc-beer-lambert", pc-transmittance] }
-          - { id: C, std: ["acs-accm-pchem:II.C.1", "acs-accm-pchem:II.C.3"], do: "Use the Franck–Condon principle to predict which vibronic band is strongest.", ek: ["Transitions are vertical; intensity follows the overlap |⟨χ_v′|χ_v⟩|²."], p: [P2, P5], drills: ["qm-franck-condon-strongest", pc-zero-zero-overlap] }
-          - { id: D, std: ["acs-accm-pchem:IX.D.1"], do: "Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.", ek: ["Vibrational relaxation in the excited state comes first, so λ_em > λ_abs."], p: [P2, P5], drills: ["qm-stokes-shift", pc-stokes-energy] }
           - { id: E, std: ["acs-accm-pchem:VI.C.2", "acs-accm-pchem:VI.C.4", "acs-accm-pchem:II.D.1", "acs-accm-pchem:II.D.2", "acs-accm-inorganic:V.F.10"], do: "Compute photon counts and quantum yields, and say how light breaks bonds.", ek: ["Photons = Pt/(hc/λ); Φ = molecules reacted ÷ photons absorbed; Φ > 1 signals a chain; photolysis is usually homolytic."], p: [P1], drills: [pc-quantum-yield, pc-photochem] }
+          - { id: A, std: ["acs-accm-pchem:IX.D.1", "acs-accm-pchem:III.A.2"], do: "Convert between the energy, wavelength and wavenumber of an electronic transition.", ek: ["ΔE = hν = hc/λ = hcν̃."], p: [P3], drills: [pc-ev-from-wavenumber, "~pc-photon"] }
+          - { id: B, std: ["acs-accm-pchem:IX.D.1", "acs-accm-pchem:VII.A.3", "acs-accm-analytical:I.D.3", "acs-accm-analytical:II.E.1", "acs-accm-analytical:V.B.1"], do: "Calculate an absorbance, a concentration or a molar absorption coefficient.", ek: ["A = εcl = −log₁₀(I/I₀)."], p: [P3], drills: [pc-transmittance, "pc-beer-lambert"] }
+          - { id: C, std: ["acs-accm-pchem:II.C.1", "acs-accm-pchem:II.C.3"], do: "Use the Franck–Condon principle to predict which vibronic band is strongest.", ek: ["Transitions are vertical; intensity follows the overlap |⟨χ_v′|χ_v⟩|²."], p: [P2, P5], drills: [pc-zero-zero-overlap, "qm-franck-condon-strongest"] }
+          - { id: D, std: ["acs-accm-pchem:IX.D.1"], do: "Calculate a Stokes shift and explain why emission is at longer wavelength than absorption.", ek: ["Vibrational relaxation in the excited state comes first, so λ_em > λ_abs."], p: [P2, P5], drills: [pc-stokes-energy, "qm-stokes-shift"] }
 
   # ── 17 ────────────────────────────────────────────────────────────────────
   - id: symmetry
@@ -458,10 +458,10 @@ units:
         los:
           - { id: A, std: ["acs-accm-pchem:III.B.1", "acs-accm-inorganic:X.D.3"], do: "Identify the symmetry elements of a molecule.", ek: ["E, C_n, σ, i, S_n; every molecule has at least E."], p: [P2, P5], drills: [gt-group-order, gt-mirror-planes] }
           - { id: B, std: ["acs-accm-pchem:III.B.1", "acs-accm-general:III.D", "acs-accm-inorganic:III.D.1"], do: "Assign a molecule to its point group.", ek: ["Work down the flow chart: linear? high symmetry? principal axis? perpendicular C₂? mirror planes?"], p: [P2, P5], drills: [gt-point-group-common, gt-point-group-more] }
-          - { id: C, std: ["acs-accm-pchem:III.D.2"], do: "Reduce a representation with a character table.", ek: ["n_i = (1/h) Σ χ(R) χ_i(R) over all operations."], p: [P2, P5], drills: [gt-operation-product, gt-reduce-c2v, gt-reduce-c3v] }
           - { id: D, std: ["acs-accm-pchem:III.D.2"], do: "Count the normal modes of a molecule and find their symmetries.", ek: ["3N − 6 for nonlinear, 3N − 5 for linear molecules."], p: [P2, P5], drills: [gt-normal-modes, gt-modes-symmetry] }
           - { id: E, std: ["acs-accm-pchem:III.D.2", "acs-accm-organic:III.D.1", "acs-accm-inorganic:II.E.4", "acs-accm-inorganic:III.D.3", "acs-accm-inorganic:III.D.4"], do: "Decide from symmetry whether a mode is IR active, Raman active or both.", ek: ["IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre."], p: [P2, P5], drills: [gt-ir-raman] }
-          - { id: F, std: ["acs-accm-pchem:III.E.1", "acs-accm-organic:III.E.5", "acs-accm-organic:IX.C.2"], do: "Use optical rotation to find specific rotation and enantiomeric excess.", ek: ["[α] = α/(l·c) with l in dm and c in g/mL; ee = [α]_obs/[α]_pure × 100%."], p: [P1], drills: [pc-specific-rotation, pc-ee] }
+          - { id: C, std: ["acs-accm-pchem:III.D.2"], do: "Reduce a representation with a character table.", ek: ["n_i = (1/h) Σ χ(R) χ_i(R) over all operations."], p: [P2, P5], drills: [gt-operation-product, gt-reduce-c2v, gt-reduce-c3v] }
+          - { id: F, std: ["acs-accm-pchem:III.E.1", "acs-accm-organic:III.E.5", "acs-accm-organic:IX.C.2", "acs-accm-analytical:III.E.1"], do: "Use optical rotation to find specific rotation and enantiomeric excess.", ek: ["[α] = α/(l·c) with l in dm and c in g/mL; ee = [α]_obs/[α]_pure × 100%."], p: [P1], drills: [pc-specific-rotation, pc-ee] }
 
   # ── 18 ────────────────────────────────────────────────────────────────────
   - id: nmr
@@ -475,10 +475,10 @@ units:
         title: "The NMR experiment"
         book: { engel-reid-3e: ["28:larmor", "28:chemical-shift", "28:shielding", "28:spin-spin", "28:coupling"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:I.A.2"], do: "Calculate the Larmor frequency of a nucleus in a given field.", ek: ["ν₀ = γB₀/2π; for ¹H, 42.58 MHz per tesla."], p: [P3], drills: ["pc-larmor", pc-field-for-frequency] }
-          - { id: B, std: ["acs-accm-pchem:I.A.2"], do: "Convert between a frequency offset in hertz and a chemical shift in ppm.", ek: ["δ = (ν_sample − ν_ref)/ν_ref × 10⁶; the ppm value does not depend on the field."], p: [P3], drills: ["pc-chemical-shift", pc-hz-other-field] }
+          - { id: A, std: ["acs-accm-pchem:I.A.2"], do: "Calculate the Larmor frequency of a nucleus in a given field.", ek: ["ν₀ = γB₀/2π; for ¹H, 42.58 MHz per tesla."], p: [P3], drills: [pc-field-for-frequency, "pc-larmor"] }
+          - { id: B, std: ["acs-accm-pchem:I.A.2"], do: "Convert between a frequency offset in hertz and a chemical shift in ppm.", ek: ["δ = (ν_sample − ν_ref)/ν_ref × 10⁶; the ppm value does not depend on the field."], p: [P3], drills: [pc-hz-other-field, "pc-chemical-shift"] }
           - { id: C, std: ["acs-accm-pchem:I.A.2"], do: "Relate shielding to chemical shift and predict which nuclei appear downfield.", ek: ["Electron-withdrawing neighbours deshield, giving a larger δ."], p: [P2, P5], drills: ["nmr-downfield"] }
-          - { id: D, std: ["acs-accm-pchem:I.A.2"], do: "Predict the multiplicity of a signal from the n + 1 rule.", ek: ["n equivalent spin-½ neighbours split a signal into n + 1 lines with Pascal's-triangle intensities."], p: [P2, P5], drills: ["nmr-multiplicity", pc-two-set-splitting] }
+          - { id: D, std: ["acs-accm-pchem:I.A.2"], do: "Predict the multiplicity of a signal from the n + 1 rule.", ek: ["n equivalent spin-½ neighbours split a signal into n + 1 lines with Pascal's-triangle intensities."], p: [P2, P5], drills: [pc-two-set-splitting, "nmr-multiplicity"] }
           - { id: E, std: ["acs-accm-pchem:I.A.2"], do: "Estimate a three-bond coupling constant from a dihedral angle.", ek: ["³J = A − B cos φ + C cos² φ (Karplus); largest near 0° and 180°."], p: [P2, P5], drills: ["nmr-karplus"] }
 
   # ── 19 ────────────────────────────────────────────────────────────────────
@@ -492,15 +492,15 @@ units:
         title: "Counting and distributions"
         book: { engel-reid-3e: ["29.2", "29:stirling", "29:distributions"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:X.C.2", "acs-accm-pchem:VI.H.2"], do: "Count the microstates of a configuration.", ek: ["W = N!/(a₀! a₁! a₂! …)."], p: [P3], drills: ["sm-anagram", td-multinomial-probability] }
-          - { id: B, std: ["acs-accm-pchem:X.B.1"], do: "Apply Stirling's approximation to the logarithm of a large factorial.", ek: ["ln N! ≈ N ln N − N."], p: [P2, P5], drills: ["sm-stirling", pc-stirling-error] }
-          - { id: C, std: ["acs-accm-pchem:X.C.1"], do: "Calculate the mean and variance of a distribution.", ek: ["⟨x⟩ = ∫x f(x) dx; σ² = ⟨x²⟩ − ⟨x⟩²."], p: [P3], drills: ["~sm-fl-exact", pc-discrete-variance] }
+          - { id: A, std: ["acs-accm-pchem:X.C.2", "acs-accm-pchem:VI.H.2"], do: "Count the microstates of a configuration.", ek: ["W = N!/(a₀! a₁! a₂! …)."], p: [P3], drills: [td-multinomial-probability, "sm-anagram"] }
+          - { id: B, std: ["acs-accm-pchem:X.B.1"], do: "Apply Stirling's approximation to the logarithm of a large factorial.", ek: ["ln N! ≈ N ln N − N."], p: [P2, P5], drills: [pc-stirling-error, "sm-stirling"] }
+          - { id: C, std: ["acs-accm-pchem:X.C.1"], do: "Calculate the mean and variance of a distribution.", ek: ["⟨x⟩ = ∫x f(x) dx; σ² = ⟨x²⟩ − ⟨x⟩²."], p: [P3], drills: [pc-discrete-variance, "~sm-fl-exact"] }
       - n: 2
         title: "The Boltzmann distribution"
         book: { engel-reid-3e: ["30:microstates", "30:beta", "30.2"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:VI.H.2", "acs-accm-pchem:X.C.1"], do: "Calculate an entropy from a number of microstates.", ek: ["S = k_B ln W."], p: [P3], drills: ["~sm-two-state", pc-log-w-from-s] }
-          - { id: B, std: ["acs-accm-pchem:X.C.2", "acs-accm-pchem:X.D.3"], do: "Calculate the population ratio of two levels at a given temperature.", ek: ["n_i/n_j = (g_i/g_j) e^(−Δε/k_BT); β = 1/k_BT."], p: [P3], drills: ["sm-bz-ratio", td-boltzmann-degenerate] }
+          - { id: A, std: ["acs-accm-pchem:VI.H.2", "acs-accm-pchem:X.C.1"], do: "Calculate an entropy from a number of microstates.", ek: ["S = k_B ln W."], p: [P3], drills: [pc-log-w-from-s, "~sm-two-state"] }
+          - { id: B, std: ["acs-accm-pchem:X.C.2", "acs-accm-pchem:X.D.3"], do: "Calculate the population ratio of two levels at a given temperature.", ek: ["n_i/n_j = (g_i/g_j) e^(−Δε/k_BT); β = 1/k_BT."], p: [P3], drills: [td-boltzmann-degenerate, "sm-bz-ratio"] }
           - { id: C, std: ["acs-accm-pchem:X.C.2", "acs-accm-pchem:X.C.1"], do: "Calculate a partition function and the fraction of molecules in each level.", ek: ["q = Σ g_j e^(−ε_j/k_BT); P_i = g_i e^(−ε_i/k_BT)/q."], p: [P3], drills: ["sm-pf-q", "sm-bz-fraction"] }
 
   # ── 20 ────────────────────────────────────────────────────────────────────
@@ -514,21 +514,21 @@ units:
         title: "Molecular partition functions"
         book: { engel-reid-3e: ["31.4", "31.5", "31:rot-poly", "31.7", "31:electronic", "31.8"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:X.C.1"], do: "Calculate a translational partition function.", ek: ["q_trans = V(2πmk_BT/h²)^(3/2) = V/Λ³."], p: [P3], drills: ["sm-ig-qtrans", td-qtrans-scaling] }
-          - { id: B, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:III.A.3"], do: "Calculate the rotational partition function of a diatomic molecule.", ek: ["q_rot = T/(σθ_rot) when T ≫ θ_rot; σ = 2 for a homonuclear diatomic."], p: [P3], drills: ["sm-ig-qrot", td-symmetry-number] }
-          - { id: C, std: ["acs-accm-pchem:X.C.1"], do: "Calculate the rotational partition function of a polyatomic molecule.", ek: ["Linear: T/(σΘ); nonlinear: (√π/σ)(T³/Θ_AΘ_BΘ_C)^(1/2)."], p: [P2, P5], drills: ["sm-rotational-partition-nonlinear", pc-qrot-poly-scaling] }
-          - { id: D, std: ["acs-accm-pchem:X.C.1"], do: "Calculate a vibrational partition function.", ek: ["q_vib = 1/(1 − e^(−θ_vib/T)) measured from the ground level."], p: [P3], drills: ["sm-ig-qvib", td-vibrational-population] }
-          - { id: E, std: ["acs-accm-pchem:X.C.2"], do: "Calculate an electronic partition function from level degeneracies and energies.", ek: ["q_el = Σ g_i e^(−ε_i/k_BT) ≈ g₀ when the first excited level is far above k_BT."], p: [P2, P5], drills: ["sm-electronic-partition", pc-no-upper-fraction] }
-          - { id: F, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:VI.E.1"], do: "Use equipartition to predict a molar heat capacity.", ek: ["½RT per quadratic degree of freedom per mole; vibrations count only when T ≫ θ_vib."], p: [P3], drills: ["sm-cv-equipartition", td-equipartition-cp] }
+          - { id: A, std: ["acs-accm-pchem:X.C.1"], do: "Calculate a translational partition function.", ek: ["q_trans = V(2πmk_BT/h²)^(3/2) = V/Λ³."], p: [P3], drills: [td-qtrans-scaling, "sm-ig-qtrans"] }
+          - { id: B, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:III.A.3"], do: "Calculate the rotational partition function of a diatomic molecule.", ek: ["q_rot = T/(σθ_rot) when T ≫ θ_rot; σ = 2 for a homonuclear diatomic."], p: [P3], drills: [td-symmetry-number, "sm-ig-qrot"] }
+          - { id: C, std: ["acs-accm-pchem:X.C.1"], do: "Calculate the rotational partition function of a polyatomic molecule.", ek: ["Linear: T/(σΘ); nonlinear: (√π/σ)(T³/Θ_AΘ_BΘ_C)^(1/2)."], p: [P2, P5], drills: [pc-qrot-poly-scaling, "sm-rotational-partition-nonlinear"] }
+          - { id: D, std: ["acs-accm-pchem:X.C.1"], do: "Calculate a vibrational partition function.", ek: ["q_vib = 1/(1 − e^(−θ_vib/T)) measured from the ground level."], p: [P3], drills: [td-vibrational-population, "sm-ig-qvib"] }
+          - { id: E, std: ["acs-accm-pchem:X.C.2"], do: "Calculate an electronic partition function from level degeneracies and energies.", ek: ["q_el = Σ g_i e^(−ε_i/k_BT) ≈ g₀ when the first excited level is far above k_BT."], p: [P2, P5], drills: [pc-no-upper-fraction, "sm-electronic-partition"] }
+          - { id: F, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:VI.E.1"], do: "Use equipartition to predict a molar heat capacity.", ek: ["½RT per quadratic degree of freedom per mole; vibrations count only when T ≫ θ_vib."], p: [P3], drills: [td-equipartition-cp, "sm-cv-equipartition"] }
       - n: 2
         title: "Thermodynamic functions from the partition function"
         book: { engel-reid-3e: ["32:energy", "32.3", "32.4", "32.6", "32:residual-entropy"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:X.C.1"], do: "Calculate an internal energy from a partition function.", ek: ["U = −(∂ ln Q/∂β)_V = k_BT²(∂ ln Q/∂T)_V."], p: [P3], drills: ["~sm-pf-u-two-level", pc-vib-thermal-energy] }
-          - { id: B, std: ["acs-accm-pchem:X.C.1"], do: "Calculate the vibrational contribution to a heat capacity.", ek: ["C_V,vib/R = u²e^(−u)/(1 − e^(−u))² with u = θ_vib/T."], p: [P3], drills: ["sm-cv-einstein", td-einstein-temperature-from-cv] }
-          - { id: C, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:VI.H.2"], do: "Calculate an entropy from a partition function.", ek: ["S = k_B ln Q + U/T."], p: [P3], drills: ["~sm-pf-s-two-level", pc-vib-entropy] }
-          - { id: D, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:VI.H.5"], do: "Calculate a Helmholtz energy from a partition function.", ek: ["A = −k_BT ln Q."], p: [P3], drills: ["~sm-pf-f", pc-vib-helmholtz] }
-          - { id: E, std: ["acs-accm-pchem:VI.H.7", "acs-accm-pchem:III.H.3", "acs-accm-general:VI.H.3"], do: "Calculate the residual entropy of a crystal with orientational disorder.", ek: ["S₀ = R ln W₀ per mole, W₀ being the number of equally likely orientations."], p: [P3], drills: ["pc-residual-entropy", pc-w-from-residual] }
+          - { id: A, std: ["acs-accm-pchem:X.C.1"], do: "Calculate an internal energy from a partition function.", ek: ["U = −(∂ ln Q/∂β)_V = k_BT²(∂ ln Q/∂T)_V."], p: [P3], drills: [pc-vib-thermal-energy, "~sm-pf-u-two-level"] }
+          - { id: B, std: ["acs-accm-pchem:X.C.1"], do: "Calculate the vibrational contribution to a heat capacity.", ek: ["C_V,vib/R = u²e^(−u)/(1 − e^(−u))² with u = θ_vib/T."], p: [P3], drills: [td-einstein-temperature-from-cv, "sm-cv-einstein"] }
+          - { id: C, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:VI.H.2"], do: "Calculate an entropy from a partition function.", ek: ["S = k_B ln Q + U/T."], p: [P3], drills: [pc-vib-entropy, "~sm-pf-s-two-level"] }
+          - { id: D, std: ["acs-accm-pchem:X.C.1", "acs-accm-pchem:VI.H.5"], do: "Calculate a Helmholtz energy from a partition function.", ek: ["A = −k_BT ln Q."], p: [P3], drills: [pc-vib-helmholtz, "~sm-pf-f"] }
+          - { id: E, std: ["acs-accm-pchem:VI.H.7", "acs-accm-pchem:III.H.3", "acs-accm-general:VI.H.3"], do: "Calculate the residual entropy of a crystal with orientational disorder.", ek: ["S₀ = R ln W₀ per mole, W₀ being the number of equally likely orientations."], p: [P3], drills: [pc-w-from-residual, "pc-residual-entropy"] }
 
   # ── 21 ────────────────────────────────────────────────────────────────────
   - id: kinetic-theory
@@ -542,19 +542,19 @@ units:
         title: "Molecular speeds and collisions"
         book: { engel-reid-3e: ["33:maxwell", "33:speeds", "33:effusion", "33:collisions", "33:mean-free-path"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:VII.D.2", "acs-accm-pchem:X.A.3"], do: "Use the Maxwell speed distribution to compare speeds at different temperatures and masses.", ek: ["f(v) = 4π(m/2πk_BT)^(3/2) v² e^(−mv²/2k_BT); broader and faster for high T or low mass."], p: [P2, P5], drills: ["kt-maxwell-compare", pc-rms-ratio] }
-          - { id: B, std: ["acs-accm-pchem:VII.D.2"], do: "Calculate the most probable, mean and root-mean-square speeds of a gas.", ek: ["v_mp = √(2RT/M), v̄ = √(8RT/πM), v_rms = √(3RT/M), with M in kg/mol."], p: [P3], drills: ["pc-speeds", pc-matching-temperature] }
-          - { id: C, std: ["acs-accm-pchem:X.A.3"], do: "Calculate a ratio of effusion rates, or a molar mass from one.", ek: ["r₁/r₂ = √(M₂/M₁)."], p: [P3], drills: ["pc-effusion", pc-effusion-time] }
-          - { id: D, std: ["acs-accm-pchem:VII.D.3"], do: "Calculate the collision frequency of a molecule in a gas.", ek: ["z = √2 σ v̄ (N/V) with σ = πd²."], p: [P2, P5], drills: ["kt-collision-frequency", pc-collision-scaling] }
-          - { id: E, std: ["acs-accm-pchem:VII.D.3"], do: "Calculate the mean free path of a gas molecule.", ek: ["λ = v̄/z = k_BT/(√2 σP)."], p: [P3], drills: ["pc-mean-free-path", pc-pressure-for-mfp] }
+          - { id: A, std: ["acs-accm-pchem:VII.D.2", "acs-accm-pchem:X.A.3"], do: "Use the Maxwell speed distribution to compare speeds at different temperatures and masses.", ek: ["f(v) = 4π(m/2πk_BT)^(3/2) v² e^(−mv²/2k_BT); broader and faster for high T or low mass."], p: [P2, P5], drills: [pc-rms-ratio, "kt-maxwell-compare"] }
+          - { id: B, std: ["acs-accm-pchem:VII.D.2"], do: "Calculate the most probable, mean and root-mean-square speeds of a gas.", ek: ["v_mp = √(2RT/M), v̄ = √(8RT/πM), v_rms = √(3RT/M), with M in kg/mol."], p: [P3], drills: [pc-matching-temperature, "pc-speeds"] }
+          - { id: C, std: ["acs-accm-pchem:X.A.3"], do: "Calculate a ratio of effusion rates, or a molar mass from one.", ek: ["r₁/r₂ = √(M₂/M₁)."], p: [P3], drills: [pc-effusion-time, "pc-effusion"] }
+          - { id: D, std: ["acs-accm-pchem:VII.D.3"], do: "Calculate the collision frequency of a molecule in a gas.", ek: ["z = √2 σ v̄ (N/V) with σ = πd²."], p: [P2, P5], drills: [pc-collision-scaling, "kt-collision-frequency"] }
+          - { id: E, std: ["acs-accm-pchem:VII.D.3"], do: "Calculate the mean free path of a gas molecule.", ek: ["λ = v̄/z = k_BT/(√2 σP)."], p: [P3], drills: [pc-pressure-for-mfp, "pc-mean-free-path"] }
       - n: 2
         title: "Transport"
         book: { engel-reid-3e: ["34:ficks-first", "34:ficks-second", "34:thermal-conduction", "34:viscosity"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:X.A.3"], do: "Calculate a diffusive flux from a concentration gradient.", ek: ["J = −D dC/dx; flux runs down the gradient."], p: [P2, P5], drills: ["tr-fick-flux", pc-gradient-for-flux] }
-          - { id: B, std: ["acs-accm-pchem:X.A.3"], do: "Estimate how far a species diffuses in a given time.", ek: ["∂C/∂t = D ∂²C/∂x²; x_rms = √(2Dt) in one dimension."], p: [P3], drills: ["pc-diffusion-distance", pc-diffusion-time] }
-          - { id: C, std: ["acs-accm-pchem:VI.G.1"], do: "Calculate a conductive heat flux from a temperature gradient.", ek: ["J_q = −κ dT/dx."], p: [P3], drills: ["~ht-cond", pc-conductivity-from-flux] }
-          - { id: D, std: ["webwork-opl:FM1.3", "acs-accm-pchem:IV.D.4"], do: "Calculate a shear stress from a viscosity and a velocity gradient.", ek: ["τ = η du/dz; for a gas η = ⅓ρv̄λ, which rises with temperature."], p: [P2, P5], drills: ["tr-shear-stress", pc-gradient-from-stress] }
+          - { id: A, std: ["acs-accm-pchem:X.A.3"], do: "Calculate a diffusive flux from a concentration gradient.", ek: ["J = −D dC/dx; flux runs down the gradient."], p: [P2, P5], drills: [pc-gradient-for-flux, "tr-fick-flux"] }
+          - { id: B, std: ["acs-accm-pchem:X.A.3"], do: "Estimate how far a species diffuses in a given time.", ek: ["∂C/∂t = D ∂²C/∂x²; x_rms = √(2Dt) in one dimension."], p: [P3], drills: [pc-diffusion-time, "pc-diffusion-distance"] }
+          - { id: C, std: ["acs-accm-pchem:VI.G.1"], do: "Calculate a conductive heat flux from a temperature gradient.", ek: ["J_q = −κ dT/dx."], p: [P3], drills: [pc-conductivity-from-flux, "~ht-cond"] }
+          - { id: D, std: ["webwork-opl:FM1.3", "acs-accm-pchem:IV.D.4"], do: "Calculate a shear stress from a viscosity and a velocity gradient.", ek: ["τ = η du/dz; for a gas η = ⅓ρv̄λ, which rises with temperature."], p: [P2, P5], drills: [pc-gradient-from-stress, "tr-shear-stress"] }
 
   # ── 22 ────────────────────────────────────────────────────────────────────
   - id: kinetics
@@ -568,27 +568,27 @@ units:
         title: "Rate laws"
         book: { engel-reid-3e: ["35:rate-laws", "35:integrated"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:VII.B.1", "acs-accm-pchem:VII.B.2", "acs-accm-pchem:IX.E.1"], do: "Determine reaction orders and a rate constant from initial-rate data.", ek: ["rate = k[A]^m[B]^n; compare runs that change one concentration at a time."], p: [P3], drills: ["pc-initial-rates", pc-rate-prediction] }
-          - { id: B, std: ["acs-accm-pchem:VII.B.1", "acs-accm-pchem:VII.B.3", "acs-accm-pchem:VII.A.5"], do: "Use an integrated rate law to find a concentration, a time or a half-life.", ek: ["First order: [A] = [A]₀e^(−kt), t½ = ln 2/k. Second order: 1/[A] = 1/[A]₀ + kt."], p: [P3], drills: ["pc-first-order", "pc-second-order"] }
           - { id: C, std: ["acs-accm-pchem:VII.A.1", "acs-accm-pchem:IX.A.2", "acs-accm-pchem:IX.E.1", "acs-accm-pchem:IX.F.1", "acs-accm-pchem:IX.F.2", "acs-accm-pchem:IX.F.3", "acs-accm-pchem:V.C.2", "acs-accm-pchem:VII.C.6", "acs-accm-pchem:IX.D.2", "acs-accm-pchem:IX.G.1"], do: "Choose a kinetic method for the time scale and isolate one reactant to get pseudo-first-order data.", ek: ["With [B]₀ ≫ [A]₀, rate = k′[A] with k′ = k[B]₀; stopped flow reaches milliseconds, relaxation and flash photolysis microseconds, femtosecond lasers bond vibrations."], p: [P1], drills: [pc-pseudo-first, pc-kinetic-method] }
+          - { id: A, std: ["acs-accm-pchem:VII.B.1", "acs-accm-pchem:VII.B.2", "acs-accm-pchem:IX.E.1"], do: "Determine reaction orders and a rate constant from initial-rate data.", ek: ["rate = k[A]^m[B]^n; compare runs that change one concentration at a time."], p: [P3], drills: [pc-rate-prediction, "pc-initial-rates"] }
+          - { id: B, std: ["acs-accm-pchem:VII.B.1", "acs-accm-pchem:VII.B.3", "acs-accm-pchem:VII.A.5"], do: "Use an integrated rate law to find a concentration, a time or a half-life.", ek: ["First order: [A] = [A]₀e^(−kt), t½ = ln 2/k. Second order: 1/[A] = 1/[A]₀ + kt."], p: [P3], drills: ["pc-first-order", "pc-second-order"] }
       - n: 2
         title: "Temperature dependence"
         book: { engel-reid-3e: ["35:arrhenius", "35:collision-theory", "35:eyring"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:VII.B.4", "acs-accm-pchem:V.C.1"], do: "Calculate an activation energy from rate constants at two temperatures, or a rate constant at a new temperature.", ek: ["k = Ae^(−E_a/RT); ln(k₂/k₁) = −(E_a/R)(1/T₂ − 1/T₁)."], p: [P3], drills: ["sm-rate-ea", "sm-rate-k2"] }
-          - { id: B, std: ["acs-accm-pchem:VII.D.4", "acs-accm-pchem:VII.D.1"], do: "Estimate a rate constant from collision theory and interpret the steric factor.", ek: ["k = pZ_AB e^(−E_a/RT); p < 1 accounts for orientation."], p: [P2, P5], drills: ["kn-steric-factor", pc-energetic-fraction] }
-          - { id: C, std: ["acs-accm-pchem:VII.D.4", "acs-accm-pchem:VII.D.1"], do: "Calculate a rate constant from an activation Gibbs energy with the Eyring equation.", ek: ["k = (k_BT/h) e^(−ΔG‡/RT); k_BT/h ≈ 6.2 × 10¹² s⁻¹ at 298 K."], p: [P3], drills: ["sm-rate-eyring", td-eyring-half-life] }
           - { id: D, std: ["acs-accm-pchem:VII.E.1", "acs-accm-pchem:VII.E.2", "acs-accm-pchem:V.F.4", "acs-accm-pchem:V.G.1", "acs-accm-pchem:VII.F.1", "acs-accm-pchem:VI.B.1", "acs-accm-pchem:VI.C.1", "acs-accm-pchem:V.B.1", "acs-accm-pchem:V.B.2", "acs-accm-pchem:V.B.3", "acs-accm-pchem:V.D.1", "acs-accm-pchem:X.D.2", "acs-accm-pchem:V.F.3", "acs-accm-general:VII.F.1", "acs-accm-organic:V.E.2", "acs-accm-organic:VII.F.1", "acs-accm-inorganic:VII.F.1"], do: "Quantify how a catalyst or a higher temperature speeds a reaction, and tell kinetic from thermodynamic control.", ek: ["Lowering Eₐ by ΔEₐ multiplies k by exp(ΔEₐ/RT); a catalyst leaves K and the products unchanged; the fraction of collisions above Eₐ goes as exp(−Eₐ/RT)."], p: [P1], drills: [pc-catalyst-speedup, pc-control] }
+          - { id: A, std: ["acs-accm-pchem:VII.B.4", "acs-accm-pchem:V.C.1"], do: "Calculate an activation energy from rate constants at two temperatures, or a rate constant at a new temperature.", ek: ["k = Ae^(−E_a/RT); ln(k₂/k₁) = −(E_a/R)(1/T₂ − 1/T₁)."], p: [P3], drills: ["sm-rate-ea", "sm-rate-k2"] }
+          - { id: B, std: ["acs-accm-pchem:VII.D.4", "acs-accm-pchem:VII.D.1"], do: "Estimate a rate constant from collision theory and interpret the steric factor.", ek: ["k = pZ_AB e^(−E_a/RT); p < 1 accounts for orientation."], p: [P2, P5], drills: [pc-energetic-fraction, "kn-steric-factor"] }
+          - { id: C, std: ["acs-accm-pchem:VII.D.4", "acs-accm-pchem:VII.D.1"], do: "Calculate a rate constant from an activation Gibbs energy with the Eyring equation.", ek: ["k = (k_BT/h) e^(−ΔG‡/RT); k_BT/h ≈ 6.2 × 10¹² s⁻¹ at 298 K."], p: [P3], drills: [td-eyring-half-life, "sm-rate-eyring"] }
       - n: 3
         title: "Multi-step reactions"
         book: { engel-reid-3e: ["35:reversible", "35:parallel", "35:sequential", "34:steady-state", "36:preequil", "36:lindemann", "36:michaelis", "36:radical-chain"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:VIII.B.1", "acs-accm-pchem:VII.A.2"], do: "Calculate concentrations as a reversible first-order reaction approaches equilibrium.", ek: ["[A](t) = [A]_eq + ([A]₀ − [A]_eq)e^(−(k₁ + k₋₁)t); K = k₁/k₋₁."], p: [P2, P5], drills: ["kn-reversible-first-order", pc-reversible-halfway] }
-          - { id: B, std: ["acs-accm-pchem:VII.C.1"], do: "Calculate the product ratio and overall decay of parallel first-order reactions.", ek: ["[A] = [A]₀e^(−(k₁ + k₂)t); [B]/[C] = k₁/k₂ at all times."], p: [P3], drills: ["pc-parallel", pc-parallel-time] }
-          - { id: C, std: ["acs-accm-pchem:VII.C.5"], do: "Calculate the concentration and time of the maximum of an intermediate in A → B → C.", ek: ["[B] = k₁[A]₀/(k₂ − k₁) (e^(−k₁t) − e^(−k₂t)); t_max = ln(k₁/k₂)/(k₁ − k₂)."], p: [P2, P5], drills: ["~kn-intermediate-maximum", pc-intermediate-max-time] }
-          - { id: D, std: ["acs-accm-pchem:VII.C.3", "acs-accm-pchem:VII.C.5", "acs-accm-inorganic:VII.C.2"], do: "Apply the steady-state approximation to derive a rate law.", ek: ["Set d[I]/dt ≈ 0 for a reactive intermediate and solve for [I]."], p: [P2, P5], drills: ["kn-steady-state-rate", pc-steady-state-keff] }
-          - { id: E, std: ["acs-accm-pchem:VII.C.3", "acs-accm-pchem:VII.C.4"], do: "Apply the pre-equilibrium approximation to a mechanism with a fast first step.", ek: ["The fast step stays at equilibrium: [I] = K[A][B], so rate = k₂K[A][B]."], p: [P2, P5], drills: ["kn-pre-equilibrium", pc-pre-equilibrium-ea] }
-          - { id: F, std: ["acs-accm-pchem:VII.C.2", "acs-accm-pchem:VII.C.3"], do: "Use the Lindemann mechanism to explain the pressure dependence of a unimolecular rate.", ek: ["rate = k_a k_b[A]²/(k₋ₐ[A] + k_b): first order at high pressure, second order at low."], p: [P2, P5], drills: ["kn-lindemann", pc-lindemann-half] }
-          - { id: G, std: ["acs-accm-pchem:VII.E.3", "acs-accm-pchem:VII.C.8"], do: "Calculate an enzyme rate from the Michaelis–Menten equation, and V_max and K_M from data.", ek: ["v = V_max[S]/(K_M + [S]); v = V_max/2 when [S] = K_M."], p: [P3], drills: ["pc-michaelis", pc-substrate-for-fraction] }
-          - { id: H, std: ["acs-accm-pchem:VII.C.3", "acs-accm-pchem:VII.C.7"], do: "Calculate a steady-state radical concentration and a kinetic chain length.", ek: ["[R·]_ss = √(R_i/k_t); chain length = propagation rate / initiation rate."], p: [P2, P5], drills: ["kn-chain-length", pc-initiation-from-chain] }
           - { id: I, std: ["acs-accm-pchem:VIII.G.2", "acs-accm-pchem:III.H.1", "acs-accm-inorganic:V.D.5", "acs-accm-inorganic:VII.E.2"], do: "Use the Langmuir isotherm to find surface coverage, or the pressure for a target coverage.", ek: ["θ = KP/(1 + KP); half coverage at P = 1/K; heterogeneous rates follow the coverage of the adsorbed reactant."], p: [P1], drills: [pc-langmuir, pc-langmuir-pressure] }
+          - { id: A, std: ["acs-accm-pchem:VIII.B.1", "acs-accm-pchem:VII.A.2"], do: "Calculate concentrations as a reversible first-order reaction approaches equilibrium.", ek: ["[A](t) = [A]_eq + ([A]₀ − [A]_eq)e^(−(k₁ + k₋₁)t); K = k₁/k₋₁."], p: [P2, P5], drills: [pc-reversible-halfway, "kn-reversible-first-order"] }
+          - { id: B, std: ["acs-accm-pchem:VII.C.1"], do: "Calculate the product ratio and overall decay of parallel first-order reactions.", ek: ["[A] = [A]₀e^(−(k₁ + k₂)t); [B]/[C] = k₁/k₂ at all times."], p: [P3], drills: [pc-parallel-time, "pc-parallel"] }
+          - { id: C, std: ["acs-accm-pchem:VII.C.5"], do: "Calculate the concentration and time of the maximum of an intermediate in A → B → C.", ek: ["[B] = k₁[A]₀/(k₂ − k₁) (e^(−k₁t) − e^(−k₂t)); t_max = ln(k₁/k₂)/(k₁ − k₂)."], p: [P2, P5], drills: [pc-intermediate-max-time, "~kn-intermediate-maximum"] }
+          - { id: D, std: ["acs-accm-pchem:VII.C.3", "acs-accm-pchem:VII.C.5", "acs-accm-inorganic:VII.C.2"], do: "Apply the steady-state approximation to derive a rate law.", ek: ["Set d[I]/dt ≈ 0 for a reactive intermediate and solve for [I]."], p: [P2, P5], drills: [pc-steady-state-keff, "kn-steady-state-rate"] }
+          - { id: E, std: ["acs-accm-pchem:VII.C.3", "acs-accm-pchem:VII.C.4"], do: "Apply the pre-equilibrium approximation to a mechanism with a fast first step.", ek: ["The fast step stays at equilibrium: [I] = K[A][B], so rate = k₂K[A][B]."], p: [P2, P5], drills: [pc-pre-equilibrium-ea, "kn-pre-equilibrium"] }
+          - { id: F, std: ["acs-accm-pchem:VII.C.2", "acs-accm-pchem:VII.C.3"], do: "Use the Lindemann mechanism to explain the pressure dependence of a unimolecular rate.", ek: ["rate = k_a k_b[A]²/(k₋ₐ[A] + k_b): first order at high pressure, second order at low."], p: [P2, P5], drills: [pc-lindemann-half, "kn-lindemann"] }
+          - { id: G, std: ["acs-accm-pchem:VII.E.3", "acs-accm-pchem:VII.C.8", "acs-accm-analytical:X.A.2"], do: "Calculate an enzyme rate from the Michaelis–Menten equation, and V_max and K_M from data.", ek: ["v = V_max[S]/(K_M + [S]); v = V_max/2 when [S] = K_M."], p: [P3], drills: [pc-substrate-for-fraction, "pc-michaelis"] }
+          - { id: H, std: ["acs-accm-pchem:VII.C.3", "acs-accm-pchem:VII.C.7"], do: "Calculate a steady-state radical concentration and a kinetic chain length.", ek: ["[R·]_ss = √(R_i/k_t); chain length = propagation rate / initiation rate."], p: [P2, P5], drills: [pc-initiation-from-chain, "kn-chain-length"] }

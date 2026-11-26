@@ -20,7 +20,8 @@ def facts(name, skill, rows, explain, pace="quick"):
              choice=MC, correct="0", verify="authored", explain=explain)
 
 
-T = lambda *n: [f"asbmb-core-2013:T{x}" for x in n]
+_OLD = ["1.1", "1.3", "1.4", "1.5", "2.2", "2.3", "2.4", "3.2", "3.5", "3.6", "4.1", "4.2", "4.3", "4.4", "5.1", "5.2", "5.3", "5.7"]
+T = lambda *n: [f"asbmb-core-2013:{_OLD[x - 1]}" for x in n]  # the paper's themes with a sample outcome, in order (bc2.py)
 C = lambda *n: [f"asbmb-cert:{x}" for x in n]
 MC_ = lambda *n: [f"aamc-mcat-outline:{x}" for x in n]
 

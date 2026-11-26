@@ -318,14 +318,14 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Ten tens make a hundred; a hundred can be broken into ten tens.
   - Needs: MK-3.2.E, MK-3.2.A
   - MP3 · MP7 · drills: k8-add1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-sub-count-up-change, mm-add-compensate
-- ● **MK-3.2.H** (2.NBT.B.8) Mentally add or subtract 10 or 100 to or from a number 100–900.
-  - EK: Adding 10 or 100 changes only that digit (unless it regroups).
-  - Needs: MK-2.2.E, MK-3.2.A
-  - MP7 · drills: k8-hundred-more, k2-hundred-less-word
 - ● **MK-3.2.I** (2.NBT.B.9) Explain why addition and subtraction strategies work, using place value and the properties of operations.
   - EK: A strategy is valid because of place value and the properties, not because it gives the right answer once.
   - Needs: MK-3.2.G
   - MP3 · drills: k8-add-by-place-value, mm-sub-equivalent
+- ● **MK-3.2.H** (2.NBT.B.8) Mentally add or subtract 10 or 100 to or from a number 100–900.
+  - EK: Adding 10 or 100 changes only that digit (unless it regroups).
+  - Needs: MK-2.2.E, MK-3.2.A
+  - MP7 · drills: k8-hundred-more, k2-hundred-less-word
 
 ### 3.3 Measurement and Data
 

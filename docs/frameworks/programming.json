@@ -139,6 +139,26 @@
        ]
       },
       {
+       "id": "D",
+       "std": [
+        "CRD-2.J"
+       ],
+       "do": "Choose test inputs, including boundary cases, and state the output each should produce.",
+       "ek": [
+        "Test typical, boundary (0, 1, empty, the limits) and invalid inputs; a test is useful only with a predicted answer."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "pr-test-inputs",
+        "pr-test-expected"
+       ],
+       "needs": [
+        "PR-1.1.A"
+       ]
+      },
+      {
        "id": "C",
        "std": [
         "CSA-1.1.C",
@@ -157,26 +177,6 @@
        ],
        "needs": [
         "PR-1.1.B"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "CRD-2.J"
-       ],
-       "do": "Choose test inputs, including boundary cases, and state the output each should produce.",
-       "ek": [
-        "Test typical, boundary (0, 1, empty, the limits) and invalid inputs; a test is useful only with a predicted answer."
-       ],
-       "p": [
-        "P6"
-       ],
-       "drills": [
-        "pr-test-inputs",
-        "pr-test-expected"
-       ],
-       "needs": [
-        "PR-1.1.A"
        ]
       }
      ]
@@ -540,6 +540,27 @@
        ]
       },
       {
+       "id": "E",
+       "std": [
+        "CSA-1.8.A",
+        "CRD-2.G"
+       ],
+       "do": "Write a comment stating what a method does, its preconditions and its postconditions.",
+       "ek": [
+        "A precondition must be true before the call (the caller's job); a postcondition is what the method guarantees afterwards."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "pr-pre-post",
+        "pr-pre-post-2"
+       ],
+       "needs": [
+        "PR-1.6.B"
+       ]
+      },
+      {
        "id": "D",
        "std": [
         "CSA-1.11.A",
@@ -559,27 +580,6 @@
        "needs": [
         "PR-1.6.C",
         "PR-1.5.A"
-       ]
-      },
-      {
-       "id": "E",
-       "std": [
-        "CSA-1.8.A",
-        "CRD-2.G"
-       ],
-       "do": "Write a comment stating what a method does, its preconditions and its postconditions.",
-       "ek": [
-        "A precondition must be true before the call (the caller's job); a postcondition is what the method guarantees afterwards."
-       ],
-       "p": [
-        "P5"
-       ],
-       "drills": [
-        "pr-pre-post",
-        "pr-pre-post-2"
-       ],
-       "needs": [
-        "PR-1.6.B"
        ]
       }
      ]
@@ -1540,6 +1540,27 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [
+        "CSA-3.2",
+        "IOC-1.F"
+       ],
+       "do": "Identify who a program's design affects and the legal or ethical constraints on it, such as licences on reused code and privacy of stored data.",
+       "ek": [
+        "Code taken from elsewhere must be credited and used under its licence; a design decides what data is kept, and for how long."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "pr-impact",
+        "pr-impact-2"
+       ],
+       "needs": [
+        "PR-3.1.A"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "CSA-3.7"
@@ -1579,27 +1600,6 @@
        ],
        "needs": [
         "PR-3.3.A"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "CSA-3.2",
-        "IOC-1.F"
-       ],
-       "do": "Identify who a program's design affects and the legal or ethical constraints on it, such as licences on reused code and privacy of stored data.",
-       "ek": [
-        "Code taken from elsewhere must be credited and used under its licence; a design decides what data is kept, and for how long."
-       ],
-       "p": [
-        "P5"
-       ],
-       "drills": [
-        "pr-impact",
-        "pr-impact-2"
-       ],
-       "needs": [
-        "PR-3.1.A"
        ]
       }
      ]
@@ -2204,26 +2204,6 @@
        ]
       },
       {
-       "id": "B",
-       "std": [
-        "CSA-4.16"
-       ],
-       "do": "Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.",
-       "ek": [
-        "One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": [
-        "pr-recursion-calls",
-        "pr-pow-calls"
-       ],
-       "needs": [
-        "PR-4.10.A"
-       ]
-      },
-      {
        "id": "C",
        "std": [
         "CSA-4.16"
@@ -2238,6 +2218,26 @@
        "drills": [
         "pr-base-case",
         "pr-base-case-facts"
+       ],
+       "needs": [
+        "PR-4.10.A"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "CSA-4.16"
+       ],
+       "do": "Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.",
+       "ek": [
+        "One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "pr-recursion-calls",
+        "pr-pow-calls"
        ],
        "needs": [
         "PR-4.10.A"
@@ -3800,17 +3800,6 @@
    "partial": []
   },
   {
-   "code": "PR-1.1.C",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "pr-error-kind",
-    "pr-error-kind-code"
-   ],
-   "partial": []
-  },
-  {
    "code": "PR-1.1.D",
    "unit": 1,
    "topic": 1,
@@ -3818,6 +3807,17 @@
    "full": [
     "pr-test-inputs",
     "pr-test-expected"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PR-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "pr-error-kind",
+    "pr-error-kind-code"
    ],
    "partial": []
   },
@@ -3976,17 +3976,6 @@
    "partial": []
   },
   {
-   "code": "PR-1.6.D",
-   "unit": 1,
-   "topic": 6,
-   "status": "ok",
-   "full": [
-    "pr-math-class",
-    "pr-random-range"
-   ],
-   "partial": []
-  },
-  {
    "code": "PR-1.6.E",
    "unit": 1,
    "topic": 6,
@@ -3994,6 +3983,17 @@
    "full": [
     "pr-pre-post",
     "pr-pre-post-2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PR-1.6.D",
+   "unit": 1,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "pr-math-class",
+    "pr-random-range"
    ],
    "partial": []
   },
@@ -4384,6 +4384,17 @@
    "partial": []
   },
   {
+   "code": "PR-3.4.C",
+   "unit": 3,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "pr-impact",
+    "pr-impact-2"
+   ],
+   "partial": []
+  },
+  {
    "code": "PR-3.4.A",
    "unit": 3,
    "topic": 4,
@@ -4402,17 +4413,6 @@
    "full": [
     "pr-class-trace",
     "pr-shadow-this"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PR-3.4.C",
-   "unit": 3,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "pr-impact",
-    "pr-impact-2"
    ],
    "partial": []
   },
@@ -4648,17 +4648,6 @@
    "partial": []
   },
   {
-   "code": "PR-4.10.B",
-   "unit": 4,
-   "topic": 10,
-   "status": "ok",
-   "full": [
-    "pr-recursion-calls",
-    "pr-pow-calls"
-   ],
-   "partial": []
-  },
-  {
    "code": "PR-4.10.C",
    "unit": 4,
    "topic": 10,
@@ -4666,6 +4655,17 @@
    "full": [
     "pr-base-case",
     "pr-base-case-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PR-4.10.B",
+   "unit": 4,
+   "topic": 10,
+   "status": "ok",
+   "full": [
+    "pr-recursion-calls",
+    "pr-pow-calls"
    ],
    "partial": []
   },

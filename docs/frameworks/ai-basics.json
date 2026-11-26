@@ -145,23 +145,6 @@
      "title": "Neurons and layers",
      "los": [
       {
-       "id": "A",
-       "std": [
-        "harper-carroll-academy:3"
-       ],
-       "do": "Compute a neuron's output with ReLU or sigmoid.",
-       "ek": [
-        "Weighted sum plus bias, then the activation."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ab-neuron",
-        "ab-sigmoid"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "harper-carroll-academy:3"
@@ -176,6 +159,23 @@
        "drills": [
         "ab-activation",
         "ab-network-parts"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "harper-carroll-academy:3"
+       ],
+       "do": "Compute a neuron's output with ReLU or sigmoid.",
+       "ek": [
+        "Weighted sum plus bias, then the activation."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ab-neuron",
+        "ab-sigmoid"
        ]
       },
       {
@@ -583,17 +583,6 @@
    "partial": []
   },
   {
-   "code": "AB-3.1.A",
-   "unit": 3,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "ab-neuron",
-    "ab-sigmoid"
-   ],
-   "partial": []
-  },
-  {
    "code": "AB-3.1.B",
    "unit": 3,
    "topic": 1,
@@ -601,6 +590,17 @@
    "full": [
     "ab-activation",
     "ab-network-parts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AB-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ab-neuron",
+    "ab-sigmoid"
    ],
    "partial": []
   },

@@ -117,8 +117,8 @@ units:
         los:
           - { id: A, std: [CSA-1.1.A, AAP-2.A], do: "Write an everyday procedure as ordered, unambiguous steps and trace it on an input.", ek: ["An algorithm is a finite sequence of precise steps; sequence, selection and iteration are enough to express any algorithm."], p: [P1], drills: [pr-collatz-steps, pr-algorithm-steps] }
           - { id: B, std: [CSA-1.1.B], do: "Put the steps of writing, compiling and running a Java program in order and say which step catches which problem.", ek: ["javac turns .java source into .class bytecode; the JVM runs the bytecode; the compiler checks syntax and types before anything runs."], p: [P5], drills: [pr-compile-run, pr-compile-run-2] }
-          - { id: C, std: [CSA-1.1.C, CRD-2.I], do: "Classify an error as syntax (compile-time), run-time (exception) or logic, given the code and its symptom.", ek: ["Syntax errors stop compilation; run-time errors throw during execution (int division by 0 throws ArithmeticException); logic errors run and give a wrong answer."], p: [P4], drills: ["pr-error-kind", pr-error-kind-code], needs: [PR-1.1.B] }
           - { id: D, std: [CRD-2.J], do: "Choose test inputs, including boundary cases, and state the output each should produce.", ek: ["Test typical, boundary (0, 1, empty, the limits) and invalid inputs; a test is useful only with a predicted answer."], p: [P6], drills: [pr-test-inputs, pr-test-expected], needs: [PR-1.1.A] }
+          - { id: C, std: [CSA-1.1.C, CRD-2.I], do: "Classify an error as syntax (compile-time), run-time (exception) or logic, given the code and its symptom.", ek: ["Syntax errors stop compilation; run-time errors throw during execution (int division by 0 throws ArithmeticException); logic errors run and give a wrong answer."], p: [P4], drills: ["pr-error-kind", pr-error-kind-code], needs: [PR-1.1.B] }
       - n: 2
         title: Bits and binary numbers
         book: { csp-ced: ["2.1"] }
@@ -153,8 +153,8 @@ units:
           - { id: A, std: [CSA-1.7.A, CSA-1.9.A, AAP-3.D], do: "Read API documentation to find what a class provides and which method to call.", ek: ["Documentation gives each method's signature (name, parameter types in order) and return type; a caller needs nothing more."], p: [P5], drills: [pr-api-docs, pr-api-docs-2] }
           - { id: B, std: [CSA-1.9.B, AAP-3.A], do: "Write a call to a void or non-void method with arguments that match its signature, and pick which overload runs.", ek: ["Arguments match parameters by number, order and type; overloads share a name but differ in parameter list; a non-void result must be stored or used or it is lost."], p: [P2], drills: [pr-overload-pick, pr-call-signature], needs: [PR-1.6.A, PR-1.3.B] }
           - { id: C, std: [CSA-1.10.A], do: "Call a static (class) method as ClassName.method(...) and give the value it returns.", ek: ["Static methods belong to the class, not to an object; inside the same class the class name can be left off."], p: [P3], drills: [pr-static-calls, pr-static-facts], needs: [PR-1.6.B] }
-          - { id: D, std: [CSA-1.11.A, AAP-3.E], do: "Evaluate expressions with Math.abs, Math.pow, Math.sqrt and Math.random, including mapping Math.random to an integer range.", ek: ["Math.random() is a double in [0.0, 1.0); (int)(Math.random() * n) + a is an int from a to a + n − 1; pow and sqrt return double."], p: [P3], drills: ["pr-math-class", "pr-random-range"], needs: [PR-1.6.C, PR-1.5.A] }
           - { id: E, std: [CSA-1.8.A, CRD-2.G], do: "Write a comment stating what a method does, its preconditions and its postconditions.", ek: ["A precondition must be true before the call (the caller's job); a postcondition is what the method guarantees afterwards."], p: [P5], drills: [pr-pre-post, pr-pre-post-2], needs: [PR-1.6.B] }
+          - { id: D, std: [CSA-1.11.A, AAP-3.E], do: "Evaluate expressions with Math.abs, Math.pow, Math.sqrt and Math.random, including mapping Math.random to an integer range.", ek: ["Math.random() is a double in [0.0, 1.0); (int)(Math.random() * n) + a is an int from a to a + n − 1; pow and sqrt return double."], p: [P3], drills: ["pr-math-class", "pr-random-range"], needs: [PR-1.6.C, PR-1.5.A] }
       - n: 7
         title: Objects, constructors and instance methods
         book: { csa-ced: ["1.12", "1.13", "1.14"] }
@@ -264,9 +264,9 @@ units:
         title: Class members, scope and this
         book: { csa-ced: ["3.7", "3.8", "3.9"] }
         los:
+          - { id: C, std: [CSA-3.2, IOC-1.F], do: "Identify who a program's design affects and the legal or ethical constraints on it, such as licences on reused code and privacy of stored data.", ek: ["Code taken from elsewhere must be credited and used under its licence; a design decides what data is kept, and for how long."], p: [P5], drills: [pr-impact, pr-impact-2], needs: [PR-3.1.A] }
           - { id: A, std: [CSA-3.7], do: "Predict the value of a static variable shared by all instances, such as an instance counter.", ek: ["A static variable has one copy per class, shared by every object; static methods cannot use instance variables or this."], p: [P3], drills: ["pr-class-trace", pr-static-counter], needs: [PR-3.2.A] }
           - { id: B, std: [CSA-3.8, CSA-3.9], do: "Decide which variable a name refers to when a parameter or local shadows a field, and resolve it with this.", ek: ["A local exists only inside its block; the innermost declaration wins; this.x always names the field."], p: [P3, P4], drills: ["pr-class-trace", pr-shadow-this], needs: [PR-3.3.A] }
-          - { id: C, std: [CSA-3.2, IOC-1.F], do: "Identify who a program's design affects and the legal or ethical constraints on it, such as licences on reused code and privacy of stored data.", ek: ["Code taken from elsewhere must be credited and used under its licence; a design decides what data is kept, and for how long."], p: [P5], drills: [pr-impact, pr-impact-2], needs: [PR-3.1.A] }
 
   # ── 4 ────────────────────────────────────────────────────────────────────
   - id: data-collections
@@ -337,8 +337,8 @@ units:
         book: { csa-ced: ["4.16", "4.17"] }
         los:
           - { id: A, std: [CSA-4.16], do: "Trace a recursive method and give its return value (factorial, digit sum, power).", ek: ["Each call gets its own parameters; the base case stops the descent; results combine as the calls return, last called first finished."], p: [P3], drills: ["pr-recursion", pr-recursion-order], needs: [PR-3.3.A, PR-2.1.B] }
-          - { id: B, std: [CSA-4.16], do: "Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.", ek: ["One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential."], p: [P3], drills: ["pr-recursion-calls", pr-pow-calls], needs: [PR-4.10.A] }
           - { id: C, std: [CSA-4.16], do: "Find and fix a missing or unreachable base case that causes a StackOverflowError.", ek: ["Every recursive call must move the argument toward a base case that is actually tested."], p: [P4], drills: [pr-base-case, pr-base-case-facts], needs: [PR-4.10.A] }
+          - { id: B, std: [CSA-4.16], do: "Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.", ek: ["One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential."], p: [P3], drills: ["pr-recursion-calls", pr-pow-calls], needs: [PR-4.10.A] }
           - { id: D, std: [CSA-4.17], do: "Trace recursive binary search and merge sort, giving the subarrays at each level of recursion.", ek: ["Merge sort halves down to single elements, then merges sorted halves: about n log₂ n comparisons, recursion depth ⌈log₂ n⌉."], p: [P3], drills: [pr-merge-levels, pr-merge-trace], needs: [PR-4.10.B, PR-4.8.B, PR-4.9.B] }
 
   # ── 5 ────────────────────────────────────────────────────────────────────

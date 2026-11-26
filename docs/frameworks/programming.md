@@ -50,14 +50,14 @@ Book: csa-ced §1.1; csp-ced §1.3, §1.4, §3.3
 - ● **PR-1.1.B** (CSA-1.1.B) Put the steps of writing, compiling and running a Java program in order and say which step catches which problem.
   - EK: javac turns .java source into .class bytecode; the JVM runs the bytecode; the compiler checks syntax and types before anything runs.
   - P5 · drills: pr-compile-run, pr-compile-run-2
-- ● **PR-1.1.C** (CSA-1.1.C, CRD-2.I) Classify an error as syntax (compile-time), run-time (exception) or logic, given the code and its symptom.
-  - EK: Syntax errors stop compilation; run-time errors throw during execution (int division by 0 throws ArithmeticException); logic errors run and give a wrong answer.
-  - Needs: PR-1.1.B
-  - P4 · drills: pr-error-kind, pr-error-kind-code
 - ● **PR-1.1.D** (CRD-2.J) Choose test inputs, including boundary cases, and state the output each should produce.
   - EK: Test typical, boundary (0, 1, empty, the limits) and invalid inputs; a test is useful only with a predicted answer.
   - Needs: PR-1.1.A
   - P6 · drills: pr-test-inputs, pr-test-expected
+- ● **PR-1.1.C** (CSA-1.1.C, CRD-2.I) Classify an error as syntax (compile-time), run-time (exception) or logic, given the code and its symptom.
+  - EK: Syntax errors stop compilation; run-time errors throw during execution (int division by 0 throws ArithmeticException); logic errors run and give a wrong answer.
+  - Needs: PR-1.1.B
+  - P4 · drills: pr-error-kind, pr-error-kind-code
 
 ### 1.2 Bits and binary numbers
 
@@ -136,14 +136,14 @@ Book: csa-ced §1.7, §1.8, §1.9, §1.10, §1.11; csp-ced §3.12, §3.14, §3.1
   - EK: Static methods belong to the class, not to an object; inside the same class the class name can be left off.
   - Needs: PR-1.6.B
   - P3 · drills: pr-static-calls, pr-static-facts
-- ● **PR-1.6.D** (CSA-1.11.A, AAP-3.E) Evaluate expressions with Math.abs, Math.pow, Math.sqrt and Math.random, including mapping Math.random to an integer range.
-  - EK: Math.random() is a double in [0.0, 1.0); (int)(Math.random() * n) + a is an int from a to a + n − 1; pow and sqrt return double.
-  - Needs: PR-1.6.C, PR-1.5.A
-  - P3 · drills: pr-math-class, pr-random-range
 - ● **PR-1.6.E** (CSA-1.8.A, CRD-2.G) Write a comment stating what a method does, its preconditions and its postconditions.
   - EK: A precondition must be true before the call (the caller's job); a postcondition is what the method guarantees afterwards.
   - Needs: PR-1.6.B
   - P5 · drills: pr-pre-post, pr-pre-post-2
+- ● **PR-1.6.D** (CSA-1.11.A, AAP-3.E) Evaluate expressions with Math.abs, Math.pow, Math.sqrt and Math.random, including mapping Math.random to an integer range.
+  - EK: Math.random() is a double in [0.0, 1.0); (int)(Math.random() * n) + a is an int from a to a + n − 1; pow and sqrt return double.
+  - Needs: PR-1.6.C, PR-1.5.A
+  - P3 · drills: pr-math-class, pr-random-range
 
 ### 1.7 Objects, constructors and instance methods
 
@@ -362,6 +362,10 @@ Book: csa-ced §3.5, §3.6; csp-ced §3.13
 
 Book: csa-ced §3.7, §3.8, §3.9
 
+- ● **PR-3.4.C** (CSA-3.2, IOC-1.F) Identify who a program's design affects and the legal or ethical constraints on it, such as licences on reused code and privacy of stored data.
+  - EK: Code taken from elsewhere must be credited and used under its licence; a design decides what data is kept, and for how long.
+  - Needs: PR-3.1.A
+  - P5 · drills: pr-impact, pr-impact-2
 - ● **PR-3.4.A** (CSA-3.7) Predict the value of a static variable shared by all instances, such as an instance counter.
   - EK: A static variable has one copy per class, shared by every object; static methods cannot use instance variables or this.
   - Needs: PR-3.2.A
@@ -370,10 +374,6 @@ Book: csa-ced §3.7, §3.8, §3.9
   - EK: A local exists only inside its block; the innermost declaration wins; this.x always names the field.
   - Needs: PR-3.3.A
   - P3 · P4 · drills: pr-class-trace, pr-shadow-this
-- ● **PR-3.4.C** (CSA-3.2, IOC-1.F) Identify who a program's design affects and the legal or ethical constraints on it, such as licences on reused code and privacy of stored data.
-  - EK: Code taken from elsewhere must be credited and used under its licence; a design decides what data is kept, and for how long.
-  - Needs: PR-3.1.A
-  - P5 · drills: pr-impact, pr-impact-2
 
 ## Unit 4 · Data collections
 
@@ -511,14 +511,14 @@ Book: csa-ced §4.16, §4.17
   - EK: Each call gets its own parameters; the base case stops the descent; results combine as the calls return, last called first finished.
   - Needs: PR-3.3.A, PR-2.1.B
   - P3 · drills: pr-recursion, pr-recursion-order
-- ● **PR-4.10.B** (CSA-4.16) Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.
-  - EK: One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential.
-  - Needs: PR-4.10.A
-  - P3 · drills: pr-recursion-calls, pr-pow-calls
 - ● **PR-4.10.C** (CSA-4.16) Find and fix a missing or unreachable base case that causes a StackOverflowError.
   - EK: Every recursive call must move the argument toward a base case that is actually tested.
   - Needs: PR-4.10.A
   - P4 · drills: pr-base-case, pr-base-case-facts
+- ● **PR-4.10.B** (CSA-4.16) Count the calls a recursive method makes, including two-branch recursion such as naive Fibonacci.
+  - EK: One recursive call per level: n + 1 calls; naive fib(n) with base cases 0 and 1 makes 2·fib(n + 1) − 1 calls — exponential.
+  - Needs: PR-4.10.A
+  - P3 · drills: pr-recursion-calls, pr-pow-calls
 - ● **PR-4.10.D** (CSA-4.17) Trace recursive binary search and merge sort, giving the subarrays at each level of recursion.
   - EK: Merge sort halves down to single elements, then merges sorted halves: about n log₂ n comparisons, recursion depth ⌈log₂ n⌉.
   - Needs: PR-4.10.B, PR-4.8.B, PR-4.9.B

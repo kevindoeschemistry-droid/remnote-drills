@@ -33,6 +33,9 @@ Big ideas: PB
 
 
 
+- ● **EL-1.1.D** (petsev-edl:1) Place electrolyte models in the book's hierarchy.
+  - EK: Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent.
+  - P2 · drills: el-model-hierarchy, el-model-capabilities
 - ● **EL-1.1.A** (petsev-edl:1) Compute the Coulomb force between ions in a dielectric.
   - EK: F = z₁z₂e²/(4πεε₀r²); water's ε ≈ 78 cuts it about 80-fold.
   - P1 · drills: el-coulomb-force, el-coulomb-kt-distance
@@ -42,9 +45,6 @@ Big ideas: PB
 - ● **EL-1.1.C** (petsev-edl:1) Use the Schulze–Hardy rule.
   - EK: Critical coagulation concentration ∝ z⁻⁶ for highly charged particles, ∝ z⁻² at low potential.
   - P1 · drills: el-schulze-hardy, el-ccc-predict
-- ● **EL-1.1.D** (petsev-edl:1) Place electrolyte models in the book's hierarchy.
-  - EK: Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent.
-  - P2 · drills: el-model-hierarchy, el-model-capabilities
 
 ### 1.2 Charge regulation and adsorption
 
@@ -126,15 +126,15 @@ Big ideas: PB
 
 
 
+- ● **EL-3.1.C** (petsev-edl:4) Recognise the common closures.
+  - EK: PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside.
+  - P2 · drills: el-closures, el-closure-forms
 - ● **EL-3.1.A** (petsev-edl:4) Use the Ornstein–Zernike equation in Fourier space.
   - EK: ĥ = ĉ/(1 − ρĉ); S(0) = 1/(1 − ρĉ(0)) is the reduced compressibility.
   - P1 · drills: el-oz-structure-factor, el-direct-correlation-from-s
 - ● **EL-3.1.B** (petsev-edl:4) Compare the hard-sphere equations of state.
   - EK: PY virial (1 + 2η + 3η²)/(1 − η)²; PY compressibility (1 + η + η²)/(1 − η)³; Carnahan–Starling (1 + η + η² − η³)/(1 − η)³.
   - P1 · drills: el-hs-pressure, el-cs-vs-py-virial
-- ● **EL-3.1.C** (petsev-edl:4) Recognise the common closures.
-  - EK: PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside.
-  - P2 · drills: el-closures, el-closure-forms
 - ● **EL-3.1.D** (petsev-edl:4) Compute packing fraction from number density and diameter.
   - EK: η = πρd³/6; ξ₃ for mixtures.
   - P1 · drills: el-packing-fraction, el-diameter-from-packing
@@ -190,6 +190,9 @@ Big ideas: PB
 
 
 
+- ● **EL-4.2.D** (petsev-edl:7) Know what fundamental-measure theory weights.
+  - EK: n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights.
+  - P2 · drills: el-fmt-weights, el-fmt-measures
 - ● **EL-4.2.A** (petsev-edl:7) Compute the Bjerrum length and Debye length from it.
   - EK: λ_B = e²/(4πεε₀kT) ≈ 0.71 nm in water; κ² = 4πλ_BΣz_i²ρ_i.
   - P1 · drills: el-bjerrum, el-debye-from-bjerrum
@@ -199,9 +202,6 @@ Big ideas: PB
 - ● **EL-4.2.C** (petsev-edl:7) Evaluate the Carnahan–Starling hard-sphere free energy.
   - EK: βf_ex = η(4 − 3η)/(1 − η)² per particle.
   - P1 · drills: el-cs-free-energy, el-cs-chemical-potential
-- ● **EL-4.2.D** (petsev-edl:7) Know what fundamental-measure theory weights.
-  - EK: n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights.
-  - P2 · drills: el-fmt-weights, el-fmt-measures
 - ● **EL-4.2.E** (petsev-edl:7) Compute the MSA screening parameter.
   - EK: Restricted primitive model: 2Γd = √(1 + 2κd) − 1; Γ → κ/2 at low density.
   - P1 · drills: el-msa-gamma, el-msa-ratio

@@ -1,0 +1,17 @@
+# The World Aquatics swimming rules (read in full, Nov 2026), as the "chapters" the swim.* skills map to. The
+# pacing and training skills are not in the rulebook: they sit on ordinary race and training arithmetic, so their
+# rows name the quantity rather than a rule.
+id: world-aquatics-swimming-rules
+title: "World Aquatics Swimming Rules"
+short: "World Aquatics rules"
+year: 2025
+field: swimming
+chapters:
+  - { n: 1, title: "Officials, their duties and disqualification authority", skills: [swim.rules] }
+  - { n: 2, title: "The strokes: legal form, turns and finishes", skills: [swim.rules] }
+  - { n: 3, title: "Relays, take-offs and exchanges", skills: [swim.rules] }
+  - { n: 4, title: "Race analysis: pace, splits and clean swimming", skills: [swim.pacing] }
+  - { n: 5, title: "Stroke rate, distance per cycle and stroke index", skills: [swim.pacing] }
+  - { n: 6, title: "Critical swim speed and training zones", skills: [swim.training] }
+  - { n: 7, title: "Sets, rest intervals and energy systems", skills: [swim.training] }
+  - { n: 8, title: "Volume, periodisation and taper", skills: [swim.training] }

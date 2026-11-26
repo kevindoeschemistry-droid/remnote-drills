@@ -179,15 +179,15 @@ units:
       - n: 1
         title: "Countermeasures"
         los:
+          - { id: C, do: "Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.", ek: ["CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments."], p: [P2], drills: [bs-mcm-facts, bs-mcm-scenario] }
           - { id: A, do: "Compute the vaccination coverage needed for herd protection given vaccine efficacy.", ek: ["V_c = (1 − 1/R₀)/E; above 100% means vaccination alone cannot stop spread."], p: [P1], drills: [bs-vaccine-coverage, bs-efficacy-needed] }
           - { id: B, do: "Compute vaccine efficacy from trial attack rates.", ek: ["VE = 1 − AR_vaccinated / AR_unvaccinated."], p: [P1], drills: [bs-ve-trial, bs-ve-expected-cases] }
-          - { id: C, do: "Describe rapid countermeasure programmes: platforms, the 100 Days Mission, financing and trials.", ek: ["CEPI's goal: vaccines within 100 days of a threat; platform technologies; advance commitments."], p: [P2], drills: [bs-mcm-facts, bs-mcm-scenario] }
           - { id: D, do: "Compute the number needed to vaccinate and the expected cases averted.", ek: ["NNV = 1/(AR_unvaccinated × VE)."], p: [P1], drills: [bs-nnv, bs-cases-averted] }
       - n: 2
         title: "Scale-up and governance"
         los:
-          - { id: A, do: "Compute manufacturing and delivery rates needed to cover a population in time.", ek: ["Doses per day = population × doses per person ÷ days."], p: [P1], drills: [bs-doses-per-day, bs-campaign-days] }
           - { id: B, do: "Name the global health governance instruments and who decides what.", ek: ["IHR (2005) and its 2024 amendments; the WHO Pandemic Agreement (2025); the Director-General declares a PHEIC on Emergency Committee advice."], p: [P2], drills: [bs-governance-facts, bs-who-decides] }
+          - { id: A, do: "Compute manufacturing and delivery rates needed to cover a population in time.", ek: ["Doses per day = population × doses per person ÷ days."], p: [P1], drills: [bs-doses-per-day, bs-campaign-days] }
   - id: contributing
     n: 6
     title: "Contributing to biosecurity"

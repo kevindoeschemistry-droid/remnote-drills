@@ -123,14 +123,14 @@ Big ideas: BALANCE, CONCENTRATION, TIME
 - ● **RE-2.3.A** (fe-chemical:12.E) Size a plug-flow reactor and compare it with a CSTR.
   - EK: V = (v₀/k) ln[1/(1 − X)]; for positive order a PFR is always smaller.
   - P1 · P2 · drills: cre-pfr-volume, cre-reactor-comparison
-- ● **RE-2.3.B** Size a PFR for a gas-phase reaction with a change in moles, first or second order.
-  - EK: C_A = C_A0(1 − X)/(1 + εX) inside the design integral.
-  - Needs: RE-2.3.A, RE-1.3.C
-  - P1 · drills: re-pfr-gas-eps, re-epsilon-volume-ratio
 - ● **RE-2.3.C** Size reactors in series (CSTR then PFR) from the Levenspiel plot.
   - EK: Rectangle for the CSTR, area under F_A0/(−r_A) for the PFR.
   - Needs: RE-2.3.A
   - P1 · P2 · drills: re-cstr-then-pfr, re-pfr-then-cstr
+- ● **RE-2.3.B** Size a PFR for a gas-phase reaction with a change in moles, first or second order.
+  - EK: C_A = C_A0(1 − X)/(1 + εX) inside the design integral.
+  - Needs: RE-2.3.A, RE-1.3.C
+  - P1 · drills: re-pfr-gas-eps, re-epsilon-volume-ratio
 
 ### 2.4 Packed beds
 

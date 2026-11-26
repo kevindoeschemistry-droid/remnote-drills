@@ -28,7 +28,7 @@ Module._load = function (request: string, ...rest: any[]) {
 };
 
 const React = require("react");
-const { DRILLED_FRAMEWORKS, DEFAULT_CARD_FRAMEWORKS } = require("../src/drills/library-path");
+const { DRILLED_FRAMEWORKS, DEFAULT_CARD_FRAMEWORKS, LIBRARY } = require("../src/drills/library-path");
 const ReactDOM = require("react-dom");
 const { act } = require("react-dom/test-utils");
 const { PathView } = require("../src/components/PathView");
@@ -75,10 +75,17 @@ async function mount(label: string, seed: Record<string, any>, expect: string[],
   const firstUndrilledMath = PATH_LOS.find((l: any) => l.fw.track === "math" && !l.drills.length) ?? PATH_LOS.find((l: any) => !l.drills.length);
   const known0: Record<string, string> = {};
   for (const l of PATH_LOS) { if (l === firstUndrilledMath) break; known0[l.code] = "known"; }
+  // the canary is a track with no drilled objective at all: it must be absent while undrilled objectives are hidden,
+  // and present once the whole map is shown. Computed, because a track gains its first drills as the Library grows.
+  const drilledPerTrack: Record<string, number> = {};
+  for (const l of PATH_LOS) drilledPerTrack[l.fw.track] = (drilledPerTrack[l.fw.track] ?? 0) + (l.drills?.length ? 1 : 0);
+  const emptyTrack = Object.keys(LIBRARY.tracks).find((t) => !drilledPerTrack[t]);
+  if (!emptyTrack) fail("no fully undrilled track left: pick another canary for the hidden/shown pair");
+  const canary = emptyTrack ? LIBRARY.tracks[emptyTrack] : "\u0000";
   local = { "path.track": firstUndrilledMath.fw.track };
-  await mount("undrilled hidden", { "library.root": "r1", "path.mastery": known0 }, ["objectives without drills", "warm"], ["No drills for this objective yet", "Athletics", "mastered"]);
+  await mount("undrilled hidden", { "library.root": "r1", "path.mastery": known0 }, ["objectives without drills", "warm"], ["No drills for this objective yet", canary, "mastered"]);
   local = { "path.showUndrilled": true, "path.track": firstUndrilledMath.fw.track };
-  await mount("whole map shown", { "library.root": "r1", "path.mastery": known0 }, ["Hide objectives without drills", "No drills for this objective yet", "Athletics"]);
+  await mount("whole map shown", { "library.root": "r1", "path.mastery": known0 }, ["Hide objectives without drills", "No drills for this objective yet", canary]);
   local = {};
 
   View = WarmMix;

@@ -1,0 +1,244 @@
+# Computational Protein Design — curriculum framework (draft 1, for Kevin's markup)
+#
+# Built for a protein-design PhD track: the structure-prediction-and-design side of the work that the
+# Molecular Simulation framework (MD) covers from the free-energy side. The two meet in unit 9, where a
+# score-function ΔΔG hands over to an alchemical calculation.
+#
+# Basis: the PyRosetta notebook workshops (table of contents read in full; taught as a JHU course for over ten
+# years) as primary, with the all-atom energy function paper, the DL4Proteins workshops, the Kuhlman & Bradley
+# review and the JHU course topic list as also. No accredited standard exists for this subject, so the
+# objectives and their order are a house list; the ramp runs geometry → representation → energy → sampling →
+# sequence → interfaces → de novo → deep learning → validation.
+#
+# Experimental methods, crystallography and wet-lab protocol live outside this framework; unit 9 covers
+# only what a designer must know to plan and read the experiments.
+id: protein-design
+title: Computational Protein Design
+code: CPD
+draft: 1
+track: science
+requires: [biochemistry, molecular-simulation]
+level: 5
+domains: [cpd]
+
+basis:
+  primary: pyrosetta-notebooks
+  also: [rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614]
+  note: "No accredited standard exists. The notebook workshops are the closest published curriculum; the energy-function paper, the deep-learning workshops and the review fix the content of the later units. Objectives are ours."
+
+big_ideas:
+  - id: INVERSE
+    title: "Design is folding run backwards"
+    text: "Prediction searches conformations for one sequence; design searches sequences for one conformation. The same energy function and the same samplers serve both."
+  - id: ENERGY
+    title: "A score is a model, not the truth"
+    text: "Every number is a weighted sum of approximate terms. A design is only as good as what the function leaves out."
+  - id: SEARCH
+    title: "The space is too big to enumerate"
+    text: "Rotamers and sequences grow combinatorially, so everything rests on sampling: Monte Carlo, annealing, pruning or a learned prior."
+  - id: TEST
+    title: "A design is a hypothesis until it is expressed"
+    text: "Computational scores rank candidates; folding, stability and function are settled in the laboratory."
+
+practices:
+  - id: P1
+    title: Compute
+    text: "Carry the calculation to a number with units, and say what it does not settle."
+  - id: P2
+    title: Decide
+    text: "Choose a representation, protocol or method for a stated problem, and name the failure it avoids."
+
+units:
+  - id: structure
+    n: 1
+    title: "Protein geometry and the rotamer picture"
+    std: ["pyrosetta-notebooks:2.5", "kuhlman-bradley:3"]
+    scope: core
+    ideas: [INVERSE]
+    topics:
+      - n: 1
+        title: "Backbone and side-chain degrees of freedom"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:2.4", "pyrosetta-notebooks:2.5", "jhu-545614:T5"], do: "Name the backbone and side-chain dihedrals and say which are free, which are nearly fixed, and which regions of the Ramachandran plot the common secondary structures occupy.", ek: ["φ (C−N−Cα−C), ψ (N−Cα−C−N) and ω (nearly planar, about 180° trans); side-chain χ1, χ2…; right-handed α-helix near φ ≈ −60°, ψ ≈ −45°, β-sheet near φ ≈ −120°, ψ ≈ +130°; glycine is permissive and proline restricted."], p: [P2], drills: [cpd-dihedrals, cpd-dihedral-which] }
+          - { id: B, std: ["pyrosetta-notebooks:2.5"], do: "Count the conformational degrees of freedom of a chain and show why enumeration is hopeless.", ek: ["Two free backbone dihedrals per residue; discretising each into a few states gives states^(2n) conformations, which is Levinthal's paradox in numbers."], p: [P1], drills: [cpd-levinthal, cpd-levinthal-time] }
+      - n: 2
+        title: "Rotamers"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:6.1", "rosetta-ref15:fa_dun"], do: "Explain what a rotamer library is and why side-chain conformations are treated as a discrete, backbone-dependent set.", ek: ["Side-chain χ angles cluster in a few favoured combinations; the Dunbrack library gives their probabilities as a function of φ/ψ, and fa_dun scores the chosen rotamer's internal energy."], p: [P2], drills: [cpd-rotamer-lib, cpd-rotamer-apply] }
+          - { id: B, std: ["pyrosetta-notebooks:6.1"], do: "Count the rotamer combinations of a set of designable positions and convert a rotamer probability into an energy.", ek: ["Combinations multiply: Π k_i over positions. A probability p maps to an energy −kT ln p, so a rotamer ten times less likely costs about 1.4 kcal/mol at 298 K."], p: [P1], drills: [cpd-rotamer-energy, cpd-rotamer-prob] }
+  - id: representation
+    n: 2
+    title: "How a structure is represented"
+    std: ["pyrosetta-notebooks:2.1", "pyrosetta-notebooks:2.2"]
+    scope: core
+    ideas: [INVERSE]
+    topics:
+      - n: 1
+        title: "The Pose and its numbering"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:2.1", "pyrosetta-notebooks:2.2", "pyrosetta-notebooks:2"], do: "Describe what a Pose holds and how residues are addressed, and distinguish pose numbering from PDB numbering.", ek: ["A Pose carries the sequence, the conformation as internal coordinates, the fold tree and the energies; pose numbering is 1…N over all residues, while PDB numbering carries chains, gaps and insertion codes."], p: [P2], drills: [cpd-pose, cpd-pose-apply] }
+          - { id: B, std: ["pyrosetta-notebooks:2.1"], do: "Convert between pose and PDB numbering across chains of known length.", ek: ["Pose index of residue j in chain c is j plus the lengths of the preceding chains, so gaps in PDB numbering do not shift pose indices."], p: [P1], drills: [cpd-pose-index, cpd-pose-reverse] }
+      - n: 2
+        title: "Centroid and full atom"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:4.2", "pyrosetta-notebooks:5.1", "kuhlman-bradley:3", "pyrosetta-notebooks:2"], do: "Contrast the centroid and full-atom representations and say which stage of a protocol uses each.", ek: ["Centroid replaces each side chain with one pseudo-atom and a simple score for fast global search; full atom restores every atom for local refinement and final ranking. Multi-resolution modelling is the standard pattern."], p: [P2], drills: [cpd-centroid, cpd-resolution-pick] }
+          - { id: B, std: ["pyrosetta-notebooks:4.2"], do: "Compute how many atoms a representation tracks and the speed-up a coarse-grained model buys.", ek: ["Pairwise interaction work scales with the square of the number of interacting centres, so a fourfold cut in centres is about a sixteenfold cut in pair work."], p: [P1], drills: [cpd-centroid-speedup, cpd-atom-count] }
+  - id: energy
+    n: 3
+    title: "The all-atom energy function"
+    std: ["rosetta-ref15:form", "rosetta-ref15:table", "rosetta-ref15:ref", "rosetta-ref15:units"]
+    scope: core
+    ideas: [ENERGY]
+    topics:
+      - n: 1
+        title: "Terms and weights"
+        los:
+          - { id: A, std: ["rosetta-ref15:form", "rosetta-ref15:table", "jhu-545614:T5", "pyrosetta-notebooks:3"], do: "Name the main energy terms and classify each as physics-based or knowledge-based.", ek: ["Physics-based: fa_atr and fa_rep (Lennard-Jones split at its minimum), fa_sol (Lazaridis–Karplus desolvation), lk_ball_wtd (anisotropic polar solvation), fa_elec (distance-dependent dielectric). Knowledge-based: fa_dun (rotamer), rama_prepro (backbone φ/ψ), p_aa_pp (residue given φ/ψ), the hydrogen-bond and disulfide terms fit to structures."], p: [P2], drills: [cpd-terms, cpd-term-diagnose] }
+          - { id: B, std: ["rosetta-ref15:form", "rosetta-ref15:table"], do: "Compute a total score as the weighted sum of its terms.", ek: ["Total = Σ w_i E_i. Physics-based terms carry weight 1.0; fa_rep is 0.55, fa_dun 0.7, rama_prepro 0.45, p_aa_pp 0.4, omega 0.6, dslf_fa13 1.25, fa_intra_rep 0.005."], p: [P1], drills: [cpd-weighted-score, cpd-weight-change] }
+      - n: 2
+        title: "Reference energies and design"
+        los:
+          - { id: A, std: ["rosetta-ref15:ref"], do: "Explain what the reference energy does and why design, not scoring, needs it.", ek: ["ref adds a constant per amino-acid type standing for the unfolded state, fitted to maximise native sequence recovery. For a fixed sequence it is a constant offset; when sequences are compared it removes the composition bias the other terms would impose."], p: [P2], drills: [cpd-ref, cpd-ref-apply] }
+          - { id: B, std: ["rosetta-ref15:ref", "rosetta-ref15:units"], do: "Compute a stability difference between two candidate sequences including their reference energies.", ek: ["ΔΔG ≈ (E_folded − Σ ref) for one sequence minus the same for the other; a design that scores better only because of composition bias loses that advantage once ref is included."], p: [P1], drills: [cpd-ref-compare, cpd-ddg-mutation] }
+      - n: 3
+        title: "Reading an energy"
+        los:
+          - { id: A, std: ["rosetta-ref15:units", "rosetta-ref15:guidance"], do: "State what the energy's units mean and how far to trust a computed ΔΔG.", ek: ["The current function is parameterised in kcal/mol rather than arbitrary Rosetta Energy Units, but the paper's own worked mutation gave −4.95 kcal/mol against −1.11 kcal/mol measured: the sign and the ranking are more reliable than the magnitude."], p: [P2], drills: [cpd-units, cpd-trust-score] }
+          - { id: B, std: ["rosetta-ref15:guidance"], do: "Decompose a score change into terms and name the interaction responsible.", ek: ["Subtract term by term between two states; per-residue and atom-pair tables locate the contact that changed. A buried polar group shows up in solvation, a clash in fa_rep."], p: [P1], drills: [cpd-term-decompose, cpd-per-residue] }
+  - id: sampling
+    n: 4
+    title: "Searching conformations"
+    std: ["pyrosetta-notebooks:4.1", "pyrosetta-notebooks:5.1", "pyrosetta-notebooks:6.2", "kuhlman-bradley:2"]
+    scope: core
+    ideas: [SEARCH]
+    topics:
+      - n: 1
+        title: "Monte Carlo and annealing"
+        los:
+          - { id: A, std: ["kuhlman-bradley:2", "pyrosetta-notebooks:4.1", "jhu-545614:T5"], do: "State the Metropolis rule and explain why uphill moves are accepted at all.", ek: ["A move raising the score by ΔE is accepted with probability exp(−ΔE/kT); uphill steps let the search leave local minima, which gradient descent cannot do."], p: [P2], drills: [cpd-metropolis, cpd-mc-apply] }
+          - { id: B, std: ["pyrosetta-notebooks:4.1"], do: "Compute a Metropolis acceptance probability and show how annealing changes it.", ek: ["P = exp(−ΔE/kT) for ΔE > 0, P = 1 otherwise; lowering the temperature during a run makes the same uphill move far less likely, which is simulated annealing."], p: [P1], drills: [cpd-accept-ratio, cpd-metropolis-de] }
+      - n: 2
+        title: "Packing and minimisation"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:6.2", "jhu-545614:T1"], do: "Describe what the packer does, and how packing, minimisation and relax differ.", ek: ["The packer runs simulated annealing over discrete rotamers at the positions a task allows; minimisation moves continuous degrees of freedom downhill; relax alternates the two so a structure settles without drifting far."], p: [P2], drills: [cpd-packer, cpd-protocol-order] }
+          - { id: B, std: ["pyrosetta-notebooks:6.2", "kuhlman-bradley:5"], do: "Count the entries of a rotamer pair-energy table and explain the cost of precomputing it.", ek: ["With n positions and k rotamers each, there are n·k one-body terms and k² entries for each of the n(n−1)/2 position pairs, so the table grows as the square of both."], p: [P1], drills: [cpd-pair-table, cpd-pair-table-growth] }
+  - id: sequence
+    n: 5
+    title: "Designing sequence"
+    std: ["pyrosetta-notebooks:6.3", "pyrosetta-notebooks:6.4", "pyrosetta-notebooks:6.8", "kuhlman-bradley:5"]
+    scope: core
+    ideas: [INVERSE, SEARCH]
+    topics:
+      - n: 1
+        title: "Specifying what may change"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:6.3", "pyrosetta-notebooks:6.4"], do: "Read and write a design specification: which positions repack, which design, and to what alphabet.", ek: ["A resfile or task operation sets per-position behaviour — repack only, design to all residues, or design to a restricted set; everything else stays fixed. Getting this wrong is the usual cause of a nonsense design."], p: [P2], drills: [cpd-resfile, cpd-task-scenario] }
+          - { id: B, std: ["pyrosetta-notebooks:6.3"], do: "Count the sequence space a design specification opens.", ek: ["Π a_i over designable positions, where a_i is the alphabet allowed at position i; 20^n for unrestricted design, which is why the space is sampled and never enumerated."], p: [P1], drills: [cpd-seq-space, cpd-alphabet-cut] }
+      - n: 2
+        title: "Mutational scans"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:6.8", "rosetta-ref15:guidance"], do: "Plan a point-mutation scan and read its output.", ek: ["A saturation scan tries 19 substitutions at each chosen position, scoring each after local repacking; the result is a ranked ΔΔG list, not a verdict."], p: [P2], drills: [cpd-scan, cpd-scan-read] }
+          - { id: B, std: ["pyrosetta-notebooks:6.8"], do: "Count the jobs and compute the ΔΔG values a scan produces.", ek: ["19 substitutions per position times the positions, times the independent trials each is run with; ΔΔG = E_mutant − E_wild-type, with a positive value destabilising."], p: [P1], drills: [cpd-scan-jobs, cpd-scan-positions] }
+      - n: 3
+        title: "Judging a design protocol"
+        los:
+          - { id: B, std: ["kuhlman-bradley:5"], do: "Match a sequence-optimisation method to its guarantee: dead-end elimination, mean field, annealing, genetic algorithms.", ek: ["Dead-end elimination prunes provably non-optimal rotamers and can return the true optimum; annealing and genetic algorithms are stochastic and return good solutions without a proof."], p: [P2], drills: [cpd-search-methods, cpd-method-pick] }
+          - { id: A, std: ["rosetta-ref15:ref", "kuhlman-bradley:5"], do: "Use native sequence recovery to judge an energy function or protocol.", ek: ["Redesign a natural protein's positions and count how often the native residue comes back; random choice recovers about 5%, buried positions recover best, and surface positions worst."], p: [P1], drills: [cpd-recovery, cpd-recovery-compare] }
+  - id: interfaces
+    n: 6
+    title: "Interfaces, docking and ligands"
+    std: ["pyrosetta-notebooks:7.1", "pyrosetta-notebooks:7.2", "pyrosetta-notebooks:8.1", "kuhlman-bradley:5"]
+    scope: core
+    ideas: [ENERGY]
+    topics:
+      - n: 1
+        title: "Docking and interface scoring"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:7.1", "pyrosetta-notebooks:7.2", "jhu-545614:T1"], do: "Describe the two stages of docking and what a funnel plot shows.", ek: ["A global rigid-body search (often Fourier-based) is followed by local high-resolution refinement; plotting score against RMSD to a reference should funnel toward low RMSD if the function discriminates."], p: [P2], drills: [cpd-docking, cpd-docking-read] }
+          - { id: B, std: ["pyrosetta-notebooks:7.2", "rosetta-ref15:guidance", "pyrosetta-notebooks:8.2"], do: "Compute a binding or interface energy from component scores.", ek: ["ΔE_interface = E_complex − E_partner A alone − E_partner B alone, each scored in the same function; near-native models gain in van der Waals, electrostatics and side-chain hydrogen bonds."], p: [P1], drills: [cpd-interface-energy, cpd-interface-reverse] }
+      - n: 2
+        title: "Designing a binding site"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:8.1", "kuhlman-bradley:5", "jhu-545614:T2"], do: "Lay out how a ligand-binding pocket is designed and why designed enzymes fall short of natural ones.", ek: ["Place the ligand, design the shell around it, then repack and minimise. Pocket shape and binding are achievable; transition-state stabilisation, and so catalytic efficiency, is not yet."], p: [P2], drills: [cpd-ligand, cpd-pocket-scenario] }
+          - { id: B, std: ["kuhlman-bradley:5", "jhu-545614:T4"], do: "Choose one-sided or two-sided interface design for a stated problem and say what makes it hard.", ek: ["Two-sided design redesigns both partners and is easier; a binder against a fixed natural surface is one-sided and much harder, which is also why antibody design remains difficult."], p: [P2], drills: [cpd-interface-design, cpd-interface-scenario] }
+  - id: denovo
+    n: 7
+    title: "De novo design"
+    std: ["pyrosetta-notebooks:6.5", "pyrosetta-notebooks:6.6", "pyrosetta-notebooks:6.7", "kuhlman-bradley:5"]
+    scope: core
+    ideas: [INVERSE, SEARCH]
+    topics:
+      - n: 1
+        title: "Building a backbone from nothing"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:6.6", "pyrosetta-notebooks:6.7", "kuhlman-bradley:5", "jhu-545614:T3"], do: "Contrast the routes to a de novo backbone: fragment assembly, distance constraints and parametric equations.", ek: ["Fragments splice pieces of known structures; constraints specify the contacts wanted; parametric equations generate ideal folds such as coiled coils and β-barrels from a handful of numbers."], p: [P2], drills: [cpd-denovo-backbone, cpd-backbone-pick] }
+          - { id: B, std: ["pyrosetta-notebooks:6.6"], do: "Compute the geometry of a parametric helical bundle from its parameters.", ek: ["A coiled-coil's superhelical radius, pitch and the number of residues per repeat fix the backbone; the rise along the axis per residue follows from the pitch and the residues per turn."], p: [P1], drills: [cpd-coiled-coil, cpd-coiled-coil-length] }
+      - n: 2
+        title: "Hard cases"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:6.5", "kuhlman-bradley:5", "jhu-545614:T3"], do: "Say why buried hydrogen-bond networks are designed before the rest of the sequence.", ek: ["A network of buried polar residues is rare and easily broken by later repacking, so it is found first and then held fixed while the surrounding core is designed."], p: [P2], drills: [cpd-hbnet, cpd-hbnet-scenario] }
+          - { id: B, std: ["kuhlman-bradley:5"], do: "Explain negative and multi-state design and compute the energy gap that must be opened.", ek: ["Favour the target state by scoring it against competing states and maximising the gap; a conformational switch is a multi-state design where each state's gap is tuned, and a gap of a few kT sets the population ratio."], p: [P1], drills: [cpd-gap-population, cpd-gap-needed] }
+  - id: ml
+    n: 8
+    title: "Deep learning for structure and design"
+    std: ["dl4proteins:WS04", "dl4proteins:WS06", "dl4proteins:WS07", "dl4proteins:WS08", "dl4proteins:WS09", "dl4proteins:WS10", "kuhlman-bradley:4"]
+    scope: core
+    ideas: [SEARCH]
+    topics:
+      - n: 1
+        title: "Structure prediction and its confidence"
+        los:
+          - { id: A, std: ["dl4proteins:WS06"], do: "Name the inputs a modern structure predictor takes and read its confidence metrics.", ek: ["Sequence, a multiple-sequence alignment and optional templates go in; pLDDT scores per-residue local confidence (higher is better, with roughly 70 and 90 as useful marks) and PAE scores the expected error between residue pairs, which is what judges domain placement."], p: [P2], drills: [cpd-predictor-inputs, cpd-confidence-scenario] }
+          - { id: B, std: ["kuhlman-bradley:4", "dl4proteins:WS06"], do: "Explain why alignment depth limits prediction and coevolution-based contacts.", ek: ["Coevolution separates direct couplings from indirect ones only when the alignment is deep; shallow families, including many eukaryote-specific ones, lose that signal, and MSA coverage plots are read for exactly this."], p: [P2], drills: [cpd-coevolution, cpd-msa-scenario] }
+      - n: 2
+        title: "Learned representations and generators"
+        los:
+          - { id: A, std: ["dl4proteins:WS04", "dl4proteins:WS05", "dl4proteins:WS07"], do: "Match a representation to its architecture: sequence tokens for language models, residue or atom graphs for message passing.", ek: ["A protein language model is trained on sequences alone and its embeddings transfer to downstream tasks; a graph network passes messages between residues or atoms, where invariance and equivariance to rotation matter."], p: [P2], drills: [cpd-representations, cpd-representation-pick] }
+          - { id: B, std: ["dl4proteins:WS08", "dl4proteins:WS09", "dl4proteins:WS10"], do: "Describe the diffusion design pipeline and what each stage contributes.", ek: ["A diffusion model denoises a backbone (unconditionally, scaffolding a motif, or against a target), an inverse-folding model assigns a sequence to that backbone, and a structure predictor checks that the sequence folds back to it."], p: [P2], drills: [cpd-diffusion-pipeline, cpd-pipeline-order] }
+      - n: 3
+        title: "Using a pipeline honestly"
+        los:
+          - { id: B, std: ["dl4proteins:WS09", "kuhlman-bradley:6"], do: "Say what a self-consistency check does and does not establish.", ek: ["Designing a sequence for a backbone and recovering that backbone from the sequence shows the two models agree; it is not experimental evidence, since both may share the same blind spots."], p: [P2], drills: [cpd-self-consistency, cpd-evidence-level] }
+          - { id: A, std: ["dl4proteins:WS09"], do: "Compute the yield of a filtered design funnel.", ek: ["Multiply the pass fractions of the stages: backbones generated, sequences per backbone, and the fraction whose predicted structure falls within the RMSD and confidence cut-offs."], p: [P1], drills: [cpd-funnel-yield, cpd-funnel-reverse] }
+  - id: validation
+    n: 9
+    title: "Validation and the bridge to simulation"
+    std: ["kuhlman-bradley:6", "kuhlman-bradley:7", "pyrosetta-notebooks:15.2"]
+    scope: core
+    ideas: [TEST, ENERGY]
+    topics:
+      - n: 1
+        title: "Testing designs"
+        los:
+          - { id: A, std: ["kuhlman-bradley:6"], do: "Plan the experiments that test a design and say how many candidates to make.", ek: ["Expression and solubility, then thermal or chemical denaturation for stability, oligomeric state, a high-resolution structure, and a function assay. A stabilisation project may test a handful; a new binder may need thousands, screened by display and sequencing."], p: [P2], drills: [cpd-experiments, cpd-experiment-order] }
+          - { id: B, std: ["kuhlman-bradley:6"], do: "Compute the number of designs to order for a target number of successes at an expected hit rate.", ek: ["Expected successes = N × hit rate, so N = target/hit rate; low rates are why display libraries, not individual clones, are used for binders."], p: [P1], drills: [cpd-designs-needed, cpd-hit-rate] }
+      - n: 2
+        title: "Where a score is not enough"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:15.2", "rosetta-ref15:guidance"], do: "Decide when a score-function ΔΔG is enough and when an alchemical free-energy calculation is warranted.", ek: ["A score-function scan ranks many mutations cheaply and is right about signs more often than magnitudes; when a few candidates must be quantitative, or when a result must survive review, λ dynamics or another alchemical method gives a statistical-mechanics estimate with an error bar."], p: [P2], drills: [cpd-score-vs-alchemical, cpd-method-choice-scenario] }
+          - { id: B, std: ["kuhlman-bradley:7"], do: "Name what current energy functions handle worst and relate it to a failed design.", ek: ["Balancing polar against nonpolar energetics, solvation, flexible loops and backbone flexibility are the open problems; a design that expresses but is unstructured usually points at one of them."], p: [P2], drills: [cpd-open-problems, cpd-failure-diagnose] }
+  - id: specialised
+    n: 10
+    title: "Specialised modelling and scale"
+    std: ["pyrosetta-notebooks:9.1", "pyrosetta-notebooks:10", "pyrosetta-notebooks:11", "pyrosetta-notebooks:12.1", "pyrosetta-notebooks:12.2", "pyrosetta-notebooks:15.1", "pyrosetta-notebooks:16"]
+    scope: extension
+    ideas: [SEARCH, TEST]
+    topics:
+      - n: 1
+        title: "Loops, symmetry and density"
+        los:
+          - { id: C, std: ["pyrosetta-notebooks:11"], do: "Say what fitting a model into electron density adds to a purely computational score, and what it cannot fix.", ek: ["Density is experimental evidence that restrains the model, scored alongside the energy function; it cannot rescue a region the map does not resolve, where confidence stays low whatever the score says."], p: [P2], drills: [cpd-density, cpd-density-2] }
+          - { id: D, std: ["pyrosetta-notebooks:5.2"], do: "Order the stages of a refinement protocol and say what each stage is allowed to move.", ek: ["Refinement alternates small backbone perturbations, side-chain repacking and minimisation under the all-atom function, usually with the repulsive weight ramped, so the structure settles without escaping the starting fold."], p: [P2], drills: [cpd-refine-stages, cpd-refine-diagnose] }
+          - { id: A, std: ["pyrosetta-notebooks:9.1", "kuhlman-bradley:5"], do: "Say what a loop-closure method must guarantee and why loops are modelled separately from the rest of a structure.", ek: ["A rebuilt loop must still join the fixed flanking residues, so closure is a constraint, not a preference; kinematic closure solves for the dihedrals that close the gap, and loops are irregular and flexible, which is why they are rebuilt rather than threaded."], p: [P2], drills: [cpd-loop-closure, cpd-loop-dof] }
+          - { id: B, std: ["pyrosetta-notebooks:10"], do: "Describe what a symmetric model fixes and count the independent degrees of freedom symmetry removes.", ek: ["One asymmetric unit plus a symmetry definition generates the rest, so the energy and the moves apply to the unit and are replicated; n copies of an m-residue chain under exact symmetry leave one chain's degrees of freedom instead of n."], p: [P2], drills: [cpd-symmetry, cpd-symmetry-dof] }
+      - n: 2
+        title: "Antibodies and membrane proteins"
+        los:
+          - { id: B, std: ["pyrosetta-notebooks:12.2", "kuhlman-bradley:5"], do: "Say what antibody design optimises and why it is a one-sided problem.", ek: ["Design chooses CDR sequence and length against a chosen epitope on a target that cannot be changed, so it combines one-sided interface design with flexible-loop modelling: the two hardest cases in the field at once."], p: [P2], drills: [cpd-antibody-design, cpd-antibody-design-2] }
+          - { id: A, std: ["pyrosetta-notebooks:12.1", "kuhlman-bradley:5"], do: "Describe how an antibody structure is modelled from its framework and loops, and which loop is the hard one.", ek: ["The variable domains' frameworks are conserved enough to graft from templates by canonical class; the six complementarity-determining loops are modelled on top, and CDR H3 is the longest, most variable and least predictable."], p: [P2], drills: [cpd-antibody-model, cpd-cdr-count] }
+          - { id: C, std: ["pyrosetta-notebooks:15.1"], do: "Set up a membrane protein in a bilayer and say what the energy function must change.", ek: ["The protein is embedded with its hydrophobic span across the membrane and its orientation and depth fixed relative to the bilayer; the solvation term must treat the membrane interior as nonpolar, so a water-based function would misscore buried polar residues."], p: [P2], drills: [cpd-membrane, cpd-tm-span] }
+      - n: 3
+        title: "Running at scale, reproducibly"
+        los:
+          - { id: A, std: ["pyrosetta-notebooks:16"], do: "Distinguish the three ways a design campaign is parallelised and match each to its job.", ek: ["Independent decoys of one protocol (embarrassingly parallel), one protocol distributed across workers, and many protocols over many inputs; a scan is the first, a large generative pipeline the third."], p: [P2], drills: [cpd-parallel-kind, cpd-parallel-time] }
+          - { id: B, std: ["pyrosetta-notebooks:16"], do: "State what a run must record for a design to be reproducible, and compute the decoy count a campaign needs.", ek: ["The random seed, the protocol version, the input structure and every option, kept with the output; decoys scale as inputs × protocols × decoys per input, and the lowest-scoring decoy of too small a set is just noise."], p: [P2], drills: [cpd-decoys, cpd-reproducible] }

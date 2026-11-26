@@ -54,7 +54,7 @@ code: SW
 draft: 1
 track: athletics
 requires: []
-domains: []
+domains: [swim]
 
 basis:
   primary: world-aquatics-rules
@@ -267,14 +267,14 @@ units:
         title: Race rules and relays
         book: { world-aquatics-rules: ["SW 10.2", "SW 10.4", "SW 10.7", "SW 10.9", "SW 10.11", "SW 10.12", "SW 10.13", "SW 10.18"], usa-swimming: ["101.7"], usms: ["101.7"] }
         los:
-          - { id: A, do: "Call legal or illegal: a described race incident (pulling on the lane rope, changing lanes, standing on the bottom in free, pace device).", ek: ["SW 10.4 same lane; SW 10.7 no pulling on the lane rope; SW 10.9 no aids or tape; SW 10.18 no pace-making device."], p: [P3], drills: [] }
-          - { id: B, do: "Call legal or illegal: a described relay exchange from touch time and the next swimmer's feet-off time.", ek: ["SW 10.11 / USA 101.7.3F: feet must stay on the platform until the incoming swimmer touches; exchange = feet-off − touch, negative = early. Electronic platforms are confirmed by human judges."], p: [P3, P4], drills: [] }
-          - { id: C, do: "Compute a relay leg's split and its reaction-time gain over a flat start from a result sheet.", ek: ["Leg split = cumulative time at its touch − previous touch; relay legs run fast because the exchange (~0.2–0.3 s) replaces a reaction to the gun."], p: [P4], drills: [] }
+          - { id: A, do: "Call legal or illegal: a described race incident (pulling on the lane rope, changing lanes, standing on the bottom in free, pace device).", ek: ["SW 10.4 same lane; SW 10.7 no pulling on the lane rope; SW 10.9 no aids or tape; SW 10.18 no pace-making device."], p: [P3], drills: [sw-legal-call, sw-legal-call-2] }
+          - { id: B, do: "Call legal or illegal: a described relay exchange from touch time and the next swimmer's feet-off time.", ek: ["SW 10.11 / USA 101.7.3F: feet must stay on the platform until the incoming swimmer touches; exchange = feet-off − touch, negative = early. Electronic platforms are confirmed by human judges."], p: [P3, P4], drills: [sw-relay-exchange, sw-exchange-diff] }
+          - { id: C, do: "Compute a relay leg's split and its reaction-time gain over a flat start from a result sheet.", ek: ["Leg split = cumulative time at its touch − previous touch; relay legs run fast because the exchange (~0.2–0.3 s) replaces a reaction to the gun."], p: [P4], drills: [sw-relay-gain, sw-relay-total] }
       - n: 2
         title: How officiating works
         book: { world-aquatics-rules: ["SW 2"], usms: ["101"] }
         los:
-          - { id: A, do: "Explain who can disqualify, what they must see, and why the benefit of the doubt goes to the swimmer.", ek: ["Stroke and turn judges report what they observe in their jurisdiction; the referee decides; an infraction must be seen, not inferred."], p: [P3], drills: [] }
+          - { id: A, do: "Explain who can disqualify, what they must see, and why the benefit of the doubt goes to the swimmer.", ek: ["Stroke and turn judges report what they observe in their jurisdiction; the referee decides; an infraction must be seen, not inferred."], p: [P3], drills: [sw-dq-authority, sw-dq-process] }
 
   # ── 7 ────────────────────────────────────────────────────────────────────
   - id: race
@@ -288,24 +288,24 @@ units:
         title: Velocity, pace and course conversion
         book: { toussaint-2006: ["velocity per lap"] }
         los:
-          - { id: A, do: "Compute average velocity (m/s) and pace per 100 from a distance and time.", ek: ["v = d/t; pace/100 = 100·t/d; 1 yd = 0.9144 m."], p: [P4], drills: [] }
-          - { id: B, do: "Compute splits and split differentials from cumulative times and classify a swim as even, positive or negative split.", ek: ["Split = cumulative_i − cumulative_(i−1); negative split ⇒ second half faster than the first."], p: [P4], drills: [] }
-          - { id: C, do: "Compute clean-swimming velocity for a 25 or 50 by removing the 15 m off the wall and the 5 m in.", ek: ["Clean velocity = mid-pool distance / mid-pool time; it isolates swimming from walls."], p: [P4], needs: [SW-7.1.A], drills: [] }
+          - { id: A, do: "Compute average velocity (m/s) and pace per 100 from a distance and time.", ek: ["v = d/t; pace/100 = 100·t/d; 1 yd = 0.9144 m."], p: [P4], drills: [sw-pace-100, sw-velocity] }
+          - { id: B, do: "Compute splits and split differentials from cumulative times and classify a swim as even, positive or negative split.", ek: ["Split = cumulative_i − cumulative_(i−1); negative split ⇒ second half faster than the first."], p: [P4], drills: [sw-split-diff, sw-split-classify] }
+          - { id: C, do: "Compute clean-swimming velocity for a 25 or 50 by removing the 15 m off the wall and the 5 m in.", ek: ["Clean velocity = mid-pool distance / mid-pool time; it isolates swimming from walls."], p: [P4], needs: [SW-7.1.A], drills: [sw-clean-velocity, sw-start-segment] }
       - n: 2
         title: Stroke rate, distance per stroke and stroke index
         book: { toussaint-2006: ["SR vs SL in fatigue"] }
         los:
-          - { id: A, do: "Compute stroke rate (cycles/min), distance per cycle and velocity from any two of them, or from a cycle count and lap time.", ek: ["v = SR·DPS with SR in cycles/s; SR (cyc/min) = 60 / cycle time; DPS = distance swum / cycles."], p: [P4], drills: [] }
+          - { id: A, do: "Compute stroke rate (cycles/min), distance per cycle and velocity from any two of them, or from a cycle count and lap time.", ek: ["v = SR·DPS with SR in cycles/s; SR (cyc/min) = 60 / cycle time; DPS = distance swum / cycles."], p: [P4], drills: [sw-dps, sw-stroke-rate] }
+          - { id: C, do: "Compute stroke index (v × DPS) and compare the efficiency of two swims at different speeds.", ek: ["SI = v·DPS (m²/s); higher SI at the same speed means more distance per cycle."], p: [P4], drills: [sw-stroke-index, sw-si-compare] }
+          - { id: D, do: "Predict the new velocity when SR or DPS changes by a given percentage, and the trade-off needed to hold pace.", ek: ["(1 + Δv) = (1 + ΔSR)(1 + ΔDPS); +5% SR with −5% DPS ≈ −0.25% speed."], p: [P4, P6], drills: [sw-sr-dps-tradeoff, sw-dps-needed] }
           - { id: B, do: "Explain from data whether a swimmer slowed in a race by losing stroke rate or distance per stroke.", ek: ["Toussaint 2006: in a 100 m sprint, velocity fell 12% while SR fell 11% — slowing tracked SR, not SL."], p: [P1, P2], needs: [SW-7.2.A], drills: [] }
-          - { id: C, do: "Compute stroke index (v × DPS) and compare the efficiency of two swims at different speeds.", ek: ["SI = v·DPS (m²/s); higher SI at the same speed means more distance per cycle."], p: [P4], drills: [] }
-          - { id: D, do: "Predict the new velocity when SR or DPS changes by a given percentage, and the trade-off needed to hold pace.", ek: ["(1 + Δv) = (1 + ΔSR)(1 + ΔDPS); +5% SR with −5% DPS ≈ −0.25% speed."], p: [P4, P6], drills: [] }
       - n: 3
         title: Pacing strategy
         book: { maglischo-1997: ["energy metabolism"] }
         los:
+          - { id: C, do: "Diagnose a pacing error from a split sheet (dying third 50, flat middle, too-easy start) and prescribe the change.", ek: ["Compare each split to the plan; the largest drop-off shows where effort or technique broke."], p: [P5], drills: [sw-pacing-diagnose, sw-pacing-fix] }
+          - { id: B, do: "Build target splits for a goal time with a chosen front-half/back-half differential.", ek: ["Split targets sum to the goal; first 50 includes the dive (~1.5–2.5 s faster than later 50s)."], p: [P4, P6], needs: [SW-7.1.B], drills: [sw-target-splits, sw-back-half] }
           - { id: A, do: "Choose a pacing profile for a 100 and 200 fly and justify it from energy supply and drag.", ek: ["Going out too fast spends glycolytic capacity early and drives acidosis; since power ∝ v³, uneven pace costs more energy than even pace for the same average speed."], p: [P2, P6], drills: [] }
-          - { id: B, do: "Build target splits for a goal time with a chosen front-half/back-half differential.", ek: ["Split targets sum to the goal; first 50 includes the dive (~1.5–2.5 s faster than later 50s)."], p: [P4, P6], needs: [SW-7.1.B], drills: [] }
-          - { id: C, do: "Diagnose a pacing error from a split sheet (dying third 50, flat middle, too-easy start) and prescribe the change.", ek: ["Compare each split to the plan; the largest drop-off shows where effort or technique broke."], p: [P5], drills: [] }
 
   # ── 8 ────────────────────────────────────────────────────────────────────
   - id: energy
@@ -340,28 +340,28 @@ units:
         title: Critical swim speed
         book: { css: ["Wakayoshi 1992", "Ginn 1993", "% CSS zones"] }
         los:
-          - { id: A, do: "Compute CSS (m/s and pace per 100) from 400 and 200 time-trial times.", ek: ["CSS = (400 − 200)/(T₄₀₀ − T₂₀₀) m/s; pace/100 = (T₄₀₀ − T₂₀₀)/2 s. Variant: 350/(T₄₀₀ − T₅₀)."], p: [P4], drills: [] }
-          - { id: B, do: "Compute target paces per 100 for a training zone given CSS and a %CSS.", ek: ["Pace/100 = 100 / (f·CSS); zones roughly 70% recovery, 80–87% endurance, ~95% threshold, 100–110% VO₂max."], p: [P4], needs: [SW-9.1.A], drills: [] }
-          - { id: C, do: "Explain what CSS approximates and its limits, including for butterfly.", ek: ["CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately."], p: [P2], drills: [] }
+          - { id: C, do: "Explain what CSS approximates and its limits, including for butterfly.", ek: ["CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately."], p: [P2], drills: [sw-css-limits, sw-css-use] }
+          - { id: A, do: "Compute CSS (m/s and pace per 100) from 400 and 200 time-trial times.", ek: ["CSS = (400 − 200)/(T₄₀₀ − T₂₀₀) m/s; pace/100 = (T₄₀₀ − T₂₀₀)/2 s. Variant: 350/(T₄₀₀ − T₅₀)."], p: [P4], drills: [sw-css, sw-css-pace] }
+          - { id: B, do: "Compute target paces per 100 for a training zone given CSS and a %CSS.", ek: ["Pace/100 = 100 / (f·CSS); zones roughly 70% recovery, 80–87% endurance, ~95% threshold, 100–110% VO₂max."], p: [P4], needs: [SW-9.1.A], drills: [sw-css-zone, sw-zone-time] }
       - n: 2
         title: Interval training
         book: { maglischo-1997: ["basic", "threshold", "overload", "lactate tolerance", "lactate production", "power"] }
         los:
-          - { id: A, do: "Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.", ek: ["Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest."], p: [P4], drills: [] }
-          - { id: B, do: "Classify a described set (e.g. 10×100 @ threshold on :15 rest; 6×50 max on 3:00) into its training category.", ek: ["Maglischo: basic (≥1000, 4–5 s/100 slower than threshold, :05–:30 rest); threshold (2000–3000, :10–:30); lactate tolerance (75–200 repeats, 3–7 min rest, 600–1000 total); lactate production (25–50, 1–3 min); power (5–25, 100–300 total)."], p: [P3, P6], drills: [] }
-          - { id: C, do: "Explain why rest interval, not distance, mostly sets which system a repeat trains.", ek: ["Short rest keeps the aerobic system loaded; long rest restores phosphagens and lets each repeat go glycolytic or maximal."], p: [P2], drills: [] }
+          - { id: B, do: "Classify a described set (e.g. 10×100 @ threshold on :15 rest; 6×50 max on 3:00) into its training category.", ek: ["Maglischo: basic (≥1000, 4–5 s/100 slower than threshold, :05–:30 rest); threshold (2000–3000, :10–:30); lactate tolerance (75–200 repeats, 3–7 min rest, 600–1000 total); lactate production (25–50, 1–3 min); power (5–25, 100–300 total)."], p: [P3, P6], drills: [sw-set-type, sw-set-volume] }
+          - { id: C, do: "Explain why rest interval, not distance, mostly sets which system a repeat trains.", ek: ["Short rest keeps the aerobic system loaded; long rest restores phosphagens and lets each repeat go glycolytic or maximal."], p: [P2], drills: [sw-rest-decides, sw-set-time] }
+          - { id: A, do: "Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.", ek: ["Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest."], p: [P4], drills: [sw-rest-interval, sw-work-rest] }
       - n: 3
         title: Periodization and load
         book: { asca: ["L3 Season Planning Framework"], maglischo-1997: ["balancing training"] }
         los:
+          - { id: B, do: "Compute a week's volume by training category and compare it with a recommended balance.", ek: ["Maglischo: warm-up/swim-down 15–20%, threshold + overload 20–25%, basic 40–50%, sprint 5–10%."], p: [P4, P6], drills: [sw-week-volume, sw-volume-share] }
           - { id: A, do: "Lay out a season into macro-, meso- and microcycles around a target meet.", ek: ["General prep → specific prep → competition → taper; volume peaks before intensity peaks."], p: [P6], drills: [] }
-          - { id: B, do: "Compute a week's volume by training category and compare it with a recommended balance.", ek: ["Maglischo: warm-up/swim-down 15–20%, threshold + overload 20–25%, basic 40–50%, sprint 5–10%."], p: [P4, P6], drills: [] }
       - n: 4
         title: Taper
         book: { bosquet-2007: ["meta-analysis of 27 studies"] }
         los:
-          - { id: A, do: "Design a taper by the evidence: duration, volume cut, intensity and frequency.", ek: ["Bosquet 2007: ~2 weeks, cut volume 41–60% exponentially, keep intensity and session frequency."], p: [P6], drills: [] }
-          - { id: B, do: "Compute daily yardage for an exponential taper from starting volume and target reduction.", ek: ["V(t) = V₀·e^(−t/τ); choose τ so V(end) = (1 − cut)·V₀."], p: [P4], needs: [SW-9.4.A], drills: [] }
+          - { id: A, do: "Design a taper by the evidence: duration, volume cut, intensity and frequency.", ek: ["Bosquet 2007: ~2 weeks, cut volume 41–60% exponentially, keep intensity and session frequency."], p: [P6], drills: [sw-taper-rules, sw-taper-weeks] }
+          - { id: B, do: "Compute daily yardage for an exponential taper from starting volume and target reduction.", ek: ["V(t) = V₀·e^(−t/τ); choose τ so V(end) = (1 − cut)·V₀."], p: [P4], needs: [SW-9.4.A], drills: [sw-taper-volume, sw-taper-daily] }
 
   # ── 10 ───────────────────────────────────────────────────────────────────
   - id: self-analysis

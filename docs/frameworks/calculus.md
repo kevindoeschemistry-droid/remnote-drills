@@ -1521,12 +1521,12 @@ Big ideas: CHA
 - ● **CA-15.2.A** (ST-3.11, webwork-opl:CA2.14, webwork-opl:CA5.6) Differentiate and integrate hyperbolic functions.
   - EK: sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes.
   - P1 · drills: hy-derivative-which, hy-derivative-value, hy-integral
-- ● **CA-15.2.B** (ST-3.11) Write an inverse hyperbolic function as a logarithm.
-  - EK: sinh⁻¹ s = ln(s + √(s² + 1)).
-  - P1 · drills: hy-inverse-sinh, hy-arcsinh-value
 - ● **CA-15.2.C** (ST-3.11) Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.
   - EK: cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh.
   - P1 · drills: hy-ode-solution, hy-circular-link, hy-where-used
+- ● **CA-15.2.B** (ST-3.11) Write an inverse hyperbolic function as a logarithm.
+  - EK: sinh⁻¹ s = ln(s + √(s² + 1)).
+  - P1 · drills: hy-inverse-sinh, hy-arcsinh-value
 
 ## Unit 16 · Calculus in business, the sciences and probability
 
@@ -1609,15 +1609,15 @@ Big ideas: CHA
 
 
 
+- ● **CA-18.1.C** (webwork-opl:CA7.13) Choose a convergence test for a series.
+  - EK: Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison.
+  - P1 · drills: ca-series-strategy
 - ● **CA-18.1.A** (webwork-opl:CA7.1) Find the limit of a sequence.
   - EK: Divide by the highest power of n.
   - P1 · drills: ca-sequence-limit
 - ● **CA-18.1.B** (webwork-opl:CA7.10) Apply the root test.
   - EK: L = lim |aₙ|^(1/n); converges if L < 1, diverges if L > 1.
   - P1 · drills: ca-root-test
-- ● **CA-18.1.C** (webwork-opl:CA7.13) Choose a convergence test for a series.
-  - EK: Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison.
-  - P1 · drills: ca-series-strategy
 
 ### 18.2 Parametric and polar curves
 

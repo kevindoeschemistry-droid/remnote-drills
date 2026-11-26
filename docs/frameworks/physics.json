@@ -682,6 +682,45 @@
      "title": "Gravitational force",
      "los": [
       {
+       "id": "C",
+       "std": [
+        "P1 2.6.C",
+        "P1 2.6.D",
+        "CM 2.6.C",
+        "CM 2.6.D"
+       ],
+       "do": "Find apparent weight in an accelerating frame and tell inertial from gravitational mass.",
+       "ek": [
+        "A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision."
+       ],
+       "p": [
+        "2B"
+       ],
+       "drills": [
+        "ph-elevator-scale",
+        "ph-weightless"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "P1 2.6.B",
+        "CM 2.6.B",
+        "CM 2.6.E"
+       ],
+       "do": "Decide when g is constant and find g above a planet or inside a uniform sphere.",
+       "ek": [
+        "Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre."
+       ],
+       "p": [
+        "2B"
+       ],
+       "drills": [
+        "ph-g-altitude",
+        "ph-g-inside"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "P1 2.6.A",
@@ -720,45 +759,6 @@
        ],
        "needs": [
         "PH-2.6.A"
-       ]
-      },
-      {
-       "id": "C",
-       "std": [
-        "P1 2.6.C",
-        "P1 2.6.D",
-        "CM 2.6.C",
-        "CM 2.6.D"
-       ],
-       "do": "Find apparent weight in an accelerating frame and tell inertial from gravitational mass.",
-       "ek": [
-        "A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision."
-       ],
-       "p": [
-        "2B"
-       ],
-       "drills": [
-        "ph-elevator-scale",
-        "ph-weightless"
-       ]
-      },
-      {
-       "id": "D",
-       "std": [
-        "P1 2.6.B",
-        "CM 2.6.B",
-        "CM 2.6.E"
-       ],
-       "do": "Decide when g is constant and find g above a planet or inside a uniform sphere.",
-       "ek": [
-        "Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre."
-       ],
-       "p": [
-        "2B"
-       ],
-       "drills": [
-        "ph-g-altitude",
-        "ph-g-inside"
        ]
       }
      ]
@@ -823,6 +823,23 @@
      "title": "Spring forces",
      "los": [
       {
+       "id": "B",
+       "std": [
+        "CM 2.8.B"
+       ],
+       "do": "Combine springs in series and in parallel.",
+       "ek": [
+        "Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force)."
+       ],
+       "p": [
+        "2B"
+       ],
+       "drills": [
+        "ph-springs-combine",
+        "ph-spring-cut"
+       ]
+      },
+      {
        "id": "A",
        "std": [
         "P1 2.8.A",
@@ -842,23 +859,6 @@
        ],
        "needs": [
         "PH-2.4.A"
-       ]
-      },
-      {
-       "id": "B",
-       "std": [
-        "CM 2.8.B"
-       ],
-       "do": "Combine springs in series and in parallel.",
-       "ek": [
-        "Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force)."
-       ],
-       "p": [
-        "2B"
-       ],
-       "drills": [
-        "ph-springs-combine",
-        "ph-spring-cut"
        ]
       }
      ]
@@ -6337,28 +6337,6 @@
    "partial": []
   },
   {
-   "code": "PH-2.6.A",
-   "unit": 2,
-   "topic": 6,
-   "status": "ok",
-   "full": [
-    "ph-gravitation-force",
-    "ph-gravity-distance-scaling"
-   ],
-   "partial": []
-  },
-  {
-   "code": "PH-2.6.B",
-   "unit": 2,
-   "topic": 6,
-   "status": "ok",
-   "full": [
-    "ph-g-at-altitude",
-    "ph-g-planet-scaling"
-   ],
-   "partial": []
-  },
-  {
    "code": "PH-2.6.C",
    "unit": 2,
    "topic": 6,
@@ -6377,6 +6355,28 @@
    "full": [
     "ph-g-altitude",
     "ph-g-inside"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-2.6.A",
+   "unit": 2,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "ph-gravitation-force",
+    "ph-gravity-distance-scaling"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-2.6.B",
+   "unit": 2,
+   "topic": 6,
+   "status": "ok",
+   "full": [
+    "ph-g-at-altitude",
+    "ph-g-planet-scaling"
    ],
    "partial": []
   },
@@ -6403,17 +6403,6 @@
    "partial": []
   },
   {
-   "code": "PH-2.8.A",
-   "unit": 2,
-   "topic": 8,
-   "status": "ok",
-   "full": [
-    "ph-hooke",
-    "ph-springs-combined"
-   ],
-   "partial": []
-  },
-  {
    "code": "PH-2.8.B",
    "unit": 2,
    "topic": 8,
@@ -6421,6 +6410,17 @@
    "full": [
     "ph-springs-combine",
     "ph-spring-cut"
+   ],
+   "partial": []
+  },
+  {
+   "code": "PH-2.8.A",
+   "unit": 2,
+   "topic": 8,
+   "status": "ok",
+   "full": [
+    "ph-hooke",
+    "ph-springs-combined"
    ],
    "partial": []
   },
