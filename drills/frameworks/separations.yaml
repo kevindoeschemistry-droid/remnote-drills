@@ -43,7 +43,7 @@ units:
       - n: 1
         title: "Distillation"
         los:
-          - { id: A, std: ["webwork-opl:TH16.4"], do: "Compute a vapour composition from relative volatility.", ek: ["y = αx/(1 + (α − 1)x)."], p: [P1], drills: [sp-vle-alpha, sp-alpha-from-data] }
+          - { id: A, std: ["webwork-opl:TH16.4", "fe-chemical:10.E"], do: "Compute a vapour composition from relative volatility.", ek: ["y = αx/(1 + (α − 1)x)."], p: [P1], drills: [sp-vle-alpha, sp-alpha-from-data] }
           - { id: B, do: "Compute the minimum number of stages with Fenske.", ek: ["N_min = ln[(x_D/(1−x_D))((1−x_B)/x_B)]/ln α."], p: [P1], needs: [SP-1.1.A], drills: [sp-fenske, sp-fenske-reverse] }
           - { id: C, do: "Compute the minimum reflux ratio for a saturated-liquid feed.", ek: ["Pinch on the q-line; Underwood for a binary."], p: [P1], needs: [SP-1.1.A], drills: [sp-rmin, sp-rmin-vapour-feed] }
       - n: 2

@@ -1,0 +1,15 @@
+# The topic areas of the NCEES FE Chemical specification that no textbook in this repo covers, written as a source so
+# the skills under them have a home. This is not a book: the FE specification itself (read in full) is the basis, and
+# the "chapters" are its own numbered areas. Nothing here was read from a handbook.
+id: fe-handbook-topics
+title: "NCEES FE Chemical specification areas (particle technology, measurement, statistics)"
+short: "FE areas"
+year: 2020
+field: chemical engineering
+chapters:
+  - { n: 11, title: "Particle technology: properties, processing, transport and storage", skills: [design.solids] }
+  - { n: 1, title: "Mathematics: accuracy, precision and significant figures", skills: [design.uncertainty] }
+  - { n: 2, title: "Probability and statistics for engineers", skills: [design.spc] }
+  - { n: 4, title: "Materials science: material types, compatibility and corrosion", skills: [materials.corrosion] }
+  - { n: 5, title: "Chemistry and biology: bioprocessing", skills: [cre.bioprocess] }
+  - { n: 15, title: "Process control: strategies, loop design and hardware", skills: [design.control] }

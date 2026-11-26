@@ -97,11 +97,11 @@ units:
       - n: 1
         title: "Coefficients and resistances"
         los:
-          - { id: A, std: ["pe-chemical:6.B"], do: "Combine film coefficients into an overall coefficient.", ek: ["1/K_y = 1/k_y + m/k_x."], p: [P1], drills: [ms-overall-coefficient, ms-liquid-coefficient-reverse] }
-          - { id: B, std: ["pe-chemical:6.B"], do: "Find the fraction of the resistance in the gas film.", ek: ["Gas share = (1/k_y)/(1/k_y + m/k_x)."], p: [P1], drills: [ms-resistance-fraction, ms-controlling-film] }
+          - { id: A, std: ["pe-chemical:6.B", "fe-chemical:10.B"], do: "Combine film coefficients into an overall coefficient.", ek: ["1/K_y = 1/k_y + m/k_x."], p: [P1], drills: [ms-overall-coefficient, ms-liquid-coefficient-reverse] }
+          - { id: B, std: ["pe-chemical:6.B", "fe-chemical:10.B"], do: "Find the fraction of the resistance in the gas film.", ek: ["Gas share = (1/k_y)/(1/k_y + m/k_x)."], p: [P1], drills: [ms-resistance-fraction, ms-controlling-film] }
           - { id: C, std: ["pe-chemical:6.B"], do: "Use a sphere mass-transfer correlation.", ek: ["Ranz–Marshall: Sh = 2 + 0.6 Re^{1/2} Sc^{1/3}."], p: [P1], drills: [ms-ranz-marshall, ms-stagnant-sphere] }
           - { id: D, std: ["pe-chemical:6.B"], do: "Predict how k depends on D under each model.", ek: ["Film theory: k ∝ D; penetration and surface renewal: k ∝ D^{1/2}; boundary layers: k ∝ D^{2/3}."], p: [P1], drills: [ms-model-scaling, ms-model-exponent] }
-          - { id: E, std: ["pe-chemical:6.B"], do: "Find a packed-height from HTU and NTU.", ek: ["Z = H_OG N_OG; for dilute systems with straight lines, N_OG = (y₁ − y₂)/Δy_lm."], p: [P1], drills: [ms-htu-ntu, ms-colburn-ntu] }
+          - { id: E, std: ["pe-chemical:6.B", "fe-chemical:10.E"], do: "Find a packed-height from HTU and NTU.", ek: ["Z = H_OG N_OG; for dilute systems with straight lines, N_OG = (y₁ − y₂)/Δy_lm."], p: [P1], drills: [ms-htu-ntu, ms-colburn-ntu] }
   - id: multicomponent
     n: 5
     title: "Multicomponent diffusion and membranes"

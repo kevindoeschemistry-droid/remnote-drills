@@ -57,7 +57,14 @@ for pre, codes in by.items():
         m = re.match(r"^          - \{ id: ([A-Z]+),", ln)
         if m and f"{pre}-{un}.{tn}.{m.group(1)}" in codes:
             code = f"{pre}-{un}.{tn}.{m.group(1)}"; done.add(code); std = codes[code]
+            # an objective's std may be a list, a bare scalar (one code), or absent
             m2 = re.search(r"std: \[([^\]]*)\]", ln)
+            ms = None if m2 else re.search(r"std: ([^,}]+),", ln)   # scalar std
+            if ms:
+                merged = [ms.group(1).strip().strip('"')] + [s for s in std if s != ms.group(1).strip().strip('"')]
+                L[i] = ln[:ms.start()] + f"std: [{', '.join(q(s) for s in merged)}]," + ln[ms.end():]
+                n += 1
+                continue
             if m2:
                 have = [s.strip().strip('"') for s in m2.group(1).split(",") if s.strip()]
                 have += [s for s in std if s not in have]

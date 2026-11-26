@@ -39,7 +39,7 @@ Big ideas: RULES
 
 
 
-- ● **OR-1.1.A** Find the degrees of unsaturation from a molecular formula.
+- ● **OR-1.1.A** (fe-chemical:5.B) Find the degrees of unsaturation from a molecular formula.
   - EK: U = ½(2C + 2 + N − H − X); each is a ring or a π bond.
   - P3 · drills: or-degrees-of-unsaturation, co-h-from-dou
 - ● **OR-1.1.B** (acs-accm-organic:III.A.2) Give the maximum number of stereoisomers from the number of stereocentres.
@@ -74,7 +74,7 @@ Big ideas: RULES, REAGENT, BALANCE
 
 
 
-- ● **OR-2.1.A** (acs-accm-organic:I.B.2, acs-accm-organic:V.F.2) Predict the product of adding HX or water to an alkene, with and without Markovnikov orientation.
+- ● **OR-2.1.A** (acs-accm-organic:I.B.2, acs-accm-organic:V.F.2, fe-chemical:5.B) Predict the product of adding HX or water to an alkene, with and without Markovnikov orientation.
   - EK: The proton goes where it leaves the more stable carbocation; peroxides and boranes reverse the orientation.
   - P1 · P2 · drills: rx-predict-alkene-hbr, rx-reagent-alkene-hbr, rx-predict-alkene-hbr-peroxide, rx-reagent-alkene-hbr-peroxide, rx-predict-alkene-hydration, rx-reagent-alkene-hydration, rx-predict-alkene-hydroboration, rx-reagent-alkene-hydroboration
 - ● **OR-2.1.B** (acs-accm-organic:V.F.1) Predict the product of halogenation, halohydrin formation, hydrogenation, epoxidation, dihydroxylation and ozonolysis.
@@ -148,7 +148,7 @@ Big ideas: RULES, REAGENT
 - ● **OR-6.1.D** (acs-accm-organic:V.D.2) Predict nucleophilic aromatic substitution: when it happens and where.
   - EK: SNAr needs a leaving group with strong withdrawing groups (NO₂) ortho or para to it to stabilise the Meisenheimer complex; F is the best leaving group here. Without them, a strong base can go by benzyne.
   - P1 · drills: or-snar, or-snar-2
-- ● **OR-6.1.A** (bruice-8e:18, acs-accm-organic:V.D.2) Predict the product of brominating, nitrating and acylating benzene.
+- ● **OR-6.1.A** (bruice-8e:18, acs-accm-organic:V.D.2, fe-chemical:5.B) Predict the product of brominating, nitrating and acylating benzene.
   - EK: Substitution, not addition: the ring gets its aromaticity back.
   - P1 · P2 · drills: rx-predict-aromatic-bromination, rx-reagent-aromatic-bromination, rx-predict-aromatic-nitration, rx-reagent-aromatic-nitration, rx-predict-aromatic-acylation, rx-reagent-aromatic-acylation
 - ● **OR-6.1.B** (bruice-8e:18) Predict where a second substituent goes on a substituted benzene.

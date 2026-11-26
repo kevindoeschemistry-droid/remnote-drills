@@ -988,7 +988,7 @@ units:
         title: "Techniques"
         los:
           - { id: A, std: ["webwork-opl:CA5.5"], do: "Integrate a product of powers of sine and cosine.", ek: ["With an odd power, save one factor and convert the rest; with even powers, use half-angle identities."], p: [P1], drills: [ca-trig-integral] }
-          - { id: B, std: ["webwork-opl:CA5.8"], do: "Evaluate an integral by trigonometric substitution.", ek: ["√(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ."], p: [P1], drills: [ca-trig-substitution] }
+          - { id: B, std: ["webwork-opl:CA5.8", "fe-chemical:1.A"], do: "Evaluate an integral by trigonometric substitution.", ek: ["√(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ."], p: [P1], drills: [ca-trig-substitution] }
           - { id: C, std: ["webwork-opl:CA5.9"], do: "Use an integral from a table.", ek: ["Match the integrand to the table form, identify the constants, then substitute."], p: [P1], drills: [ca-integral-table] }
           - { id: D, std: ["webwork-opl:CA5.10"], do: "Use and check a computer algebra system's antiderivative.", ek: ["Differentiate the CAS answer to check it, then apply the fundamental theorem."], p: [P1], drills: [ca-cas-antiderivative] }
       - n: 2

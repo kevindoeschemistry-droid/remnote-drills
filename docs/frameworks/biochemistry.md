@@ -41,7 +41,7 @@ Big ideas: ENERGY
 
 
 
-- ● **BC-1.1.A** (asbmb-core-2013:3.1, asbmb-core-2013:3.3) Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.
+- ● **BC-1.1.A** (asbmb-core-2013:3.1, asbmb-core-2013:3.3, fe-chemical:5.D) Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.
   - EK: pH = pKa + log([A⁻]/[HA]); phosphate (pKa 6.86) and bicarbonate (6.1) buffer cells and blood.
   - P1 · drills: bc-hh-ph, bc-blood-ratio
 - ● **BC-1.1.B** (asbmb-core-2013:3.1) Compute the fraction of an ionisable side chain protonated at a given pH.
@@ -125,7 +125,7 @@ Big ideas: ENERGY
 
 
 
-- ● **BC-4.1.A** (asbmb-core-2013:2.2, asbmb-cert:2.4, acs-accm-analytical:VII.E.1) Compute an initial rate from V_max, K_M and [S].
+- ● **BC-4.1.A** (asbmb-core-2013:2.2, asbmb-cert:2.4, acs-accm-analytical:VII.E.1, fe-chemical:5.D) Compute an initial rate from V_max, K_M and [S].
   - EK: v = V_max[S]/(K_M + [S]); v = V_max/2 at [S] = K_M.
   - P1 · drills: bc-mm-rate, bc-mm-s-for-v
 - ● **BC-4.1.B** (asbmb-core-2013:2.2) Compute k_cat and catalytic efficiency and compare with the diffusion limit.
@@ -191,7 +191,7 @@ Big ideas: ENERGY, STRUCTURE
 
 
 
-- ● **BC-6.1.A** (asbmb-core-2013:2.1) Compute the Nernst equilibrium potential of an ion.
+- ● **BC-6.1.A** (asbmb-core-2013:2.1, fe-chemical:5.D) Compute the Nernst equilibrium potential of an ion.
   - EK: E = (RT/zF) ln([out]/[in]); about 61.5/z mV per decade at 37 °C.
   - P1 · drills: bc-nernst, bc-nernst-ratio
 - ● **BC-6.1.B** (asbmb-core-2013:3.2, asbmb-core-2013:2.1) Compute the free energy of moving a charged solute across a membrane.

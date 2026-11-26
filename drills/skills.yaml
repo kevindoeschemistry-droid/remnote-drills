@@ -669,6 +669,7 @@ skills:
   - { id: cre.nonisothermal, domain: cre, title: "Energy balance: adiabatic reactors, equilibrium, multiple steady states", short: "Nonisothermal reactors", prereqs: [cre.cstr, cre.pfr, cre.arrhenius] }
   - { id: cre.diffusion, domain: cre, title: "External and internal diffusion with reaction", short: "Diffusion and reaction", prereqs: [cre.catalysis, cre.pfr] }
   - { id: cre.rtd, domain: cre, title: "Residence-time distributions and nonideal reactors", short: "RTD and nonideal", prereqs: [cre.cstr, cre.pfr] }
+  - { id: cre.bioprocess, domain: cre, title: "Bioprocessing", short: "Monod growth, yields, chemostats, oxygen transfer and sterilisation", prereqs: [cre.rate-laws] }
 
   # ── inorganic and analytical chemistry ─────────────────────────────────
   - { id: inorg.s-block, domain: inorg, title: "s-block chemistry: flame colours and oxides", short: "s block" }
@@ -702,6 +703,7 @@ skills:
   - { id: materials.polymers, domain: materials, title: "Polymers: molar masses, step and chain growth, thermal behaviour", short: "Polymers" }
   - { id: materials.solids, domain: materials, title: "Mechanical and electronic properties of solids", short: "Materials properties" }
   - { id: materials.colloids, domain: materials, title: "Colloids and interfaces: double layers, van der Waals forces, DLVO stability, coagulation", short: "Colloids and DLVO" }
+  - { id: materials.corrosion, domain: materials, title: "Material selection and corrosion", short: "Choosing a material, corrosion mechanisms and how each control measure fails", prereqs: [materials.solids] }
 
   # ── separations and process design ──────────────────────────────────────
   - { id: sep.vle, domain: sep, title: "Vapour–liquid equilibrium and relative volatility", short: "VLE" }
@@ -711,6 +713,12 @@ skills:
   - { id: design.economics, domain: design, title: "Engineering economics: NPV, payback, scaling, depreciation, interest", short: "Economics" }
   - { id: design.safety, domain: design, title: "Process safety: flammability, exposure, HAZOP", short: "Safety" }
   - { id: design.control, domain: design, title: "Process dynamics: first-order response", short: "Dynamics" }
+  - { id: design.solids, domain: design, title: "Particle technology", short: "Distributions, size reduction, crystallization and solids handling", prereqs: [design.economics] }
+  - { id: design.plant, domain: design, title: "Plant documents and design practice", short: "Drawings, stream tables, cost scaling, estimate classes, codes", prereqs: [design.economics] }
+  - { id: design.relief, domain: design, title: "Relief and loss prevention", short: "Accumulation, relief sizing, underpressure, reactivity and waste", prereqs: [design.safety] }
+  - { id: design.practice, domain: design, title: "Professional practice", short: "The ordered duties, agreements and intellectual property" }
+  - { id: design.uncertainty, domain: design, title: "Measurement and uncertainty", short: "Significant figures, propagation, expected value and project ranking", prereqs: [design.economics] }
+  - { id: design.spc, domain: design, title: "Statistics in engineering units", short: "Describing data, testing, capability and control charts" }
 
   # ── chemistry olympiad layer ────────────────────────────────────────────
   - { id: olympiad.equilibria, domain: olympiad, title: "Olympiad equilibria: polyprotic, buffers, solubility, Kp", short: "Olympiad equilibria", prereqs: [gchem.acidbase, gchem.equilibrium] }

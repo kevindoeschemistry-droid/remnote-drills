@@ -336,7 +336,7 @@ units:
         los:
           - { id: A, std: G-SRT.C.6, do: "Explain that by similarity the side ratios of a right triangle depend only on its acute angle, which defines sine, cosine and tangent.", ek: ["sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent."], p: [MP3, MP7], drills: ["geo-trig-ratio", "hs2-trig-from-sides"], needs: [MH-7.1.D] }
           - { id: B, std: G-SRT.C.7, do: "Explain and use the relationship between the sine and cosine of complementary angles.", ek: ["sin θ = cos(90° − θ): the side opposite one acute angle is adjacent to the other."], p: [MP7], drills: ["geo-trig-ratio", "hs2-cofunction"], needs: [MH-7.3.A] }
-          - { id: C, std: G-SRT.C.8, do: "Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.", ek: ["For a side, pick the ratio that links the known side to the unknown; for an angle, use the inverse ratio."], p: [MP4, MP5], drills: [geo-right-trig, mm-pythagorean-triple], needs: [MH-7.3.A, MH-7.2.A, MH-1.1.A] }
+          - { id: C, std: ["G-SRT.C.8", "fe-chemical:1.A"], do: "Use trigonometric ratios and the Pythagorean theorem to solve right triangles in applied problems.", ek: ["For a side, pick the ratio that links the known side to the unknown; for an angle, use the inverse ratio."], p: [MP4, MP5], drills: [geo-right-trig, mm-pythagorean-triple], needs: [MH-7.3.A, MH-7.2.A, MH-1.1.A] }
       - n: 4
         title: Apply geometric concepts in modeling situations
         los:
@@ -495,7 +495,7 @@ units:
       - n: 1
         title: Extend the domain of trigonometric functions using the unit circle
         los:
-          - { id: A, std: F-TF.A.1, do: "Understand radian measure of an angle as the length of the arc on the unit circle it subtends, and convert between degrees and radians.", ek: ["π radians = 180°; θ = s/r."], p: [MP6], drills: ["trig-deg-rad", "hs2-arc-radians"], needs: [MH-10.2.A] }
+          - { id: A, std: ["F-TF.A.1", "fe-chemical:1.A"], do: "Understand radian measure of an angle as the length of the arc on the unit circle it subtends, and convert between degrees and radians.", ek: ["π radians = 180°; θ = s/r."], p: [MP6], drills: ["trig-deg-rad", "hs2-arc-radians"], needs: [MH-10.2.A] }
           - { id: B, std: F-TF.A.2, do: "Explain how the unit circle extends sine and cosine to all real numbers, read as radian measures of angles traversed counterclockwise.", ek: ["The point at angle t on the unit circle is (cos t, sin t)."], p: [MP3, MP7], drills: [trig-exact, trig2-quadrant-sign, trig2-reference-angle], needs: [MH-13.1.A, MH-7.3.A] }
       - n: 2
         title: Model periodic phenomena with trigonometric functions
@@ -517,7 +517,7 @@ units:
       - n: 1
         title: Logarithms in exponential models
         los:
-          - { id: A, std: F-LE.A.4, do: "Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.", ek: ["log_b x = y ⇔ b^y = x; t = log_b(d/a)/c."], p: [MP7, MP5], drills: [alg-exp-solve, mm-log-exact, alg2-log-estimate], needs: [MH-4.2.C, MH-5.3.D] }
+          - { id: A, std: ["F-LE.A.4", "fe-chemical:1.A"], do: "Express the solution of ab^(ct) = d as a logarithm (base 2, 10 or e) and evaluate it with technology.", ek: ["log_b x = y ⇔ b^y = x; t = log_b(d/a)/c."], p: [MP7, MP5], drills: [alg-exp-solve, mm-log-exact, alg2-log-estimate], needs: [MH-4.2.C, MH-5.3.D] }
           - { id: B, std: F-IF.C.7e, do: "Graph a logarithmic function, showing the intercept, the vertical asymptote and end behaviour, as the reflection of an exponential across y = x.", ek: ["y = log_b x passes through (1, 0), has asymptote x = 0, and grows without bound but ever more slowly."], p: [MP5, MP6], drills: [alg-log-graph, dr-log], needs: [MH-14.1.A, MH-2.6.C] }
       - n: 2
         title: Build and interpret models from several families
@@ -589,7 +589,7 @@ units:
       - n: 1
         title: Exact values, symmetry and graphs (+)
         los:
-          - { id: A, std: F-TF.A.3, do: "(+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.", ek: ["sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest."], p: [MP7], drills: [trig-exact, dr-unit-circle, mm-trig-exact], needs: [MH-13.1.B, MH-7.3.A] }
+          - { id: A, std: ["F-TF.A.3", "fe-chemical:1.A"], do: "(+) Use 30-60-90 and 45-45-90 triangles to find exact sine, cosine and tangent of π/6, π/4, π/3, and the unit circle to extend them to π − x, π + x and 2π − x.", ek: ["sin(π/6) = 1/2, sin(π/4) = √2/2, sin(π/3) = √3/2; the reference angle and quadrant give the rest."], p: [MP7], drills: [trig-exact, dr-unit-circle, mm-trig-exact], needs: [MH-13.1.B, MH-7.3.A] }
           - { id: B, std: F-TF.A.4, do: "(+) Use the unit circle to explain the symmetry (odd and even) and periodicity of the trigonometric functions.", ek: ["cos(−x) = cos x (even), sin(−x) = −sin x (odd); period 2π for sin and cos, π for tan."], p: [MP3, MP7], drills: ["trig-symmetry", "hs2-trig-symmetry"], needs: [MH-17.1.A, MH-5.3.C] }
           - { id: C, std: F-IF.C.7e, do: "Graph sine, cosine and tangent functions, showing period, midline, amplitude and (for tangent) asymptotes.", ek: ["tan x = sin x / cos x has vertical asymptotes where cos x = 0."], p: [MP5, MP6], drills: [trig-sinusoid, dr-sinusoid, dr-tangent], needs: [MH-17.1.B, MH-13.2.A] }
       - n: 2

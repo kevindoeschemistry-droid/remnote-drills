@@ -35,7 +35,7 @@ Big ideas: MOLES, EQ
 
 
 
-- ● **AN-1.1.A** (acs-accm-analytical:V.A.1, acs-accm-analytical:V.D.1, acs-accm-analytical:VIII.D.2, acs-accm-analytical:IX.C.1) Compute a result from a back titration.
+- ● **AN-1.1.A** (acs-accm-analytical:V.A.1, acs-accm-analytical:V.D.1, acs-accm-analytical:VIII.D.2, acs-accm-analytical:IX.C.1, fe-chemical:5.C) Compute a result from a back titration.
   - EK: Reagent added − reagent left = reagent used.
   - P1 · drills: an-back-titration, an-back-titration-volume
 - ● **AN-1.1.B** (acs-accm-analytical:V.D.1) Compute a result from a permanganate titration.
@@ -73,7 +73,7 @@ Big ideas: MOLES
 
 
 
-- ● **AN-2.1.A** (acs-accm-analytical:I.E.1, acs-accm-analytical:IX.D.1) Compute a mass percent from the weight of a precipitate.
+- ● **AN-2.1.A** (acs-accm-analytical:I.E.1, acs-accm-analytical:IX.D.1, fe-chemical:5.C) Compute a mass percent from the weight of a precipitate.
   - EK: Gravimetric factor from molar masses and element counts.
   - P1 · drills: an-gravimetric, an-gravimetric-expected
 
@@ -148,7 +148,7 @@ Big ideas: EQ, ERROR
 
 
 
-- ● **AN-6.1.A** (acs-accm-analytical:I.D.2, acs-accm-analytical:I.D.5, acs-accm-analytical:II.E.1, acs-accm-analytical:VII.A.1) Trace the paths an excited molecule takes back to the ground state and tell fluorescence from phosphorescence.
+- ● **AN-6.1.A** (acs-accm-analytical:I.D.2, acs-accm-analytical:I.D.5, acs-accm-analytical:II.E.1, acs-accm-analytical:VII.A.1, fe-chemical:5.C) Trace the paths an excited molecule takes back to the ground state and tell fluorescence from phosphorescence.
   - EK: Internal conversion and vibrational relaxation are radiationless; fluorescence keeps spin (ns), phosphorescence follows intersystem crossing (ms–s); emission is red-shifted.
   - P1 · drills: an-jablonski, an-fluor-linear
 - ● **AN-6.1.B** (acs-accm-analytical:I.D.2, acs-accm-analytical:I.D.3) Convert between transmittance and absorbance and find the concentration where Beer's law holds.

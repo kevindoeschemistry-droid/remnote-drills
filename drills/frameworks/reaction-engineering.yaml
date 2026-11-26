@@ -203,4 +203,22 @@ units:
           - { id: A, do: "Predict conversion with the segregation model.", ek: ["X̄ = ∫X_batch(t)E(t) dt; linear kinetics ignore mixing."], p: [P1], needs: [RE-8.1.B, RE-2.1.A], drills: [re-segregation, re-segregation-zero-order] }
           - { id: B, do: "Fit a tanks-in-series model to an RTD and predict a first-order conversion.", ek: ["n = t_m²/σ²; X = 1 − (1 + kt_m/n)^(−n)."], p: [P1], needs: [RE-8.1.A, RE-2.2.A], drills: [re-tis-model, re-tis-design] }
           - { id: C, do: "Predict a first-order conversion with the dispersion model.", ek: ["Danckwerts closed–closed: q = √(1 + 4Da/Pe)."], p: [P1], needs: [RE-8.2.B], drills: [re-dispersion, re-dispersion-variance] }
-
+  - id: bioprocess
+    n: 9
+    title: "Bioprocessing"
+    std: ["fe-chemical:5.E"]
+    scope: extension
+    ideas: [TIME]
+    topics:
+      - n: 1
+        title: "Growth and product formation"
+        los:
+          - { id: A, std: ["fe-chemical:5.E"], do: "Compute a specific growth rate from the Monod equation and the doubling time it gives", ek: ["Monod kinetics is Michaelis-Menten applied to a whole organism: growth saturates at a maximum specific rate, and the doubling time is the natural logarithm of two over that rate."], p: [P1], drills: [fe-monod-rate, fe-doubling-time] }
+          - { id: B, std: ["fe-chemical:5.E"], do: "Compute a yield coefficient and the substrate a stated batch needs", ek: ["A yield coefficient is cells or product per unit substrate consumed, so the substrate charge follows from the target titre; what the coefficient leaves out is maintenance, which is why a slow fermentation uses more substrate per gram of product than a fast one."], p: [P1], drills: [fe-yield-substrate, fe-yield-from-batch] }
+          - { id: C, std: ["fe-chemical:5.E"], do: "Compute the dilution rate at which a chemostat washes out and the productivity near it", ek: ["At steady state in a chemostat the specific growth rate equals the dilution rate, so raising the feed rate raises productivity until the dilution rate reaches the maximum growth rate, at which point the culture washes out."], p: [P1], drills: [fe-washout, fe-chemostat-feed] }
+      - n: 2
+        title: "Bioreactor operation"
+        los:
+          - { id: A, std: ["fe-chemical:5.E"], do: "Compute the oxygen transfer a stated aerobic fermentation needs and compare it with the supply", ek: ["An aerobic culture's oxygen demand is its oxygen uptake rate, and the supply is the transfer coefficient times the driving force to the dissolved concentration; because oxygen is barely soluble, the driving force is small and transfer is usually what limits scale-up rather than kinetics."], p: [P1], drills: [fe-oxygen-demand, fe-kla-needed] }
+          - { id: B, std: ["fe-chemical:5.E"], do: "State which mode of bioreactor operation a stated objective calls for", ek: ["Batch is simplest and gives a defined lot, fed-batch avoids substrate inhibition and catabolite repression and is what most industrial fermentations use, continuous gives the highest productivity but risks contamination and strain drift over long runs, and perfusion keeps cells while removing product."], p: [P2], drills: [fe-reactor-mode, fe-fedbatch-feed] }
+          - { id: C, std: ["fe-chemical:5.E"], do: "Compute the sterilisation hold a stated thermal death requirement needs", ek: ["Thermal death is first order in viable count, so the hold time is the number of log reductions times the decimal reduction time at that temperature; the design basis is the probability of one survivor in the whole batch, not an average."], p: [P1], drills: [fe-sterilisation-hold, fe-sterilisation-logs] }

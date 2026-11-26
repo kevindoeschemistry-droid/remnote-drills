@@ -98,7 +98,7 @@ Big ideas: CHG, SYS
   - EK: Slope of x–t is v; slope of v–t is a; area under v–t is Δx; area under a–t is Δv.
   - Needs: PH-1.2.B
   - 1C · 3B · drills: ph-vt-graph-area, ph-xt-slope
-- ● **PH-1.3.B** (P1 1.3.A, CM 1.3.A) Solve a constant-acceleration problem with the kinematic equations.
+- ● **PH-1.3.B** (P1 1.3.A, CM 1.3.A, fe-chemical:3.A) Solve a constant-acceleration problem with the kinematic equations.
   - EK: v = v₀ + at; x = x₀ + v₀t + ½at²; v² = v₀² + 2aΔx; pick the one missing the unknown you don't need.
   - Needs: PH-1.3.A
   - 2A · 2B · drills: ph-suvat-speed, ph-stopping-distance-scaling
@@ -191,7 +191,7 @@ Big ideas: INT, SYS
 
 
 
-- ● **PH-2.5.A** (P1 2.5.A, CM 2.5.A) Apply ΣF = ma to one object to find its acceleration or an unknown force.
+- ● **PH-2.5.A** (P1 2.5.A, CM 2.5.A, fe-chemical:3.A) Apply ΣF = ma to one object to find its acceleration or an unknown force.
   - EK: a = ΣF/m points along the net force; the kinematics then follows from Unit 1.
   - Needs: PH-2.2.B, PH-1.3.B
   - 2A · 2B · drills: ph-newton-second, ph-newton-scaling
@@ -251,7 +251,7 @@ Big ideas: INT, SYS
 
 
 
-- ● **PH-2.9.A** (P1 2.9.A, CM 2.10.A, P1 2.9.B, CM 2.10.B) Calculate centripetal acceleration and identify which real force supplies the net inward force.
+- ● **PH-2.9.A** (P1 2.9.A, CM 2.10.A, P1 2.9.B, CM 2.10.B, fe-chemical:3.A) Calculate centripetal acceleration and identify which real force supplies the net inward force.
   - EK: a_c = v²/r toward the center; centripetal is a role (tension, friction, gravity, normal), never an extra force on the FBD.
   - Needs: PH-2.5.A, PH-1.5.A
   - 1A · 2B · drills: ph-centripetal, ph-centripetal-scaling
@@ -281,7 +281,7 @@ Big ideas: CONS, SYS
 
 
 
-- ● **PH-3.2.A** (P1 3.2.A, CM 3.2.A) Calculate the work done by a constant force over a straight displacement.
+- ● **PH-3.2.A** (P1 3.2.A, CM 3.2.A, fe-chemical:3.B) Calculate the work done by a constant force over a straight displacement.
   - EK: W = Fd cos θ; a force perpendicular to the motion (normal, centripetal) does no work; friction on a sliding object does negative work.
   - Needs: PH-1.5.A, PH-2.2.B
   - 2B · drills: ph-work-constant-force, ph-gravity-work-incline
@@ -289,7 +289,7 @@ Big ideas: CONS, SYS
   - EK: W = area under F–x; for a spring from 0 to x, W = ½kx².
   - Needs: PH-3.2.A, PH-2.8.A
   - 1B · 2B · drills: ph-spring-work, ph-spring-work-between
-- ● **PH-3.2.C** (P1 3.2.A, CM 3.2.A) Apply the work–energy theorem to find a speed or a force.
+- ● **PH-3.2.C** (P1 3.2.A, CM 3.2.A, fe-chemical:3.B) Apply the work–energy theorem to find a speed or a force.
   - EK: W_net = ΔK; the net work is the sum of the work done by each force.
   - Needs: PH-3.2.A, PH-3.1.A
   - 2A · 2B · drills: ph-work-energy-theorem, ph-braking-force
@@ -328,7 +328,7 @@ Big ideas: CONS, SYS
 
 
 
-- ● **PH-3.5.A** (P1 3.5.A, CM 3.5.A) Calculate average power and the instantaneous power delivered by a force.
+- ● **PH-3.5.A** (P1 3.5.A, CM 3.5.A, fe-chemical:3.B) Calculate average power and the instantaneous power delivered by a force.
   - EK: P_avg = W/Δt = ΔE/Δt; P = Fv cos θ; 1 W = 1 J/s.
   - Needs: PH-3.2.A
   - 2B · drills: ph-power-lift, ph-power-cruise-speed
@@ -359,7 +359,7 @@ Big ideas: CONS, SYS
 
 
 
-- ● **PH-4.3.A** (P1 4.3.A, CM 4.3.A, P1 4.3.B, CM 4.3.B) Apply conservation of momentum in one dimension, including explosions and recoil.
+- ● **PH-4.3.A** (P1 4.3.A, CM 4.3.A, P1 4.3.B, CM 4.3.B, fe-chemical:3.A) Apply conservation of momentum in one dimension, including explosions and recoil.
   - EK: If the net external impulse on the system is zero, p_sys before = p_sys after; an explosion from rest gives m₁v₁ = −m₂v₂.
   - Needs: PH-4.2.A, PH-2.3.A
   - 2A · 2B · drills: ph-recoil, ph-explosion-ke-ratio
@@ -372,7 +372,7 @@ Big ideas: CONS, SYS
 
 
 
-- ● **PH-4.4.A** (P1 4.4.A, CM 4.4.A) Classify a collision as elastic or inelastic by comparing kinetic energy before and after.
+- ● **PH-4.4.A** (P1 4.4.A, CM 4.4.A, fe-chemical:3.B) Classify a collision as elastic or inelastic by comparing kinetic energy before and after.
   - EK: Momentum is conserved in every isolated collision; kinetic energy only in elastic ones.
   - Needs: PH-4.3.A, PH-3.1.A
   - 2C · 3C · drills: ph-collision-type, ph-stick-ke-fraction
@@ -446,7 +446,7 @@ Big ideas: INT, CHG
 
 
 
-- ● **PH-5.6.A** (P1 5.6.A, CM 5.6.A) Apply Στ = Iα to find the angular acceleration of a rigid object.
+- ● **PH-5.6.A** (P1 5.6.A, CM 5.6.A, fe-chemical:3.A) Apply Στ = Iα to find the angular acceleration of a rigid object.
   - EK: α = Στ/I about a fixed axis or the center of mass.
   - Needs: PH-5.3.A, PH-5.4.A, PH-2.5.A
   - 2A · 2B · drills: ph-angular-acceleration, ph-disk-alpha-scaling
@@ -813,7 +813,7 @@ Big ideas: CONS, CHG
 
 
 
-- ● **PH-11.2.A** (P2 11.2.A, CEM 11.2.A) Tell open, closed and short circuits apart and predict what a single-loop circuit does.
+- ● **PH-11.2.A** (P2 11.2.A, CEM 11.2.A, fe-chemical:3.C) Tell open, closed and short circuits apart and predict what a single-loop circuit does.
   - EK: Current needs a closed loop; an open switch stops it everywhere in that loop; a short (near-zero resistance path) carries almost all the current; in one loop the current is the same everywhere.
   - 2B · drills: ph-simple-circuit, ph-short-current
 
@@ -821,7 +821,7 @@ Big ideas: CONS, CHG
 
 
 
-- ● **PH-11.3.A** (P2 11.3.A, CEM 11.3.A, P2 11.3.B, CEM 11.3.B) Calculate the resistance of a wire from its resistivity and dimensions.
+- ● **PH-11.3.A** (P2 11.3.A, CEM 11.3.A, P2 11.3.B, CEM 11.3.B, fe-chemical:3.C) Calculate the resistance of a wire from its resistivity and dimensions.
   - EK: R = ρL/A; longer or thinner ⇒ larger R.
   - Needs: PH-11.1.A
   - 2B · 2D · drills: ph-wire-resistance, ph-wire-resistance-scaling
@@ -834,7 +834,7 @@ Big ideas: CONS, CHG
 
 
 
-- ● **PH-11.4.A** (P2 11.4.A, CEM 11.4.A) Calculate the power dissipated by a resistor and rank bulb brightness.
+- ● **PH-11.4.A** (P2 11.4.A, CEM 11.4.A, fe-chemical:3.C) Calculate the power dissipated by a resistor and rank bulb brightness.
   - EK: P = IΔV = I²R = (ΔV)²/R; brightness follows power.
   - Needs: PH-11.3.B, PH-3.5.A
   - 2B · 2C · drills: em-power-dissipated, ph-bulbs-series-brightness

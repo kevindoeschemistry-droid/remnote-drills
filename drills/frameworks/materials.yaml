@@ -91,4 +91,27 @@ units:
           - { id: A, do: "Compute a Brownian diffusion coefficient with Stokes–Einstein.", ek: ["D = kT/6πηa."], p: [P1], drills: [col-stokes-einstein, col-diffusion-time] }
           - { id: B, do: "Compute the half-life of rapid (barrierless) coagulation.", ek: ["k_f = 4kT/3η; t½ = 3η/4kTN₀."], p: [P1], needs: [MT-3.4.A], drills: [col-fast-coagulation, col-coag-scale] }
           - { id: C, do: "Recognise steric, depletion, bridging and hydration forces that DLVO leaves out.", ek: ["Polymers and solvent structure add terms DLVO lacks."], p: [P2], needs: [MT-3.3.B], drills: [col-beyond-dlvo, col-nondlvo-scenario] }
-
+  - id: corrosion
+    n: 4
+    title: "Material selection and corrosion"
+    std: ["fe-chemical:4.A", "fe-chemical:4.B", "fe-chemical:4.C"]
+    scope: extension
+    ideas: [PROPS]
+    topics:
+      - n: 1
+        title: "Choosing a material"
+        los:
+          - { id: A, std: ["fe-chemical:4.B"], do: "Choose a material class for a stated service from its temperature, pressure and chemistry", ek: ["Carbon steel is the default and everything else is justified against it: stainless for oxidising and mildly corrosive service, nickel alloys for hot chlorides and strong acids, titanium for seawater and wet chlorine, and polymers or linings where metals fail but temperature allows."], p: [P2], drills: [fe-material-pick, fe-upgrade-cost] }
+          - { id: B, std: ["fe-chemical:4.B"], do: "Compute the wall thickness a stated corrosion allowance adds and the life it buys", ek: ["A corrosion allowance is thickness added beyond the pressure requirement, so the life it buys is the allowance over the corrosion rate; doubling the allowance doubles the life only if the rate stays constant, which is exactly what localised attack does not do."], p: [P1], drills: [fe-corrosion-life, fe-allowance-needed] }
+          - { id: C, std: ["fe-chemical:4.B"], do: "Decide whether a stated material pairing is compatible in service", ek: ["Compatibility is not just whether the metal dissolves: it covers embrittlement, stress-corrosion cracking, catalytic decomposition of the fluid and contamination of the product, and a compatibility chart is read for the fluid at the service temperature, not at room temperature."], p: [P2], drills: [fe-compatibility, fe-stress-threshold] }
+      - n: 2
+        title: "Corrosion mechanisms"
+        los:
+          - { id: A, std: ["fe-chemical:4.C"], do: "Compute a corrosion rate from a mass-loss or thickness measurement", ek: ["A uniform rate in millimetres a year follows from mass loss over area, density and time, and it is the one corrosion mode a wall thickness can be designed against."], p: [P1], drills: [fe-corrosion-rate, fe-rate-from-thickness] }
+          - { id: B, std: ["fe-chemical:4.C"], do: "Identify the corrosion mechanism a stated failure describes", ek: ["Uniform attack thins the wall evenly; pitting and crevice attack concentrate it where the electrolyte is stagnant; galvanic attack puts the anode next to a more noble metal; stress-corrosion cracking needs tensile stress, a susceptible alloy and a specific environment together; and erosion-corrosion follows high velocity and solids."], p: [P2], drills: [fe-mechanism-id, fe-pit-penetration] }
+          - { id: C, std: ["fe-chemical:4.C"], do: "Predict which metal corrodes in a stated galvanic couple and how the area ratio changes the rate", ek: ["The less noble metal is the anode and corrodes, and the current it must carry is set by the cathode area, so a small anode next to a large cathode corrodes fast: a steel bolt in a stainless plate fails, while a stainless bolt in a steel plate does not."], p: [P2], drills: [fe-area-ratio, fe-galvanic-which] }
+      - n: 3
+        title: "Corrosion control"
+        los:
+          - { id: A, std: ["fe-chemical:4.C"], do: "Compute a cathodic protection current from the area to be protected and a stated current density", ek: ["Cathodic protection makes the whole structure the cathode, either with a sacrificial anode of a less noble metal or with an impressed current, and the duty is the protected area times the current density the environment needs."], p: [P1], drills: [fe-cp-current, fe-anode-life] }
+          - { id: B, std: ["fe-chemical:4.C"], do: "State what a coating, an inhibitor and a passive film each do and how each fails", ek: ["A coating is a barrier that fails locally at a holiday, where attack then concentrates; an inhibitor changes the solution so the reaction slows, and fails when its concentration drops; a passive film is grown by the metal itself, and fails where chloride breaks it down or where oxygen cannot reach to repair it."], p: [P2], drills: [fe-protection-fails, fe-coating-holiday] }

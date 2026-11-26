@@ -55,7 +55,7 @@ units:
       - n: 1
         title: "Buffers and protonation"
         los:
-          - { id: A, std: ["asbmb-core-2013:3.1", "asbmb-core-2013:3.3"], do: "Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.", ek: ["pH = pKa + log([A⁻]/[HA]); phosphate (pKa 6.86) and bicarbonate (6.1) buffer cells and blood."], p: [P1], drills: [bc-hh-ph, bc-blood-ratio] }
+          - { id: A, std: ["asbmb-core-2013:3.1", "asbmb-core-2013:3.3", "fe-chemical:5.D"], do: "Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.", ek: ["pH = pKa + log([A⁻]/[HA]); phosphate (pKa 6.86) and bicarbonate (6.1) buffer cells and blood."], p: [P1], drills: [bc-hh-ph, bc-blood-ratio] }
           - { id: B, std: ["asbmb-core-2013:3.1"], do: "Compute the fraction of an ionisable side chain protonated at a given pH.", ek: ["f(HA) = 1/(1 + 10^(pH − pKa)); His (pKa ≈ 6.0) switches near physiological pH."], p: [P1], drills: [bc-fraction-protonated, bc-shifted-pka] }
       - n: 2
         title: "Amino-acid and peptide charge"
@@ -108,7 +108,7 @@ units:
       - n: 1
         title: "Michaelis–Menten kinetics"
         los:
-          - { id: A, std: ["asbmb-core-2013:2.2", "asbmb-cert:2.4", "acs-accm-analytical:VII.E.1"], do: "Compute an initial rate from V_max, K_M and [S].", ek: ["v = V_max[S]/(K_M + [S]); v = V_max/2 at [S] = K_M."], p: [P1], drills: [bc-mm-rate, bc-mm-s-for-v] }
+          - { id: A, std: ["asbmb-core-2013:2.2", "asbmb-cert:2.4", "acs-accm-analytical:VII.E.1", "fe-chemical:5.D"], do: "Compute an initial rate from V_max, K_M and [S].", ek: ["v = V_max[S]/(K_M + [S]); v = V_max/2 at [S] = K_M."], p: [P1], drills: [bc-mm-rate, bc-mm-s-for-v] }
           - { id: B, std: ["asbmb-core-2013:2.2"], do: "Compute k_cat and catalytic efficiency and compare with the diffusion limit.", ek: ["k_cat = V_max/[E]_T; k_cat/K_M approaches 10⁸–10⁹ M⁻¹ s⁻¹ for diffusion-limited enzymes."], p: [P1], drills: [bc-kcat, bc-efficiency] }
           - { id: C, std: ["asbmb-core-2013:2.2", "asbmb-cert:2.4", "acs-accm-analytical:X.A.2"], do: "Read K_M and V_max from a Lineweaver–Burk plot.", ek: ["1/v = (K_M/V_max)(1/[S]) + 1/V_max: y-intercept 1/V_max, x-intercept −1/K_M."], p: [P1], drills: [bc-lb-km, bc-lb-vmax] }
       - n: 2
@@ -148,7 +148,7 @@ units:
       - n: 1
         title: "Transport energetics"
         los:
-          - { id: A, std: ["asbmb-core-2013:2.1"], do: "Compute the Nernst equilibrium potential of an ion.", ek: ["E = (RT/zF) ln([out]/[in]); about 61.5/z mV per decade at 37 °C."], p: [P1], drills: [bc-nernst, bc-nernst-ratio] }
+          - { id: A, std: ["asbmb-core-2013:2.1", "fe-chemical:5.D"], do: "Compute the Nernst equilibrium potential of an ion.", ek: ["E = (RT/zF) ln([out]/[in]); about 61.5/z mV per decade at 37 °C."], p: [P1], drills: [bc-nernst, bc-nernst-ratio] }
           - { id: B, std: ["asbmb-core-2013:3.2", "asbmb-core-2013:2.1"], do: "Compute the free energy of moving a charged solute across a membrane.", ek: ["ΔG = RT ln(c_in/c_out) + zFΔψ (Δψ = ψ_in − ψ_out)."], p: [P1], drills: [bc-transport-dg, bc-glucose-gradient] }
           - { id: C, std: ["asbmb-cert:2.1"], do: "Distinguish channels, carriers and pumps, and predict how lipid composition changes fluidity.", ek: ["Unsaturated and shorter chains raise fluidity; cholesterol buffers it; pumps use ATP, secondary transporters use gradients."], p: [P2], drills: [bc-membranes, bc-membranes-2] }
   - id: metabolism

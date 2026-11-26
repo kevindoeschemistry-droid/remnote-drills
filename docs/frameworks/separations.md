@@ -28,7 +28,7 @@ Big ideas: STAGE, DRIVE
 
 
 
-- ● **SP-1.1.A** (webwork-opl:TH16.4) Compute a vapour composition from relative volatility.
+- ● **SP-1.1.A** (webwork-opl:TH16.4, fe-chemical:10.E) Compute a vapour composition from relative volatility.
   - EK: y = αx/(1 + (α − 1)x).
   - P1 · drills: sp-vle-alpha, sp-alpha-from-data
 - ● **SP-1.1.B** Compute the minimum number of stages with Fenske.

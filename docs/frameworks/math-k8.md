@@ -277,7 +277,7 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Single-digit sums are recalled, not computed.
   - Needs: MK-2.1.F
   - MP6 · drills: k8-add20, k2-fact-family
-- ● **MK-3.1.C** (2.OA.C.3) Determine whether a group of up to 20 objects has an odd or even number of members (pairing, counting by 2s); write an even number as a sum of two equal addends.
+- ● **MK-3.1.C** (2.OA.C.3, uil-number-sense:E1.6) Determine whether a group of up to 20 objects has an odd or even number of members (pairing, counting by 2s); write an even number as a sum of two equal addends.
   - EK: Even numbers split into two equal groups or pairs with none left.
   - Needs: MK-2.1.F
   - MP7 · drills: k8-even-odd, k2-even-odd-sum
@@ -298,7 +298,7 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Skip-counting by 10s or 100s changes one digit at a time.
   - Needs: MK-2.2.A, MK-3.2.A
   - MP7 · drills: k8-skip-count, k2-skip-count-next
-- ● **MK-3.2.C** (2.NBT.A.3) Read and write numbers to 1000 using base-ten numerals, number names and expanded form.
+- ● **MK-3.2.C** (2.NBT.A.3, uil-number-sense:E1.2, uil-number-sense:E1.7) Read and write numbers to 1000 using base-ten numerals, number names and expanded form.
   - EK: Expanded form shows each digit's value: 352 = 300 + 50 + 2.
   - Needs: MK-3.2.A
   - MP6 · drills: k8-expanded, k2-expanded-to-number
@@ -306,7 +306,7 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Compare from the largest place down.
   - Needs: MK-3.2.A, MK-2.2.C
   - MP2 · MP6 · drills: k8-cmp-3d, k2-compare-three-digit
-- ● **MK-3.2.E** (2.NBT.B.5) Fluently add and subtract within 100 using strategies based on place value, properties of operations, and the relationship between addition and subtraction.
+- ● **MK-3.2.E** (2.NBT.B.5, uil-number-sense:E1.1) Fluently add and subtract within 100 using strategies based on place value, properties of operations, and the relationship between addition and subtraction.
   - EK: Decompose by place, then combine like units.
   - Needs: MK-2.2.D, MK-2.2.F, MK-3.1.B
   - MP7 · MP8 · drills: k8-add100, mm-sub-same-change-2digit
@@ -314,7 +314,7 @@ Big ideas: PV, OPS, MEAS, DATA
   - EK: Group tens with tens, ones with ones, in any order.
   - Needs: MK-3.2.E
   - MP7 · drills: k8-add4x2d, k2-add-four-tens
-- ● **MK-3.2.G** (2.NBT.B.7) Add and subtract within 1000 using models, drawings and place-value strategies, composing or decomposing tens and hundreds as needed.
+- ● **MK-3.2.G** (2.NBT.B.7, uil-number-sense:E1.8, uil-number-sense:E1.9) Add and subtract within 1000 using models, drawings and place-value strategies, composing or decomposing tens and hundreds as needed.
   - EK: Ten tens make a hundred; a hundred can be broken into ten tens.
   - Needs: MK-3.2.E, MK-3.2.A
   - MP3 · MP7 · drills: k8-add1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-sub-count-up-change, mm-add-compensate
@@ -438,11 +438,11 @@ Big ideas: OPS, MULT, LINE, MEAS
 
 
 
-- ● **MK-4.2.A** (3.NBT.A.1) Use place value understanding to round whole numbers to the nearest 10 or 100.
+- ● **MK-4.2.A** (3.NBT.A.1, uil-number-sense:E1.2, uil-number-sense:E1.3) Use place value understanding to round whole numbers to the nearest 10 or 100.
   - EK: Round to the nearer multiple; halfway rounds up.
   - Needs: MK-3.2.D, MK-3.3.F
   - MP6 · drills: k8-round-10-100, g35-round-number-line
-- ● **MK-4.2.B** (3.NBT.A.2) Fluently add and subtract within 1000 using strategies and algorithms based on place value, properties, and the add–subtract relationship.
+- ● **MK-4.2.B** (3.NBT.A.2, uil-number-sense:E1.1) Fluently add and subtract within 1000 using strategies and algorithms based on place value, properties, and the add–subtract relationship.
   - EK: Regroup across places: ten ones = one ten, ten tens = one hundred.
   - Needs: MK-3.2.G, MK-3.2.I
   - MP7 · drills: k8-add1000, mm-add-left-to-right, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up
@@ -488,7 +488,7 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: Elapsed time is a difference; jump to the next hour on a number line.
   - Needs: MK-3.3.G, MK-3.3.F
   - MP4 · MP6 · drills: k8-elapsed, g35-elapsed-end
-- ● **MK-4.4.B** (3.MD.A.2) Measure and estimate liquid volumes and masses in g, kg and L; solve one-step word problems with them using the four operations.
+- ● **MK-4.4.B** (3.MD.A.2, uil-number-sense:E2.11) Measure and estimate liquid volumes and masses in g, kg and L; solve one-step word problems with them using the four operations.
   - EK: Volume and mass add like lengths when units match.
   - Needs: MK-4.1.C, MK-3.3.A
   - MP4 · MP5 · drills: k8-mass-volume-problem, g35-estimate-mass, aq-spoon-of-water, ~k8-word-mult
@@ -500,7 +500,7 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: Ruler marks between whole numbers are fractions on a number line.
   - Needs: MK-3.3.I, MK-4.3.C
   - MP5 · drills: k8-ruler-quarters, g35-quarter-inch, ~k8-line-plot
-- ● **MK-4.4.E** (3.MD.C.5a, 3.MD.C.5b) Recognize area as an attribute of plane figures: a unit square has one square unit of area, and a figure covered by n unit squares without gaps or overlaps has area n.
+- ● **MK-4.4.E** (3.MD.C.5a, 3.MD.C.5b, uil-number-sense:E4.3) Recognize area as an attribute of plane figures: a unit square has one square unit of area, and a figure covered by n unit squares without gaps or overlaps has area n.
   - EK: Area counts unit squares that cover a region.
   - Needs: MK-3.4.B
   - MP6 · drills: k8-area-squares, g35-area-meaning, ~k8-rect-area
@@ -508,7 +508,7 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: Area = number of unit squares, labeled with the square unit.
   - Needs: MK-4.4.E
   - MP5 · MP6 · drills: k8-area-squares, g35-area-count-row, ~k8-array
-- ● **MK-4.4.G** (3.MD.C.7a, 3.MD.C.7b) Find the area of a rectangle with whole-number sides by tiling it and show it equals the product of the side lengths; multiply side lengths to solve area problems.
+- ● **MK-4.4.G** (3.MD.C.7a, 3.MD.C.7b, uil-number-sense:E3.3) Find the area of a rectangle with whole-number sides by tiling it and show it equals the product of the side lengths; multiply side lengths to solve area problems.
   - EK: Area of a rectangle = rows × columns = length × width.
   - Needs: MK-4.4.F, MK-4.1.A
   - MP7 · drills: k8-rect-area, g35-rect-missing-side
@@ -516,11 +516,11 @@ Big ideas: OPS, MULT, LINE, MEAS
   - EK: Split a rectangle and the areas add: a(b + c) = ab + ac.
   - Needs: MK-4.4.G, MK-4.1.E
   - MP4 · MP7 · drills: k8-area-distributive, g35-area-split
-- ● **MK-4.4.I** (3.MD.C.7d) Find areas of rectilinear figures by decomposing them into non-overlapping rectangles and adding the areas.
+- ● **MK-4.4.I** (3.MD.C.7d, uil-number-sense:E4.4) Find areas of rectilinear figures by decomposing them into non-overlapping rectangles and adding the areas.
   - EK: Area is additive.
   - Needs: MK-4.4.G
   - MP1 · MP7 · drills: k8-rectilinear, g35-rectilinear-subtract
-- ● **MK-4.4.J** (3.MD.D.8) Solve perimeter problems: find the perimeter from side lengths, find an unknown side, and show rectangles with the same perimeter and different areas or the same area and different perimeters.
+- ● **MK-4.4.J** (3.MD.D.8, uil-number-sense:E3.3) Solve perimeter problems: find the perimeter from side lengths, find an unknown side, and show rectangles with the same perimeter and different areas or the same area and different perimeters.
   - EK: Perimeter is a length around; area is the space inside — they vary independently.
   - Needs: MK-4.4.G, MK-3.3.E
   - MP1 · MP3 · drills: k8-perimeter, g35-same-perimeter
@@ -579,7 +579,7 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
   - EK: Compare digit by digit from the largest place.
   - Needs: MK-5.2.A, MK-3.2.C, MK-3.2.D
   - MP6 · drills: k8-expanded-big, k8-cmp-multi, k8-digit-value
-- ● **MK-5.2.C** (4.NBT.A.3) Use place value understanding to round multi-digit whole numbers to any place.
+- ● **MK-5.2.C** (4.NBT.A.3, uil-number-sense:E1.3) Use place value understanding to round multi-digit whole numbers to any place.
   - EK: Look one place to the right of the rounding place.
   - Needs: MK-4.2.A, MK-5.2.B
   - MP6 · drills: k8-round-any, g35-round-reverse
@@ -612,11 +612,11 @@ Big ideas: PV, LINE, MULT, MEAS, SHAPE
   - EK: Adding fractions with the same denominator adds numbers of same-size parts.
   - Needs: MK-4.3.A
   - MP2 · drills: k8-frac-add-like, g35-joining-parts
-- ● **MK-5.3.D** (4.NF.B.3b) Decompose a fraction into a sum of fractions with the same denominator in more than one way (3/8 = 1/8 + 2/8; 2 1/8 = 1 + 1 + 1/8 = 8/8 + 8/8 + 1/8).
+- ● **MK-5.3.D** (4.NF.B.3b, uil-number-sense:E2.1) Decompose a fraction into a sum of fractions with the same denominator in more than one way (3/8 = 1/8 + 2/8; 2 1/8 = 1 + 1 + 1/8 = 8/8 + 8/8 + 1/8).
   - EK: A fraction is a sum of unit fractions.
   - Needs: MK-5.3.C
   - MP7 · drills: k8-frac-decompose, g35-decompose-unit
-- ● **MK-5.3.E** (4.NF.B.3c) Add and subtract mixed numbers with like denominators by replacing each with an equivalent fraction or using properties of operations.
+- ● **MK-5.3.E** (4.NF.B.3c, uil-number-sense:E2.1) Add and subtract mixed numbers with like denominators by replacing each with an equivalent fraction or using properties of operations.
   - EK: Mixed number a b/c = a + b/c; regroup a whole as c/c when needed.
   - Needs: MK-5.3.D, MK-4.3.E
   - MP7 · drills: k8-frac-mixed-like, g35-mixed-to-improper
@@ -728,7 +728,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
   - EK: × 10ⁿ shifts every digit n places left.
   - Needs: MK-6.2.A
   - MP7 · MP8 · drills: k8-pow10, k8s-power-of-ten-shift
-- ● **MK-6.2.C** (5.NBT.A.3a) Read and write decimals to thousandths using base-ten numerals, number names and expanded form (347.392 = 3×100 + 4×10 + 7×1 + 3×(1/10) + 9×(1/100) + 2×(1/1000)).
+- ● **MK-6.2.C** (5.NBT.A.3a, uil-number-sense:E1.7) Read and write decimals to thousandths using base-ten numerals, number names and expanded form (347.392 = 3×100 + 4×10 + 7×1 + 3×(1/10) + 9×(1/100) + 2×(1/1000)).
   - EK: Thousandths are the third place right of the decimal point.
   - Needs: MK-6.2.A, MK-5.3.J
   - MP6 · drills: k8-expanded-dec, k8-digit-value-dec
@@ -748,7 +748,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
   - EK: Estimate each quotient digit by rounding the divisor; check by multiplying back.
   - Needs: MK-5.2.F
   - MP4 · MP7 · drills: k8-div-2d, k8s-divide-by-scaling
-- ● **MK-6.2.H** (5.NBT.B.7) Add, subtract, multiply and divide decimals to hundredths using models, place-value strategies and properties of operations, and explain the reasoning.
+- ● **MK-6.2.H** (5.NBT.B.7, uil-number-sense:E2.2) Add, subtract, multiply and divide decimals to hundredths using models, place-value strategies and properties of operations, and explain the reasoning.
   - EK: Line up like places to add; for products, tenths × tenths = hundredths.
   - Needs: MK-6.2.B, MK-6.2.C, MK-5.2.D, MK-5.2.E
   - MP3 · MP7 · drills: k8-dec-ops, k8s-decimal-as-fraction, k8s-reasonable-estimate
@@ -814,7 +814,7 @@ Big ideas: LINE, PV, MULT, MEAS, SHAPE
   - EK: Volume = number of unit cubes, labeled with the cubic unit.
   - Needs: MK-6.4.C
   - MP5 · MP6 · drills: k8-volume-by-layers, g35-volume-cubes-layers, ~k8-volume-prism
-- ● **MK-6.4.E** (5.MD.C.5a, 5.MD.C.5b) Find the volume of a right rectangular prism with whole-number edges by packing it with unit cubes, show it equals the product of the edge lengths, and apply V = l × w × h and V = b × h.
+- ● **MK-6.4.E** (5.MD.C.5a, 5.MD.C.5b, uil-number-sense:E3.10) Find the volume of a right rectangular prism with whole-number edges by packing it with unit cubes, show it equals the product of the edge lengths, and apply V = l × w × h and V = b × h.
   - EK: V = (area of base) × height = layers × cubes per layer.
   - Needs: MK-6.4.D, MK-4.4.G, MK-4.1.E
   - MP4 · MP7 · drills: k8-volume-prism, g35-volume-missing-edge

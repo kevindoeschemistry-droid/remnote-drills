@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/materials.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**17 learning objectives** in 3 units (6 core): 17 drilled, 0 partly, 0 with no drills. Core: 6 / 6 drilled.
+**25 learning objectives** in 4 units (6 core): 25 drilled, 0 partly, 0 with no drills. Core: 6 / 6 drilled.
 
 ## Big ideas
 
@@ -21,6 +21,7 @@ Generated from `drills/frameworks/materials.yaml` by `scripts/framework.mjs`. �
 | 1 · Polymers | core | — | 4 | 4 | 0 | 0 |
 | 2 · Properties of solids | core | — | 2 | 2 | 0 | 0 |
 | 3 · Colloids and DLVO theory | extension | — | 11 | 11 | 0 | 0 |
+| 4 · Material selection and corrosion | extension | — | 8 | 8 | 0 | 0 |
 
 ## Unit 1 · Polymers
 
@@ -123,3 +124,46 @@ Big ideas: PROPS
   - EK: Polymers and solvent structure add terms DLVO lacks.
   - Needs: MT-3.3.B
   - P2 · drills: col-beyond-dlvo, col-nondlvo-scenario
+
+## Unit 4 · Material selection and corrosion (extension)
+
+Big ideas: PROPS
+
+### 4.1 Choosing a material
+
+
+
+- ● **MT-4.1.A** (fe-chemical:4.B) Choose a material class for a stated service from its temperature, pressure and chemistry
+  - EK: Carbon steel is the default and everything else is justified against it: stainless for oxidising and mildly corrosive service, nickel alloys for hot chlorides and strong acids, titanium for seawater and wet chlorine, and polymers or linings where metals fail but temperature allows.
+  - P2 · drills: fe-material-pick, fe-upgrade-cost
+- ● **MT-4.1.B** (fe-chemical:4.B) Compute the wall thickness a stated corrosion allowance adds and the life it buys
+  - EK: A corrosion allowance is thickness added beyond the pressure requirement, so the life it buys is the allowance over the corrosion rate; doubling the allowance doubles the life only if the rate stays constant, which is exactly what localised attack does not do.
+  - P1 · drills: fe-corrosion-life, fe-allowance-needed
+- ● **MT-4.1.C** (fe-chemical:4.B) Decide whether a stated material pairing is compatible in service
+  - EK: Compatibility is not just whether the metal dissolves: it covers embrittlement, stress-corrosion cracking, catalytic decomposition of the fluid and contamination of the product, and a compatibility chart is read for the fluid at the service temperature, not at room temperature.
+  - P2 · drills: fe-compatibility, fe-stress-threshold
+
+### 4.2 Corrosion mechanisms
+
+
+
+- ● **MT-4.2.A** (fe-chemical:4.C) Compute a corrosion rate from a mass-loss or thickness measurement
+  - EK: A uniform rate in millimetres a year follows from mass loss over area, density and time, and it is the one corrosion mode a wall thickness can be designed against.
+  - P1 · drills: fe-corrosion-rate, fe-rate-from-thickness
+- ● **MT-4.2.B** (fe-chemical:4.C) Identify the corrosion mechanism a stated failure describes
+  - EK: Uniform attack thins the wall evenly; pitting and crevice attack concentrate it where the electrolyte is stagnant; galvanic attack puts the anode next to a more noble metal; stress-corrosion cracking needs tensile stress, a susceptible alloy and a specific environment together; and erosion-corrosion follows high velocity and solids.
+  - P2 · drills: fe-mechanism-id, fe-pit-penetration
+- ● **MT-4.2.C** (fe-chemical:4.C) Predict which metal corrodes in a stated galvanic couple and how the area ratio changes the rate
+  - EK: The less noble metal is the anode and corrodes, and the current it must carry is set by the cathode area, so a small anode next to a large cathode corrodes fast: a steel bolt in a stainless plate fails, while a stainless bolt in a steel plate does not.
+  - P2 · drills: fe-area-ratio, fe-galvanic-which
+
+### 4.3 Corrosion control
+
+
+
+- ● **MT-4.3.A** (fe-chemical:4.C) Compute a cathodic protection current from the area to be protected and a stated current density
+  - EK: Cathodic protection makes the whole structure the cathode, either with a sacrificial anode of a less noble metal or with an impressed current, and the duty is the protected area times the current density the environment needs.
+  - P1 · drills: fe-cp-current, fe-anode-life
+- ● **MT-4.3.B** (fe-chemical:4.C) State what a coating, an inhibitor and a passive film each do and how each fails
+  - EK: A coating is a barrier that fails locally at a holiday, where attack then concentrates; an inhibitor changes the solution so the reaction slows, and fails when its concentration drops; a passive film is grown by the metal itself, and fails where chloride breaks it down or where oxygen cannot reach to repair it.
+  - P2 · drills: fe-protection-fails, fe-coating-holiday

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/reaction-engineering.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**46 learning objectives** in 8 units (46 core): 46 drilled, 0 partly, 0 with no drills. Core: 46 / 46 drilled.
+**52 learning objectives** in 9 units (46 core): 52 drilled, 0 partly, 0 with no drills. Core: 46 / 46 drilled.
 
 ## Big ideas
 
@@ -27,6 +27,7 @@ Generated from `drills/frameworks/reaction-engineering.yaml` by `scripts/framewo
 | 6 · Nonisothermal reactors | core | — | 4 | 4 | 0 | 0 |
 | 7 · Diffusion and reaction | core | — | 5 | 5 | 0 | 0 |
 | 8 · Residence times and nonideal reactors | core | — | 5 | 5 | 0 | 0 |
+| 9 · Bioprocessing | extension | — | 6 | 6 | 0 | 0 |
 
 ## Unit 1 · Rates
 
@@ -323,6 +324,38 @@ Big ideas: TIME
   - EK: Danckwerts closed–closed: q = √(1 + 4Da/Pe).
   - Needs: RE-8.2.B
   - P1 · drills: re-dispersion, re-dispersion-variance
+
+## Unit 9 · Bioprocessing (extension)
+
+Big ideas: TIME
+
+### 9.1 Growth and product formation
+
+
+
+- ● **RE-9.1.A** (fe-chemical:5.E) Compute a specific growth rate from the Monod equation and the doubling time it gives
+  - EK: Monod kinetics is Michaelis-Menten applied to a whole organism: growth saturates at a maximum specific rate, and the doubling time is the natural logarithm of two over that rate.
+  - P1 · drills: fe-monod-rate, fe-doubling-time
+- ● **RE-9.1.B** (fe-chemical:5.E) Compute a yield coefficient and the substrate a stated batch needs
+  - EK: A yield coefficient is cells or product per unit substrate consumed, so the substrate charge follows from the target titre; what the coefficient leaves out is maintenance, which is why a slow fermentation uses more substrate per gram of product than a fast one.
+  - P1 · drills: fe-yield-substrate, fe-yield-from-batch
+- ● **RE-9.1.C** (fe-chemical:5.E) Compute the dilution rate at which a chemostat washes out and the productivity near it
+  - EK: At steady state in a chemostat the specific growth rate equals the dilution rate, so raising the feed rate raises productivity until the dilution rate reaches the maximum growth rate, at which point the culture washes out.
+  - P1 · drills: fe-washout, fe-chemostat-feed
+
+### 9.2 Bioreactor operation
+
+
+
+- ● **RE-9.2.A** (fe-chemical:5.E) Compute the oxygen transfer a stated aerobic fermentation needs and compare it with the supply
+  - EK: An aerobic culture's oxygen demand is its oxygen uptake rate, and the supply is the transfer coefficient times the driving force to the dissolved concentration; because oxygen is barely soluble, the driving force is small and transfer is usually what limits scale-up rather than kinetics.
+  - P1 · drills: fe-oxygen-demand, fe-kla-needed
+- ● **RE-9.2.B** (fe-chemical:5.E) State which mode of bioreactor operation a stated objective calls for
+  - EK: Batch is simplest and gives a defined lot, fed-batch avoids substrate inhibition and catabolite repression and is what most industrial fermentations use, continuous gives the highest productivity but risks contamination and strain drift over long runs, and perfusion keeps cells while removing product.
+  - P2 · drills: fe-reactor-mode, fe-fedbatch-feed
+- ● **RE-9.2.C** (fe-chemical:5.E) Compute the sterilisation hold a stated thermal death requirement needs
+  - EK: Thermal death is first order in viable count, so the hold time is the number of log reductions times the decimal reduction time at that temperature; the design basis is the probability of one survivor in the whole batch, not an average.
+  - P1 · drills: fe-sterilisation-hold, fe-sterilisation-logs
 
 ## Drills not yet placed on the map
 

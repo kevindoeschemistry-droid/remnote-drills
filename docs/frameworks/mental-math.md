@@ -35,10 +35,10 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.1.B** (H1.1) Take a fraction of a whole number by dividing first.
+- ● **MM-1.1.B** (H1.1, J1.1, J2.1, E3.1, E4.1) Take a fraction of a whole number by dividing first.
   - EK: p/q of n: divide by q, then multiply by p.
   - P1 · P2 · drills: mm-fraction-of, mm-whole-from-fraction
-- ● **MM-1.1.A** (H1.1) Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.
+- ● **MM-1.1.A** (H1.1, J1.1, J2.1, E3.1, E4.1) Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.
   - EK: Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.
   - EK: Slide both numbers so the one taken away is round (541 − 229 = 542 − 230); count up when the two are close.
   - P1 · P2 · drills: mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate, mm-money-subtract
@@ -47,7 +47,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.2.A** (H1.2) Evaluate a short expression with mixed operations in the right order.
+- ● **MM-1.2.A** (H1.2, J1.2, E2.5) Evaluate a short expression with mixed operations in the right order.
   - EK: Products and quotients before sums and differences, then left to right.
   - P1 · P2 · drills: mm-order-of-operations, mm-order-power
 
@@ -55,7 +55,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.3.A** (H1.3) Spot a common factor and add before multiplying.
+- ● **MM-1.3.A** (H1.3, J1.3) Spot a common factor and add before multiplying.
   - EK: ab + ac = a(b + c); look for sums that make 10, 50 or 100.
   - P1 · P2 · drills: mm-distributive, mm-distributive-subtract
 
@@ -63,7 +63,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.4.A** (H1.4) Compare two fractions by cross-multiplying.
+- ● **MM-1.4.A** (H1.4, J1.4, E2.3) Compare two fractions by cross-multiplying.
   - EK: a/b > c/d exactly when ad > bc (positive denominators).
   - P1 · P2 · drills: mm-compare-fractions, mm-fraction-midpoint
 
@@ -71,16 +71,16 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.5.A** (H1.5) Multiply by 11, 25, 5, 99 and 101 by rewriting the multiplier.
+- ● **MM-1.5.A** (H1.5, J1.5, J2.2, J2.14, J4.11, E1.4, E2.6, E3.12, E4.6) Multiply by 11, 25, 5, 99 and 101 by rewriting the multiplier.
   - EK: 11 = 10 + 1; 25 = 100/4; 5 = 10/2; 99 = 100 − 1; 101 = 100 + 1.
   - P1 · P2 · drills: mm-times-11, mm-times-25, mm-times-5, mm-times-99-101
-- ● **MM-1.5.B** (H1.5) Multiply two numbers just under 100 from their shortfalls.
+- ● **MM-1.5.B** (H1.5, J1.5, J2.2, J4.11, E1.4, E2.6, E3.12, E4.6) Multiply two numbers just under 100 from their shortfalls.
   - EK: (100 − a)(100 − b) = 100(100 − a − b) + ab.
   - P1 · P2 · drills: mm-near-100, mm-above-100
-- ● **MM-1.5.C** (H1.5) Multiply two-digit numbers that share a tens digit and whose ones digits sum to 10, or that sit evenly around a round number.
+- ● **MM-1.5.C** (H1.5, J1.5, J2.2, J4.11, E1.4, E2.6, E3.12) Multiply two-digit numbers that share a tens digit and whose ones digits sum to 10, or that sit evenly around a round number.
   - EK: (10t + u)(10t + 10 − u) = 100t(t + 1) + u(10 − u); (m − d)(m + d) = m² − d².
   - P1 · P2 · drills: mm-same-tens, mm-difference-of-squares
-- ● **MM-1.5.D** (H1.5) Double one factor and halve the other to make a round number.
+- ● **MM-1.5.D** (H1.5, J1.5, J2.2, J4.11, E1.4, E2.6, E3.12) Double one factor and halve the other to make a round number.
   - EK: ab = (a/2)(2b); a factor ending in 5 doubles to a multiple of 10.
   - P1 · P2 · drills: mm-double-and-halve, mm-times-25
 - ● **MM-1.5.E** Divide by 5 and 25 by rewriting the divisor, and by a two-digit number in stages.
@@ -95,10 +95,10 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.6.A** (H1.6) Square a number ending in 5, or near 50 or 100, from its pattern.
+- ● **MM-1.6.A** (H1.6, J1.6, E4.5) Square a number ending in 5, or near 50 or 100, from its pattern.
   - EK: (10t + 5)² = 100t(t + 1) + 25; (50 ± d)² = 100(25 ± d) + d²; (100 ± d)² = 100(100 ± 2d) + d².
   - P1 · P2 · drills: mm-square-ending-5, mm-square-near-50, mm-square-near-100
-- ● **MM-1.6.B** (H1.6) Square any two-digit number by sliding to a multiple of ten.
+- ● **MM-1.6.B** (H1.6, J1.6, E4.5) Square any two-digit number by sliding to a multiple of ten.
   - EK: n² = (n − d)(n + d) + d².
   - P1 · P2 · drills: mm-square-two-digit, mm-difference-of-squares
 
@@ -106,13 +106,13 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.7.A** (H1.7) Recall the percent form of the common fractions, and use it to take a percent of a number.
+- ● **MM-1.7.A** (H1.7, E2.4) Recall the percent form of the common fractions, and use it to take a percent of a number.
   - EK: Eighths step by 12.5%; 1/6 = 16⅔%; 1/7 ≈ 14.3%; 1/9 ≈ 11.1%; 1/11 ≈ 9.09%; 1/12 = 8⅓%; 1/16 = 6.25%.
   - P1 · P2 · drills: mm-fraction-to-percent, mm-percent-as-fraction
-- ● **MM-1.7.B** (H1.7) Convert between common units of length, capacity, weight and time, including square and cubic units.
+- ● **MM-1.7.B** (H1.7, J2.4, E2.11) Convert between common units of length, capacity, weight and time, including square and cubic units.
   - EK: 12 in/ft, 3 ft/yd, 5280 ft/mi, 4 qt/gal, 2 pt/qt, 16 oz/lb; area factors are squared, volume factors cubed.
   - P1 · P2 · drills: mm-unit-conversion, mm-area-volume-units
-- ● **MM-1.7.C** (H1.7) Read a Roman numeral.
+- ● **MM-1.7.C** (H1.7, J1.7, E1.10) Read a Roman numeral.
   - EK: I V X L C D M = 1 5 10 50 100 500 1000; a smaller symbol before a larger one is subtracted.
   - P1 · P2 · drills: mm-roman-numerals, mm-roman-sum
 
@@ -120,7 +120,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.8.A** (H1.8) Find the GCD and LCM of two numbers under 100.
+- ● **MM-1.8.A** (H1.8, J2.9, E2.10) Find the GCD and LCM of two numbers under 100.
   - EK: The GCD divides the difference; LCM = product ÷ GCD.
   - P1 · P2 · drills: mm-gcd, mm-lcm
 
@@ -128,7 +128,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.9.A** (H1.9) Take a percent of a number by swapping or building from 10%, and apply a percent increase or decrease.
+- ● **MM-1.9.A** (H1.9, J2.3, J4.9, E4.13) Take a percent of a number by swapping or building from 10%, and apply a percent increase or decrease.
   - EK: a% of b = b% of a; a change of p% multiplies by 1 ± p/100.
   - P1 · P2 · drills: mm-percent-swap, mm-percent-change
 
@@ -136,7 +136,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.10.A** (H1.10) Find a mean with a focus number and the median of a short unsorted list.
+- ● **MM-1.10.A** (H1.10, J1.8) Find a mean with a focus number and the median of a short unsorted list.
   - EK: Mean = guess + (sum of deviations)/n; the median survives striking extremes in pairs.
   - P1 · P2 · drills: mm-mean-focus, mm-median
 
@@ -144,7 +144,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.11.A** (H1.11) Sum the first n integers, the first n odd numbers, or a short arithmetic series.
+- ● **MM-1.11.A** (H1.11, J1.9) Sum the first n integers, the first n odd numbers, or a short arithmetic series.
   - EK: 1 + … + n = n(n + 1)/2; 1 + 3 + … + (2n − 1) = n²; a series sums to (number of terms)(average of first and last).
   - P1 · P2 · drills: mm-sum-to-n, mm-sum-of-odds, mm-sum-arithmetic
 
@@ -152,7 +152,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.12.A** (H1.12) Find a remainder on division by 3, 4, 9 or 11 from the digits.
+- ● **MM-1.12.A** (H1.12, J3.10, E1.5) Find a remainder on division by 3, 4, 9 or 11 from the digits.
   - EK: Mod 3 and 9: digit sum. Mod 4: last two digits. Mod 11: alternating digit sum from the right.
   - P1 · P2 · drills: mm-remainder-digits, mm-remainder-11
 
@@ -160,7 +160,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.13.A** (H1.13) Find a sale price or similar everyday percent amount.
+- ● **MM-1.13.A** (H1.13, J2.5, E2.8, E4.8) Find a sale price or similar everyday percent amount.
   - EK: Pay (100 − p)% of the price; build from 10%.
   - P1 · P2 · drills: mm-sale-price, mm-original-price
 
@@ -168,7 +168,7 @@ Big ideas: SEE, KNOW, EST
 
 
 
-- ● **MM-1.14.A** (H1.14) Count the divisors of a number, and sum them, from its prime factorisation.
+- ● **MM-1.14.A** (H1.14, J2.10, J4.2, E2.9) Count the divisors of a number, and sum them, from its prime factorisation.
   - EK: d(n) = ∏(eᵢ + 1); σ is multiplicative, with σ(pᵏ) = 1 + p + … + pᵏ.
   - P1 · P2 · drills: mm-count-divisors, mm-sum-divisors
 
@@ -188,7 +188,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.1.A** (H2.1) Recall the powers of 2 to 2¹² and the cubes to 12³.
+- ● **MM-2.1.A** (H2.1, J4.3, E3.5) Recall the powers of 2 to 2¹² and the cubes to 12³.
   - EK: 2¹⁰ = 1024; 12³ = 1728.
   - P1 · P2 · drills: mm-powers-of-2, mm-cubes
 
@@ -196,7 +196,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.2.A** (H2.2) Evaluate an expression at given values without writing it out.
+- ● **MM-2.2.A** (H2.2, J2.6, E3.2) Evaluate an expression at given values without writing it out.
   - EK: Substitute, then use the order of operations.
   - P1 · P2 · drills: mm-substitution, mm-two-variable-sub
 
@@ -204,7 +204,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.3.A** (H2.3) Solve a one-step word problem (ages, rates, coins) mentally.
+- ● **MM-2.3.A** (H2.3, J3.2, E3.9) Solve a one-step word problem (ages, rates, coins) mentally.
   - EK: Name the unknown and undo one operation.
   - P1 · P2 · drills: mm-sum-and-difference, mm-coin-count
 
@@ -212,7 +212,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.4.A** (H2.4) Give the additive or multiplicative inverse of an integer, fraction or mixed number.
+- ● **MM-2.4.A** (H2.4, J2.13, E4.2) Give the additive or multiplicative inverse of an integer, fraction or mixed number.
   - EK: Additive inverses sum to 0; multiplicative inverses multiply to 1.
   - P1 · P2 · drills: mm-reciprocal-mixed, mm-decimal-reciprocal
 
@@ -228,7 +228,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.6.A** (H2.6) Solve a proportion by scaling or cross-multiplying.
+- ● **MM-2.6.A** (H2.6, J2.12, E2.7) Solve a proportion by scaling or cross-multiplying.
   - EK: a/b = c/d means ad = bc.
   - P1 · P2 · drills: mm-proportion, mm-unit-rate
 
@@ -236,7 +236,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.7.A** (H2.7) Find the root of a perfect square or cube from its size and last digit.
+- ● **MM-2.7.A** (H2.7, J2.8, E3.5, E4.7) Find the root of a perfect square or cube from its size and last digit.
   - EK: Bracket between squares of tens; the last digit narrows the ones digit.
   - P1 · P2 · drills: mm-perfect-square-root, mm-cube-root
 
@@ -244,7 +244,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.8.A** (H2.8) Count subsets, and elements of unions and intersections.
+- ● **MM-2.8.A** (H2.8, J3.1, E3.8) Count subsets, and elements of unions and intersections.
   - EK: A set of n elements has 2ⁿ subsets; |A ∪ B| = |A| + |B| − |A ∩ B|.
   - P1 · P2 · drills: mm-subsets, mm-proper-subsets
 
@@ -252,7 +252,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.9.A** (H2.9) Convert a short numeral from another base to base 10.
+- ● **MM-2.9.A** (H2.9, J3.6, E3.13) Convert a short numeral from another base to base 10.
   - EK: Multiply by the base and add the next digit, left to right.
   - P1 · P2 · drills: mm-base-to-ten, mm-ten-to-base5
 
@@ -260,7 +260,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.10.A** (H2.10) Solve a one- or two-step linear equation mentally.
+- ● **MM-2.10.A** (H2.10, J2.7, E3.6) Solve a one- or two-step linear equation mentally.
   - EK: Undo operations in reverse order.
   - P1 · P2 · drills: mm-linear-equation, mm-both-sides
 
@@ -276,7 +276,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.12.A** (H2.12) Write a repeating decimal as a fraction.
+- ● **MM-2.12.A** (H2.12, J4.1) Write a repeating decimal as a fraction.
   - EK: A repeating block of k digits sits over k nines.
   - P1 · P2 · drills: mm-repeating-decimal, mm-mixed-repeating
 
@@ -284,7 +284,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.13.A** (H2.13) Find the remainder of a sum or product from the remainders of its parts.
+- ● **MM-2.13.A** (H2.13, J4.10) Find the remainder of a sum or product from the remainders of its parts.
   - EK: Remainders add and multiply (mod m).
   - P1 · P2 · drills: mm-remainder-product, mm-remainder-sum
 
@@ -292,7 +292,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.14.A** (H2.14) Find the perimeter or area of a rectangle, triangle, trapezoid or circle from its dimensions.
+- ● **MM-2.14.A** (H2.14, J2.11, J3.7, J3.9, E3.4, E4.11) Find the perimeter or area of a rectangle, triangle, trapezoid or circle from its dimensions.
   - EK: A = bh, ½bh, ½(b₁ + b₂)h, πr².
   - P1 · P2 · drills: mm-area, mm-area-trapezoid
 
@@ -300,7 +300,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-2.15.A** (H2.15) Find the next or the n-th term of an arithmetic or geometric sequence.
+- ● **MM-2.15.A** (H2.15, J3.4, E3.7) Find the next or the n-th term of an arithmetic or geometric sequence.
   - EK: aₙ = a₁ + (n − 1)d; aₙ = a₁rⁿ⁻¹.
   - P1 · P2 · drills: mm-nth-term, mm-arithmetic-sum
 
@@ -328,7 +328,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-3.2.A** (H3.2) Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.
+- ● **MM-3.2.A** (H3.2, J3.3, J3.9, E3.11) Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.
   - EK: 3-4-5, 5-12-13, 8-15-17, 7-24-25 and their multiples.
   - P1 · P2 · drills: mm-pythagorean-triple, mm-right-triangle-area
 
@@ -336,7 +336,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-3.3.A** (H3.3) Find a slope, midpoint, distance or intercept from two points or an equation.
+- ● **MM-3.3.A** (H3.3, J4.7, E4.12) Find a slope, midpoint, distance or intercept from two points or an equation.
   - EK: m = Δy/Δx; midpoint averages the coordinates.
   - P1 · P2 · drills: mm-slope, mm-intercept-two-points
 
@@ -352,7 +352,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-3.5.A** (H3.5) Solve a linear inequality or count its integer solutions.
+- ● **MM-3.5.A** (H3.5, J3.8, E4.9) Solve a linear inequality or count its integer solutions.
   - EK: Multiplying by a negative reverses the inequality.
   - P1 · P2 · drills: mm-inequality-count, mm-abs-inequality-count
 
@@ -376,7 +376,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-3.8.A** (H3.8) Sum an infinite geometric series.
+- ● **MM-3.8.A** (H3.8, J4.5) Sum an infinite geometric series.
   - EK: S = a/(1 − r) for |r| < 1.
   - P1 · P2 · drills: mm-geometric-sum, mm-ratio-from-sum
 
@@ -400,7 +400,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-3.11.A** (H3.11) Evaluate a small combination, permutation or factorial ratio.
+- ● **MM-3.11.A** (H3.11, J4.6) Evaluate a small combination, permutation or factorial ratio.
   - EK: C(n, r) = n(n − 1)…(n − r + 1)/r!.
   - P1 · P2 · drills: mm-combinations, mm-permutations
 
@@ -408,7 +408,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-3.12.A** (H3.12) Give the probability or odds of a simple event with dice, coins or cards.
+- ● **MM-3.12.A** (H3.12, J4.8, E4.10) Give the probability or odds of a simple event with dice, coins or cards.
   - EK: Odds in favour = successes : failures.
   - P1 · P2 · drills: mm-two-dice, mm-dice-sum-prob
 
@@ -460,7 +460,7 @@ Big ideas: SEE, KNOW
 
 
 
-- ● **MM-4.1.A** (H4.1) Find the volume or surface area of a prism, cylinder, cone or sphere, in terms of π where needed.
+- ● **MM-4.1.A** (H4.1, J3.5, J4.4) Find the volume or surface area of a prism, cylinder, cone or sphere, in terms of π where needed.
   - EK: V = πr²h, ⅓πr²h, ⁴⁄₃πr³; sphere area 4πr².
   - P1 · P2 · drills: mm-volume-in-pi, mm-sphere-in-pi
 
