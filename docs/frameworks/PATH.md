@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 159 objectives move up to sit just after the prerequisites they need. 4401 objectives in 54 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 159 objectives move up to sit just after the prerequisites they need. 4423 objectives in 54 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -53,8 +53,8 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 47 | INBDE (Dentistry) | health | — | 81 | 3775–3855 |
 | 48 | NCLEX-RN | health | — | 67 | 3856–3922 |
 | 49 | AI Safety | safety | programming, calculus | 104 | 3923–4026 |
-| 50 | Biosecurity | safety | biology, statistics | 42 | 4027–4068 |
-| 51 | Speaking and Articulation | communication | — | 69 | 4069–4137 |
-| 52 | Basketball | athletics | — | 88 | 4138–4225 |
-| 53 | Swimming | athletics | — | 88 | 4226–4313 |
-| 54 | Wushu | athletics | — | 88 | 4314–4401 |
+| 50 | Biosecurity | safety | biology, statistics | 64 | 4027–4090 |
+| 51 | Speaking and Articulation | communication | — | 69 | 4091–4159 |
+| 52 | Basketball | athletics | — | 88 | 4160–4247 |
+| 53 | Swimming | athletics | — | 88 | 4248–4335 |
+| 54 | Wushu | athletics | — | 88 | 4336–4423 |

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/biosecurity.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**42 learning objectives** in 7 units (42 core): 42 drilled, 0 partly, 0 with no drills. Core: 42 / 42 drilled.
+**64 learning objectives** in 8 units (42 core): 64 drilled, 0 partly, 0 with no drills. Core: 42 / 42 drilled.
 
 ## Big ideas
 
@@ -27,6 +27,7 @@ Generated from `drills/frameworks/biosecurity.yaml` by `scripts/framework.mjs`. 
 | 4 · Blocking transmission (Withstand) | core | — | 5 | 5 | 0 | 0 |
 | 5 · Exiting the pandemic (Combat) | core | — | 6 | 6 | 0 | 0 |
 | 6 · Contributing to biosecurity | core | — | 2 | 2 | 0 | 0 |
+| 8 · Health-system capacities and treaty machinery | extension | — | 22 | 22 | 0 | 0 |
 
 ## Unit 1 · Building a pandemic-proof world
 
@@ -41,7 +42,7 @@ Big ideas: GROWTH, LAYERS
   - P1 · drills: bs-doubling-time, bs-r-from-doubling
 - ● **BS-1.1.B** Compute the herd-immunity threshold from R₀, and R₀ from it.
   - EK: Threshold = 1 − 1/R₀.
-  - P1 · drills: bs-herd-threshold, bs-r0-from-threshold
+  - P1 · drills: bs-r0-from-threshold, bs-herd-threshold
 - ● **BS-1.1.C** Distinguish case and infection fatality ratios and correct for under-ascertainment.
   - EK: CFR = deaths/confirmed cases; IFR = deaths/infections; infections ≈ cases ÷ ascertainment.
   - P1 · P2 · drills: bs-ifr-from-cfr, bs-fatality-bias
@@ -78,7 +79,7 @@ Big ideas: GROWTH
 
 - ● **BS-7.2.A** (cdc-ss1978:L3) Compute attack rates and secondary attack rates.
   - EK: Attack rate = cases ÷ population at risk; secondary attack rate counts contacts of primary cases only.
-  - P1 · drills: bs-attack-rate, bs-secondary-attack
+  - P1 · drills: bs-secondary-attack, bs-attack-rate
 - ● **BS-7.2.B** (cdc-ss1978:L3) Distinguish incidence from prevalence and relate them through duration.
   - EK: Prevalence ≈ incidence rate × mean duration (steady state).
   - P1 · P2 · drills: bs-prevalence-from-incidence, bs-incidence-or-prevalence
@@ -266,3 +267,93 @@ Big ideas: LAYERS, NORMS
 - ● **BS-6.1.B** Map an intervention to its layer and compute the combined protection of independent layers.
   - EK: P(all layers fail) = product of each layer's failure probability.
   - P1 · P3 · drills: bs-defence-layers, bs-layer-match
+
+## Unit 8 · Health-system capacities and treaty machinery (extension)
+
+Big ideas: NORMS
+
+### 8.1 Prevent capacities
+
+
+
+- ● **BS-8.1.A** (who-jee3:P1, who-jee3:P2) State what the legal-instruments and financing capacities require of a country
+  - EK: A country needs the laws and regulations that let it act in an emergency, assessed before the emergency rather than drafted during it, and a financing route that releases money fast enough to matter; both are capacities that look like paperwork and fail only when they are needed.
+  - P2 · drills: bs-legal-financing, bs-fund-delay
+- ● **BS-8.1.B** (who-jee3:P3) State what the National IHR Focal Point is for and what it must be able to do
+  - EK: Every State Party names a focal point reachable at all times that notifies the WHO of events and relays information inside the country, so the capacity being assessed is a channel and the authority to use it, not an office.
+  - P2 · drills: bs-nfp, bs-notification-window
+- ● **BS-8.1.C** (who-jee3:P4) Compute antimicrobial consumption in defined daily doses per 1000 inhabitants per day
+  - EK: Consumption is reported in defined daily doses per thousand inhabitants per day so that countries and years can be compared, and it is the denominator against which a resistance trend is read: rising resistance with flat consumption points somewhere other than prescribing.
+  - P1 · drills: bs-ddd, bs-consumption-change
+- ● **BS-8.1.D** (who-jee3:P4) Compute a resistance proportion and what a stated change means for empirical therapy
+  - EK: A resistance proportion is isolates resistant over isolates tested, and once it passes the threshold a guideline sets, the empirical first choice has to change: the number is surveillance, the threshold is policy.
+  - P1 · drills: bs-resistance-proportion, bs-empirical-failure
+- ● **BS-8.1.E** (who-jee3:P5, who-jee3:P6) State what zoonotic-disease and food-safety capacities each require and where they meet
+  - EK: Zoonotic capacity is joint human, animal and environmental surveillance with a route for one sector to act on another's signal; food safety is the ability to trace a contaminated product and recall it. Both are One Health capacities, and most emerging human pathogens arrive through them.
+  - P2 · drills: bs-one-health, bs-spillover-sampling
+- ● **BS-8.1.F** (who-jee3:P6) Compute an attack rate and the food-specific risk ratio in a stated outbreak investigation
+  - EK: A food-specific attack rate among those who ate an item, against those who did not, gives the risk ratio that identifies the vehicle; the investigation is a case-control or cohort calculation done against the clock.
+  - P1 · drills: bs-food-risk-ratio, bs-event-attack-rate
+- ● **BS-8.1.G** (who-jee3:P8) Compute the immunization coverage a stated reproduction number needs, and the effective coverage a vaccine's efficacy gives
+  - EK: The herd-immunity threshold is one minus the reciprocal of the reproduction number, and because no vaccine is perfectly effective the coverage needed is that threshold divided by the efficacy, which is why a highly transmissible pathogen can need coverage above what any real programme reaches.
+  - P1 · drills: bs-coverage-gap, bs-herd-coverage-vaccine
+
+### 8.2 Detect and respond capacities
+
+
+
+- ● **BS-8.2.A** (who-jee3:D1) State what a national laboratory system must provide and what tiering it
+  - EK: The capacity is reliable testing for the priority diseases, a specimen referral and transport system that reaches it, and a quality system that makes the results trustworthy; tiering puts screening near the patient and confirmation in reference laboratories.
+  - P2 · drills: bs-lab-system, bs-lab-capacity
+- ● **BS-8.2.B** (who-jee3:D1) Compute specimen turnaround time and what a stated referral delay costs an outbreak response
+  - EK: Turnaround is collection to result, and every day of it is a day of transmission the response cannot act on: a test that is accurate but slow has the epidemiological value of a test that is not done.
+  - P1 · drills: bs-turnaround, bs-referral-saving
+- ● **BS-8.2.C** (who-jee3:D3) Compute a public-health workforce density and the field-epidemiology output a stated target needs
+  - EK: Workforce capacity is measured as staff per unit population, and a trained field epidemiologist is the scarcest part: a programme graduating a fixed cohort a year takes a predictable number of years to reach a density target.
+  - P1 · drills: bs-workforce-density, bs-fetp-years
+- ● **BS-8.2.D** (who-jee3:R1) State what health emergency management requires beyond a written plan
+  - EK: The capacity is an emergency operations centre that can be activated within hours with named people, a plan that has been exercised, and the legal authority to direct resources; a plan that has never been exercised is evidence of intent rather than of capacity.
+  - P2 · drills: bs-emergency-management, bs-eoc-activation
+- ● **BS-8.2.E** (who-jee3:R3) Compute the surge demand a stated caseload puts on beds and oxygen
+  - EK: Surge demand is incident cases times the fraction needing that level of care times the length of stay, which converts an epidemic curve into beds and oxygen: the peak, not the total, is what decides whether the system holds.
+  - P1 · drills: bs-surge-beds, bs-oxygen-demand
+- ● **BS-8.2.F** (who-jee3:R4) Compute a healthcare-associated infection rate and the effect of a stated compliance change
+  - EK: Infection rates are reported per thousand patient-days or per device-day so that a busier ward is comparable with a quieter one, and the interventions that move them are hand hygiene, device care and isolation rather than new agents.
+  - P1 · drills: bs-hai-rate, bs-ipc-effect
+- ● **BS-8.2.G** (who-jee3:R5) State what risk communication and community engagement must achieve and how it fails
+  - EK: The capacity is a channel to the public that is in place before the emergency and trusted when it arrives, with messages that say what is known, what is not, and what to do; it fails by silence, by over-reassurance later contradicted, and by addressing a population that does not use that channel.
+  - P2 · drills: bs-risk-comms, bs-comms-reach
+
+### 8.3 Hazard-specific and border capacities
+
+
+
+- ● **BS-8.3.A** (who-jee3:PoE) Compute the detections a stated border screening programme can expect, and its positive predictive value
+  - EK: Entry screening detects the fraction of infected travellers who are symptomatic at that moment, so for a pathogen with a long incubation it finds very few; the arithmetic is why border measures delay rather than prevent introduction.
+  - P1 · drills: bs-border-screening, bs-screening-ppv
+- ● **BS-8.3.B** (who-jee3:CE) Compute the dilution or distance a stated chemical release requires to reach an exposure guideline
+  - EK: Chemical-event capacity is an inventory of what is held where, guideline exposure levels for each, and the ability to model a release well enough to decide who shelters and who evacuates.
+  - P1 · drills: bs-chemical-dilution, bs-shelter-decision
+- ● **BS-8.3.C** (who-jee3:RE) Compute dose rate against distance, time and shielding for a stated radiation source
+  - EK: Dose rate falls with the square of distance, rises with time and falls by half for each half-value layer of shielding, which is the whole of protective practice: distance first because it is free, then time, then shielding.
+  - P1 · drills: bs-dose-distance, bs-shielding-layers
+- ● **BS-8.3.D** (who-jee3:RE) Compute the activity left after a stated decay time and when a source reaches a release level
+  - EK: Activity falls by half each half-life, so a short-lived isotope is managed by waiting and a long-lived one by containment; which it is decides whether an incident is an evacuation or a cordon.
+  - P1 · drills: bs-activity-decay, bs-decay-time
+
+### 8.4 Treaty machinery
+
+
+
+- ● **BS-8.4.A** (bwc:II, bwc:III) State what Articles II and III of the Convention require and of whom
+  - EK: Article II requires existing stocks to be destroyed or diverted to peaceful purposes, and Article III forbids transferring the agents or assisting anyone to acquire them, which is what makes export controls and screening a treaty obligation rather than a courtesy.
+  - P2 · drills: bs-bwc-ii-iii, bs-bwc-parties
+- ● **BS-8.4.B** (bwc:V, bwc:VI) State the routes the Convention gives for dealing with a suspected breach
+  - EK: Article V provides for consultation and cooperation among the Parties, and Article VI allows a complaint to the Security Council, which may investigate; the Convention has no verification organisation of its own, which is the structural weakness every review conference returns to.
+  - P2 · drills: bs-bwc-breach, bs-review-conference
+- ● **BS-8.4.C** (bwc:VII) State what Article VII provides and what triggers it
+  - EK: A Party exposed to danger as a result of a violation may request assistance, and the other Parties undertake to provide it if the Security Council decides the Party has been exposed; the obligation is to help a victim, not to deter an attacker.
+  - P2 · drills: bs-bwc-vii, bs-assistance-shortfall
+- ● **BS-8.4.D** (bwc:X) State what Article X protects and the tension it creates with Article III
+  - EK: Article X protects the right to exchange equipment, materials and information for peaceful purposes and to participate in that exchange, so every control measure under Article III has to be justified against it: the Convention's bargain is non-proliferation without blocking public-health and industrial biology.
+  - P2 · drills: bs-bwc-x, bs-screening-coverage
