@@ -10,10 +10,11 @@
  ],
  "basis": {
   "primary": "world-aquatics-rules",
-  "wanted": [
+  "also": [
+   "usas-foc-2007",
    "asca-certification"
   ],
-  "note": "Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours."
+  "note": "The World Aquatics rules (read in full) say what is legal. What to learn, and in what order, now rests on USA Swimming's Foundations of Coaching (2007; chapters 5 and 6 read, the rest by title) and the ASCA Level 1-3 school outlines (titles only). Research papers named in an objective's own essential knowledge are its source for that claim. Unit order is ours."
  },
  "big_ideas": [
   {
@@ -105,6 +106,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
        "do": "Classify a described resistance (rough suit, wide kick, bow wave at the surface) as skin-friction, form (pressure) or wave drag.",
        "ek": [
         "Skin friction depends on surface; form drag on frontal area, shape and alignment; wave drag on speed and depth below the surface."
@@ -113,21 +118,17 @@
         "P1",
         "P2"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Compute how drag and the power to overcome it change when velocity changes by a given factor.",
-       "ek": [
-        "D = ½ρC_dAv²; P = Dv ∝ v³ — 5% faster costs ≈ 16% more power."
-       ],
-       "p": [
-        "P4"
-       ],
-       "drills": []
+       "drills": [
+        "sw-resistance-type",
+        "sw-resistance-rank"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
        "do": "Explain why gliding and kicking underwater can be faster than swimming at the surface.",
        "ek": [
         "Wave drag is large at the surface and falls off steeply with depth (most of it gone by roughly 0.5 m)."
@@ -135,7 +136,28 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-underwater-why",
+        "sw-underwater-limit"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
+       "do": "Compute how drag and the power to overcome it change when velocity changes by a given factor.",
+       "ek": [
+        "D = ½ρC_dAv²; P = Dv ∝ v³ — 5% faster costs ≈ 16% more power."
+       ],
+       "p": [
+        "P4"
+       ],
+       "drills": [
+        "sw-drag-power-factor",
+        "sw-drag-factor"
+       ]
       }
      ]
     },
@@ -151,6 +173,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
        "do": "Describe a tight streamline and explain each element's effect on drag (stacked hands, arms squeezing ears, head neutral, pointed toes).",
        "ek": [
         "Each element reduces frontal area or flow separation; a raised head adds form drag."
@@ -159,10 +185,17 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-streamline-elements",
+        "sw-body-balance"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
        "do": "Explain why a glide decelerates and when to start kicking off the wall.",
        "ek": [
         "Glide velocity decays as drag acts on body plus added mass; start kicking when glide speed drops toward kicking speed, not after."
@@ -171,7 +204,10 @@
         "P2",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-glide-decay",
+        "sw-glide-when"
+       ]
       }
      ]
     },
@@ -189,18 +225,11 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Explain propulsion as momentum given to water (Newton III) and say why a high-elbow catch helps.",
-       "ek": [
-        "Thrust = rate of backward momentum given to water; a vertical forearm adds paddle area facing backward early in the pull."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": []
-      },
-      {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
        "do": "Contrast Counsilman's lift (Bernoulli sculling) model with the drag-dominant view and state what the evidence supports.",
        "ek": [
         "3-D studies of elite swimmers (Cappaert, Rushall, Sanders) found drag > lift through most of the pull in all strokes but breaststroke; hand paths are straighter than once taught, curvature mostly from body roll."
@@ -208,21 +237,17 @@
        "p": [
         "P2"
        ],
-       "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Explain propelling efficiency and why it can matter more than aerobic power.",
-       "ek": [
-        "Part of the work goes into moving water, not the body; Toussaint & Hollander modelled efficiency gains as worth more than a 10% rise in aerobic or anaerobic power."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": []
+       "drills": [
+        "sw-lift-vs-drag",
+        "sw-scull-purpose"
+       ]
       },
       {
        "id": "D",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
        "do": "Explain how the dolphin kick produces thrust from a whole-body wave.",
        "ek": [
         "A wave travelling head-to-toe with growing amplitude whips the feet; thrust comes mostly on the downkick, with the upkick also propulsive when the feet press water backward."
@@ -230,7 +255,46 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-dolphin-wave",
+        "sw-dolphin-upkick"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
+       "do": "Explain propulsion as momentum given to water (Newton III) and say why a high-elbow catch helps.",
+       "ek": [
+        "Thrust = rate of backward momentum given to water; a vertical forearm adds paddle area facing backward early in the pull."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "sw-thrust-momentum",
+        "sw-high-elbow"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usas-foc-2007:5.1",
+        "asca-certification:L2"
+       ],
+       "do": "Explain propelling efficiency and why it can matter more than aerobic power.",
+       "ek": [
+        "Part of the work goes into moving water, not the body; Toussaint & Hollander modelled efficiency gains as worth more than a 10% rise in aerobic or anaerobic power."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "sw-propelling-efficiency",
+        "sw-efficiency-vs-power"
+       ]
       }
      ]
     }
@@ -262,6 +326,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.2",
+        "usas-foc-2007:5.3",
+        "asca-certification:L2"
+       ],
        "do": "Describe the phases of the freestyle arm stroke (entry, catch, pull, push, recovery) and the purpose of each.",
        "ek": [
         "Propulsive force is concentrated from catch to push; entry and recovery set up the next pull and the body line."
@@ -269,10 +338,37 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "sw-free-phases",
+        "sw-free-essentials"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "usas-foc-2007:5.2",
+        "usas-foc-2007:5.3",
+        "asca-certification:L2"
+       ],
+       "do": "Diagnose a freestyle fault from a description (crossover entry, dropped elbow, scissor kick on breath, lifted head) and choose the correction.",
+       "ek": [
+        "Each fault either adds drag or wastes impulse; fix the root cause, usually upstream in head or entry."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "sw-free-fault",
+        "sw-free-fault-cost"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.2",
+        "usas-foc-2007:5.3",
+        "asca-certification:L2"
+       ],
        "do": "Distinguish catch-up, front-quadrant and opposition timing and match each to distance.",
        "ek": [
         "More overlap ⇒ longer DPS, lower SR (distance); less overlap ⇒ continuous propulsion, higher SR (sprint)."
@@ -281,18 +377,10 @@
         "P1",
         "P6"
        ],
-       "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Diagnose a freestyle fault from a description (crossover entry, dropped elbow, scissor kick on breath, lifted head) and choose the correction.",
-       "ek": [
-        "Each fault either adds drag or wastes impulse; fix the root cause, usually upstream in head or entry."
-       ],
-       "p": [
-        "P5"
-       ],
-       "drills": []
+       "drills": [
+        "sw-free-timing",
+        "sw-rate-length-speed"
+       ]
       }
      ]
     },
@@ -310,6 +398,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.2",
+        "usas-foc-2007:5.3",
+        "asca-certification:L2"
+       ],
        "do": "Describe the backstroke catch (little-finger entry, bent-arm pull) and why rotation lets the arm catch deep enough.",
        "ek": [
         "Rotation of ~45° each side keeps the pull under the body instead of sweeping wide at the surface."
@@ -318,10 +411,18 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-back-catch",
+        "sw-back-rotation"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.2",
+        "usas-foc-2007:5.3",
+        "asca-certification:L2"
+       ],
        "do": "Diagnose a backstroke fault (sitting hips, overreaching past the head, flat body) and choose the correction.",
        "ek": [
         "Head still and level, hips at the surface; entry in line with the shoulder."
@@ -329,7 +430,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "sw-back-fault",
+        "sw-back-correction"
+       ]
       }
      ]
     }
@@ -362,6 +466,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Describe the butterfly body wave and say where the axis sits and what moves forward vs up and down.",
        "ek": [
         "The wave pivots near the hips; hips stay at or near the surface; the chest presses to lift the hips; the head leads the wave."
@@ -369,10 +477,17 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-wave",
+        "sw-fly-short-axis"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Explain why over-undulation slows the stroke.",
        "ek": [
         "Large vertical excursion adds form and wave drag, deepens the catch and lowers tempo; energy goes up and down instead of forward."
@@ -380,7 +495,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-over-undulation",
+        "sw-fly-vertical-cost"
+       ]
       }
      ]
     },
@@ -400,6 +518,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "State when each of the two kicks per cycle happens and what each does.",
        "ek": [
         "Kick 1 at hand entry lifts the hips and balances; kick 2 as the hands push and exit is the more propulsive and lifts the shoulders for recovery."
@@ -408,10 +530,17 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-two-kicks",
+        "sw-fly-kick-count"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Describe the fly pull path from entry to exit and where the high-elbow catch is set.",
        "ek": [
         "Hands enter in front of the shoulders, set a high-elbow catch just outside them, pull under the body and push past the hips."
@@ -419,10 +548,17 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-pull-path",
+        "sw-fly-entry-quality"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Diagnose kick-kick-pull timing from a description and choose the correction.",
        "ek": [
         "Both kicks before the catch force an arched back and a downward push; cue one kick, then let the small second kick come as the hands exit — 'kick the hands in, kick the hands out'."
@@ -430,7 +566,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-kick-kick-pull",
+        "sw-fly-timing-check"
+       ]
       }
      ]
     },
@@ -445,6 +584,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Describe when the breath starts and ends relative to the pull and recovery.",
        "ek": [
         "Head lift begins with the pull, the inhale comes as the mouth clears at the push, and the face returns before the hands enter; chin stays near the waterline."
@@ -452,10 +595,17 @@
        "p": [
         "P1"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-breath-timing",
+        "sw-fly-breath-low"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Diagnose late breathing or a high head lift from a description and choose the correction.",
        "ek": [
         "A breath that starts at the end of the pull locks neck and shoulders and drops the hips; time the head with the catch and breathe forward, low."
@@ -463,10 +613,17 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-late-breath",
+        "sw-fly-breath-cost"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Choose a breathing pattern (every stroke, 1-up-1-down, 2-down) for a race distance and justify it from drag and oxygen cost.",
        "ek": [
         "Each breath adds drag and disrupts the wave; fewer breaths for 50s, regular breathing to keep the 200 aerobic."
@@ -474,7 +631,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-breath-pattern",
+        "sw-fly-breath-count"
+       ]
       }
      ]
     },
@@ -489,6 +649,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Diagnose a fly fault from a description (crashing entry, dropped elbow, bent-knee kick, arms dragging through recovery) and choose the correction.",
        "ek": [
         "Crashing entry ⇒ place hands and let chest submerge; dropped elbow ⇒ pitch palms and forearms back with fingertips down; bent knees ⇒ think hips at the surface, not 'kick harder'."
@@ -496,10 +660,17 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-fault",
+        "sw-fly-fault-rank"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Predict how fly technique degrades over the last 50 of a 200 and which cue protects speed best.",
        "ek": [
         "Recovery drops, hips sink, kick 2 disappears, SR falls; holding hip height and kick 2 protects DPS."
@@ -511,7 +682,10 @@
        "needs": [
         "SW-7.2.B"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-fatigue",
+        "sw-fly-fade-speed"
+       ]
       }
      ]
     },
@@ -536,6 +710,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: a described fly stroke with alternating kick, a breaststroke kick, or arms recovered under water.",
        "ek": [
         "SW 8.2: both arms forward together over the water, back together under; SW 8.3: leg movements simultaneous, no breaststroke kick (FINA, USA Swimming)."
@@ -543,10 +721,17 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-legal-stroke",
+        "sw-fly-legal-why"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal for a Masters butterfly using breaststroke kick, and state how USMS differs from World Aquatics.",
        "ek": [
         "USMS 101.3.3: breaststroke kick may be used exclusively or interchangeably with dolphin kick, one per arm pull except before turn and finish; illegal under SW 8.3."
@@ -554,10 +739,17 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-masters-kick",
+        "sw-fly-masters-which-rule"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: a described fly turn or finish touch (one hand, stacked hands, hands under water, staggered touch).",
        "ek": [
         "SW 8.4: both hands, separated and simultaneous, at, above or below the surface; 'separated' means not stacked — no visible gap needed."
@@ -565,10 +757,17 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-legal-touch",
+        "sw-fly-touch-meaning"
+       ]
       },
       {
        "id": "D",
+       "std": [
+        "usas-foc-2007:5.5",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: body position during fly underwaters (on the side, on the back before the first pull).",
        "ek": [
         "SW 8.1: from the first arm stroke after start or turn the body stays on the breast; underwater kicking on the side is allowed."
@@ -576,7 +775,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-legal-body",
+        "sw-fly-body-when"
+       ]
       }
      ]
     }
@@ -608,6 +810,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.4",
+        "asca-certification:L2"
+       ],
        "do": "Describe breaststroke timing (pull, breathe, kick, glide) and explain why it is the most drag-sensitive stroke.",
        "ek": [
         "The recovery of arms and legs happens under water against the flow; the stroke's speed swings most within a cycle, so a streamlined glide carries the cycle."
@@ -616,10 +822,17 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-breast-timing",
+        "sw-breast-glide"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.4",
+        "asca-certification:L2"
+       ],
        "do": "Diagnose a breaststroke fault (knees drawn under the hips, late kick, wide pull past the shoulders) and choose the correction.",
        "ek": [
         "Heels to seat with knees narrow cuts frontal area; kick as the hands shoot forward."
@@ -627,7 +840,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "sw-breast-fault",
+        "sw-breast-kick-direction"
+       ]
       }
      ]
     },
@@ -652,6 +868,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.4",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: a described breaststroke pull-out (number of dolphin kicks, when the head surfaces).",
        "ek": [
         "SW 7.1: one butterfly kick allowed before the first breaststroke kick; head must break the surface before the hands turn inward at the widest part of the second stroke."
@@ -659,10 +879,17 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-breast-pullout",
+        "sw-breast-pullout-sequence"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.4",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: a described breaststroke cycle, kick or touch.",
        "ek": [
         "SW 7.2: one arm stroke then one leg kick; SW 7.4–7.5 simultaneous legs, no downward fly kick; SW 7.6 two hands, separated, simultaneous."
@@ -670,10 +897,17 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-breast-legal-cycle",
+        "sw-breast-legal-detail"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:5.4",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: a described IM or medley-relay transition (order, stroke on the free leg, touch at each change).",
        "ek": [
         "SW 9.1 IM: fly, back, breast, free; SW 9.3 medley relay: back, breast, fly, free; SW 9.4 each section finishes by its own stroke's rule; the free leg of IM can't be swum on the back."
@@ -681,7 +915,10 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-im-order",
+        "sw-im-transition"
+       ]
       }
      ]
     },
@@ -696,6 +933,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.4",
+        "asca-certification:L2"
+       ],
        "do": "Compute the split share of each stroke in a 200 or 400 IM and identify the weak leg against a reference swimmer.",
        "ek": [
         "Share_i = t_i / Σt; compare leg differentials, not totals."
@@ -704,7 +945,10 @@
         "P4",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-im-split-share",
+        "sw-im-weak-leg"
+       ]
       }
      ]
     }
@@ -740,19 +984,12 @@
      },
      "los": [
       {
-       "id": "A",
-       "do": "Break a start into reaction, block, flight and entry phases and say what each contributes to 15 m time.",
-       "ek": [
-        "Reaction ≈ 0.6–0.7 s for elite; the race is won in the push impulse and a clean, single-hole entry that keeps speed."
-       ],
-       "p": [
-        "P1",
-        "P2"
-       ],
-       "drills": []
-      },
-      {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
        "do": "Explain how entry angle and depth trade wave drag against lost speed and time to surface.",
        "ek": [
         "Too flat ⇒ wave drag and splash; too deep ⇒ longer path back up; the target is a depth below most wave drag with a short, steady breakout."
@@ -764,10 +1001,18 @@
        "needs": [
         "SW-1.1.C"
        ],
-       "drills": []
+       "drills": [
+        "sw-start-entry",
+        "sw-start-safety"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: a described start (moving before the signal, false start after the signal, Masters in-water start).",
        "ek": [
         "SW 4.4: starting before the signal is a DQ, judged when the signal has sounded; USMS 101.1.1 allows in-water starts facing any direction."
@@ -775,7 +1020,30 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-start-legal",
+        "sw-start-legal-detail"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
+       "do": "Break a start into reaction, block, flight and entry phases and say what each contributes to 15 m time.",
+       "ek": [
+        "Reaction ≈ 0.6–0.7 s for elite; the race is won in the push impulse and a clean, single-hole entry that keeps speed."
+       ],
+       "p": [
+        "P1",
+        "P2"
+       ],
+       "drills": [
+        "sw-start-phases",
+        "sw-start-reaction-share"
+       ]
       }
      ]
     },
@@ -795,7 +1063,31 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
+       "do": "Call legal or illegal: a described backstroke flip turn (shoulders past vertical, extra kicks or glides on the front, pushing off on the stomach).",
+       "ek": [
+        "SW 6.4: after leaving the back, a continuous single or double arm pull starts the turn; touch the wall; be back on the back when leaving the wall."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "sw-back-turn-legal",
+        "sw-back-turn-count"
+       ]
+      },
+      {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
        "do": "Describe an open (two-hand) turn for fly and breast and explain how to shorten wall time.",
        "ek": [
         "Touch, drop one elbow, tuck knees tight, throw the head and arm over; a small rotation radius turns faster (angular momentum)."
@@ -804,10 +1096,18 @@
         "P1",
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-open-turn",
+        "sw-turn-tuck-speed"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
        "do": "Compute wall time (in-time + out-time) from 5 m in and 5 m out splits and compare two turns.",
        "ek": [
         "Turn time = time from 5 m before the wall to 5 m after; compare at equal distances."
@@ -815,18 +1115,10 @@
        "p": [
         "P4"
        ],
-       "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Call legal or illegal: a described backstroke flip turn (shoulders past vertical, extra kicks or glides on the front, pushing off on the stomach).",
-       "ek": [
-        "SW 6.4: after leaving the back, a continuous single or double arm pull starts the turn; touch the wall; be back on the back when leaving the wall."
-       ],
-       "p": [
-        "P3"
-       ],
-       "drills": []
+       "drills": [
+        "sw-wall-time",
+        "sw-wall-time-race"
+       ]
       }
      ]
     },
@@ -847,6 +1139,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
        "do": "Call legal or illegal: a described fly, back or free breakout relative to the 15 m mark.",
        "ek": [
         "SW 5.3, 6.3, 8.5: completely submerged ≤ 15 m after start and each turn; the head must break the surface by 15 m; one arm pull under water is permitted in fly (SW 8.5)."
@@ -854,10 +1151,37 @@
        "p": [
         "P3"
        ],
-       "drills": []
+       "drills": [
+        "sw-15m-legal",
+        "sw-15m-which-strokes"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
+       "do": "Explain the breakout: why the first stroke should begin just before surfacing.",
+       "ek": [
+        "Rising at kicking speed and stroking as the head breaks keeps velocity; surfacing then pausing loses the underwater speed."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "sw-breakout",
+        "sw-breakout-angle"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
        "do": "Compute whether an underwater segment is faster than swimming the same distance, from underwater and surface velocities.",
        "ek": [
         "Δt = d/v_swim − d/v_UW; stay under while v_UW > v_swim and the kick is sustainable."
@@ -869,10 +1193,18 @@
        "needs": [
         "SW-7.1.A"
        ],
-       "drills": []
+       "drills": [
+        "sw-underwater-vs-surface",
+        "sw-underwater-breakeven"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:5.6",
+        "usas-foc-2007:5.7",
+        "asca-certification:L2"
+       ],
        "do": "Choose the number of underwater dolphin kicks for each wall of a 100 and 200 fly and justify it.",
        "ek": [
         "Underwaters cost oxygen; holding the same count on every wall needs a count you can repeat when tired."
@@ -880,18 +1212,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
-      },
-      {
-       "id": "D",
-       "do": "Explain the breakout: why the first stroke should begin just before surfacing.",
-       "ek": [
-        "Rising at kicking speed and stroking as the head breaks keeps velocity; surfacing then pausing loses the underwater speed."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": []
+       "drills": [
+        "sw-underwater-kick-count",
+        "sw-underwater-total"
+       ]
       }
      ]
     }
@@ -1137,7 +1461,10 @@
        "needs": [
         "SW-7.2.A"
        ],
-       "drills": []
+       "drills": [
+        "sw-slowdown-source",
+        "sw-slowdown-read"
+       ]
       }
      ]
     },
@@ -1192,7 +1519,10 @@
         "P2",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-pacing-profile",
+        "sw-uneven-pace-cost"
+       ]
       }
      ]
     }
@@ -1222,6 +1552,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.1",
+        "usas-foc-2007:6.3",
+        "asca-certification:L3"
+       ],
        "do": "Match each energy system to its fuel, rate, capacity and time course.",
        "ek": [
         "ATP-CP: fastest, ~10–15 s; anaerobic glycolysis: fast, makes lactate and H⁺, limits after ~30–90 s; aerobic: slowest rate, largest capacity, carbohydrate then fat."
@@ -1229,10 +1564,18 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-energy-systems",
+        "sw-energy-overlap"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.1",
+        "usas-foc-2007:6.3",
+        "asca-certification:L3"
+       ],
        "do": "Estimate the aerobic/anaerobic mix of a race from its duration.",
        "ek": [
         "Contributions cross near ~75 s of all-out effort; a 50 is mostly anaerobic, a 200 mostly aerobic, a 100 fly near even."
@@ -1244,7 +1587,10 @@
        "needs": [
         "SW-8.1.A"
        ],
-       "drills": []
+       "drills": [
+        "sw-aerobic-mix",
+        "sw-aerobic-mix-train"
+       ]
       }
      ]
     },
@@ -1262,6 +1608,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.1",
+        "usas-foc-2007:6.3",
+        "asca-certification:L3"
+       ],
        "do": "Define lactate threshold and maximal lactate steady state and explain why they anchor training paces.",
        "ek": [
         "The highest pace where lactate production and removal balance; above it, lactate climbs and time to exhaustion shortens sharply."
@@ -1269,10 +1620,18 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-threshold",
+        "sw-threshold-test"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.1",
+        "usas-foc-2007:6.3",
+        "asca-certification:L3"
+       ],
        "do": "Match a training stimulus to the adaptation it produces (capillarity, mitochondria, buffering, power).",
        "ek": [
         "Basic and threshold work build aerobic capacity; lactate tolerance builds buffering; short maximal sprints build power and rate of glycolysis."
@@ -1280,7 +1639,10 @@
        "p": [
         "P2"
        ],
-       "drills": []
+       "drills": [
+        "sw-adaptation-match",
+        "sw-training-principles"
+       ]
       }
      ]
     }
@@ -1310,6 +1672,10 @@
      "los": [
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Explain what CSS approximates and its limits, including for butterfly.",
        "ek": [
         "CSS approximates MLSS within a few %; it overestimates for poorly paced trials and is stroke-specific — test fly separately."
@@ -1324,6 +1690,10 @@
       },
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Compute CSS (m/s and pace per 100) from 400 and 200 time-trial times.",
        "ek": [
         "CSS = (400 − 200)/(T₄₀₀ − T₂₀₀) m/s; pace/100 = (T₄₀₀ − T₂₀₀)/2 s. Variant: 350/(T₄₀₀ − T₅₀)."
@@ -1338,6 +1708,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Compute target paces per 100 for a training zone given CSS and a %CSS.",
        "ek": [
         "Pace/100 = 100 / (f·CSS); zones roughly 70% recovery, 80–87% endurance, ~95% threshold, 100–110% VO₂max."
@@ -1371,6 +1745,10 @@
      "los": [
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Classify a described set (e.g. 10×100 @ threshold on :15 rest; 6×50 max on 3:00) into its training category.",
        "ek": [
         "Maglischo: basic (≥1000, 4–5 s/100 slower than threshold, :05–:30 rest); threshold (2000–3000, :10–:30); lactate tolerance (75–200 repeats, 3–7 min rest, 600–1000 total); lactate production (25–50, 1–3 min); power (5–25, 100–300 total)."
@@ -1386,6 +1764,10 @@
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Explain why rest interval, not distance, mostly sets which system a repeat trains.",
        "ek": [
         "Short rest keeps the aerobic system loaded; long rest restores phosphagens and lets each repeat go glycolytic or maximal."
@@ -1400,6 +1782,10 @@
       },
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Compute rest per repeat, work:rest ratio and total set time from a set's distance, send-off and swim times.",
        "ek": [
         "Rest = send-off − swim time; set time = repeats × send-off; W:R = swim/rest."
@@ -1428,6 +1814,10 @@
      "los": [
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Compute a week's volume by training category and compare it with a recommended balance.",
        "ek": [
         "Maglischo: warm-up/swim-down 15–20%, threshold + overload 20–25%, basic 40–50%, sprint 5–10%."
@@ -1443,6 +1833,10 @@
       },
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Lay out a season into macro-, meso- and microcycles around a target meet.",
        "ek": [
         "General prep → specific prep → competition → taper; volume peaks before intensity peaks."
@@ -1450,7 +1844,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-season-cycles",
+        "sw-season-blocks"
+       ]
       }
      ]
     },
@@ -1465,6 +1862,10 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Design a taper by the evidence: duration, volume cut, intensity and frequency.",
        "ek": [
         "Bosquet 2007: ~2 weeks, cut volume 41–60% exponentially, keep intensity and session frequency."
@@ -1479,6 +1880,10 @@
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.2",
+        "asca-certification:L3"
+       ],
        "do": "Compute daily yardage for an exponential taper from starting volume and target reduction.",
        "ek": [
         "V(t) = V₀·e^(−t/τ); choose τ so V(end) = (1 − cut)·V₀."
@@ -1519,7 +1924,28 @@
      },
      "los": [
       {
+       "id": "C",
+       "std": [
+        "usas-foc-2007:7"
+       ],
+       "do": "Choose camera angles (side underwater, front, overhead) to see a given fault, and say what parallax hides.",
+       "ek": [
+        "Side view shows timing and depth; front view shows symmetry and hand path; off-axis views distort angles."
+       ],
+       "p": [
+        "P1",
+        "P6"
+       ],
+       "drills": [
+        "sw-camera-angle",
+        "sw-camera-parallax"
+       ]
+      },
+      {
        "id": "A",
+       "std": [
+        "usas-foc-2007:7"
+       ],
        "do": "Compute cycle time and stroke rate from a frame count and frame rate.",
        "ek": [
         "Cycle time = frames / fps; SR (cyc/min) = 60·fps / frames."
@@ -1530,10 +1956,16 @@
        "needs": [
         "SW-7.2.A"
        ],
-       "drills": []
+       "drills": [
+        "sw-video-cycle-time",
+        "sw-stopwatch-rate"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:7"
+       ],
        "do": "Compute the time and distance resolution of a camera at a given swim speed and judge whether it can resolve a phase.",
        "ek": [
         "Δt = 1/fps; Δx = v/fps — at 2 m/s, 30 fps ≈ 6.7 cm per frame, 120 fps ≈ 1.7 cm."
@@ -1542,19 +1974,10 @@
         "P4",
         "P5"
        ],
-       "drills": []
-      },
-      {
-       "id": "C",
-       "do": "Choose camera angles (side underwater, front, overhead) to see a given fault, and say what parallax hides.",
-       "ek": [
-        "Side view shows timing and depth; front view shows symmetry and hand path; off-axis views distort angles."
-       ],
-       "p": [
-        "P1",
-        "P6"
-       ],
-       "drills": []
+       "drills": [
+        "sw-video-resolution",
+        "sw-video-timing-error"
+       ]
       }
      ]
     },
@@ -1568,7 +1991,27 @@
      },
      "los": [
       {
+       "id": "B",
+       "std": [
+        "usas-foc-2007:7"
+       ],
+       "do": "Diagnose a fault from a described clip, rank it by cost, and choose one correction to work on first.",
+       "ek": [
+        "Fix the fault that costs the most net force first, usually body position or timing before hand path."
+       ],
+       "p": [
+        "P5"
+       ],
+       "drills": [
+        "sw-video-diagnose",
+        "sw-video-one-cue"
+       ]
+      },
+      {
        "id": "A",
+       "std": [
+        "usas-foc-2007:7"
+       ],
        "do": "Mark the key events (entry, catch, push, exit, kick 1, kick 2, breath) on a fly clip and measure their timing.",
        "ek": [
         "Express events as % of cycle time so clips at different speeds compare."
@@ -1580,21 +2023,16 @@
        "needs": [
         "SW-3.2.A"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Diagnose a fault from a described clip, rank it by cost, and choose one correction to work on first.",
-       "ek": [
-        "Fix the fault that costs the most net force first, usually body position or timing before hand path."
-       ],
-       "p": [
-        "P5"
-       ],
-       "drills": []
+       "drills": [
+        "sw-event-percent",
+        "sw-event-marking"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:7"
+       ],
        "do": "Design a before/after test (stroke count, SR, 25 time at fixed effort) that shows whether a correction worked.",
        "ek": [
         "Hold effort or SR constant and measure the other; one change at a time; repeat trials to beat noise."
@@ -1603,7 +2041,10 @@
         "P5",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-before-after",
+        "sw-trial-noise"
+       ]
       }
      ]
     }
@@ -1634,6 +2075,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.4",
+        "usas-foc-2007:6.5",
+        "asca-certification:L3"
+       ],
        "do": "Write a session with warm-up, pre-set, main set and cool-down, each with a stated purpose.",
        "ek": [
         "Warm-up raises muscle temperature and rehearses technique; the main set carries the day's training category; cool-down clears metabolites."
@@ -1641,10 +2087,18 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-session-parts",
+        "sw-session-dirt"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.4",
+        "usas-foc-2007:6.5",
+        "asca-certification:L3"
+       ],
        "do": "Compute a written workout's total yardage and duration from its sets and send-offs.",
        "ek": [
         "Total = Σ repeats × distance; duration = Σ repeats × send-off + set rests."
@@ -1655,10 +2109,18 @@
        "needs": [
         "SW-9.2.A"
        ],
-       "drills": []
+       "drills": [
+        "sw-workout-yardage",
+        "sw-set-duration"
+       ]
       },
       {
        "id": "C",
+       "std": [
+        "usas-foc-2007:6.4",
+        "usas-foc-2007:6.5",
+        "asca-certification:L3"
+       ],
        "do": "Choose send-offs for a set from a CSS or best-time pace and the intended rest.",
        "ek": [
         "Send-off = target swim time + rest, rounded to a clock-friendly :05."
@@ -1670,7 +2132,10 @@
        "needs": [
         "SW-9.1.B"
        ],
-       "drills": []
+       "drills": [
+        "sw-sendoff-choose",
+        "sw-sendoff-rest"
+       ]
       }
      ]
     },
@@ -1685,6 +2150,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.4",
+        "usas-foc-2007:6.5",
+        "asca-certification:L3"
+       ],
        "do": "Choose a drill that isolates a given fault (one-arm fly, 3-3-3, kick on side, head-lead body dolphin) and say what it trains and what it can't.",
        "ek": [
         "A drill isolates one element; transfer needs a bridge back to full stroke at race tempo."
@@ -1693,10 +2163,18 @@
         "P5",
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-drill-choice",
+        "sw-drill-transfer"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:6.4",
+        "usas-foc-2007:6.5",
+        "asca-certification:L3"
+       ],
        "do": "Design a set that trains a stroke-count or SR target (e.g. hold count while descending time).",
        "ek": [
         "Fix one of SR or DPS and progress the other; v = SR·DPS tells you which has to give."
@@ -1707,7 +2185,10 @@
        "needs": [
         "SW-7.2.D"
        ],
-       "drills": []
+       "drills": [
+        "sw-count-descend",
+        "sw-count-set-design"
+       ]
       }
      ]
     },
@@ -1725,6 +2206,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:6.4",
+        "usas-foc-2007:6.5",
+        "asca-certification:L3"
+       ],
        "do": "Adapt a week of 3+ mile days to class and work load so that the hard sessions stay hard and the easy ones stay easy.",
        "ek": [
         "Polarised weeks (most volume easy, a few true hard sessions) beat uniform moderate effort for both performance and recovery."
@@ -1732,7 +2218,10 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-polarised-split",
+        "sw-week-adapt"
+       ]
       }
      ]
     }
@@ -1761,6 +2250,11 @@
      "los": [
       {
        "id": "A",
+       "std": [
+        "usas-foc-2007:2",
+        "usas-foc-2007:4",
+        "asca-certification:L1"
+       ],
        "do": "Sequence a butterfly teaching progression from body dolphin to full stroke and say what each step must show before moving on.",
        "ek": [
         "Body wave → kick on front with arms forward → single-arm with timing → full stroke short distances; advance on a visible criterion, not a count of days."
@@ -1768,10 +2262,18 @@
        "p": [
         "P6"
        ],
-       "drills": []
+       "drills": [
+        "sw-fly-progression",
+        "sw-progression-criterion"
+       ]
       },
       {
        "id": "B",
+       "std": [
+        "usas-foc-2007:2",
+        "usas-foc-2007:4",
+        "asca-certification:L1"
+       ],
        "do": "Give feedback on a stroke with one cue, framed as an external focus.",
        "ek": [
         "External cues ('push the water to your feet') usually transfer better than internal ones ('bend your elbow 90°')."
@@ -1779,7 +2281,10 @@
        "p": [
         "P5"
        ],
-       "drills": []
+       "drills": [
+        "sw-cue-external",
+        "sw-cue-rewrite"
+       ]
       }
      ]
     },
@@ -1795,7 +2300,31 @@
      },
      "los": [
       {
+       "id": "B",
+       "std": [
+        "usas-foc-2007:2",
+        "usas-foc-2007:4",
+        "asca-certification:L1"
+       ],
+       "do": "Plan a club season that serves sprinters, distance and IM swimmers in the same group.",
+       "ek": [
+        "Shared aerobic base, then split sets by event group; key meets set the taper calendar."
+       ],
+       "p": [
+        "P6"
+       ],
+       "drills": [
+        "sw-season-mixed-group",
+        "sw-taper-by-swimmer"
+       ]
+      },
+      {
        "id": "A",
+       "std": [
+        "usas-foc-2007:2",
+        "usas-foc-2007:4",
+        "asca-certification:L1"
+       ],
        "do": "Write a set that runs across lanes with different speeds using a common clock and adjusted distances or send-offs.",
        "ek": [
         "Equal time, different distance keeps the group together; pace each lane off its own CSS."
@@ -1806,18 +2335,10 @@
        "needs": [
         "SW-11.1.C"
        ],
-       "drills": []
-      },
-      {
-       "id": "B",
-       "do": "Plan a club season that serves sprinters, distance and IM swimmers in the same group.",
-       "ek": [
-        "Shared aerobic base, then split sets by event group; key meets set the taper calendar."
-       ],
-       "p": [
-        "P6"
-       ],
-       "drills": []
+       "drills": [
+        "sw-lanes-equal-time",
+        "sw-lanes-common-clock"
+       ]
       }
      ]
     }
@@ -1829,352 +2350,484 @@
    "code": "SW-1.1.A",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-1.1.B",
-   "unit": 1,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-resistance-type",
+    "sw-resistance-rank"
+   ],
    "partial": []
   },
   {
    "code": "SW-1.1.C",
    "unit": 1,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-underwater-why",
+    "sw-underwater-limit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sw-drag-power-factor",
+    "sw-drag-factor"
+   ],
    "partial": []
   },
   {
    "code": "SW-1.2.A",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-streamline-elements",
+    "sw-body-balance"
+   ],
    "partial": []
   },
   {
    "code": "SW-1.2.B",
    "unit": 1,
    "topic": 2,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-1.3.A",
-   "unit": 1,
-   "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-glide-decay",
+    "sw-glide-when"
+   ],
    "partial": []
   },
   {
    "code": "SW-1.3.B",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-1.3.C",
-   "unit": 1,
-   "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-lift-vs-drag",
+    "sw-scull-purpose"
+   ],
    "partial": []
   },
   {
    "code": "SW-1.3.D",
    "unit": 1,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-dolphin-wave",
+    "sw-dolphin-upkick"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-1.3.A",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "sw-thrust-momentum",
+    "sw-high-elbow"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-1.3.C",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "sw-propelling-efficiency",
+    "sw-efficiency-vs-power"
+   ],
    "partial": []
   },
   {
    "code": "SW-2.1.A",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-2.1.B",
-   "unit": 2,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-free-phases",
+    "sw-free-essentials"
+   ],
    "partial": []
   },
   {
    "code": "SW-2.1.C",
    "unit": 2,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-free-fault",
+    "sw-free-fault-cost"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sw-free-timing",
+    "sw-rate-length-speed"
+   ],
    "partial": []
   },
   {
    "code": "SW-2.2.A",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-back-catch",
+    "sw-back-rotation"
+   ],
    "partial": []
   },
   {
    "code": "SW-2.2.B",
    "unit": 2,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-back-fault",
+    "sw-back-correction"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.1.A",
    "unit": 3,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-wave",
+    "sw-fly-short-axis"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.1.B",
    "unit": 3,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-over-undulation",
+    "sw-fly-vertical-cost"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.2.A",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-two-kicks",
+    "sw-fly-kick-count"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.2.B",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-pull-path",
+    "sw-fly-entry-quality"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.2.C",
    "unit": 3,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-kick-kick-pull",
+    "sw-fly-timing-check"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.3.A",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-breath-timing",
+    "sw-fly-breath-low"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.3.B",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-late-breath",
+    "sw-fly-breath-cost"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.3.C",
    "unit": 3,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-breath-pattern",
+    "sw-fly-breath-count"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.4.A",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-fault",
+    "sw-fly-fault-rank"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.4.B",
    "unit": 3,
    "topic": 4,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-fatigue",
+    "sw-fly-fade-speed"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.5.A",
    "unit": 3,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-legal-stroke",
+    "sw-fly-legal-why"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.5.B",
    "unit": 3,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-masters-kick",
+    "sw-fly-masters-which-rule"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.5.C",
    "unit": 3,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-legal-touch",
+    "sw-fly-touch-meaning"
+   ],
    "partial": []
   },
   {
    "code": "SW-3.5.D",
    "unit": 3,
    "topic": 5,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-legal-body",
+    "sw-fly-body-when"
+   ],
    "partial": []
   },
   {
    "code": "SW-4.1.A",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-breast-timing",
+    "sw-breast-glide"
+   ],
    "partial": []
   },
   {
    "code": "SW-4.1.B",
    "unit": 4,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-breast-fault",
+    "sw-breast-kick-direction"
+   ],
    "partial": []
   },
   {
    "code": "SW-4.2.A",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-breast-pullout",
+    "sw-breast-pullout-sequence"
+   ],
    "partial": []
   },
   {
    "code": "SW-4.2.B",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-breast-legal-cycle",
+    "sw-breast-legal-detail"
+   ],
    "partial": []
   },
   {
    "code": "SW-4.2.C",
    "unit": 4,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-im-order",
+    "sw-im-transition"
+   ],
    "partial": []
   },
   {
    "code": "SW-4.3.A",
    "unit": 4,
    "topic": 3,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-5.1.A",
-   "unit": 5,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-im-split-share",
+    "sw-im-weak-leg"
+   ],
    "partial": []
   },
   {
    "code": "SW-5.1.B",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-start-entry",
+    "sw-start-safety"
+   ],
    "partial": []
   },
   {
    "code": "SW-5.1.C",
    "unit": 5,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-start-legal",
+    "sw-start-legal-detail"
+   ],
    "partial": []
   },
   {
-   "code": "SW-5.2.A",
+   "code": "SW-5.1.A",
    "unit": 5,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-5.2.B",
-   "unit": 5,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sw-start-phases",
+    "sw-start-reaction-share"
+   ],
    "partial": []
   },
   {
    "code": "SW-5.2.C",
    "unit": 5,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-back-turn-legal",
+    "sw-back-turn-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sw-open-turn",
+    "sw-turn-tuck-speed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sw-wall-time",
+    "sw-wall-time-race"
+   ],
    "partial": []
   },
   {
    "code": "SW-5.3.A",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-5.3.B",
-   "unit": 5,
-   "topic": 3,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-5.3.C",
-   "unit": 5,
-   "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-15m-legal",
+    "sw-15m-which-strokes"
+   ],
    "partial": []
   },
   {
    "code": "SW-5.3.D",
    "unit": 5,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-breakout",
+    "sw-breakout-angle"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-5.3.B",
+   "unit": 5,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "sw-underwater-vs-surface",
+    "sw-underwater-breakeven"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-5.3.C",
+   "unit": 5,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "sw-underwater-kick-count",
+    "sw-underwater-total"
+   ],
    "partial": []
   },
   {
@@ -2291,8 +2944,11 @@
    "code": "SW-7.2.B",
    "unit": 7,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-slowdown-source",
+    "sw-slowdown-read"
+   ],
    "partial": []
   },
   {
@@ -2321,40 +2977,55 @@
    "code": "SW-7.3.A",
    "unit": 7,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-pacing-profile",
+    "sw-uneven-pace-cost"
+   ],
    "partial": []
   },
   {
    "code": "SW-8.1.A",
    "unit": 8,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-energy-systems",
+    "sw-energy-overlap"
+   ],
    "partial": []
   },
   {
    "code": "SW-8.1.B",
    "unit": 8,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-aerobic-mix",
+    "sw-aerobic-mix-train"
+   ],
    "partial": []
   },
   {
    "code": "SW-8.2.A",
    "unit": 8,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-threshold",
+    "sw-threshold-test"
+   ],
    "partial": []
   },
   {
    "code": "SW-8.2.B",
    "unit": 8,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-adaptation-match",
+    "sw-training-principles"
+   ],
    "partial": []
   },
   {
@@ -2438,8 +3109,11 @@
    "code": "SW-9.3.A",
    "unit": 9,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-season-cycles",
+    "sw-season-blocks"
+   ],
    "partial": []
   },
   {
@@ -2465,131 +3139,179 @@
    "partial": []
   },
   {
+   "code": "SW-10.1.C",
+   "unit": 10,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sw-camera-angle",
+    "sw-camera-parallax"
+   ],
+   "partial": []
+  },
+  {
    "code": "SW-10.1.A",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-video-cycle-time",
+    "sw-stopwatch-rate"
+   ],
    "partial": []
   },
   {
    "code": "SW-10.1.B",
    "unit": 10,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-10.1.C",
-   "unit": 10,
-   "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-10.2.A",
-   "unit": 10,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-video-resolution",
+    "sw-video-timing-error"
+   ],
    "partial": []
   },
   {
    "code": "SW-10.2.B",
    "unit": 10,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-video-diagnose",
+    "sw-video-one-cue"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-10.2.A",
+   "unit": 10,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sw-event-percent",
+    "sw-event-marking"
+   ],
    "partial": []
   },
   {
    "code": "SW-10.2.C",
    "unit": 10,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-before-after",
+    "sw-trial-noise"
+   ],
    "partial": []
   },
   {
    "code": "SW-11.1.A",
    "unit": 11,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-session-parts",
+    "sw-session-dirt"
+   ],
    "partial": []
   },
   {
    "code": "SW-11.1.B",
    "unit": 11,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-workout-yardage",
+    "sw-set-duration"
+   ],
    "partial": []
   },
   {
    "code": "SW-11.1.C",
    "unit": 11,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-sendoff-choose",
+    "sw-sendoff-rest"
+   ],
    "partial": []
   },
   {
    "code": "SW-11.2.A",
    "unit": 11,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-drill-choice",
+    "sw-drill-transfer"
+   ],
    "partial": []
   },
   {
    "code": "SW-11.2.B",
    "unit": 11,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-count-descend",
+    "sw-count-set-design"
+   ],
    "partial": []
   },
   {
    "code": "SW-11.3.A",
    "unit": 11,
    "topic": 3,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-polarised-split",
+    "sw-week-adapt"
+   ],
    "partial": []
   },
   {
    "code": "SW-12.1.A",
    "unit": 12,
    "topic": 1,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-fly-progression",
+    "sw-progression-criterion"
+   ],
    "partial": []
   },
   {
    "code": "SW-12.1.B",
    "unit": 12,
    "topic": 1,
-   "status": "gap",
-   "full": [],
-   "partial": []
-  },
-  {
-   "code": "SW-12.2.A",
-   "unit": 12,
-   "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-cue-external",
+    "sw-cue-rewrite"
+   ],
    "partial": []
   },
   {
    "code": "SW-12.2.B",
    "unit": 12,
    "topic": 2,
-   "status": "gap",
-   "full": [],
+   "status": "ok",
+   "full": [
+    "sw-season-mixed-group",
+    "sw-taper-by-swimmer"
+   ],
+   "partial": []
+  },
+  {
+   "code": "SW-12.2.A",
+   "unit": 12,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sw-lanes-equal-time",
+    "sw-lanes-common-clock"
+   ],
    "partial": []
   }
  ],

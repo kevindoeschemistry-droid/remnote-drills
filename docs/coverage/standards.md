@@ -18,7 +18,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Biology (AP) | AP Biology Course and Exam Description (effective fall 2025) | standard | read in part | ap-biology, iupac-aa-1983, ngss-hs, ib-biology-2025, icho-appendix-c, icho-syllabus, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 179 | 179 | 0 |
 | Biosecurity | BlueDot Impact, Biosecurity course (six units) | course | read in part | who-lbm4, bwc, cdc-ss1978, who-jee3, ashrae-241 | — | 64 | 64 | 0 |
 | Calculus | AP Calculus AB and BC Course and Exam Description | standard | read in full | webwork-opl | — | 203 | 203 | 0 |
-| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic, acs-accm-analytical | — | 73 | 73 | 0 |
+| Chemistry Olympiad | U.S. National Chemistry Olympiad: local and national exam format, multiple-choice topic bands and Part II | exam-spec | read in part | icho-appendix-c, icho-syllabus, acs-accm-organic, acs-accm-analytical | — | 92 | 92 | 0 |
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 188 | 188 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
@@ -59,7 +59,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics Course and Exam Description (effective fall 2026) | standard | read in part | webwork-opl | — | 111 | 111 | 0 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-organic | — | 12 | 12 | 0 |
-| Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | — | asca-certification | 88 | 0 | 88 |
+| Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | usas-foc-2007, asca-certification | — | 88 | 74 | 14 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics, webwork-opl | — | 184 | 143 | 41 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
 
@@ -110,7 +110,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **SQL**: Units 1–7 follow the sixteen topic groups of Oracle's 1Z0-071 exam, read through a restatement rather than Oracle's page. Unit 8 is a house list: no standard for analytic SQL was found.
 - **Statistics**: Units 1-5 follow the AP Statistics CED effective fall 2026; all 150 of its learning objectives were read and each is cited by an objective here. Objective wording and grouping are ours.
 - **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
-- **Swimming**: Rules and research papers; they say what is legal and why technique works, not what to learn in what order. Unit order is ours.
+- **Swimming**: The World Aquatics rules (read in full) say what is legal. What to learn, and in what order, now rests on USA Swimming's Foundations of Coaching (2007; chapters 5 and 6 read, the rest by title) and the ASCA Level 1-3 school outlines (titles only). Research papers named in an objective's own essential knowledge are its source for that claim. Unit order is ours.
 - **Thermodynamics and Statistical Mechanics**: UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books.
 - **Wushu**: Competition rules and biomechanics papers; unit order is ours.
 
@@ -143,7 +143,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **SQL**: exam-spec, read through a crosswalk
 - **Statistics**: standard, read in part
 - **Structures from Memory**: textbook, read in part
-- **Swimming**: rulebook, read in full; should move to ASCA coach certification curriculum
+- **Swimming**: rulebook, read in full
 - **Thermodynamics and Statistical Mechanics**: textbook, read in full
 - **Wushu**: rulebook, read through a crosswalk; should move to Chinese Wushu Duanwei grading system
 
@@ -2771,6 +2771,18 @@ https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00531
 | X.D.4 | Orbitals drawn from probability | 2 | 2 | physical-chemistry (2) |
 | X.D.5 | Graphs of relations among T, P, V and n | 1 | 1 | physical-chemistry (1) |
 
+## ASCA coach certification schools, Levels 1-3 (session outlines)
+
+https://www.swimmingcoach.org/certifications-education/certification/
+
+3 of 3 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| L1 | Level 1, Foundations of Coaching: the coach's role, communication, teaching, motivation, safety, basic biomechanics and physiology, a beginner workout | 4 | 4 | swimming (4) |
+| L2 | Level 2, Stroke School: biomechanics, the four strokes, starts, turns and finishes | 44 | 44 | swimming (44) |
+| L3 | Level 3, Physiology School: principles of training, energy metabolism, nutrition, macro-, meso- and microcycles, writing and running practices, dryland | 20 | 20 | swimming (20) |
+
 ## Next Generation Science Standards, high school performance expectations (2013)
 
 https://educate.iowa.gov/pk-12/standards/academics/science/high-school
@@ -3012,17 +3024,17 @@ https://www.acs.org/education/olympiad/prepare-for-exams/exam-information.html
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 1 | Stoichiometry and solutions (Q1-6) | 57 | 57 | analytical-chemistry (7), chemistry-olympiad (22), chemistry (19), dat (9) |
-| 2 | Descriptive chemistry and laboratory (Q7-12) | 21 | 21 | chemistry-olympiad (12), dat (4), inorganic-chemistry (5) |
-| 3 | States of matter (Q13-18) | 55 | 55 | chemistry-olympiad (20), chemistry (27), dat (8) |
-| 4 | Thermodynamics (Q19-24) | 61 | 61 | chemistry-olympiad (21), chemistry (34), dat (6) |
-| 5 | Kinetics (Q25-30) | 49 | 49 | chemistry-olympiad (12), chemistry (17), dat (4), physical-chemistry (16) |
-| 6 | Equilibrium (Q31-36) | 65 | 65 | chemistry-olympiad (16), chemistry (40), dat (9) |
-| 7 | Oxidation-reduction (Q37-42) | 37 | 37 | chemistry-olympiad (15), chemistry (18), dat (4) |
+| 1 | Stoichiometry and solutions (Q1-6) | 59 | 59 | analytical-chemistry (7), chemistry-olympiad (24), chemistry (19), dat (9) |
+| 2 | Descriptive chemistry and laboratory (Q7-12) | 23 | 23 | chemistry-olympiad (14), dat (4), inorganic-chemistry (5) |
+| 3 | States of matter (Q13-18) | 56 | 56 | chemistry-olympiad (21), chemistry (27), dat (8) |
+| 4 | Thermodynamics (Q19-24) | 62 | 62 | chemistry-olympiad (22), chemistry (34), dat (6) |
+| 5 | Kinetics (Q25-30) | 51 | 51 | chemistry-olympiad (14), chemistry (17), dat (4), physical-chemistry (16) |
+| 6 | Equilibrium (Q31-36) | 67 | 67 | chemistry-olympiad (18), chemistry (40), dat (9) |
+| 7 | Oxidation-reduction (Q37-42) | 39 | 39 | chemistry-olympiad (17), chemistry (18), dat (4) |
 | 8 | Atomic structure and periodicity (Q43-48; from the 2025 national exam) | 13 | 13 | chemistry-olympiad (13) |
-| 9 | Bonding and molecular structure (Q49-54; from the 2025 national exam) | 10 | 10 | chemistry-olympiad (10) |
-| 10 | Organic chemistry, biochemistry and spectroscopy (Q55-60; from the 2025 national exam) | 12 | 12 | chemistry-olympiad (12) |
-| P2 | National Part II: eight written multi-part problems | 6 | 6 | chemistry-olympiad (6) |
+| 9 | Bonding and molecular structure (Q49-54; from the 2025 national exam) | 12 | 12 | chemistry-olympiad (12) |
+| 10 | Organic chemistry, biochemistry and spectroscopy (Q55-60; from the 2025 national exam) | 17 | 17 | chemistry-olympiad (17) |
+| P2 | National Part II: eight written multi-part problems | 44 | 44 | chemistry-olympiad (44) |
 | P3 | National Part III: laboratory practical | — | — | **nothing yet** |
 
 ## Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge)
@@ -3615,6 +3627,33 @@ https://www.aiche.org/sites/default/files/docs/pages/aiche_body_of_knowledge_202
 | T.OPT | Plant operations and optimisation | 3 | 3 | process-design (3) |
 | T.SU | Plant scale-up | 2 | 2 | fluid-mechanics (1), process-design (1) |
 | X.SAFE | Cross-functional: safety analyses, modelling, procedural policies and regulations | 4 | 4 | process-design (4) |
+
+## USA Swimming Foundations of Coaching (2007)
+
+https://www.gomotionapp.com/efsl/UserFiles/Image/QuickUpload/table-of-contents_000606.pdf
+
+15 of 18 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1 | Philosophy and ethics (title only) | — | — | **nothing yet** |
+| 2 | Teaching and communication: learning environment, teaching methods, motivation, goal setting (title only) | 4 | 4 | swimming (4) |
+| 3 | Organisation and administration: the club, the meet, risk management (title only) | — | — | **nothing yet** |
+| 4 | Growth and development of young athletes (title only) | 4 | 4 | swimming (4) |
+| 5.1 | Basic biomechanics: three resistances, reducing them, propulsion, stroke count and stroke rate | 9 | 9 | swimming (9) |
+| 5.2 | Freestyle: essential skills and teaching progression | 5 | 5 | swimming (5) |
+| 5.3 | Backstroke: essential skills and teaching progression | 5 | 5 | swimming (5) |
+| 5.4 | Breaststroke: essential skills and teaching progression | 6 | 6 | swimming (6) |
+| 5.5 | Butterfly: essential skills and teaching progression | 14 | 14 | swimming (14) |
+| 5.6 | Starts: forward, backstroke and relay starts, progressions and safety | 10 | 10 | swimming (10) |
+| 5.7 | Turns: push-offs, flip and open turns, pull-out and breakout | 10 | 10 | swimming (10) |
+| 6.1 | Basic physiology: the three metabolic pathways, continuous and interval training, DIRT | 4 | 4 | swimming (4) |
+| 6.2 | Season planning: macro-, meso- and microcycles, taper, principles of training | 10 | 10 | swimming (10) |
+| 6.3 | Energy zones (chart values not read) | 4 | 4 | swimming (4) |
+| 6.4 | Planning novice and age-group practices | 6 | 6 | swimming (6) |
+| 6.5 | Planning senior practices | 6 | 6 | swimming (6) |
+| 6.6 | Fueling, hydration and drug-free sport | — | — | **nothing yet** |
+| 7 | Evaluation of athletes, coaches and the club (title only) | 6 | 6 | swimming (6) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
