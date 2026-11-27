@@ -62,12 +62,12 @@ units:
       - n: 1
         title: "Properties"
         los:
-          - { id: A, std: ["fe-chemical:6.A", "webwork-opl:TH1.6", "webwork-opl:FM1.2", "webwork-opl:FM1.3"], do: "Relate dynamic and kinematic viscosity, density and specific gravity.", ek: ["ν = μ/ρ. Water is about 1 mm²/s, air about 15."], p: [P1], drills: [fm-kinematic-viscosity, fm-dynamic-from-kinematic] }
+          - { id: A, std: ["fe-chemical:6.A", "webwork-opl:TH1.6", "webwork-opl:FM1.2", "webwork-opl:FM1.3"], do: "Relate dynamic and kinematic viscosity, density and specific gravity.", ek: ["ν = μ/ρ. Water is about 1 mm²/s, air about 15."], p: [P1], needs: [PH-8.2.B], drills: [fm-kinematic-viscosity, fm-dynamic-from-kinematic] }
       - n: 2
         title: "Statics"
         los:
-          - { id: A, std: ["fe-chemical:6.A", "webwork-opl:FM2.1", "webwork-opl:FM2.2"], do: "Compute hydrostatic pressure and read a U-tube manometer.", ek: ["P = ρgh; across a manometer only the density difference counts."], p: [P1, P3], drills: [fm-hydrostatic-pressure, fm-manometer] }
-          - { id: B, std: ["webwork-opl:FM2.6"], do: "Apply Archimedes' principle to a floating body.", ek: ["Submerged fraction = body density over fluid density."], p: [P1], drills: [fm-floating-fraction, fm-push-under-force] }
+          - { id: A, std: ["fe-chemical:6.A", "webwork-opl:FM2.1", "webwork-opl:FM2.2"], do: "Compute hydrostatic pressure and read a U-tube manometer.", ek: ["P = ρgh; across a manometer only the density difference counts."], p: [P1, P3], needs: [FM-1.1.A], drills: [fm-hydrostatic-pressure, fm-manometer] }
+          - { id: B, std: ["webwork-opl:FM2.6"], do: "Apply Archimedes' principle to a floating body.", ek: ["Submerged fraction = body density over fluid density."], p: [P1], needs: [FM-1.2.A], drills: [fm-floating-fraction, fm-push-under-force] }
   - id: regimes
     n: 2
     title: "Dimensionless numbers and flow regime"
@@ -78,9 +78,9 @@ units:
       - n: 1
         title: "Reynolds number"
         los:
-          - { id: A, std: ["fe-chemical:6.B", "webwork-opl:FM6.9"], do: "Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.", ek: ["Re = ρvD/μ; D_h = 4A/P; Re, Fr, We, Ma, Eu each compare two forces or speeds."], p: [P1, P2], drills: [fm-reynolds-number, fm-hydraulic-diameter, fm-dimensionless-groups, sc-reynolds-diameter, sc-stokes-settling] }
-          - { id: B, std: ["fe-chemical:6.E", "webwork-opl:FM6.3"], do: "Classify pipe flow as laminar, transitional or turbulent.", ek: ["Laminar below about 2100, turbulent above about 4000."], p: [P2], drills: [fm-flow-regime, fm-max-laminar-speed] }
-          - { id: C, std: ["fe-chemical:6.E", "webwork-opl:FM6.2"], do: "Find the pressure drop of laminar pipe flow.", ek: ["Hagen–Poiseuille: ΔP = 32μLv/D², the same as f = 64/Re."], p: [P1], drills: [fm-laminar-pressure-drop, sc-laminar-pressure-drop-diameter] }
+          - { id: A, std: ["fe-chemical:6.B", "webwork-opl:FM6.9"], do: "Compute a Reynolds number and a hydraulic diameter, and say what each common dimensionless group compares.", ek: ["Re = ρvD/μ; D_h = 4A/P; Re, Fr, We, Ma, Eu each compare two forces or speeds."], p: [P1, P2], needs: [FM-1.2.B], drills: [fm-reynolds-number, fm-hydraulic-diameter, fm-dimensionless-groups, sc-reynolds-diameter, sc-stokes-settling] }
+          - { id: B, std: ["fe-chemical:6.E", "webwork-opl:FM6.3"], do: "Classify pipe flow as laminar, transitional or turbulent.", ek: ["Laminar below about 2100, turbulent above about 4000."], p: [P2], needs: [FM-2.1.A], drills: [fm-flow-regime, fm-max-laminar-speed] }
+          - { id: C, std: ["fe-chemical:6.E", "webwork-opl:FM6.2"], do: "Find the pressure drop of laminar pipe flow.", ek: ["Hagen–Poiseuille: ΔP = 32μLv/D², the same as f = 64/Re."], p: [P1], needs: [FM-2.1.B], drills: [fm-laminar-pressure-drop, sc-laminar-pressure-drop-diameter] }
   - id: bernoulli
     n: 3
     title: "Continuity and Bernoulli"
@@ -91,8 +91,8 @@ units:
       - n: 1
         title: "Frictionless flow"
         los:
-          - { id: A, std: ["fe-chemical:6.D", "webwork-opl:FM3.2", "webwork-opl:FM3.4"], do: "Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.", ek: ["A1v1 = A2v2; P + ½ρv² + ρgz is constant along a streamline without friction."], p: [P1, P3], drills: [fm-continuity, fm-bernoulli-pressure] }
-          - { id: B, std: ["fe-chemical:6.D", "webwork-opl:FM3.4"], do: "Find the efflux velocity from a tank.", ek: ["Torricelli: v = √(2gh)."], p: [P1, P3], drills: [fm-torricelli, sc-torricelli-head] }
+          - { id: A, std: ["fe-chemical:6.D", "webwork-opl:FM3.2", "webwork-opl:FM3.4"], do: "Use continuity to find a velocity change and Bernoulli to find the pressure change that goes with it.", ek: ["A1v1 = A2v2; P + ½ρv² + ρgz is constant along a streamline without friction."], p: [P1, P3], needs: [FM-1.2.B, PH-8.4.B], drills: [fm-continuity, fm-bernoulli-pressure] }
+          - { id: B, std: ["fe-chemical:6.D", "webwork-opl:FM3.4"], do: "Find the efflux velocity from a tank.", ek: ["Torricelli: v = √(2gh)."], p: [P1, P3], needs: [FM-3.1.A], drills: [fm-torricelli, sc-torricelli-head] }
   - id: energy
     n: 4
     title: "The mechanical energy balance"
@@ -103,12 +103,12 @@ units:
       - n: 1
         title: "Friction"
         los:
-          - { id: A, std: ["fe-chemical:6.C", "webwork-opl:FM6.4", "webwork-opl:FM6.5", "webwork-opl:FM6.6"], do: "Compute friction head loss in a pipe and in a fitting.", ek: ["h_f = f(L/D)v²/2g; h_L = K v²/2g."], p: [P1], drills: [fm-friction-head-loss, fm-minor-loss, sc-turbulent-pressure-drop-flow] }
+          - { id: A, std: ["fe-chemical:6.C", "webwork-opl:FM6.4", "webwork-opl:FM6.5", "webwork-opl:FM6.6"], do: "Compute friction head loss in a pipe and in a fitting.", ek: ["h_f = f(L/D)v²/2g; h_L = K v²/2g."], p: [P1], needs: [FM-2.1.C, FM-3.1.B], drills: [fm-friction-head-loss, fm-minor-loss, sc-turbulent-pressure-drop-flow] }
       - n: 2
         title: "Pumps"
         los:
-          - { id: A, std: ["fe-chemical:6.C", "fe-chemical:6.G", "webwork-opl:TH5.6", "webwork-opl:FM3.6", "webwork-opl:FM6.7", "webwork-opl:FM6.8", "webwork-opl:FM11.1", "aiche-bok:T.FLOW"], do: "Find the head a pump must supply and the power it draws.", ek: ["Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η."], p: [P1, P3], drills: [fm-pump-head, fm-pump-power, sc-pump-power-flow] }
-          - { id: B, std: ["fe-chemical:6.G", "webwork-opl:FM6.8", "webwork-opl:FM11.2", "aiche-bok:T.FLOW"], do: "Explain cavitation and NPSH, and what pumps in series and in parallel do.", ek: ["Available NPSH must exceed required; series adds head, parallel adds flow."], p: [P2], drills: [fm-pump-concepts, fm-npsh-available] }
+          - { id: A, std: ["fe-chemical:6.C", "fe-chemical:6.G", "webwork-opl:TH5.6", "webwork-opl:FM3.6", "webwork-opl:FM6.7", "webwork-opl:FM6.8", "webwork-opl:FM11.1", "aiche-bok:T.FLOW"], do: "Find the head a pump must supply and the power it draws.", ek: ["Pump head = lift + losses (+ pressure and velocity changes); shaft power = ρgQH/η."], p: [P1, P3], needs: [FM-4.1.A], drills: [fm-pump-head, fm-pump-power, sc-pump-power-flow] }
+          - { id: B, std: ["fe-chemical:6.G", "webwork-opl:FM6.8", "webwork-opl:FM11.2", "aiche-bok:T.FLOW"], do: "Explain cavitation and NPSH, and what pumps in series and in parallel do.", ek: ["Available NPSH must exceed required; series adds head, parallel adds flow."], p: [P2], needs: [FM-4.2.A], drills: [fm-pump-concepts, fm-npsh-available] }
   - id: measurement
     n: 5
     title: "Flow measurement"
@@ -119,8 +119,8 @@ units:
       - n: 1
         title: "Meters"
         los:
-          - { id: A, std: ["fe-chemical:6.F", "webwork-opl:FM10.6"], do: "Compute a velocity from a pitot reading and a flow from a venturi reading.", ek: ["Pitot: ΔP = ½ρv². Venturi: continuity plus Bernoulli, times a discharge coefficient."], p: [P1], drills: [fm-pitot, fm-venturi] }
-          - { id: B, std: ["fe-chemical:6.F"], do: "Choose between pitot, orifice, venturi and rotameter.", ek: ["Orifice is cheap with high permanent loss; venturi recovers pressure; rotameter is variable-area."], p: [P2], drills: [fm-meter-choice, fm-orifice-flow] }
+          - { id: A, std: ["fe-chemical:6.F", "webwork-opl:FM10.6"], do: "Compute a velocity from a pitot reading and a flow from a venturi reading.", ek: ["Pitot: ΔP = ½ρv². Venturi: continuity plus Bernoulli, times a discharge coefficient."], p: [P1], needs: [FM-3.1.B], drills: [fm-pitot, fm-venturi] }
+          - { id: B, std: ["fe-chemical:6.F"], do: "Choose between pitot, orifice, venturi and rotameter.", ek: ["Orifice is cheap with high permanent loss; venturi recovers pressure; rotameter is variable-area."], p: [P2], needs: [FM-5.1.A], drills: [fm-meter-choice, fm-orifice-flow] }
   - id: compressible
     n: 6
     title: "Compressible flow and non-Newtonian fluids"
@@ -131,11 +131,11 @@ units:
       - n: 1
         title: "Compressible flow"
         los:
-          - { id: A, std: ["fe-chemical:6.H", "webwork-opl:FM9.1"], do: "Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.", ek: ["a = √(γRT/M); below Ma ≈ 0.3 a gas flow can be treated as incompressible."], p: [P1, P2], drills: [fm-speed-of-sound, fm-mach-regime] }
+          - { id: A, std: ["fe-chemical:6.H", "webwork-opl:FM9.1"], do: "Compute the speed of sound in an ideal gas and use the Mach number to decide how to treat a flow.", ek: ["a = √(γRT/M); below Ma ≈ 0.3 a gas flow can be treated as incompressible."], p: [P1, P2], needs: [FM-4.2.B], drills: [fm-speed-of-sound, fm-mach-regime] }
       - n: 2
         title: "Non-Newtonian fluids"
         los:
-          - { id: A, std: ["fe-chemical:6.H", "webwork-opl:FM1.3"], do: "Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.", ek: ["τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress."], p: [P1, P2], drills: [fm-non-newtonian-type, fm-apparent-viscosity] }
+          - { id: A, std: ["fe-chemical:6.H", "webwork-opl:FM1.3"], do: "Classify a fluid as Newtonian, shear-thinning, shear-thickening or Bingham, and compute a power-law apparent viscosity.", ek: ["τ = Kγ̇ⁿ; apparent viscosity Kγ̇ⁿ⁻¹; a Bingham plastic has a yield stress."], p: [P1, P2], needs: [FM-6.1.A], drills: [fm-non-newtonian-type, fm-apparent-viscosity] }
   - id: momentum
     n: 7
     title: "Momentum balances on a control volume"
@@ -146,8 +146,8 @@ units:
       - n: 1
         title: "Jets, vanes and bends"
         los:
-          - { id: A, std: ["webwork-opl:FM3.3"], do: "Find the force a jet exerts on a flat plate.", ek: ["F = ṁv = ρAv² for a jet stopped in its own direction."], p: [P1], drills: [fm-jet-plate, fm-moving-plate-jet] }
-          - { id: B, std: ["webwork-opl:FM3.3"], do: "Find the force on a vane that turns a jet through an angle.", ek: ["F_x = ṁv(1 − cos θ); a 180° turn doubles the flat-plate force."], p: [P1], drills: [fm-vane-force, fm-vane-resultant] }
+          - { id: A, std: ["webwork-opl:FM3.3"], do: "Find the force a jet exerts on a flat plate.", ek: ["F = ṁv = ρAv² for a jet stopped in its own direction."], p: [P1], needs: [FM-3.1.B, PH-4.3.B], drills: [fm-jet-plate, fm-moving-plate-jet] }
+          - { id: B, std: ["webwork-opl:FM3.3"], do: "Find the force on a vane that turns a jet through an angle.", ek: ["F_x = ṁv(1 − cos θ); a 180° turn doubles the flat-plate force."], p: [P1], needs: [FM-7.1.A], drills: [fm-vane-force, fm-vane-resultant] }
   - id: viscous
     n: 8
     title: "Viscous flow and differential analysis"
@@ -158,11 +158,11 @@ units:
       - n: 1
         title: "Exact solutions of the Navier–Stokes equations"
         los:
-          - { id: A, std: ["webwork-opl:FM4.3"], do: "Find the shear force in Couette flow.", ek: ["Linear profile: τ = μU/h everywhere in the gap."], p: [P1], drills: [fm-couette-force, fm-couette-dissipation] }
-          - { id: B, std: ["webwork-opl:FM6.2"], do: "Find the flow rate of laminar pipe flow from the pressure drop.", ek: ["Q = πR⁴ΔP/8μL; the profile is a parabola."], p: [P1], drills: [fm-poiseuille-flow, fm-poiseuille-max-velocity] }
-          - { id: C, std: ["webwork-opl:FM4.3"], do: "Find the mean velocity of a falling film.", ek: ["ū = ρgδ²/3μ; zero shear at the free surface."], p: [P1], drills: [fm-falling-film, fm-film-thickness] }
-          - { id: D, std: ["webwork-opl:FM4.2"], do: "Use continuity to find a missing velocity component.", ek: ["∂u/∂x + ∂v/∂y = 0 for incompressible flow."], p: [P1], drills: [fm-continuity-2d, fm-incompressible-check] }
-          - { id: E, std: ["webwork-opl:FM6.1"], do: "Estimate the laminar entry length.", ek: ["L_e ≈ 0.05 Re D."], p: [P1], drills: [fm-entry-length, fm-turbulent-entry] }
+          - { id: A, std: ["webwork-opl:FM4.3"], do: "Find the shear force in Couette flow.", ek: ["Linear profile: τ = μU/h everywhere in the gap."], p: [P1], needs: [FM-2.1.C, FM-7.1.B, EM-2.1.C], drills: [fm-couette-force, fm-couette-dissipation] }
+          - { id: B, std: ["webwork-opl:FM6.2"], do: "Find the flow rate of laminar pipe flow from the pressure drop.", ek: ["Q = πR⁴ΔP/8μL; the profile is a parabola."], p: [P1], needs: [FM-8.1.A], drills: [fm-poiseuille-flow, fm-poiseuille-max-velocity] }
+          - { id: C, std: ["webwork-opl:FM4.3"], do: "Find the mean velocity of a falling film.", ek: ["ū = ρgδ²/3μ; zero shear at the free surface."], p: [P1], needs: [FM-8.1.B], drills: [fm-falling-film, fm-film-thickness] }
+          - { id: D, std: ["webwork-opl:FM4.2"], do: "Use continuity to find a missing velocity component.", ek: ["∂u/∂x + ∂v/∂y = 0 for incompressible flow."], p: [P1], needs: [FM-8.1.C], drills: [fm-continuity-2d, fm-incompressible-check] }
+          - { id: E, std: ["webwork-opl:FM6.1"], do: "Estimate the laminar entry length.", ek: ["L_e ≈ 0.05 Re D."], p: [P1], needs: [FM-8.1.D], drills: [fm-entry-length, fm-turbulent-entry] }
   - id: similarity
     n: 9
     title: "Dimensional analysis and drag"
@@ -173,13 +173,13 @@ units:
       - n: 1
         title: "Dimensional analysis"
         los:
-          - { id: A, std: ["webwork-opl:FM5.1"], do: "Count the dimensionless groups with the Buckingham pi theorem.", ek: ["Groups = variables − independent dimensions."], p: [P1], drills: [fm-pi-count, fm-group-exponent] }
-          - { id: B, std: ["webwork-opl:FM5.3"], do: "Find the model speed that matches the Reynolds number.", ek: ["V_m = V_p (L_p/L_m)(ν_m/ν_p)."], p: [P1], drills: [fm-model-similarity, fm-froude-model] }
+          - { id: A, std: ["webwork-opl:FM5.1"], do: "Count the dimensionless groups with the Buckingham pi theorem.", ek: ["Groups = variables − independent dimensions."], p: [P1], needs: [FM-2.1.C], drills: [fm-pi-count, fm-group-exponent] }
+          - { id: B, std: ["webwork-opl:FM5.3"], do: "Find the model speed that matches the Reynolds number.", ek: ["V_m = V_p (L_p/L_m)(ν_m/ν_p)."], p: [P1], needs: [FM-9.1.A], drills: [fm-model-similarity, fm-froude-model] }
       - n: 2
         title: "Drag"
         los:
-          - { id: A, std: ["webwork-opl:FM7.5"], do: "Compute a drag force from a drag coefficient.", ek: ["F_D = C_D · ½ρV² · A."], p: [P1], drills: [fm-drag-force, fm-cd-from-force] }
-          - { id: B, std: ["webwork-opl:FM7.5"], do: "Find a Stokes terminal velocity.", ek: ["v_t = (ρ_p − ρ)gd²/18μ, valid for Re < 1."], p: [P1], drills: [fm-stokes-terminal, fm-stokes-max-diameter] }
+          - { id: A, std: ["webwork-opl:FM7.5"], do: "Compute a drag force from a drag coefficient.", ek: ["F_D = C_D · ½ρV² · A."], p: [P1], needs: [FM-9.1.B], drills: [fm-drag-force, fm-cd-from-force] }
+          - { id: B, std: ["webwork-opl:FM7.5"], do: "Find a Stokes terminal velocity.", ek: ["v_t = (ρ_p − ρ)gd²/18μ, valid for Re < 1."], p: [P1], needs: [FM-9.2.A], drills: [fm-stokes-terminal, fm-stokes-max-diameter] }
   - id: piping
     n: 10
     title: "Piping systems, pumps and submerged surfaces"
@@ -190,13 +190,13 @@ units:
       - n: 1
         title: "Networks and pumps"
         los:
-          - { id: A, std: ["webwork-opl:FM6.10"], do: "Split flow between parallel pipes.", ek: ["Parallel pipes share the head loss; Q ∝ D^(5/2)/√L at equal f."], p: [P1], drills: [fm-parallel-pipes, fm-laminar-split] }
-          - { id: B, std: ["webwork-opl:FM11.3", "aiche-bok:T.SU"], do: "Scale a pump with the affinity laws.", ek: ["Q ∝ N, H ∝ N², P ∝ N³."], p: [P1], drills: [fm-pump-affinity, fm-affinity-speed] }
-          - { id: C, std: ["webwork-opl:FM6.8", "aiche-bok:T.FLOW"], do: "Find the operating point of a pump and a system.", ek: ["Pump head = system head."], p: [P1], drills: [fm-operating-point, fm-operating-power] }
+          - { id: A, std: ["webwork-opl:FM6.10"], do: "Split flow between parallel pipes.", ek: ["Parallel pipes share the head loss; Q ∝ D^(5/2)/√L at equal f."], p: [P1], needs: [FM-1.2.B, FM-4.2.B], drills: [fm-parallel-pipes, fm-laminar-split] }
+          - { id: B, std: ["webwork-opl:FM11.3", "aiche-bok:T.SU"], do: "Scale a pump with the affinity laws.", ek: ["Q ∝ N, H ∝ N², P ∝ N³."], p: [P1], needs: [FM-10.1.A], drills: [fm-pump-affinity, fm-affinity-speed] }
+          - { id: C, std: ["webwork-opl:FM6.8", "aiche-bok:T.FLOW"], do: "Find the operating point of a pump and a system.", ek: ["Pump head = system head."], p: [P1], needs: [FM-10.1.B], drills: [fm-operating-point, fm-operating-power] }
       - n: 2
         title: "Submerged surfaces"
         los:
-          - { id: A, std: ["webwork-opl:FM2.3"], do: "Find the hydrostatic force on a vertical plane gate.", ek: ["F = ρg h_c A, acting below the centroid."], p: [P1], drills: [fm-gate-force, fm-center-of-pressure] }
+          - { id: A, std: ["webwork-opl:FM2.3"], do: "Find the hydrostatic force on a vertical plane gate.", ek: ["F = ρg h_c A, acting below the centroid."], p: [P1], needs: [FM-10.1.C], drills: [fm-gate-force, fm-center-of-pressure] }
   # >>> opl-fill:opl-fm (generated by scripts/opl_fill.py; edit the spec)
   - id: kinematics
     n: 11
@@ -208,18 +208,18 @@ units:
       - n: 1
         title: "Statics extras"
         los:
-          - { id: A, std: ["webwork-opl:FM2.4"], do: "Find the vertical force on a curved surface.", ek: ["The vertical component equals the weight of fluid above the surface."], p: [P1], drills: [fm-curved-surface, fm-curved-horizontal] }
-          - { id: B, std: ["webwork-opl:FM2.5"], do: "Find pressure through layered fluids.", ek: ["Add ρgh layer by layer."], p: [P1], drills: [fm-layered-pressure, fm-manometer-reading] }
-          - { id: C, std: ["webwork-opl:FM2.7"], do: "Find the free surface of a liquid in rigid-body rotation.", ek: ["The surface is a paraboloid; the rim stands ω²R²/2g above the centre."], p: [P1], drills: [fm-rotating-tank, fm-rotating-touch-bottom] }
+          - { id: A, std: ["webwork-opl:FM2.4"], do: "Find the vertical force on a curved surface.", ek: ["The vertical component equals the weight of fluid above the surface."], p: [P1], needs: [FM-1.2.B, FM-8.1.E, EM-12.1.A], drills: [fm-curved-surface, fm-curved-horizontal] }
+          - { id: B, std: ["webwork-opl:FM2.5"], do: "Find pressure through layered fluids.", ek: ["Add ρgh layer by layer."], p: [P1], needs: [FM-11.1.A], drills: [fm-layered-pressure, fm-manometer-reading] }
+          - { id: C, std: ["webwork-opl:FM2.7"], do: "Find the free surface of a liquid in rigid-body rotation.", ek: ["The surface is a paraboloid; the rim stands ω²R²/2g above the centre."], p: [P1], needs: [FM-11.1.B], drills: [fm-rotating-tank, fm-rotating-touch-bottom] }
       - n: 2
         title: "Kinematics"
         los:
-          - { id: A, std: ["webwork-opl:FM1.4"], do: "Find a streamline of a steady flow.", ek: ["Along a streamline dy/dx = v/u; in steady flow streamlines, pathlines and streaklines coincide."], p: [P1], drills: [fm-streamline, fm-travel-time] }
-          - { id: B, std: ["webwork-opl:FM4.1"], do: "Find the convective acceleration of a steady flow.", ek: ["a = (V·∇)V; steady flow can still accelerate."], p: [P1], drills: [fm-convective-acceleration, fm-acceleration-magnitude] }
-          - { id: C, std: ["webwork-opl:FM4.5"], do: "Use a stream function.", ek: ["u = ∂ψ/∂y, v = −∂ψ/∂x; ψ is constant along streamlines."], p: [P1], drills: [fm-stream-function, fm-flow-between-streamlines] }
-          - { id: D, std: ["webwork-opl:FM4.6"], do: "Compute vorticity.", ek: ["ω_z = ∂v/∂x − ∂u/∂y; irrotational flow has ω = 0."], p: [P1], drills: [fm-vorticity, fm-circulation-rotation] }
-          - { id: E, std: ["webwork-opl:FM4.7"], do: "Get velocities from a velocity potential.", ek: ["V = ∇φ in irrotational flow."], p: [P1], drills: [fm-velocity-potential, fm-potential-pressure] }
-          - { id: F, std: ["webwork-opl:FM4.4"], do: "Find viscous dissipation.", ek: ["In Couette flow, Φ = μ(du/dy)² per unit volume."], p: [P1], drills: [fm-viscous-dissipation, fm-poiseuille-dissipation] }
+          - { id: A, std: ["webwork-opl:FM1.4"], do: "Find a streamline of a steady flow.", ek: ["Along a streamline dy/dx = v/u; in steady flow streamlines, pathlines and streaklines coincide."], p: [P1], needs: [FM-11.1.C], drills: [fm-streamline, fm-travel-time] }
+          - { id: B, std: ["webwork-opl:FM4.1"], do: "Find the convective acceleration of a steady flow.", ek: ["a = (V·∇)V; steady flow can still accelerate."], p: [P1], needs: [FM-11.2.A], drills: [fm-convective-acceleration, fm-acceleration-magnitude] }
+          - { id: C, std: ["webwork-opl:FM4.5"], do: "Use a stream function.", ek: ["u = ∂ψ/∂y, v = −∂ψ/∂x; ψ is constant along streamlines."], p: [P1], needs: [FM-11.2.B], drills: [fm-stream-function, fm-flow-between-streamlines] }
+          - { id: D, std: ["webwork-opl:FM4.6"], do: "Compute vorticity.", ek: ["ω_z = ∂v/∂x − ∂u/∂y; irrotational flow has ω = 0."], p: [P1], needs: [FM-11.2.C], drills: [fm-vorticity, fm-circulation-rotation] }
+          - { id: E, std: ["webwork-opl:FM4.7"], do: "Get velocities from a velocity potential.", ek: ["V = ∇φ in irrotational flow."], p: [P1], needs: [FM-11.2.D], drills: [fm-velocity-potential, fm-potential-pressure] }
+          - { id: F, std: ["webwork-opl:FM4.4"], do: "Find viscous dissipation.", ek: ["In Couette flow, Φ = μ(du/dy)² per unit volume."], p: [P1], needs: [FM-11.2.E], drills: [fm-viscous-dissipation, fm-poiseuille-dissipation] }
   - id: external-compressible
     n: 12
     title: "Boundary layers, potential flow and compressible flow"
@@ -230,34 +230,34 @@ units:
       - n: 1
         title: "Similarity, angular momentum and diffusers"
         los:
-          - { id: A, std: ["webwork-opl:FM5.2"], do: "Compute a Froude number.", ek: ["Fr = V/√(gL): inertia over gravity, the group for free-surface flows."], p: [P1], drills: [fm-froude, fm-critical-froude-depth] }
-          - { id: B, std: ["webwork-opl:FM3.5"], do: "Find a torque from an angular-momentum balance.", ek: ["T = ṁ r V_t for a jet leaving at radius r."], p: [P1], drills: [fm-sprinkler-torque, fm-sprinkler-free-spin] }
-          - { id: C, std: ["webwork-opl:FM6.11"], do: "Find the ideal pressure recovery of a diffuser.", ek: ["C_p = 1 − (A₁/A₂)² for frictionless incompressible flow."], p: [P1], drills: [fm-diffuser, fm-diffuser-pressure-rise] }
+          - { id: A, std: ["webwork-opl:FM5.2"], do: "Compute a Froude number.", ek: ["Fr = V/√(gL): inertia over gravity, the group for free-surface flows."], p: [P1], needs: [FM-6.2.A, FM-8.1.E, FM-9.2.B, EM-14.2.D], drills: [fm-froude, fm-critical-froude-depth] }
+          - { id: B, std: ["webwork-opl:FM3.5"], do: "Find a torque from an angular-momentum balance.", ek: ["T = ṁ r V_t for a jet leaving at radius r."], p: [P1], needs: [FM-12.1.A], drills: [fm-sprinkler-torque, fm-sprinkler-free-spin] }
+          - { id: C, std: ["webwork-opl:FM6.11"], do: "Find the ideal pressure recovery of a diffuser.", ek: ["C_p = 1 − (A₁/A₂)² for frictionless incompressible flow."], p: [P1], needs: [FM-12.1.B], drills: [fm-diffuser, fm-diffuser-pressure-rise] }
       - n: 2
         title: "Boundary layers"
         los:
-          - { id: A, std: ["webwork-opl:FM7.1"], do: "Estimate a laminar boundary-layer thickness.", ek: ["δ ≈ 5x/√Re_x (Blasius); the momentum-integral method gives 5.48."], p: [P1], drills: [fm-boundary-thickness, fm-turbulent-bl-thickness] }
-          - { id: B, std: ["webwork-opl:FM7.4"], do: "Predict the effect of a pressure gradient on a boundary layer.", ek: ["Adverse (rising) pressure slows the near-wall fluid and can separate it."], p: [P1], drills: [fm-pressure-gradient, fm-gradient-sign] }
+          - { id: A, std: ["webwork-opl:FM7.1"], do: "Estimate a laminar boundary-layer thickness.", ek: ["δ ≈ 5x/√Re_x (Blasius); the momentum-integral method gives 5.48."], p: [P1], needs: [FM-12.1.C], drills: [fm-boundary-thickness, fm-turbulent-bl-thickness] }
+          - { id: B, std: ["webwork-opl:FM7.4"], do: "Predict the effect of a pressure gradient on a boundary layer.", ek: ["Adverse (rising) pressure slows the near-wall fluid and can separate it."], p: [P1], needs: [FM-12.2.A], drills: [fm-pressure-gradient, fm-gradient-sign] }
       - n: 3
         title: "Potential flow"
         los:
-          - { id: A, std: ["webwork-opl:FM8.1"], do: "Find the velocity induced by a source.", ek: ["A 2-D source of strength m gives v_r = m/(2πr)."], p: [P1], drills: [fm-source-velocity, fm-source-strength] }
-          - { id: B, std: ["webwork-opl:FM8.2"], do: "Superpose a uniform stream and a source.", ek: ["The stagnation point sits where the source's outflow cancels the stream: x = −m/(2πU)."], p: [P1], drills: [fm-rankine-stagnation, fm-half-body-width] }
-          - { id: C, std: ["webwork-opl:FM8.3"], do: "Use the potential flow past a cylinder.", ek: ["Surface speed 2U sin θ; C_p = 1 − 4 sin²θ."], p: [P1], drills: [fm-cylinder-cp, fm-kutta-lift] }
-          - { id: D, std: ["webwork-opl:FM8.4"], do: "Use the Joukowski map.", ek: ["z = ζ + a²/ζ maps the circle |ζ| = a onto a flat plate from −2a to 2a."], p: [P1], drills: [fm-joukowski, fm-joukowski-plate] }
-          - { id: E, std: ["webwork-opl:FM8.5"], do: "Use thin-airfoil theory.", ek: ["c_l = 2πα (α in radians) for a thin symmetric airfoil."], p: [P1], drills: [fm-thin-airfoil, fm-thin-airfoil-alpha] }
-          - { id: F, std: ["webwork-opl:FM8.6"], do: "Use the potential flow past a sphere.", ek: ["The surface speed peaks at 1.5U at the equator."], p: [P1], drills: [fm-sphere-speed, fm-sphere-cp] }
+          - { id: A, std: ["webwork-opl:FM8.1"], do: "Find the velocity induced by a source.", ek: ["A 2-D source of strength m gives v_r = m/(2πr)."], p: [P1], needs: [FM-12.2.B], drills: [fm-source-velocity, fm-source-strength] }
+          - { id: B, std: ["webwork-opl:FM8.2"], do: "Superpose a uniform stream and a source.", ek: ["The stagnation point sits where the source's outflow cancels the stream: x = −m/(2πU)."], p: [P1], needs: [FM-12.3.A], drills: [fm-rankine-stagnation, fm-half-body-width] }
+          - { id: C, std: ["webwork-opl:FM8.3"], do: "Use the potential flow past a cylinder.", ek: ["Surface speed 2U sin θ; C_p = 1 − 4 sin²θ."], p: [P1], needs: [FM-12.3.B], drills: [fm-cylinder-cp, fm-kutta-lift] }
+          - { id: D, std: ["webwork-opl:FM8.4"], do: "Use the Joukowski map.", ek: ["z = ζ + a²/ζ maps the circle |ζ| = a onto a flat plate from −2a to 2a."], p: [P1], needs: [FM-12.3.C], drills: [fm-joukowski, fm-joukowski-plate] }
+          - { id: E, std: ["webwork-opl:FM8.5"], do: "Use thin-airfoil theory.", ek: ["c_l = 2πα (α in radians) for a thin symmetric airfoil."], p: [P1], needs: [FM-12.3.D], drills: [fm-thin-airfoil, fm-thin-airfoil-alpha] }
+          - { id: F, std: ["webwork-opl:FM8.6"], do: "Use the potential flow past a sphere.", ek: ["The surface speed peaks at 1.5U at the equator."], p: [P1], needs: [FM-12.3.E], drills: [fm-sphere-speed, fm-sphere-cp] }
       - n: 4
         title: "Compressible flow"
         los:
-          - { id: A, std: ["webwork-opl:FM9.2"], do: "Find a stagnation temperature.", ek: ["T₀ = T(1 + (k − 1)M²/2)."], p: [P1], drills: [fm-stagnation-temperature, fm-mach-from-stagnation] }
-          - { id: B, std: ["webwork-opl:FM9.3"], do: "Use the area–Mach relation.", ek: ["A/A* = (1/M)[(2/(k+1))(1 + (k−1)M²/2)]^((k+1)/(2(k−1)))."], p: [P1], drills: [fm-area-mach, fm-throat-area] }
-          - { id: C, std: ["webwork-opl:FM9.4"], do: "Find the choking pressure ratio of a nozzle.", ek: ["P*/P₀ = (2/(k+1))^(k/(k−1))."], p: [P1], drills: [fm-critical-pressure, fm-choked-check] }
-          - { id: D, std: ["webwork-opl:FM9.5"], do: "Find the Mach number behind a normal shock.", ek: ["M₂² = (1 + (k−1)M₁²/2)/(kM₁² − (k−1)/2)."], p: [P1], drills: [fm-normal-shock, fm-shock-pressure-ratio] }
-          - { id: E, std: ["webwork-opl:FM9.6"], do: "Find a Mach angle.", ek: ["sin μ = 1/M: the weakest oblique wave."], p: [P1], drills: [fm-mach-angle, fm-mach-from-angle] }
-          - { id: F, std: ["webwork-opl:FM9.7"], do: "Evaluate the Prandtl–Meyer function.", ek: ["ν(M) = √((k+1)/(k−1)) atan√((k−1)(M²−1)/(k+1)) − atan√(M²−1)."], p: [P1], drills: [fm-prandtl-meyer, fm-pm-turn] }
-          - { id: G, std: ["webwork-opl:FM9.8"], do: "Use Fanno flow (adiabatic duct with friction).", ek: ["4f̄L*/D = (1 − M²)/(kM²) + ((k+1)/(2k)) ln[(k+1)M²/(2 + (k−1)M²)]."], p: [P1], drills: [fm-fanno, fm-fanno-temperature] }
-          - { id: H, std: ["webwork-opl:FM9.9"], do: "Use Rayleigh flow (frictionless duct with heat transfer).", ek: ["T₀/T₀* = 2(k+1)M²(1 + (k−1)M²/2)/(1 + kM²)²."], p: [P1], drills: [fm-rayleigh, fm-rayleigh-pressure] }
+          - { id: A, std: ["webwork-opl:FM9.2"], do: "Find a stagnation temperature.", ek: ["T₀ = T(1 + (k − 1)M²/2)."], p: [P1], needs: [FM-12.3.F], drills: [fm-stagnation-temperature, fm-mach-from-stagnation] }
+          - { id: B, std: ["webwork-opl:FM9.3"], do: "Use the area–Mach relation.", ek: ["A/A* = (1/M)[(2/(k+1))(1 + (k−1)M²/2)]^((k+1)/(2(k−1)))."], p: [P1], needs: [FM-12.4.A], drills: [fm-area-mach, fm-throat-area] }
+          - { id: C, std: ["webwork-opl:FM9.4"], do: "Find the choking pressure ratio of a nozzle.", ek: ["P*/P₀ = (2/(k+1))^(k/(k−1))."], p: [P1], needs: [FM-12.4.B], drills: [fm-critical-pressure, fm-choked-check] }
+          - { id: D, std: ["webwork-opl:FM9.5"], do: "Find the Mach number behind a normal shock.", ek: ["M₂² = (1 + (k−1)M₁²/2)/(kM₁² − (k−1)/2)."], p: [P1], needs: [FM-12.4.C], drills: [fm-normal-shock, fm-shock-pressure-ratio] }
+          - { id: E, std: ["webwork-opl:FM9.6"], do: "Find a Mach angle.", ek: ["sin μ = 1/M: the weakest oblique wave."], p: [P1], needs: [FM-12.4.D], drills: [fm-mach-angle, fm-mach-from-angle] }
+          - { id: F, std: ["webwork-opl:FM9.7"], do: "Evaluate the Prandtl–Meyer function.", ek: ["ν(M) = √((k+1)/(k−1)) atan√((k−1)(M²−1)/(k+1)) − atan√(M²−1)."], p: [P1], needs: [FM-12.4.E], drills: [fm-prandtl-meyer, fm-pm-turn] }
+          - { id: G, std: ["webwork-opl:FM9.8"], do: "Use Fanno flow (adiabatic duct with friction).", ek: ["4f̄L*/D = (1 − M²)/(kM²) + ((k+1)/(2k)) ln[(k+1)M²/(2 + (k−1)M²)]."], p: [P1], needs: [FM-12.4.F], drills: [fm-fanno, fm-fanno-temperature] }
+          - { id: H, std: ["webwork-opl:FM9.9"], do: "Use Rayleigh flow (frictionless duct with heat transfer).", ek: ["T₀/T₀* = 2(k+1)M²(1 + (k−1)M²/2)/(1 + kM²)²."], p: [P1], needs: [FM-12.4.G], drills: [fm-rayleigh, fm-rayleigh-pressure] }
   - id: open-channel
     n: 13
     title: "Open-channel flow and turbines"
@@ -268,13 +268,13 @@ units:
       - n: 1
         title: "Open channels"
         los:
-          - { id: A, std: ["webwork-opl:FM10.1"], do: "Find the critical depth of a rectangular channel.", ek: ["y_c = (q²/g)^(1/3) with q the flow per unit width."], p: [P1], drills: [fm-critical-depth, fm-minimum-specific-energy] }
-          - { id: B, std: ["webwork-opl:FM10.2"], do: "Find uniform-flow velocity with Manning's equation.", ek: ["V = (1/n) R^(2/3) S^(1/2) (SI); Chézy V = C√(RS)."], p: [P1], drills: [fm-manning, fm-manning-slope] }
-          - { id: C, std: ["webwork-opl:FM10.3"], do: "Find the most efficient rectangular section.", ek: ["For a given area, the best rectangle is twice as wide as deep: R = y/2."], p: [P1], drills: [fm-best-section, fm-best-rectangle-radius] }
-          - { id: D, std: ["webwork-opl:FM10.4"], do: "Read the slope of a gradually varied flow profile.", ek: ["dy/dx = (S₀ − S_f)/(1 − Fr²)."], p: [P1], drills: [fm-gradually-varied, fm-profile-class] }
-          - { id: E, std: ["webwork-opl:FM10.5"], do: "Find the depth after a hydraulic jump.", ek: ["y₂/y₁ = ½(−1 + √(1 + 8Fr₁²))."], p: [P1], drills: [fm-hydraulic-jump, fm-jump-head-loss] }
+          - { id: A, std: ["webwork-opl:FM10.1"], do: "Find the critical depth of a rectangular channel.", ek: ["y_c = (q²/g)^(1/3) with q the flow per unit width."], p: [P1], needs: [FM-4.2.B, FM-10.2.A], drills: [fm-critical-depth, fm-minimum-specific-energy] }
+          - { id: B, std: ["webwork-opl:FM10.2"], do: "Find uniform-flow velocity with Manning's equation.", ek: ["V = (1/n) R^(2/3) S^(1/2) (SI); Chézy V = C√(RS)."], p: [P1], needs: [FM-13.1.A], drills: [fm-manning, fm-manning-slope] }
+          - { id: C, std: ["webwork-opl:FM10.3"], do: "Find the most efficient rectangular section.", ek: ["For a given area, the best rectangle is twice as wide as deep: R = y/2."], p: [P1], needs: [FM-13.1.B], drills: [fm-best-section, fm-best-rectangle-radius] }
+          - { id: D, std: ["webwork-opl:FM10.4"], do: "Read the slope of a gradually varied flow profile.", ek: ["dy/dx = (S₀ − S_f)/(1 − Fr²)."], p: [P1], needs: [FM-13.1.C], drills: [fm-gradually-varied, fm-profile-class] }
+          - { id: E, std: ["webwork-opl:FM10.5"], do: "Find the depth after a hydraulic jump.", ek: ["y₂/y₁ = ½(−1 + √(1 + 8Fr₁²))."], p: [P1], needs: [FM-13.1.D], drills: [fm-hydraulic-jump, fm-jump-head-loss] }
       - n: 2
         title: "Turbines"
         los:
-          - { id: A, std: ["webwork-opl:FM11.4"], do: "Find the power of a hydraulic turbine.", ek: ["P = ηρgQH; a Pelton wheel works best with buckets at half the jet speed."], p: [P1], drills: [fm-turbine-power, fm-turbine-head] }
+          - { id: A, std: ["webwork-opl:FM11.4"], do: "Find the power of a hydraulic turbine.", ek: ["P = ηρgQH; a Pelton wheel works best with buckets at half the jet speed."], p: [P1], needs: [FM-13.1.E], drills: [fm-turbine-power, fm-turbine-head] }
   # <<< opl-fill:opl-fm

@@ -128,6 +128,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-11.2.E"
+       ],
        "drills": [
         "md-choose-ensemble",
         "md-ensemble-fluctuations"
@@ -142,6 +145,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-1.1.A"
+       ],
        "drills": [
         "md-ergodicity",
         "md-barrier-crossings"
@@ -155,6 +161,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-1.1.B"
        ],
        "drills": [
         "cc-kinetic-temperature",
@@ -189,6 +198,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "MD-1.1.C"
+       ],
        "drills": [
         "cc-population-ratio",
         "md-energy-from-population"
@@ -219,6 +231,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MD-1.2.B"
        ],
        "drills": [
         "md-free-energy-kinds",
@@ -263,6 +278,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "MD-1.2.C"
+       ],
        "drills": [
         "md-charmm-terms",
         "md-charmm-lj-pair"
@@ -276,6 +294,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-2.1.A"
        ],
        "drills": [
         "cc-lj-energy",
@@ -308,6 +329,9 @@
         "P2",
         "P6"
        ],
+       "needs": [
+        "MD-2.1.B"
+       ],
        "drills": [
         "md-charmm-files",
         "mdh-which-file"
@@ -321,6 +345,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "MD-2.2.A"
        ],
        "drills": [
         "md-charmm-residue-names",
@@ -350,6 +377,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "MD-2.2.B"
+       ],
        "drills": [
         "md-force-field-fitting",
         "mdh-param-origin"
@@ -364,6 +394,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "MD-2.3.A"
        ],
        "drills": [
         "md-cgenff-penalty",
@@ -392,6 +425,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "MD-2.3.B"
        ],
        "drills": [
         "md-water-models",
@@ -440,6 +476,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-2.4.A"
+       ],
        "drills": [
         "md-integrator-properties",
         "md-dt-error-scaling"
@@ -453,6 +492,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-3.1.A"
        ],
        "drills": [
         "md-velocity-verlet-step",
@@ -489,6 +531,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "MD-3.1.B"
+       ],
        "drills": [
         "cc-vibration-period",
         "cc-steps-needed"
@@ -504,7 +549,8 @@
         "P3"
        ],
        "needs": [
-        "MD-1.1.C"
+        "MD-1.1.C",
+        "MD-3.2.A"
        ],
        "drills": [
         "~cc-degrees-of-freedom",
@@ -520,6 +566,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-3.2.B"
+       ],
        "drills": [
         "md-hmr-choice",
         "md-hmr-heavy-mass"
@@ -533,6 +582,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-3.2.C"
        ],
        "drills": [
         "md-diagnose-instability",
@@ -581,6 +633,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-1.2.C",
+        "MD-3.2.D"
+       ],
        "drills": [
         "md-thermostat-choice",
         "md-berendsen-relax"
@@ -594,6 +650,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "MD-4.1.A"
        ],
        "drills": [
         "md-langevin",
@@ -630,6 +689,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-4.1.B"
+       ],
        "drills": [
         "md-barostat-choice",
         "md-compressibility-volume"
@@ -645,6 +707,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "MD-4.2.A"
+       ],
        "drills": [
         "md-mc-barostat",
         "md-mc-volume-acceptance"
@@ -659,6 +724,9 @@
        "p": [
         "P4",
         "P5"
+       ],
+       "needs": [
+        "MD-4.2.B"
        ],
        "drills": [
         "cc-box-density",
@@ -707,6 +775,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "MD-2.4.A"
+       ],
        "drills": [
         "cc-minimum-image",
         "md-minimum-image-3d"
@@ -721,6 +792,9 @@
        "p": [
         "P2",
         "P4"
+       ],
+       "needs": [
+        "MD-5.1.A"
        ],
        "drills": [
         "md-box-waters",
@@ -739,6 +813,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "MD-5.1.B"
        ],
        "drills": [
         "md-periodic-artifacts",
@@ -779,6 +856,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-5.1.C"
+       ],
        "drills": [
         "md-ewald",
         "md-ewald-real-tail"
@@ -793,6 +873,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-5.2.A"
+       ],
        "drills": [
         "md-pme-settings",
         "md-pme-grid-points"
@@ -806,6 +889,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "MD-5.2.B"
        ],
        "drills": [
         "md-lj-cutoff",
@@ -852,6 +938,10 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "MD-4.2.C",
+        "MD-5.2.C"
+       ],
        "drills": [
         "md-protonation-fraction",
         "md-ph-for-fraction"
@@ -884,6 +974,9 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "MD-6.1.B"
+       ],
        "drills": [
         "cc-neutralising-ions",
         "md-salt-from-count"
@@ -901,6 +994,9 @@
        "p": [
         "P2",
         "P6"
+       ],
+       "needs": [
+        "MD-6.1.C"
        ],
        "drills": [
         "md-solution-builder",
@@ -941,6 +1037,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "MD-6.1.D"
+       ],
        "drills": [
         "md-prep-order",
         "mdh-stage-purpose"
@@ -954,6 +1053,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-6.2.A"
        ],
        "drills": [
         "md-maxwell-spread",
@@ -971,6 +1073,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-6.2.B"
        ],
        "drills": [
         "md-equilibration-done",
@@ -1017,6 +1122,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-6.2.C"
        ],
        "drills": [
         "md-statistical-inefficiency",
@@ -1067,6 +1175,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "MD-7.1.B"
+       ],
        "drills": [
         "md-block-average",
         "md-block-scaling"
@@ -1082,6 +1193,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "MD-7.2.A"
+       ],
        "drills": [
         "md-t-interval",
         "md-trials-needed"
@@ -1096,6 +1210,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "MD-7.2.B"
+       ],
        "drills": [
         "cc-error-propagation",
         "md-dg-from-k-error"
@@ -1109,6 +1226,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-7.2.C"
        ],
        "drills": [
         "md-bootstrap",
@@ -1141,6 +1261,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-7.2.D"
        ],
        "drills": [
         "md-dark-uncertainty",
@@ -1185,6 +1308,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-7.3.A"
+       ],
        "drills": [
         "fe-vocab",
         "fe-vocab-2"
@@ -1201,6 +1327,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-16.1.A"
        ],
        "drills": [
         "fe-error-fold",
@@ -1226,6 +1355,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-16.1.B"
+       ],
        "drills": [
         "fe-campaign-cost",
         "fe-worth-it"
@@ -1243,6 +1375,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-16.2.A"
        ],
        "drills": [
         "fe-network-cycles",
@@ -1290,7 +1425,8 @@
         "P4"
        ],
        "needs": [
-        "MD-1.2.B"
+        "MD-1.2.B",
+        "MD-16.2.B"
        ],
        "drills": [
         "md-zwanzig",
@@ -1306,6 +1442,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "MD-8.1.A"
+       ],
        "drills": [
         "md-cumulant",
         "md-cumulant-correction"
@@ -1319,6 +1458,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-8.1.B"
        ],
        "drills": [
         "md-fep-reliability",
@@ -1352,6 +1494,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "MD-8.1.C"
+       ],
        "drills": [
         "md-ti-trapezoid",
         "md-ti-simpson"
@@ -1365,6 +1510,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "MD-8.2.A"
        ],
        "drills": [
         "md-linear-mixing",
@@ -1396,6 +1544,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-8.2.B"
+       ],
        "drills": [
         "md-bar-mbar",
         "mdh-bar-shift"
@@ -1409,6 +1560,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "MD-8.3.A"
        ],
        "drills": [
         "md-bar-mbar",
@@ -1456,6 +1610,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-8.3.C"
+       ],
        "drills": [
         "md-lambda-schedule",
         "mdh-schedule-order"
@@ -1469,6 +1626,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "MD-8.4.A"
        ],
        "drills": [
         "md-soft-core",
@@ -1484,6 +1644,9 @@
        "p": [
         "P2",
         "P3"
+       ],
+       "needs": [
+        "MD-8.4.B"
        ],
        "drills": [
         "md-topology-kinds",
@@ -1535,7 +1698,8 @@
         "P4"
        ],
        "needs": [
-        "MD-1.2.B"
+        "MD-1.2.B",
+        "MD-8.4.C"
        ],
        "drills": [
         "md-relative-binding",
@@ -1555,6 +1719,9 @@
         "P1",
         "P4"
        ],
+       "needs": [
+        "MD-9.1.A"
+       ],
        "drills": [
         "md-folding-ddg",
         "md-stability-fold"
@@ -1568,6 +1735,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-9.1.B"
        ],
        "drills": [
         "md-cycle-closure",
@@ -1596,6 +1766,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MD-9.1.C"
+       ],
        "drills": [
         "md-double-decoupling",
         "mdh-double-decoupling-terms"
@@ -1609,6 +1782,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-9.2.A"
        ],
        "drills": [
         "md-standard-state",
@@ -1624,6 +1800,9 @@
        "p": [
         "P1",
         "P3"
+       ],
+       "needs": [
+        "MD-9.2.B"
        ],
        "drills": [
         "md-relative-or-absolute",
@@ -1654,6 +1833,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "MD-9.2.C"
+       ],
        "drills": [
         "cc-kd-to-free-energy",
         "md-fold-change-from-ddg"
@@ -1671,6 +1853,9 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "MD-9.3.A"
        ],
        "drills": [
         "md-match-conditions",
@@ -1714,6 +1899,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-9.3.B"
+       ],
        "drills": [
         "fe-path-rules",
         "fe-path-rules-2"
@@ -1731,6 +1919,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-17.1.A"
        ],
        "drills": [
         "fe-relative-choices",
@@ -1751,6 +1942,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-17.1.B"
+       ],
        "drills": [
         "fe-restraints",
         "fe-charge-weak"
@@ -1768,6 +1962,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-17.1.C"
        ],
        "drills": [
         "fe-sampling-scheme",
@@ -1795,6 +1992,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-17.1.D"
+       ],
        "drills": [
         "fe-overlap-pick",
         "fe-estimators"
@@ -1814,6 +2014,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-17.2.C"
+       ],
        "drills": [
         "fe-neff",
         "fe-equil-detect"
@@ -1830,6 +2033,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-17.2.A"
        ],
        "drills": [
         "fe-frames",
@@ -1849,6 +2055,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-17.2.B"
        ],
        "drills": [
         "fe-leg-error",
@@ -1874,6 +2083,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-17.2.D"
+       ],
        "drills": [
         "fe-diagnose",
         "fe-binding-mode"
@@ -1893,6 +2105,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "MD-17.3.C"
+       ],
        "drills": [
         "fe-repeat-consistent",
         "fe-cycle-closure-3"
@@ -1909,6 +2124,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-17.3.A"
        ],
        "drills": [
         "fe-mue",
@@ -1958,6 +2176,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-9.3.B"
+       ],
        "drills": [
         "md-lambda-hamiltonian",
         "mdh-lambda-extended"
@@ -1992,6 +2213,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "MD-10.1.B"
+       ],
        "drills": [
         "md-lambda-count",
         "md-pairwise-equivalent"
@@ -2020,6 +2244,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-10.1.C"
        ],
        "drills": [
         "md-fnex-lambda",
@@ -2073,6 +2300,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-10.2.B"
+       ],
        "drills": [
         "md-alf-bias-terms",
         "mdh-bias-roles"
@@ -2092,7 +2322,8 @@
         "P6"
        ],
        "needs": [
-        "MD-10.1.C"
+        "MD-10.1.C",
+        "MD-10.3.A"
        ],
        "drills": [
         "md-bias-pairs",
@@ -2128,7 +2359,8 @@
        ],
        "needs": [
         "MD-1.2.B",
-        "MD-10.3.A"
+        "MD-10.3.A",
+        "MD-10.3.B"
        ],
        "drills": [
         "md-populations-to-dg",
@@ -2146,6 +2378,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-10.4.A"
        ],
        "drills": [
         "md-unsampled-result",
@@ -2194,6 +2429,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-10.4.B"
+       ],
        "drills": [
         "md-alf-cycle",
         "mdh-alf-cycle"
@@ -2210,6 +2448,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-11.1.A"
        ],
        "drills": [
         "md-flattening-converged",
@@ -2246,6 +2487,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "MD-11.1.B"
+       ],
        "drills": [
         "md-alf-steps",
         "mdh-flat-steps"
@@ -2263,6 +2507,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "MD-11.2.A"
        ],
        "drills": [
         "md-production-ramp",
@@ -2283,7 +2530,8 @@
         "P6"
        ],
        "needs": [
-        "MD-10.1.C"
+        "MD-10.1.C",
+        "MD-11.2.B"
        ],
        "drills": [
         "md-alf-info",
@@ -2302,6 +2550,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "MD-11.2.C"
        ],
        "drills": [
         "md-alf-choices",
@@ -2323,7 +2574,8 @@
        ],
        "needs": [
         "MD-9.1.B",
-        "MD-7.2.C"
+        "MD-7.2.C",
+        "MD-11.2.D"
        ],
        "drills": [
         "md-ddg-fold-error",
@@ -2354,6 +2606,9 @@
        "p": [
         "P2",
         "P6"
+       ],
+       "needs": [
+        "MD-11.2.E"
        ],
        "drills": [
         "md-alchemical-definitions",
@@ -2420,6 +2675,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "MD-7.3.A"
+       ],
        "drills": [
         "md-rmsd",
         "md-rmsd-displacements"
@@ -2433,6 +2691,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "MD-12.1.A"
        ],
        "drills": [
         "md-b-factor",
@@ -2463,6 +2724,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "MD-12.1.B"
+       ],
        "drills": [
         "md-hydrogen-bond",
         "md-donor-acceptor-distance"
@@ -2476,6 +2740,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "MD-12.2.A"
        ],
        "drills": [
         "md-clustering",
@@ -2492,7 +2759,8 @@
         "P4"
        ],
        "needs": [
-        "MD-1.2.B"
+        "MD-1.2.B",
+        "MD-12.2.B"
        ],
        "drills": [
         "md-pmf-histogram",
@@ -2522,6 +2790,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "MD-12.2.C"
        ],
        "drills": [
         "md-trajectory-loading",
@@ -2566,6 +2837,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "MD-6.2.C"
+       ],
        "drills": [
         "md-slurm",
         "mdh-slurm-time"
@@ -2583,6 +2857,9 @@
        "p": [
         "P4",
         "P6"
+       ],
+       "needs": [
+        "MD-13.1.A"
        ],
        "drills": [
         "md-gpu-cost",
@@ -2621,6 +2898,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "MD-13.1.B"
+       ],
        "drills": [
         "md-engine-choice",
         "mdh-engine-choice"
@@ -2639,7 +2919,8 @@
         "P6"
        ],
        "needs": [
-        "MD-4.2.B"
+        "MD-4.2.B",
+        "MD-13.2.A"
        ],
        "drills": [
         "md-blade-commands",
@@ -2654,6 +2935,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "MD-13.2.B"
        ],
        "drills": [
         "md-openmm",
@@ -2685,6 +2969,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "MD-13.2.C"
        ],
        "drills": [
         "md-charmm-script",
@@ -2721,6 +3008,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "MD-13.3.A"
+       ],
        "drills": [
         "md-reproducibility",
         "mdh-reproducibility-record"
@@ -2739,6 +3029,9 @@
         "P4",
         "P6"
        ],
+       "needs": [
+        "MD-13.4.A"
+       ],
        "drills": [
         "md-trajectory-storage",
         "md-frames-for-storage",
@@ -2756,6 +3049,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "MD-13.4.B"
        ],
        "drills": [
         "md-alf-cleanup",
@@ -2797,6 +3093,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-11.3.B"
+       ],
        "drills": [
         "md-intersite-coupling",
         "mdh-intersite-coupling"
@@ -2815,7 +3114,8 @@
         "P3"
        ],
        "needs": [
-        "MD-10.1.C"
+        "MD-10.1.C",
+        "MD-14.1.A"
        ],
        "drills": [
         "md-estimator-choice",
@@ -2834,6 +3134,9 @@
        "p": [
         "P1",
         "P3"
+       ],
+       "needs": [
+        "MD-14.1.B"
        ],
        "drills": [
         "md-partition-mutations",
@@ -2872,6 +3175,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "MD-14.1.C"
+       ],
        "drills": [
         "md-charge-change",
         "mdh-charge-change"
@@ -2889,6 +3195,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "MD-14.2.A"
+       ],
        "drills": [
         "md-replica-exchange",
         "mdh-when-rex"
@@ -2905,6 +3214,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "MD-14.2.B"
        ],
        "drills": [
         "md-proline-glycine",
@@ -2938,6 +3250,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MD-2.4.A"
+       ],
        "drills": [
         "cc-basis-function-count",
         "qc-shell-functions"
@@ -2952,6 +3267,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MD-15.1.A"
+       ],
        "drills": [
         "cc-method-scaling",
         "md-size-from-time"
@@ -2965,6 +3283,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MD-15.1.B"
        ],
        "drills": [
         "cc-energy-units",
@@ -2985,6 +3306,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "MD-15.1.C"
        ],
        "drills": [
         "cc-functional-rung",

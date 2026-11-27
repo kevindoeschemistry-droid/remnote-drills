@@ -37,9 +37,11 @@ Big ideas: TREND
 
 - ● **IN-1.1.A** (icho-appendix-c:d1) Name the flame colour of a group 1 or 2 element (and copper).
   - EK: Li crimson, Na yellow, K lilac, Ca orange-red, Sr crimson, Ba apple green, Cu blue-green.
+  - Needs: PT-1.1.B
   - P2 · drills: in-flame-colour, in-flame-identify
 - ● **IN-1.1.B** (icho-appendix-c:d1, acs-accm-general:I.C.3, acs-accm-general:V.E.1) Give the product of burning an s-block metal in oxygen.
   - EK: Li oxide, Na peroxide, K/Rb/Cs superoxide; group 2 oxides.
+  - Needs: IN-1.1.A
   - P2 · P3 · drills: in-s-block-oxygen, in-oxide-type
 
 ## Unit 2 · The p block and oxidation states
@@ -52,6 +54,7 @@ Big ideas: COUNT, TREND
 
 - ● **IN-2.1.A** (ib-chemistry-2025:R3.2, acs-accm-inorganic:I.B.6) Find the oxidation state (or average) of an element in a formula or ion.
   - EK: Fix F, group 1–2, H and O by rule; charge balance gives the rest.
+  - Needs: IN-1.1.B, CH-4.9.D
   - P1 · drills: in-ox-state, in-ion-charge
 - ● **IN-2.1.B** (icho-appendix-c:d5) Find the ratio of atoms reduced to atoms oxidised in a disproportionation.
   - EK: Electrons lost = electrons gained.
@@ -64,10 +67,11 @@ Big ideas: COUNT, TREND
 
 - ● **IN-2.2.B** (icho-appendix-c:d3, acs-accm-inorganic:I.C.3, acs-accm-inorganic:III.G.5, acs-accm-inorganic:V.E.3) Classify an oxide as acidic, basic, amphoteric or neutral.
   - EK: Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral.
+  - Needs: IN-2.1.B
   - P2 · P3 · drills: in-oxide-character, in-oxide-trend
 - ● **IN-2.2.A** (icho-appendix-c:d4, acs-accm-general:IX.C.1, acs-accm-analytical:IX.B.1) Name a halogen, sulfur or nitrogen oxoacid from its formula.
   - EK: hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state.
-  - Needs: IN-2.1.A
+  - Needs: IN-2.1.A, IN-2.2.B
   - P2 · drills: in-oxoacid-name, in-oxoacid-state
 
 ## Unit 3 · The d block and coordination compounds
@@ -80,10 +84,11 @@ Big ideas: COUNT, SPLIT
 
 - ● **IN-3.1.D** (acs-accm-inorganic:III.A.2, acs-accm-inorganic:III.F.1) Rank ligands by the size of the splitting they cause.
   - EK: I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO.
+  - Needs: PT-2.2.A, CH-2.7.B
   - P2 · drills: in-spectrochemical, in-spectro-consequence
 - ● **IN-3.1.A** Find the metal's d-electron count in a complex.
   - EK: dⁿ = group − oxidation state.
-  - Needs: IN-2.1.A
+  - Needs: IN-2.1.A, IN-3.1.D
   - P1 · drills: in-d-count, in-ox-from-d
 - ● **IN-3.1.B** (acs-accm-inorganic:I.B.5, acs-accm-inorganic:IX.D.7) Give the spin-only magnetic moment of a high- or low-spin complex.
   - EK: μ = √(n(n+2)) μ_B.
@@ -91,7 +96,7 @@ Big ideas: COUNT, SPLIT
   - P1 · drills: in-spin-only, in-unpaired-from-moment
 - ● **IN-3.1.C** (acs-accm-inorganic:II.A.2, acs-accm-inorganic:II.C.3) Compute the crystal-field stabilisation energy of an octahedral ion.
   - EK: −0.4Δ_o per t₂g electron, +0.6Δ_o per e_g electron.
-  - Needs: IN-3.1.A
+  - Needs: IN-3.1.A, IN-3.1.B
   - P1 · drills: in-cfse, in-cfse-gain
 
 ### 3.2 Structure and colour
@@ -100,9 +105,11 @@ Big ideas: COUNT, SPLIT
 
 - ● **IN-3.2.B** (icho-appendix-c:d6, acs-accm-inorganic:III.A.2, acs-accm-inorganic:IX.D.2, acs-accm-inorganic:X.A.3) Name the colour of a common transition-metal ion or oxoanion in water.
   - EK: Colour is the complement of the light absorbed; d⁰ and d¹⁰ are colourless unless charge transfer.
+  - Needs: IN-3.1.C
   - P2 · drills: in-ion-colour, in-colour-identify
 - ● **IN-3.2.A** (icho-appendix-c:a1, acs-accm-inorganic:III.E.2) Count the stereoisomers of an octahedral or square-planar complex.
   - EK: Geometric isomers by trans pairs, then check each for chirality.
+  - Needs: IN-3.2.B
   - P3 · drills: in-isomer-type, in-isomer-count
 
 ## Unit 4 · Redox and qualitative analysis
@@ -115,7 +122,7 @@ Big ideas: COUNT, TREND
 
 - ● **IN-4.1.A** (icho-appendix-c:d8, acs-accm-inorganic:V.A.1) Count the electrons in a half-equation.
   - EK: Change in oxidation state × atoms changing.
-  - Needs: IN-2.1.A
+  - Needs: IN-2.1.A, IN-2.2.A, CH-9.8.B
   - P1 · drills: in-half-electrons, in-redox-ratio
 - ● **IN-4.1.B** (icho-appendix-c:d9, acs-accm-inorganic:IX.D.4) Find an oxidant's concentration from an iodometric titration.
   - EK: One thiosulfate per electron from the oxidant to its final reduced form.
@@ -128,9 +135,11 @@ Big ideas: COUNT, TREND
 
 - ● **IN-4.2.A** (icho-appendix-c:d7) Pick the hydroxide that redissolves in excess NaOH.
   - EK: Al, Zn, Pb, Sn, Cr(III), Be are amphoteric.
+  - Needs: IN-4.1.B
   - P2 · drills: in-amphoteric, in-ammonia-dissolve
 - ● **IN-4.2.B** (icho-appendix-c:d10) Name the colour of a common precipitate.
   - EK: AgCl white, AgBr cream, AgI yellow; Cu(OH)₂ blue; Fe(OH)₃ red-brown.
+  - Needs: IN-4.2.A
   - P2 · drills: in-precipitate-colour, in-precipitate-identify
 - ● **IN-4.2.C** (icho-appendix-c:d10, icho-appendix-c:c16, acs-accm-general:V.F.1) Choose the test that identifies a common ion.
   - EK: Acidify before BaCl₂ or AgNO₃; Fe³⁺ with SCN⁻; NH₄⁺ with warm NaOH.
@@ -147,6 +156,7 @@ Big ideas: PACK
 
 - ● **IN-5.1.A** (acs-accm-inorganic:X.D.8) Count the atoms or ions in a cubic unit cell.
   - EK: Corner 1/8, edge 1/4, face 1/2, body 1.
+  - Needs: CH-2.3.A
   - P1 · drills: in-cell-contents, in-sites-count
 - ● **IN-5.1.B** (acs-accm-inorganic:III.E.1, acs-accm-inorganic:IX.B.2) Give the coordination number in a metal or ionic structure.
   - EK: sc 6, bcc 8, fcc 12; NaCl 6, CsCl 8, ZnS 4, CaF₂ 8:4.
@@ -154,15 +164,15 @@ Big ideas: PACK
   - P2 · drills: in-coordination-number, in-structure-from-cn
 - ● **IN-5.1.C** (acs-accm-inorganic:III.H.1) Compute the packing fraction of a cubic lattice.
   - EK: Z(4/3)πr³/a³ with r where spheres touch.
-  - Needs: IN-5.1.A
+  - Needs: IN-5.1.A, IN-5.1.B
   - P1 · drills: in-packing, in-radius-from-edge
 - ● **IN-5.1.D** Compute a density from the cell edge and structure.
   - EK: ρ = ZM/(N_A a³).
-  - Needs: IN-5.1.A
+  - Needs: IN-5.1.A, IN-5.1.C
   - P1 · drills: in-density, in-edge-from-density
 - ● **IN-5.1.E** (acs-accm-general:III.G.1, acs-accm-inorganic:III.H.2) Predict a coordination number from the radius ratio.
   - EK: 0.225, 0.414, 0.732 thresholds.
-  - Needs: IN-5.1.B
+  - Needs: IN-5.1.B, IN-5.1.D
   - P3 · drills: in-radius-ratio, in-ratio-limit
 
 ### 5.2 Diffraction
@@ -171,6 +181,7 @@ Big ideas: PACK
 
 - ● **IN-5.2.A** (icho-appendix-c:a1, acs-accm-inorganic:I.D.2, acs-accm-inorganic:IX.A.3, acs-accm-inorganic:IX.D.6, acs-accm-analytical:III.H.1) Apply Bragg's law with cubic plane spacings.
   - EK: nλ = 2d sin θ; d = a/√(h²+k²+l²).
+  - Needs: IN-5.1.E
   - P1 · drills: in-bragg, in-bragg-edge
 
 ## Drills not yet placed on the map

@@ -59,8 +59,8 @@ units:
       - n: 1
         title: "Group 1 and 2 reactions"
         los:
-          - { id: A, std: ["icho-appendix-c:d1"], do: "Name the flame colour of a group 1 or 2 element (and copper).", ek: ["Li crimson, Na yellow, K lilac, Ca orange-red, Sr crimson, Ba apple green, Cu blue-green."], p: [P2], drills: [in-flame-colour, in-flame-identify] }
-          - { id: B, std: ["icho-appendix-c:d1", "acs-accm-general:I.C.3", "acs-accm-general:V.E.1"], do: "Give the product of burning an s-block metal in oxygen.", ek: ["Li oxide, Na peroxide, K/Rb/Cs superoxide; group 2 oxides."], p: [P2, P3], drills: [in-s-block-oxygen, in-oxide-type] }
+          - { id: A, std: ["icho-appendix-c:d1"], do: "Name the flame colour of a group 1 or 2 element (and copper).", ek: ["Li crimson, Na yellow, K lilac, Ca orange-red, Sr crimson, Ba apple green, Cu blue-green."], p: [P2], needs: [PT-1.1.B], drills: [in-flame-colour, in-flame-identify] }
+          - { id: B, std: ["icho-appendix-c:d1", "acs-accm-general:I.C.3", "acs-accm-general:V.E.1"], do: "Give the product of burning an s-block metal in oxygen.", ek: ["Li oxide, Na peroxide, K/Rb/Cs superoxide; group 2 oxides."], p: [P2, P3], needs: [IN-1.1.A], drills: [in-s-block-oxygen, in-oxide-type] }
   - id: p-block
     n: 2
     title: "The p block and oxidation states"
@@ -71,13 +71,13 @@ units:
       - n: 1
         title: "Oxidation states"
         los:
-          - { id: A, std: ["ib-chemistry-2025:R3.2", "acs-accm-inorganic:I.B.6"], do: "Find the oxidation state (or average) of an element in a formula or ion.", ek: ["Fix F, group 1–2, H and O by rule; charge balance gives the rest."], p: [P1], drills: [in-ox-state, in-ion-charge] }
+          - { id: A, std: ["ib-chemistry-2025:R3.2", "acs-accm-inorganic:I.B.6"], do: "Find the oxidation state (or average) of an element in a formula or ion.", ek: ["Fix F, group 1–2, H and O by rule; charge balance gives the rest."], p: [P1], needs: [IN-1.1.B, CH-4.9.D], drills: [in-ox-state, in-ion-charge] }
           - { id: B, std: ["icho-appendix-c:d5"], do: "Find the ratio of atoms reduced to atoms oxidised in a disproportionation.", ek: ["Electrons lost = electrons gained."], p: [P1], needs: [IN-2.1.A], drills: [in-disprop-which, in-disproportionation] }
       - n: 2
         title: "Oxides and oxoacids"
         los:
-          - { id: B, std: ["icho-appendix-c:d3", "acs-accm-inorganic:I.C.3", "acs-accm-inorganic:III.G.5", "acs-accm-inorganic:V.E.3"], do: "Classify an oxide as acidic, basic, amphoteric or neutral.", ek: ["Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral."], p: [P2, P3], drills: [in-oxide-character, in-oxide-trend] }
-          - { id: A, std: ["icho-appendix-c:d4", "acs-accm-general:IX.C.1", "acs-accm-analytical:IX.B.1"], do: "Name a halogen, sulfur or nitrogen oxoacid from its formula.", ek: ["hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state."], p: [P2], needs: [IN-2.1.A], drills: [in-oxoacid-name, in-oxoacid-state] }
+          - { id: B, std: ["icho-appendix-c:d3", "acs-accm-inorganic:I.C.3", "acs-accm-inorganic:III.G.5", "acs-accm-inorganic:V.E.3"], do: "Classify an oxide as acidic, basic, amphoteric or neutral.", ek: ["Metal oxides basic, non-metal oxides acidic, Al/Be/Zn amphoteric, CO/NO/N₂O neutral."], p: [P2, P3], needs: [IN-2.1.B], drills: [in-oxide-character, in-oxide-trend] }
+          - { id: A, std: ["icho-appendix-c:d4", "acs-accm-general:IX.C.1", "acs-accm-analytical:IX.B.1"], do: "Name a halogen, sulfur or nitrogen oxoacid from its formula.", ek: ["hypo-…-ous, -ous, -ic, per-…-ic in order of oxidation state."], p: [P2], needs: [IN-2.1.A, IN-2.2.B], drills: [in-oxoacid-name, in-oxoacid-state] }
   - id: coordination
     n: 3
     title: "The d block and coordination compounds"
@@ -88,15 +88,15 @@ units:
       - n: 1
         title: "Counting and splitting"
         los:
-          - { id: D, std: ["acs-accm-inorganic:III.A.2", "acs-accm-inorganic:III.F.1"], do: "Rank ligands by the size of the splitting they cause.", ek: ["I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO."], p: [P2], drills: [in-spectrochemical, in-spectro-consequence] }
-          - { id: A, do: "Find the metal's d-electron count in a complex.", ek: ["dⁿ = group − oxidation state."], p: [P1], needs: [IN-2.1.A], drills: [in-d-count, in-ox-from-d] }
+          - { id: D, std: ["acs-accm-inorganic:III.A.2", "acs-accm-inorganic:III.F.1"], do: "Rank ligands by the size of the splitting they cause.", ek: ["I⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO."], p: [P2], needs: [PT-2.2.A, CH-2.7.B], drills: [in-spectrochemical, in-spectro-consequence] }
+          - { id: A, do: "Find the metal's d-electron count in a complex.", ek: ["dⁿ = group − oxidation state."], p: [P1], needs: [IN-2.1.A, IN-3.1.D], drills: [in-d-count, in-ox-from-d] }
           - { id: B, std: ["acs-accm-inorganic:I.B.5", "acs-accm-inorganic:IX.D.7"], do: "Give the spin-only magnetic moment of a high- or low-spin complex.", ek: ["μ = √(n(n+2)) μ_B."], p: [P1], needs: [IN-3.1.A], drills: [in-spin-only, in-unpaired-from-moment] }
-          - { id: C, std: ["acs-accm-inorganic:II.A.2", "acs-accm-inorganic:II.C.3"], do: "Compute the crystal-field stabilisation energy of an octahedral ion.", ek: ["−0.4Δ_o per t₂g electron, +0.6Δ_o per e_g electron."], p: [P1], needs: [IN-3.1.A], drills: [in-cfse, in-cfse-gain] }
+          - { id: C, std: ["acs-accm-inorganic:II.A.2", "acs-accm-inorganic:II.C.3"], do: "Compute the crystal-field stabilisation energy of an octahedral ion.", ek: ["−0.4Δ_o per t₂g electron, +0.6Δ_o per e_g electron."], p: [P1], needs: [IN-3.1.A, IN-3.1.B], drills: [in-cfse, in-cfse-gain] }
       - n: 2
         title: "Structure and colour"
         los:
-          - { id: B, std: ["icho-appendix-c:d6", "acs-accm-inorganic:III.A.2", "acs-accm-inorganic:IX.D.2", "acs-accm-inorganic:X.A.3"], do: "Name the colour of a common transition-metal ion or oxoanion in water.", ek: ["Colour is the complement of the light absorbed; d⁰ and d¹⁰ are colourless unless charge transfer."], p: [P2], drills: [in-ion-colour, in-colour-identify] }
-          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:III.E.2"], do: "Count the stereoisomers of an octahedral or square-planar complex.", ek: ["Geometric isomers by trans pairs, then check each for chirality."], p: [P3], drills: [in-isomer-type, in-isomer-count] }
+          - { id: B, std: ["icho-appendix-c:d6", "acs-accm-inorganic:III.A.2", "acs-accm-inorganic:IX.D.2", "acs-accm-inorganic:X.A.3"], do: "Name the colour of a common transition-metal ion or oxoanion in water.", ek: ["Colour is the complement of the light absorbed; d⁰ and d¹⁰ are colourless unless charge transfer."], p: [P2], needs: [IN-3.1.C], drills: [in-ion-colour, in-colour-identify] }
+          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:III.E.2"], do: "Count the stereoisomers of an octahedral or square-planar complex.", ek: ["Geometric isomers by trans pairs, then check each for chirality."], p: [P3], needs: [IN-3.2.B], drills: [in-isomer-type, in-isomer-count] }
   - id: redox-qual
     n: 4
     title: "Redox and qualitative analysis"
@@ -107,13 +107,13 @@ units:
       - n: 1
         title: "Redox"
         los:
-          - { id: A, std: ["icho-appendix-c:d8", "acs-accm-inorganic:V.A.1"], do: "Count the electrons in a half-equation.", ek: ["Change in oxidation state × atoms changing."], p: [P1], needs: [IN-2.1.A], drills: [in-half-electrons, in-redox-ratio] }
+          - { id: A, std: ["icho-appendix-c:d8", "acs-accm-inorganic:V.A.1"], do: "Count the electrons in a half-equation.", ek: ["Change in oxidation state × atoms changing."], p: [P1], needs: [IN-2.1.A, IN-2.2.A, CH-9.8.B], drills: [in-half-electrons, in-redox-ratio] }
           - { id: B, std: ["icho-appendix-c:d9", "acs-accm-inorganic:IX.D.4"], do: "Find an oxidant's concentration from an iodometric titration.", ek: ["One thiosulfate per electron from the oxidant to its final reduced form."], p: [P1], needs: [IN-4.1.A], drills: [in-iodometry, in-thiosulfate-volume] }
       - n: 2
         title: "Identifying ions"
         los:
-          - { id: A, std: ["icho-appendix-c:d7"], do: "Pick the hydroxide that redissolves in excess NaOH.", ek: ["Al, Zn, Pb, Sn, Cr(III), Be are amphoteric."], p: [P2], drills: [in-amphoteric, in-ammonia-dissolve] }
-          - { id: B, std: ["icho-appendix-c:d10"], do: "Name the colour of a common precipitate.", ek: ["AgCl white, AgBr cream, AgI yellow; Cu(OH)₂ blue; Fe(OH)₃ red-brown."], p: [P2], drills: [in-precipitate-colour, in-precipitate-identify] }
+          - { id: A, std: ["icho-appendix-c:d7"], do: "Pick the hydroxide that redissolves in excess NaOH.", ek: ["Al, Zn, Pb, Sn, Cr(III), Be are amphoteric."], p: [P2], needs: [IN-4.1.B], drills: [in-amphoteric, in-ammonia-dissolve] }
+          - { id: B, std: ["icho-appendix-c:d10"], do: "Name the colour of a common precipitate.", ek: ["AgCl white, AgBr cream, AgI yellow; Cu(OH)₂ blue; Fe(OH)₃ red-brown."], p: [P2], needs: [IN-4.2.A], drills: [in-precipitate-colour, in-precipitate-identify] }
           - { id: C, std: ["icho-appendix-c:d10", "icho-appendix-c:c16", "acs-accm-general:V.F.1"], do: "Choose the test that identifies a common ion.", ek: ["Acidify before BaCl₂ or AgNO₃; Fe³⁺ with SCN⁻; NH₄⁺ with warm NaOH."], p: [P2], needs: [IN-4.2.B], drills: [in-ion-test, in-test-result] }
   - id: solids
     n: 5
@@ -125,12 +125,12 @@ units:
       - n: 1
         title: "Cubic cells"
         los:
-          - { id: A, std: ["acs-accm-inorganic:X.D.8"], do: "Count the atoms or ions in a cubic unit cell.", ek: ["Corner 1/8, edge 1/4, face 1/2, body 1."], p: [P1], drills: [in-cell-contents, in-sites-count] }
+          - { id: A, std: ["acs-accm-inorganic:X.D.8"], do: "Count the atoms or ions in a cubic unit cell.", ek: ["Corner 1/8, edge 1/4, face 1/2, body 1."], p: [P1], needs: [CH-2.3.A], drills: [in-cell-contents, in-sites-count] }
           - { id: B, std: ["acs-accm-inorganic:III.E.1", "acs-accm-inorganic:IX.B.2"], do: "Give the coordination number in a metal or ionic structure.", ek: ["sc 6, bcc 8, fcc 12; NaCl 6, CsCl 8, ZnS 4, CaF₂ 8:4."], p: [P2], needs: [IN-5.1.A], drills: [in-coordination-number, in-structure-from-cn] }
-          - { id: C, std: ["acs-accm-inorganic:III.H.1"], do: "Compute the packing fraction of a cubic lattice.", ek: ["Z(4/3)πr³/a³ with r where spheres touch."], p: [P1], needs: [IN-5.1.A], drills: [in-packing, in-radius-from-edge] }
-          - { id: D, do: "Compute a density from the cell edge and structure.", ek: ["ρ = ZM/(N_A a³)."], p: [P1], needs: [IN-5.1.A], drills: [in-density, in-edge-from-density] }
-          - { id: E, std: ["acs-accm-general:III.G.1", "acs-accm-inorganic:III.H.2"], do: "Predict a coordination number from the radius ratio.", ek: ["0.225, 0.414, 0.732 thresholds."], p: [P3], needs: [IN-5.1.B], drills: [in-radius-ratio, in-ratio-limit] }
+          - { id: C, std: ["acs-accm-inorganic:III.H.1"], do: "Compute the packing fraction of a cubic lattice.", ek: ["Z(4/3)πr³/a³ with r where spheres touch."], p: [P1], needs: [IN-5.1.A, IN-5.1.B], drills: [in-packing, in-radius-from-edge] }
+          - { id: D, do: "Compute a density from the cell edge and structure.", ek: ["ρ = ZM/(N_A a³)."], p: [P1], needs: [IN-5.1.A, IN-5.1.C], drills: [in-density, in-edge-from-density] }
+          - { id: E, std: ["acs-accm-general:III.G.1", "acs-accm-inorganic:III.H.2"], do: "Predict a coordination number from the radius ratio.", ek: ["0.225, 0.414, 0.732 thresholds."], p: [P3], needs: [IN-5.1.B, IN-5.1.D], drills: [in-radius-ratio, in-ratio-limit] }
       - n: 2
         title: "Diffraction"
         los:
-          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:I.D.2", "acs-accm-inorganic:IX.A.3", "acs-accm-inorganic:IX.D.6", "acs-accm-analytical:III.H.1"], do: "Apply Bragg's law with cubic plane spacings.", ek: ["nλ = 2d sin θ; d = a/√(h²+k²+l²)."], p: [P1], drills: [in-bragg, in-bragg-edge] }
+          - { id: A, std: ["icho-appendix-c:a1", "acs-accm-inorganic:I.D.2", "acs-accm-inorganic:IX.A.3", "acs-accm-inorganic:IX.D.6", "acs-accm-analytical:III.H.1"], do: "Apply Bragg's law with cubic plane spacings.", ek: ["nλ = 2d sin θ; d = a/√(h²+k²+l²)."], p: [P1], needs: [IN-5.1.E], drills: [in-bragg, in-bragg-edge] }

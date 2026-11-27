@@ -69,6 +69,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "HT-14.2.B"
+       ],
        "drills": [
         "ms-gas-diffusivity-scaling",
         "ms-diffusivity-temperature-reverse"
@@ -85,6 +88,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-1.1.A"
        ],
        "drills": [
         "ms-liquid-diffusivity-scaling",
@@ -103,6 +109,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-1.1.B"
+       ],
        "drills": [
         "ms-knudsen",
         "ms-knudsen-crossover"
@@ -119,6 +128,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-1.1.C"
        ],
        "drills": [
         "ms-effective-diffusivity",
@@ -143,6 +155,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-1.1.D"
+       ],
        "drills": [
         "ms-stagnant-film",
         "ms-stefan-tube-time"
@@ -159,6 +174,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-1.2.A"
        ],
        "drills": [
         "ms-bulk-flow-factor",
@@ -198,6 +216,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-1.2.B",
+        "EM-3.2.B"
+       ],
        "drills": [
         "ms-effectiveness-slab",
         "ms-slab-size-effect"
@@ -214,6 +236,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-2.1.A"
        ],
        "drills": [
         "ms-effectiveness-sphere",
@@ -232,6 +257,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-2.1.B"
+       ],
        "drills": [
         "ms-spherical-shell",
         "ms-shell-vs-slab"
@@ -249,6 +277,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-2.1.C"
+       ],
        "drills": [
         "ms-droplet-lifetime",
         "ms-droplet-fraction-time"
@@ -265,6 +296,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-2.1.D"
        ],
        "drills": [
         "ms-film-absorption",
@@ -303,6 +337,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-1.2.B",
+        "HT-7.5.A",
+        "EM-10.2.H"
+       ],
        "drills": [
         "ms-diffusion-time",
         "ms-diffusion-distance"
@@ -320,6 +359,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-3.1.A"
+       ],
        "drills": [
         "ms-semi-infinite-uptake",
         "ms-uptake-time"
@@ -336,6 +378,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-3.1.B"
        ],
        "drills": [
         "ms-slab-time-constant",
@@ -375,6 +420,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-1.2.B",
+        "HT-8.4.A"
+       ],
        "drills": [
         "ms-overall-coefficient",
         "ms-liquid-coefficient-reverse"
@@ -393,6 +442,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-4.1.A"
+       ],
        "drills": [
         "ms-resistance-fraction",
         "ms-controlling-film"
@@ -409,6 +461,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-4.1.B"
        ],
        "drills": [
         "ms-ranz-marshall",
@@ -427,6 +482,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-4.1.C"
+       ],
        "drills": [
         "ms-model-scaling",
         "ms-model-exponent"
@@ -444,6 +502,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-4.1.D"
        ],
        "drills": [
         "ms-htu-ntu",
@@ -483,6 +544,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MS-1.2.B",
+        "MS-4.1.E"
+       ],
        "drills": [
         "ms-wilke-mixture",
         "ms-trace-mixture-d"
@@ -499,6 +564,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MS-5.1.A"
        ],
        "drills": [
         "ms-membrane-flux",

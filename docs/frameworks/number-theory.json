@@ -74,7 +74,8 @@
         "P1"
        ],
        "needs": [
-        "DM-1.2.A"
+        "DM-1.2.A",
+        "NT-1.2.C"
        ],
        "drills": [
         "nt-gcd",
@@ -116,11 +117,82 @@
         "P1"
        ],
        "needs": [
-        "NT-1.1.A"
+        "NT-1.1.A",
+        "NT-1.2.C",
+        "NT-1.2.B"
        ],
        "drills": [
         "nt-divisor-count",
         "nt-divisor-sum"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Remainders and factorisations",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Apply the division algorithm, including to negative numbers.",
+       "ek": [
+        "For any integer a and positive n there is exactly one pair q, r with a = qn + r and 0 ≤ r < n. The remainder is never negative: −7 = (−2)·5 + 3."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "DM-1.2.A"
+       ],
+       "drills": [
+        "nt-remainder-negative",
+        "nt-quotient-remainder"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Find how often a prime divides a factorial.",
+       "ek": [
+        "The exponent of p in n! is ⌊n/p⌋ + ⌊n/p²⌋ + ⌊n/p³⌋ + … (Legendre). The number of trailing zeros of n! is the exponent of 5."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-1.2.A"
+       ],
+       "drills": [
+        "nt-prime-in-factorial",
+        "nt-trailing-zeros"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Read the gcd and lcm off prime factorisations.",
+       "ek": [
+        "Take the smaller exponent of each prime for the gcd and the larger for the lcm, so gcd(a, b) · lcm(a, b) = ab."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-1.2.A"
+       ],
+       "drills": [
+        "nt-lcm-from-factors",
+        "nt-gcd-lcm-product"
        ]
       }
      ]
@@ -160,7 +232,8 @@
         "P1"
        ],
        "needs": [
-        "NT-1.1.B"
+        "NT-1.1.B",
+        "NT-2.2.C"
        ],
        "drills": [
         "nt-inverse",
@@ -223,11 +296,104 @@
         "P1"
        ],
        "needs": [
-        "NT-2.1.B"
+        "NT-2.1.B",
+        "NT-2.2.D"
        ],
        "drills": [
         "nt-rsa-private",
         "nt-rsa-encrypt"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Congruence arithmetic",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Add, multiply and take powers of residues.",
+       "ek": [
+        "Congruence respects addition and multiplication, so any integer may be replaced by its remainder at any stage. Powers of a residue repeat in a cycle."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-1.2.A"
+       ],
+       "drills": [
+        "nt-residue-expression",
+        "nt-last-digit-power"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Explain and use the digit tests for 9 and 11.",
+       "ek": [
+        "Since 10 ≡ 1 (mod 9), a number is congruent to its digit sum modulo 9; since 10 ≡ −1 (mod 11), it is congruent to its alternating digit sum modulo 11."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-2.2.A"
+       ],
+       "drills": [
+        "nt-mod-nine",
+        "nt-mod-eleven"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Solve a linear congruence and count its solutions.",
+       "ek": [
+        "ax ≡ b (mod n) has a solution exactly when d = gcd(a, n) divides b, and then it has exactly d solutions modulo n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-2.2.A",
+        "NT-1.1.B"
+       ],
+       "drills": [
+        "nt-congruence-count",
+        "nt-congruence-solve"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Reduce an exponent with Euler's theorem and invert with Fermat's.",
+       "ek": [
+        "If gcd(a, n) = 1 then exponents may be reduced modulo φ(n). Modulo a prime p, the inverse of a is a^(p−2)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-2.1.A",
+        "NT-2.1.B"
+       ],
+       "drills": [
+        "nt-euler-reduce",
+        "nt-fermat-inverse"
        ]
       }
      ]
@@ -284,7 +450,8 @@
         "P1"
        ],
        "needs": [
-        "NT-3.1.A"
+        "NT-3.1.A",
+        "NT-3.2.B"
        ],
        "drills": [
         "nt-legendre",
@@ -309,6 +476,53 @@
        "drills": [
         "nt-jacobi",
         "nt-jacobi-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Squares modulo a prime",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T3"
+       ],
+       "do": "List the squares modulo a prime and count the solutions of x² ≡ a.",
+       "ek": [
+        "Modulo an odd prime p the non-zero squares are the (p − 1)/2 values of 1², 2², …, ((p − 1)/2)². x² ≡ a has two solutions if a is a non-zero square, one if a ≡ 0, none otherwise."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-2.2.A"
+       ],
+       "drills": [
+        "nt-square-solutions",
+        "nt-count-squares"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T3"
+       ],
+       "do": "Apply Euler's criterion by direct computation.",
+       "ek": [
+        "a^((p−1)/2) is congruent to 1 if a is a non-zero square modulo p and to −1 (that is, p − 1) if it is not."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-3.2.A",
+        "NT-2.1.A"
+       ],
+       "drills": [
+        "nt-euler-criterion",
+        "nt-criterion-facts"
        ]
       }
      ]
@@ -347,7 +561,8 @@
         "P2"
        ],
        "needs": [
-        "NT-3.1.B"
+        "NT-3.1.B",
+        "NT-4.2.C"
        ],
        "drills": [
         "nt-sum-two-squares",
@@ -388,7 +603,8 @@
         "P1"
        ],
        "needs": [
-        "NT-2.1.A"
+        "NT-2.1.A",
+        "NT-4.2.A"
        ],
        "drills": [
         "nt-prime-count-estimate",
@@ -413,6 +629,74 @@
        "drills": [
         "nt-fermat-factorise",
         "nt-congruent-squares"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Primes up close",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T6"
+       ],
+       "do": "Count primes in a range with the sieve of Eratosthenes.",
+       "ek": [
+        "To find the primes up to N, cross out multiples of each prime up to √N; what survives is prime. A number below N with no prime factor up to √N is prime."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-1.2.A"
+       ],
+       "drills": [
+        "nt-count-primes",
+        "nt-trial-division-bound"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ii-number-theory:T8"
+       ],
+       "do": "Connect Mersenne primes to even perfect numbers.",
+       "ek": [
+        "If 2ᵖ − 1 is prime then 2ᵖ⁻¹(2ᵖ − 1) is perfect, and every even perfect number has this form (Euclid, Euler). 2ᵖ − 1 can only be prime when p is prime, but need not be: 2¹¹ − 1 = 23 · 89."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-1.1.C",
+        "NT-4.2.A"
+       ],
+       "drills": [
+        "nt-perfect-from-mersenne",
+        "nt-mersenne-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-number-theory:T7"
+       ],
+       "do": "Generate Pythagorean triples.",
+       "ek": [
+        "For m > n > 0, (m² − n², 2mn, m² + n²) is a Pythagorean triple; it is primitive exactly when m and n are coprime and of opposite parity, and every primitive triple arises this way."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "NT-1.2.C"
+       ],
+       "drills": [
+        "nt-triple-hypotenuse",
+        "nt-triple-primitive"
        ]
       }
      ]
@@ -451,6 +735,39 @@
    "full": [
     "nt-divisor-count",
     "nt-divisor-sum"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-remainder-negative",
+    "nt-quotient-remainder"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-prime-in-factorial",
+    "nt-trailing-zeros"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-lcm-from-factors",
+    "nt-gcd-lcm-product"
    ],
    "partial": []
   },
@@ -499,6 +816,50 @@
    "partial": []
   },
   {
+   "code": "NT-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-residue-expression",
+    "nt-last-digit-power"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-mod-nine",
+    "nt-mod-eleven"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-congruence-count",
+    "nt-congruence-solve"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-2.2.D",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-euler-reduce",
+    "nt-fermat-inverse"
+   ],
+   "partial": []
+  },
+  {
    "code": "NT-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -528,6 +889,28 @@
    "full": [
     "nt-jacobi",
     "nt-jacobi-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-square-solutions",
+    "nt-count-squares"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-euler-criterion",
+    "nt-criterion-facts"
    ],
    "partial": []
   },
@@ -572,6 +955,39 @@
    "full": [
     "nt-fermat-factorise",
     "nt-congruent-squares"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-count-primes",
+    "nt-trial-division-bound"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-perfect-from-mersenne",
+    "nt-mersenne-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "nt-triple-hypotenuse",
+    "nt-triple-primitive"
    ],
    "partial": []
   }

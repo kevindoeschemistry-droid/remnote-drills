@@ -59,23 +59,6 @@
      "title": "Charges, fields and the double-layer concept",
      "los": [
       {
-       "id": "D",
-       "std": [
-        "petsev-edl:1"
-       ],
-       "do": "Place electrolyte models in the book's hierarchy.",
-       "ek": [
-        "Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "el-model-hierarchy",
-        "el-model-capabilities"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "petsev-edl:1"
@@ -86,6 +69,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "MT-3.4.C"
        ],
        "drills": [
         "el-coulomb-force",
@@ -104,6 +90,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-1.1.A"
+       ],
        "drills": [
         "el-helmholtz-capacitance",
         "el-surface-field"
@@ -121,9 +110,32 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-1.1.B"
+       ],
        "drills": [
         "el-schulze-hardy",
         "el-ccc-predict"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:1"
+       ],
+       "do": "Place electrolyte models in the book's hierarchy.",
+       "ek": [
+        "Primitive: ions in a dielectric continuum. Semi-primitive: explicit neutral solvent spheres. Civilized: explicit dipolar solvent."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EL-1.1.C"
+       ],
+       "drills": [
+        "el-model-hierarchy",
+        "el-model-capabilities"
        ]
       }
      ]
@@ -144,6 +156,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-1.1.D"
+       ],
        "drills": [
         "el-nernst-potential",
         "el-nernst-ph"
@@ -161,6 +176,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-1.2.A"
+       ],
        "drills": [
         "el-regulation-linear",
         "el-regulation-reverse"
@@ -177,6 +195,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-1.2.B"
        ],
        "drills": [
         "el-stern-langmuir",
@@ -215,6 +236,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-1.2.C",
+        "TD-11.2.E"
+       ],
        "drills": [
         "el-debye-length",
         "el-debye-scaling"
@@ -231,6 +256,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-2.1.A"
        ],
        "drills": [
         "el-grahame",
@@ -249,6 +277,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-2.1.B"
+       ],
        "drills": [
         "el-gouy-chapman-profile",
         "el-gc-half-distance"
@@ -265,6 +296,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-2.1.C"
        ],
        "drills": [
         "el-linear-error",
@@ -289,6 +323,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-2.1.D"
+       ],
        "drills": [
         "el-midplane-pressure",
         "el-midplane-from-pressure"
@@ -305,6 +342,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-2.2.A"
        ],
        "drills": [
         "el-weak-overlap",
@@ -323,6 +363,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-2.2.B"
+       ],
        "drills": [
         "el-constant-potential-charge",
         "el-constant-charge-potential"
@@ -339,6 +382,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-2.2.C"
        ],
        "drills": [
         "el-sphere-charge",
@@ -357,6 +403,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-2.2.D"
+       ],
        "drills": [
         "el-derjaguin-force",
         "el-derjaguin-reverse"
@@ -373,6 +422,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-2.2.E"
        ],
        "drills": [
         "el-vdw-spheres",
@@ -397,6 +449,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-2.2.F"
+       ],
        "drills": [
         "el-electrophoresis",
         "el-zeta-from-mobility"
@@ -414,6 +469,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EL-2.3.A"
+       ],
        "drills": [
         "el-ek-limit",
         "el-ka-limit"
@@ -430,6 +488,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-2.3.B"
        ],
        "drills": [
         "el-fermi-temperature",
@@ -458,23 +519,6 @@
      "title": "Integral equations",
      "los": [
       {
-       "id": "C",
-       "std": [
-        "petsev-edl:4"
-       ],
-       "do": "Recognise the common closures.",
-       "ek": [
-        "PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "el-closures",
-        "el-closure-forms"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "petsev-edl:4"
@@ -485,6 +529,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-1.2.C",
+        "TD-12.5.A"
        ],
        "drills": [
         "el-oz-structure-factor",
@@ -503,9 +551,32 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-3.1.A"
+       ],
        "drills": [
         "el-hs-pressure",
         "el-cs-vs-py-virial"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "petsev-edl:4"
+       ],
+       "do": "Recognise the common closures.",
+       "ek": [
+        "PY: c = g(1 − e^{βφ}). HNC: c = h − ln y (i.e. g − 1 − ln y). MSA: g = 0 inside the core, c = −βφ outside."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EL-3.1.B"
+       ],
+       "drills": [
+        "el-closures",
+        "el-closure-forms"
        ]
       },
       {
@@ -519,6 +590,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-3.1.C"
        ],
        "drills": [
         "el-packing-fraction",
@@ -543,6 +617,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-3.1.D"
+       ],
        "drills": [
         "el-b2-square-well",
         "el-boyle-square-well"
@@ -559,6 +636,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-3.2.A"
        ],
        "drills": [
         "el-vdw-reduced",
@@ -577,6 +657,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-3.2.B"
+       ],
        "drills": [
         "el-mean-field-m",
         "el-mf-susceptibility"
@@ -593,6 +676,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-3.2.C"
        ],
        "drills": [
         "el-spt-cavity",
@@ -611,6 +697,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-3.2.D"
+       ],
        "drills": [
         "el-tonks",
         "el-tonks-free-energy"
@@ -627,6 +716,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-3.2.E"
        ],
        "drills": [
         "el-wca-split",
@@ -666,6 +758,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-3.2.F",
+        "TD-4.3.B"
+       ],
        "drills": [
         "el-ideal-functional",
         "el-ideal-well-excess"
@@ -682,6 +778,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-4.1.A"
        ],
        "drills": [
         "el-surface-excess",
@@ -700,6 +799,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-4.1.B"
+       ],
        "drills": [
         "el-pmf",
         "el-g-from-pmf"
@@ -716,6 +818,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-4.1.C"
        ],
        "drills": [
         "el-contact-angle",
@@ -734,6 +839,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-4.1.D"
+       ],
        "drills": [
         "el-thomas-fermi-scaling",
         "el-tf-compression"
@@ -746,23 +854,6 @@
      "title": "Classical DFT for electrolytes",
      "los": [
       {
-       "id": "D",
-       "std": [
-        "petsev-edl:7"
-       ],
-       "do": "Know what fundamental-measure theory weights.",
-       "ek": [
-        "n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "el-fmt-weights",
-        "el-fmt-measures"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "petsev-edl:7"
@@ -773,6 +864,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-4.1.E"
        ],
        "drills": [
         "el-bjerrum",
@@ -791,6 +885,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-4.2.A"
+       ],
        "drills": [
         "el-contact-theorem",
         "el-contact-theorem-sigma"
@@ -808,9 +905,32 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-4.2.B"
+       ],
        "drills": [
         "el-cs-free-energy",
         "el-cs-chemical-potential"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "petsev-edl:7"
+       ],
+       "do": "Know what fundamental-measure theory weights.",
+       "ek": [
+        "n₃ is the local packing fraction (volume weight θ(R − |r|)), n₂ the surface weight δ(R − |r|), n₁ and n₀ scaled versions, plus vector weights."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EL-4.2.C"
+       ],
+       "drills": [
+        "el-fmt-weights",
+        "el-fmt-measures"
        ]
       },
       {
@@ -824,6 +944,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-4.2.D"
        ],
        "drills": [
         "el-msa-gamma",
@@ -841,6 +964,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-4.2.E"
        ],
        "drills": [
         "el-site-binding",
@@ -881,6 +1007,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EL-2.3.C",
+        "EL-4.2.F"
+       ],
        "drills": [
         "el-solvent-structure",
         "el-solvent-per-ion"
@@ -898,6 +1028,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EL-5.1.A"
+       ],
        "drills": [
         "el-solvation-effects",
         "el-contact-enhanced-binding"
@@ -914,6 +1047,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EL-5.1.B"
        ],
        "drills": [
         "el-surface-interactions",
@@ -938,6 +1074,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EL-5.1.C"
+       ],
        "drills": [
         "el-planes",
         "el-series-capacitance"
@@ -955,6 +1094,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EL-5.2.A"
+       ],
        "drills": [
         "el-multivalent",
         "el-valence-contact-ratio"
@@ -971,6 +1113,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EL-5.2.B"
        ],
        "drills": [
         "el-ion-size",
@@ -1011,6 +1156,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-3.2.F"
+       ],
        "drills": [
         "el-metropolis",
         "el-metropolis-mean-acceptance"
@@ -1027,6 +1175,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-6.1.A"
        ],
        "drills": [
         "el-widom",
@@ -1045,6 +1196,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-6.1.B"
+       ],
        "drills": [
         "el-collision-time",
         "el-collision-offset"
@@ -1062,6 +1216,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-6.1.C"
+       ],
        "drills": [
         "el-ocp-gamma",
         "el-ocp-gamma-density"
@@ -1078,6 +1235,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-6.1.D"
        ],
        "drills": [
         "el-dh-limiting",
@@ -1102,6 +1262,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-6.1.E"
+       ],
        "drills": [
         "el-picard",
         "el-picard-alpha"
@@ -1119,6 +1282,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-6.2.A"
+       ],
        "drills": [
         "el-newton-pb",
         "el-grahame-exact-root"
@@ -1135,6 +1301,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EL-6.2.B"
        ],
        "drills": [
         "el-schur",
@@ -1154,6 +1323,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EL-6.2.C"
+       ],
        "drills": [
         "el-nernst-planck",
         "el-zero-flux-gradient"
@@ -1165,17 +1337,6 @@
   }
  ],
  "rows": [
-  {
-   "code": "EL-1.1.D",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "el-model-hierarchy",
-    "el-model-capabilities"
-   ],
-   "partial": []
-  },
   {
    "code": "EL-1.1.A",
    "unit": 1,
@@ -1206,6 +1367,17 @@
    "full": [
     "el-schulze-hardy",
     "el-ccc-predict"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-model-hierarchy",
+    "el-model-capabilities"
    ],
    "partial": []
   },
@@ -1386,17 +1558,6 @@
    "partial": []
   },
   {
-   "code": "EL-3.1.C",
-   "unit": 3,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "el-closures",
-    "el-closure-forms"
-   ],
-   "partial": []
-  },
-  {
    "code": "EL-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -1415,6 +1576,17 @@
    "full": [
     "el-hs-pressure",
     "el-cs-vs-py-virial"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "el-closures",
+    "el-closure-forms"
    ],
    "partial": []
   },
@@ -1551,17 +1723,6 @@
    "partial": []
   },
   {
-   "code": "EL-4.2.D",
-   "unit": 4,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "el-fmt-weights",
-    "el-fmt-measures"
-   ],
-   "partial": []
-  },
-  {
    "code": "EL-4.2.A",
    "unit": 4,
    "topic": 2,
@@ -1591,6 +1752,17 @@
    "full": [
     "el-cs-free-energy",
     "el-cs-chemical-potential"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EL-4.2.D",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "el-fmt-weights",
+    "el-fmt-measures"
    ],
    "partial": []
   },

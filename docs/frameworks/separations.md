@@ -30,6 +30,7 @@ Big ideas: STAGE, DRIVE
 
 - ● **SP-1.1.A** (webwork-opl:TH16.4, fe-chemical:10.E) Compute a vapour composition from relative volatility.
   - EK: y = αx/(1 + (α − 1)x).
+  - Needs: MB-2.2.A, TD-9.6.A
   - P1 · drills: sp-vle-alpha, sp-alpha-from-data
 - ● **SP-1.1.B** Compute the minimum number of stages with Fenske.
   - EK: N_min = ln[(x_D/(1−x_D))((1−x_B)/x_B)]/ln α.
@@ -37,7 +38,7 @@ Big ideas: STAGE, DRIVE
   - P1 · drills: sp-fenske, sp-fenske-reverse
 - ● **SP-1.1.C** Compute the minimum reflux ratio for a saturated-liquid feed.
   - EK: Pinch on the q-line; Underwood for a binary.
-  - Needs: SP-1.1.A
+  - Needs: SP-1.1.A, SP-1.1.B
   - P1 · drills: sp-rmin, sp-rmin-vapour-feed
 
 ### 1.2 Absorption
@@ -46,6 +47,7 @@ Big ideas: STAGE, DRIVE
 
 - ● **SP-1.2.A** Compute the stages for an absorber with the Kremser equation.
   - EK: N = ln[(A − f)/(1 − f)]/ln A − 1.
+  - Needs: SP-1.1.C
   - P1 · drills: sp-kremser, sp-kremser-fraction
 
 ## Unit 2 · Humidification and evaporation
@@ -58,9 +60,11 @@ Big ideas: STAGE
 
 - ● **SP-2.1.A** (webwork-opl:TH12.5) Compute absolute humidity from relative humidity.
   - EK: H = 0.622 p_w/(P − p_w).
+  - Needs: SP-1.2.A, TD-21.2.E
   - P1 · drills: sp-humidity, sp-rh-from-humidity
 - ● **SP-2.1.B** Compute the water removed by an evaporator.
   - EK: Solids balance first.
+  - Needs: SP-2.1.A
   - P1 · drills: sp-evaporator, sp-evaporator-steam
 
 ## Drills not yet placed on the map

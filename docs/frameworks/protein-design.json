@@ -88,6 +88,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "BC-2.2.D"
+       ],
        "drills": [
         "cpd-dihedrals",
         "cpd-dihedral-which"
@@ -104,6 +107,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-1.1.A"
        ],
        "drills": [
         "cpd-levinthal",
@@ -129,6 +135,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-1.1.B"
+       ],
        "drills": [
         "cpd-rotamer-lib",
         "cpd-rotamer-apply"
@@ -145,6 +154,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-1.2.A"
        ],
        "drills": [
         "cpd-rotamer-energy",
@@ -186,6 +198,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-1.2.B"
+       ],
        "drills": [
         "cpd-pose",
         "cpd-pose-apply"
@@ -202,6 +217,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-2.1.A"
        ],
        "drills": [
         "cpd-pose-index",
@@ -229,6 +247,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-2.1.B"
+       ],
        "drills": [
         "cpd-centroid",
         "cpd-resolution-pick"
@@ -245,6 +266,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-2.2.A"
        ],
        "drills": [
         "cpd-centroid-speedup",
@@ -289,6 +313,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-2.2.B",
+        "MD-2.4.A"
+       ],
        "drills": [
         "cpd-terms",
         "cpd-term-diagnose"
@@ -306,6 +334,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-3.1.A"
        ],
        "drills": [
         "cpd-weighted-score",
@@ -330,6 +361,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-3.1.B"
+       ],
        "drills": [
         "cpd-ref",
         "cpd-ref-apply"
@@ -347,6 +381,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-3.2.A"
        ],
        "drills": [
         "cpd-ref-compare",
@@ -372,6 +409,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-3.2.B"
+       ],
        "drills": [
         "cpd-units",
         "cpd-trust-score"
@@ -388,6 +428,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-3.3.A"
        ],
        "drills": [
         "cpd-term-decompose",
@@ -431,6 +474,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-3.3.B",
+        "MD-7.3.A"
+       ],
        "drills": [
         "cpd-metropolis",
         "cpd-mc-apply"
@@ -447,6 +494,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-4.1.A"
        ],
        "drills": [
         "cpd-accept-ratio",
@@ -472,6 +522,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-4.1.B"
+       ],
        "drills": [
         "cpd-packer",
         "cpd-protocol-order"
@@ -489,6 +542,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-4.2.A"
        ],
        "drills": [
         "cpd-pair-table",
@@ -532,6 +588,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-4.2.B"
+       ],
        "drills": [
         "cpd-resfile",
         "cpd-task-scenario"
@@ -548,6 +607,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-5.1.A"
        ],
        "drills": [
         "cpd-seq-space",
@@ -573,6 +635,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-5.1.B"
+       ],
        "drills": [
         "cpd-scan",
         "cpd-scan-read"
@@ -589,6 +654,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-5.2.A"
        ],
        "drills": [
         "cpd-scan-jobs",
@@ -613,6 +681,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-5.2.B"
+       ],
        "drills": [
         "cpd-search-methods",
         "cpd-method-pick"
@@ -630,6 +701,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-5.3.B"
        ],
        "drills": [
         "cpd-recovery",
@@ -673,6 +747,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-5.3.A",
+        "BC-3.2.B"
+       ],
        "drills": [
         "cpd-docking",
         "cpd-docking-read"
@@ -691,6 +769,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-6.1.A"
        ],
        "drills": [
         "cpd-interface-energy",
@@ -717,6 +798,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-6.1.B"
+       ],
        "drills": [
         "cpd-ligand",
         "cpd-pocket-scenario"
@@ -734,6 +818,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-6.2.A"
        ],
        "drills": [
         "cpd-interface-design",
@@ -779,6 +866,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-5.3.A"
+       ],
        "drills": [
         "cpd-denovo-backbone",
         "cpd-backbone-pick"
@@ -795,6 +885,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-7.1.A"
        ],
        "drills": [
         "cpd-coiled-coil",
@@ -821,6 +914,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-7.1.B"
+       ],
        "drills": [
         "cpd-hbnet",
         "cpd-hbnet-scenario"
@@ -837,6 +933,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-7.2.A"
        ],
        "drills": [
         "cpd-gap-population",
@@ -881,6 +980,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-5.3.A"
+       ],
        "drills": [
         "cpd-predictor-inputs",
         "cpd-confidence-scenario"
@@ -898,6 +1000,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-8.1.A"
        ],
        "drills": [
         "cpd-coevolution",
@@ -924,6 +1029,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-8.1.B"
+       ],
        "drills": [
         "cpd-representations",
         "cpd-representation-pick"
@@ -942,6 +1050,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-8.2.A"
        ],
        "drills": [
         "cpd-diffusion-pipeline",
@@ -967,6 +1078,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-8.2.B"
+       ],
        "drills": [
         "cpd-self-consistency",
         "cpd-evidence-level"
@@ -983,6 +1097,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-8.3.B"
        ],
        "drills": [
         "cpd-funnel-yield",
@@ -1024,6 +1141,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-6.2.B",
+        "MD-9.3.B"
+       ],
        "drills": [
         "cpd-experiments",
         "cpd-experiment-order"
@@ -1040,6 +1161,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CPD-9.1.A"
        ],
        "drills": [
         "cpd-designs-needed",
@@ -1065,6 +1189,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-9.1.B"
+       ],
        "drills": [
         "cpd-score-vs-alchemical",
         "cpd-method-choice-scenario"
@@ -1081,6 +1208,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-9.2.A"
        ],
        "drills": [
         "cpd-open-problems",
@@ -1126,6 +1256,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-4.2.B",
+        "CPD-6.2.B"
+       ],
        "drills": [
         "cpd-density",
         "cpd-density-2"
@@ -1142,6 +1276,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-10.1.C"
        ],
        "drills": [
         "cpd-refine-stages",
@@ -1161,6 +1298,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-10.1.D"
+       ],
        "drills": [
         "cpd-loop-closure",
         "cpd-loop-dof"
@@ -1177,6 +1317,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-10.1.A"
        ],
        "drills": [
         "cpd-symmetry",
@@ -1202,6 +1345,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-10.1.B"
+       ],
        "drills": [
         "cpd-antibody-design",
         "cpd-antibody-design-2"
@@ -1220,6 +1366,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-10.2.B"
+       ],
        "drills": [
         "cpd-antibody-model",
         "cpd-cdr-count"
@@ -1236,6 +1385,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-10.2.A"
        ],
        "drills": [
         "cpd-membrane",
@@ -1260,6 +1412,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CPD-10.2.C"
+       ],
        "drills": [
         "cpd-parallel-kind",
         "cpd-parallel-time"
@@ -1276,6 +1431,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "CPD-10.3.A"
        ],
        "drills": [
         "cpd-decoys",

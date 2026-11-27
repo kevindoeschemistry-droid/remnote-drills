@@ -29,7 +29,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl, cambridge-ib-complex | cupm-2015-complex | 195 | 155 | 40 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
-| Geometry | Cambridge Mathematical Tripos, Part IB Geometry schedule | course | read in part | — | — | 8 | 8 | 0 |
+| Geometry | Cambridge Mathematical Tripos, Part IB Geometry schedule | course | read in part | — | — | 16 | 16 | 0 |
 | Graduate Chemical Engineering Core | Graduate chemical engineering core curriculum (crosswalk of fifteen departments' published requirements) | course | read in full | icheme-level-f, uci-cbe-core, pe-chemical | — | 50 | 50 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
 | INBDE (Dentistry) | JCNDE, Domain of Dentistry (INBDE content domain), July 2018 | exam-spec | read in full | — | — | 81 | 81 | 0 |
@@ -47,9 +47,9 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics, acs-accm-analytical | — | 19 | 19 | 0 |
-| Number Theory | Cambridge Mathematical Tripos, Part II Number Theory schedule | course | read in part | cambridge-ia-numbers-sets | — | 14 | 14 | 0 |
+| Number Theory | Cambridge Mathematical Tripos, Part II Number Theory schedule | course | read in part | cambridge-ia-numbers-sets | — | 26 | 26 | 0 |
 | Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
-| Organic Reactions: Predict the Product | ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443) | standard | read in full | bruice-8e, ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry, acs-accm-general, acs-accm-inorganic | — | 46 | 42 | 4 |
+| Organic Reactions: Predict the Product | ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443) | standard | read in full | bruice-8e, ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry, acs-accm-general, acs-accm-inorganic | — | 72 | 68 | 4 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c, acs-accm-general, acs-accm-inorganic | — | 15 | 15 | 0 |
 | Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 158 | 158 | 0 |
@@ -63,11 +63,11 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics Course and Exam Description (effective fall 2026) | standard | read in part | webwork-opl | — | 111 | 111 | 0 |
-| Stochastic Processes | Cambridge Mathematical Tripos, Part IB Markov Chains schedule | course | read in part | cambridge-ii-applied-probability, cambridge-ii-stochastic-financial-models | — | 16 | 16 | 0 |
+| Stochastic Processes | Cambridge Mathematical Tripos, Part IB Markov Chains schedule | course | read in part | cambridge-ii-applied-probability, cambridge-ii-stochastic-financial-models | — | 29 | 29 | 0 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-organic | — | 12 | 12 | 0 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | usas-foc-2007, asca-certification | — | 88 | 74 | 14 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics, webwork-opl | — | 184 | 143 | 41 |
-| Topology | Cambridge Mathematical Tripos, Part IB Topological Spaces schedule | course | read in part | cambridge-ii-algebraic-topology | — | 15 | 15 | 0 |
+| Topology | Cambridge Mathematical Tripos, Part IB Topological Spaces schedule | course | read in part | cambridge-ii-algebraic-topology | — | 26 | 26 | 0 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
 
 ### Notes
@@ -1120,7 +1120,7 @@ https://www.pearson.com/en-us/subject-catalog/p/organic-chemistry/P200000006995/
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| 18 | Benzene and substituted benzenes | 8 | 8 | organic-reactions (7), structures (1) |
+| 18 | Benzene and substituted benzenes | 10 | 10 | organic-reactions (9), structures (1) |
 | 19 | Amines and heterocyclic compounds | 1 | 1 | structures (1) |
 | 20 | Carbohydrates | 1 | 1 | structures (1) |
 | 21 | Amino acids, peptides and proteins | 3 | 3 | structures (3) |
@@ -2584,7 +2584,7 @@ https://students-residents.aamc.org/mcatexam
 | 5A | Water and solutions | 55 | 55 | biochemistry (7), chemistry (48) |
 | 5B | Molecules and intermolecular interactions | 27 | 27 | chemistry (27) |
 | 5C | Separation and purification | 6 | 6 | analytical-chemistry (2), biochemistry (4) |
-| 5D | Biologically relevant molecules | 14 | 14 | organic-reactions (7), structures (7) |
+| 5D | Biologically relevant molecules | 22 | 22 | organic-reactions (15), structures (7) |
 | 5E | Chemical thermodynamics and kinetics | 40 | 40 | biochemistry (7), chemistry (33) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238)
@@ -3083,15 +3083,15 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | c15 | Acidimetry, alkalimetry, indicators | 28 | 28 | analytical-chemistry (7), chemistry (21) |
 | c16 | Qualitative inorganic analysis and flame tests | 6 | 6 | inorganic-chemistry (6) |
 | c17 | Lambert-Beer law | 33 | 33 | analytical-chemistry (6), chemistry (27) |
-| c18 | Organic structure, nomenclature, hybridization | 11 | 11 | organic-reactions (7), structures (4) |
-| c19 | Delocalization, resonance, aromaticity | 4 | 4 | organic-reactions (4) |
-| c20 | Isomerism and stereochemistry | 13 | 13 | dat (6), organic-reactions (7) |
+| c18 | Organic structure, nomenclature, hybridization | 19 | 19 | organic-reactions (15), structures (4) |
+| c19 | Delocalization, resonance, aromaticity | 6 | 6 | organic-reactions (6) |
+| c20 | Isomerism and stereochemistry | 21 | 21 | dat (6), organic-reactions (15) |
 | c21 | Hydrophilic and hydrophobic groups, micelles | — | — | **nothing yet** |
 | c22 | Polymers: chain growth, polyaddition, polycondensation | 4 | 4 | materials (4) |
 | a1 | Prep only: advanced VSEPR, inorganic stereochemistry, solid state and Bragg | 14 | 14 | inorganic-chemistry (14) |
 | a2 | Prep only: integrated rate laws, Arrhenius, steady state, collision theory | 24 | 24 | chemistry-olympiad (2), physical-chemistry (16), reaction-engineering (6) |
 | a3 | Prep only: phase diagrams and Clausius-Clapeyron | 13 | 13 | physical-chemistry (7), thermodynamics (6) |
-| a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 4 | 4 | organic-reactions (4) |
+| a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 6 | 6 | organic-reactions (6) |
 | a5 | Prep only: advanced polymers and supramolecular chemistry | 4 | 4 | materials (4) |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
 | a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 27 | 26 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (20) |
@@ -3107,7 +3107,7 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | d8 | Facts: permanganate, chromate, dichromate | 6 | 6 | inorganic-chemistry (6) |
 | d9 | Facts: iodometry | 6 | 6 | inorganic-chemistry (6) |
 | d10 | Facts: identifying ions | 7 | 7 | inorganic-chemistry (7) |
-| d11 | Facts: organic reaction types, Grignard, Fehling, Tollens, biomolecules | 10 | 10 | organic-reactions (10) |
+| d11 | Facts: organic reaction types, Grignard, Fehling, Tollens, biomolecules | 21 | 21 | organic-reactions (21) |
 
 ## IChO syllabus, theoretical part (12 sections, levels 1-3)
 
@@ -3125,7 +3125,7 @@ https://www.pw.live/olympiad/exams/icho-syllabus
 | 6 | Physical chemistry | 15 | 15 | physical-chemistry (8), thermodynamics (7) |
 | 7 | Chemical kinetics | 33 | 33 | chemistry (17), physical-chemistry (16) |
 | 8 | Spectroscopy | 16 | 16 | physical-chemistry (16) |
-| 9 | Organic chemistry | 14 | 14 | organic-reactions (14) |
+| 9 | Organic chemistry | 22 | 22 | organic-reactions (22) |
 | 10 | Polymers | 4 | 4 | materials (4) |
 | 11 | Biochemistry | 23 | 23 | biology (16), structures (7) |
 | 12 | Analytical chemistry | 7 | 7 | analytical-chemistry (7) |
@@ -3142,7 +3142,7 @@ https://curriculumalignment.ucf.edu/wp-content/uploads/sites/10/2017/08/2013_Org
 | II | Bonding | 13 | 13 | chemistry (13) |
 | III | Structure and function | 17 | 17 | chemistry (13), structures (4) |
 | IV | Intermolecular interactions | 27 | 27 | chemistry (27) |
-| V | Chemical reactions | 26 | 26 | chemistry (19), organic-reactions (7) |
+| V | Chemical reactions | 34 | 34 | chemistry (19), organic-reactions (15) |
 | VI | Energy and thermodynamics | 34 | 34 | chemistry (34) |
 | VII | Kinetics | 17 | 17 | chemistry (17) |
 | VIII | Equilibrium | 40 | 40 | chemistry (40) |
@@ -3211,7 +3211,7 @@ https://www.ets.org/gre/score-users/subject-test-changes.html
 |---|---|---|---|---|
 | AN | Analytical chemistry | 14 | 14 | analytical-chemistry (14) |
 | IN | Inorganic chemistry | 14 | 14 | inorganic-chemistry (14) |
-| OR | Organic chemistry | 7 | 7 | organic-reactions (7) |
+| OR | Organic chemistry | 15 | 15 | organic-reactions (15) |
 | PH | Physical chemistry | 8 | 8 | physical-chemistry (8) |
 
 ## ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013)
@@ -3727,7 +3727,7 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 | N1 | Number systems and logic: proof, counter-example, negation, contradiction | 15 | 15 | discrete-mathematics (15) |
 | N2 | Sets, relations and functions: injections, surjections, equivalence relations, counting, inclusion-exclusion | 13 | 13 | discrete-mathematics (13) |
 | N3 | The integers: induction, well-ordering, the binomial theorem | 10 | 10 | discrete-mathematics (10) |
-| N4 | Elementary number theory: primes, Euclid's algorithm, congruences, Chinese remainder, Wilson, Fermat-Euler, RSA | 14 | 14 | number-theory (14) |
+| N4 | Elementary number theory: primes, Euclid's algorithm, congruences, Chinese remainder, Wilson, Fermat-Euler, RSA | 28 | 28 | number-theory (28) |
 | N5 | The real numbers: least upper bounds, monotone sequences, irrationality, decimal expansions | 10 | 10 | real-analysis (10) |
 | N6 | Countability and uncountability: countable unions, the reals, power sets | 5 | 5 | discrete-mathematics (5) |
 
@@ -3739,14 +3739,14 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| T1 | Review: Euclid's algorithm, the fundamental theorem of arithmetic, congruences, Fermat and Euler | 12 | 12 | number-theory (12) |
-| T2 | Chinese remainder theorem, Lagrange's theorem, primitive roots | 9 | 9 | number-theory (9) |
-| T3 | Quadratic residues, the Legendre symbol, Euler's criterion, quadratic reciprocity | 5 | 5 | number-theory (5) |
+| T1 | Review: Euclid's algorithm, the fundamental theorem of arithmetic, congruences, Fermat and Euler | 27 | 27 | number-theory (27) |
+| T2 | Chinese remainder theorem, Lagrange's theorem, primitive roots | 15 | 15 | number-theory (15) |
+| T3 | Quadratic residues, the Legendre symbol, Euler's criterion, quadratic reciprocity | 9 | 9 | number-theory (9) |
 | T4 | The Jacobi symbol | 1 | 1 | number-theory (1) |
 | T5 | Binary quadratic forms and the primes they represent | — | — | **nothing yet** |
-| T6 | Distribution of primes: the zeta function, the prime number theorem (statement), Chebyshev | 5 | 5 | number-theory (5) |
-| T7 | Continued fractions and Pell's equation | 5 | 5 | number-theory (5) |
-| T8 | Primality testing and pseudoprimes | 5 | 5 | number-theory (5) |
+| T6 | Distribution of primes: the zeta function, the prime number theorem (statement), Chebyshev | 9 | 9 | number-theory (9) |
+| T7 | Continued fractions and Pell's equation | 9 | 9 | number-theory (9) |
+| T8 | Primality testing and pseudoprimes | 9 | 9 | number-theory (9) |
 | T9 | Factorisation methods | 1 | 1 | number-theory (1) |
 
 ## Cambridge Mathematical Tripos, Part IA Analysis I schedule
@@ -3771,11 +3771,11 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| S1 | Topological spaces: open and closed sets, continuity, Hausdorff spaces, subspace, quotient and product topologies | 8 | 8 | topology (8) |
-| S2 | Connectedness and path-connectedness | 4 | 4 | topology (4) |
-| S3 | Compactness | 4 | 4 | topology (4) |
-| S4 | Topology of manifolds: spheres, tori, the projective plane, polygons with sides identified | 5 | 5 | topology (5) |
-| S5 | Triangulable surfaces: Euler characteristic, orientability, the classification (statement) | 5 | 5 | topology (5) |
+| S1 | Topological spaces: open and closed sets, continuity, Hausdorff spaces, subspace, quotient and product topologies | 18 | 18 | topology (18) |
+| S2 | Connectedness and path-connectedness | 7 | 7 | topology (7) |
+| S3 | Compactness | 7 | 7 | topology (7) |
+| S4 | Topology of manifolds: spheres, tori, the projective plane, polygons with sides identified | 9 | 9 | topology (9) |
+| S5 | Triangulable surfaces: Euler characteristic, orientability, the classification (statement) | 11 | 11 | topology (11) |
 
 ## Cambridge Mathematical Tripos, Part IB Markov Chains schedule
 
@@ -3785,10 +3785,10 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| M1 | Discrete-time chains: transition matrices, classes, hitting probabilities and mean hitting times | 9 | 9 | stochastic-processes (9) |
-| M2 | Recurrence and transience; simple random walks in one, two and three dimensions | 3 | 3 | stochastic-processes (3) |
-| M3 | Invariant distributions, mean return times, convergence to equilibrium | 7 | 7 | stochastic-processes (7) |
-| M4 | Time reversal, detailed balance, random walk on a graph | 5 | 5 | stochastic-processes (5) |
+| M1 | Discrete-time chains: transition matrices, classes, hitting probabilities and mean hitting times | 20 | 20 | stochastic-processes (20) |
+| M2 | Recurrence and transience; simple random walks in one, two and three dimensions | 10 | 10 | stochastic-processes (10) |
+| M3 | Invariant distributions, mean return times, convergence to equilibrium | 13 | 13 | stochastic-processes (13) |
+| M4 | Time reversal, detailed balance, random walk on a graph | 8 | 8 | stochastic-processes (8) |
 
 ## Cambridge Mathematical Tripos, Part II Applied Probability schedule
 
@@ -3798,9 +3798,9 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| P1 | Continuous-time chains on a finite state space, the Poisson process, birth and death processes | 6 | 6 | stochastic-processes (6) |
+| P1 | Continuous-time chains on a finite state space, the Poisson process, birth and death processes | 11 | 11 | stochastic-processes (11) |
 | P2 | General continuous-time chains: jump chains, recurrence, equilibrium, reversibility | — | — | **nothing yet** |
-| P3 | Queues: M/M/1, M/M/infinity, networks, M/G/1 | 4 | 4 | stochastic-processes (4) |
+| P3 | Queues: M/M/1, M/M/infinity, networks, M/G/1 | 8 | 8 | stochastic-processes (8) |
 | P4 | Renewal theory and Little's formula | — | — | **nothing yet** |
 | P5 | Spatial Poisson processes | — | — | **nothing yet** |
 
@@ -3853,7 +3853,7 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
 | U | Uniform convergence: uniform limits, the M-test, power series, exchange of limits with integrals and derivatives | 8 | 8 | real-analysis (8) |
-| M | Metric and normed spaces: open and closed sets, sequential compactness, equivalence of norms | 7 | 7 | real-analysis (7) |
+| M | Metric and normed spaces: open and closed sets, sequential compactness, equivalence of norms | 8 | 8 | real-analysis (7), topology (1) |
 | D | Differentiation in several variables: the derivative as a linear map, the Hessian, critical points, the mean-value inequality | 7 | 7 | real-analysis (7) |
 | C | Completeness and the contraction mapping theorem; inverse and implicit function theorems, Picard's theorem | 8 | 8 | real-analysis (8) |
 
@@ -3904,10 +3904,10 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| SPH | Spherical geometry: lines, triangles and area, isometries, finite groups of isometries | 7 | 7 | geometry (7) |
-| RIE | Riemannian metrics on the plane and sphere: lengths, areas, geodesics | 5 | 5 | geometry (5) |
-| HYP | Hyperbolic geometry: the half-plane and disc models, isometries, triangles and area, parallels | 7 | 7 | geometry (7) |
-| CUR | Curvature of the sphere, the plane and the hyperbolic plane | 4 | 4 | geometry (4) |
+| SPH | Spherical geometry: lines, triangles and area, isometries, finite groups of isometries | 13 | 13 | geometry (13) |
+| RIE | Riemannian metrics on the plane and sphere: lengths, areas, geodesics | 9 | 9 | geometry (9) |
+| HYP | Hyperbolic geometry: the half-plane and disc models, isometries, triangles and area, parallels | 13 | 13 | geometry (13) |
+| CUR | Curvature of the sphere, the plane and the hyperbolic plane | 8 | 8 | geometry (8) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
@@ -4069,14 +4069,14 @@ https://pubs.acs.org/doi/10.1021/ed400175w
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| I.A.1 | Isotopes in MS, NMR and kinetic isotope effects | 1 | 1 | physical-chemistry (1) |
-| I.B.1 | Electrons and the relative stability of resonance forms | 1 | 1 | dat (1) |
-| I.B.2 | Electrophiles attack electron-rich sites | 3 | 3 | dat (1), organic-reactions (2) |
-| I.B.3 | Nucleophiles attack electron-poor sites | 3 | 3 | dat (1), organic-reactions (2) |
-| I.C.1 | Valence periodicity behind nucleophilicity and pKa trends | 1 | 1 | dat (1) |
+| I.A.1 | Isotopes in MS, NMR and kinetic isotope effects | 2 | 2 | organic-reactions (1), physical-chemistry (1) |
+| I.B.1 | Electrons and the relative stability of resonance forms | 2 | 2 | dat (1), organic-reactions (1) |
+| I.B.2 | Electrophiles attack electron-rich sites | 5 | 5 | dat (1), organic-reactions (4) |
+| I.B.3 | Nucleophiles attack electron-poor sites | 5 | 5 | dat (1), organic-reactions (4) |
+| I.C.1 | Valence periodicity behind nucleophilicity and pKa trends | 3 | 3 | dat (1), organic-reactions (2) |
 | I.C.2 | Periodic trends in bond strength and length | 1 | 1 | dat (1) |
 | I.D.1 | How organic chemistry's discoveries were made | 1 | 1 | organic-reactions (1) |
-| I.D.2 | Structure elucidation by UV, IR, NMR and MS | 3 | 3 | dat (2), physical-chemistry (1) |
+| I.D.2 | Structure elucidation by UV, IR, NMR and MS | 9 | 9 | dat (2), organic-reactions (6), physical-chemistry (1) |
 | I.E.1 | Molar equivalents, limiting reagents and percent yield | 2 | 2 | chemistry (1), organic-reactions (1) |
 | I.F | Atoms keep their identity outside nuclear reactions | 1 | 1 | chemistry (1) |
 | I.G.1 | Polar metal–carbon bonds as strong bases and nucleophiles | 2 | 2 | organic-reactions (2) |
@@ -4085,27 +4085,27 @@ https://pubs.acs.org/doi/10.1021/ed400175w
 | II.B.1 | Bond energy set by the nuclei and electrons shared | 1 | 1 | dat (1) |
 | II.C.1 | Filling low-energy orbitals lowers the energy | 1 | 1 | chemistry (1) |
 | II.C.2 | Conjugation and aromatic stabilisation | 2 | 2 | dat (1), organic-reactions (1) |
-| II.D.1 | Homolysis and bond dissociation energy | 1 | 1 | organic-reactions (1) |
-| II.E.1 | Hybridisation, resonance and MO theory | 2 | 2 | chemistry (1), dat (1) |
-| II.E.2 | Orbital symmetry in cycloadditions | 2 | 2 | organic-reactions (2) |
+| II.D.1 | Homolysis and bond dissociation energy | 2 | 2 | organic-reactions (2) |
+| II.E.1 | Hybridisation, resonance and MO theory | 3 | 3 | chemistry (1), dat (1), organic-reactions (1) |
+| II.E.2 | Orbital symmetry in cycloadditions | 3 | 3 | organic-reactions (3) |
 | II.E.3 | Bonding, nonbonding and antibonding MOs; conservation of orbitals | 1 | 1 | chemistry (1) |
-| II.F.1 | Sigma and pi bonds; lengths and strengths | 1 | 1 | dat (1) |
-| II.F.2 | Free rotation about single bonds, none about double bonds | 1 | 1 | dat (1) |
+| II.F.1 | Sigma and pi bonds; lengths and strengths | 2 | 2 | dat (1), organic-reactions (1) |
+| II.F.2 | Free rotation about single bonds, none about double bonds | 2 | 2 | dat (1), organic-reactions (1) |
 | II.G | Metallic bonding | 1 | 1 | chemistry (1) |
-| III.A.1 | Functional groups set physical properties | 2 | 2 | dat (1), structures (1) |
-| III.A.2 | Stereocentres and chirality | 2 | 2 | dat (1), organic-reactions (1) |
+| III.A.1 | Functional groups set physical properties | 3 | 3 | dat (1), organic-reactions (1), structures (1) |
+| III.A.2 | Stereocentres and chirality | 3 | 3 | dat (1), organic-reactions (2) |
 | III.A.3 | Polymers and carbon allotropes | 2 | 2 | inorganic-advanced (1), materials (1) |
-| III.B.1 | Shape and polarity from VSEPR | 1 | 1 | chemistry (1) |
-| III.B.2 | Shape and stereochemistry | 1 | 1 | dat (1) |
+| III.B.1 | Shape and polarity from VSEPR | 2 | 2 | chemistry (1), organic-reactions (1) |
+| III.B.2 | Shape and stereochemistry | 2 | 2 | dat (1), organic-reactions (1) |
 | III.C.1 | Molecular modelling programs | 1 | 1 | physical-chemistry (1) |
 | III.D.1 | Spectroscopy and molecular symmetry | 1 | 1 | physical-chemistry (1) |
-| III.D.2 | Symmetry-equivalent nuclei in NMR | 2 | 2 | chemistry-olympiad (1), dat (1) |
-| III.E.1 | Enantiomers and diastereomers | 1 | 1 | dat (1) |
+| III.D.2 | Symmetry-equivalent nuclei in NMR | 3 | 3 | chemistry-olympiad (1), dat (1), organic-reactions (1) |
+| III.E.1 | Enantiomers and diastereomers | 2 | 2 | dat (1), organic-reactions (1) |
 | III.E.2 | Regio- and stereospecific versus selective reactions | 1 | 1 | organic-reactions (1) |
-| III.E.3 | Stereochemistry carried from reactant to product | 2 | 2 | dat (2) |
-| III.E.4 | 3-D structure decides transition states and isomeric products | 1 | 1 | organic-reactions (1) |
-| III.E.5 | Optical activity; separating diastereomers | 1 | 1 | physical-chemistry (1) |
-| III.F.1 | Reactivity follows functional-group structure | 1 | 1 | dat (1) |
+| III.E.3 | Stereochemistry carried from reactant to product | 5 | 5 | dat (2), organic-reactions (3) |
+| III.E.4 | 3-D structure decides transition states and isomeric products | 3 | 3 | organic-reactions (3) |
+| III.E.5 | Optical activity; separating diastereomers | 2 | 2 | organic-reactions (1), physical-chemistry (1) |
+| III.F.1 | Reactivity follows functional-group structure | 2 | 2 | dat (1), organic-reactions (1) |
 | III.G | Extended solid-state structures | 1 | 1 | chemistry (1) |
 | IV.A.1 | Intermolecular forces in spectra and physical properties | 1 | 1 | dat (1) |
 | IV.A.2 | Forces behind solubility, melting and boiling, solvent effects | 2 | 2 | dat (2) |
@@ -4115,23 +4115,23 @@ https://pubs.acs.org/doi/10.1021/ed400175w
 | IV.C.1 | Intermolecular forces in collisions | 1 | 1 | chemistry (1) |
 | IV.D.1 | Choosing a solvent by its forces | 1 | 1 | dat (1) |
 | IV.D.2 | Solvent choice and green chemistry | 1 | 1 | organic-reactions (1) |
-| IV.E.1 | Solvent choice in organic reactions | 1 | 1 | dat (1) |
-| IV.E.2 | Solvent polarity can switch mechanism and product | 2 | 2 | dat (1), organic-reactions (1) |
+| IV.E.1 | Solvent choice in organic reactions | 2 | 2 | dat (1), organic-reactions (1) |
+| IV.E.2 | Solvent polarity can switch mechanism and product | 4 | 4 | dat (1), organic-reactions (3) |
 | V.A.1 | Reagents written over the arrow; unbalanced organic equations | 1 | 1 | dat (1) |
 | V.A.2 | Reaction yields | 2 | 2 | chemistry (1), organic-reactions (1) |
 | V.A.3 | Lab techniques for yield and purity | 1 | 1 | dat (1) |
-| V.A.4 | Multistep synthesis | 1 | 1 | dat (1) |
+| V.A.4 | Multistep synthesis | 2 | 2 | dat (1), organic-reactions (1) |
 | V.B.1 | Bond-making and breaking energetics in synthesis | 1 | 1 | chemistry (1) |
 | V.C.1 | Visualising molecules reacting | 1 | 1 | dat (1) |
 | V.C.2 | Representations of organic structure | 2 | 2 | dat (1), structures (1) |
-| V.D.1 | Addition, elimination, rearrangement, substitution, redox | 2 | 2 | organic-reactions (2) |
-| V.D.2 | SN1, SN2, E1, E2, electrophilic and nucleophilic aromatic substitution | 3 | 3 | organic-reactions (3) |
+| V.D.1 | Addition, elimination, rearrangement, substitution, redox | 4 | 4 | organic-reactions (4) |
+| V.D.2 | SN1, SN2, E1, E2, electrophilic and nucleophilic aromatic substitution | 5 | 5 | organic-reactions (5) |
 | V.D.3 | Radical reactions | 2 | 2 | dat (1), organic-reactions (1) |
 | V.D.4 | Greener reaction conditions | 1 | 1 | organic-reactions (1) |
-| V.E.1 | Reactivity organised by functional group | 3 | 3 | organic-reactions (3) |
+| V.E.1 | Reactivity organised by functional group | 7 | 7 | organic-reactions (7) |
 | V.E.2 | Control by time, temperature, catalyst and solvent | 2 | 2 | dat (1), physical-chemistry (1) |
-| V.F.1 | Reagents that control regio- and stereochemistry | 2 | 2 | dat (1), organic-reactions (1) |
-| V.F.2 | Reagents that control regiochemistry | 1 | 1 | organic-reactions (1) |
+| V.F.1 | Reagents that control regio- and stereochemistry | 3 | 3 | dat (1), organic-reactions (2) |
+| V.F.2 | Reagents that control regiochemistry | 3 | 3 | organic-reactions (3) |
 | VI.A.1 | Thermodynamics of energy change | 1 | 1 | chemistry (1) |
 | VI.A.2 | Reaction energy diagrams | 1 | 1 | dat (1) |
 | VI.B.1 | Activation energy | 1 | 1 | chemistry (1) |
@@ -4145,27 +4145,27 @@ https://pubs.acs.org/doi/10.1021/ed400175w
 | VI.I | Nuclear energy scales | 1 | 1 | chemistry (1) |
 | VII.A.1 | Fast and slow reactions decide the product | 1 | 1 | organic-reactions (1) |
 | VII.B.1 | Rate laws as clues to substitution and elimination mechanisms | 1 | 1 | organic-reactions (1) |
-| VII.C.1 | Elementary steps behind functional-group reactivity | 2 | 2 | dat (1), organic-reactions (1) |
-| VII.C.2 | Polar and polarisable bonds dictate reactivity | 1 | 1 | dat (1) |
+| VII.C.1 | Elementary steps behind functional-group reactivity | 3 | 3 | dat (1), organic-reactions (2) |
+| VII.C.2 | Polar and polarisable bonds dictate reactivity | 2 | 2 | dat (1), organic-reactions (1) |
 | VII.C.3 | Curved arrows from nucleophile to electrophile | 3 | 3 | dat (1), organic-reactions (2) |
 | VII.D.1 | Transition-state theory for SN2 | 1 | 1 | organic-reactions (1) |
 | VII.E.1 | Catalysts lower the activation energy | 1 | 1 | chemistry (1) |
-| VII.F.1 | Kinetic versus thermodynamic control | 2 | 2 | organic-reactions (1), physical-chemistry (1) |
-| VII.F.2 | Intermediates, resonance and hyperconjugation in that control | 3 | 3 | dat (1), organic-reactions (2) |
-| VIII.A.1 | Equilibrium position limits product | 2 | 2 | chemistry (1), organic-reactions (1) |
+| VII.F.1 | Kinetic versus thermodynamic control | 3 | 3 | organic-reactions (2), physical-chemistry (1) |
+| VII.F.2 | Intermediates, resonance and hyperconjugation in that control | 5 | 5 | dat (1), organic-reactions (4) |
+| VIII.A.1 | Equilibrium position limits product | 3 | 3 | chemistry (1), organic-reactions (2) |
 | VIII.B.1 | Reversible reactions reach equilibrium | 1 | 1 | chemistry (1) |
-| VIII.C.1 | Equilibria seen by energy diagram, conformational analysis or instrument | 2 | 2 | dat (1), organic-reactions (1) |
-| VIII.C.2 | pKa as a protonation equilibrium | 2 | 2 | dat (1), organic-reactions (1) |
+| VIII.C.1 | Equilibria seen by energy diagram, conformational analysis or instrument | 3 | 3 | dat (1), organic-reactions (2) |
+| VIII.C.2 | pKa as a protonation equilibrium | 4 | 4 | dat (1), organic-reactions (3) |
 | VIII.D.1 | Large K strongly favours products | 1 | 1 | organic-reactions (1) |
 | VIII.E.1 | Le Châtelier's principle to drive a reaction | 1 | 1 | organic-reactions (1) |
 | VIII.F | Thermodynamic treatment of equilibrium | 1 | 1 | chemistry (1) |
 | VIII.G.1 | Protonation equilibria in acid catalysis | 2 | 2 | dat (1), organic-reactions (1) |
 | IX.A.1 | Chemical tests for functional groups | 1 | 1 | organic-reactions (1) |
-| IX.A.2 | Instrumental data: X-ray, NMR, IR, MS, EPR | 1 | 1 | dat (1) |
+| IX.A.2 | Instrumental data: X-ray, NMR, IR, MS, EPR | 5 | 5 | dat (1), organic-reactions (4) |
 | IX.A.3 | Wet tests against instrumental methods | 1 | 1 | organic-reactions (1) |
-| IX.B.1 | Systematic nomenclature | 1 | 1 | dat (1) |
+| IX.B.1 | Systematic nomenclature | 3 | 3 | dat (1), organic-reactions (2) |
 | IX.C.1 | Data confirm the intended product | 1 | 1 | dat (1) |
-| IX.C.2 | Measuring stereochemical outcome | 1 | 1 | physical-chemistry (1) |
+| IX.C.2 | Measuring stereochemical outcome | 2 | 2 | organic-reactions (1), physical-chemistry (1) |
 | IX.D | Measurement by mass, charge or interaction with light | 1 | 1 | chemistry (1) |
 | IX.E | Verifiable observations and controls | 1 | 1 | chemistry (1) |
 | IX.F | Experimental design for sound inference | 1 | 1 | chemistry (1) |

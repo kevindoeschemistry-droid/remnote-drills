@@ -79,6 +79,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "MB-3.2.A"
+       ],
        "drills": [
         "cre-rate-from-law",
         "cre-order-from-doubling",
@@ -97,6 +100,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-1.1.A"
+       ],
        "drills": [
         "cre-half-life",
         "re-k-from-fraction"
@@ -112,7 +118,8 @@
         "P1"
        ],
        "needs": [
-        "RE-1.1.A"
+        "RE-1.1.A",
+        "RE-1.1.B"
        ],
        "drills": [
         "re-equil-conversion",
@@ -137,6 +144,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-1.1.C"
+       ],
        "drills": [
         "cre-arrhenius-ratio",
         "cre-activation-energy",
@@ -157,6 +167,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RE-1.2.A"
        ],
        "drills": [
         "re-relative-rates",
@@ -213,7 +226,8 @@
         "P2"
        ],
        "needs": [
-        "RE-2.1.A"
+        "RE-2.1.A",
+        "RE-1.3.C"
        ],
        "drills": [
         "re-integral-plot",
@@ -230,7 +244,8 @@
         "P1"
        ],
        "needs": [
-        "RE-1.1.B"
+        "RE-1.1.B",
+        "RE-1.4.A"
        ],
        "drills": [
         "re-half-life-order",
@@ -247,7 +262,8 @@
         "P1"
        ],
        "needs": [
-        "RE-1.1.A"
+        "RE-1.1.A",
+        "RE-1.4.B"
        ],
        "drills": [
         "re-initial-rates",
@@ -316,6 +332,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-2.1.A"
+       ],
        "drills": [
         "cre-cstr-volume",
         "cre-cstr-conversion",
@@ -350,7 +369,8 @@
         "P1"
        ],
        "needs": [
-        "RE-2.2.A"
+        "RE-2.2.A",
+        "RE-2.2.B"
        ],
        "drills": [
         "re-cstr-startup",
@@ -375,6 +395,9 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "RE-2.2.C"
        ],
        "drills": [
         "cre-pfr-volume",
@@ -410,7 +433,8 @@
        ],
        "needs": [
         "RE-2.3.A",
-        "RE-1.3.C"
+        "RE-1.3.C",
+        "RE-2.3.C"
        ],
        "drills": [
         "re-pfr-gas-eps",
@@ -433,7 +457,8 @@
         "P1"
        ],
        "needs": [
-        "RE-2.3.A"
+        "RE-2.3.A",
+        "RE-2.3.B"
        ],
        "drills": [
         "re-pbr-pressure-drop",
@@ -473,6 +498,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-2.4.A"
+       ],
        "drills": [
         "cre-series-optimum-time",
         "re-series-cc"
@@ -492,6 +520,9 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "RE-3.1.A"
+       ],
        "drills": [
         "cre-parallel-selectivity",
         "cre-selectivity-strategy"
@@ -507,7 +538,8 @@
         "P1"
        ],
        "needs": [
-        "RE-3.1.A"
+        "RE-3.1.A",
+        "RE-3.1.B"
        ],
        "drills": [
         "re-series-bmax",
@@ -544,7 +576,8 @@
         "P2"
        ],
        "needs": [
-        "RE-3.1.B"
+        "RE-3.1.B",
+        "RE-3.1.D"
        ],
        "drills": [
         "re-parallel-overall",
@@ -583,6 +616,9 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "RE-1.4.C"
        ],
        "drills": [
         "cre-langmuir-coverage",
@@ -653,7 +689,8 @@
         "P1"
        ],
        "needs": [
-        "RE-1.1.A"
+        "RE-1.1.A",
+        "RE-1.4.C"
        ],
        "drills": [
         "re-lindemann",
@@ -693,7 +730,8 @@
         "P1"
        ],
        "needs": [
-        "RE-5.1.A"
+        "RE-5.1.A",
+        "RE-5.1.B"
        ],
        "drills": [
         "re-mm-steps",
@@ -745,7 +783,8 @@
        ],
        "needs": [
         "RE-5.2.A",
-        "RE-2.2.A"
+        "RE-2.2.A",
+        "RE-5.2.C"
        ],
        "drills": [
         "re-chemostat",
@@ -782,7 +821,8 @@
         "P1"
        ],
        "needs": [
-        "RE-2.3.A"
+        "RE-2.3.A",
+        "RE-2.4.A"
        ],
        "drills": [
         "re-adiabatic-T",
@@ -824,7 +864,8 @@
        ],
        "needs": [
         "RE-6.1.A",
-        "RE-1.2.A"
+        "RE-1.2.A",
+        "RE-6.1.B"
        ],
        "drills": [
         "re-mss-count",
@@ -876,7 +917,8 @@
         "P1"
        ],
        "needs": [
-        "RE-4.1.A"
+        "RE-4.1.A",
+        "RE-4.1.C"
        ],
        "drills": [
         "re-ext-mt",
@@ -916,7 +958,8 @@
         "P1"
        ],
        "needs": [
-        "RE-7.1.A"
+        "RE-7.1.A",
+        "RE-7.1.B"
        ],
        "drills": [
         "re-effectiveness",
@@ -952,7 +995,8 @@
        ],
        "needs": [
         "RE-7.2.A",
-        "RE-7.1.A"
+        "RE-7.1.A",
+        "RE-7.2.B"
        ],
        "drills": [
         "re-overall-eff",
@@ -986,7 +1030,8 @@
         "P1"
        ],
        "needs": [
-        "RE-2.2.A"
+        "RE-2.2.A",
+        "RE-2.4.A"
        ],
        "drills": [
         "re-rtd-moments",
@@ -1045,7 +1090,8 @@
        ],
        "needs": [
         "RE-8.1.A",
-        "RE-2.2.A"
+        "RE-2.2.A",
+        "RE-8.2.A"
        ],
        "drills": [
         "re-tis-model",
@@ -1101,6 +1147,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-5.2.D"
+       ],
        "drills": [
         "fe-monod-rate",
         "fe-doubling-time"
@@ -1118,6 +1167,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-9.1.A"
+       ],
        "drills": [
         "fe-yield-substrate",
         "fe-yield-from-batch"
@@ -1134,6 +1186,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RE-9.1.B"
        ],
        "drills": [
         "fe-washout",
@@ -1158,6 +1213,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-9.1.C"
+       ],
        "drills": [
         "fe-oxygen-demand",
         "fe-kla-needed"
@@ -1175,6 +1233,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "RE-9.2.A"
+       ],
        "drills": [
         "fe-reactor-mode",
         "fe-fedbatch-feed"
@@ -1191,6 +1252,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RE-9.2.B"
        ],
        "drills": [
         "fe-sterilisation-hold",

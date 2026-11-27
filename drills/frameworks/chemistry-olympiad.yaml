@@ -51,13 +51,13 @@ units:
       - n: 1
         title: "Acid–base and solubility"
         los:
-          - { id: B, do: "Compute a buffer's pH after strong acid is added.", ek: ["Convert base to acid mole for mole, then the equilibrium."], p: [P1], drills: [co-buffer-acid, co-buffer-capacity-acid] }
-          - { id: A, std: ["acs-accm-analytical:VIII.F.5"], do: "Compute the pH of a polyprotic acid or one of its salts from the full charge balance.", ek: ["Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁)."], p: [P1], drills: [co-phosphate-fraction, co-polyprotic-ph] }
+          - { id: B, do: "Compute a buffer's pH after strong acid is added.", ek: ["Convert base to acid mole for mole, then the equilibrium."], p: [P1], needs: [CO-10.1.E], drills: [co-buffer-acid, co-buffer-capacity-acid] }
+          - { id: A, std: ["acs-accm-analytical:VIII.F.5"], do: "Compute the pH of a polyprotic acid or one of its salts from the full charge balance.", ek: ["Amphiprotic salts sit near ½(pKₐₙ + pKₐₙ₊₁)."], p: [P1], needs: [CO-1.1.B], drills: [co-phosphate-fraction, co-polyprotic-ph] }
           - { id: C, do: "Compute the solubility of a salt of a weak acid at fixed pH.", ek: ["s = [K_sp(1 + [H⁺]/Kₐ)²/4]^⅓ for CaF₂."], p: [P1], needs: [CO-1.1.A], drills: [co-solubility-ph, co-solubility-ph-factor] }
       - n: 2
         title: "Gas equilibria"
         los:
-          - { id: A, do: "Convert K_c to K_p.", ek: ["K_p = K_c(RT)^Δn."], p: [P1], drills: [co-kp-kc, co-kc-from-kp] }
+          - { id: A, do: "Convert K_c to K_p.", ek: ["K_p = K_c(RT)^Δn."], p: [P1], needs: [CO-1.1.C], drills: [co-kp-kc, co-kc-from-kp] }
           - { id: B, do: "Compute the degree of dissociation at a given total pressure.", ek: ["α = √(K_p/(4P + K_p)) for N₂O₄."], p: [P1], needs: [CO-1.2.A], drills: [co-dissociation, co-pressure-for-alpha] }
   - id: energy
     n: 2
@@ -69,13 +69,13 @@ units:
       - n: 1
         title: "Electrochemistry"
         los:
-          - { id: A, do: "Compute E° of an insoluble-salt electrode from K_sp.", ek: ["E° = E°(Mⁿ⁺/M) + (RT/nF) ln K_sp."], p: [P1], drills: [co-e-from-ksp, co-ksp-from-e] }
-          - { id: B, do: "Compute the mass deposited or the time needed in electrolysis.", ek: ["n = It/(zF)."], p: [P1], drills: [co-electrolysis, co-current-needed] }
+          - { id: A, do: "Compute E° of an insoluble-salt electrode from K_sp.", ek: ["E° = E°(Mⁿ⁺/M) + (RT/nF) ln K_sp."], p: [P1], needs: [CO-8.1.E, CO-11.1.E], drills: [co-e-from-ksp, co-ksp-from-e] }
+          - { id: B, do: "Compute the mass deposited or the time needed in electrolysis.", ek: ["n = It/(zF)."], p: [P1], needs: [CO-2.1.A], drills: [co-electrolysis, co-current-needed] }
       - n: 2
         title: "Thermochemistry"
         los:
-          - { id: A, do: "Close a Born–Haber cycle for the lattice enthalpy.", ek: ["ΔH_f = sublimation + IE + atomisation + EA + lattice."], p: [P1], drills: [co-lattice-compare, co-born-haber] }
-          - { id: B, do: "Estimate a reaction enthalpy from bond enthalpies.", ek: ["Σ broken − Σ formed."], p: [P1], drills: [co-bond-enthalpy, co-bond-from-dh] }
+          - { id: A, do: "Close a Born–Haber cycle for the lattice enthalpy.", ek: ["ΔH_f = sublimation + IE + atomisation + EA + lattice."], p: [P1], needs: [CO-2.1.B], drills: [co-lattice-compare, co-born-haber] }
+          - { id: B, do: "Estimate a reaction enthalpy from bond enthalpies.", ek: ["Σ broken − Σ formed."], p: [P1], needs: [CO-2.2.A], drills: [co-bond-enthalpy, co-bond-from-dh] }
   - id: rates
     n: 3
     title: "Kinetics in depth"
@@ -86,7 +86,7 @@ units:
       - n: 1
         title: "Integrated laws and decay chains"
         los:
-          - { id: A, do: "Compute the time to reach a concentration for zero-, first- or second-order kinetics.", ek: ["Integrated rate laws."], p: [P1], drills: [co-integrated-rate, co-half-life-scaling] }
+          - { id: A, do: "Compute the time to reach a concentration for zero-, first- or second-order kinetics.", ek: ["Integrated rate laws."], p: [P1], needs: [CO-9.1.E], drills: [co-integrated-rate, co-half-life-scaling] }
           - { id: B, do: "Compute the daughter population in a two-step decay chain.", ek: ["Bateman equation."], p: [P1], needs: [CO-3.1.A], drills: [co-decay-chain, co-daughter-max-time] }
   - id: spectra
     n: 4
@@ -98,9 +98,9 @@ units:
       - n: 1
         title: "Colligative and spectroscopic counting"
         los:
-          - { id: A, do: "Find the degree of dissociation from a freezing-point depression.", ek: ["i = 1 + α(ν − 1)."], p: [P1], drills: [co-vant-hoff, co-freezing-predict] }
-          - { id: B, do: "Predict relative isotope-peak intensities for Cl and Br compounds.", ek: ["Binomial in the isotope fractions."], p: [P2], drills: [co-isotope-pattern, co-m2-ratio] }
-          - { id: C, std: ["acs-accm-analytical:I.A.3"], do: "Count the lines of a first-order NMR multiplet.", ek: ["(n + 1)(m + 1), collapsing when J are equal."], p: [P2], drills: [co-nmr-multiplicity, co-multiplet-centre] }
+          - { id: A, do: "Find the degree of dissociation from a freezing-point depression.", ek: ["i = 1 + α(ν − 1)."], p: [P1], needs: [CO-7.1.E], drills: [co-vant-hoff, co-freezing-predict] }
+          - { id: B, do: "Predict relative isotope-peak intensities for Cl and Br compounds.", ek: ["Binomial in the isotope fractions."], p: [P2], needs: [CO-4.1.A], drills: [co-isotope-pattern, co-m2-ratio] }
+          - { id: C, std: ["acs-accm-analytical:I.A.3"], do: "Count the lines of a first-order NMR multiplet.", ek: ["(n + 1)(m + 1), collapsing when J are equal."], p: [P2], needs: [CO-4.1.B], drills: [co-nmr-multiplicity, co-multiplet-centre] }
   # >>> opl-fill:co-usnco (generated by scripts/opl_fill.py; edit the spec)
   - id: usnco-stoich
     n: 5
@@ -112,11 +112,11 @@ units:
       - n: 1
         title: "Stoichiometry and solutions"
         los:
-          - { id: A, std: ["usnco:1"], do: "Find a C:H ratio from combustion analysis.", ek: ["All C ends in CO₂ and all H in H₂O; compare moles."], p: [P1], drills: [co-combustion-ratio, co-co2-mass] }
-          - { id: B, std: ["usnco:1"], do: "Find the water of crystallisation of a hydrate.", ek: ["n = (mass of water / 18.015) / (mass of anhydrous salt / M)."], p: [P1], drills: [co-hydrate-n, co-hydrate-percent] }
-          - { id: C, std: ["usnco:1"], do: "Prepare a solution of given molality.", ek: ["Molality is moles of solute per kilogram of solvent."], p: [P1], drills: [co-molality-mass, co-molality-from-percent] }
-          - { id: D, std: ["usnco:1"], do: "Find a product yield from a limiting reagent.", ek: ["Convert both reactants to moles of product; the smaller wins."], p: [P1], drills: [co-limiting-yield, co-percent-yield] }
-          - { id: E, std: ["usnco:1"], do: "Work a back titration.", ek: ["Excess reagent is titrated; what reacted is total minus excess."], p: [P1], drills: [co-back-titration, co-antacid-naoh] }
+          - { id: A, std: ["usnco:1"], do: "Find a C:H ratio from combustion analysis.", ek: ["All C ends in CO₂ and all H in H₂O; compare moles."], p: [P1], needs: [CH-4.9.D], drills: [co-combustion-ratio, co-co2-mass] }
+          - { id: B, std: ["usnco:1"], do: "Find the water of crystallisation of a hydrate.", ek: ["n = (mass of water / 18.015) / (mass of anhydrous salt / M)."], p: [P1], needs: [CO-5.1.A], drills: [co-hydrate-n, co-hydrate-percent] }
+          - { id: C, std: ["usnco:1"], do: "Prepare a solution of given molality.", ek: ["Molality is moles of solute per kilogram of solvent."], p: [P1], needs: [CO-5.1.B], drills: [co-molality-mass, co-molality-from-percent] }
+          - { id: D, std: ["usnco:1"], do: "Find a product yield from a limiting reagent.", ek: ["Convert both reactants to moles of product; the smaller wins."], p: [P1], needs: [CO-5.1.C], drills: [co-limiting-yield, co-percent-yield] }
+          - { id: E, std: ["usnco:1"], do: "Work a back titration.", ek: ["Excess reagent is titrated; what reacted is total minus excess."], p: [P1], needs: [CO-5.1.D], drills: [co-back-titration, co-antacid-naoh] }
   - id: usnco-lab
     n: 6
     title: "USNCO band 2: descriptive chemistry and the laboratory"
@@ -127,12 +127,12 @@ units:
       - n: 1
         title: "Descriptive and laboratory chemistry"
         los:
-          - { id: A, std: ["usnco:2"], do: "Know flame-test colours.", ek: ["Li crimson, Na yellow, K lilac, Ca orange-red, Sr red, Ba pale green, Cu blue-green."], p: [P1], drills: [co-flame-test, co-flame-confusion] }
-          - { id: B, std: ["usnco:2"], do: "Choose a reagent that tells two salts apart.", ek: ["Pick a reagent that gives a precipitate, gas or colour with one and not the other."], p: [P1], drills: [co-distinguish-salts, co-tell-apart] }
-          - { id: C, std: ["usnco:2"], do: "Recall the colours of common precipitates and ions.", ek: ["AgCl white, AgBr cream, AgI yellow, PbI₂ bright yellow, Cu(OH)₂ blue, Fe(OH)₃ rust-brown, Fe(OH)₂ green, CuS and PbS black."], p: [P1], drills: [co-precipitate-colour, co-ppt-identify] }
-          - { id: D, std: ["usnco:2"], do: "Choose a colorimeter wavelength.", ek: ["Measure at the colour the solution absorbs: the complement of the colour you see."], p: [P1], drills: [co-colorimeter-led, co-colour-complement] }
-          - { id: E, std: ["usnco:2"], do: "Predict the direction of a laboratory error.", ek: ["Follow the error through the calculation: which measured quantity is too big or too small?"], p: [P1], drills: [co-lab-error, co-error-direction] }
-          - { id: F, std: ["usnco:2"], do: "Correct a gas collected over water.", ek: ["p_gas = P_total − p_water; then n = pV/RT."], p: [P1], drills: [co-gas-over-water, co-wet-gas-volume] }
+          - { id: A, std: ["usnco:2"], do: "Know flame-test colours.", ek: ["Li crimson, Na yellow, K lilac, Ca orange-red, Sr red, Ba pale green, Cu blue-green."], p: [P1], needs: [IN-4.2.C], drills: [co-flame-test, co-flame-confusion] }
+          - { id: B, std: ["usnco:2"], do: "Choose a reagent that tells two salts apart.", ek: ["Pick a reagent that gives a precipitate, gas or colour with one and not the other."], p: [P1], needs: [CO-6.1.A], drills: [co-distinguish-salts, co-tell-apart] }
+          - { id: C, std: ["usnco:2"], do: "Recall the colours of common precipitates and ions.", ek: ["AgCl white, AgBr cream, AgI yellow, PbI₂ bright yellow, Cu(OH)₂ blue, Fe(OH)₃ rust-brown, Fe(OH)₂ green, CuS and PbS black."], p: [P1], needs: [CO-6.1.B], drills: [co-precipitate-colour, co-ppt-identify] }
+          - { id: D, std: ["usnco:2"], do: "Choose a colorimeter wavelength.", ek: ["Measure at the colour the solution absorbs: the complement of the colour you see."], p: [P1], needs: [CO-6.1.C], drills: [co-colorimeter-led, co-colour-complement] }
+          - { id: E, std: ["usnco:2"], do: "Predict the direction of a laboratory error.", ek: ["Follow the error through the calculation: which measured quantity is too big or too small?"], p: [P1], needs: [CO-6.1.D], drills: [co-lab-error, co-error-direction] }
+          - { id: F, std: ["usnco:2"], do: "Correct a gas collected over water.", ek: ["p_gas = P_total − p_water; then n = pV/RT."], p: [P1], needs: [CO-6.1.E], drills: [co-gas-over-water, co-wet-gas-volume] }
   - id: usnco-states
     n: 7
     title: "USNCO band 3: states of matter"
@@ -143,11 +143,11 @@ units:
       - n: 1
         title: "Gases, liquids and solids"
         los:
-          - { id: B, std: ["usnco:3"], do: "Give coordination numbers in common ionic structures.", ek: ["Rock salt 6:6; CsCl 8:8; zinc blende 4:4; fluorite Ca 8, F 4; rutile Ti 6, O 3."], p: [P1], drills: [co-coordination-structure, co-structure-cn] }
-          - { id: E, std: ["usnco:3"], do: "Rank substances by boiling or melting point.", ek: ["Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area."], p: [P1], drills: [co-boiling-rank, co-mp-rank] }
-          - { id: A, std: ["usnco:3"], do: "Find a density from a cubic unit cell.", ek: ["ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc."], p: [P1], drills: [co-unit-cell-density, co-molar-mass-from-cell] }
-          - { id: C, std: ["usnco:3"], do: "Find how much liquid remains when some evaporates into a closed flask.", ek: ["Vapour moles = P_vap V/RT; if less than the total, the rest stays liquid."], p: [P1], drills: [co-liquid-remaining, co-vapour-pressure-evap] }
-          - { id: D, std: ["usnco:3"], do: "Use Graham's law.", ek: ["Effusion rate ∝ 1/√M."], p: [P1], drills: [co-graham, co-graham-mass] }
+          - { id: A, std: ["usnco:3"], do: "Find a density from a cubic unit cell.", ek: ["ρ = Z M / (N_A a³); Z = 1, 2, 4 for sc, bcc, fcc."], p: [P1], needs: [CH-3.14.C], drills: [co-unit-cell-density, co-molar-mass-from-cell] }
+          - { id: B, std: ["usnco:3"], do: "Give coordination numbers in common ionic structures.", ek: ["Rock salt 6:6; CsCl 8:8; zinc blende 4:4; fluorite Ca 8, F 4; rutile Ti 6, O 3."], p: [P1], needs: [CO-7.1.A], drills: [co-coordination-structure, co-structure-cn] }
+          - { id: C, std: ["usnco:3"], do: "Find how much liquid remains when some evaporates into a closed flask.", ek: ["Vapour moles = P_vap V/RT; if less than the total, the rest stays liquid."], p: [P1], needs: [CO-7.1.B], drills: [co-liquid-remaining, co-vapour-pressure-evap] }
+          - { id: D, std: ["usnco:3"], do: "Use Graham's law.", ek: ["Effusion rate ∝ 1/√M."], p: [P1], needs: [CO-7.1.C], drills: [co-graham, co-graham-mass] }
+          - { id: E, std: ["usnco:3"], do: "Rank substances by boiling or melting point.", ek: ["Ionic and network solids first; then hydrogen bonding; then dispersion, which grows with size and surface area."], p: [P1], needs: [CO-7.1.D], drills: [co-boiling-rank, co-mp-rank] }
   - id: usnco-thermo
     n: 8
     title: "USNCO band 4: thermodynamics"
@@ -158,11 +158,11 @@ units:
       - n: 1
         title: "Thermodynamics"
         los:
-          - { id: D, std: ["usnco:4"], do: "Predict the sign of ΔS.", ek: ["More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it."], p: [P1], drills: [co-entropy-sign, co-ds-sign-2] }
-          - { id: A, std: ["usnco:4"], do: "Find K from ΔH° and ΔS° at a temperature.", ek: ["ΔG° = ΔH° − TΔS°; K = e^{−ΔG°/RT}."], p: [P1], drills: [co-k-from-dh-ds, co-dg-from-k] }
-          - { id: B, std: ["usnco:4"], do: "Find the temperature at which a reaction becomes spontaneous.", ek: ["T = ΔH°/ΔS° when both have the same sign."], p: [P1], drills: [co-crossover-temperature, co-ds-from-crossover] }
-          - { id: C, std: ["usnco:4"], do: "Find an enthalpy of solution from calorimetry.", ek: ["q = m c ΔT absorbed by the solution; ΔH_soln = −q/n."], p: [P1], drills: [co-enthalpy-solution, co-temp-change-solution] }
-          - { id: E, std: ["usnco:4"], do: "Close a Hess's-law cycle.", ek: ["Reverse and scale the given reactions until they add to the target; do the same to their ΔH."], p: [P1], drills: [co-hess-cycle, co-hf-from-hc] }
+          - { id: A, std: ["usnco:4"], do: "Find K from ΔH° and ΔS° at a temperature.", ek: ["ΔG° = ΔH° − TΔS°; K = e^{−ΔG°/RT}."], p: [P1], needs: [CH-9.12.A], drills: [co-k-from-dh-ds, co-dg-from-k] }
+          - { id: B, std: ["usnco:4"], do: "Find the temperature at which a reaction becomes spontaneous.", ek: ["T = ΔH°/ΔS° when both have the same sign."], p: [P1], needs: [CO-8.1.A], drills: [co-crossover-temperature, co-ds-from-crossover] }
+          - { id: C, std: ["usnco:4"], do: "Find an enthalpy of solution from calorimetry.", ek: ["q = m c ΔT absorbed by the solution; ΔH_soln = −q/n."], p: [P1], needs: [CO-8.1.B], drills: [co-enthalpy-solution, co-temp-change-solution] }
+          - { id: D, std: ["usnco:4"], do: "Predict the sign of ΔS.", ek: ["More moles of gas, dissolving a solid, melting and mixing raise entropy; forming fewer, more ordered particles lowers it."], p: [P1], needs: [CO-8.1.C], drills: [co-entropy-sign, co-ds-sign-2] }
+          - { id: E, std: ["usnco:4"], do: "Close a Hess's-law cycle.", ek: ["Reverse and scale the given reactions until they add to the target; do the same to their ΔH."], p: [P1], needs: [CO-8.1.D], drills: [co-hess-cycle, co-hf-from-hc] }
   - id: usnco-kinetics
     n: 9
     title: "USNCO band 5: kinetics"
@@ -173,11 +173,11 @@ units:
       - n: 1
         title: "Kinetics"
         los:
-          - { id: A, std: ["usnco:5"], do: "Find a reaction order from initial-rate data.", ek: ["Order = log(rate ratio)/log(concentration ratio)."], p: [P1], drills: [co-order-from-rates, co-rate-predict] }
-          - { id: B, std: ["usnco:5"], do: "Find the rate law from a mechanism with a fast pre-equilibrium.", ek: ["Rate = k₂K₁[...]: substitute the intermediate from the equilibrium."], p: [P1], drills: [co-preequilibrium-order, co-mechanism-rate-law] }
-          - { id: C, std: ["usnco:5"], do: "Find product fractions for parallel first-order reactions.", ek: ["Fraction of B = k_B/(k_B + k_C); with Arrhenius, the higher-Eₐ path grows with T."], p: [P1], drills: [co-parallel-arrhenius, co-equal-rate-temp] }
-          - { id: D, std: ["usnco:5"], do: "Use a kinetic isotope effect.", ek: ["C–D bonds have lower zero-point energy than C–H, so breaking them in the rate-determining step is slower (k_H/k_D ≈ 2–7)."], p: [P1], drills: [co-isotope-effect, co-kie-from-freq] }
-          - { id: E, std: ["usnco:5"], do: "Find the activity of a daughter after a decay chain reaches secular equilibrium.", ek: ["When the parent lives much longer, daughter activity equals parent activity."], p: [P1], drills: [co-secular-equilibrium, co-daughter-halflife] }
+          - { id: A, std: ["usnco:5"], do: "Find a reaction order from initial-rate data.", ek: ["Order = log(rate ratio)/log(concentration ratio)."], p: [P1], needs: [CH-5.11.A], drills: [co-order-from-rates, co-rate-predict] }
+          - { id: B, std: ["usnco:5"], do: "Find the rate law from a mechanism with a fast pre-equilibrium.", ek: ["Rate = k₂K₁[...]: substitute the intermediate from the equilibrium."], p: [P1], needs: [CO-9.1.A], drills: [co-preequilibrium-order, co-mechanism-rate-law] }
+          - { id: C, std: ["usnco:5"], do: "Find product fractions for parallel first-order reactions.", ek: ["Fraction of B = k_B/(k_B + k_C); with Arrhenius, the higher-Eₐ path grows with T."], p: [P1], needs: [CO-9.1.B], drills: [co-parallel-arrhenius, co-equal-rate-temp] }
+          - { id: D, std: ["usnco:5"], do: "Use a kinetic isotope effect.", ek: ["C–D bonds have lower zero-point energy than C–H, so breaking them in the rate-determining step is slower (k_H/k_D ≈ 2–7)."], p: [P1], needs: [CO-9.1.C], drills: [co-isotope-effect, co-kie-from-freq] }
+          - { id: E, std: ["usnco:5"], do: "Find the activity of a daughter after a decay chain reaches secular equilibrium.", ek: ["When the parent lives much longer, daughter activity equals parent activity."], p: [P1], needs: [CO-9.1.D], drills: [co-secular-equilibrium, co-daughter-halflife] }
   - id: usnco-equilibrium
     n: 10
     title: "USNCO band 6: equilibrium"
@@ -188,11 +188,11 @@ units:
       - n: 1
         title: "Equilibrium"
         los:
-          - { id: A, std: ["usnco:6"], do: "Combine equilibrium constants.", ek: ["Reverse: 1/K; multiply by n: Kⁿ; add reactions: multiply K's."], p: [P1], drills: [co-combine-k, co-k-reverse-scale] }
-          - { id: B, std: ["usnco:6"], do: "Find pKa from a percent ionisation.", ek: ["Ka = c α²/(1 − α)."], p: [P1], drills: [co-pka-from-ionisation, co-ionisation-from-pka] }
-          - { id: C, std: ["usnco:6"], do: "Find a solubility enhanced by complex formation.", ek: ["AgCl + 2NH₃ ⇌ Ag(NH₃)₂⁺ + Cl⁻ with K = K_sp K_f; s ≈ √K [NH₃]."], p: [P1], drills: [co-complex-solubility, co-agcl-in-ammonia] }
-          - { id: D, std: ["usnco:6"], do: "Write and use K for a heterogeneous equilibrium.", ek: ["Pure solids and liquids are left out of K."], p: [P1], drills: [co-heterogeneous-kp, co-carbonate-decomposed] }
-          - { id: E, std: ["usnco:6"], do: "Find the pH at points of a diprotic titration.", ek: ["First half-equivalence: pH = pKa₁; first equivalence: (pKa₁ + pKa₂)/2; second half-equivalence: pKa₂."], p: [P1], drills: [co-diprotic-points, co-first-equivalence-ph] }
+          - { id: A, std: ["usnco:6"], do: "Combine equilibrium constants.", ek: ["Reverse: 1/K; multiply by n: Kⁿ; add reactions: multiply K's."], p: [P1], needs: [CH-8.11.A], drills: [co-combine-k, co-k-reverse-scale] }
+          - { id: B, std: ["usnco:6"], do: "Find pKa from a percent ionisation.", ek: ["Ka = c α²/(1 − α)."], p: [P1], needs: [CO-10.1.A], drills: [co-pka-from-ionisation, co-ionisation-from-pka] }
+          - { id: C, std: ["usnco:6"], do: "Find a solubility enhanced by complex formation.", ek: ["AgCl + 2NH₃ ⇌ Ag(NH₃)₂⁺ + Cl⁻ with K = K_sp K_f; s ≈ √K [NH₃]."], p: [P1], needs: [CO-10.1.B], drills: [co-complex-solubility, co-agcl-in-ammonia] }
+          - { id: D, std: ["usnco:6"], do: "Write and use K for a heterogeneous equilibrium.", ek: ["Pure solids and liquids are left out of K."], p: [P1], needs: [CO-10.1.C], drills: [co-heterogeneous-kp, co-carbonate-decomposed] }
+          - { id: E, std: ["usnco:6"], do: "Find the pH at points of a diprotic titration.", ek: ["First half-equivalence: pH = pKa₁; first equivalence: (pKa₁ + pKa₂)/2; second half-equivalence: pKa₂."], p: [P1], needs: [CO-10.1.D], drills: [co-diprotic-points, co-first-equivalence-ph] }
   - id: usnco-redox
     n: 11
     title: "USNCO band 7: oxidation–reduction and electrochemistry"
@@ -203,11 +203,11 @@ units:
       - n: 1
         title: "Redox and electrochemistry"
         los:
-          - { id: A, std: ["usnco:7"], do: "Find an average oxidation state.", ek: ["Charge balance with the usual values for the other atoms."], p: [P1], drills: [co-average-ox-state, co-mixed-valence-fraction] }
-          - { id: B, std: ["usnco:7"], do: "Combine half-reaction potentials.", ek: ["Potentials do not add; ΔG = −nFE does: E₃ = (n₁E₁ + n₂E₂)/(n₁ + n₂)."], p: [P1], drills: [co-combine-potentials, co-disprop-potential] }
-          - { id: C, std: ["usnco:7", "acs-accm-analytical:VI.E.1"], do: "Use the Nernst equation.", ek: ["E = E° − (RT/nF) ln Q."], p: [P1], drills: [co-nernst, co-ratio-from-emf] }
-          - { id: D, std: ["usnco:7", "acs-accm-analytical:VIII.F.1", "acs-accm-analytical:VIII.G.5"], do: "Find K from a standard cell potential.", ek: ["ln K = nFE°/RT."], p: [P1], drills: [co-k-from-e, co-e-from-k] }
-          - { id: E, std: ["usnco:7"], do: "Count electrons in a redox half-reaction.", ek: ["Change in oxidation state × atoms changed."], p: [P1], drills: [co-half-electrons, co-protons-in-half] }
+          - { id: A, std: ["usnco:7"], do: "Find an average oxidation state.", ek: ["Charge balance with the usual values for the other atoms."], p: [P1], needs: [CH-9.12.A], drills: [co-average-ox-state, co-mixed-valence-fraction] }
+          - { id: B, std: ["usnco:7"], do: "Combine half-reaction potentials.", ek: ["Potentials do not add; ΔG = −nFE does: E₃ = (n₁E₁ + n₂E₂)/(n₁ + n₂)."], p: [P1], needs: [CO-11.1.A], drills: [co-combine-potentials, co-disprop-potential] }
+          - { id: C, std: ["usnco:7", "acs-accm-analytical:VI.E.1"], do: "Use the Nernst equation.", ek: ["E = E° − (RT/nF) ln Q."], p: [P1], needs: [CO-11.1.B], drills: [co-nernst, co-ratio-from-emf] }
+          - { id: D, std: ["usnco:7", "acs-accm-analytical:VIII.F.1", "acs-accm-analytical:VIII.G.5"], do: "Find K from a standard cell potential.", ek: ["ln K = nFE°/RT."], p: [P1], needs: [CO-11.1.C], drills: [co-k-from-e, co-e-from-k] }
+          - { id: E, std: ["usnco:7"], do: "Count electrons in a redox half-reaction.", ek: ["Change in oxidation state × atoms changed."], p: [P1], needs: [CO-11.1.D], drills: [co-half-electrons, co-protons-in-half] }
   - id: usnco-atomic
     n: 12
     title: "USNCO band 8: atomic structure and periodicity"
@@ -218,12 +218,12 @@ units:
       - n: 1
         title: "Atomic structure"
         los:
-          - { id: C, std: ["usnco:8"], do: "Explain anomalies in periodic trends.", ek: ["Half-filled and filled subshells resist adding or removing electrons."], p: [P1], drills: [co-trend-anomaly, co-anomaly-explain] }
-          - { id: A, std: ["usnco:8"], do: "Identify a group from successive ionisation energies.", ek: ["The big jump comes after the last valence electron."], p: [P1], drills: [co-ionisation-jump, co-jump-position] }
-          - { id: B, std: ["usnco:8"], do: "Count electrons with given quantum numbers.", ek: ["Each orbital holds 2; there are 2l + 1 orbitals per subshell and n² per shell."], p: [P1], drills: [co-quantum-count, co-max-electrons] }
-          - { id: D, std: ["usnco:8"], do: "Find the wavelength of a hydrogen transition.", ek: ["1/λ = R_H(1/n₁² − 1/n₂²), R_H = 1.097×10⁷ m⁻¹."], p: [P1], drills: [co-hydrogen-line, co-series-limit] }
-          - { id: E, std: ["usnco:8"], do: "Count unpaired electrons in a transition-metal ion.", ek: ["Remove s electrons first, then put the d electrons into five orbitals by Hund's rule (free ion)."], p: [P1], drills: [co-unpaired-ion, co-ion-moment] }
-          - { id: F, std: ["usnco:8"], do: "Predict a radioactive decay mode.", ek: ["Neutron-rich nuclides β⁻ decay; proton-rich ones β⁺ or capture electrons; very heavy ones α decay."], p: [P1], drills: [co-decay-mode, co-daughter-z] }
+          - { id: A, std: ["usnco:8"], do: "Identify a group from successive ionisation energies.", ek: ["The big jump comes after the last valence electron."], p: [P1], needs: [CH-1.10.D], drills: [co-ionisation-jump, co-jump-position] }
+          - { id: B, std: ["usnco:8"], do: "Count electrons with given quantum numbers.", ek: ["Each orbital holds 2; there are 2l + 1 orbitals per subshell and n² per shell."], p: [P1], needs: [CO-12.1.A], drills: [co-quantum-count, co-max-electrons] }
+          - { id: C, std: ["usnco:8"], do: "Explain anomalies in periodic trends.", ek: ["Half-filled and filled subshells resist adding or removing electrons."], p: [P1], needs: [CO-12.1.B], drills: [co-trend-anomaly, co-anomaly-explain] }
+          - { id: D, std: ["usnco:8"], do: "Find the wavelength of a hydrogen transition.", ek: ["1/λ = R_H(1/n₁² − 1/n₂²), R_H = 1.097×10⁷ m⁻¹."], p: [P1], needs: [CO-12.1.C], drills: [co-hydrogen-line, co-series-limit] }
+          - { id: E, std: ["usnco:8"], do: "Count unpaired electrons in a transition-metal ion.", ek: ["Remove s electrons first, then put the d electrons into five orbitals by Hund's rule (free ion)."], p: [P1], needs: [CO-12.1.D], drills: [co-unpaired-ion, co-ion-moment] }
+          - { id: F, std: ["usnco:8"], do: "Predict a radioactive decay mode.", ek: ["Neutron-rich nuclides β⁻ decay; proton-rich ones β⁺ or capture electrons; very heavy ones α decay."], p: [P1], needs: [CO-12.1.E], drills: [co-decay-mode, co-daughter-z] }
   - id: usnco-bonding
     n: 13
     title: "USNCO band 9: bonding and molecular structure"
@@ -234,11 +234,11 @@ units:
       - n: 1
         title: "Bonding and structure"
         los:
-          - { id: A, std: ["usnco:9"], do: "Predict a VSEPR shape including lone pairs.", ek: ["Count electron domains, then name the shape from the atoms only."], p: [P1], drills: [co-vsepr-shape, co-lone-pairs-centre] }
-          - { id: B, std: ["usnco:9"], do: "Count the stereoisomers of an octahedral complex.", ek: ["Enumerate arrangements up to rotation; mirror images count separately."], p: [P1], drills: [co-octahedral-isomers, co-square-planar-isomers] }
-          - { id: C, std: ["usnco:9"], do: "Find a bond order from a molecular-orbital diagram.", ek: ["Bond order = (bonding − antibonding)/2."], p: [P1], drills: [co-mo-bond-order, co-mo-unpaired] }
-          - { id: D, std: ["usnco:9"], do: "Choose the most stable resonance arrangement or isomer by formal charge.", ek: ["Prefer formal charges near zero, with negative charge on the more electronegative atom."], p: [P1], drills: [co-formal-charge, co-formal-charge-atom] }
-          - { id: E, std: ["usnco:9"], do: "Find a fractional bond order from resonance.", ek: ["Spread the π bonds over the equivalent positions: bond order = total bonds / positions."], p: [P1], drills: [co-resonance-bond-order, co-bond-length-rank] }
+          - { id: A, std: ["usnco:9"], do: "Predict a VSEPR shape including lone pairs.", ek: ["Count electron domains, then name the shape from the atoms only."], p: [P1], needs: [CH-2.8.A], drills: [co-vsepr-shape, co-lone-pairs-centre] }
+          - { id: B, std: ["usnco:9"], do: "Count the stereoisomers of an octahedral complex.", ek: ["Enumerate arrangements up to rotation; mirror images count separately."], p: [P1], needs: [CO-13.1.A], drills: [co-octahedral-isomers, co-square-planar-isomers] }
+          - { id: C, std: ["usnco:9"], do: "Find a bond order from a molecular-orbital diagram.", ek: ["Bond order = (bonding − antibonding)/2."], p: [P1], needs: [CO-13.1.B], drills: [co-mo-bond-order, co-mo-unpaired] }
+          - { id: D, std: ["usnco:9"], do: "Choose the most stable resonance arrangement or isomer by formal charge.", ek: ["Prefer formal charges near zero, with negative charge on the more electronegative atom."], p: [P1], needs: [CO-13.1.C], drills: [co-formal-charge, co-formal-charge-atom] }
+          - { id: E, std: ["usnco:9"], do: "Find a fractional bond order from resonance.", ek: ["Spread the π bonds over the equivalent positions: bond order = total bonds / positions."], p: [P1], needs: [CO-13.1.D], drills: [co-resonance-bond-order, co-bond-length-rank] }
   - id: usnco-organic
     n: 14
     title: "USNCO band 10: organic chemistry, biochemistry and spectroscopy"
@@ -249,12 +249,12 @@ units:
       - n: 1
         title: "Organic and biochemistry"
         los:
-          - { id: C, std: ["usnco:10", "acs-accm-analytical:I.B.1", "acs-accm-analytical:II.F.1", "acs-accm-analytical:III.F.1"], do: "Assign an infrared band.", ek: ["O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²)."], p: [P1], drills: [co-ir-band, co-ir-tell] }
-          - { id: E, std: ["usnco:10"], do: "Identify the monomer of a polymer.", ek: ["Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link."], p: [P1], drills: [co-monomer, co-polymer-from-monomer] }
           - { id: A, std: ["usnco:10"], do: "Count structural isomers.", ek: ["Enumerate chains, then branches; include rings when the formula allows."], p: [P1], drills: [co-isomer-count, co-isomer-count-2] }
-          - { id: B, std: ["usnco:10"], do: "Find the degree of unsaturation.", ek: ["DoU = (2C + 2 + N − H − X)/2: rings plus π bonds."], p: [P1], drills: [co-unsaturation, co-h-from-dou] }
-          - { id: D, std: ["usnco:10", "acs-accm-organic:III.D.2", "acs-accm-analytical:I.A.3", "acs-accm-analytical:III.D.1"], do: "Count ¹H NMR environments.", ek: ["Equivalent hydrogens (by symmetry) give one signal."], p: [P1], drills: [co-nmr-environments, co-nmr-env-2] }
-          - { id: F, std: ["usnco:10"], do: "Find an amino acid's isoelectric point.", ek: ["pI is the average of the two pKa values on either side of the neutral form."], p: [P1], drills: [co-isoelectric, co-glycine-charge] }
+          - { id: B, std: ["usnco:10"], do: "Find the degree of unsaturation.", ek: ["DoU = (2C + 2 + N − H − X)/2: rings plus π bonds."], p: [P1], needs: [CO-14.1.A], drills: [co-unsaturation, co-h-from-dou] }
+          - { id: C, std: ["usnco:10", "acs-accm-analytical:I.B.1", "acs-accm-analytical:II.F.1", "acs-accm-analytical:III.F.1"], do: "Assign an infrared band.", ek: ["O–H broad 3200–3550; C=O sharp near 1700; C≡N near 2250; C–H just below 3000 (sp³) or above (sp²)."], p: [P1], needs: [CO-14.1.B], drills: [co-ir-band, co-ir-tell] }
+          - { id: D, std: ["usnco:10", "acs-accm-organic:III.D.2", "acs-accm-analytical:I.A.3", "acs-accm-analytical:III.D.1"], do: "Count ¹H NMR environments.", ek: ["Equivalent hydrogens (by symmetry) give one signal."], p: [P1], needs: [CO-14.1.C], drills: [co-nmr-environments, co-nmr-env-2] }
+          - { id: E, std: ["usnco:10"], do: "Identify the monomer of a polymer.", ek: ["Addition polymers repeat the alkene's carbons; condensation polymers lose a small molecule at each link."], p: [P1], needs: [CO-14.1.D], drills: [co-monomer, co-polymer-from-monomer] }
+          - { id: F, std: ["usnco:10"], do: "Find an amino acid's isoelectric point.", ek: ["pI is the average of the two pKa values on either side of the neutral form."], p: [P1], needs: [CO-14.1.E], drills: [co-isoelectric, co-glycine-charge] }
   - id: usnco-part2
     n: 15
     title: "USNCO Part II: multi-step problems"
@@ -265,12 +265,12 @@ units:
       - n: 1
         title: "Linked problems"
         los:
-          - { id: A, std: ["usnco:P2", "usnco:6"], do: "Find a molar solubility with a common ion, then compare it with pure water.", ek: ["Ksp = s(s + c) ≈ s c when c ≫ s."], p: [P1], drills: [co-p2-common-ion, co-ksp-from-common-ion] }
-          - { id: B, std: ["usnco:P2", "usnco:7"], do: "Get ΔS° of a cell reaction from the temperature dependence of E°.", ek: ["ΔS° = nF(dE°/dT); ΔH° = ΔG° + TΔS°."], p: [P1], drills: [co-p2-cell-entropy, co-dedt-from-ds] }
-          - { id: C, std: ["usnco:P2", "usnco:4"], do: "Find ΔS° from ΔG° and calorimetric ΔH°.", ek: ["ΔG° = −RT ln K; ΔS° = (ΔH° − ΔG°)/T."], p: [P1], drills: [co-p2-entropy-from-k, co-vant-hoff-k] }
-          - { id: D, std: ["usnco:P2", "usnco:1"], do: "Find a hydrate's water count from an iodometric titration.", ek: ["Cu²⁺ + I⁻ → CuI + ½I₂; I₂ + 2 S₂O₃²⁻: one thiosulfate per Cu."], p: [P1], drills: [co-p2-iodometric, co-iodometric-copper] }
-          - { id: E, std: ["usnco:P2", "usnco:3"], do: "Find a density and an oxidation state from a perovskite unit cell.", ek: ["ABO₃: A at the corners (1), B at the centre (1), O at the face centres (3)."], p: [P1], drills: [co-p2-perovskite, co-tolerance-factor] }
-          - { id: F, std: ["usnco:P2", "usnco:8"], do: "Find a photon energy per mole for bond breaking.", ek: ["E = N_A hc/λ."], p: [P1], drills: [co-p2-photon-kj, co-threshold-wavelength] }
+          - { id: A, std: ["usnco:P2", "usnco:6"], do: "Find a molar solubility with a common ion, then compare it with pure water.", ek: ["Ksp = s(s + c) ≈ s c when c ≫ s."], p: [P1], needs: [CO-5.1.E, CO-8.1.E, CO-10.1.E, CO-11.1.E], drills: [co-p2-common-ion, co-ksp-from-common-ion] }
+          - { id: B, std: ["usnco:P2", "usnco:7"], do: "Get ΔS° of a cell reaction from the temperature dependence of E°.", ek: ["ΔS° = nF(dE°/dT); ΔH° = ΔG° + TΔS°."], p: [P1], needs: [CO-15.1.A], drills: [co-p2-cell-entropy, co-dedt-from-ds] }
+          - { id: C, std: ["usnco:P2", "usnco:4"], do: "Find ΔS° from ΔG° and calorimetric ΔH°.", ek: ["ΔG° = −RT ln K; ΔS° = (ΔH° − ΔG°)/T."], p: [P1], needs: [CO-15.1.B], drills: [co-p2-entropy-from-k, co-vant-hoff-k] }
+          - { id: D, std: ["usnco:P2", "usnco:1"], do: "Find a hydrate's water count from an iodometric titration.", ek: ["Cu²⁺ + I⁻ → CuI + ½I₂; I₂ + 2 S₂O₃²⁻: one thiosulfate per Cu."], p: [P1], needs: [CO-15.1.C], drills: [co-p2-iodometric, co-iodometric-copper] }
+          - { id: E, std: ["usnco:P2", "usnco:3"], do: "Find a density and an oxidation state from a perovskite unit cell.", ek: ["ABO₃: A at the corners (1), B at the centre (1), O at the face centres (3)."], p: [P1], needs: [CO-15.1.D], drills: [co-p2-perovskite, co-tolerance-factor] }
+          - { id: F, std: ["usnco:P2", "usnco:8"], do: "Find a photon energy per mole for bond breaking.", ek: ["E = N_A hc/λ."], p: [P1], needs: [CO-15.1.E], drills: [co-p2-photon-kj, co-threshold-wavelength] }
   # <<< opl-fill:co-usnco
   - id: camp-steps
     n: 16
@@ -282,31 +282,31 @@ units:
       - n: 1
         title: "Electrochemical and equilibrium steps"
         los:
-          - { id: A, std: ["usnco:P2", "usnco:7"], do: "Read the number of electrons transferred from an electrode's slope per decade.", ek: ["At 25 °C a Nernstian electrode moves 59.16/n mV for each tenfold change in concentration, so the slope gives n before any chemistry is assumed."], p: [P1], drills: [co-slope-electrons, co-decade-shift] }
-          - { id: B, std: ["usnco:P2", "usnco:6"], do: "Find an acid's K_a from the shift in an ion-selective electrode's potential with pH.", ek: ["The electrode sees only the free anion; the shift from its strong-base reading gives the free fraction α = 10^(−ΔE/59.16), and K_a = [H⁺]α/(1 − α)."], p: [P1], drills: [co-ka-from-shift, co-free-fraction] }
-          - { id: C, std: ["usnco:P2", "usnco:6"], do: "Find the solubility of two sparingly soluble salts of weak acids sharing a cation.", ek: ["The cation balances both anions in all their forms: [M⁺]² = K_spA(1 + [H⁺]/K_A) + K_spB(1 + [H⁺]/K_B)."], p: [P1], drills: [co-two-salt-solubility, co-two-salt-ratio] }
-          - { id: D, std: ["usnco:P2", "usnco:1"], do: "Find two anions from the successive end points of one silver titration.", ek: ["Cyanide first takes silver as Ag(CN)₂⁻ (one Ag⁺ per two CN⁻), then precipitates as AgCN, and only then does chloride precipitate, so the volumes between end points count each anion."], p: [P1], drills: [co-cyanide-first-endpoint, co-chloride-third-endpoint] }
-          - { id: E, std: ["usnco:P2", "usnco:7"], do: "Find the cell emf at the equivalence point of a precipitation titration.", ek: ["At the equivalence point of a 1:1 salt [Ag⁺] = √K_sp, and the silver electrode reads E° + 0.05916 log[Ag⁺] against the reference."], p: [P1], drills: [co-equivalence-emf, co-silver-from-emf] }
+          - { id: A, std: ["usnco:P2", "usnco:7"], do: "Read the number of electrons transferred from an electrode's slope per decade.", ek: ["At 25 °C a Nernstian electrode moves 59.16/n mV for each tenfold change in concentration, so the slope gives n before any chemistry is assumed."], p: [P1], needs: [CO-1.2.B, CO-2.2.B, CO-3.1.B], drills: [co-slope-electrons, co-decade-shift] }
+          - { id: B, std: ["usnco:P2", "usnco:6"], do: "Find an acid's K_a from the shift in an ion-selective electrode's potential with pH.", ek: ["The electrode sees only the free anion; the shift from its strong-base reading gives the free fraction α = 10^(−ΔE/59.16), and K_a = [H⁺]α/(1 − α)."], p: [P1], needs: [CO-16.1.A], drills: [co-ka-from-shift, co-free-fraction] }
+          - { id: C, std: ["usnco:P2", "usnco:6"], do: "Find the solubility of two sparingly soluble salts of weak acids sharing a cation.", ek: ["The cation balances both anions in all their forms: [M⁺]² = K_spA(1 + [H⁺]/K_A) + K_spB(1 + [H⁺]/K_B)."], p: [P1], needs: [CO-16.1.B], drills: [co-two-salt-solubility, co-two-salt-ratio] }
+          - { id: D, std: ["usnco:P2", "usnco:1"], do: "Find two anions from the successive end points of one silver titration.", ek: ["Cyanide first takes silver as Ag(CN)₂⁻ (one Ag⁺ per two CN⁻), then precipitates as AgCN, and only then does chloride precipitate, so the volumes between end points count each anion."], p: [P1], needs: [CO-16.1.C], drills: [co-cyanide-first-endpoint, co-chloride-third-endpoint] }
+          - { id: E, std: ["usnco:P2", "usnco:7"], do: "Find the cell emf at the equivalence point of a precipitation titration.", ek: ["At the equivalence point of a 1:1 salt [Ag⁺] = √K_sp, and the silver electrode reads E° + 0.05916 log[Ag⁺] against the reference."], p: [P1], needs: [CO-16.1.D], drills: [co-equivalence-emf, co-silver-from-emf] }
       - n: 2
         title: "Solids, rates and stoichiometric steps"
         los:
-          - { id: A, std: ["usnco:P2", "usnco:3"], do: "Find the vacancy fraction of a nonstoichiometric oxide from the share of cations oxidised.", ek: ["With the anion lattice intact, charge balance fixes the cation count: for Cu₂₋ₓO with a fraction f of copper as Cu²⁺, (2 − x)(1 + f) = 2."], p: [P1], drills: [co-vacancy-x, co-vacancy-percent] }
-          - { id: B, std: ["usnco:P2", "usnco:4"], do: "Find the temperature at which two solid phases exchange stability from formation data.", ek: ["Build ΔH° and ΔS° of the interconversion from the formation values, then T = ΔH°/ΔS°; with three phases, each pair has its own boundary."], p: [P1], drills: [co-phase-boundary, co-phase-dg] }
-          - { id: C, std: ["usnco:P2", "usnco:5"], do: "Find a rate constant from the time a limiting reagent takes to vanish at constant rate.", ek: ["A straight concentration–time line means zero order in the limiting reagent: the rate is its initial concentration over the reaction time, and the other species give the rate law."], p: [P1], drills: [co-reaction-time-rate, co-reaction-time-k] }
-          - { id: D, std: ["usnco:P2", "usnco:5"], do: "Find the overall activation energy of a chain reaction from its composite rate constant.", ek: ["Activation energies combine the way the rate constants do: a product adds them, a quotient subtracts them, and a square root halves them."], p: [P1], drills: [co-composite-ea, co-composite-ea-half] }
-          - { id: E, std: ["usnco:P2", "usnco:1"], do: "Identify the metal of a chloride hydrate from a silver titration.", ek: ["Silver counts chloride; mass per mole of chloride times the chlorides per formula is the formula mass, and what is left after chloride and water is the metal."], p: [P1], drills: [co-hydrate-metal, co-mass-per-chloride] }
+          - { id: A, std: ["usnco:P2", "usnco:3"], do: "Find the vacancy fraction of a nonstoichiometric oxide from the share of cations oxidised.", ek: ["With the anion lattice intact, charge balance fixes the cation count: for Cu₂₋ₓO with a fraction f of copper as Cu²⁺, (2 − x)(1 + f) = 2."], p: [P1], needs: [CO-16.1.E], drills: [co-vacancy-x, co-vacancy-percent] }
+          - { id: B, std: ["usnco:P2", "usnco:4"], do: "Find the temperature at which two solid phases exchange stability from formation data.", ek: ["Build ΔH° and ΔS° of the interconversion from the formation values, then T = ΔH°/ΔS°; with three phases, each pair has its own boundary."], p: [P1], needs: [CO-16.2.A], drills: [co-phase-boundary, co-phase-dg] }
+          - { id: C, std: ["usnco:P2", "usnco:5"], do: "Find a rate constant from the time a limiting reagent takes to vanish at constant rate.", ek: ["A straight concentration–time line means zero order in the limiting reagent: the rate is its initial concentration over the reaction time, and the other species give the rate law."], p: [P1], needs: [CO-16.2.B], drills: [co-reaction-time-rate, co-reaction-time-k] }
+          - { id: D, std: ["usnco:P2", "usnco:5"], do: "Find the overall activation energy of a chain reaction from its composite rate constant.", ek: ["Activation energies combine the way the rate constants do: a product adds them, a quotient subtracts them, and a square root halves them."], p: [P1], needs: [CO-16.2.C], drills: [co-composite-ea, co-composite-ea-half] }
+          - { id: E, std: ["usnco:P2", "usnco:1"], do: "Identify the metal of a chloride hydrate from a silver titration.", ek: ["Silver counts chloride; mass per mole of chloride times the chlorides per formula is the formula mass, and what is left after chloride and water is the metal."], p: [P1], needs: [CO-16.2.D], drills: [co-hydrate-metal, co-mass-per-chloride] }
       - n: 3
         title: "Inorganic steps"
         los:
-          - { id: A, std: ["usnco:P2", "usnco:9"], do: "Count valence electrons of carbonyl and nitrosyl complexes and spot the 17-electron ones.", ek: ["Neutral counting: the metal's group number, two per CO, three per linear NO, minus the charge. Seventeen-electron fragments either dimerise through a metal–metal bond or are easily reduced."], p: [P1], drills: [co-carbonyl-count, co-nitrosyl-count] }
-          - { id: B, std: ["usnco:P2", "usnco:9"], do: "Find the metal–metal bonds a carbonyl cluster needs and say what light does to them.", ek: ["Metal–metal bonds = (18 × metals − total electrons)/2. The M–M σ bond is the weakest in the molecule, and UV light promotes σ → σ*, breaking it into two 17-electron radicals."], p: [P1], drills: [co-metal-metal-bonds, co-metal-metal-light] }
-          - { id: C, std: ["usnco:P2", "usnco:2"], do: "Predict the chemistry of nitrogen fluorides: where they form, what stabilises NF₄⁺ and how it hydrolyses.", ek: ["Fluorination is an oxidation, so NF₃ forms at the anode; NF₄⁺ needs a strong fluoride acceptor to hold the counter-ion, and with water it gives back NF₃ and oxidises water to O₂."], p: [P1], drills: [co-nitrogen-fluorides, co-nf4-oxygen] }
-          - { id: D, std: ["usnco:P2", "usnco:2"], do: "Write the products of reactions that are not simple exchange: disproportionation, hydrolysis and redox in base.", ek: ["Copper(I) disproportionates in non-complexing acid, acyl chlorides hydrolyse to HCl and the acid (oxalyl chloride falls apart to CO and CO₂), and permanganate in strong base stops at green manganate."], p: [P1], drills: [co-not-simple-exchange, co-disproportionation-mass] }
+          - { id: A, std: ["usnco:P2", "usnco:9"], do: "Count valence electrons of carbonyl and nitrosyl complexes and spot the 17-electron ones.", ek: ["Neutral counting: the metal's group number, two per CO, three per linear NO, minus the charge. Seventeen-electron fragments either dimerise through a metal–metal bond or are easily reduced."], p: [P1], needs: [CO-16.2.E], drills: [co-carbonyl-count, co-nitrosyl-count] }
+          - { id: B, std: ["usnco:P2", "usnco:9"], do: "Find the metal–metal bonds a carbonyl cluster needs and say what light does to them.", ek: ["Metal–metal bonds = (18 × metals − total electrons)/2. The M–M σ bond is the weakest in the molecule, and UV light promotes σ → σ*, breaking it into two 17-electron radicals."], p: [P1], needs: [CO-16.3.A], drills: [co-metal-metal-bonds, co-metal-metal-light] }
+          - { id: C, std: ["usnco:P2", "usnco:2"], do: "Predict the chemistry of nitrogen fluorides: where they form, what stabilises NF₄⁺ and how it hydrolyses.", ek: ["Fluorination is an oxidation, so NF₃ forms at the anode; NF₄⁺ needs a strong fluoride acceptor to hold the counter-ion, and with water it gives back NF₃ and oxidises water to O₂."], p: [P1], needs: [CO-16.3.B], drills: [co-nitrogen-fluorides, co-nf4-oxygen] }
+          - { id: D, std: ["usnco:P2", "usnco:2"], do: "Write the products of reactions that are not simple exchange: disproportionation, hydrolysis and redox in base.", ek: ["Copper(I) disproportionates in non-complexing acid, acyl chlorides hydrolyse to HCl and the acid (oxalyl chloride falls apart to CO and CO₂), and permanganate in strong base stops at green manganate."], p: [P1], needs: [CO-16.3.C], drills: [co-not-simple-exchange, co-disproportionation-mass] }
       - n: 4
         title: "Organic steps"
         los:
-          - { id: B, std: ["usnco:P2", "usnco:10"], do: "Rank substituents by the CIP rules and assign R or S.", ek: ["Rank by atomic number at the first point of difference, counting multiple bonds as duplicated atoms; with the lowest group pointing away, 1 → 2 → 3 clockwise is R."], p: [P1], drills: [co-cip-priority, co-r-or-s] }
-          - { id: C, std: ["usnco:P2", "usnco:10"], do: "Read a Fischer projection: its geometry, what moves are allowed, and D or L.", ek: ["Horizontal bonds come toward the viewer and vertical bonds go back. A 180° turn in the plane keeps the configuration; swapping two groups inverts it. D means the OH on the highest-numbered stereocentre is on the right."], p: [P1], drills: [co-fischer-rules, co-fischer-r-or-s] }
-          - { id: A, std: ["usnco:P2", "usnco:10"], do: "Work back from ozonolysis fragments to the alkene.", ek: ["Each C=C carbon becomes a carbonyl: with oxidative work-up =CH– gives an acid, =C< a ketone and =CH₂ carbon dioxide. One fragment carrying both carbonyls means the double bond was in a ring."], p: [P1], drills: [co-ozonolysis-back, co-ozonolysis-carbons] }
-          - { id: D, std: ["usnco:P2", "usnco:10"], do: "Predict the product of a Birch reduction and where a substituent ends up.", ek: ["Sodium in liquid ammonia with an alcohol gives the non-conjugated 1,4-diene. An electron-donating group ends on a double-bond carbon, an electron-withdrawing group on an sp³ carbon."], p: [P1], drills: [co-birch, co-birch-sodium] }
-          - { id: E, std: ["usnco:P2", "usnco:10"], do: "Carry phenol to aspirin and say why each step goes where it does.", ek: ["Phenoxide, not phenol, is nucleophilic enough to attack CO₂ (Kolbe–Schmitt), giving the ortho acid on acidification; acetic anhydride then acetylates the phenol oxygen."], p: [P1], drills: [co-phenol-to-aspirin, co-aspirin-yield] }
+          - { id: B, std: ["usnco:P2", "usnco:10"], do: "Rank substituents by the CIP rules and assign R or S.", ek: ["Rank by atomic number at the first point of difference, counting multiple bonds as duplicated atoms; with the lowest group pointing away, 1 → 2 → 3 clockwise is R."], p: [P1], needs: [CO-16.3.D], drills: [co-cip-priority, co-r-or-s] }
+          - { id: C, std: ["usnco:P2", "usnco:10"], do: "Read a Fischer projection: its geometry, what moves are allowed, and D or L.", ek: ["Horizontal bonds come toward the viewer and vertical bonds go back. A 180° turn in the plane keeps the configuration; swapping two groups inverts it. D means the OH on the highest-numbered stereocentre is on the right."], p: [P1], needs: [CO-16.4.B], drills: [co-fischer-rules, co-fischer-r-or-s] }
+          - { id: A, std: ["usnco:P2", "usnco:10"], do: "Work back from ozonolysis fragments to the alkene.", ek: ["Each C=C carbon becomes a carbonyl: with oxidative work-up =CH– gives an acid, =C< a ketone and =CH₂ carbon dioxide. One fragment carrying both carbonyls means the double bond was in a ring."], p: [P1], needs: [CO-16.4.C], drills: [co-ozonolysis-back, co-ozonolysis-carbons] }
+          - { id: D, std: ["usnco:P2", "usnco:10"], do: "Predict the product of a Birch reduction and where a substituent ends up.", ek: ["Sodium in liquid ammonia with an alcohol gives the non-conjugated 1,4-diene. An electron-donating group ends on a double-bond carbon, an electron-withdrawing group on an sp³ carbon."], p: [P1], needs: [CO-16.4.A], drills: [co-birch, co-birch-sodium] }
+          - { id: E, std: ["usnco:P2", "usnco:10"], do: "Carry phenol to aspirin and say why each step goes where it does.", ek: ["Phenoxide, not phenol, is nucleophilic enough to attack CO₂ (Kolbe–Schmitt), giving the ortho acid on acidification; acetic anhydride then acetylates the phenol oxygen."], p: [P1], needs: [CO-16.4.D], drills: [co-phenol-to-aspirin, co-aspirin-yield] }

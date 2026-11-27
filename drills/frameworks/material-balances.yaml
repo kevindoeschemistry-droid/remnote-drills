@@ -60,8 +60,8 @@ units:
       - n: 1
         title: "Composition and flow"
         los:
-          - { id: A, std: ["webwork-opl:TH1.5", "webwork-opl:TH12.1"], do: "Convert between mass fractions and mole fractions, and find the average molar mass of a mixture.", ek: ["Take 100 g or 1 mol as a basis; the average molar mass is the mole-fraction-weighted mean."], p: [P2], drills: [mb-mass-to-mole-fraction, mb-average-molar-mass] }
-          - { id: B, std: ["webwork-opl:TH4.1"], do: "Convert a volumetric flow of a liquid or an ideal gas to a molar flow.", ek: ["Liquid: density then molar mass. Gas: n = PV/RT, with T in kelvin."], p: [P2], drills: [mb-liquid-molar-flow, mb-ideal-gas-molar-flow] }
+          - { id: A, std: ["webwork-opl:TH1.5", "webwork-opl:TH12.1"], do: "Convert between mass fractions and mole fractions, and find the average molar mass of a mixture.", ek: ["Take 100 g or 1 mol as a basis; the average molar mass is the mole-fraction-weighted mean."], p: [P2], needs: [CH-0.3.A], drills: [mb-mass-to-mole-fraction, mb-average-molar-mass] }
+          - { id: B, std: ["webwork-opl:TH4.1"], do: "Convert a volumetric flow of a liquid or an ideal gas to a molar flow.", ek: ["Liquid: density then molar mass. Gas: n = PV/RT, with T in kelvin."], p: [P2], needs: [MB-1.1.A], drills: [mb-liquid-molar-flow, mb-ideal-gas-molar-flow] }
   - id: nonreactive
     n: 2
     title: "Steady-state balances without reaction"
@@ -72,12 +72,12 @@ units:
       - n: 1
         title: "Single units"
         los:
-          - { id: A, std: ["fe-chemical:8.A", "webwork-opl:TH4.2", "webwork-opl:MB2.2"], do: "Solve a mixer, a separator and an evaporator with a total balance and one component balance.", ek: ["Two independent balances for two components; a component that passes through unchanged is a tie."], p: [P1, P2], drills: [mb-mixer, mb-distillation-split, mb-evaporator, mb-dilution] }
-          - { id: B, std: ["fe-chemical:8.A", "webwork-opl:MB2.1", "webwork-opl:MB3.2"], do: "Count degrees of freedom and say whether a balance problem is specified.", ek: ["Unknowns minus independent equations: zero is solvable, positive is underspecified, negative overspecified."], p: [P1, P3], drills: [mb-degrees-of-freedom, mb-dof-mixer] }
+          - { id: A, std: ["fe-chemical:8.A", "webwork-opl:TH4.2", "webwork-opl:MB2.2"], do: "Solve a mixer, a separator and an evaporator with a total balance and one component balance.", ek: ["Two independent balances for two components; a component that passes through unchanged is a tie."], p: [P1, P2], needs: [MB-1.1.B], drills: [mb-mixer, mb-distillation-split, mb-evaporator, mb-dilution] }
+          - { id: B, std: ["fe-chemical:8.A", "webwork-opl:MB2.1", "webwork-opl:MB3.2"], do: "Count degrees of freedom and say whether a balance problem is specified.", ek: ["Unknowns minus independent equations: zero is solvable, positive is underspecified, negative overspecified."], p: [P1, P3], needs: [MB-2.1.A], drills: [mb-degrees-of-freedom, mb-dof-mixer] }
       - n: 2
         title: "Recycle, bypass and purge"
         los:
-          - { id: A, std: ["fe-chemical:8.E", "webwork-opl:MB2.4"], do: "Balance a mixing point to find a recycle flow, and explain what recycle, bypass and purge are for.", ek: ["The overall balance never contains the recycle stream; a purge stops an inert accumulating."], p: [P1, P2, P3], drills: [mb-recycle-mixing-point, mb-recycle-concepts] }
+          - { id: A, std: ["fe-chemical:8.E", "webwork-opl:MB2.4"], do: "Balance a mixing point to find a recycle flow, and explain what recycle, bypass and purge are for.", ek: ["The overall balance never contains the recycle stream; a purge stops an inert accumulating."], p: [P1, P2, P3], needs: [MB-2.1.B], drills: [mb-recycle-mixing-point, mb-recycle-concepts] }
   - id: reactive
     n: 3
     title: "Balances with reaction"
@@ -88,14 +88,14 @@ units:
       - n: 1
         title: "Stoichiometry in a flowing system"
         los:
-          - { id: A, std: ["fe-chemical:8.F", "webwork-opl:TH13.1", "webwork-opl:MB3.1"], do: "Identify the limiting reactant and compute percent excess.", ek: ["Divide each feed by its coefficient; excess is measured against the stoichiometric requirement."], p: [P2], drills: [mb-limiting-reactant, mb-percent-excess] }
-          - { id: B, std: ["fe-chemical:8.F", "webwork-opl:TH13.1", "webwork-opl:MB3.1", "webwork-opl:MB3.3"], do: "Use conversion or the extent of reaction to find every outlet flow.", ek: ["n_i = n_i0 + ν_i ξ; one measured species fixes ξ."], p: [P2], drills: [mb-conversion-outlet, mb-extent-of-reaction] }
-          - { id: C, std: ["fe-chemical:8.F", "webwork-opl:MB3.3"], do: "Apply selectivity and yield to parallel reactions.", ek: ["Conversion says how much reacted; selectivity says where it went."], p: [P2], drills: [mb-yield-with-side-reaction, mb-selectivity-from-yield] }
-          - { id: D, std: ["fe-chemical:8.E", "fe-chemical:8.F", "webwork-opl:MB3.4"], do: "Relate single-pass conversion, overall conversion and recycle flow for a reactor with recycle.", ek: ["With complete recycle of unreacted feed the reactor feed is the fresh feed divided by the single-pass conversion."], p: [P1, P2], drills: [mb-recycle-reactor, mb-recycle-flow] }
+          - { id: A, std: ["fe-chemical:8.F", "webwork-opl:TH13.1", "webwork-opl:MB3.1"], do: "Identify the limiting reactant and compute percent excess.", ek: ["Divide each feed by its coefficient; excess is measured against the stoichiometric requirement."], p: [P2], needs: [MB-2.2.A, CH-4.5.E], drills: [mb-limiting-reactant, mb-percent-excess] }
+          - { id: B, std: ["fe-chemical:8.F", "webwork-opl:TH13.1", "webwork-opl:MB3.1", "webwork-opl:MB3.3"], do: "Use conversion or the extent of reaction to find every outlet flow.", ek: ["n_i = n_i0 + ν_i ξ; one measured species fixes ξ."], p: [P2], needs: [MB-3.1.A], drills: [mb-conversion-outlet, mb-extent-of-reaction] }
+          - { id: C, std: ["fe-chemical:8.F", "webwork-opl:MB3.3"], do: "Apply selectivity and yield to parallel reactions.", ek: ["Conversion says how much reacted; selectivity says where it went."], p: [P2], needs: [MB-3.1.B], drills: [mb-yield-with-side-reaction, mb-selectivity-from-yield] }
+          - { id: D, std: ["fe-chemical:8.E", "fe-chemical:8.F", "webwork-opl:MB3.4"], do: "Relate single-pass conversion, overall conversion and recycle flow for a reactor with recycle.", ek: ["With complete recycle of unreacted feed the reactor feed is the fresh feed divided by the single-pass conversion."], p: [P1, P2], needs: [MB-3.1.C], drills: [mb-recycle-reactor, mb-recycle-flow] }
       - n: 2
         title: "Combustion"
         los:
-          - { id: A, std: ["fe-chemical:8.F", "webwork-opl:TH13.6", "webwork-opl:MB3.3"], do: "Find the theoretical air for a fuel and the dry flue-gas composition at a given excess air.", ek: ["O2 needed per mole CxHyOz: x + y/4 − z/2. Dry basis leaves the water out; excess O2 and all the N2 pass through."], p: [P2], drills: [mb-theoretical-air, mb-flue-gas-oxygen] }
+          - { id: A, std: ["fe-chemical:8.F", "webwork-opl:TH13.6", "webwork-opl:MB3.3"], do: "Find the theoretical air for a fuel and the dry flue-gas composition at a given excess air.", ek: ["O2 needed per mole CxHyOz: x + y/4 − z/2. Dry basis leaves the water out; excess O2 and all the N2 pass through."], p: [P2], needs: [MB-3.1.D], drills: [mb-theoretical-air, mb-flue-gas-oxygen] }
   - id: energy
     n: 4
     title: "Energy balances"
@@ -106,12 +106,12 @@ units:
       - n: 1
         title: "Without reaction"
         los:
-          - { id: A, std: ["fe-chemical:8.C", "webwork-opl:TH2.9", "webwork-opl:MB4.5"], do: "Compute a heat duty from sensible and latent heat, and the steam needed to supply it.", ek: ["Q = m cp ΔT for a temperature change, m ΔHvap for a phase change; add the steps along the path."], p: [P2], drills: [mb-sensible-heat, mb-heat-and-vaporize, mb-steam-requirement] }
-          - { id: B, std: ["fe-chemical:8.C", "webwork-opl:TH5.9", "webwork-opl:MB4.5"], do: "Find the outlet temperature of an adiabatic mixer.", ek: ["Enthalpy in equals enthalpy out; with one cp the outlet is the mass-weighted mean temperature."], p: [P2], drills: [mb-adiabatic-mixing, mb-mixer-flow-needed] }
+          - { id: A, std: ["fe-chemical:8.C", "webwork-opl:TH2.9", "webwork-opl:MB4.5"], do: "Compute a heat duty from sensible and latent heat, and the steam needed to supply it.", ek: ["Q = m cp ΔT for a temperature change, m ΔHvap for a phase change; add the steps along the path."], p: [P2], needs: [MB-2.2.A, CH-6.8.B], drills: [mb-sensible-heat, mb-heat-and-vaporize, mb-steam-requirement] }
+          - { id: B, std: ["fe-chemical:8.C", "webwork-opl:TH5.9", "webwork-opl:MB4.5"], do: "Find the outlet temperature of an adiabatic mixer.", ek: ["Enthalpy in equals enthalpy out; with one cp the outlet is the mass-weighted mean temperature."], p: [P2], needs: [MB-4.1.A], drills: [mb-adiabatic-mixing, mb-mixer-flow-needed] }
       - n: 2
         title: "With reaction"
         los:
-          - { id: A, std: ["fe-chemical:8.C", "fe-chemical:7.H", "webwork-opl:TH13.3", "webwork-opl:TH13.4"], do: "Compute a standard heat of reaction from heats of formation.", ek: ["Σ ν ΔHf, products positive and reactants negative; elements are zero; the phase of water matters."], p: [P2], drills: [mb-heat-of-reaction, mb-heat-of-reaction-T] }
+          - { id: A, std: ["fe-chemical:8.C", "fe-chemical:7.H", "webwork-opl:TH13.3", "webwork-opl:TH13.4"], do: "Compute a standard heat of reaction from heats of formation.", ek: ["Σ ν ΔHf, products positive and reactants negative; elements are zero; the phase of water matters."], p: [P2], needs: [MB-4.1.B], drills: [mb-heat-of-reaction, mb-heat-of-reaction-T] }
   - id: unsteady
     n: 5
     title: "Unsteady balances"
@@ -122,12 +122,12 @@ units:
       - n: 1
         title: "Mass"
         los:
-          - { id: A, std: ["fe-chemical:8.B", "webwork-opl:TH4.3", "webwork-opl:MB5.1"], do: "Find the time to fill or drain a tank at constant flows.", ek: ["dV/dt = in − out; with constant flows the level changes linearly."], p: [P2], drills: [mb-tank-fill-time, mb-drain-time] }
-          - { id: B, std: ["fe-chemical:8.B", "webwork-opl:MB5.1"], do: "Model the washout of a stirred tank and use its time constant.", ek: ["V dC/dt = −qC gives C = C0 e^(−t/τ), τ = V/q: 37% after one τ, 5% after three."], p: [P2, P3], drills: [mb-washout-time, mb-residence-time-decay] }
+          - { id: A, std: ["fe-chemical:8.B", "webwork-opl:TH4.3", "webwork-opl:MB5.1"], do: "Find the time to fill or drain a tank at constant flows.", ek: ["dV/dt = in − out; with constant flows the level changes linearly."], p: [P2], needs: [MB-2.2.A], drills: [mb-tank-fill-time, mb-drain-time] }
+          - { id: B, std: ["fe-chemical:8.B", "webwork-opl:MB5.1"], do: "Model the washout of a stirred tank and use its time constant.", ek: ["V dC/dt = −qC gives C = C0 e^(−t/τ), τ = V/q: 37% after one τ, 5% after three."], p: [P2, P3], needs: [MB-5.1.A], drills: [mb-washout-time, mb-residence-time-decay] }
       - n: 2
         title: "Energy"
         los:
-          - { id: A, std: ["fe-chemical:8.D", "webwork-opl:TH5.3", "webwork-opl:MB5.5"], do: "Find the time to heat a batch at a constant heating rate.", ek: ["m cp dT/dt = Q; with no losses the temperature rises linearly."], p: [P2], drills: [mb-tank-heating-time, mb-heating-coil-time] }
+          - { id: A, std: ["fe-chemical:8.D", "webwork-opl:TH5.3", "webwork-opl:MB5.5"], do: "Find the time to heat a batch at a constant heating rate.", ek: ["m cp dT/dt = Q; with no losses the temperature rises linearly."], p: [P2], needs: [MB-5.1.B], drills: [mb-tank-heating-time, mb-heating-coil-time] }
   # >>> opl-fill:opl-mb (generated by scripts/opl_fill.py; edit the spec)
   - id: multiunit
     n: 6
@@ -139,6 +139,6 @@ units:
       - n: 1
         title: "Flowsheets"
         los:
-          - { id: A, std: ["webwork-opl:MB2.3"], do: "Solve a two-unit separation train.", ek: ["Balance each unit in turn; a component's recovery multiplies through units in series."], p: [P1], drills: [mb-two-column, mb-single-column-split] }
-          - { id: B, std: ["webwork-opl:MB4.1"], do: "Count degrees of freedom for an energy balance.", ek: ["DOF = unknowns − independent equations; the energy balance adds one equation and usually one unknown (Q or a temperature)."], p: [P1], drills: [mb-energy-dof, mb-energy-dof-heater] }
+          - { id: A, std: ["webwork-opl:MB2.3"], do: "Solve a two-unit separation train.", ek: ["Balance each unit in turn; a component's recovery multiplies through units in series."], p: [P1], needs: [MB-3.2.A], drills: [mb-two-column, mb-single-column-split] }
+          - { id: B, std: ["webwork-opl:MB4.1"], do: "Count degrees of freedom for an energy balance.", ek: ["DOF = unknowns − independent equations; the energy balance adds one equation and usually one unknown (Q or a temperature)."], p: [P1], needs: [MB-6.1.A], drills: [mb-energy-dof, mb-energy-dof-heater] }
   # <<< opl-fill:opl-mb

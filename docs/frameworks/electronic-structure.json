@@ -78,6 +78,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "CH-1.9.A",
+        "CH-2.8.A"
+       ],
        "drills": [
         "qc-label-parts",
         "qc-label-read"
@@ -94,6 +98,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-1.1.B"
        ],
        "drills": [
         "qc-orbital-count",
@@ -120,6 +127,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-1.1.A"
+       ],
        "drills": [
         "qc-reference-pick",
         "qc-unpaired"
@@ -137,6 +147,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-1.2.A"
        ],
        "drills": [
         "qc-s-squared",
@@ -178,6 +191,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-1.2.B"
+       ],
        "drills": [
         "qc-scf-order",
         "qc-scf-pieces"
@@ -195,6 +211,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-2.1.A"
        ],
        "drills": [
         "qc-total-energy",
@@ -220,6 +239,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-2.1.B"
+       ],
        "drills": [
         "qc-correlation-def",
         "qc-correlation-kinds"
@@ -236,6 +258,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-2.2.A"
        ],
        "drills": [
         "qc-corr-fraction",
@@ -261,6 +286,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-2.2.B"
+       ],
        "drills": [
         "qc-scf-fail",
         "qc-guess-matters"
@@ -278,6 +306,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-2.3.A"
        ],
        "drills": [
         "qc-integral-count",
@@ -317,6 +348,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-2.3.B"
+       ],
        "drills": [
         "qc-basis-name",
         "qc-basis-pick"
@@ -333,6 +367,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-3.1.A"
        ],
        "drills": [
         "qc-basis-functions",
@@ -357,6 +394,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "QC-3.1.B"
+       ],
        "drills": [
         "qc-basis-converge",
         "qc-extrapolate-change"
@@ -373,6 +413,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-3.2.A"
        ],
        "drills": [
         "qc-counterpoise",
@@ -416,6 +459,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-2.3.B",
+        "QC-3.2.B"
+       ],
        "drills": [
         "qc-mp2-limits",
         "qc-mp2-scaling-use"
@@ -433,6 +480,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-4.1.A"
        ],
        "drills": [
         "qc-mp2-term",
@@ -457,6 +507,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-4.1.B"
+       ],
        "drills": [
         "qc-cc-order",
         "qc-method-ladder"
@@ -473,6 +526,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-4.2.A"
        ],
        "drills": [
         "qc-scaling-ratio",
@@ -497,6 +553,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-4.2.B"
+       ],
        "drills": [
         "qc-sapt-why",
         "qc-sapt-levels"
@@ -513,6 +572,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "QC-4.3.A"
        ],
        "drills": [
         "qc-sapt-attribute",
@@ -554,6 +616,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-2.3.B"
+       ],
        "drills": [
         "qc-functional-rungs",
         "qc-functional-pick"
@@ -571,6 +636,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-5.1.A"
        ],
        "drills": [
         "qc-hybrid-mix",
@@ -596,6 +664,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-5.1.B"
+       ],
        "drills": [
         "qc-dft-pitfalls",
         "qc-dispersion-share"
@@ -613,6 +684,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-5.2.A"
        ],
        "drills": [
         "qc-dispersion-total",
@@ -655,6 +729,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-2.3.B",
+        "QC-3.2.B"
+       ],
        "drills": [
         "qc-stationary-points",
         "qc-opt-practice"
@@ -672,6 +750,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-6.1.A"
        ],
        "drills": [
         "qc-well-depth",
@@ -696,6 +777,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "QC-6.1.B"
+       ],
        "drills": [
         "qc-zpe",
         "qc-mode-count"
@@ -713,6 +797,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "QC-6.2.A"
        ],
        "drills": [
         "qc-reaction-energy",
@@ -737,6 +824,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "QC-6.2.B"
+       ],
        "drills": [
         "qc-report-reproducible",
         "qc-report-missing"
@@ -755,6 +845,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "QC-6.3.B"
        ],
        "drills": [
         "qc-method-choice",
