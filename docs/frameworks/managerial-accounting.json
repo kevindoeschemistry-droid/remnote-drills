@@ -1,0 +1,1104 @@
+{
+ "id": "managerial-accounting",
+ "title": "Managerial Accounting",
+ "code": "MG",
+ "draft": 1,
+ "track": "business",
+ "requires": [
+  "accounting-far"
+ ],
+ "level": 3,
+ "domains": [
+  "mgmt"
+ ],
+ "basis": {
+  "primary": "ima-cma-cso",
+  "note": "Anchored on the IMA CMA Content Specification Outlines (2024): Part 1 planning and budgeting, performance management and cost management, and Part 2 decision analysis and capital investment, read to the lettered lines of the outline. Financial reporting, internal controls, analytics, corporate finance, risk and ethics sections of the CMA are not built here."
+ },
+ "big_ideas": [
+  {
+   "id": "BEHAVE",
+   "title": "Cost behaviour comes first",
+   "text": "Whether a cost changes with volume decides how it enters a breakeven, a budget and a decision; the same cost can be fixed for one question and variable for another."
+  },
+  {
+   "id": "DIFF",
+   "title": "Only differences matter",
+   "text": "A decision turns on the costs and revenues that differ between the alternatives. Sunk costs and costs common to every choice drop out."
+  },
+  {
+   "id": "PLANACT",
+   "title": "Plan against actual",
+   "text": "A variance is the gap between what happened and what the plan says should have happened at the actual volume; splitting it into price and quantity says who can explain it."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry a costing, budgeting or decision rule to a number."
+  },
+  {
+   "id": "P2",
+   "title": "Classify",
+   "text": "Name the cost type, the method or the responsible party from a description."
+  }
+ ],
+ "units": [
+  {
+   "id": "cost-concepts",
+   "n": 1,
+   "title": "Cost concepts",
+   "std": [
+    "ima-cma-cso:1D1"
+   ],
+   "scope": "core",
+   "ideas": [
+    "BEHAVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "What a cost is",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ima-cma-cso:1D1"
+       ],
+       "do": "Classify a cost as product or period, direct or indirect, fixed or variable.",
+       "ek": [
+        "Product costs (direct materials, direct labour, manufacturing overhead) attach to inventory and are expensed when the goods are sold; period costs (selling and administrative) are expensed as incurred. Variable costs change in total with volume; fixed costs do not within the relevant range."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "FA-2.7.A"
+       ],
+       "drills": [
+        "mg-product-period",
+        "mg-fixed-variable"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ima-cma-cso:1D1"
+       ],
+       "do": "Split a mixed cost with the high-low method.",
+       "ek": [
+        "Variable cost per unit = change in cost ÷ change in activity between the highest and lowest activity levels; fixed cost = total cost at either point minus the variable part."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-1.1.A"
+       ],
+       "drills": [
+        "mg-high-low-rate",
+        "mg-high-low-fixed"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ima-cma-cso:1D1"
+       ],
+       "do": "Compare income under absorption and variable costing.",
+       "ek": [
+        "Absorption costing puts fixed manufacturing overhead into unit cost; variable costing expenses it in the period. When production exceeds sales, absorption income is higher by the fixed overhead per unit times the increase in inventory."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-1.1.B"
+       ],
+       "drills": [
+        "mg-absorption-unit-cost",
+        "mg-absorption-variable-gap"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ima-cma-cso:1D1"
+       ],
+       "do": "Allocate a joint cost.",
+       "ek": [
+        "Joint costs up to the split-off point are allocated by relative sales value at split-off, by net realisable value (final sales value minus separable costs) or by physical units. The allocation is for inventory costing; it is irrelevant to the decision to process further."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-1.1.C"
+       ],
+       "drills": [
+        "mg-joint-sales-value",
+        "mg-joint-nrv"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "costing-systems",
+   "n": 2,
+   "title": "Costing systems and overhead",
+   "std": [
+    "ima-cma-cso:1D2",
+    "ima-cma-cso:1D3"
+   ],
+   "scope": "core",
+   "ideas": [
+    "BEHAVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Attaching cost to output",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ima-cma-cso:1D3"
+       ],
+       "do": "Set a predetermined overhead rate and find over- or underapplied overhead.",
+       "ek": [
+        "Predetermined rate = budgeted overhead ÷ budgeted activity. Applied overhead = rate × actual activity. If actual overhead exceeds applied, overhead is underapplied."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-1.1.D"
+       ],
+       "drills": [
+        "mg-overhead-rate",
+        "mg-underapplied"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ima-cma-cso:1D2"
+       ],
+       "do": "Cost a job and choose between job-order and process costing.",
+       "ek": [
+        "Job cost = direct materials + direct labour + applied overhead. Job-order costing suits distinct, custom jobs; process costing suits a continuous flow of identical units."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-2.1.A"
+       ],
+       "drills": [
+        "mg-job-cost",
+        "mg-job-or-process"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ima-cma-cso:1D2"
+       ],
+       "do": "Find equivalent units and cost per equivalent unit by the weighted-average method.",
+       "ek": [
+        "Equivalent units = units completed and transferred out + ending work in process × its percentage of completion. Cost per equivalent unit = (beginning WIP cost + costs added) ÷ equivalent units."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-2.1.B"
+       ],
+       "drills": [
+        "mg-equivalent-units",
+        "mg-cost-per-eu"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ima-cma-cso:1D2"
+       ],
+       "do": "Assign overhead with activity-based costing.",
+       "ek": [
+        "Each activity pool has its own rate = pool cost ÷ total driver volume; a product is charged rate × the driver units it uses. ABC shifts overhead toward low-volume, complex products compared with a single volume-based rate."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-2.1.C"
+       ],
+       "drills": [
+        "mg-abc-assign",
+        "mg-abc-concepts"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ima-cma-cso:1D3"
+       ],
+       "do": "Allocate service department costs.",
+       "ek": [
+        "The direct method allocates each service department's cost only to production departments. The step-down method allocates in sequence and recognises some service-to-service use; the reciprocal method recognises all of it with simultaneous equations."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-2.1.D"
+       ],
+       "drills": [
+        "mg-direct-method",
+        "mg-allocation-method"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cvp",
+   "n": 3,
+   "title": "Cost-volume-profit",
+   "std": [
+    "ima-cma-cso:2C1"
+   ],
+   "scope": "core",
+   "ideas": [
+    "BEHAVE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Breakeven and beyond",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ima-cma-cso:2C1"
+       ],
+       "do": "Find contribution margin and the breakeven point.",
+       "ek": [
+        "Contribution margin per unit = price − variable cost per unit. Breakeven units = fixed costs ÷ unit contribution margin; breakeven sales = fixed costs ÷ contribution margin ratio."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-1.1.D"
+       ],
+       "drills": [
+        "mg-breakeven-units",
+        "mg-breakeven-dollars"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ima-cma-cso:2C1"
+       ],
+       "do": "Find the volume for a target profit and the margin of safety.",
+       "ek": [
+        "Units for a target profit = (fixed costs + target profit) ÷ unit contribution margin. Margin of safety = actual or budgeted sales − breakeven sales."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-3.1.A"
+       ],
+       "drills": [
+        "mg-target-profit-units",
+        "mg-margin-of-safety"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ima-cma-cso:2C1"
+       ],
+       "do": "Handle a sales mix and measure operating leverage.",
+       "ek": [
+        "With several products, breakeven uses the weighted-average contribution margin at the given mix. Degree of operating leverage = contribution margin ÷ operating income; it multiplies a percentage change in sales into a percentage change in income."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-3.1.B"
+       ],
+       "drills": [
+        "mg-mix-breakeven",
+        "mg-operating-leverage"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "budgeting",
+   "n": 4,
+   "title": "Budgeting and forecasting",
+   "std": [
+    "ima-cma-cso:1B2",
+    "ima-cma-cso:1B3",
+    "ima-cma-cso:1B4",
+    "ima-cma-cso:1B5",
+    "ima-cma-cso:1B6"
+   ],
+   "scope": "core",
+   "ideas": [
+    "PLANACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The plan",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ima-cma-cso:1B2",
+        "ima-cma-cso:1B4"
+       ],
+       "do": "Name the budgeting approach and order the master budget.",
+       "ek": [
+        "The master budget starts from the sales budget, then production, materials, labour, overhead, selling and administrative, then the cash budget and pro forma statements. Zero-based budgets justify every item from nothing; rolling budgets add a period as one ends; flexible budgets adjust to actual volume; activity-based budgets build from activities and drivers."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MG-3.1.C"
+       ],
+       "drills": [
+        "mg-budget-type",
+        "mg-master-budget-order"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ima-cma-cso:1B5"
+       ],
+       "do": "Prepare production and purchases budgets.",
+       "ek": [
+        "Production = budgeted sales + desired ending finished goods − beginning finished goods. Materials to purchase = production needs + desired ending materials − beginning materials."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-4.1.A"
+       ],
+       "drills": [
+        "mg-production-budget",
+        "mg-purchases-budget"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ima-cma-cso:1B6"
+       ],
+       "do": "Build cash collections and a cash budget.",
+       "ek": [
+        "Collections follow the credit pattern (so much in the month of sale, so much the next). Ending cash = beginning cash + receipts − disbursements; a shortfall against the minimum balance is borrowed."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-4.1.B"
+       ],
+       "drills": [
+        "mg-cash-collections",
+        "mg-cash-borrowing"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ima-cma-cso:1B3"
+       ],
+       "do": "Forecast with a learning curve and an expected value.",
+       "ek": [
+        "On a cumulative-average learning curve, each doubling of cumulative output multiplies the cumulative average time per unit by the learning rate. Expected value is the probability-weighted average of the outcomes."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-4.1.C"
+       ],
+       "drills": [
+        "mg-learning-curve",
+        "mg-expected-value"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "variances",
+   "n": 5,
+   "title": "Standard costs and variances",
+   "std": [
+    "ima-cma-cso:1C1"
+   ],
+   "scope": "core",
+   "ideas": [
+    "PLANACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Actual against standard",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ima-cma-cso:1C1"
+       ],
+       "do": "Build a flexible budget and separate volume from spending.",
+       "ek": [
+        "A flexible budget restates the budget at the actual volume: variable cost per unit × actual units + fixed cost. Flexible-budget variance = actual − flexible budget; sales-volume variance = flexible budget − static budget."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-2.1.E",
+        "MG-4.1.D"
+       ],
+       "drills": [
+        "mg-flexible-budget",
+        "mg-flexible-budget-variance"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ima-cma-cso:1C1"
+       ],
+       "do": "Compute direct materials price and quantity variances.",
+       "ek": [
+        "Price variance = (actual price − standard price) × actual quantity. Quantity variance = (actual quantity − standard quantity allowed for actual output) × standard price. Positive is unfavourable."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-5.1.A"
+       ],
+       "drills": [
+        "mg-materials-price-variance",
+        "mg-materials-quantity-variance"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ima-cma-cso:1C1"
+       ],
+       "do": "Compute direct labour rate and efficiency variances.",
+       "ek": [
+        "Rate variance = (actual rate − standard rate) × actual hours. Efficiency variance = (actual hours − standard hours allowed) × standard rate."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-5.1.B"
+       ],
+       "drills": [
+        "mg-labour-rate-variance",
+        "mg-labour-efficiency-variance"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ima-cma-cso:1C1"
+       ],
+       "do": "Compute overhead variances and say who can explain a variance.",
+       "ek": [
+        "Variable overhead spending = actual − actual hours × standard rate; efficiency = (actual hours − standard hours) × standard rate. Fixed overhead budget variance = actual − budgeted; volume variance = budgeted − applied, unfavourable when production is below the denominator level."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-5.1.C"
+       ],
+       "drills": [
+        "mg-fixed-volume-variance",
+        "mg-variance-owner"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "performance",
+   "n": 6,
+   "title": "Performance measurement",
+   "std": [
+    "ima-cma-cso:1C2",
+    "ima-cma-cso:1C3"
+   ],
+   "scope": "core",
+   "ideas": [
+    "PLANACT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Measuring managers and segments",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ima-cma-cso:1C2"
+       ],
+       "do": "Classify responsibility centres.",
+       "ek": [
+        "A cost centre manager controls costs; a revenue centre, revenues; a profit centre, both; an investment centre, profit and the assets used to earn it. Managers should be judged on what they can control."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MG-5.1.D"
+       ],
+       "drills": [
+        "mg-responsibility-centre",
+        "mg-controllability"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ima-cma-cso:1C3"
+       ],
+       "do": "Compute return on investment and residual income.",
+       "ek": [
+        "ROI = operating income ÷ average operating assets = margin × turnover. Residual income = operating income − required rate × operating assets. ROI can lead a manager to reject a project that earns more than the cost of capital but less than the division's current ROI; residual income does not."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-6.1.A"
+       ],
+       "drills": [
+        "mg-roi",
+        "mg-residual-income"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ima-cma-cso:1C2"
+       ],
+       "do": "Set a transfer price.",
+       "ek": [
+        "The selling division's minimum transfer price is its variable cost per unit plus the contribution margin it gives up on outside sales (zero with idle capacity). The buying division's maximum is the outside market price."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-6.1.B"
+       ],
+       "drills": [
+        "mg-transfer-minimum",
+        "mg-transfer-concepts"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ima-cma-cso:1C2",
+        "ima-cma-cso:1C3"
+       ],
+       "do": "Read a balanced scorecard and a segment margin.",
+       "ek": [
+        "The balanced scorecard has four perspectives: financial, customer, internal business process, learning and growth. Segment margin = contribution margin − traceable fixed costs; common fixed costs are not allocated to segments."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-6.1.C"
+       ],
+       "drills": [
+        "mg-scorecard-perspective",
+        "mg-segment-margin"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "decisions",
+   "n": 7,
+   "title": "Decision analysis",
+   "std": [
+    "ima-cma-cso:2C2",
+    "ima-cma-cso:2C3",
+    "ima-cma-cso:2E1",
+    "ima-cma-cso:2E2"
+   ],
+   "scope": "core",
+   "ideas": [
+    "DIFF"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Choosing",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ima-cma-cso:2C2"
+       ],
+       "do": "Tell relevant costs from irrelevant ones.",
+       "ek": [
+        "A relevant cost is a future cost that differs between alternatives. Sunk costs are irrelevant. An opportunity cost (the benefit given up) is relevant although it is never recorded."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MG-3.1.C"
+       ],
+       "drills": [
+        "mg-relevant",
+        "mg-cost-terms"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ima-cma-cso:2C2"
+       ],
+       "do": "Decide a special order and a make-or-buy question.",
+       "ek": [
+        "Accept a special order if its incremental revenue exceeds its incremental cost, including any contribution lost on displaced sales. Make rather than buy if the avoidable cost of making is below the purchase price plus any opportunity cost of the capacity."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-7.1.A"
+       ],
+       "drills": [
+        "mg-special-order",
+        "mg-make-or-buy"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ima-cma-cso:2C2"
+       ],
+       "do": "Decide to process further, drop a segment, or ration a scarce resource.",
+       "ek": [
+        "Process further if incremental revenue exceeds incremental cost; joint costs are sunk. Drop a segment only if the avoidable fixed costs exceed the contribution margin lost. With one constraint, rank products by contribution margin per unit of the scarce resource."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-7.1.B"
+       ],
+       "drills": [
+        "mg-process-further",
+        "mg-constraint-cm"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ima-cma-cso:2C3"
+       ],
+       "do": "Price by cost-plus and by target costing.",
+       "ek": [
+        "Cost-plus price = cost × (1 + markup). Target cost = the price the market will bear − the required profit: the price comes first and the cost must be engineered to fit."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-7.1.C"
+       ],
+       "drills": [
+        "mg-cost-plus",
+        "mg-target-cost"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ima-cma-cso:2E1",
+        "ima-cma-cso:2E2"
+       ],
+       "do": "Evaluate an investment by payback and net present value.",
+       "ek": [
+        "Payback = investment ÷ annual net cash inflow when inflows are even; it ignores the time value of money and everything after payback. NPV = present value of the cash flows at the required rate − the investment; accept when positive. IRR is the rate at which NPV is zero."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MG-7.1.D"
+       ],
+       "drills": [
+        "mg-payback",
+        "mg-npv-three-years"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "MG-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-product-period",
+    "mg-fixed-variable"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-high-low-rate",
+    "mg-high-low-fixed"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-absorption-unit-cost",
+    "mg-absorption-variable-gap"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-joint-sales-value",
+    "mg-joint-nrv"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-overhead-rate",
+    "mg-underapplied"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-job-cost",
+    "mg-job-or-process"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-equivalent-units",
+    "mg-cost-per-eu"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-abc-assign",
+    "mg-abc-concepts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-2.1.E",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-direct-method",
+    "mg-allocation-method"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-breakeven-units",
+    "mg-breakeven-dollars"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-target-profit-units",
+    "mg-margin-of-safety"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-mix-breakeven",
+    "mg-operating-leverage"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-budget-type",
+    "mg-master-budget-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-production-budget",
+    "mg-purchases-budget"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-cash-collections",
+    "mg-cash-borrowing"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-learning-curve",
+    "mg-expected-value"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-flexible-budget",
+    "mg-flexible-budget-variance"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-materials-price-variance",
+    "mg-materials-quantity-variance"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-labour-rate-variance",
+    "mg-labour-efficiency-variance"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-fixed-volume-variance",
+    "mg-variance-owner"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-responsibility-centre",
+    "mg-controllability"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-roi",
+    "mg-residual-income"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-transfer-minimum",
+    "mg-transfer-concepts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-scorecard-perspective",
+    "mg-segment-margin"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-relevant",
+    "mg-cost-terms"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-special-order",
+    "mg-make-or-buy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-process-further",
+    "mg-constraint-cm"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-7.1.D",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-cost-plus",
+    "mg-target-cost"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MG-7.1.E",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mg-payback",
+    "mg-npv-three-years"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
