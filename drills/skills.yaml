@@ -41,6 +41,12 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: gc, title: "Graduate ChemE methods past Kreyszig" }
+  - { id: stoch, title: "Stochastic Processes" }
+  - { id: top, title: "Topology" }
+  - { id: ra, title: "Real Analysis" }
+  - { id: aa, title: "Abstract Algebra" }
+  - { id: nt, title: "Number Theory" }
+  - { id: dm, title: "Discrete Mathematics" }
   - { id: mass, title: "Mass transfer" }
   - { id: ngss, title: "NGSS high school science" }
   - { id: cre, title: "Chemical reaction engineering" }
@@ -958,6 +964,34 @@ skills:
   - { id: gc.perturbation, domain: gc, title: "Perturbation and asymptotic methods", short: "Perturbation", prereqs: [gc.scaling] }
   - { id: gc.similarity, domain: gc, title: "Similarity solutions and combination of variables", short: "Similarity", prereqs: [gc.scaling] }
   - { id: gc.eigen, domain: gc, title: "Eigenfunction expansions in curvilinear geometry", short: "Curvilinear eigenfunctions", prereqs: [bvp.sl-eigenfunctions] }
+  - { id: stoch.chains, domain: stoch, title: "Transition matrices, communicating classes, hitting probabilities and times", short: "Markov chains" }
+  - { id: stoch.walks, domain: stoch, title: "Gambler's ruin, recurrence and transience of random walks", short: "Random walks", prereqs: [stoch.chains] }
+  - { id: stoch.longrun, domain: stoch, title: "Invariant distributions, return times, detailed balance and convergence", short: "Long-run behaviour", prereqs: [stoch.chains] }
+  - { id: stoch.poisson, domain: stoch, title: "The Poisson process, thinning and superposition, birth-death chains and the M/M/1 queue", short: "Poisson processes and queues", prereqs: [stoch.longrun] }
+  - { id: top.spaces, domain: top, title: "Open and closed sets, closure, continuity, Hausdorff spaces and constructions", short: "Topological spaces" }
+  - { id: top.connected, domain: top, title: "Connectedness, components and path-connectedness", short: "Connectedness", prereqs: [top.spaces] }
+  - { id: top.compact, domain: top, title: "Open covers, Heine-Borel and what compactness guarantees", short: "Compactness", prereqs: [top.spaces] }
+  - { id: top.surfaces, domain: top, title: "Polygons with sides identified, Euler characteristic and orientability", short: "Surfaces", prereqs: [top.connected, top.compact] }
+  - { id: ra.reals, domain: ra, title: "Suprema, completeness and the Archimedean property", short: "The real numbers" }
+  - { id: ra.sequences, domain: ra, title: "Epsilon-N limits, monotone and Cauchy sequences, limsup", short: "Sequences", prereqs: [ra.reals] }
+  - { id: ra.series, domain: ra, title: "Convergence tests, absolute convergence and radius of convergence", short: "Series", prereqs: [ra.sequences] }
+  - { id: ra.continuity, domain: ra, title: "Epsilon-delta continuity, the intermediate and extreme value theorems, uniform continuity", short: "Continuity", prereqs: [ra.sequences] }
+  - { id: ra.calculus, domain: ra, title: "The mean value theorem, Taylor's remainder, Riemann sums and improper integrals", short: "Differentiation and integration", prereqs: [ra.continuity] }
+  - { id: aa.groups, domain: aa, title: "Group axioms, orders of elements, subgroups and Lagrange's theorem", short: "Groups and subgroups" }
+  - { id: aa.perms, domain: aa, title: "Cycle notation, sign and conjugacy in symmetric groups", short: "Permutations", prereqs: [aa.groups] }
+  - { id: aa.actions, domain: aa, title: "Orbits, stabilisers, Burnside counting and the class equation", short: "Group actions", prereqs: [aa.perms] }
+  - { id: aa.quotients, domain: aa, title: "Normal subgroups, homomorphisms, abelian groups and the Sylow theorems", short: "Quotients and structure", prereqs: [aa.actions] }
+  - { id: aa.rings, domain: aa, title: "Units and zero divisors, ideals, fields and unique factorisation", short: "Rings", prereqs: [aa.quotients] }
+  - { id: nt.divisibility, domain: nt, title: "Euclid's algorithm, Bezout's identity and unique factorisation", short: "Divisibility" }
+  - { id: nt.congruences, domain: nt, title: "Modular inverses, Fermat-Euler, the Chinese remainder theorem and RSA", short: "Congruences", prereqs: [nt.divisibility] }
+  - { id: nt.residues, domain: nt, title: "Orders, primitive roots, quadratic residues and reciprocity", short: "Residues", prereqs: [nt.congruences] }
+  - { id: nt.diophantine, domain: nt, title: "Continued fractions, Pell's equation, sums of squares and primality", short: "Diophantine questions and primes", prereqs: [nt.residues] }
+  - { id: dm.logic, domain: dm, title: "Propositions, quantifiers, negation and methods of proof", short: "Logic and proof" }
+  - { id: dm.induction, domain: dm, title: "Induction, closed forms and linear recurrences", short: "Induction and recursion", prereqs: [dm.logic] }
+  - { id: dm.sets, domain: dm, title: "Sets, functions, relations and countability", short: "Sets, functions, relations", prereqs: [dm.logic] }
+  - { id: dm.counting, domain: dm, title: "Permutations, combinations, distributions, inclusion-exclusion and pigeonhole", short: "Counting", prereqs: [dm.sets] }
+  - { id: dm.gf, domain: dm, title: "Generating functions as counting machines", short: "Generating functions", prereqs: [dm.counting, dm.induction] }
+  - { id: dm.graphs, domain: dm, title: "Degrees, trees, circuits, colourings and planarity", short: "Graphs and trees", prereqs: [dm.counting] }
   - { id: swim.hydro, domain: swim, title: "Hydrodynamics: resistance, streamline and propulsion", short: "Swim hydrodynamics" }
   - { id: swim.technique, domain: swim, title: "Stroke technique: phases, timing and fault diagnosis", short: "Stroke technique" }
   - { id: swim.walls, domain: swim, title: "Starts, turns, underwaters and breakouts", short: "Starts and turns" }

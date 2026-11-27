@@ -1,0 +1,120 @@
+# Discrete Mathematics — curriculum framework (draft 1, for Kevin's markup)
+#
+# Logic, proof, counting and graphs as mathematics. Until Nov 2026 these lived only inside Computer Science
+# (units 1-2), aimed at algorithms. A card cannot grade a proof, so proof objectives are drilled as what a
+# proof rests on: the negation, the contrapositive, the base case, the counterexample, and the count.
+# Not here: formal languages and automata (Computer Science), design theory, matroids, Pólya counting
+# beyond rotations (Abstract Algebra has Burnside).
+id: discrete-mathematics
+title: Discrete Mathematics
+code: DM
+draft: 1
+track: math
+requires: [math-hs]
+level: 3
+domains: [dm]
+
+basis:
+  primary: cupm-2015-discrete
+  also: [cambridge-ia-numbers-sets, cambridge-ii-graph-theory]
+  note: "Anchored on the MAA CUPM 2015 report's discrete mathematics, enumerative combinatorics and graph theory syllabi (goals and syllabi read through an extraction). Computer Science keeps the algorithmic applications; this framework is the mathematics under them."
+
+big_ideas:
+  - id: PROOF
+    title: "A statement is exactly as strong as its quantifiers"
+    text: "Negating, reversing or weakening a statement changes what has to be shown. Most wrong proofs prove a different statement."
+  - id: COUNT
+    title: "Count by structure, not by listing"
+    text: "Every count is a product, a sum, a quotient by symmetry or a complement. The work is choosing which."
+
+practices:
+  - id: P1
+    title: Compute
+    text: "Carry the definition or theorem to a number, a count or an example."
+  - id: P2
+    title: Decide
+    text: "Say whether a statement holds, which hypothesis fails, or which example breaks it."
+
+units:
+  - id: logic
+    n: 1
+    title: "Logic and proof"
+    std: ["cupm-2015-discrete:D1", "cambridge-ia-numbers-sets:N1"]
+    scope: core
+    ideas: [PROOF]
+    topics:
+      - n: 1
+        title: "Statements"
+        los:
+          - { id: B, std: ["cupm-2015-discrete:D1", "cambridge-ia-numbers-sets:N1"], do: "Negate a quantified statement and say what a counterexample must be.", ek: ["Negation swaps 'for all' and 'there exists' and negates the inside. A universal claim falls to one counterexample; an existential claim needs one witness."], p: [P2], drills: [dm-negate-quantifiers, dm-counterexample] }
+          - { id: C, std: ["cupm-2015-discrete:D1"], do: "Choose a method of proof and state what it assumes and what it must reach.", ek: ["Direct: assume p, reach q. Contrapositive: assume not q, reach not p. Contradiction: assume p and not q, reach an impossibility. Induction: base case plus the step from k to k + 1."], p: [P2], drills: [dm-proof-first-line, dm-proof-flaw] }
+          - { id: A, std: ["cupm-2015-discrete:D1"], do: "Evaluate a compound proposition and count the cases in which it is true.", ek: ["A proposition in n variables has 2^n rows. p → q is false only when p is true and q is false; it is equivalent to (not p) or q."], p: [P1], drills: [dm-truth-rows, dm-equivalent-forms] }
+  - id: induction
+    n: 2
+    title: "Induction and recursion"
+    std: ["cupm-2015-discrete:D2", "cupm-2015-discrete:C5", "cambridge-ia-numbers-sets:N3"]
+    scope: core
+    ideas: [PROOF, COUNT]
+    topics:
+      - n: 1
+        title: "Induction and recurrences"
+        los:
+          - { id: A, std: ["cupm-2015-discrete:D2", "cambridge-ia-numbers-sets:N3"], do: "Use a closed form established by induction and identify the inductive step.", ek: ["1 + 2 + … + n = n(n + 1)/2; the first n odd numbers sum to n²; 1² + … + n² = n(n + 1)(2n + 1)/6. The step adds the (k + 1)th term to the assumed formula for k."], p: [P1], drills: [dm-sum-squares, dm-induction-step-term] }
+          - { id: B, std: ["cupm-2015-discrete:D2", "cupm-2015-discrete:C5"], do: "Iterate a linear recurrence and solve it from its characteristic roots.", ek: ["f(n) = a f(n−1) + b f(n−2) has solutions rⁿ for the roots of r² = ar + b; distinct roots give f(n) = A r₁ⁿ + B r₂ⁿ with A and B fixed by the first two values."], p: [P1], drills: [dm-recurrence-iterate, dm-recurrence-closed] }
+  - id: sets
+    n: 3
+    title: "Sets, functions and relations"
+    std: ["cupm-2015-discrete:D3", "cambridge-ia-numbers-sets:N2", "cambridge-ia-numbers-sets:N6"]
+    scope: core
+    ideas: [COUNT]
+    topics:
+      - n: 1
+        title: "Sets and functions"
+        los:
+          - { id: D, std: ["cupm-2015-discrete:D3", "cambridge-ia-numbers-sets:N6"], do: "Decide whether a set is countable and say what Cantor's diagonal argument shows.", ek: ["A set is countable if it can be listed. The integers, the rationals and any countable union of countable sets are countable; the reals and the power set of the naturals are not, and no set maps onto its own power set."], p: [P2], drills: [dm-countable-or-not, dm-cantor-facts] }
+          - { id: A, std: ["cupm-2015-discrete:D3", "cambridge-ia-numbers-sets:N2"], do: "Count unions, power sets and Cartesian products of finite sets.", ek: ["|A ∪ B| = |A| + |B| − |A ∩ B|; a set with n elements has 2^n subsets; |A × B| = |A||B|."], p: [P1], drills: [dm-union-size, dm-subsets-with-element] }
+          - { id: B, std: ["cupm-2015-discrete:D3", "cambridge-ia-numbers-sets:N2"], do: "Count functions, injections and surjections between finite sets.", ek: ["From an n-set to a k-set there are k^n functions, k(k−1)…(k−n+1) injections, and the surjections are counted by inclusion-exclusion: Σ (−1)^j C(k, j)(k − j)^n."], p: [P1], drills: [dm-injections, dm-surjections] }
+          - { id: C, std: ["cupm-2015-discrete:D3", "cambridge-ia-numbers-sets:N2"], do: "Test a relation for reflexivity, symmetry and transitivity, and count equivalence relations.", ek: ["An equivalence relation is reflexive, symmetric and transitive and is the same thing as a partition into classes; a 3-set has 5 and a 4-set has 15."], p: [P2], drills: [dm-relation-properties, dm-count-equivalence] }
+  - id: counting
+    n: 4
+    title: "Counting"
+    std: ["cupm-2015-discrete:D4", "cupm-2015-discrete:C1", "cupm-2015-discrete:C2", "cupm-2015-discrete:C4", "cambridge-ia-numbers-sets:N2", "cambridge-ia-numbers-sets:N3"]
+    scope: core
+    ideas: [COUNT]
+    topics:
+      - n: 1
+        title: "Arrangements and selections"
+        los:
+          - { id: A, std: ["cupm-2015-discrete:C1", "cupm-2015-discrete:C2"], do: "Count arrangements with repeated letters and selections under a constraint.", ek: ["n objects with repeats of sizes a, b, … have n!/(a! b! …) arrangements. 'At least one' is counted through the complement."], p: [P1], drills: [dm-word-arrangements, dm-committee-at-least] }
+          - { id: B, std: ["cupm-2015-discrete:C2"], do: "Count distributions of identical objects by stars and bars.", ek: ["x₁ + … + x_k = n has C(n + k − 1, k − 1) solutions in non-negative integers and C(n − 1, k − 1) in positive integers."], p: [P1], drills: [dm-stars-bars, dm-stars-bars-positive] }
+          - { id: C, std: ["cupm-2015-discrete:D4", "cupm-2015-discrete:C2", "cambridge-ia-numbers-sets:N3"], do: "Use the binomial theorem to read off a coefficient or a sum.", ek: ["(a + b)^n = Σ C(n, k) a^k b^(n−k). Setting a = b = 1 gives Σ C(n, k) = 2^n; a = −1 gives the alternating sum 0."], p: [P1], drills: [dm-binomial-coefficient, dm-even-subsets] }
+          - { id: D, std: ["cupm-2015-discrete:C4", "cambridge-ia-numbers-sets:N2"], do: "Count with inclusion-exclusion, including derangements.", ek: ["|A ∪ B ∪ C| = Σ|A| − Σ|A ∩ B| + |A ∩ B ∩ C|. Derangements: n! Σ (−1)^k / k!, close to n!/e."], p: [P1], drills: [dm-divisible-by-any, dm-derangements] }
+          - { id: E, std: ["cupm-2015-discrete:D4"], do: "Apply the pigeonhole principle to find a guaranteed minimum.", ek: ["If more than kn objects go into n boxes, some box holds more than k. To force k + 1 in one box you need kn + 1 objects."], p: [P1], drills: [dm-pigeonhole-force, dm-pigeonhole-facts] }
+  - id: gf
+    n: 5
+    title: "Generating functions"
+    std: ["cupm-2015-discrete:C3", "cupm-2015-discrete:C5"]
+    scope: core
+    ideas: [COUNT]
+    topics:
+      - n: 1
+        title: "Coefficients that count"
+        los:
+          - { id: A, std: ["cupm-2015-discrete:C3"], do: "Extract a coefficient from a product of geometric series.", ek: ["1/(1 − x)^k = Σ C(n + k − 1, k − 1) x^n: the coefficient of x^n counts selections of n objects from k types with repetition."], p: [P1], drills: [dm-gf-coefficient, dm-gf-bounded] }
+          - { id: B, std: ["cupm-2015-discrete:C3", "cupm-2015-discrete:C5"], do: "Model a selection problem with a generating function and read off the count.", ek: ["A coin of value c contributes the factor 1/(1 − x^c); the number of ways to make n is the coefficient of x^n in the product."], p: [P1], drills: [dm-gf-change, dm-gf-model] }
+  - id: graphs
+    n: 6
+    title: "Graphs and trees"
+    std: ["cupm-2015-discrete:D5", "cupm-2015-discrete:GT1", "cupm-2015-discrete:GT2", "cupm-2015-discrete:GT3", "cupm-2015-discrete:GT4", "cambridge-ii-graph-theory:H1", "cambridge-ii-graph-theory:H5"]
+    scope: core
+    ideas: [COUNT, PROOF]
+    topics:
+      - n: 1
+        title: "Degrees, trees and circuits"
+        los:
+          - { id: F, std: ["cupm-2015-discrete:GT4", "cambridge-ii-graph-theory:H2", "cambridge-ii-graph-theory:H3", "cambridge-ii-graph-theory:H6"], do: "Recognise Hamilton cycles, matchings and the first Ramsey number.", ek: ["A Hamilton cycle visits every vertex once; Dirac: minimum degree at least n/2 guarantees one. Hall: a bipartite graph has a matching covering X exactly when every set S in X has at least |S| neighbours. R(3, 3) = 6."], p: [P2], drills: [dm-hamilton-or-not, dm-hall-ramsey-facts] }
+          - { id: A, std: ["cupm-2015-discrete:D5", "cupm-2015-discrete:GT1", "cambridge-ii-graph-theory:H1"], do: "Use the handshake lemma on a degree sequence.", ek: ["The degrees sum to twice the number of edges, so the number of odd-degree vertices is even."], p: [P1], drills: [dm-handshake-edges, dm-degree-sequence-possible] }
+          - { id: B, std: ["cupm-2015-discrete:GT2", "cambridge-ii-graph-theory:H1"], do: "Count the edges of a tree or forest and the spanning trees of a small graph.", ek: ["A tree on n vertices has n − 1 edges; a forest with c components has n − c. A cycle C_n has n spanning trees and the complete graph K_n has n^(n−2)."], p: [P1], drills: [dm-forest-edges, dm-spanning-trees] }
+          - { id: C, std: ["cupm-2015-discrete:GT4", "cambridge-ii-graph-theory:H1"], do: "Decide whether a graph has an Euler circuit or trail from its degrees.", ek: ["A connected graph has an Euler circuit exactly when every degree is even, and an Euler trail exactly when two vertices have odd degree."], p: [P2], drills: [dm-odd-vertices, dm-euler-classify] }
+          - { id: D, std: ["cupm-2015-discrete:GT3", "cambridge-ii-graph-theory:H5"], do: "Find a chromatic number and count proper colourings.", ek: ["χ(G) is the fewest colours with adjacent vertices different. A tree on n vertices has k(k − 1)^(n−1) colourings; the cycle C_n has (k − 1)^n + (−1)^n (k − 1); an odd cycle needs 3 colours."], p: [P1], drills: [dm-chromatic-number, dm-count-colourings] }
+          - { id: E, std: ["cupm-2015-discrete:GT1", "cambridge-ii-graph-theory:H1"], do: "Apply Euler's formula and the edge bound for planar graphs.", ek: ["A connected plane graph has V − E + F = 2. A simple planar graph with V ≥ 3 has E ≤ 3V − 6, and E ≤ 2V − 4 if it has no triangles; so K₅ and K₃,₃ are not planar."], p: [P1], drills: [dm-euler-faces, dm-planarity-facts] }

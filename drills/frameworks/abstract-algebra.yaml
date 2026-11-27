@@ -1,0 +1,102 @@
+# Abstract Algebra — curriculum framework (draft 1, for Kevin's markup)
+#
+# Groups first, because symmetry is where chemistry meets algebra: point groups, permutations of identical
+# nuclei and counting distinct structures all sit on units 1-3. Advanced Inorganic drills point-group symbols;
+# this framework is what the symbols mean. Proofs are drilled as the counts they force.
+id: abstract-algebra
+title: Abstract Algebra
+code: AA
+draft: 1
+track: math
+requires: [number-theory, linear-algebra]
+level: 4
+domains: [aa]
+
+basis:
+  primary: cambridge-ia-groups
+  also: [cambridge-ib-grm]
+  note: "Anchored on the Cambridge Groups and Groups, Rings and Modules schedules (read through an extraction). Group theory is the weight, since it is what chemistry uses; rings stop at unique factorisation, and modules appear only as the classification of finite abelian groups. Fields and Galois theory are not built."
+
+big_ideas:
+  - id: SYM
+    title: "A group is the symmetries of something"
+    text: "Every group acts, and counting orbits and stabilisers is how its structure is read off."
+  - id: DIV
+    title: "Orders divide"
+    text: "Lagrange's theorem and its relatives turn structural questions into arithmetic on the order of the group."
+
+practices:
+  - id: P1
+    title: Compute
+    text: "Carry the definition or theorem to a number, a count or an example."
+  - id: P2
+    title: Decide
+    text: "Say whether a statement holds, which hypothesis fails, or which example breaks it."
+
+units:
+  - id: groups
+    n: 1
+    title: "Groups and subgroups"
+    std: ["cambridge-ia-groups:G1", "cambridge-ia-groups:G2"]
+    scope: core
+    ideas: [SYM, DIV]
+    topics:
+      - n: 1
+        title: "Axioms, orders and Lagrange"
+        los:
+          - { id: A, std: ["cambridge-ia-groups:G1"], do: "Decide whether a set with an operation is a group and name the axiom that fails.", ek: ["A group needs closure, associativity, an identity and an inverse for every element. Commutativity is not required."], p: [P2], drills: [aa-is-it-a-group, aa-failed-axiom] }
+          - { id: B, std: ["cambridge-ia-groups:G1", "cambridge-ia-groups:G2"], do: "Find the order of an element of a cyclic group and count elements of a given order.", ek: ["In Z_n the element a has order n/gcd(a, n). A cyclic group of order n has φ(d) elements of order d for each divisor d, and none of any other order."], p: [P1], drills: [aa-order-in-zn, aa-count-order-d] }
+          - { id: C, std: ["cambridge-ia-groups:G2"], do: "Use Lagrange's theorem to limit subgroup orders and count cosets.", ek: ["The order of a subgroup divides the order of the group, and the index |G|/|H| is the number of cosets. A group of prime order is cyclic."], p: [P1], drills: [aa-coset-count, aa-lagrange-facts] }
+          - { id: D, std: ["cambridge-ia-groups:G2"], do: "Find the order of the group of units modulo n and decide whether it is cyclic.", ek: ["The units modulo n form a group of order φ(n). It is cyclic exactly for n = 1, 2, 4, p^k and 2p^k with p an odd prime."], p: [P1], drills: [aa-unit-group-order, aa-unit-group-cyclic] }
+  - id: perms
+    n: 2
+    title: "Permutations"
+    std: ["cambridge-ia-groups:G6"]
+    scope: core
+    ideas: [SYM]
+    topics:
+      - n: 1
+        title: "Cycles, sign and conjugacy"
+        los:
+          - { id: A, std: ["cambridge-ia-groups:G6"], do: "Compose permutations in cycle notation and find the order of a permutation.", ek: ["Disjoint cycles commute and the order of a permutation is the least common multiple of its cycle lengths. Products are applied right to left."], p: [P1], drills: [aa-perm-order, aa-perm-compose] }
+          - { id: B, std: ["cambridge-ia-groups:G6"], do: "Find the sign of a permutation and work with the alternating group.", ek: ["A cycle of length k is a product of k − 1 transpositions, so it is even when k is odd. The even permutations form A_n, of order n!/2."], p: [P1], drills: [aa-perm-sign, aa-alternating-order] }
+          - { id: C, std: ["cambridge-ia-groups:G6", "cambridge-ia-groups:G3"], do: "Count conjugacy classes in a symmetric group and the size of a class.", ek: ["Two permutations are conjugate in S_n exactly when they have the same cycle type, so the classes are the partitions of n. A class with m_k cycles of length k has n!/Π(k^m_k · m_k!) elements."], p: [P1], drills: [aa-sn-class-count, aa-sn-class-size] }
+  - id: actions
+    n: 3
+    title: "Group actions"
+    std: ["cambridge-ia-groups:G3", "cambridge-ia-groups:G5"]
+    scope: core
+    ideas: [SYM, DIV]
+    topics:
+      - n: 1
+        title: "Orbits, stabilisers and counting"
+        los:
+          - { id: A, std: ["cambridge-ia-groups:G3", "cambridge-ia-groups:G5"], do: "Use the orbit-stabiliser theorem to find the order of a symmetry group.", ek: ["|G| = |orbit| × |stabiliser|. The rotations of a cube move a face to any of 6 faces and 4 rotations fix a face, so there are 24."], p: [P1], drills: [aa-orbit-stabiliser, aa-stabiliser-size] }
+          - { id: B, std: ["cambridge-ia-groups:G3"], do: "Count orbits with Burnside's lemma.", ek: ["The number of orbits is the average number of fixed points: (1/|G|) Σ |Fix(g)|. A rotation by r places of an n-bead ring fixes k^gcd(n, r) colourings."], p: [P1], drills: [aa-necklaces, aa-burnside-average] }
+          - { id: C, std: ["cambridge-ia-groups:G3", "cambridge-ib-grm:GR"], do: "Use centralisers, the class equation and Cauchy's theorem.", ek: ["The size of a conjugacy class is |G| divided by the size of the centraliser. The class equation forces a non-trivial centre in a p-group, and Cauchy: if a prime p divides |G| there is an element of order p."], p: [P1], drills: [aa-centraliser-size, aa-class-equation-facts] }
+  - id: quotients
+    n: 4
+    title: "Quotients and structure"
+    std: ["cambridge-ia-groups:G4", "cambridge-ib-grm:GR", "cambridge-ib-grm:MO"]
+    scope: core
+    ideas: [DIV]
+    topics:
+      - n: 1
+        title: "Homomorphisms, abelian groups and Sylow"
+        los:
+          - { id: A, std: ["cambridge-ia-groups:G4", "cambridge-ib-grm:GR"], do: "Apply the first isomorphism theorem and count homomorphisms between cyclic groups.", ek: ["The image of a homomorphism is isomorphic to G/ker, so |image| = |G|/|kernel|. A homomorphism from Z_m to Z_n is fixed by where 1 goes, and there are gcd(m, n) of them."], p: [P1], drills: [aa-image-size, aa-hom-count] }
+          - { id: B, std: ["cambridge-ib-grm:MO"], do: "Classify finite abelian groups of a given order and decide when a product is cyclic.", ek: ["Every finite abelian group is a product of cyclic groups of prime-power order. For n = Π p^a the number of abelian groups is Π (number of partitions of a). Z_m × Z_n is cyclic exactly when gcd(m, n) = 1."], p: [P1], drills: [aa-abelian-count, aa-product-max-order] }
+          - { id: C, std: ["cambridge-ib-grm:GR"], do: "Use the Sylow theorems to limit the number of Sylow subgroups.", ek: ["If |G| = p^a m with p not dividing m, the number of Sylow p-subgroups divides m and is 1 mod p. When that leaves only 1, the subgroup is normal and the group is not simple."], p: [P1], drills: [aa-sylow-options, aa-sylow-facts] }
+  - id: rings
+    n: 5
+    title: "Rings"
+    std: ["cambridge-ib-grm:RI"]
+    scope: core
+    ideas: [DIV]
+    topics:
+      - n: 1
+        title: "Units, ideals and factorisation"
+        los:
+          - { id: A, std: ["cambridge-ib-grm:RI"], do: "Count units, zero divisors and idempotents in Z_n.", ek: ["In Z_n a non-zero residue is a unit if it is coprime to n and a zero divisor otherwise. Z_n has 2^k idempotents, where k is the number of distinct primes dividing n."], p: [P1], drills: [aa-zero-divisors, aa-idempotents] }
+          - { id: B, std: ["cambridge-ib-grm:RI"], do: "Decide whether a quotient ring is a field and count roots of a polynomial over Z_p.", ek: ["Z_n is a field exactly when n is prime, and F[x]/(f) is a field exactly when f is irreducible. Over a field a polynomial of degree d has at most d roots; over Z_n with n composite it can have more."], p: [P2], drills: [aa-field-or-not, aa-roots-mod-n] }
+          - { id: C, std: ["cambridge-ib-grm:RI"], do: "Work with norms in the Gaussian integers and recognise failures of unique factorisation.", ek: ["N(a + bi) = a² + b² is multiplicative, so an element of prime norm is irreducible. Z[i] has unique factorisation; Z[√−5] does not, since 6 = 2 · 3 = (1 + √−5)(1 − √−5)."], p: [P1], drills: [aa-gaussian-norm, aa-factorisation-facts] }

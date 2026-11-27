@@ -1,0 +1,37 @@
+# The Cambridge Mathematical Tripos schedules (2026-27) for the proof-side courses, written as a source so the
+# dm/nt/aa/ra/top/stoch skills have a home. NOT a book: only the schedules were read, and the discrete-mathematics
+# chapters follow the MAA CUPM 2015 report's syllabus headings instead. Chapter numbers are ours.
+id: cambridge-tripos-schedules
+title: "Cambridge Mathematical Tripos schedules (proof-side courses)"
+short: "Tripos schedules"
+year: 2026
+field: mathematics
+chapters:
+  - { n: 1, title: "Discrete Mathematics: Logic and proof", skills: [dm.logic] }
+  - { n: 2, title: "Discrete Mathematics: Induction and recursion", skills: [dm.induction] }
+  - { n: 3, title: "Discrete Mathematics: Sets, functions, relations", skills: [dm.sets] }
+  - { n: 4, title: "Discrete Mathematics: Counting", skills: [dm.counting] }
+  - { n: 5, title: "Discrete Mathematics: Generating functions", skills: [dm.gf] }
+  - { n: 6, title: "Discrete Mathematics: Graphs and trees", skills: [dm.graphs] }
+  - { n: 7, title: "Number Theory: Divisibility", skills: [nt.divisibility] }
+  - { n: 8, title: "Number Theory: Congruences", skills: [nt.congruences] }
+  - { n: 9, title: "Number Theory: Residues", skills: [nt.residues] }
+  - { n: 10, title: "Number Theory: Diophantine questions and primes", skills: [nt.diophantine] }
+  - { n: 11, title: "Abstract Algebra: Groups and subgroups", skills: [aa.groups] }
+  - { n: 12, title: "Abstract Algebra: Permutations", skills: [aa.perms] }
+  - { n: 13, title: "Abstract Algebra: Group actions", skills: [aa.actions] }
+  - { n: 14, title: "Abstract Algebra: Quotients and structure", skills: [aa.quotients] }
+  - { n: 15, title: "Abstract Algebra: Rings", skills: [aa.rings] }
+  - { n: 16, title: "Real Analysis: The real numbers", skills: [ra.reals] }
+  - { n: 17, title: "Real Analysis: Sequences", skills: [ra.sequences] }
+  - { n: 18, title: "Real Analysis: Series", skills: [ra.series] }
+  - { n: 19, title: "Real Analysis: Continuity", skills: [ra.continuity] }
+  - { n: 20, title: "Real Analysis: Differentiation and integration", skills: [ra.calculus] }
+  - { n: 21, title: "Topology: Topological spaces", skills: [top.spaces] }
+  - { n: 22, title: "Topology: Connectedness", skills: [top.connected] }
+  - { n: 23, title: "Topology: Compactness", skills: [top.compact] }
+  - { n: 24, title: "Topology: Surfaces", skills: [top.surfaces] }
+  - { n: 25, title: "Stochastic Processes: Markov chains", skills: [stoch.chains] }
+  - { n: 26, title: "Stochastic Processes: Random walks", skills: [stoch.walks] }
+  - { n: 27, title: "Stochastic Processes: Long-run behaviour", skills: [stoch.longrun] }
+  - { n: 28, title: "Stochastic Processes: Poisson processes and queues", skills: [stoch.poisson] }

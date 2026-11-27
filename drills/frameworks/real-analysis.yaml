@@ -1,0 +1,101 @@
+# Real Analysis — curriculum framework (draft 1, for Kevin's markup)
+#
+# The same objects as Calculus, asked the other way round: not 'what is the limit' but 'how far out must n be',
+# not 'find the maximum' but 'which hypothesis guarantees one'. A card cannot grade a proof, so each theorem is
+# drilled as the N or delta it produces and as the example that breaks it when a hypothesis is dropped.
+id: real-analysis
+title: Real Analysis
+code: RA
+draft: 1
+track: math
+requires: [calculus, discrete-mathematics]
+level: 4
+domains: [ra]
+
+basis:
+  primary: cambridge-ia-analysis-i
+  also: [cambridge-ia-numbers-sets]
+  note: "Anchored on the Cambridge Analysis I schedule (read through an extraction). Uniform convergence, metric spaces and the multivariable theory (Cambridge Analysis II) are not built; Topology takes up compactness and connectedness."
+
+big_ideas:
+  - id: EPS
+    title: "A limit is a promise about every epsilon"
+    text: "Convergence means a challenge ε can always be met; the proof is the rule that produces N or δ from ε."
+  - id: HYP
+    title: "Every hypothesis is there for a reason"
+    text: "Closed, bounded, continuous, monotone: drop one and a standard counterexample appears. Knowing the counterexample is knowing the theorem."
+
+practices:
+  - id: P1
+    title: Compute
+    text: "Carry the definition or theorem to a number, a count or an example."
+  - id: P2
+    title: Decide
+    text: "Say whether a statement holds, which hypothesis fails, or which example breaks it."
+
+units:
+  - id: reals
+    n: 1
+    title: "The real numbers"
+    std: ["cambridge-ia-numbers-sets:N5", "cambridge-ia-analysis-i:A1"]
+    scope: core
+    ideas: [HYP]
+    topics:
+      - n: 1
+        title: "Completeness"
+        los:
+          - { id: A, std: ["cambridge-ia-numbers-sets:N5"], do: "Find the supremum and infimum of a set and say whether they are attained.", ek: ["The supremum is the least upper bound. Every non-empty set of reals that is bounded above has one, which need not belong to the set; the rationals lack this property."], p: [P1], drills: [ra-supremum, ra-sup-attained] }
+          - { id: B, std: ["cambridge-ia-numbers-sets:N5", "cambridge-ia-analysis-i:A1"], do: "Use the Archimedean property and say where the rationals fail to be complete.", ek: ["For any real ε > 0 there is a natural number n with 1/n < ε. The rationals are dense but not complete: {x : x² < 2} has no rational least upper bound."], p: [P1], drills: [ra-archimedean, ra-completeness-facts] }
+  - id: sequences
+    n: 2
+    title: "Sequences"
+    std: ["cambridge-ia-analysis-i:A1"]
+    scope: core
+    ideas: [EPS]
+    topics:
+      - n: 1
+        title: "Convergence"
+        los:
+          - { id: A, std: ["cambridge-ia-analysis-i:A1"], do: "Produce the N that the definition of a limit asks for.", ek: ["a_n → L means: for every ε > 0 there is an N with |a_n − L| < ε for all n ≥ N. Solving the inequality for n gives N as a function of ε."], p: [P1], drills: [ra-epsilon-n, ra-limit-value] }
+          - { id: B, std: ["cambridge-ia-analysis-i:A1"], do: "Find the limit of a bounded monotone recursive sequence and know what guarantees it exists.", ek: ["A bounded monotone sequence converges. Once the limit is known to exist, it must satisfy the recurrence as a fixed-point equation. Bolzano-Weierstrass: every bounded sequence has a convergent subsequence."], p: [P1], drills: [ra-recursive-limit, ra-sequence-theorems] }
+          - { id: C, std: ["cambridge-ia-analysis-i:A1"], do: "Find the limit superior and limit inferior of a bounded sequence.", ek: ["lim sup is the largest limit of any subsequence and lim inf the smallest. The sequence converges exactly when the two agree."], p: [P1], drills: [ra-limsup, ra-limsup-facts] }
+  - id: series
+    n: 3
+    title: "Series"
+    std: ["cambridge-ia-analysis-i:A1", "cambridge-ia-analysis-i:A4"]
+    scope: core
+    ideas: [EPS, HYP]
+    topics:
+      - n: 1
+        title: "Convergence of series"
+        los:
+          - { id: A, std: ["cambridge-ia-analysis-i:A1"], do: "Classify a series as absolutely convergent, conditionally convergent or divergent.", ek: ["Absolute convergence implies convergence. The alternating series test gives convergence for decreasing terms tending to 0; Σ 1/n^p converges exactly when p > 1."], p: [P2], drills: [ra-series-classify, ra-ratio-test] }
+          - { id: B, std: ["cambridge-ia-analysis-i:A1"], do: "Sum a geometric or telescoping series exactly.", ek: ["Σ r^n from n = 0 is 1/(1 − r) for |r| < 1. A telescoping series is summed from its partial sums, which collapse to the first and last terms."], p: [P1], drills: [ra-telescoping, ra-geometric-from-k] }
+          - { id: C, std: ["cambridge-ia-analysis-i:A4"], do: "Find the radius of convergence of a power series and test its endpoints.", ek: ["Σ a_n x^n converges absolutely for |x| < R and diverges for |x| > R, with 1/R = lim |a_(n+1)/a_n| when that exists. Behaviour at |x| = R must be tested separately."], p: [P1], drills: [ra-radius, ra-endpoints] }
+  - id: continuity
+    n: 4
+    title: "Continuity"
+    std: ["cambridge-ia-analysis-i:A2"]
+    scope: core
+    ideas: [EPS, HYP]
+    topics:
+      - n: 1
+        title: "Continuous functions"
+        los:
+          - { id: A, std: ["cambridge-ia-analysis-i:A2"], do: "Produce the δ that the definition of continuity asks for.", ek: ["f is continuous at a when for every ε > 0 there is a δ > 0 with |f(x) − f(a)| < ε whenever |x − a| < δ. For a linear f, δ = ε/|slope|; for x², restrict to δ ≤ 1 and bound the other factor."], p: [P1], drills: [ra-delta-linear, ra-delta-square] }
+          - { id: B, std: ["cambridge-ia-analysis-i:A2"], do: "Apply the intermediate and extreme value theorems and say which hypothesis each needs.", ek: ["A continuous function on a closed bounded interval takes every value between its end values, is bounded, and attains its bounds. Each conclusion fails on an open or unbounded interval, or for a discontinuous function."], p: [P2], drills: [ra-bisection-steps, ra-ivt-evt-facts] }
+          - { id: C, std: ["cambridge-ia-analysis-i:A2"], do: "Decide whether a function is uniformly continuous and find a Lipschitz constant.", ek: ["Uniform continuity means one δ works at every point. A continuous function on a closed bounded interval is uniformly continuous; a bounded derivative gives a Lipschitz constant sup|f′|, hence uniform continuity."], p: [P2], drills: [ra-uniformly-continuous, ra-lipschitz] }
+  - id: calculus
+    n: 5
+    title: "Differentiation and integration"
+    std: ["cambridge-ia-analysis-i:A3", "cambridge-ia-analysis-i:A5"]
+    scope: core
+    ideas: [HYP, EPS]
+    topics:
+      - n: 1
+        title: "The theorems behind calculus"
+        los:
+          - { id: A, std: ["cambridge-ia-analysis-i:A3"], do: "Find the point the mean value theorem promises and say what Rolle's theorem needs.", ek: ["If f is continuous on [a, b] and differentiable inside, some c has f′(c) = (f(b) − f(a))/(b − a). Rolle is the case f(a) = f(b)."], p: [P1], drills: [ra-mvt-point, ra-mvt-facts] }
+          - { id: B, std: ["cambridge-ia-analysis-i:A3"], do: "Bound a Taylor remainder with Lagrange's form.", ek: ["f(x) = Taylor polynomial of degree n + R_n, with R_n = f⁽ⁿ⁺¹⁾(c) x^(n+1)/(n + 1)! for some c between 0 and x. For e^x at x = 1, |R_n| < 3/(n + 1)!."], p: [P1], drills: [ra-taylor-degree, ra-taylor-bound] }
+          - { id: C, std: ["cambridge-ia-analysis-i:A5"], do: "Compute upper and lower Riemann sums and say which functions are integrable.", ek: ["For an increasing f on n equal pieces, the upper sum uses right endpoints and the lower sum left endpoints, and U − L = (f(b) − f(a))(b − a)/n → 0. Monotone and continuous functions are integrable; the indicator of the rationals is not."], p: [P1], drills: [ra-upper-sum, ra-upper-minus-lower] }
+          - { id: D, std: ["cambridge-ia-analysis-i:A5"], do: "Decide whether an improper integral converges and evaluate it.", ek: ["∫₁^∞ x^(−p) dx converges exactly when p > 1, to 1/(p − 1); ∫₀¹ x^(−p) dx converges exactly when p < 1, to 1/(1 − p). Comparison with these settles most cases."], p: [P1], drills: [ra-improper-value, ra-improper-converges] }

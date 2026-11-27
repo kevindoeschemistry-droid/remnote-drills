@@ -8,6 +8,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 | Framework | Primary basis | Kind | How firmly | Also | Wanted | Objectives | Anchored | House only |
 |---|---|---|---|---|---|---|---|---|
+| Abstract Algebra | Cambridge Mathematical Tripos, Part IA Groups schedule | course | read in part | cambridge-ib-grm | — | 16 | 16 | 0 |
 | Financial Accounting (CPA FAR) | Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR) | exam-spec | read in part | — | — | 26 | 26 | 0 |
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
@@ -22,6 +23,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 188 | 188 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
+| Discrete Mathematics | MAA CUPM Curriculum Guide 2015, Discrete Mathematics and Combinatorics course area report | standard | read in part | cambridge-ia-numbers-sets, cambridge-ii-graph-theory | — | 22 | 22 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
@@ -44,6 +46,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
 | Nuclear Science and Reactor Theory | NRC Generic Fundamentals Examination, reactor theory topics (PWR catalog 192001-192008) | exam-spec | read in part | doe-hdbk-1019, ngss-hs, ib-physics-2025, icho-appendix-c, aamc-mcat-outline, gre-physics, acs-accm-analytical | — | 19 | 19 | 0 |
+| Number Theory | Cambridge Mathematical Tripos, Part II Number Theory schedule | course | read in part | cambridge-ia-numbers-sets | — | 12 | 12 | 0 |
 | Numerical Methods | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | webwork-opl | — | 17 | 17 | 0 |
 | Organic Reactions: Predict the Product | ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443) | standard | read in full | bruice-8e, ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry, acs-accm-general, acs-accm-inorganic | — | 46 | 42 | 4 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
@@ -54,17 +57,21 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 51 | 51 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 52 | 39 | 13 |
+| Real Analysis | Cambridge Mathematical Tripos, Part IA Analysis I schedule | course | read in part | cambridge-ia-numbers-sets | — | 15 | 15 | 0 |
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
 | Statistics | AP Statistics Course and Exam Description (effective fall 2026) | standard | read in part | webwork-opl | — | 111 | 111 | 0 |
+| Stochastic Processes | Cambridge Mathematical Tripos, Part IB Markov Chains schedule | course | read in part | cambridge-ii-applied-probability | — | 12 | 12 | 0 |
 | Structures from Memory | Bruice, Organic Chemistry, 8th edition (table of contents) | textbook | read in part | iupac-aa-1983, ib-chemistry-2025, ib-biology-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-organic | — | 12 | 12 | 0 |
 | Swimming | World Aquatics swimming rules (with USA Swimming and USMS stroke rules) | rulebook | read in full | usas-foc-2007, asca-certification | — | 88 | 74 | 14 |
 | Thermodynamics and Statistical Mechanics | Dill & Bromberg, Molecular Driving Forces 2e; Shell, Thermodynamics and Statistical Mechanics | textbook | read in full | fe-chemical, ib-physics-2025, icho-appendix-c, icho-syllabus, pe-chemical, gre-physics, webwork-opl | — | 184 | 143 | 41 |
+| Topology | Cambridge Mathematical Tripos, Part IB Topological Spaces schedule | course | read in part | — | — | 11 | 11 | 0 |
 | Wushu | IWUF Wushu Taolu Competition Rules and Judging Methods (2024) | rulebook | read through a crosswalk | — | duanwei | 88 | 0 | 88 |
 
 ### Notes
 
+- **Abstract Algebra**: Anchored on the Cambridge Groups and Groups, Rings and Modules schedules (read through an extraction). Group theory is the weight, since it is what chemistry uses; rings stop at unique factorisation, and modules appear only as the classification of finite abelian groups. Fields and Galois theory are not built.
 - **Financial Accounting (CPA FAR)**: Units are the FAR blueprint's three areas and topics are its groups; the objectives are ours, written against the group titles (the representative tasks were not read).
 - **AI Basics**: Units follow the ten modules of Harper Carroll's free Academy course. Only her module titles were readable, so the objectives under them are a house list.
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
@@ -76,6 +83,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Biosecurity**: Units follow the six units of BlueDot Impact's Biosecurity course (outline read Nov 2026); laboratory biosafety follows the WHO Laboratory Biosafety Manual's risk-based structure and the treaty items follow the BWC's articles. No curriculum standard for biosecurity exists; the objectives are a house list.
 - **Chemistry Olympiad**: Topics from the USNCO bands (read in part) and IChO Appendix C (read in full), at national-exam depth; the items are a house list.
 - **Chemistry (AP)**: Every topic in units 1–9 cites its College Board learning objectives (92 of 92, read Nov 2026). Objectives past Unit 2 were first written from topic titles; check them against the LO text when revising.
+- **Discrete Mathematics**: Anchored on the MAA CUPM 2015 report's discrete mathematics, enumerative combinatorics and graph theory syllabi (goals and syllabi read through an extraction). Computer Science keeps the algorithmic applications; this framework is the mathematics under them.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
 - **Electric Double Layers**: A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
 - **Electronic Structure**: No accredited standard exists at this level. The Psi4NumPy modules are the closest published curriculum and the MolSSI lesson fixes the practical units; Szabo & Ostlund is a theory reference only. Objectives are ours.
@@ -96,6 +104,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
 - **NGSS High School Science**: One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items.
 - **Nuclear Science and Reactor Theory**: Reactor-theory units follow the NRC Generic Fundamentals Examination topic list (read in part). Nuclear physics and shielding follow the DOE fundamentals handbook's first module (read in part). Health-physics standards for the radiation-protection unit have not been looked at.
+- **Number Theory**: Anchored on the Cambridge Numbers and Sets and Number Theory schedules (read through an extraction). The Jacobi symbol, binary quadratic forms and factorisation methods (T4, T5, T9) are not drilled in draft 1.
 - **Numerical Methods**: FE Chemical names numerical methods as one item (1.D) and the WeBWorK OPL names a few methods; no published standard lists a numerical-methods course, so the objectives are a house list on Chapra & Canale's part order.
 - **Organic Reactions: Predict the Product**: Since Nov 2026 the primary basis is the ACS organic content map (read in full); every articulation is answered (scripts/accm_maps.py), with units 9 (physical organic, practice) and 10 (organometallics) added for those nothing reached. Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
 - **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
@@ -105,17 +114,21 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Process Design, Economics and Safety**: Topics from FE Chemical areas 11, 13, 14, 15, 16 and 17 and PE Chemical area 7 (read in full); objectives and their order are ours. The professional-practice unit rests on the NSPE Code of Ethics (read in full) and the safety-management unit on 29 CFR 1910.119 (paragraph titles read). Particle technology has no published curriculum of its own, so that unit is a house list on the FE spec items.
 - **Computational Protein Design**: No accredited standard exists. The notebook workshops are the closest published curriculum; the energy-function paper, the deep-learning workshops and the review fix the content of the later units. Objectives are ours.
 - **Chemical Reaction Engineering**: Topics from FE Chemical area 12, read in full. Objectives and their order are ours. Units 5–8 and the later letters of units 1–4 go beyond the FE spec on Fogler 5e's chapter order (a house list); the gaps are in the file header.
+- **Real Analysis**: Anchored on the Cambridge Analysis I schedule (read through an extraction). Uniform convergence, metric spaces and the multivariable theory (Cambridge Analysis II) are not built; Topology takes up compactness and connectedness.
 - **Separations**: Topics from FE Chemical area 10 and PE Chemical 6.B (both read in full); objectives and their order are ours.
 - **Speaking and Articulation**: A scoring rubric plus Toastmasters' competency list; unit order is ours.
 - **SQL**: Units 1–7 follow the sixteen topic groups of Oracle's 1Z0-071 exam, read through a restatement rather than Oracle's page. Unit 8 is a house list: no standard for analytic SQL was found.
 - **Statistics**: Units 1-5 follow the AP Statistics CED effective fall 2026; all 150 of its learning objectives were read and each is cited by an objective here. Objective wording and grouping are ours.
+- **Stochastic Processes**: Anchored on the Cambridge Markov Chains schedule (read through an extraction), with the Poisson process and the M/M/1 queue from Applied Probability. Renewal theory, general continuous-time chains, martingales and Brownian motion are not built.
 - **Structures from Memory**: Units follow the chapter list of Bruice's Organic Chemistry (a textbook, not a standard). The amino acids follow IUPAC-IUB 1983 Table 1. Which compounds to carry in each unit is a house list; the MCAT content outline names the same families and has not been opened.
 - **Swimming**: The World Aquatics rules (read in full) say what is legal. What to learn, and in what order, now rests on USA Swimming's Foundations of Coaching (2007; chapters 5 and 6 read, the rest by title) and the ASCA Level 1-3 school outlines (titles only). Research papers named in an objective's own essential knowledge are its source for that claim. Unit order is ours.
 - **Thermodynamics and Statistical Mechanics**: UCI CBE 240 publishes no syllabus. Classical units are anchored to fe-chemical; the statistical-mechanics units stand on the books.
+- **Topology**: Anchored on the Cambridge Topological Spaces schedule (read through an extraction). Point-set topology to compactness, then surfaces by Euler characteristic. The fundamental group, homology and knot theory are not built.
 - **Wushu**: Competition rules and biomechanics papers; unit order is ours.
 
 ## Frameworks not yet on a fully read standard
 
+- **Abstract Algebra**: course, read in part
 - **Financial Accounting (CPA FAR)**: exam-spec, read in part
 - **AI Basics**: course, read in part
 - **AI Safety**: course, read in full
@@ -125,6 +138,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Biosecurity**: course, read in part
 - **Chemistry Olympiad**: exam-spec, read in part
 - **Chemistry (AP)**: standard, read in part
+- **Discrete Mathematics**: standard, read in part
 - **Earth and Space Science**: standard, read in part
 - **Electric Double Layers**: textbook, read in part
 - **Electronic Structure**: course, read in part
@@ -135,16 +149,20 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **NCLEX-RN**: exam-spec, read in part
 - **NGSS High School Science**: standard, read in part
 - **Nuclear Science and Reactor Theory**: exam-spec, read in part
+- **Number Theory**: course, read in part
 - **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
 - **Physics (AP)**: standard, read in part
 - **Computational Protein Design**: course, read in part
+- **Real Analysis**: course, read in part
 - **Speaking and Articulation**: rubric, read in full
 - **SQL**: exam-spec, read through a crosswalk
 - **Statistics**: standard, read in part
+- **Stochastic Processes**: course, read in part
 - **Structures from Memory**: textbook, read in part
 - **Swimming**: rulebook, read in full
 - **Thermodynamics and Statistical Mechanics**: textbook, read in full
+- **Topology**: course, read in part
 - **Wushu**: rulebook, read through a crosswalk; should move to Chinese Wushu Duanwei grading system
 
 ## NCEES FE Chemical CBT Exam Specifications (effective July 2020)
@@ -3667,6 +3685,161 @@ https://dec41.user.srcf.net/notes/IB_L/complex_analysis.pdf
 | C | Contour integration and Cauchy's theorem: contour integrals, Cauchy's theorem and integral formula, maximum modulus, Liouville, the fundamental theorem of algebra, Morera | 22 | 22 | engineering-math (22) |
 | S | Expansions and singularities: Taylor and Laurent expansions, isolated zeros, residues, classifying isolated singularities | 21 | 21 | engineering-math (21) |
 | R | The residue theorem: winding numbers, the residue theorem, Jordan's lemma, definite integrals, Rouche and the argument principle | 23 | 23 | engineering-math (23) |
+
+## Cambridge Mathematical Tripos, Part IA Groups schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+6 of 6 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| G1 | Examples of groups: axioms, symmetry groups, permutations, subgroups, homomorphisms, the Möbius group | 6 | 6 | abstract-algebra (6) |
+| G2 | Lagrange's theorem: cosets, groups of small order, quaternions, Fermat-Euler | 7 | 7 | abstract-algebra (7) |
+| G3 | Group actions: orbits and stabilisers, Cayley's theorem, conjugacy classes, Cauchy's theorem | 7 | 7 | abstract-algebra (7) |
+| G4 | Quotient groups: normal subgroups and the isomorphism theorem | 4 | 4 | abstract-algebra (4) |
+| G5 | Matrix groups: general, special, orthogonal groups and rotations | 4 | 4 | abstract-algebra (4) |
+| G6 | Permutations: cycles, sign, conjugacy in the symmetric and alternating groups, simple groups | 6 | 6 | abstract-algebra (6) |
+
+## Cambridge Mathematical Tripos, Part IB Groups, Rings and Modules schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+3 of 3 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| GR | Groups: isomorphism theorems, actions, centre, p-groups, Sylow theorems, groups of small order | 6 | 6 | abstract-algebra (6) |
+| RI | Rings: ideals, quotients, prime and maximal ideals, fields, unique factorisation, Gaussian integers, polynomial rings | 7 | 7 | abstract-algebra (6), number-theory (1) |
+| MO | Modules: finitely generated modules over a Euclidean domain, abelian groups, Jordan normal form | 4 | 4 | abstract-algebra (4) |
+
+## Cambridge Mathematical Tripos, Part IA Numbers and Sets schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+6 of 6 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| N1 | Number systems and logic: proof, counter-example, negation, contradiction | 4 | 4 | discrete-mathematics (4) |
+| N2 | Sets, relations and functions: injections, surjections, equivalence relations, counting, inclusion-exclusion | 13 | 13 | discrete-mathematics (13) |
+| N3 | The integers: induction, well-ordering, the binomial theorem | 9 | 9 | discrete-mathematics (9) |
+| N4 | Elementary number theory: primes, Euclid's algorithm, congruences, Chinese remainder, Wilson, Fermat-Euler, RSA | 14 | 14 | number-theory (14) |
+| N5 | The real numbers: least upper bounds, monotone sequences, irrationality, decimal expansions | 4 | 4 | real-analysis (4) |
+| N6 | Countability and uncountability: countable unions, the reals, power sets | 5 | 5 | discrete-mathematics (5) |
+
+## Cambridge Mathematical Tripos, Part II Number Theory schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+6 of 9 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| T1 | Review: Euclid's algorithm, the fundamental theorem of arithmetic, congruences, Fermat and Euler | 12 | 12 | number-theory (12) |
+| T2 | Chinese remainder theorem, Lagrange's theorem, primitive roots | 8 | 8 | number-theory (8) |
+| T3 | Quadratic residues, the Legendre symbol, Euler's criterion, quadratic reciprocity | 4 | 4 | number-theory (4) |
+| T4 | The Jacobi symbol | — | — | **nothing yet** |
+| T5 | Binary quadratic forms and the primes they represent | — | — | **nothing yet** |
+| T6 | Distribution of primes: the zeta function, the prime number theorem (statement), Chebyshev | 4 | 4 | number-theory (4) |
+| T7 | Continued fractions and Pell's equation | 4 | 4 | number-theory (4) |
+| T8 | Primality testing and pseudoprimes | 4 | 4 | number-theory (4) |
+| T9 | Factorisation methods | — | — | **nothing yet** |
+
+## Cambridge Mathematical Tripos, Part IA Analysis I schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+5 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A1 | Limits and convergence: sequences and series, Bolzano-Weierstrass, Cauchy's principle, convergence tests | 14 | 14 | real-analysis (14) |
+| A2 | Continuity: the intermediate value theorem, bounds attained on a closed interval | 6 | 6 | real-analysis (6) |
+| A3 | Differentiability: Rolle, the mean value theorem, Taylor's theorem with remainder | 6 | 6 | real-analysis (6) |
+| A4 | Power series: radius of convergence, the exponential and trigonometric functions | 4 | 4 | real-analysis (4) |
+| A5 | Integration: the Riemann integral, integrable functions, the fundamental theorem, improper integrals | 6 | 6 | real-analysis (6) |
+
+## Cambridge Mathematical Tripos, Part IB Topological Spaces schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+5 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| S1 | Topological spaces: open and closed sets, continuity, Hausdorff spaces, subspace, quotient and product topologies | 8 | 8 | topology (8) |
+| S2 | Connectedness and path-connectedness | 4 | 4 | topology (4) |
+| S3 | Compactness | 4 | 4 | topology (4) |
+| S4 | Topology of manifolds: spheres, tori, the projective plane, polygons with sides identified | 5 | 5 | topology (5) |
+| S5 | Triangulable surfaces: Euler characteristic, orientability, the classification (statement) | 5 | 5 | topology (5) |
+
+## Cambridge Mathematical Tripos, Part IB Markov Chains schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+4 of 4 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| M1 | Discrete-time chains: transition matrices, classes, hitting probabilities and mean hitting times | 9 | 9 | stochastic-processes (9) |
+| M2 | Recurrence and transience; simple random walks in one, two and three dimensions | 3 | 3 | stochastic-processes (3) |
+| M3 | Invariant distributions, mean return times, convergence to equilibrium | 7 | 7 | stochastic-processes (7) |
+| M4 | Time reversal, detailed balance, random walk on a graph | 5 | 5 | stochastic-processes (5) |
+
+## Cambridge Mathematical Tripos, Part II Applied Probability schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+2 of 5 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| P1 | Continuous-time chains on a finite state space, the Poisson process, birth and death processes | 6 | 6 | stochastic-processes (6) |
+| P2 | General continuous-time chains: jump chains, recurrence, equilibrium, reversibility | — | — | **nothing yet** |
+| P3 | Queues: M/M/1, M/M/infinity, networks, M/G/1 | 4 | 4 | stochastic-processes (4) |
+| P4 | Renewal theory and Little's formula | — | — | **nothing yet** |
+| P5 | Spatial Poisson processes | — | — | **nothing yet** |
+
+## Cambridge Mathematical Tripos, Part II Graph Theory schedule
+
+https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
+
+5 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| H1 | Basics: trees, bipartite graphs, Euler circuits, planar graphs | 10 | 10 | discrete-mathematics (10) |
+| H2 | Matchings and connectivity: Hall, Menger | 1 | 1 | discrete-mathematics (1) |
+| H3 | Extremal graph theory: Hamilton cycles, Turán | 1 | 1 | discrete-mathematics (1) |
+| H4 | Eigenvalue methods | — | — | **nothing yet** |
+| H5 | Colourings: chromatic polynomial, Brooks, Vizing, the four- and five-colour theorems | 7 | 7 | discrete-mathematics (7) |
+| H6 | Ramsey theory | 1 | 1 | discrete-mathematics (1) |
+| H7 | Probabilistic methods | — | — | **nothing yet** |
+
+## MAA CUPM Curriculum Guide 2015, Discrete Mathematics and Combinatorics course area report
+
+https://www2.kenyon.edu/Depts/Math/schumacherc/public_html/Professional/CUPM/2015Guide/Course%20Groups/DiscreteMath.pdf
+
+14 of 15 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| D1 | Basic logic and proof, with elementary number theory | 6 | 6 | discrete-mathematics (6) |
+| D2 | Sequences, induction and recursion | 4 | 4 | discrete-mathematics (4) |
+| D3 | Sets, functions and relations | 8 | 8 | discrete-mathematics (8) |
+| D4 | Combinatorics and discrete probability | 7 | 7 | discrete-mathematics (7) |
+| D5 | Graphs and trees | 7 | 7 | discrete-mathematics (7) |
+| D6 | Applications: circuits, algorithms, cryptography, automata | — | — | **nothing yet** |
+| C1 | Elementary counting principles | 6 | 6 | discrete-mathematics (6) |
+| C2 | Permutations, combinations and distributions | 8 | 8 | discrete-mathematics (8) |
+| C3 | Generating functions | 4 | 4 | discrete-mathematics (4) |
+| C4 | Inclusion-exclusion | 6 | 6 | discrete-mathematics (6) |
+| C5 | Recurrence relations | 6 | 6 | discrete-mathematics (6) |
+| GT1 | Graphs: paths, connectedness, isomorphism, planarity | 8 | 8 | discrete-mathematics (8) |
+| GT2 | Trees and spanning trees | 7 | 7 | discrete-mathematics (7) |
+| GT3 | Graph colouring | 7 | 7 | discrete-mathematics (7) |
+| GT4 | Eulerian and Hamiltonian circuits | 8 | 8 | discrete-mathematics (8) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
