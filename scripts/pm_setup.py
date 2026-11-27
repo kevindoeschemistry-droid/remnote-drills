@@ -16,7 +16,7 @@ def load(name):
     return m
 
 
-MODS = [load(n) for n in ("pm_dm", "pm_nt", "pm_aa", "pm_ra", "pm_tp", "pm_sto")]
+MODS = [load(n) for n in ("pm_dm", "pm_nt", "pm_aa", "pm_ra", "pm_tp", "pm_sto", "pm_ge")]
 
 CAM = "https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf"
 CAMNOTE = ("Read Nov 2026 from the Faculty's Schedules of Lecture Courses for the Mathematical Tripos 2026-27 (revised 19 August 2026), "

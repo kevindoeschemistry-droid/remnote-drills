@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/number-theory.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**12 learning objectives** in 4 units (12 core): 12 drilled, 0 partly, 0 with no drills. Core: 12 / 12 drilled.
+**14 learning objectives** in 4 units (14 core): 14 drilled, 0 partly, 0 with no drills. Core: 14 / 14 drilled.
 
 ## Big ideas
 
@@ -20,8 +20,8 @@ Generated from `drills/frameworks/number-theory.yaml` by `scripts/framework.mjs`
 |---|---|---|---|---|---|---|
 | 1 · Divisibility and factorisation | core | — | 3 | 3 | 0 | 0 |
 | 2 · Congruences | core | — | 4 | 4 | 0 | 0 |
-| 3 · Primitive roots and quadratic residues | core | — | 2 | 2 | 0 | 0 |
-| 4 · Diophantine equations and primes | core | — | 3 | 3 | 0 | 0 |
+| 3 · Primitive roots and quadratic residues | core | — | 3 | 3 | 0 | 0 |
+| 4 · Diophantine equations and primes | core | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · Divisibility and factorisation
 
@@ -76,6 +76,9 @@ Big ideas: STRUCT
 - ● **NT-3.1.B** (cambridge-ii-number-theory:T3) Evaluate a Legendre symbol with Euler's criterion and the reciprocity laws.
   - EK: (a/p) ≡ a^((p−1)/2) (mod p). (−1/p) = 1 exactly when p ≡ 1 (mod 4); (2/p) = 1 exactly when p ≡ ±1 (mod 8); for odd primes (p/q)(q/p) = −1 only when both are 3 mod 4.
   - P1 · drills: nt-legendre, nt-reciprocity-facts
+- ● **NT-3.1.C** (cambridge-ii-number-theory:T4) Evaluate a Jacobi symbol by reciprocity and say what it does and does not tell you.
+  - EK: The Jacobi symbol (a/n) for odd n multiplies the Legendre symbols over the prime factors of n and obeys the same reciprocity rules, so it is computed without factorising. (a/n) = −1 means a is not a square modulo n; (a/n) = 1 does not mean it is.
+  - P1 · drills: nt-jacobi, nt-jacobi-facts
 
 ## Unit 4 · Diophantine equations and primes
 
@@ -94,3 +97,6 @@ Big ideas: MOD
 - ● **NT-4.1.C** (cambridge-ii-number-theory:T6, cambridge-ii-number-theory:T8) Estimate how many primes lie below a bound and apply the Fermat primality test.
   - EK: π(x) is about x/ln x. If a^(n−1) is not 1 modulo n then n is composite; composites that pass for base a are pseudoprimes, and Carmichael numbers such as 561 pass for every coprime base.
   - P1 · drills: nt-prime-count-estimate, nt-fermat-test
+- ● **NT-4.1.D** (cambridge-ii-number-theory:T9) Factorise an integer by writing it as a difference of squares.
+  - EK: If n = a² − b² then n = (a − b)(a + b). Fermat's method tries a = ⌈√n⌉, ⌈√n⌉ + 1, … until a² − n is a square. More generally x² ≡ y² (mod n) with x ≢ ±y gives the factor gcd(x − y, n).
+  - P1 · drills: nt-fermat-factorise, nt-congruent-squares

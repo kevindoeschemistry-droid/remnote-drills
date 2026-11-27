@@ -14,7 +14,7 @@ domains: [aa]
 
 basis:
   primary: cambridge-ia-groups
-  also: [cambridge-ib-grm]
+  also: [cambridge-ib-grm, cambridge-ii-galois-theory]
   note: "Anchored on the Cambridge Groups and Groups, Rings and Modules schedules (read through an extraction). Group theory is the weight, since it is what chemistry uses; rings stop at unique factorisation, and modules appear only as the classification of finite abelian groups. Fields and Galois theory are not built."
 
 big_ideas:
@@ -100,3 +100,17 @@ units:
           - { id: A, std: ["cambridge-ib-grm:RI"], do: "Count units, zero divisors and idempotents in Z_n.", ek: ["In Z_n a non-zero residue is a unit if it is coprime to n and a zero divisor otherwise. Z_n has 2^k idempotents, where k is the number of distinct primes dividing n."], p: [P1], drills: [aa-zero-divisors, aa-idempotents] }
           - { id: B, std: ["cambridge-ib-grm:RI"], do: "Decide whether a quotient ring is a field and count roots of a polynomial over Z_p.", ek: ["Z_n is a field exactly when n is prime, and F[x]/(f) is a field exactly when f is irreducible. Over a field a polynomial of degree d has at most d roots; over Z_n with n composite it can have more."], p: [P2], drills: [aa-field-or-not, aa-roots-mod-n] }
           - { id: C, std: ["cambridge-ib-grm:RI"], do: "Work with norms in the Gaussian integers and recognise failures of unique factorisation.", ek: ["N(a + bi) = a² + b² is multiplicative, so an element of prime norm is irreducible. Z[i] has unique factorisation; Z[√−5] does not, since 6 = 2 · 3 = (1 + √−5)(1 − √−5)."], p: [P1], drills: [aa-gaussian-norm, aa-factorisation-facts] }
+  - id: fields
+    n: 6
+    title: "Fields and Galois theory"
+    std: ["cambridge-ii-galois-theory:E", "cambridge-ii-galois-theory:F", "cambridge-ii-galois-theory:G", "cambridge-ii-galois-theory:S"]
+    scope: extension
+    ideas: [SYM, DIV]
+    topics:
+      - n: 1
+        title: "Extensions, finite fields and the Galois correspondence"
+        los:
+          - { id: D, std: ["cambridge-ii-galois-theory:S"], do: "Decide what can be constructed by ruler and compass or solved by radicals.", ek: ["A length is constructible only if its degree over Q is a power of 2, so a regular n-gon is constructible exactly when φ(n) is a power of 2. A polynomial is soluble by radicals exactly when its Galois group is soluble; S₅ is not."], p: [P1], drills: [aa-constructible-polygon, aa-impossibility-facts] }
+          - { id: A, std: ["cambridge-ii-galois-theory:E"], do: "Find the degree of a field extension and use the tower law.", ek: ["[K(α) : K] is the degree of the minimal polynomial of α over K, and degrees multiply up a tower: [M : K] = [M : L][L : K]."], p: [P1], drills: [aa-extension-degree, aa-tower-law] }
+          - { id: B, std: ["cambridge-ii-galois-theory:F"], do: "Count the elements, subfields and irreducible polynomials of a finite field.", ek: ["There is exactly one field of each prime-power order pⁿ. Its non-zero elements form a cyclic group, its subfields are the fields of order p^d for d dividing n, and xᵖⁿ − x is the product of every monic irreducible over F_p whose degree divides n."], p: [P1], drills: [aa-irreducible-count, aa-subfield-count] }
+          - { id: C, std: ["cambridge-ii-galois-theory:G"], do: "Find the order of a Galois group and read the Galois correspondence.", ek: ["For a Galois extension the group has order equal to the degree, and subgroups correspond to intermediate fields with inclusions reversed; a subfield is normal over the base exactly when its subgroup is normal. Q(ζ_n) has group the units modulo n, of order φ(n)."], p: [P1], drills: [aa-cyclotomic-degree, aa-galois-correspondence] }

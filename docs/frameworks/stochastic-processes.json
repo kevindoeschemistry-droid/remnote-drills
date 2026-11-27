@@ -15,7 +15,8 @@
  "basis": {
   "primary": "cambridge-ib-markov-chains",
   "also": [
-   "cambridge-ii-applied-probability"
+   "cambridge-ii-applied-probability",
+   "cambridge-ii-stochastic-financial-models"
   ],
   "note": "Anchored on the Cambridge Markov Chains schedule (read through an extraction), with the Poisson process and the M/M/1 queue from Applied Probability. Renewal theory, general continuous-time chains, martingales and Brownian motion are not built."
  },
@@ -331,6 +332,97 @@
      ]
     }
    ]
+  },
+  {
+   "id": "martingales",
+   "n": 5,
+   "title": "Martingales and Brownian motion",
+   "std": [
+    "cambridge-ii-stochastic-financial-models:MG",
+    "cambridge-ii-stochastic-financial-models:BM",
+    "cambridge-ii-stochastic-financial-models:BR"
+   ],
+   "scope": "extension",
+   "ideas": [
+    "STEP",
+    "EQ"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Fair games in discrete and continuous time",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-stochastic-financial-models:MG"
+       ],
+       "do": "Compute a conditional expectation and decide whether a process is a martingale.",
+       "ek": [
+        "M is a martingale when E[M_(n+1) | past] = M_n: a fair game. For a simple symmetric walk S_n, both S_n and S_n² − n are martingales; for a biased walk, (q/p)^S_n is."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sto-conditional-expectation",
+        "sto-is-martingale"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-stochastic-financial-models:MG"
+       ],
+       "do": "Use the optional stopping theorem to find exit probabilities and expected exit times.",
+       "ek": [
+        "For a martingale and a bounded stopping time (or bounded increments and finite mean time), E[M_T] = M₀. Applied to S_n it gives P(hit b before −a) = a/(a + b); applied to S_n² − n it gives E[T] = ab."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sto-exit-probability",
+        "sto-exit-time"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-stochastic-financial-models:BM"
+       ],
+       "do": "Price a claim in the one-period binomial model by the risk-neutral probability.",
+       "ek": [
+        "If the stock moves from S to uS or dS and the bank pays 1 + r, with d < 1 + r < u, the risk-neutral up-probability is q = (1 + r − d)/(u − d), and any claim costs its discounted q-expectation: the price of the portfolio that replicates it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sto-risk-neutral-q",
+        "sto-binomial-call"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ii-stochastic-financial-models:BR"
+       ],
+       "do": "Compute variances, covariances and hitting probabilities for Brownian motion.",
+       "ek": [
+        "B_t − B_s is normal with mean 0 and variance t − s, independent of the past, so Cov(B_s, B_t) = min(s, t). Reflection principle: P(max over [0, t] ≥ a) = 2 P(B_t ≥ a)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "sto-brownian-variance",
+        "sto-reflection"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -463,6 +555,50 @@
    "full": [
     "sto-mm1-mean",
     "sto-birth-death"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sto-conditional-expectation",
+    "sto-is-martingale"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sto-exit-probability",
+    "sto-exit-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sto-risk-neutral-q",
+    "sto-binomial-call"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "sto-brownian-variance",
+    "sto-reflection"
    ],
    "partial": []
   }

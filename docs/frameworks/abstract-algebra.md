@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/abstract-algebra.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**16 learning objectives** in 5 units (16 core): 16 drilled, 0 partly, 0 with no drills. Core: 16 / 16 drilled.
+**20 learning objectives** in 6 units (16 core): 20 drilled, 0 partly, 0 with no drills. Core: 16 / 16 drilled.
 
 ## Big ideas
 
@@ -23,6 +23,7 @@ Generated from `drills/frameworks/abstract-algebra.yaml` by `scripts/framework.m
 | 3 · Group actions | core | — | 3 | 3 | 0 | 0 |
 | 4 · Quotients and structure | core | — | 3 | 3 | 0 | 0 |
 | 5 · Rings | core | — | 3 | 3 | 0 | 0 |
+| 6 · Fields and Galois theory | extension | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · Groups and subgroups
 
@@ -116,3 +117,24 @@ Big ideas: DIV
 - ● **AA-5.1.C** (cambridge-ib-grm:RI) Work with norms in the Gaussian integers and recognise failures of unique factorisation.
   - EK: N(a + bi) = a² + b² is multiplicative, so an element of prime norm is irreducible. Z[i] has unique factorisation; Z[√−5] does not, since 6 = 2 · 3 = (1 + √−5)(1 − √−5).
   - P1 · drills: aa-gaussian-norm, aa-factorisation-facts
+
+## Unit 6 · Fields and Galois theory (extension)
+
+Big ideas: SYM, DIV
+
+### 6.1 Extensions, finite fields and the Galois correspondence
+
+
+
+- ● **AA-6.1.D** (cambridge-ii-galois-theory:S) Decide what can be constructed by ruler and compass or solved by radicals.
+  - EK: A length is constructible only if its degree over Q is a power of 2, so a regular n-gon is constructible exactly when φ(n) is a power of 2. A polynomial is soluble by radicals exactly when its Galois group is soluble; S₅ is not.
+  - P1 · drills: aa-constructible-polygon, aa-impossibility-facts
+- ● **AA-6.1.A** (cambridge-ii-galois-theory:E) Find the degree of a field extension and use the tower law.
+  - EK: [K(α) : K] is the degree of the minimal polynomial of α over K, and degrees multiply up a tower: [M : K] = [M : L][L : K].
+  - P1 · drills: aa-extension-degree, aa-tower-law
+- ● **AA-6.1.B** (cambridge-ii-galois-theory:F) Count the elements, subfields and irreducible polynomials of a finite field.
+  - EK: There is exactly one field of each prime-power order pⁿ. Its non-zero elements form a cyclic group, its subfields are the fields of order p^d for d dividing n, and xᵖⁿ − x is the product of every monic irreducible over F_p whose degree divides n.
+  - P1 · drills: aa-irreducible-count, aa-subfield-count
+- ● **AA-6.1.C** (cambridge-ii-galois-theory:G) Find the order of a Galois group and read the Galois correspondence.
+  - EK: For a Galois extension the group has order equal to the degree, and subgroups correspond to intermediate fields with inclusions reversed; a subfield is normal over the base exactly when its subgroup is normal. Q(ζ_n) has group the units modulo n, of order φ(n).
+  - P1 · drills: aa-cyclotomic-degree, aa-galois-correspondence

@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/real-analysis.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**15 learning objectives** in 5 units (15 core): 15 drilled, 0 partly, 0 with no drills. Core: 15 / 15 drilled.
+**21 learning objectives** in 6 units (15 core): 21 drilled, 0 partly, 0 with no drills. Core: 15 / 15 drilled.
 
 ## Big ideas
 
@@ -23,6 +23,7 @@ Generated from `drills/frameworks/real-analysis.yaml` by `scripts/framework.mjs`
 | 3 · Series | core | — | 3 | 3 | 0 | 0 |
 | 4 · Continuity | core | — | 3 | 3 | 0 | 0 |
 | 5 · Differentiation and integration | core | — | 4 | 4 | 0 | 0 |
+| 6 · Uniform convergence and metric spaces | extension | — | 6 | 6 | 0 | 0 |
 
 ## Unit 1 · The real numbers
 
@@ -113,3 +114,35 @@ Big ideas: HYP, EPS
 - ● **RA-5.1.D** (cambridge-ia-analysis-i:A5) Decide whether an improper integral converges and evaluate it.
   - EK: ∫₁^∞ x^(−p) dx converges exactly when p > 1, to 1/(p − 1); ∫₀¹ x^(−p) dx converges exactly when p < 1, to 1/(1 − p). Comparison with these settles most cases.
   - P1 · drills: ra-improper-value, ra-improper-converges
+
+## Unit 6 · Uniform convergence and metric spaces (extension)
+
+Big ideas: EPS, HYP
+
+### 6.1 Uniform convergence
+
+
+
+- ● **RA-6.1.A** (cambridge-ib-analysis-ii:U) Measure how far a sequence of functions is from its limit in the uniform norm and decide whether convergence is uniform.
+  - EK: f_n → f uniformly when sup |f_n − f| → 0. Pointwise convergence lets the worst point move with n; uniform convergence does not. A uniform limit of continuous functions is continuous.
+  - P1 · drills: ra-sup-norm, ra-uniform-or-pointwise
+- ● **RA-6.1.B** (cambridge-ib-analysis-ii:U) Apply the Weierstrass M-test and say what uniform convergence lets you exchange.
+  - EK: If |f_n(x)| ≤ M_n for all x and Σ M_n converges, then Σ f_n converges uniformly. Uniform convergence allows a limit to pass through an integral, and through a derivative when the derivatives converge uniformly.
+  - P1 · drills: ra-m-test-bound, ra-exchange-facts
+
+### 6.2 Metric spaces, completeness and contractions
+
+
+
+- ● **RA-6.2.B** (cambridge-ib-analysis-ii:C) Decide whether a metric space is complete and say what completeness buys.
+  - EK: A space is complete when every Cauchy sequence converges in it. Rⁿ and C[a, b] with the uniform norm are complete; the rationals and an open interval are not. A closed subset of a complete space is complete.
+  - P1 · drills: ra-complete-or-not, ra-completeness-uses
+- ● **RA-6.2.A** (cambridge-ib-analysis-ii:M) Compute distances in the standard norms on Rⁿ and compare the norms.
+  - EK: ‖x‖₁ = Σ|x_i|, ‖x‖₂ = √Σx_i², ‖x‖∞ = max|x_i|, with ‖x‖∞ ≤ ‖x‖₂ ≤ ‖x‖₁ ≤ n‖x‖∞. All norms on a finite-dimensional space are Lipschitz equivalent, so they give the same open sets.
+  - P1 · drills: ra-norm-distance, ra-norm-ratio
+- ● **RA-6.2.C** (cambridge-ib-analysis-ii:C) Apply the contraction mapping theorem: find the contraction constant and bound the error of the iteration.
+  - EK: If d(f(x), f(y)) ≤ k d(x, y) with k < 1 on a complete space, f has exactly one fixed point, and the iterates satisfy d(x_n, x*) ≤ kⁿ d(x₁, x₀)/(1 − k). Picard's theorem for ODEs is this theorem in C[a, b].
+  - P1 · drills: ra-contraction-steps, ra-contraction-constant
+- ● **RA-6.2.D** (cambridge-ib-analysis-ii:D) Classify a critical point of a function of two variables from its Hessian.
+  - EK: At a critical point, a positive-definite Hessian is a local minimum, negative-definite a local maximum, indefinite a saddle; a zero determinant leaves the test undecided. Mixed partials agree when they are continuous.
+  - P1 · drills: ra-hessian-det, ra-critical-classify
