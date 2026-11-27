@@ -43,9 +43,11 @@ Big ideas: ENERGY
 
 - ● **BC-1.1.A** (asbmb-core-2013:3.1, asbmb-core-2013:3.3, fe-chemical:5.D) Compute buffer pH or the base:acid ratio of a biological buffer with the Henderson–Hasselbalch equation.
   - EK: pH = pKa + log([A⁻]/[HA]); phosphate (pKa 6.86) and bicarbonate (6.1) buffer cells and blood.
+  - Needs: CH-8.9.C, BI-1.1.B
   - P1 · drills: bc-hh-ph, bc-blood-ratio
 - ● **BC-1.1.B** (asbmb-core-2013:3.1) Compute the fraction of an ionisable side chain protonated at a given pH.
   - EK: f(HA) = 1/(1 + 10^(pH − pKa)); His (pKa ≈ 6.0) switches near physiological pH.
+  - Needs: BC-1.1.A
   - P1 · drills: bc-fraction-protonated, bc-shifted-pka
 
 ### 1.2 Amino-acid and peptide charge
@@ -54,9 +56,11 @@ Big ideas: ENERGY
 
 - ● **BC-1.2.A** (aamc-mcat-outline:1A) Find the isoelectric point of an amino acid from its pKa values.
   - EK: pI = average of the two pKa values flanking the neutral species.
+  - Needs: BC-1.1.B
   - P1 · drills: bc-pi, bc-pi-glycine
 - ● **BC-1.2.B** (aamc-mcat-outline:1A, asbmb-core-2013:5.2) Compute the net charge of a peptide at a given pH from its ionisable groups.
   - EK: Sum fractional charges: +1/(1 + 10^(pH − pKa)) for basic groups, −1/(1 + 10^(pKa − pH)) for acidic ones.
+  - Needs: BC-1.2.A
   - P1 · drills: bc-peptide-charge, bc-charge-direction
 
 ## Unit 2 · Protein structure and folding
@@ -69,9 +73,11 @@ Big ideas: STRUCTURE, ENERGY
 
 - ● **BC-2.1.A** (asbmb-cert:2.1, asbmb-core-2013:5.1) Relate secondary-structure geometry to length: residues per turn and rise per residue.
   - EK: α-helix: 3.6 residues/turn, 1.5 Å rise per residue (5.4 Å pitch); β-strand: about 3.3–3.5 Å per residue.
+  - Needs: BC-1.2.B, BI-1.5.C
   - P1 · drills: bc-helix-length, bc-helix-turns
 - ● **BC-2.1.B** (asbmb-cert:2.3, asbmb-core-2013:5.2) Identify the interactions that stabilise a structure and predict the effect of a substitution.
   - EK: Hydrophobic burial, hydrogen bonds, salt bridges, disulfides; Pro breaks helices, Gly adds flexibility.
+  - Needs: BC-2.1.A
   - P2 · drills: bc-interactions, bc-structure-levels
 
 ### 2.2 Folding thermodynamics
@@ -80,15 +86,19 @@ Big ideas: STRUCTURE, ENERGY
 
 - ● **BC-2.2.A** (asbmb-core-2013:5.2, asbmb-cert:1.3, asbmb-core-2013:5.5) Compute ΔG of folding, the melting temperature and the fraction folded for a two-state protein.
   - EK: ΔG_unf = ΔH(1 − T/Tm) (ΔCp neglected); K_fold = e^(−ΔG_fold/RT); f_folded = K/(1 + K).
+  - Needs: BC-2.1.B
   - P1 · drills: bc-fold-fraction, bc-fold-dg
 - ● **BC-2.2.B** (asbmb-core-2013:5.2, asbmb-cert:2.3) Convert a mutation's ΔΔG into a change in stability, folding equilibrium constant or fraction unfolded.
   - EK: ΔΔG > 0 destabilises; each 5.7 kJ/mol at 298 K is a factor of 10 in K.
+  - Needs: BC-2.2.A
   - P1 · drills: bc-ddg-fraction, bc-ddg-k-factor
 - ● **BC-2.2.C** (asbmb-cert:1.3, asbmb-core-2013:5.2, asbmb-core-2013:5.5) Explain the hydrophobic effect and why folding is not a random search.
   - EK: Burying nonpolar groups releases ordered water (entropy gain); Levinthal: a random search would take astronomically long, so folding follows a funnel.
+  - Needs: BC-2.2.B
   - P2 · drills: bc-hydrophobic, bc-levinthal
 - ● **BC-2.2.D** (asbmb-core-2013:5.6) Recognise intrinsically disordered proteins from their composition and say how they still function.
   - EK: Few hydrophobic residues and high net charge keep a chain unfolded; disordered regions bind by folding on contact, often to many partners, and are common in signalling.
+  - Needs: BC-2.2.C
   - P1 · drills: bc-idp-facts, bc-idp-charge
 
 ## Unit 3 · Binding, cooperativity and allostery
@@ -101,9 +111,11 @@ Big ideas: STRUCTURE
 
 - ● **BC-3.1.A** (asbmb-core-2013:5.3, asbmb-core-2013:5.4) Compute fractional saturation and the binding free energy from K_d.
   - EK: θ = [L]/(K_d + [L]); ΔG°_bind = RT ln K_d (with K_d in M).
+  - Needs: BC-2.2.D, CH-7.3.B
   - P1 · drills: bc-theta, bc-dg-bind
 - ● **BC-3.1.B** (asbmb-core-2013:5.3, asbmb-core-2013:5.4) Compute the ΔΔG of binding between two variants from their K_d values.
   - EK: ΔΔG = RT ln(K_d,mut/K_d,wt); a 10-fold loss is +5.7 kJ/mol at 298 K.
+  - Needs: BC-3.1.A
   - P1 · drills: bc-ddg-bind, bc-kd-from-ddg
 
 ### 3.2 Cooperativity and allostery
@@ -112,9 +124,11 @@ Big ideas: STRUCTURE
 
 - ● **BC-3.2.A** (asbmb-core-2013:5.7, asbmb-core-2013:5.4) Use the Hill equation and read cooperativity from n_H.
   - EK: θ = Lⁿ/(K₀.₅ⁿ + Lⁿ); going from 10% to 90% saturation needs an 81^(1/n)-fold change in [L].
+  - Needs: BC-3.1.B
   - P1 · drills: bc-hill-theta, bc-hill-range
 - ● **BC-3.2.B** (asbmb-core-2013:5.7, asbmb-cert:1.1) Explain haemoglobin's cooperativity and its regulation by H⁺, CO₂ and 2,3-BPG.
   - EK: T and R states; the Bohr effect and BPG stabilise T, lowering affinity to unload O₂ in tissues; myoglobin binds hyperbolically.
+  - Needs: BC-3.2.A
   - P2 · drills: bc-hemoglobin, bc-allostery-models
 
 ## Unit 4 · Enzymes
@@ -127,12 +141,15 @@ Big ideas: ENERGY
 
 - ● **BC-4.1.A** (asbmb-core-2013:2.2, asbmb-cert:2.4, acs-accm-analytical:VII.E.1, fe-chemical:5.D) Compute an initial rate from V_max, K_M and [S].
   - EK: v = V_max[S]/(K_M + [S]); v = V_max/2 at [S] = K_M.
+  - Needs: BC-3.2.B, BI-3.2.B, CH-5.10.A
   - P1 · drills: bc-mm-rate, bc-mm-s-for-v
 - ● **BC-4.1.B** (asbmb-core-2013:2.2) Compute k_cat and catalytic efficiency and compare with the diffusion limit.
   - EK: k_cat = V_max/[E]_T; k_cat/K_M approaches 10⁸–10⁹ M⁻¹ s⁻¹ for diffusion-limited enzymes.
+  - Needs: BC-4.1.A
   - P1 · drills: bc-kcat, bc-efficiency
 - ● **BC-4.1.C** (asbmb-core-2013:2.2, asbmb-cert:2.4, acs-accm-analytical:X.A.2) Read K_M and V_max from a Lineweaver–Burk plot.
   - EK: 1/v = (K_M/V_max)(1/[S]) + 1/V_max: y-intercept 1/V_max, x-intercept −1/K_M.
+  - Needs: BC-4.1.B
   - P1 · drills: bc-lb-km, bc-lb-vmax
 
 ### 4.2 Inhibition
@@ -141,9 +158,11 @@ Big ideas: ENERGY
 
 - ● **BC-4.2.A** (asbmb-cert:2.4) Compute apparent K_M and V_max for competitive, uncompetitive and mixed inhibition.
   - EK: α = 1 + [I]/K_I: competitive K_M,app = αK_M; uncompetitive divides both K_M and V_max by α′; mixed scales both.
+  - Needs: BC-4.1.C
   - P1 · drills: bc-competitive, bc-uncompetitive
 - ● **BC-4.2.B** (asbmb-cert:2.4) Convert an IC₅₀ to K_I for a competitive inhibitor and classify inhibition from data.
   - EK: Cheng–Prusoff: K_I = IC₅₀/(1 + [S]/K_M).
+  - Needs: BC-4.2.A
   - P1 · drills: bc-cheng-prusoff, bc-inhibition-pattern
 
 ### 4.3 Catalytic mechanisms
@@ -152,9 +171,11 @@ Big ideas: ENERGY
 
 - ● **BC-4.3.A** (asbmb-cert:1.5) Relate transition-state stabilisation to rate enhancement, separating it from ΔG of the reaction.
   - EK: Enzymes lower ΔG‡, not ΔG; rate enhancement = e^(ΔΔG‡/RT).
+  - Needs: BC-4.2.B
   - P1 · drills: bc-rate-enhancement, bc-catalysis-thermo
 - ● **BC-4.3.B** (asbmb-cert:2.4) Identify catalytic strategies (acid–base, covalent, metal ion, proximity) in a described mechanism.
   - EK: Serine proteases: Ser–His–Asp triad, covalent acyl-enzyme, oxyanion hole stabilises the tetrahedral intermediate.
+  - Needs: BC-4.3.A
   - P2 · drills: bc-catalytic-strategies, bc-catalytic-strategies-2
 
 ## Unit 5 · Bioenergetics
@@ -167,9 +188,11 @@ Big ideas: ENERGY
 
 - ● **BC-5.1.A** (asbmb-core-2013:2.3) Compute ΔG of ATP hydrolysis at cellular concentrations from ΔG°′ and the mass-action ratio.
   - EK: ΔG = ΔG°′ + RT ln([ADP][Pi]/[ATP]); ΔG°′ = −30.5 kJ/mol, cellular ΔG about −50 to −60.
+  - Needs: BC-1.2.B, CH-9.7.A
   - P1 · drills: bc-atp-dg, bc-atp-ratio-needed
 - ● **BC-5.1.B** (asbmb-core-2013:2.4, asbmb-cert:1.4) Find the overall ΔG°′ and K′ of a coupled reaction.
   - EK: ΔG°′ values add; K′ = e^(−ΔG°′/RT) multiplies.
+  - Needs: BC-5.1.A
   - P1 · drills: bc-coupled-dg, bc-coupling-k
 
 ### 5.2 Redox and chemiosmosis
@@ -178,9 +201,11 @@ Big ideas: ENERGY
 
 - ● **BC-5.2.A** (asbmb-core-2013:2.3, asbmb-core-2013:2.1) Compute ΔG°′ of an electron transfer from standard reduction potentials.
   - EK: ΔG°′ = −nFΔE°′; NADH → O₂ (ΔE°′ = 1.14 V) releases about 220 kJ/mol.
+  - Needs: BC-5.1.B
   - P1 · drills: bc-redox-dg, bc-redox-atp
 - ● **BC-5.2.B** (asbmb-core-2013:3.2, asbmb-core-2013:2.1) Compute the proton-motive force and the free energy per proton moved into the matrix.
   - EK: Δp = Δψ − (2.303RT/F)ΔpH (pH_in − pH_out); ΔG per H⁺ = −FΔp.
+  - Needs: BC-5.2.A
   - P1 · drills: bc-pmf, bc-pmf-dg
 
 ## Unit 6 · Membranes and transport
@@ -193,12 +218,15 @@ Big ideas: ENERGY, STRUCTURE
 
 - ● **BC-6.1.A** (asbmb-core-2013:2.1, fe-chemical:5.D) Compute the Nernst equilibrium potential of an ion.
   - EK: E = (RT/zF) ln([out]/[in]); about 61.5/z mV per decade at 37 °C.
+  - Needs: BC-5.2.B, BI-2.6.B
   - P1 · drills: bc-nernst, bc-nernst-ratio
 - ● **BC-6.1.B** (asbmb-core-2013:3.2, asbmb-core-2013:2.1) Compute the free energy of moving a charged solute across a membrane.
   - EK: ΔG = RT ln(c_in/c_out) + zFΔψ (Δψ = ψ_in − ψ_out).
+  - Needs: BC-6.1.A
   - P1 · drills: bc-transport-dg, bc-glucose-gradient
 - ● **BC-6.1.C** (asbmb-cert:2.1) Distinguish channels, carriers and pumps, and predict how lipid composition changes fluidity.
   - EK: Unsaturated and shorter chains raise fluidity; cholesterol buffers it; pumps use ATP, secondary transporters use gradients.
+  - Needs: BC-6.1.B
   - P2 · drills: bc-membranes, bc-membranes-2
 
 ## Unit 7 · Metabolism
@@ -211,9 +239,11 @@ Big ideas: ENERGY, REGULATION
 
 - ● **BC-7.1.A** (asbmb-cert:1.1, asbmb-core-2013:3.4) Account for the ATP and NADH of glycolysis and name its control points.
   - EK: Net 2 ATP and 2 NADH per glucose; hexokinase, PFK-1 (the committed step) and pyruvate kinase are irreversible and regulated.
+  - Needs: BC-4.3.B, BC-5.2.B, BI-3.6.E
   - P1 · drills: bc-glycolysis-atp, bc-glycolysis-control
 - ● **BC-7.1.B** (asbmb-cert:1.1, asbmb-cert:1.2, asbmb-core-2013:3.4) Explain how gluconeogenesis bypasses glycolysis's irreversible steps and what it costs.
   - EK: Pyruvate carboxylase + PEPCK, fructose-1,6-bisphosphatase, glucose-6-phosphatase; 4 ATP + 2 GTP + 2 NADH per glucose.
+  - Needs: BC-7.1.A
   - P2 · drills: bc-gluconeogenesis, bc-gng-cost
 
 ### 7.2 Oxidative metabolism
@@ -222,9 +252,11 @@ Big ideas: ENERGY, REGULATION
 
 - ● **BC-7.2.A** (asbmb-core-2013:2.3) Compute the ATP yield of complete glucose oxidation from P/O ratios.
   - EK: 10 NADH and 2 FADH₂ per glucose (with the shuttle); 2.5 ATP/NADH and 1.5 ATP/FADH₂ give about 30–32 ATP.
+  - Needs: BC-7.1.B
   - P1 · drills: bc-glucose-atp, bc-tca
 - ● **BC-7.2.B** (asbmb-cert:1.2) Compute the ATP yield of β-oxidation of a saturated fatty acid.
   - EK: C_n: n/2 − 1 rounds (each FADH₂ + NADH), n/2 acetyl-CoA (10 ATP each), minus 2 for activation; palmitate gives 106.
+  - Needs: BC-7.2.A
   - P1 · drills: bc-beta-ox, bc-beta-rounds
 
 ### 7.3 Regulation and nitrogen
@@ -233,9 +265,11 @@ Big ideas: ENERGY, REGULATION
 
 - ● **BC-7.3.A** (asbmb-core-2013:3.5, asbmb-cert:1.1, asbmb-core-2013:3.6) Predict how insulin, glucagon and allosteric effectors regulate fuel metabolism.
   - EK: Insulin: storage (glycogen synthesis, glycolysis); glucagon: mobilisation via cAMP/PKA; F2,6BP couples hormone state to PFK-1.
+  - Needs: BC-7.2.B
   - P2 · drills: bc-hormones, bc-regulation-levels
 - ● **BC-7.3.B** (asbmb-core-2013:3.4) Account for the cost and logic of nitrogen disposal through the urea cycle.
   - EK: Urea carries two N (one from NH₄⁺ via carbamoyl phosphate, one from aspartate); 4 high-energy phosphate bonds per urea.
+  - Needs: BC-7.3.A
   - P2 · drills: bc-urea-cost, bc-urea
 
 ## Unit 8 · Nucleic acids and information flow
@@ -248,9 +282,11 @@ Big ideas: INFORMATION
 
 - ● **BC-8.1.A** (asbmb-core-2013:4.2, asbmb-core-2013:4.1) Use Chargaff's rules to find base composition.
   - EK: In double-stranded DNA, A = T and G = C, so %G = (100 − 2·%A)/2.
+  - Needs: BC-1.2.B, BI-6.4.B
   - P1 · drills: bc-chargaff, bc-gc-content
 - ● **BC-8.1.B** (asbmb-core-2013:4.2) Estimate a short duplex's melting temperature and say why GC content raises it.
   - EK: Wallace rule for short oligos: Tm ≈ 2(A + T) + 4(G + C) °C; GC pairs stack more strongly (and have three H-bonds).
+  - Needs: BC-8.1.A
   - P1 · drills: bc-wallace, bc-dna-tm
 
 ### 8.2 Mutation and fidelity
@@ -259,9 +295,11 @@ Big ideas: INFORMATION
 
 - ● **BC-8.2.A** (asbmb-cert:3.1, asbmb-core-2013:1.5) Predict a mutation's effect on the protein: silent, missense, nonsense or frameshift.
   - EK: An insertion or deletion that is not a multiple of 3 shifts the reading frame downstream.
+  - Needs: BC-8.1.B
   - P2 · drills: bc-frameshift, bc-mutation-type
 - ● **BC-8.2.B** (asbmb-core-2013:4.4) Compute the expected number of replication errors per genome from the error rate.
   - EK: Errors = genome length × error rate per base; proofreading and mismatch repair bring E. coli to ~10⁻¹⁰ per base.
+  - Needs: BC-8.2.A
   - P1 · drills: bc-replication-errors, bc-fidelity
 
 ### 8.3 Expression and its measurement
@@ -270,9 +308,11 @@ Big ideas: INFORMATION
 
 - ● **BC-8.3.A** (asbmb-cert:3.2, asbmb-cert:3.3, asbmb-core-2013:4.2) Predict gene-expression changes from regulatory logic (lac operon, activators, repressors).
   - EK: lac is expressed when lactose is present (repressor off) and glucose is low (cAMP–CAP on).
+  - Needs: BC-8.2.B
   - P2 · drills: bc-lac-operon, bc-eukaryote-expression
 - ● **BC-8.3.B** (asbmb-core-2013:4.3) Compute PCR amplification and a qPCR fold change by the ΔΔCt method.
   - EK: Copies = N₀·2ⁿ at full efficiency; fold change = 2^(−ΔΔCt).
+  - Needs: BC-8.3.A
   - P1 · drills: bc-pcr, bc-ddct
 
 ## Unit 9 · Signalling and regulation
@@ -285,9 +325,11 @@ Big ideas: REGULATION
 
 - ● **BC-9.1.A** (asbmb-cert:3.5) Compute the amplification of a signalling cascade.
   - EK: Gains multiply: each enzyme in a cascade activates many of the next.
+  - Needs: BC-3.2.B, BC-4.3.B, BI-4.3.B
   - P1 · drills: bc-cascade, bc-signal-termination
 - ● **BC-9.1.B** (asbmb-cert:3.5) Match a receptor class to its second messenger and downstream kinase.
   - EK: GPCR–Gs → adenylyl cyclase → cAMP → PKA; Gq → PLC → IP₃ (Ca²⁺) and DAG (PKC); RTKs autophosphorylate and recruit SH2 proteins.
+  - Needs: BC-9.1.A
   - P2 · drills: bc-receptor-classes, bc-receptor-classes-2
 
 ## Unit 10 · Methods in biochemistry
@@ -300,9 +342,11 @@ Big ideas: MEASURE
 
 - ● **BC-10.1.A** (acs-accm-analytical:I.D.3) Compute protein concentration from A₂₈₀ with the Beer–Lambert law.
   - EK: A = εcl; ε₂₈₀ ≈ 5500·nW + 1490·nY + 125·(cystines) M⁻¹ cm⁻¹.
+  - Needs: BC-2.2.D, BC-8.3.B
   - P1 · drills: bc-a280, bc-a280-mg
 - ● **BC-10.1.B** () Estimate a protein's molar mass from SDS-PAGE mobility against standards.
   - EK: log M is linear in relative mobility over the gel's range.
+  - Needs: BC-10.1.A
   - P1 · drills: bc-sds-mw, bc-sds-facts
 
 ### 10.2 Purification
@@ -311,9 +355,11 @@ Big ideas: MEASURE
 
 - ● **BC-10.2.A** () Compute specific activity, fold purification and yield from a purification table.
   - EK: Specific activity = units/mg; fold = SA/SA_crude; yield = units/units_crude.
+  - Needs: BC-10.1.B
   - P1 · drills: bc-purification, bc-yield
 - ● **BC-10.2.B** (acs-accm-analytical:IV.B.1) Choose a separation (ion exchange, gel filtration, affinity) from a protein's pI, size or binding.
   - EK: Below its pI a protein is positive and binds a cation exchanger; gel filtration elutes large proteins first.
+  - Needs: BC-10.2.A
   - P2 · drills: bc-separation-choice, bc-separation-choice-2
 
 ## Unit 11 · Evolution and homeostasis
@@ -326,9 +372,11 @@ Big ideas: INFORMATION, REGULATION
 
 - ● **BC-11.1.A** (asbmb-core-2013:1.3, asbmb-core-2013:1.4, asbmb-core-2013:1.2) Estimate divergence time from sequence differences with a molecular clock.
   - EK: t = d/(2r): differences accumulate along both lineages.
+  - Needs: BC-7.3.B, BC-8.3.B, BI-7.5.C
   - P1 · drills: bc-mol-clock, bc-mol-clock-2
 - ● **BC-11.1.B** (asbmb-cert:2.5, asbmb-core-2013:1.5, asbmb-core-2013:1.2) Judge homology from sequence identity and explain conserved function with changed sequence.
   - EK: Above ~30–40% identity over a full domain, proteins are very likely homologous; active-site residues are conserved more than surface ones.
+  - Needs: BC-11.1.A
   - P2 · drills: bc-identity, bc-homology
 
 ### 11.2 Steady state and control
@@ -337,6 +385,7 @@ Big ideas: INFORMATION, REGULATION
 
 - ● **BC-11.2.A** (asbmb-core-2013:3.2, asbmb-core-2013:3.6, asbmb-core-2013:3.3) Use the mass-action ratio to tell near-equilibrium steps from regulated, far-from-equilibrium ones.
   - EK: Q/K′ ≈ 1 means near equilibrium (not a control point); Q/K′ ≪ 1 means large negative ΔG, a likely control point.
+  - Needs: BC-11.1.B
   - P1 · drills: bc-mass-action, bc-steady-state
 
 ## Drills not yet placed on the map

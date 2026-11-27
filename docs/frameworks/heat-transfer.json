@@ -121,6 +121,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PH-9.3.A"
+       ],
        "drills": [
         "~mae-concept",
         "ht-radiation-loss"
@@ -134,6 +137,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "HT-1.1.A"
        ],
        "drills": [
         "ht-cond",
@@ -150,6 +156,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "HT-1.1.B"
+       ],
        "drills": [
         "ht-conv",
         "ht-h-from-data"
@@ -163,6 +172,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "HT-1.1.C"
        ],
        "drills": [
         "~ht-rad",
@@ -193,6 +205,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "HT-1.1.D"
+       ],
        "drills": [
         "ht-eb-wire",
         "ht-wire-temperature"
@@ -206,6 +221,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "HT-1.2.A"
        ],
        "drills": [
         "ht-eb-surface",
@@ -221,6 +239,9 @@
        "p": [
         "P1",
         "P4"
+       ],
+       "needs": [
+        "HT-1.2.B"
        ],
        "drills": [
         "ht-eb-dTdt",
@@ -265,6 +286,10 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-1.2.C",
+        "EM-10.1.A"
+       ],
        "drills": [
         "ht-he-flux",
         "ht-drop-across-wall"
@@ -278,6 +303,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "HT-2.1.A"
        ],
        "drills": [
         "ht-diffusivity",
@@ -307,6 +335,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "HT-2.1.B"
+       ],
        "drills": [
         "ht-heq-cylinder",
         "ht-heq-sphere"
@@ -322,6 +353,9 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "HT-2.2.A"
+       ],
        "drills": [
         "ht-he-gen",
         "ht-he-dTdt",
@@ -336,6 +370,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "HT-2.2.B"
        ],
        "drills": [
         "mae-laplace",
@@ -365,6 +402,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "HT-2.2.C"
+       ],
        "drills": [
         "ht-bc-flux-conv",
         "ht-bc-radiation",
@@ -381,6 +421,9 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "HT-2.3.A"
+       ],
        "drills": [
         "ht-bc-flux-conv",
         "ht-bc-interface",
@@ -395,6 +438,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "HT-2.3.B"
        ],
        "drills": [
         "~mae-wall-compare",
@@ -443,6 +489,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "HT-2.3.C"
+       ],
        "drills": [
         "mae-wall-point",
         "ht-insulation-thickness"
@@ -457,6 +506,9 @@
        "p": [
         "P1",
         "P4"
+       ],
+       "needs": [
+        "HT-3.1.A"
        ],
        "drills": [
         "ht-wall",
@@ -473,6 +525,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "HT-3.1.B"
+       ],
        "drills": [
         "ht-contact",
         "ht-contact-drop"
@@ -486,6 +541,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "HT-3.1.C"
        ],
        "drills": [
         "mae-wall-compare",
@@ -514,6 +572,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "HT-3.1.D"
        ],
        "drills": [
         "ht-var-cone",
@@ -545,6 +606,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-3.2.A"
+       ],
        "drills": [
         "ht-cyl",
         "ht-pipe-insulation-radius"
@@ -558,6 +622,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "HT-3.3.A"
        ],
        "drills": [
         "ht-sphere",
@@ -574,6 +641,9 @@
         "P5",
         "P6"
        ],
+       "needs": [
+        "HT-3.3.B"
+       ],
        "drills": [
         "ht-rcrit",
         "ht-h-for-critical-radius"
@@ -587,6 +657,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "HT-3.3.C"
        ],
        "drills": [
         "~mae-concept",
@@ -629,6 +702,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "HT-3.3.D",
+        "EM-2.1.C"
+       ],
        "drills": [
         "ht-gen-wall-conv",
         "ht-gen-centre"
@@ -642,6 +719,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "HT-4.1.A"
        ],
        "drills": [
         "ht-gen-wall-fixed",
@@ -658,6 +738,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "HT-4.1.B"
+       ],
        "drills": [
         "ht-gen-wall-asym",
         "ht-gen-max-location"
@@ -672,6 +755,9 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "HT-4.1.C"
        ],
        "drills": [
         "ht-gen-composite",
@@ -702,6 +788,9 @@
         "P1",
         "P4"
        ],
+       "needs": [
+        "HT-4.1.D"
+       ],
        "drills": [
         "ht-gen-rod",
         "ht-gen-wire",
@@ -717,6 +806,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-4.2.A"
+       ],
        "drills": [
         "ht-gen-sphere",
         "ht-sphere-gen-h"
@@ -730,6 +822,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "HT-4.2.B"
        ],
        "drills": [
         "ht-gen-tube",
@@ -758,6 +853,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "HT-4.2.C"
        ],
        "drills": [
         "ht-gen-qmax",
@@ -804,6 +902,10 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "HT-3.3.D",
+        "EM-3.2.B"
+       ],
        "drills": [
         "ht-fin-m",
         "ht-fin-efficiency-adiabatic"
@@ -818,6 +920,9 @@
        "p": [
         "P2",
         "P3"
+       ],
+       "needs": [
+        "HT-5.1.A"
        ],
        "drills": [
         "ht-fin-infinite",
@@ -835,6 +940,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "HT-5.1.B"
        ],
        "drills": [
         "~mae-concept",
@@ -865,6 +973,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "HT-5.1.C"
+       ],
        "drills": [
         "ht-fin-efficiency",
         "~mae-concept",
@@ -893,6 +1004,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "HT-5.2.A"
        ],
        "drills": [
         "ht-fin-array",
@@ -933,6 +1047,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "HT-3.3.D",
+        "EM-10.4.D"
+       ],
        "drills": [
         "ht-sep-rect",
         "ht-square-centre"
@@ -961,6 +1079,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "HT-6.1.A"
+       ],
        "drills": [
         "ht-shape",
         "mae-rod-slab"
@@ -975,6 +1096,9 @@
        "p": [
         "P1",
         "P3"
+       ],
+       "needs": [
+        "HT-6.2.A"
        ],
        "drills": [
         "mae-two-spheres",
@@ -1004,6 +1128,9 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "HT-6.2.B"
+       ],
        "drills": [
         "ht-fd",
         "mae-fd",
@@ -1019,6 +1146,9 @@
        "p": [
         "P4",
         "P5"
+       ],
+       "needs": [
+        "HT-6.3.A"
        ],
        "drills": [
         "ht-fd-solve",
@@ -1064,6 +1194,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "HT-3.3.D",
+        "EM-10.2.H"
+       ],
        "drills": [
         "ht-bi",
         "sc-surface-to-volume"
@@ -1077,6 +1211,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "HT-7.1.A"
        ],
        "drills": [
         "ht-lumped-time",
@@ -1093,6 +1230,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-7.1.B"
+       ],
        "drills": [
         "ht-lumped-energy",
         "ht-lumped-approach-time"
@@ -1107,6 +1247,9 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "HT-7.1.C"
        ],
        "drills": [
         "ht-lumped-gen",
@@ -1140,6 +1283,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-7.1.D"
+       ],
        "drills": [
         "ht-ot-wall-center",
         "ht-ot-cyl-center",
@@ -1155,6 +1301,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-7.2.A"
+       ],
        "drills": [
         "ht-ot-wall-surface",
         "ht-ot-wall-time",
@@ -1169,6 +1318,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "HT-7.2.B"
        ],
        "drills": [
         "ht-ot-wall-energy",
@@ -1198,6 +1350,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-7.2.C"
        ],
        "drills": [
         "ht-erf-temp",
@@ -1233,6 +1388,9 @@
         "P4",
         "P6"
        ],
+       "needs": [
+        "HT-7.3.C"
+       ],
        "drills": [
         "ht-erf-flux",
         "ht-erf-contact"
@@ -1260,6 +1418,9 @@
         "P2",
         "P3"
        ],
+       "needs": [
+        "HT-7.3.B"
+       ],
        "drills": [
         "ht-product-short-cyl",
         "ht-product-short-cylinder"
@@ -1286,6 +1447,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "HT-7.4.A"
        ],
        "drills": [
         "ht-fd-explicit",
@@ -1336,6 +1500,10 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-3.3.D",
+        "PH-8.4.B"
+       ],
        "drills": [
         "ht3-bl-groups",
         "ht3-bl-transition"
@@ -1349,6 +1517,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "HT-8.1.A"
        ],
        "drills": [
         "ht3-bl-average",
@@ -1365,6 +1536,9 @@
         "P4",
         "P6"
        ],
+       "needs": [
+        "HT-8.1.B"
+       ],
        "drills": [
         "ht3-bl-thickness",
         "ht-thermal-bl"
@@ -1378,6 +1552,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "HT-8.1.C"
        ],
        "drills": [
         "ht3-bl-colburn",
@@ -1415,6 +1592,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-8.1.D"
+       ],
        "drills": [
         "ht-plate-lam",
         "ht-plate-special"
@@ -1432,6 +1612,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-8.2.A"
        ],
        "drills": [
         "ht-plate-mixed",
@@ -1464,6 +1647,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-8.2.B"
+       ],
        "drills": [
         "ht-cyl-cb",
         "ht-sphere-whitaker"
@@ -1492,6 +1678,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-8.3.A"
        ],
        "drills": [
         "ht3-tb-vmax",
@@ -1538,6 +1727,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-8.4.A"
+       ],
        "drills": [
         "ht-int-re",
         "ht-max-laminar-flow"
@@ -1568,6 +1760,9 @@
         "P1",
         "P4"
        ],
+       "needs": [
+        "HT-9.1.A"
+       ],
        "drills": [
         "ht-tm-flux",
         "ht-flux-tube-length"
@@ -1582,6 +1777,9 @@
        "p": [
         "P1",
         "P4"
+       ],
+       "needs": [
+        "HT-9.2.A"
        ],
        "drills": [
         "ht-tm-ts",
@@ -1633,6 +1831,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "HT-9.2.C"
+       ],
        "drills": [
         "ht-lam-fd",
         "ht-laminar-h-scaling"
@@ -1647,6 +1848,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-9.3.A"
        ],
        "drills": [
         "ht-dittus",
@@ -1675,6 +1879,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "HT-9.3.B"
        ],
        "drills": [
         "ht-int-noncircular",
@@ -1722,6 +1929,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-8.4.A"
+       ],
        "drills": [
         "ht-ra",
         "sc-ideal-gas-density"
@@ -1735,6 +1945,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "HT-10.1.A"
        ],
        "drills": [
         "ht-mixed-conv",
@@ -1766,6 +1979,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-10.1.B"
+       ],
        "drills": [
         "ht-chu-vertical",
         "ht-rayleigh-number"
@@ -1780,6 +1996,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-10.2.A"
        ],
        "drills": [
         "ht-free-horiz",
@@ -1808,6 +2027,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-10.2.B"
        ],
        "drills": [
         "ht-enclosure-vertical",
@@ -1858,6 +2080,10 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-1.2.C",
+        "PH-15.4.B"
+       ],
        "drills": [
         "ht3-wien",
         "ht3-stefan"
@@ -1873,6 +2099,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-11.1.A"
+       ],
        "drills": [
         "ht3-band",
         "ht-wien-peak"
@@ -1887,6 +2116,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "HT-11.1.B"
+       ],
        "drills": [
         "ht3-spectral",
         "ht-gray-net-flux"
@@ -1900,6 +2132,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "HT-11.1.C"
        ],
        "drills": [
         "ht3-rad-balance",
@@ -1930,6 +2165,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "HT-11.1.D"
+       ],
        "drills": [
         "ht-vf-reciprocity",
         "ht-vf-duct",
@@ -1944,6 +2182,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "HT-11.2.A"
        ],
        "drills": [
         "ht-vf-concentric",
@@ -1975,6 +2216,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-11.2.B"
+       ],
        "drills": [
         "ht-black-disks",
         "ht-black-exchange"
@@ -1990,6 +2234,9 @@
         "P1",
         "P4"
        ],
+       "needs": [
+        "HT-11.3.A"
+       ],
        "drills": [
         "ht-two-surface",
         "ht-small-object"
@@ -2003,6 +2250,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "HT-11.3.B"
        ],
        "drills": [
         "ht-shield",
@@ -2018,6 +2268,9 @@
        "p": [
         "P1",
         "P4"
+       ],
+       "needs": [
+        "HT-11.3.C"
        ],
        "drills": [
         "ht-reradiating",
@@ -2047,6 +2300,9 @@
        "p": [
         "P1",
         "P3"
+       ],
+       "needs": [
+        "HT-11.3.D"
        ],
        "drills": [
         "ht-hr-surface",
@@ -2102,6 +2358,9 @@
         "P1",
         "P4"
        ],
+       "needs": [
+        "HT-3.3.D"
+       ],
        "drills": [
         "ht-U-tube",
         "ht-U-fouling"
@@ -2132,6 +2391,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-12.1.A"
+       ],
        "drills": [
         "ht-lmtd-counter",
         "ht-lmtd-parallel"
@@ -2145,6 +2407,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "HT-12.2.A"
        ],
        "drills": [
         "ht-shell-tube",
@@ -2177,6 +2442,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "HT-12.2.B"
+       ],
        "drills": [
         "ht-ntu-eff",
         "ht-ntu-condenser"
@@ -2191,6 +2459,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-12.3.A"
        ],
        "drills": [
         "ht-ntu-outlet",
@@ -2226,6 +2497,9 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "HT-12.3.B"
+       ],
        "drills": [
         "ht-sys-package",
         "ht-sys-pipe"
@@ -2239,6 +2513,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "HT-12.4.A"
        ],
        "drills": [
         "~ht-sys-package",
@@ -2284,6 +2561,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "HT-8.4.A"
+       ],
        "drills": [
         "ht3-boil-regime",
         "ht-boiling-regime-pick"
@@ -2298,6 +2578,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-13.1.A"
        ],
        "drills": [
         "ht3-rohsenow",
@@ -2330,6 +2613,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "HT-13.1.B"
        ],
        "drills": [
         "ht3-cond-plate",
@@ -2377,6 +2663,10 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "HT-7.5.A",
+        "HT-8.4.A"
+       ],
        "drills": [
         "ht3-fick",
         "ht3-membrane"
@@ -2410,6 +2700,9 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "HT-14.1.D"
+       ],
        "drills": [
         "ht3-stefan-flow",
         "ht-bulk-flow-ratio"
@@ -2423,6 +2716,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "HT-14.1.B"
        ],
        "drills": [
         "ht3-reaction",
@@ -2451,6 +2747,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "HT-14.1.C"
+       ],
        "drills": [
         "ht3-mc-analogy",
         "ht3-mc-sherwood"
@@ -2465,6 +2764,9 @@
        "p": [
         "P1",
         "P4"
+       ],
+       "needs": [
+        "HT-14.2.A"
        ],
        "drills": [
         "ht3-mc-evap",

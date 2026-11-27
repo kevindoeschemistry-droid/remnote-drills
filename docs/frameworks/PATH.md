@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 199 objectives move up to sit just after the prerequisites they need. 4630 objectives in 61 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 299 objectives move up to sit just after the prerequisites they need. 4700 objectives in 61 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -12,56 +12,56 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 6 | Discrete Mathematics | math | math-hs | 28 | 857–884 |
 | 7 | Linear Algebra | math | math-hs | 60 | 885–944 |
 | 8 | Applied Engineering Mathematics | math | calculus, linear-algebra | 195 | 945–1139 |
-| 9 | Number Theory | math | discrete-mathematics | 14 | 1140–1153 |
-| 10 | Abstract Algebra | math | number-theory, linear-algebra | 40 | 1154–1193 |
-| 11 | Geometry | math | calculus, linear-algebra | 8 | 1194–1201 |
-| 12 | Real Analysis | math | calculus, discrete-mathematics | 38 | 1202–1239 |
-| 13 | Stochastic Processes | math | statistics, linear-algebra | 16 | 1240–1255 |
-| 14 | Topology | math | real-analysis | 15 | 1256–1270 |
-| 15 | Chemistry (AP) | science | math-hs | 188 | 1271–1458 |
-| 16 | The Periodic Table from Memory | science | chemistry | 15 | 1459–1473 |
-| 17 | Physics (AP) | science | math-hs, calculus | 211 | 1474–1684 |
-| 18 | Physical Chemistry | science | chemistry, calculus, physics | 158 | 1685–1842 |
-| 19 | Earth and Space Science | science | physics, chemistry | 18 | 1843–1860 |
-| 20 | Anchor Quantities | science | chemistry | 14 | 1861–1874 |
-| 21 | Biology (AP) | science | chemistry | 179 | 1875–2053 |
-| 22 | Biochemistry | science | chemistry, biology | 49 | 2054–2102 |
-| 23 | Inorganic Chemistry | science | chemistry, periodic-table | 23 | 2103–2125 |
-| 24 | Analytical Chemistry | science | chemistry, inorganic-chemistry | 42 | 2126–2167 |
-| 25 | Polymers and Materials | science | chemistry, physics | 25 | 2168–2192 |
-| 26 | Nuclear Science and Reactor Theory | science | physics, chemistry | 19 | 2193–2211 |
-| 27 | Particle Physics | science | physics, nuclear | 13 | 2212–2224 |
-| 28 | Structures from Memory | science | chemistry | 12 | 2225–2236 |
-| 29 | Organic Reactions: Predict the Product | science | chemistry, structures | 46 | 2237–2282 |
-| 30 | Chemistry Olympiad | science | chemistry, inorganic-chemistry | 92 | 2283–2374 |
-| 31 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | science | inorganic-chemistry | 80 | 2375–2454 |
-| 32 | AI Basics | computing | — | 19 | 2455–2473 |
-| 33 | SQL | computing | — | 40 | 2474–2513 |
-| 34 | Programming Foundations | computing | math-hs | 140 | 2514–2653 |
-| 35 | Computer Science | computing | programming | 140 | 2654–2793 |
-| 36 | Information Systems | computing | computer-science | 53 | 2794–2846 |
-| 37 | Heat Transfer | engineering | engineering-math, physics | 101 | 2847–2947 |
-| 38 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 184 | 2948–3131 |
-| 39 | Molecular Simulation | engineering | thermodynamics, programming | 121 | 3132–3252 |
-| 40 | Electronic Structure | science | chemistry, molecular-simulation | 30 | 3253–3282 |
-| 41 | Computational Protein Design | science | biochemistry, molecular-simulation | 51 | 3283–3333 |
-| 42 | Fluid Mechanics | engineering | engineering-math, physics | 64 | 3334–3397 |
-| 43 | Material and Energy Balances | engineering | chemistry | 18 | 3398–3415 |
-| 44 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 3416–3432 |
-| 45 | Process Design, Economics and Safety | engineering | material-balances | 62 | 3433–3494 |
-| 46 | Chemical Reaction Engineering | engineering | material-balances | 52 | 3495–3546 |
-| 47 | Separations | engineering | material-balances, thermodynamics | 6 | 3547–3552 |
-| 48 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3553–3573 |
-| 49 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3574–3629 |
-| 50 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 50 | 3630–3679 |
-| 51 | Financial Accounting (CPA FAR) | business | — | 26 | 3680–3705 |
-| 52 | Dental Admission Test | health | biology, chemistry | 205 | 3706–3910 |
-| 53 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 3911–3981 |
-| 54 | INBDE (Dentistry) | health | — | 81 | 3982–4062 |
-| 55 | NCLEX-RN | health | — | 67 | 4063–4129 |
-| 56 | AI Safety | safety | programming, calculus | 104 | 4130–4233 |
-| 57 | Biosecurity | safety | biology, statistics | 64 | 4234–4297 |
-| 58 | Speaking and Articulation | communication | — | 69 | 4298–4366 |
-| 59 | Basketball | athletics | — | 88 | 4367–4454 |
-| 60 | Swimming | athletics | — | 88 | 4455–4542 |
-| 61 | Wushu | athletics | — | 88 | 4543–4630 |
+| 9 | Number Theory | math | discrete-mathematics | 26 | 1140–1165 |
+| 10 | Abstract Algebra | math | number-theory, linear-algebra | 40 | 1166–1205 |
+| 11 | Geometry | math | calculus, linear-algebra | 16 | 1206–1221 |
+| 12 | Real Analysis | math | calculus, discrete-mathematics | 38 | 1222–1259 |
+| 13 | Stochastic Processes | math | statistics, linear-algebra | 29 | 1260–1288 |
+| 14 | Topology | math | real-analysis | 26 | 1289–1314 |
+| 15 | Chemistry (AP) | science | math-hs | 188 | 1315–1502 |
+| 16 | The Periodic Table from Memory | science | chemistry | 15 | 1503–1517 |
+| 17 | Physics (AP) | science | math-hs, calculus | 211 | 1518–1728 |
+| 18 | Physical Chemistry | science | chemistry, calculus, physics | 158 | 1729–1886 |
+| 19 | Earth and Space Science | science | physics, chemistry | 18 | 1887–1904 |
+| 20 | Anchor Quantities | science | chemistry | 14 | 1905–1918 |
+| 21 | Biology (AP) | science | chemistry | 179 | 1919–2097 |
+| 22 | Biochemistry | science | chemistry, biology | 49 | 2098–2146 |
+| 23 | Inorganic Chemistry | science | chemistry, periodic-table | 23 | 2147–2169 |
+| 24 | Analytical Chemistry | science | chemistry, inorganic-chemistry | 42 | 2170–2211 |
+| 25 | Polymers and Materials | science | chemistry, physics | 25 | 2212–2236 |
+| 26 | Nuclear Science and Reactor Theory | science | physics, chemistry | 19 | 2237–2255 |
+| 27 | Particle Physics | science | physics, nuclear | 13 | 2256–2268 |
+| 28 | Structures from Memory | science | chemistry | 12 | 2269–2280 |
+| 29 | Organic Reactions: Predict the Product | science | chemistry, structures | 72 | 2281–2352 |
+| 30 | Chemistry Olympiad | science | chemistry, inorganic-chemistry | 92 | 2353–2444 |
+| 31 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | science | inorganic-chemistry | 80 | 2445–2524 |
+| 32 | AI Basics | computing | — | 19 | 2525–2543 |
+| 33 | SQL | computing | — | 40 | 2544–2583 |
+| 34 | Programming Foundations | computing | math-hs | 140 | 2584–2723 |
+| 35 | Computer Science | computing | programming | 140 | 2724–2863 |
+| 36 | Information Systems | computing | computer-science | 53 | 2864–2916 |
+| 37 | Heat Transfer | engineering | engineering-math, physics | 101 | 2917–3017 |
+| 38 | Thermodynamics and Statistical Mechanics | engineering | engineering-math, chemistry, physics | 184 | 3018–3201 |
+| 39 | Molecular Simulation | engineering | thermodynamics, programming | 121 | 3202–3322 |
+| 40 | Electronic Structure | science | chemistry, molecular-simulation | 30 | 3323–3352 |
+| 41 | Computational Protein Design | science | biochemistry, molecular-simulation | 51 | 3353–3403 |
+| 42 | Fluid Mechanics | engineering | engineering-math, physics | 64 | 3404–3467 |
+| 43 | Material and Energy Balances | engineering | chemistry | 18 | 3468–3485 |
+| 44 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 3486–3502 |
+| 45 | Process Design, Economics and Safety | engineering | material-balances | 62 | 3503–3564 |
+| 46 | Chemical Reaction Engineering | engineering | material-balances | 52 | 3565–3616 |
+| 47 | Separations | engineering | material-balances, thermodynamics | 6 | 3617–3622 |
+| 48 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3623–3643 |
+| 49 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3644–3699 |
+| 50 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 50 | 3700–3749 |
+| 51 | Financial Accounting (CPA FAR) | business | — | 26 | 3750–3775 |
+| 52 | Dental Admission Test | health | biology, chemistry | 205 | 3776–3980 |
+| 53 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 3981–4051 |
+| 54 | INBDE (Dentistry) | health | — | 81 | 4052–4132 |
+| 55 | NCLEX-RN | health | — | 67 | 4133–4199 |
+| 56 | AI Safety | safety | programming, calculus | 104 | 4200–4303 |
+| 57 | Biosecurity | safety | biology, statistics | 64 | 4304–4367 |
+| 58 | Speaking and Articulation | communication | — | 69 | 4368–4436 |
+| 59 | Basketball | athletics | — | 88 | 4437–4524 |
+| 60 | Swimming | athletics | — | 88 | 4525–4612 |
+| 61 | Wushu | athletics | — | 88 | 4613–4700 |

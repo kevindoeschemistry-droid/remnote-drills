@@ -125,6 +125,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "EM-1.3.A"
+       ],
        "drills": [
         "sm-perm",
         "td-perm-reverse"
@@ -138,6 +141,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "TD-1.1.A"
        ],
        "drills": [
         "sm-comb",
@@ -153,6 +159,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "TD-1.1.B"
+       ],
        "drills": [
         "sm-anagram",
         "td-multinomial-probability"
@@ -167,6 +176,9 @@
        "p": [
         "P4",
         "P6"
+       ],
+       "needs": [
+        "TD-1.1.C"
        ],
        "drills": [
         "td-stirling",
@@ -197,6 +209,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "TD-1.1.D"
+       ],
        "drills": [
         "sm-binom",
         "td-binomial-mean-var"
@@ -212,6 +227,9 @@
         "P4",
         "P6"
        ],
+       "needs": [
+        "TD-1.2.A"
+       ],
        "drills": [
         "sm-atleast",
         "td-trials-for-atleast"
@@ -225,6 +243,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-1.2.B"
        ],
        "drills": [
         "~sm-fl-exact",
@@ -280,7 +301,10 @@
         "td-two-state-entropy"
        ],
        "needs": [
-        "TD-1.1.B"
+        "TD-1.1.B",
+        "TD-1.2.C",
+        "EM-1.4.C",
+        "CH-9.2.A"
        ]
       },
       {
@@ -291,6 +315,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "TD-2.1.A"
        ],
        "drills": [
         "sm-einstein-w",
@@ -307,6 +334,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "TD-2.1.B"
+       ],
        "drills": [
         "sm-ds-two-state",
         "td-mixing-entropy-lattice"
@@ -321,6 +351,9 @@
        "p": [
         "P4",
         "P5"
+       ],
+       "needs": [
+        "TD-2.1.C"
        ],
        "drills": [
         "sm-ds-volume",
@@ -355,6 +388,9 @@
         "P1",
         "P4"
        ],
+       "needs": [
+        "TD-2.1.D"
+       ],
        "drills": [
         "sm-einstein-share",
         "td-most-probable-split"
@@ -373,6 +409,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "TD-2.2.A"
+       ],
        "drills": [
         "td-max-entropy-equal"
        ]
@@ -385,6 +424,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-2.2.B"
        ],
        "drills": [
         "td-max-s-min-u"
@@ -416,6 +458,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "TD-2.2.C"
+       ],
        "drills": [
         "th-fe-entropy-rep",
         "th-fe-ideal"
@@ -429,6 +474,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-2.3.A"
        ],
        "drills": [
         "th-fe-energy-rep",
@@ -444,6 +492,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "TD-2.3.B"
+       ],
        "drills": [
         "td-extensive"
        ]
@@ -456,6 +507,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-2.3.C"
        ],
        "drills": [
         "th-fe-euler",
@@ -474,6 +528,9 @@
        "p": [
         "P3",
         "P5"
+       ],
+       "needs": [
+        "TD-2.3.D"
        ],
        "drills": [
         "th-fe-gibbs-duhem",
@@ -529,6 +586,11 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-2.3.E",
+        "CH-6.10.B",
+        "PH-9.4.D"
+       ],
        "drills": [
         "th-fl-isothermal",
         "td-isothermal-volume"
@@ -545,6 +607,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-3.1.A"
        ],
        "drills": [
         "th-fl-isobaric",
@@ -564,6 +629,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-3.1.B"
+       ],
        "drills": [
         "th-fl-isochoric",
         "td-isochoric-pressure"
@@ -582,6 +650,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-3.1.C"
        ],
        "drills": [
         "th-fl-adiabatic",
@@ -616,6 +687,9 @@
         "P1",
         "P6"
        ],
+       "needs": [
+        "TD-3.1.D"
+       ],
        "drills": [
         "td-total-entropy",
         "td-heat-transfer-entropy"
@@ -635,6 +709,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-3.2.A"
        ],
        "drills": [
         "td-carnot",
@@ -670,6 +747,9 @@
        "p": [
         "P1",
         "P5"
+       ],
+       "needs": [
+        "TD-3.2.B"
        ],
        "drills": [
         "td-isentropic-outlet",
@@ -712,6 +792,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "TD-2.3.E",
+        "TD-3.3.A"
+       ],
        "drills": [
         "td-exact",
         "td-line-integral-path"
@@ -725,6 +809,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-4.1.A"
        ],
        "drills": [
         "~th-mx-triple",
@@ -765,7 +852,8 @@
         "th-lg-enthalpy"
        ],
        "needs": [
-        "TD-2.3.B"
+        "TD-2.3.B",
+        "TD-4.1.B"
        ]
       },
       {
@@ -776,6 +864,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "TD-4.2.A"
        ],
        "drills": [
         "th-lg-natural",
@@ -791,6 +882,9 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "TD-4.2.B"
        ],
        "drills": [
         "~th-lg-natural",
@@ -824,6 +918,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "TD-4.2.C"
+       ],
        "drills": [
         "th-lg-derive",
         "td-entropy-from-f"
@@ -838,6 +935,9 @@
        "p": [
         "P3",
         "P5"
+       ],
+       "needs": [
+        "TD-4.3.A"
        ],
        "drills": [
         "th-lg-gibbs-helmholtz",
@@ -891,7 +991,8 @@
         "td-maxwell-from-g"
        ],
        "needs": [
-        "TD-4.2.B"
+        "TD-4.2.B",
+        "TD-4.3.B"
        ]
       },
       {
@@ -906,6 +1007,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-5.1.A"
        ],
        "drills": [
         "th-mx-eos",
@@ -937,6 +1041,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "TD-5.1.B"
+       ],
        "drills": [
         "th-mx-measurable",
         "td-dh-dp-liquid"
@@ -951,6 +1058,9 @@
        "p": [
         "P5",
         "P6"
+       ],
+       "needs": [
+        "TD-5.2.A"
        ],
        "drills": [
         "th-mx-triple",
@@ -967,6 +1077,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "TD-5.2.B"
+       ],
        "drills": [
         "td-cp-cv",
         "td-cp-cv-ideal"
@@ -980,6 +1093,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-5.2.C"
        ],
        "drills": [
         "td-vdw-derivatives",
@@ -1023,6 +1139,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "TD-5.2.D"
+       ],
        "drills": [
         "th-st-concavity",
         "td-concavity-check"
@@ -1036,6 +1155,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-6.1.A"
        ],
        "drills": [
         "th-st-cv",
@@ -1055,6 +1177,9 @@
         "P5",
         "P6"
        ],
+       "needs": [
+        "TD-6.1.B"
+       ],
        "drills": [
         "th-st-vdw-stable",
         "td-vdw-spinodal-pressure"
@@ -1069,6 +1194,9 @@
        "p": [
         "P3",
         "P5"
+       ],
+       "needs": [
+        "TD-6.1.C"
        ],
        "drills": [
         "th-st-vdw-kappa",
@@ -1104,6 +1232,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "TD-6.1.D"
+       ],
        "drills": [
         "th-st-vdw-tc",
         "td-critical-compressibility"
@@ -1117,6 +1248,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "TD-6.2.A"
        ],
        "drills": [
         "~th-st-vdw-stable",
@@ -1144,6 +1278,9 @@
        "p": [
         "P2",
         "P3"
+       ],
+       "needs": [
+        "TD-6.2.B"
        ],
        "drills": [
         "td-vdw-coexistence",
@@ -1191,6 +1328,10 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-3.3.A",
+        "CH-3.6.A"
+       ],
        "drills": [
         "~th-fe-gibbs-duhem",
         "td-mu-ideal"
@@ -1228,6 +1369,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "TD-7.1.A"
+       ],
        "drills": [
         "td-virial",
         "td-z-from-virial-b"
@@ -1248,6 +1392,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "TD-7.2.A"
+       ],
        "drills": [
         "td-virial",
         "td-fugacity-from-phi"
@@ -1264,6 +1411,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "TD-7.2.B"
        ],
        "drills": [
         "td-b2-square-well",
@@ -1282,6 +1432,9 @@
        "p": [
         "P3",
         "P5"
+       ],
+       "needs": [
+        "TD-7.2.C"
        ],
        "drills": [
         "td-kay-rule",
@@ -1338,6 +1491,11 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "TD-4.3.B",
+        "TD-7.2.D",
+        "CH-6.5.B"
+       ],
        "drills": [
         "td-phase-rule",
         "td-phase-rule-count"
@@ -1369,6 +1527,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-8.1.A"
+       ],
        "drills": [
         "th-pe-clapeyron",
         "td-clapeyron-ice"
@@ -1387,6 +1548,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-8.2.A"
+       ],
        "drills": [
         "th-pe-cc-pressure",
         "td-cc-reverse"
@@ -1401,6 +1565,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-8.2.B"
+       ],
        "drills": [
         "th-pe-cc-enthalpy",
         "td-trouton"
@@ -1414,6 +1581,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-8.2.C"
        ],
        "drills": [
         "th-pe-cc-temperature",
@@ -1442,6 +1612,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "TD-8.2.D"
        ],
        "drills": [
         "td-transition-order",
@@ -1499,7 +1672,9 @@
         "td-mixing-entropy-max"
        ],
        "needs": [
-        "TD-1.1.D"
+        "TD-1.1.D",
+        "TD-8.3.A",
+        "CH-3.7.D"
        ]
       },
       {
@@ -1513,6 +1688,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-9.1.A"
        ],
        "drills": [
         "th-so-mix-gibbs",
@@ -1546,6 +1724,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "TD-9.1.B"
+       ],
        "drills": [
         "td-partial-molar",
         "td-partial-molar-volume"
@@ -1566,7 +1747,8 @@
         "td-gibbs-duhem-test"
        ],
        "needs": [
-        "TD-2.3.E"
+        "TD-2.3.E",
+        "TD-9.2.A"
        ]
       }
      ]
@@ -1602,6 +1784,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-9.2.B"
+       ],
        "drills": [
         "th-so-raoult",
         "td-bubble-from-dew"
@@ -1615,6 +1800,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-9.3.A"
        ],
        "drills": [
         "th-so-henry",
@@ -1634,6 +1822,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "TD-9.3.B"
        ],
        "drills": [
         "td-bubble-dew",
@@ -1671,6 +1862,9 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "TD-9.3.C"
+       ],
        "drills": [
         "th-so-activity",
         "td-margules-gamma-inf"
@@ -1691,7 +1885,8 @@
         "td-chi-from-w"
        ],
        "needs": [
-        "TD-6.1.A"
+        "TD-6.1.A",
+        "TD-9.4.A"
        ]
       },
       {
@@ -1707,6 +1902,9 @@
        "p": [
         "P5",
         "P6"
+       ],
+       "needs": [
+        "TD-9.4.B"
        ],
        "drills": [
         "td-azeotrope",
@@ -1741,6 +1939,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-9.4.C"
+       ],
        "drills": [
         "td-colligative",
         "td-osmotic-pressure"
@@ -1766,6 +1967,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "TD-9.5.A"
        ],
        "drills": [
         "td-transfer",
@@ -1821,6 +2025,10 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-9.6.A",
+        "CH-9.5.C"
+       ],
        "drills": [
         "th-ce-k",
         "td-k-temperature-free"
@@ -1838,6 +2046,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-10.1.A"
+       ],
        "drills": [
         "th-ce-dg",
         "td-dg-nonstandard"
@@ -1851,6 +2062,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "TD-10.1.B"
        ],
        "drills": [
         "th-ce-direction",
@@ -1882,6 +2096,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "TD-10.1.C"
+       ],
        "drills": [
         "th-ce-extent",
         "td-dissociation-fraction"
@@ -1895,6 +2112,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "TD-10.2.A"
        ],
        "drills": [
         "td-pressure-shift",
@@ -1923,6 +2143,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-10.2.B"
        ],
        "drills": [
         "th-ce-vant-hoff",
@@ -1959,7 +2182,8 @@
         "td-isotope-exchange-k"
        ],
        "needs": [
-        "TD-12.2.C"
+        "TD-12.2.C",
+        "TD-10.3.A"
        ]
       }
      ]
@@ -2002,6 +2226,10 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-1.2.C",
+        "TD-2.3.E"
+       ],
        "drills": [
         "sm-bz-ratio",
         "td-boltzmann-degenerate"
@@ -2017,6 +2245,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "TD-11.1.A"
+       ],
        "drills": [
         "sm-bz-fraction",
         "sm-bz-exact"
@@ -2030,6 +2261,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-11.1.B"
        ],
        "drills": [
         "sm-bz-temperature",
@@ -2062,6 +2296,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "TD-11.1.C"
+       ],
        "drills": [
         "sm-pf-q",
         "td-pf-ground-fraction"
@@ -2076,6 +2313,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "TD-11.2.A"
        ],
        "drills": [
         "sm-pf-u-two-level",
@@ -2092,6 +2332,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "TD-11.2.B"
+       ],
        "drills": [
         "sm-pf-s-two-level",
         "td-two-level-entropy-limit"
@@ -2107,6 +2350,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "TD-11.2.C"
+       ],
        "drills": [
         "sm-pf-f",
         "td-free-energy-two-level"
@@ -2120,6 +2366,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "TD-11.2.D"
        ],
        "drills": [
         "td-big-q",
@@ -2164,6 +2413,10 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-11.2.E",
+        "PH-7.4.A"
+       ],
        "drills": [
         "sm-ig-lambda",
         "td-quantum-criterion"
@@ -2177,6 +2430,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-12.1.A"
        ],
        "drills": [
         "sm-ig-qtrans",
@@ -2198,7 +2454,8 @@
         "td-sackur-tetrode-volume"
        ],
        "needs": [
-        "TD-11.2.E"
+        "TD-11.2.E",
+        "TD-12.1.B"
        ]
       }
      ]
@@ -2221,6 +2478,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-12.1.C"
+       ],
        "drills": [
         "sm-ig-theta-rot",
         "td-rotational-population"
@@ -2235,6 +2495,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-12.2.A"
+       ],
        "drills": [
         "sm-ig-qrot",
         "td-symmetry-number"
@@ -2248,6 +2511,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-12.2.B"
        ],
        "drills": [
         "sm-ig-qvib",
@@ -2280,6 +2546,9 @@
         "P4",
         "P6"
        ],
+       "needs": [
+        "TD-12.2.C"
+       ],
        "drills": [
         "sm-cv-equipartition",
         "td-equipartition-cp"
@@ -2298,6 +2567,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "TD-12.3.A"
+       ],
        "drills": [
         "sm-cv-diatomic",
         "td-diatomic-cv-limits"
@@ -2313,6 +2585,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "TD-12.3.B"
+       ],
        "drills": [
         "sm-cv-two-level",
         "td-schottky-peak"
@@ -2326,6 +2601,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-12.3.C"
        ],
        "drills": [
         "sm-cv-oscillator",
@@ -2341,6 +2619,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-12.3.D"
+       ],
        "drills": [
         "sm-cv-einstein",
         "td-einstein-temperature-from-cv"
@@ -2354,6 +2635,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "TD-12.3.E"
        ],
        "drills": [
         "td-debye-t3",
@@ -2384,6 +2668,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "TD-12.3.F"
+       ],
        "drills": [
         "td-maxwell-speeds",
         "td-speed-ratio"
@@ -2397,6 +2684,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "TD-12.4.A"
        ],
        "drills": [
         "td-classical-q",
@@ -2426,6 +2716,9 @@
        "p": [
         "P5",
         "P6"
+       ],
+       "needs": [
+        "TD-12.4.B"
        ],
        "drills": [
         "td-third-law",
@@ -2476,7 +2769,8 @@
         "sm-fl-exact"
        ],
        "needs": [
-        "TD-1.2.C"
+        "TD-1.2.C",
+        "TD-11.2.E"
        ]
       },
       {
@@ -2487,6 +2781,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-13.1.A"
        ],
        "drills": [
         "sm-fl-oscillator",
@@ -2502,6 +2799,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-13.1.B"
+       ],
        "drills": [
         "sm-fl-cv",
         "td-energy-fluct-gas"
@@ -2516,6 +2816,9 @@
        "p": [
         "P5",
         "P6"
+       ],
+       "needs": [
+        "TD-13.1.C"
        ],
        "drills": [
         "sm-fl-relative",
@@ -2559,6 +2862,10 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "TD-4.3.B",
+        "TD-11.2.E"
+       ],
        "drills": [
         "sm-ens-site",
         "td-site-occupancy-mu"
@@ -2574,6 +2881,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "TD-14.1.A"
+       ],
        "drills": [
         "sm-ens-lattice",
         "td-lattice-coverage-variance"
@@ -2587,6 +2897,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "TD-14.1.B"
        ],
        "drills": [
         "sm-ens-n-fluct",
@@ -2614,6 +2927,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "TD-14.1.C"
+       ],
        "drills": [
         "sm-ens-isobaric",
         "td-isobaric-volume-weight"
@@ -2638,6 +2954,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "TD-14.2.A"
        ],
        "drills": [
         "td-gibbs-entropy",
@@ -2681,7 +3000,9 @@
         "td-kd-from-occupancy"
        ],
        "needs": [
-        "TD-14.1.A"
+        "TD-14.1.A",
+        "TD-10.4.A",
+        "TD-11.2.E"
        ]
       },
       {
@@ -2696,6 +3017,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-15.1.A"
+       ],
        "drills": [
         "sm-bind-pressure",
         "td-coverage-ratio"
@@ -2709,6 +3033,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-15.1.B"
        ],
        "drills": [
         "sm-bind-dg",
@@ -2736,6 +3063,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "TD-15.1.C"
+       ],
        "drills": [
         "sm-ens-pair",
         "td-cooperative-two-site"
@@ -2749,6 +3079,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-15.2.A"
        ],
        "drills": [
         "sm-bind-hill",
@@ -2765,6 +3098,9 @@
         "P5",
         "P6"
        ],
+       "needs": [
+        "TD-15.2.B"
+       ],
        "drills": [
         "sm-bind-hill-n",
         "td-hill-range"
@@ -2778,6 +3114,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "TD-15.2.C"
        ],
        "drills": [
         "td-ising-1d",
@@ -2822,6 +3161,11 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-10.4.A",
+        "TD-11.2.E",
+        "CH-5.6.C"
+       ],
        "drills": [
         "sm-rate-ea",
         "td-ea-rule-of-thumb"
@@ -2835,6 +3179,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-16.1.A"
        ],
        "drills": [
         "sm-rate-k2",
@@ -2850,6 +3197,9 @@
        "p": [
         "P5",
         "P6"
+       ],
+       "needs": [
+        "TD-16.1.B"
        ],
        "drills": [
         "sm-rate-factor",
@@ -2881,6 +3231,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-16.1.C"
+       ],
        "drills": [
         "sm-rate-eyring",
         "td-eyring-half-life"
@@ -2894,6 +3247,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "TD-16.2.A"
        ],
        "drills": [
         "sm-rate-dg",
@@ -2914,7 +3270,8 @@
         "td-reverse-rate"
        ],
        "needs": [
-        "TD-10.1.A"
+        "TD-10.1.A",
+        "TD-16.2.B"
        ]
       }
      ]
@@ -2956,6 +3313,10 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "TD-9.6.A",
+        "TD-12.5.A"
+       ],
        "drills": [
         "td-debye-huckel",
         "td-nernst-concentration"
@@ -2994,7 +3355,8 @@
         "td-flory-huggins-critical"
        ],
        "needs": [
-        "TD-9.4.B"
+        "TD-9.4.B",
+        "TD-17.1.A"
        ]
       }
      ]
@@ -3021,6 +3383,9 @@
        "p": [
         "P2",
         "P4"
+       ],
+       "needs": [
+        "TD-17.2.A"
        ],
        "drills": [
         "td-metropolis",
@@ -3062,6 +3427,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "CH-6.4.C",
+        "PH-9.2.A"
+       ],
        "drills": [
         "td-spring-work",
         "td-electrical-work"
@@ -3079,6 +3448,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-18.1.A"
        ],
        "drills": [
         "td-compressed-liquid",
@@ -3098,6 +3470,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-18.1.B"
+       ],
        "drills": [
         "td-saturated-mass",
         "td-saturated-volume-split"
@@ -3115,6 +3490,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-18.1.C"
        ],
        "drills": [
         "td-quality",
@@ -3134,6 +3512,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-18.1.D"
+       ],
        "drills": [
         "td-superheated-interp",
         "td-interp-reverse"
@@ -3152,6 +3533,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-18.1.E"
+       ],
        "drills": [
         "td-ice-melt",
         "td-ice-to-steam"
@@ -3168,6 +3552,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-18.1.F"
        ],
        "drills": [
         "td-polytropic-work",
@@ -3187,6 +3574,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-18.1.G"
        ],
        "drills": [
         "td-pump-enthalpy",
@@ -3211,6 +3601,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-18.1.H"
+       ],
        "drills": [
         "td-ts-diagram",
         "td-ts-area-heat"
@@ -3231,6 +3624,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-18.2.A"
+       ],
        "drills": [
         "td-two-phase-entropy",
         "td-boiling-entropy"
@@ -3247,6 +3643,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-18.2.B"
        ],
        "drills": [
         "td-ice-entropy",
@@ -3287,6 +3686,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-18.2.C"
+       ],
        "drills": [
         "td-flow-work",
         "td-flow-work-ideal"
@@ -3304,6 +3706,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-19.1.A"
+       ],
        "drills": [
         "td-net-power",
         "td-turbine-mass-flow"
@@ -3320,6 +3725,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-19.1.B"
        ],
        "drills": [
         "td-compressor-efficiency",
@@ -3345,6 +3753,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-19.1.C"
+       ],
        "drills": [
         "td-second-law-statements",
         "td-second-law-claims"
@@ -3361,6 +3772,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-19.2.A"
        ],
        "drills": [
         "td-kelvin-scale",
@@ -3385,6 +3799,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-19.2.B"
+       ],
        "drills": [
         "td-exergy-block",
         "td-exergy-fraction"
@@ -3401,6 +3818,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-19.3.A"
        ],
        "drills": [
         "td-heat-exergy",
@@ -3419,6 +3839,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-19.3.B"
+       ],
        "drills": [
         "td-exergy-destroyed",
         "td-throttle-destruction"
@@ -3435,6 +3858,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-19.3.C"
        ],
        "drills": [
         "td-flow-exergy",
@@ -3453,6 +3879,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-19.3.D"
+       ],
        "drills": [
         "td-second-law-efficiency",
         "td-heat-pump-second-law"
@@ -3469,6 +3898,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-19.3.E"
        ],
        "drills": [
         "td-thermoeconomics",
@@ -3510,6 +3942,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-19.3.F"
+       ],
        "drills": [
         "td-rankine",
         "td-rankine-heat-rate"
@@ -3526,6 +3961,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-20.1.A"
        ],
        "drills": [
         "td-feedwater-heater",
@@ -3550,6 +3988,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-20.1.B"
+       ],
        "drills": [
         "td-otto",
         "td-otto-ratio-needed"
@@ -3566,6 +4007,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-20.2.A"
        ],
        "drills": [
         "td-diesel",
@@ -3584,6 +4028,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-20.2.B"
+       ],
        "drills": [
         "td-dual",
         "td-dual-heat-split"
@@ -3600,6 +4047,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-20.2.C"
        ],
        "drills": [
         "td-stirling-regenerated",
@@ -3618,6 +4068,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-20.2.D"
+       ],
        "drills": [
         "td-brayton",
         "td-brayton-ratio-needed"
@@ -3634,6 +4087,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-20.2.E"
        ],
        "drills": [
         "td-brayton-regen",
@@ -3652,6 +4108,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-20.2.F"
+       ],
        "drills": [
         "td-intercooling",
         "td-intercool-work-saving"
@@ -3669,6 +4128,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-20.2.G"
+       ],
        "drills": [
         "td-combined-cycle",
         "td-combined-cycle-bottom"
@@ -3685,6 +4147,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-20.2.H"
        ],
        "drills": [
         "td-turbojet-thrust",
@@ -3709,6 +4174,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-20.2.I"
+       ],
        "drills": [
         "td-refrigeration-cop",
         "td-carnot-refrigerator-limit"
@@ -3725,6 +4193,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-20.3.A"
        ],
        "drills": [
         "td-gas-refrigeration",
@@ -3765,6 +4236,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-18.2.C"
+       ],
        "drills": [
         "td-wet-bulb",
         "td-humidity-ratio-pv"
@@ -3782,6 +4256,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-21.1.A"
+       ],
        "drills": [
         "td-dew-point",
         "td-relative-humidity"
@@ -3798,6 +4275,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-21.1.B"
        ],
        "drills": [
         "td-moist-enthalpy",
@@ -3823,6 +4303,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-21.1.C"
+       ],
        "drills": [
         "td-dehumidify-water",
         "td-ac-heat"
@@ -3839,6 +4322,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-21.2.A"
        ],
        "drills": [
         "td-simple-heating",
@@ -3858,6 +4344,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-21.2.B"
+       ],
        "drills": [
         "td-humidify",
         "td-humidify-water-rate"
@@ -3875,6 +4364,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-21.2.C"
+       ],
        "drills": [
         "td-evaporative-cooling",
         "td-evaporative-water"
@@ -3891,6 +4383,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-21.2.D"
        ],
        "drills": [
         "td-adiabatic-mixing",
@@ -3931,6 +4426,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-10.4.A",
+        "TD-19.3.F",
+        "CH-6.8.B"
+       ],
        "drills": [
         "td-flame-temperature",
         "td-flame-temp-excess-air"
@@ -3948,6 +4448,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.1.A"
+       ],
        "drills": [
         "td-le-chatelier",
         "td-upper-limit-mixture"
@@ -3964,6 +4467,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-22.1.B"
        ],
        "drills": [
         "td-batch-adiabatic-rise",
@@ -3983,6 +4489,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.1.C"
+       ],
        "drills": [
         "td-reaction-phase",
         "td-vapour-k-shift"
@@ -3999,6 +4508,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-22.1.D"
        ],
        "drills": [
         "td-chemical-exergy",
@@ -4023,6 +4535,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.1.E"
+       ],
        "drills": [
         "td-rackett",
         "td-rackett-zra"
@@ -4040,6 +4555,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.2.A"
+       ],
        "drills": [
         "td-poynting-liquid",
         "td-poynting-pressure"
@@ -4056,6 +4574,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-22.2.B"
        ],
        "drills": [
         "td-poynting-solid",
@@ -4080,6 +4601,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.2.C"
+       ],
        "drills": [
         "td-immiscible-liquids",
         "td-immiscible-composition"
@@ -4096,6 +4620,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-22.3.A"
        ],
        "drills": [
         "td-ideal-solubility",
@@ -4114,6 +4641,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.3.B"
+       ],
        "drills": [
         "td-mixing-rule",
         "td-b-mix"
@@ -4131,6 +4661,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.3.C"
+       ],
        "drills": [
         "td-virial-fugacity",
         "td-virial-pressure-for-phi"
@@ -4143,25 +4676,6 @@
      "title": "Activity models",
      "los": [
       {
-       "id": "E",
-       "std": [
-        "webwork-opl:TH17.7",
-        "webwork-opl:TH17.8",
-        "webwork-opl:TH17.11"
-       ],
-       "do": "Know what group-contribution and other activity models need.",
-       "ek": [
-        "UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "td-activity-models",
-        "td-model-pick"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "webwork-opl:TH17.4"
@@ -4172,6 +4686,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-22.3.D"
        ],
        "drills": [
         "td-van-laar",
@@ -4190,6 +4707,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.4.A"
+       ],
        "drills": [
         "td-scatchard-hildebrand",
         "td-hildebrand-match"
@@ -4206,6 +4726,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TD-22.4.B"
        ],
        "drills": [
         "td-wilson",
@@ -4224,9 +4747,34 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-22.4.C"
+       ],
        "drills": [
         "td-nrtl-infinite",
         "td-nrtl-gamma2-inf"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "webwork-opl:TH17.7",
+        "webwork-opl:TH17.8",
+        "webwork-opl:TH17.11"
+       ],
+       "do": "Know what group-contribution and other activity models need.",
+       "ek": [
+        "UNIFAC: group volumes, areas and group interaction parameters; UNIQUAC: r and q plus binary energies; MOSCED: dispersion, polarity, induction and hydrogen-bond parameters."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TD-22.4.D"
+       ],
+       "drills": [
+        "td-activity-models",
+        "td-model-pick"
        ]
       }
      ]
@@ -6207,17 +6755,6 @@
    "partial": []
   },
   {
-   "code": "TD-22.4.E",
-   "unit": 22,
-   "topic": 4,
-   "status": "ok",
-   "full": [
-    "td-activity-models",
-    "td-model-pick"
-   ],
-   "partial": []
-  },
-  {
    "code": "TD-22.4.A",
    "unit": 22,
    "topic": 4,
@@ -6258,6 +6795,17 @@
    "full": [
     "td-nrtl-infinite",
     "td-nrtl-gamma2-inf"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TD-22.4.E",
+   "unit": 22,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "td-activity-models",
+    "td-model-pick"
    ],
    "partial": []
   }

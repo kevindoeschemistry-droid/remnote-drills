@@ -84,6 +84,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-8.1.E",
+        "FM-12.4.H"
+       ],
        "drills": [
         "gc-annulus-flow",
         "gc-annulus-vs-pipe"
@@ -103,6 +107,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-1.1.A"
        ],
        "drills": [
         "gc-couette-torque",
@@ -124,6 +131,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-1.1.B"
+       ],
        "drills": [
         "gc-squeeze-film",
         "gc-squeeze-time"
@@ -143,6 +153,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-1.1.C"
        ],
        "drills": [
         "gc-blasius-drag",
@@ -164,6 +177,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-1.1.D"
+       ],
        "drills": [
         "gc-cylinder-cp",
         "gc-cylinder-pressure-drop"
@@ -183,6 +199,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-1.1.E"
        ],
        "drills": [
         "gc-power-law-tube",
@@ -204,6 +223,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-1.1.F"
+       ],
        "drills": [
         "gc-startup-time",
         "gc-stokes-first-problem"
@@ -224,6 +246,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-1.1.G"
+       ],
        "drills": [
         "gc-log-law",
         "gc-wall-region"
@@ -243,6 +268,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-1.1.H"
        ],
        "drills": [
         "gc-drop-drag",
@@ -287,6 +315,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-1.1.I",
+        "HT-7.5.A",
+        "MS-3.1.C"
+       ],
        "drills": [
         "gc-taylor-dispersion",
         "gc-taylor-coefficient"
@@ -307,6 +340,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-2.1.A"
        ],
        "drills": [
         "gc-brinkman",
@@ -329,6 +365,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-2.1.B"
+       ],
        "drills": [
         "gc-stefan-freeze",
         "gc-stefan-thickness"
@@ -349,6 +388,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-2.1.C"
        ],
        "drills": [
         "gc-ambipolar",
@@ -371,6 +413,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-2.1.D"
+       ],
        "drills": [
         "gc-film-reaction-flux",
         "gc-flux-model-ratio"
@@ -391,6 +436,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-2.1.E"
        ],
        "drills": [
         "gc-plate-mass",
@@ -436,6 +484,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-5.2.D",
+        "TD-10.4.A"
+       ],
        "drills": [
         "gc-vdw-critical",
         "gc-vdw-b"
@@ -457,6 +509,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-3.1.A"
        ],
        "drills": [
         "gc-peng-robinson-z",
@@ -480,6 +535,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-3.1.B"
+       ],
        "drills": [
         "gc-margules-stability",
         "gc-spinodal-A"
@@ -501,6 +559,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-3.1.C"
        ],
        "drills": [
         "gc-virial-residual-h",
@@ -524,6 +585,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-3.1.D"
+       ],
        "drills": [
         "gc-series-equilibria",
         "gc-parallel-equilibria"
@@ -546,6 +610,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-3.1.E"
+       ],
        "drills": [
         "gc-vant-hoff-cp",
         "gc-k-equals-one"
@@ -567,6 +634,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-3.1.F"
        ],
        "drills": [
         "gc-azeotrope",
@@ -612,6 +682,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RE-6.2.B",
+        "RE-7.2.C"
+       ],
        "drills": [
         "gc-cstr-slope",
         "gc-generation-slope"
@@ -633,6 +707,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-4.1.A"
        ],
        "drills": [
         "gc-optimum-temperature",
@@ -656,6 +733,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-4.1.B"
+       ],
        "drills": [
         "gc-overall-effectiveness",
         "gc-surface-concentration"
@@ -677,6 +757,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-4.1.C"
        ],
        "drills": [
         "gc-hatta-enhancement",
@@ -700,6 +783,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-4.1.D"
+       ],
        "drills": [
         "gc-slurry-resistances",
         "gc-slurry-controlling"
@@ -721,6 +807,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-4.1.E"
        ],
        "drills": [
         "gc-deactivation",
@@ -764,6 +853,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PD-3.1.A",
+        "EM-7.7.B"
+       ],
        "drills": [
         "gc-first-order-time",
         "gc-ramp-lag"
@@ -783,6 +876,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-5.1.A"
        ],
        "drills": [
         "gc-overshoot",
@@ -804,6 +900,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-5.1.B"
+       ],
        "drills": [
         "gc-p-offset",
         "gc-kc-for-offset"
@@ -823,6 +922,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-5.1.C"
        ],
        "drills": [
         "gc-ultimate-gain",
@@ -844,6 +946,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-5.1.D"
+       ],
        "drills": [
         "gc-ultimate-period",
         "gc-zn-reset"
@@ -864,6 +969,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-5.1.E"
+       ],
        "drills": [
         "gc-amplitude-ratio",
         "gc-phase-lag"
@@ -883,6 +991,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-5.1.F"
        ],
        "drills": [
         "gc-fopdt-crossover",
@@ -926,6 +1037,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TD-9.6.A",
+        "MS-4.1.E"
+       ],
        "drills": [
         "gc-rayleigh",
         "gc-rayleigh-distillate"
@@ -946,6 +1061,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-6.1.A"
+       ],
        "drills": [
         "gc-min-absorbent",
         "gc-absorber-exit-liquid"
@@ -965,6 +1083,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-6.1.B"
        ],
        "drills": [
         "gc-q-line-intersection",
@@ -1008,6 +1129,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-9.4.C",
+        "EM-10.6.D"
+       ],
        "drills": [
         "gc-peclet-drop",
         "gc-peclet-which-term"
@@ -1024,6 +1149,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-7.1.A"
        ],
        "drills": [
         "gc-crossover-length",
@@ -1044,6 +1172,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-7.1.B"
+       ],
        "drills": [
         "gc-bl-scaling",
         "gc-thermal-bl-ratio"
@@ -1060,6 +1191,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-7.1.C"
        ],
        "drills": [
         "gc-regular-perturbation",
@@ -1078,6 +1212,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-7.1.D"
        ],
        "drills": [
         "gc-singular-layer",
@@ -1102,6 +1239,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-7.1.E"
+       ],
        "drills": [
         "gc-penetration-depth",
         "gc-penetration-time"
@@ -1120,6 +1260,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-7.2.A"
+       ],
        "drills": [
         "gc-similarity-fails",
         "gc-fourier-at-validity"
@@ -1136,6 +1279,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-7.2.B"
        ],
        "drills": [
         "gc-sphere-slowest-mode",
@@ -1154,6 +1300,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-7.2.C"
        ],
        "drills": [
         "gc-one-term-error",
@@ -1179,6 +1328,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-7.2.D"
+       ],
        "drills": [
         "gc-stiff-step",
         "gc-stiffness-ratio"
@@ -1197,6 +1349,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "GC-7.3.A"
+       ],
        "drills": [
         "gc-condition-digits",
         "gc-residual-vs-error"
@@ -1213,6 +1368,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "GC-7.3.B"
        ],
        "drills": [
         "gc-optimal-step",

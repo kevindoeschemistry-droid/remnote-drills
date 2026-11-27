@@ -88,7 +88,8 @@
         "P1"
        ],
        "needs": [
-        "GE-1.1.A"
+        "GE-1.1.A",
+        "GE-1.2.C"
        ],
        "drills": [
         "ge-spherical-triangle-area",
@@ -113,6 +114,72 @@
        "drills": [
         "ge-sphere-isometries",
         "ge-triangulation-count"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The sphere in coordinates",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-geometry:SPH"
+       ],
+       "do": "Find the central angle between two points given by latitude and longitude.",
+       "ek": [
+        "Write each point as a unit vector (cos φ cos λ, cos φ sin λ, sin φ); the central angle is the angle between the vectors, so cos c = sin φ₁ sin φ₂ + cos φ₁ cos φ₂ cos Δλ. On one meridian the angle is just the difference in latitude."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-1.1.A"
+       ],
+       "drills": [
+        "ge-meridian-distance",
+        "ge-central-angle"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-geometry:SPH"
+       ],
+       "do": "Compare a circle of latitude with a great circle.",
+       "ek": [
+        "The circle at latitude φ has radius R cos φ, so its length is 2πR cos φ. Only the equator is a great circle; travelling along any other parallel is longer than the great-circle route between the same points."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-1.2.A"
+       ],
+       "drills": [
+        "ge-latitude-circle",
+        "ge-parallel-vs-great"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-geometry:SPH"
+       ],
+       "do": "Find the area of a spherical cap or zone.",
+       "ek": [
+        "The cap within angular radius θ of a pole has area 2πR²(1 − cos θ), which is 2πR times its height (Archimedes). A cap is the spherical disc, and it has less area than the flat disc of the same radius."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-1.2.B"
+       ],
+       "drills": [
+        "ge-cap-area",
+        "ge-fraction-above-latitude"
        ]
       }
      ]
@@ -151,7 +218,8 @@
         "P1"
        ],
        "needs": [
-        "GE-1.1.A"
+        "GE-1.1.A",
+        "GE-2.2.A"
        ],
        "drills": [
         "ge-hyperbolic-distance",
@@ -172,7 +240,9 @@
        ],
        "needs": [
         "GE-2.1.A",
-        "GE-1.1.B"
+        "GE-1.1.B",
+        "GE-2.2.C",
+        "GE-2.2.B"
        ],
        "drills": [
         "ge-hyperbolic-triangle-area",
@@ -198,6 +268,73 @@
        "drills": [
         "ge-circle-sphere",
         "ge-circle-hyperbolic"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The half-plane by formula",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-geometry:RIE",
+        "cambridge-ib-geometry:HYP"
+       ],
+       "do": "Compute the length of a horizontal or vertical segment in the half-plane.",
+       "ek": [
+        "With metric (dx² + dy²)/y², a horizontal segment of Euclidean length L at height y has length L/y, and a vertical segment from height a to b has length ln(b/a). Lengths grow without bound near the boundary y = 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-1.2.B"
+       ],
+       "drills": [
+        "ge-horizontal-length",
+        "ge-vertical-length"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-geometry:HYP"
+       ],
+       "do": "Find the geodesic through two points of the half-plane.",
+       "ek": [
+        "If the points share an x-coordinate the geodesic is the vertical line. Otherwise it is the semicircle centred on the real axis at the point equidistant from both: solve (x₁ − c)² + y₁² = (x₂ − c)² + y₂²."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-2.1.A"
+       ],
+       "drills": [
+        "ge-geodesic-centre",
+        "ge-geodesic-radius"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-geometry:HYP"
+       ],
+       "do": "Compute hyperbolic areas by integrating and by the angle defect.",
+       "ek": [
+        "The area element is dx dy / y². The region above height h over a base of width w has finite area w/h although it extends to infinity. A geodesic n-gon has area (n − 2)π minus its angle sum."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-2.2.A"
+       ],
+       "drills": [
+        "ge-strip-area",
+        "ge-hyperbolic-polygon-area"
        ]
       }
      ]
@@ -233,7 +370,9 @@
         "P1"
        ],
        "needs": [
-        "GE-2.1.C"
+        "GE-2.1.C",
+        "GE-3.2.A",
+        "GE-3.2.B"
        ],
        "drills": [
         "ge-sphere-curvature",
@@ -261,6 +400,52 @@
        "drills": [
         "ge-total-curvature",
         "ge-angle-sum-from-curvature"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Curvature you can measure",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-geometry:CUR"
+       ],
+       "do": "Estimate curvature from a measured geodesic triangle.",
+       "ek": [
+        "For a small geodesic triangle, K ≈ (α + β + γ − π)/area. On a sphere this is exact and gives the radius: R = √(area/excess)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-1.1.B"
+       ],
+       "drills": [
+        "ge-curvature-from-triangle",
+        "ge-radius-from-excess"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-geometry:CUR"
+       ],
+       "do": "Estimate curvature from the circumference of a small circle.",
+       "ek": [
+        "A geodesic circle of radius r has circumference 2πr(1 − Kr²/6 + …). Positive curvature shortens it, negative curvature lengthens it; K ≈ 3(2πr − C)/(πr³)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "GE-2.1.C"
+       ],
+       "drills": [
+        "ge-curvature-from-circle",
+        "ge-circumference-deficit"
        ]
       }
      ]
@@ -303,6 +488,39 @@
    "partial": []
   },
   {
+   "code": "GE-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-meridian-distance",
+    "ge-central-angle"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GE-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-latitude-circle",
+    "ge-parallel-vs-great"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GE-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-cap-area",
+    "ge-fraction-above-latitude"
+   ],
+   "partial": []
+  },
+  {
    "code": "GE-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -336,6 +554,39 @@
    "partial": []
   },
   {
+   "code": "GE-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-horizontal-length",
+    "ge-vertical-length"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GE-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-geodesic-centre",
+    "ge-geodesic-radius"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GE-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-strip-area",
+    "ge-hyperbolic-polygon-area"
+   ],
+   "partial": []
+  },
+  {
    "code": "GE-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -354,6 +605,28 @@
    "full": [
     "ge-total-curvature",
     "ge-angle-sum-from-curvature"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GE-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-curvature-from-triangle",
+    "ge-radius-from-excess"
+   ],
+   "partial": []
+  },
+  {
+   "code": "GE-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ge-curvature-from-circle",
+    "ge-circumference-deficit"
    ],
    "partial": []
   }

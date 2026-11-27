@@ -93,6 +93,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "CH-2.6.B",
+        "ST-1.4.A"
+       ],
        "drills": [
         "or-degrees-of-unsaturation",
         "co-h-from-dou"
@@ -110,6 +114,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "OR-1.1.A"
+       ],
        "drills": [
         "or-stereoisomer-maximum",
         "or-centres-from-max"
@@ -123,6 +130,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "OR-1.1.B"
        ],
        "drills": [
         "or-oxidation-level",
@@ -148,6 +158,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "OR-1.3.B",
+        "OR-1.1.C"
+       ],
        "drills": [
         "or-acid-base-direction",
         "or-acid-base-log-k"
@@ -164,6 +178,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "OR-1.2.A"
        ],
        "drills": [
         "or-aromaticity",
@@ -184,6 +201,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "OR-3.2.B",
+        "OR-1.2.B"
+       ],
        "drills": [
         "or-substitution-or-elimination",
         "dat-rate-doubling"
@@ -198,9 +219,200 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "OR-1.2.C"
+       ],
        "drills": [
         "or-directing-effect",
         "or-activator-rank"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "What makes a site reactive",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:II.E.1",
+        "acs-accm-organic:II.F.1",
+        "acs-accm-organic:III.B.1"
+       ],
+       "do": "Assign the hybridisation and geometry of an atom and count σ and π bonds.",
+       "ek": [
+        "Count the groups around the atom (σ bonds plus lone pairs): four is sp³, three sp², two sp. A lone pair next to a π bond is delocalised, so that atom is sp². Every bond has one σ; a double bond adds one π, a triple bond two."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "CH-2.7.B"
+       ],
+       "drills": [
+        "or-hybridisation",
+        "or-sigma-count"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:I.C.1",
+        "acs-accm-organic:VIII.C.2",
+        "acs-accm-organic:I.B.1"
+       ],
+       "do": "Explain an acidity difference by atom, resonance, induction or orbital, and recall landmark pKa values.",
+       "ek": [
+        "The more stable the conjugate base, the stronger the acid. Landmarks: carboxylic acid about 5, phenol and ammonium about 10, water and alcohols about 16, terminal alkyne about 25, amine N–H about 36, alkene 44, alkane above 50."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.A",
+        "CH-8.7.A"
+       ],
+       "drills": [
+        "or-acidity-factor",
+        "or-pka-six"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-organic:I.B.2",
+        "acs-accm-organic:I.B.3",
+        "acs-accm-organic:IV.E.2"
+       ],
+       "do": "Rank leaving groups and nucleophiles.",
+       "ek": [
+        "Good leaving groups are weak bases: I⁻ > Br⁻ > Cl⁻ ≫ F⁻, and sulfonates such as tosylate; HO⁻, RO⁻ and H₂N⁻ do not leave. Nucleophilicity follows basicity in polar aprotic solvents; in protic solvents larger, more polarisable anions are better because small ones are held by hydrogen bonds."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.B"
+       ],
+       "drills": [
+        "or-leaving-group",
+        "or-nucleophile-rank"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-organic:VII.F.2",
+        "acs-accm-organic:II.D.1"
+       ],
+       "do": "Rank carbocations, radicals and carbanions by stability.",
+       "ek": [
+        "Carbocations and radicals: 3° > 2° > 1° > methyl, by hyperconjugation; allylic and benzylic ones are stabilised by resonance; vinyl and aryl cations are very unstable. Alkyl carbanions run the other way; a carbanion next to C=O is stabilised by resonance."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.A",
+        "OR-1.3.C"
+       ],
+       "drills": [
+        "or-carbocation-rank",
+        "or-intermediate-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Shape and stereochemistry",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:II.F.2",
+        "acs-accm-organic:VIII.C.1"
+       ],
+       "do": "Compare conformations: staggered and eclipsed, gauche and anti, axial and equatorial.",
+       "ek": [
+        "Staggered beats eclipsed and anti beats gauche. In a chair, a substituent is more stable equatorial because an axial one suffers 1,3-diaxial interactions; the chair with the larger group equatorial wins."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.A",
+        "OR-1.3.D"
+       ],
+       "drills": [
+        "or-eclipsing-strain",
+        "or-chair-preference"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:III.E.1",
+        "acs-accm-organic:III.A.2"
+       ],
+       "do": "Classify two structures as identical, constitutional isomers, enantiomers or diastereomers, and count stereoisomers when a meso form exists.",
+       "ek": [
+        "Enantiomers are non-superimposable mirror images: every stereocentre inverted. Diastereomers differ at some but not all stereocentres, and include cis–trans isomers. A meso compound has stereocentres and an internal mirror plane, so it removes one from the 2ⁿ count."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.1.B",
+        "OR-1.4.A"
+       ],
+       "drills": [
+        "or-isomer-pair",
+        "or-stereoisomer-count"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-organic:III.E.5",
+        "acs-accm-organic:IX.C.2"
+       ],
+       "do": "Compute enantiomeric excess from optical rotation and the composition from the excess.",
+       "ek": [
+        "ee = observed specific rotation / rotation of the pure enantiomer × 100. A sample with ee per cent excess contains (100 + ee)/2 per cent of the major enantiomer. A racemic mixture has ee 0 and does not rotate light."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.4.B"
+       ],
+       "drills": [
+        "or-ee-from-rotation",
+        "or-major-from-ee"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-organic:III.B.2",
+        "acs-accm-organic:IX.B.1"
+       ],
+       "do": "Assign E or Z to an alkene and rank alkenes by stability.",
+       "ek": [
+        "On each alkene carbon, rank the two groups by atomic number at the first point of difference. High-priority groups on the same side is Z, opposite is E. More substituted alkenes are more stable, and trans beats cis."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.4.B",
+        "OR-1.4.C"
+       ],
+       "drills": [
+        "or-e-z",
+        "or-alkene-stability"
        ]
       }
      ]
@@ -240,6 +452,10 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-2.3.B",
+        "OR-1.4.D"
+       ],
        "drills": [
         "rx-predict-alkene-hbr",
         "rx-reagent-alkene-hbr",
@@ -263,6 +479,10 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "OR-2.3.A",
+        "OR-2.1.A"
        ],
        "drills": [
         "rx-predict-alkene-bromination",
@@ -295,6 +515,10 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-2.3.B",
+        "OR-2.1.B"
+       ],
        "drills": [
         "rx-predict-alkyne-lindlar",
         "rx-reagent-alkyne-lindlar",
@@ -306,6 +530,56 @@
         "rx-reagent-alkyne-hydroboration",
         "rx-predict-alkyne-alkylation",
         "rx-reagent-alkyne-alkylation"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Additions, one rule at a time",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:V.F.1",
+        "acs-accm-organic:V.F.2",
+        "acs-accm-organic:III.E.3"
+       ],
+       "do": "State the regiochemistry and the stereochemistry each alkene addition gives.",
+       "ek": [
+        "Through a carbocation (HX, H₃O⁺): Markovnikov, no stereocontrol. Radical HBr and hydroboration: anti-Markovnikov, hydroboration syn. Br₂ and halohydrins: anti, through a bromonium ion. H₂/Pd, OsO₄ and peroxyacids: syn."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.D",
+        "OR-1.4.D"
+       ],
+       "drills": [
+        "or-addition-regio",
+        "or-addition-stereo"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:VII.F.2",
+        "acs-accm-organic:V.D.1"
+       ],
+       "do": "Find the carbocation an addition goes through and decide whether it rearranges; recall the alkyne counterparts.",
+       "ek": [
+        "The proton adds to give the more stable cation; a 1,2-hydride or methyl shift follows whenever it gives a more stable one. Alkynes: Lindlar gives cis, Na/NH₃ trans; Hg²⁺ hydration gives a methyl ketone, hydroboration an aldehyde."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-2.3.A"
+       ],
+       "drills": [
+        "or-cation-and-shift",
+        "or-alkyne-rules"
        ]
       }
      ]
@@ -342,6 +616,11 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-3.2.D",
+        "OR-3.2.C",
+        "OR-1.4.D"
+       ],
        "drills": [
         "rx-predict-sub-pbr3",
         "rx-reagent-sub-pbr3",
@@ -372,6 +651,11 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-3.2.C",
+        "OR-1.2.C",
+        "OR-3.1.A"
+       ],
        "drills": [
         "rx-predict-sub-cyanide",
         "rx-reagent-sub-cyanide",
@@ -381,6 +665,101 @@
         "rx-reagent-sub-e2-hofmann",
         "rx-predict-sub-grignard-co2",
         "rx-reagent-sub-grignard-co2"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Reading the substrate and the reagent",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:V.D.2",
+        "acs-accm-organic:III.E.4"
+       ],
+       "do": "Classify an alkyl halide and say which mechanisms it allows.",
+       "ek": [
+        "Methyl and 1°: SN2 (E2 only with a bulky base). 2°: all four, decided by the reagent. 3°: no SN2; E2 with a strong base, SN1/E1 with a weak one. Allylic and benzylic react fast by either. Vinyl and aryl: neither SN1 nor SN2."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.C",
+        "OR-1.3.D"
+       ],
+       "drills": [
+        "or-substrate-class",
+        "or-mechanism-rate-rank"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:IV.E.1",
+        "acs-accm-organic:IV.E.2",
+        "acs-accm-organic:I.C.1"
+       ],
+       "do": "Classify a reagent as strong or weak base and nucleophile, and a solvent as protic or aprotic.",
+       "ek": [
+        "Strong base, strong nucleophile: HO⁻, RO⁻. Strong bulky base: tert-butoxide, LDA, DBU. Good nucleophile, weak base: I⁻, Br⁻, HS⁻, RS⁻, N₃⁻, NC⁻. Weak both: H₂O, ROH. Polar aprotic solvents (DMSO, DMF, acetone, acetonitrile) speed SN2; protic solvents favour SN1 and E1."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-3.2.A"
+       ],
+       "drills": [
+        "or-reagent-class",
+        "or-solvent-class"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-organic:III.E.3",
+        "acs-accm-organic:III.E.4"
+       ],
+       "do": "State the stereochemical outcome of SN2, SN1 and E2.",
+       "ek": [
+        "SN2: back-side attack, inversion. SN1: planar carbocation, racemisation (often slightly more inversion). E2: H and leaving group anti-periplanar, which in a cyclohexane means both axial; the reaction is stereospecific."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-3.2.B",
+        "OR-1.4.B"
+       ],
+       "drills": [
+        "or-stereo-outcome",
+        "or-stereo-consequences"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "acs-accm-organic:V.E.1",
+        "acs-accm-organic:V.D.1"
+       ],
+       "do": "Predict how far an alcohol is oxidised and how its OH is turned into a leaving group.",
+       "ek": [
+        "PCC, Swern and Dess–Martin stop a 1° alcohol at the aldehyde; aqueous chromic acid takes it to the carboxylic acid. 2° alcohols give ketones; 3° alcohols are not oxidised. TsCl keeps the configuration; PBr₃ and SOCl₂/pyridine invert; HX on a 3° alcohol is SN1."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.1.C",
+        "OR-1.3.C",
+        "OR-3.2.C"
+       ],
+       "drills": [
+        "or-alcohol-oxidation",
+        "or-oh-to-leaving-group"
        ]
       }
      ]
@@ -418,6 +797,10 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-4.2.A",
+        "OR-3.2.D"
+       ],
        "drills": [
         "rx-predict-carbonyl-nabh4",
         "rx-reagent-carbonyl-nabh4",
@@ -436,6 +819,10 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "OR-4.2.B",
+        "OR-4.1.A"
        ],
        "drills": [
         "rx-predict-carbonyl-acetal",
@@ -458,9 +845,84 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-4.2.C",
+        "OR-4.1.B"
+       ],
        "drills": [
         "rx-predict-carbonyl-lda-alkylation",
         "rx-reagent-carbonyl-lda-alkylation"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Carbonyl reasoning",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:III.F.1",
+        "acs-accm-organic:VII.C.2"
+       ],
+       "do": "Rank carbonyl compounds by electrophilicity and say which hydride reduces which.",
+       "ek": [
+        "Acyl chloride > anhydride > aldehyde > ketone > ester ≈ acid > amide > carboxylate. NaBH₄ reduces aldehydes and ketones; LiAlH₄ also reduces esters, acids and amides (amides to amines); DIBAL-H at −78 °C stops an ester at the aldehyde."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.C"
+       ],
+       "drills": [
+        "or-carbonyl-electrophilicity",
+        "or-hydride-scope"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:VII.C.1",
+        "acs-accm-organic:V.E.1"
+       ],
+       "do": "Decide between addition and substitution at a carbonyl, and recognise hemiacetals and acetals.",
+       "ek": [
+        "Both begin with a tetrahedral alkoxide. If the carbonyl carbon carries a leaving group it is expelled (substitution); aldehydes and ketones have none (addition). Acetals form with acid and removal of water, survive base and nucleophiles, and so protect a carbonyl."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-4.2.A"
+       ],
+       "drills": [
+        "or-add-or-substitute",
+        "or-acetal-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-organic:VIII.C.2",
+        "acs-accm-organic:VII.F.1"
+       ],
+       "do": "Recall α-hydrogen pKa values and choose conditions for the kinetic or thermodynamic enolate.",
+       "ek": [
+        "α-H of a ketone about 20, an ester about 25, a β-diketone about 9. LDA (its amine has pKa about 36) at −78 °C removes the less hindered proton completely: the kinetic enolate. Alkoxide at room temperature equilibrates to the more substituted, thermodynamic enolate."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.B",
+        "OR-4.2.A",
+        "OR-4.2.B"
+       ],
+       "drills": [
+        "or-alpha-pka",
+        "or-enolate-choice"
        ]
       }
      ]
@@ -497,6 +959,10 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-5.2.A",
+        "OR-4.2.C"
+       ],
        "drills": [
         "rx-predict-acyl-acid-chloride",
         "rx-reagent-acyl-acid-chloride",
@@ -518,6 +984,10 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-5.2.A",
+        "OR-5.1.A"
+       ],
        "drills": [
         "rx-predict-acyl-lah-ester",
         "rx-reagent-acyl-lah-ester",
@@ -527,6 +997,55 @@
         "rx-reagent-acyl-lah-amide",
         "rx-predict-acyl-claisen",
         "rx-reagent-acyl-claisen"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Acyl reasoning",
+     "los": [
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:III.A.1",
+        "acs-accm-organic:IX.B.1"
+       ],
+       "do": "Recognise the carboxylic acid derivatives, including cyclic ones, and give their hydrolysis products.",
+       "ek": [
+        "Ester RCO₂R′, amide RCONR₂, anhydride (RCO)₂O, acyl chloride RCOCl, nitrile RCN; a cyclic ester is a lactone, a cyclic amide a lactam. Hydrolysis returns the carboxylic acid plus the alcohol, amine, second acid or ammonia."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-4.2.A"
+       ],
+       "drills": [
+        "or-derivative-names",
+        "or-hydrolysis-products"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:VIII.A.1",
+        "acs-accm-organic:V.E.1"
+       ],
+       "do": "Decide whether an acyl substitution goes forward and what hydrolysis needs.",
+       "ek": [
+        "An acyl derivative converts only into a less reactive one: chloride → anhydride → ester → amide, never back without activation. Saponification is irreversible because the acid ends as carboxylate; acid-catalysed hydrolysis is the reverse of Fischer esterification."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-5.2.B",
+        "OR-4.2.B"
+       ],
+       "drills": [
+        "or-acyl-forward",
+        "or-hydrolysis-conditions"
        ]
       }
      ]
@@ -564,6 +1083,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-1.4.D"
+       ],
        "drills": [
         "or-snar",
         "or-snar-2"
@@ -583,6 +1105,10 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "OR-6.2.A",
+        "OR-6.1.D"
        ],
        "drills": [
         "rx-predict-aromatic-bromination",
@@ -606,6 +1132,10 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-6.2.B",
+        "OR-6.1.A"
+       ],
        "drills": [
         "rx-predict-aromatic-nitration-toluene",
         "rx-reagent-aromatic-nitration-toluene",
@@ -626,6 +1156,9 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-6.1.B"
+       ],
        "drills": [
         "rx-predict-aromatic-nitro-reduction",
         "rx-reagent-aromatic-nitro-reduction",
@@ -633,6 +1166,56 @@
         "rx-reagent-aromatic-side-chain-oxidation",
         "rx-predict-aromatic-benzylic-bromination",
         "rx-reagent-aromatic-benzylic-bromination"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Aromatic reasoning",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:I.B.2",
+        "acs-accm-organic:V.D.2"
+       ],
+       "do": "Name the electrophile each aromatic substitution uses and the limits of the Friedel–Crafts reactions.",
+       "ek": [
+        "Br₂/FeBr₃ gives a polarised bromine, HNO₃/H₂SO₄ gives NO₂⁺, RCl/AlCl₃ a carbocation, RCOCl/AlCl₃ an acylium ion. Alkylation rearranges and over-alkylates; acylation does neither. Neither works on strongly deactivated rings."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.2.B",
+        "OR-1.3.D"
+       ],
+       "drills": [
+        "or-eas-electrophile",
+        "or-friedel-crafts-limits"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:V.A.4",
+        "acs-accm-organic:V.F.2"
+       ],
+       "do": "Choose the order of two aromatic substitutions and explain why a group directs where it does.",
+       "ek": [
+        "Install first the group whose directing effect puts the second where you want it. Lone-pair donors direct ortho/para by resonance; halogens also do, though they deactivate by induction; groups with a positive or partial positive atom on the ring direct meta."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.2.D",
+        "OR-6.2.A"
+       ],
+       "drills": [
+        "or-eas-order",
+        "or-directing-why"
        ]
       }
      ]
@@ -665,11 +1248,66 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "OR-7.2.A",
+        "OR-7.2.B",
+        "OR-4.2.C"
+       ],
        "drills": [
         "rx-predict-cc-aldol-condensation",
         "rx-reagent-cc-aldol-condensation",
         "rx-predict-cc-diels-alder",
         "rx-reagent-cc-diels-alder"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Carbon–carbon bond reasoning",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:I.B.3",
+        "acs-accm-organic:V.E.1"
+       ],
+       "do": "Name the product type of an aldol, Claisen, Michael and Robinson reaction and the conditions each needs.",
+       "ek": [
+        "Aldol: β-hydroxy carbonyl, dehydrating on heating to the enone. Claisen: β-keto ester, needing a full equivalent of alkoxide. Michael: 1,5-dicarbonyl. Robinson: Michael then intramolecular aldol. A crossed aldol is clean when one partner has no α-hydrogen."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-4.2.C"
+       ],
+       "drills": [
+        "or-condensation-product-type",
+        "or-condensation-conditions"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:II.E.2",
+        "acs-accm-organic:III.E.3"
+       ],
+       "do": "State what a Diels–Alder reaction needs and what it preserves.",
+       "ek": [
+        "An s-cis diene (best electron-rich) and a dienophile (best electron-poor) join in one concerted step, six π electrons making two σ bonds and a cyclohexene. Dienophile stereochemistry is retained; cyclic dienes favour the endo product."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.2.B",
+        "OR-1.4.D",
+        "OR-7.2.A"
+       ],
+       "drills": [
+        "or-diels-alder-needs",
+        "or-diels-alder-outcome"
        ]
       }
      ]
@@ -707,6 +1345,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-1.4.D",
+        "ST-3.1.A"
+       ],
        "drills": [
         "or-arrow-read",
         "or-arrow-sites"
@@ -724,6 +1366,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-8.1.E"
        ],
        "drills": [
         "or-mech-order",
@@ -743,6 +1388,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-8.1.F"
+       ],
        "drills": [
         "or-rearrangement",
         "or-rearrangement-2"
@@ -761,6 +1409,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-8.1.G"
+       ],
        "drills": [
         "st-mech-sn2-1",
         "or-sn2-requirements"
@@ -774,6 +1425,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-8.1.A"
        ],
        "drills": [
         "st-mech-e2-1",
@@ -789,6 +1443,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-8.1.B"
+       ],
        "drills": [
         "st-mech-hbr-addition-1",
         "st-mech-hbr-addition-2"
@@ -802,6 +1459,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-8.1.C"
        ],
        "drills": [
         "st-mech-acyl-substitution-1",
@@ -838,6 +1498,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-1.4.A",
+        "OR-8.1.D",
+        "CH-5.6.C"
+       ],
        "drills": [
         "or-a-value-ratio",
         "or-a-value-from-ratio"
@@ -854,6 +1519,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-9.1.A"
        ],
        "drills": [
         "or-specific-selective",
@@ -875,6 +1543,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-9.1.B"
+       ],
        "drills": [
         "or-control-ratio",
         "or-diene-control"
@@ -891,6 +1562,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-9.1.C"
        ],
        "drills": [
         "or-rate-law-factor",
@@ -910,6 +1584,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-9.1.D"
+       ],
        "drills": [
         "or-radical-step-dh",
         "or-halogenation-share"
@@ -924,6 +1601,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-9.1.E"
        ],
        "drills": [
         "or-hammett-rate",
@@ -943,6 +1623,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-9.1.F"
        ],
        "drills": [
         "or-electrocyclic-mode",
@@ -969,6 +1652,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-9.1.G"
+       ],
        "drills": [
         "or-atom-economy",
         "or-e-factor"
@@ -986,6 +1672,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-9.2.A"
        ],
        "drills": [
         "or-overall-yield",
@@ -1005,6 +1694,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-9.2.B"
+       ],
        "drills": [
         "or-fischer-yield",
         "or-drive-equilibrium"
@@ -1023,6 +1715,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-9.2.C"
+       ],
        "drills": [
         "or-chem-tests",
         "or-wet-vs-instrument"
@@ -1040,6 +1735,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-9.2.D"
+       ],
        "drills": [
         "or-history",
         "or-history-2"
@@ -1056,6 +1754,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-9.2.E"
        ],
        "drills": [
         "or-reaction-type",
@@ -1092,6 +1793,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-4.2.C",
+        "OR-7.2.B"
+       ],
        "drills": [
         "or-grignard-equivalents",
         "or-organometal-base"
@@ -1106,6 +1811,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "OR-10.1.A"
        ],
        "drills": [
         "or-cuprate",
@@ -1122,6 +1830,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-10.1.B"
+       ],
        "drills": [
         "or-coupling-name",
         "or-pd-cycle"
@@ -1137,9 +1848,97 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "OR-10.1.C"
+       ],
        "drills": [
         "or-metathesis",
         "or-catalysis-facts"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "spectroscopy",
+   "n": 11,
+   "title": "Spectroscopy for structure",
+   "std": [
+    "acs-accm-organic:I.D.2",
+    "acs-accm-organic:IX.A.2"
+   ],
+   "scope": "extension",
+   "ideas": [
+    "RULES"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Reading IR, NMR and mass spectra",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "acs-accm-organic:I.D.2",
+        "acs-accm-organic:IX.A.2"
+       ],
+       "do": "Read functional groups from landmark IR bands.",
+       "ek": [
+        "O–H broad 3200–3600, acid O–H very broad 2500–3300, N–H 3300–3500 (two bands for NH₂), ≡C–H 3300 sharp, sp² C–H just above 3000 and sp³ just below, C≡N 2250, C≡C 2100–2260, C=O about 1700 cm⁻¹ (ester higher, amide and conjugated lower)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.3.A"
+       ],
+       "drills": [
+        "or-ir-landmarks",
+        "or-ir-distinguish"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "acs-accm-organic:III.D.2",
+        "acs-accm-organic:I.D.2"
+       ],
+       "do": "Use splitting, integration and landmark shifts in a ¹H NMR spectrum.",
+       "ek": [
+        "n equivalent neighbours split a signal into n + 1 peaks. Landmarks in ppm: alkyl 0.9–1.5, next to C=O 2–2.5, next to O 3.3–4, vinyl 4.5–6.5, aromatic 6.5–8, aldehyde 9–10, carboxylic acid 10–12."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-11.1.A"
+       ],
+       "drills": [
+        "or-nmr-splitting",
+        "or-nmr-shift-landmarks"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "acs-accm-organic:I.A.1",
+        "acs-accm-organic:I.D.2"
+       ],
+       "do": "Read a mass spectrum: isotope patterns, the nitrogen rule and common losses.",
+       "ek": [
+        "One Br gives M and M + 2 about 1:1; one Cl about 3:1. An odd molecular mass means an odd number of nitrogens. Common losses: 15 CH₃, 18 H₂O, 29 C₂H₅ or CHO; common ions: 43 acylium or propyl, 77 phenyl, 91 benzyl (tropylium)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "OR-1.1.A",
+        "OR-11.1.B"
+       ],
+       "drills": [
+        "or-ms-patterns",
+        "or-ms-fragments"
        ]
       }
      ]
@@ -1226,6 +2025,94 @@
    "partial": []
   },
   {
+   "code": "OR-1.3.A",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "or-hybridisation",
+    "or-sigma-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.3.B",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "or-acidity-factor",
+    "or-pka-six"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.3.C",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "or-leaving-group",
+    "or-nucleophile-rank"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.3.D",
+   "unit": 1,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "or-carbocation-rank",
+    "or-intermediate-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.4.A",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "or-eclipsing-strain",
+    "or-chair-preference"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.4.B",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "or-isomer-pair",
+    "or-stereoisomer-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.4.C",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "or-ee-from-rotation",
+    "or-major-from-ee"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-1.4.D",
+   "unit": 1,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "or-e-z",
+    "or-alkene-stability"
+   ],
+   "partial": []
+  },
+  {
    "code": "OR-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -1283,6 +2170,28 @@
    "partial": []
   },
   {
+   "code": "OR-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "or-addition-regio",
+    "or-addition-stereo"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "or-cation-and-shift",
+    "or-alkyne-rules"
+   ],
+   "partial": []
+  },
+  {
    "code": "OR-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -1319,6 +2228,50 @@
     "rx-reagent-sub-e2-hofmann",
     "rx-predict-sub-grignard-co2",
     "rx-reagent-sub-grignard-co2"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-substrate-class",
+    "or-mechanism-rate-rank"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-reagent-class",
+    "or-solvent-class"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-stereo-outcome",
+    "or-stereo-consequences"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-3.2.D",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-alcohol-oxidation",
+    "or-oh-to-leaving-group"
    ],
    "partial": []
   },
@@ -1366,6 +2319,39 @@
    "partial": []
   },
   {
+   "code": "OR-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-carbonyl-electrophilicity",
+    "or-hydride-scope"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-add-or-substitute",
+    "or-acetal-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-alpha-pka",
+    "or-enolate-choice"
+   ],
+   "partial": []
+  },
+  {
    "code": "OR-5.1.A",
    "unit": 5,
    "topic": 1,
@@ -1396,6 +2382,28 @@
     "rx-reagent-acyl-lah-amide",
     "rx-predict-acyl-claisen",
     "rx-reagent-acyl-claisen"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-derivative-names",
+    "or-hydrolysis-products"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-acyl-forward",
+    "or-hydrolysis-conditions"
    ],
    "partial": []
   },
@@ -1454,6 +2462,28 @@
    "partial": []
   },
   {
+   "code": "OR-6.2.A",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-eas-electrophile",
+    "or-friedel-crafts-limits"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-eas-order",
+    "or-directing-why"
+   ],
+   "partial": []
+  },
+  {
    "code": "OR-7.1.A",
    "unit": 7,
    "topic": 1,
@@ -1463,6 +2493,28 @@
     "rx-reagent-cc-aldol-condensation",
     "rx-predict-cc-diels-alder",
     "rx-reagent-cc-diels-alder"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-condensation-product-type",
+    "or-condensation-conditions"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "or-diels-alder-needs",
+    "or-diels-alder-outcome"
    ],
    "partial": []
   },
@@ -1727,6 +2779,39 @@
    "full": [
     "or-metathesis",
     "or-catalysis-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-11.1.A",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-ir-landmarks",
+    "or-ir-distinguish"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-11.1.B",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-nmr-splitting",
+    "or-nmr-shift-landmarks"
+   ],
+   "partial": []
+  },
+  {
+   "code": "OR-11.1.C",
+   "unit": 11,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "or-ms-patterns",
+    "or-ms-fragments"
    ],
    "partial": []
   }

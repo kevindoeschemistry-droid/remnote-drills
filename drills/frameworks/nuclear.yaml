@@ -64,12 +64,12 @@ units:
       - n: 1
         title: "Nuclides and decay modes"
         los:
-          - { id: A, std: ["doe-hdbk-1019:1"], do: "Read nuclide notation and find the daughter of an alpha, beta-minus or positron decay.", ek: ["N = A − Z; charge and nucleon number are conserved in every decay."], p: [P1], drills: [nu-neutron-number, nu-decay-daughter] }
-          - { id: B, std: ["doe-hdbk-1019:1"], do: "Turn a mass defect into a binding energy per nucleon.", ek: ["1 u = 931.5 MeV; the curve peaks near iron at about 8.8 MeV per nucleon."], p: [P1, P3], drills: [nu-binding-energy, nu-defect-from-b] }
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Read nuclide notation and find the daughter of an alpha, beta-minus or positron decay.", ek: ["N = A − Z; charge and nucleon number are conserved in every decay."], p: [P1], needs: [PH-15.8.B], drills: [nu-neutron-number, nu-decay-daughter] }
+          - { id: B, std: ["doe-hdbk-1019:1"], do: "Turn a mass defect into a binding energy per nucleon.", ek: ["1 u = 931.5 MeV; the curve peaks near iron at about 8.8 MeV per nucleon."], p: [P1, P3], needs: [NU-1.1.A], drills: [nu-binding-energy, nu-defect-from-b] }
       - n: 2
         title: "The decay law"
         los:
-          - { id: A, std: ["doe-hdbk-1019:1"], do: "Use a half-life to find the fraction remaining, the time to reach a given fraction, and the decay constant.", ek: ["N = N₀(½)^(t/T); λ = ln 2 / T; ten half-lives is a factor of about a thousand."], p: [P1], drills: [nu-fraction-remaining, nu-time-to-decay, nu-decay-constant] }
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Use a half-life to find the fraction remaining, the time to reach a given fraction, and the decay constant.", ek: ["N = N₀(½)^(t/T); λ = ln 2 / T; ten half-lives is a factor of about a thousand."], p: [P1], needs: [NU-1.1.B], drills: [nu-fraction-remaining, nu-time-to-decay, nu-decay-constant] }
   - id: radiation
     n: 2
     title: "Radiation, dose and shielding"
@@ -80,12 +80,12 @@ units:
       - n: 1
         title: "Distance and shielding"
         los:
-          - { id: A, std: ["doe-hdbk-1019:1"], do: "Apply the inverse-square law to a point source.", ek: ["Dose rate × r² is constant."], p: [P1], drills: [nu-inverse-square, nu-distance-for-rate] }
-          - { id: B, std: ["doe-hdbk-1019:1"], do: "Compute gamma attenuation from a linear attenuation coefficient or a half-value layer, and choose a shield for each kind of radiation.", ek: ["I = I₀e^(−μx); HVL = ln 2 / μ; paper for alpha, plastic for beta, dense for gamma, hydrogen for neutrons."], p: [P1, P2], drills: [nu-shielding-choice, nu-half-value-layers, nu-attenuation-coefficient] }
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Apply the inverse-square law to a point source.", ek: ["Dose rate × r² is constant."], p: [P1], needs: [NU-1.2.A], drills: [nu-inverse-square, nu-distance-for-rate] }
+          - { id: B, std: ["doe-hdbk-1019:1"], do: "Compute gamma attenuation from a linear attenuation coefficient or a half-value layer, and choose a shield for each kind of radiation.", ek: ["I = I₀e^(−μx); HVL = ln 2 / μ; paper for alpha, plastic for beta, dense for gamma, hydrogen for neutrons."], p: [P1, P2], needs: [NU-2.1.A], drills: [nu-shielding-choice, nu-half-value-layers, nu-attenuation-coefficient] }
       - n: 2
         title: "Dose"
         los:
-          - { id: A, do: "Convert an absorbed dose to an equivalent dose.", ek: ["H (Sv) = w_R × D (Gy); w_R is 1 for photons and betas, 20 for alphas."], p: [P1], drills: [nu-equivalent-dose, nu-effective-dose] }
+          - { id: A, do: "Convert an absorbed dose to an equivalent dose.", ek: ["H (Sv) = w_R × D (Gy); w_R is 1 for photons and betas, 20 for alphas."], p: [P1], needs: [NU-2.1.B], drills: [nu-equivalent-dose, nu-effective-dose] }
   - id: neutrons
     n: 3
     title: "Neutrons"
@@ -96,11 +96,11 @@ units:
       - n: 1
         title: "Cross sections"
         los:
-          - { id: A, std: ["doe-hdbk-1019:2"], do: "Compute a macroscopic cross section and a mean free path.", ek: ["Σ = Nσ; mean free path = 1/Σ."], p: [P1], drills: [nu-mean-free-path, nu-macroscopic-cross-section] }
+          - { id: A, std: ["doe-hdbk-1019:2"], do: "Compute a macroscopic cross section and a mean free path.", ek: ["Σ = Nσ; mean free path = 1/Σ."], p: [P1], needs: [NU-1.2.A], drills: [nu-mean-free-path, nu-macroscopic-cross-section] }
       - n: 2
         title: "Prompt, delayed and thermal neutrons"
         los:
-          - { id: A, std: ["nrc-gfe:192001"], do: "Explain where delayed neutrons come from and why they matter, what a moderator does, and the energy of a thermal neutron.", ek: ["β ≈ 0.0065 for U-235; kT = 0.025 eV at room temperature, 2200 m/s."], p: [P1, P3], drills: [nu-neutron-facts, nu-thermal-neutron-energy] }
+          - { id: A, std: ["nrc-gfe:192001"], do: "Explain where delayed neutrons come from and why they matter, what a moderator does, and the energy of a thermal neutron.", ek: ["β ≈ 0.0065 for U-235; kT = 0.025 eV at room temperature, 2200 m/s."], p: [P1, P3], needs: [NU-3.1.A], drills: [nu-neutron-facts, nu-thermal-neutron-energy] }
   - id: criticality
     n: 4
     title: "The neutron life cycle and reactivity"
@@ -111,12 +111,12 @@ units:
       - n: 1
         title: "k-effective"
         los:
-          - { id: A, std: ["nrc-gfe:192002"], do: "Compute k-effective from the six factors and classify the state of a core.", ek: ["k_eff = ε L_f p L_t f η; subcritical, critical, delayed supercritical, prompt critical."], p: [P1, P2], drills: [nu-criticality-state, nu-six-factor] }
-          - { id: B, std: ["nrc-gfe:192002"], do: "Convert k-effective to reactivity.", ek: ["ρ = (k − 1)/k; 1 pcm = 10⁻⁵; one dollar is ρ = β."], p: [P1], drills: [nu-reactivity-pcm, nu-k-from-rho] }
+          - { id: A, std: ["nrc-gfe:192002"], do: "Compute k-effective from the six factors and classify the state of a core.", ek: ["k_eff = ε L_f p L_t f η; subcritical, critical, delayed supercritical, prompt critical."], p: [P1, P2], needs: [NU-3.2.A], drills: [nu-criticality-state, nu-six-factor] }
+          - { id: B, std: ["nrc-gfe:192002"], do: "Convert k-effective to reactivity.", ek: ["ρ = (k − 1)/k; 1 pcm = 10⁻⁵; one dollar is ρ = β."], p: [P1], needs: [NU-4.1.A], drills: [nu-reactivity-pcm, nu-k-from-rho] }
       - n: 2
         title: "Subcritical multiplication"
         los:
-          - { id: A, std: ["nrc-gfe:192003"], do: "Find the multiplication of a source in a subcritical core.", ek: ["M = 1/(1 − k); 1/M falls to zero at criticality."], p: [P1], drills: [nu-subcritical-multiplication, nu-count-ratio] }
+          - { id: A, std: ["nrc-gfe:192003"], do: "Find the multiplication of a source in a subcritical core.", ek: ["M = 1/(1 − k); 1/M falls to zero at criticality."], p: [P1], needs: [NU-4.1.B], drills: [nu-subcritical-multiplication, nu-count-ratio] }
   - id: kinetics
     n: 5
     title: "Kinetics"
@@ -127,7 +127,7 @@ units:
       - n: 1
         title: "Period"
         los:
-          - { id: A, std: ["nrc-gfe:192003"], do: "Estimate the stable period for a small reactivity addition and the power change on a period.", ek: ["τ ≈ (β − ρ)/(λρ); P = P₀e^(t/τ); doubling time 0.693τ."], p: [P1], drills: [nu-reactor-period, nu-power-on-a-period] }
+          - { id: A, std: ["nrc-gfe:192003"], do: "Estimate the stable period for a small reactivity addition and the power change on a period.", ek: ["τ ≈ (β − ρ)/(λρ); P = P₀e^(t/τ); doubling time 0.693τ."], p: [P1], needs: [NU-4.2.A], drills: [nu-reactor-period, nu-power-on-a-period] }
   - id: operation
     n: 6
     title: "Reactivity effects, poisons and heat"
@@ -138,12 +138,12 @@ units:
       - n: 1
         title: "What moves reactivity"
         los:
-          - { id: A, std: ["nrc-gfe:192004", "nrc-gfe:192005", "nrc-gfe:192007"], do: "Predict the sign of the reactivity change from temperature, control rods, boron, burnup and burnable poisons.", ek: ["More absorption or less fuel is negative; removing an absorber is positive; fuel and moderator temperature feedback are negative by design."], p: [P2], drills: [nu-reactivity-effects, nu-reactivity-2] }
-          - { id: B, std: ["nrc-gfe:192006"], do: "Describe how xenon-135 and samarium-149 are produced and removed, and what xenon does after a shutdown.", ek: ["Xenon comes mostly from iodine-135, is removed by burnup and decay, and peaks about ten hours after shutdown."], p: [P2, P3], drills: [nu-xenon-facts, nu-iodine-left] }
+          - { id: A, std: ["nrc-gfe:192004", "nrc-gfe:192005", "nrc-gfe:192007"], do: "Predict the sign of the reactivity change from temperature, control rods, boron, burnup and burnable poisons.", ek: ["More absorption or less fuel is negative; removing an absorber is positive; fuel and moderator temperature feedback are negative by design."], p: [P2], needs: [NU-4.2.A], drills: [nu-reactivity-effects, nu-reactivity-2] }
+          - { id: B, std: ["nrc-gfe:192006"], do: "Describe how xenon-135 and samarium-149 are produced and removed, and what xenon does after a shutdown.", ek: ["Xenon comes mostly from iodine-135, is removed by burnup and decay, and peaks about ten hours after shutdown."], p: [P2, P3], needs: [NU-6.1.A], drills: [nu-xenon-facts, nu-iodine-left] }
       - n: 2
         title: "Energy"
         los:
-          - { id: A, do: "Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.", ek: ["About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power."], p: [P1, P3], drills: [nu-decay-heat, nu-fuel-consumption] }
+          - { id: A, do: "Relate thermal power to fuel consumed, and state the size of decay heat after shutdown.", ek: ["About 200 MeV per fission, so about 1 g of U-235 per megawatt-day; decay heat starts at 6–7% of full power."], p: [P1, P3], needs: [NU-6.1.B], drills: [nu-decay-heat, nu-fuel-consumption] }
   - id: radioactivity
     n: 7
     title: "Radioactivity in practice"
@@ -154,7 +154,7 @@ units:
       - n: 1
         title: "Chains, activity and dating"
         los:
-          - { id: A, std: ["doe-hdbk-1019:1"], do: "Follow a nuclide through a sequence of alpha and beta decays and count the decays in a series.", ek: ["Alpha: Z − 2, A − 4. Beta-minus: Z + 1. Only alphas change A."], p: [P1], drills: [ra-decay-chain, ra-count-alphas] }
-          - { id: B, std: ["doe-hdbk-1019:1", "acs-accm-analytical:I.F.1"], do: "Calculate an activity from a mass and a half-life, and convert between becquerels and curies.", ek: ["A = λN; 1 Ci = 3.7 × 10¹⁰ Bq."], p: [P1, P3], drills: [ra-becquerel-curie, ra-activity-from-mass] }
-          - { id: C, std: ["doe-hdbk-1019:1"], do: "Date a sample from its remaining activity and find an effective half-life in the body.", ek: ["t = T ln(1/f)/ln 2; removal rates add."], p: [P1], drills: [ra-carbon-dating, ra-effective-half-life] }
-          - { id: D, std: ["doe-hdbk-1019:1"], do: "Calculate a Q-value from a mass difference and describe secular equilibrium.", ek: ["931.5 MeV per u; at equilibrium parent and daughter activities are equal."], p: [P1, P2], drills: [ra-secular-equilibrium, ra-q-value] }
+          - { id: A, std: ["doe-hdbk-1019:1"], do: "Follow a nuclide through a sequence of alpha and beta decays and count the decays in a series.", ek: ["Alpha: Z − 2, A − 4. Beta-minus: Z + 1. Only alphas change A."], p: [P1], needs: [NU-1.2.A, NU-2.2.A], drills: [ra-decay-chain, ra-count-alphas] }
+          - { id: B, std: ["doe-hdbk-1019:1", "acs-accm-analytical:I.F.1"], do: "Calculate an activity from a mass and a half-life, and convert between becquerels and curies.", ek: ["A = λN; 1 Ci = 3.7 × 10¹⁰ Bq."], p: [P1, P3], needs: [NU-7.1.A], drills: [ra-becquerel-curie, ra-activity-from-mass] }
+          - { id: C, std: ["doe-hdbk-1019:1"], do: "Date a sample from its remaining activity and find an effective half-life in the body.", ek: ["t = T ln(1/f)/ln 2; removal rates add."], p: [P1], needs: [NU-7.1.B], drills: [ra-carbon-dating, ra-effective-half-life] }
+          - { id: D, std: ["doe-hdbk-1019:1"], do: "Calculate a Q-value from a mass difference and describe secular equilibrium.", ek: ["931.5 MeV per u; at equilibrium parent and daughter activities are equal."], p: [P1, P2], needs: [NU-7.1.C], drills: [ra-secular-equilibrium, ra-q-value] }

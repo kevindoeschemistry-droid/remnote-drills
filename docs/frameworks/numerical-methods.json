@@ -74,6 +74,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "CA-4.6.B"
+       ],
        "drills": [
         "nm-bisection-steps",
         "nm-bisection-error-bound"
@@ -90,6 +93,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "NM-1.1.A"
        ],
        "drills": [
         "nm-newton-step",
@@ -108,6 +114,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "NM-1.1.B"
+       ],
        "drills": [
         "nm-secant-step",
         "nm-false-position"
@@ -124,6 +133,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "NM-1.1.C"
        ],
        "drills": [
         "nm-fixed-point",
@@ -163,6 +175,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "LA-1.1.D"
+       ],
        "drills": [
         "nm-jacobi-step",
         "nm-jacobi-spectral"
@@ -180,6 +195,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "NM-2.1.A"
+       ],
        "drills": [
         "nm-gauss-seidel-step",
         "nm-gauss-seidel-spectral"
@@ -196,6 +214,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "NM-2.1.B"
        ],
        "drills": [
         "nm-diagonal-dominance",
@@ -236,6 +257,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "CA-6.2.B"
+       ],
        "drills": [
         "nm-lagrange-quadratic",
         "nm-divided-difference"
@@ -259,6 +283,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "NM-3.1.A"
+       ],
        "drills": [
         "nm-simpson",
         "nm-simpson-error"
@@ -275,6 +302,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "NM-3.2.A"
        ],
        "drills": [
         "nm-trapezoid-scaling",
@@ -294,6 +324,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "NM-3.2.B"
+       ],
        "drills": [
         "nm-richardson",
         "nm-richardson-cubic"
@@ -311,6 +344,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "NM-3.2.C"
        ],
        "drills": [
         "nm-gauss-two-point",
@@ -352,6 +388,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "NM-3.2.D",
+        "CA-7.5.A"
+       ],
        "drills": [
         "nm-heun-step",
         "nm-midpoint-step"
@@ -368,6 +408,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "NM-4.1.A"
        ],
        "drills": [
         "nm-rk4-step",
@@ -386,6 +429,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "NM-4.1.B"
+       ],
        "drills": [
         "nm-euler-stability",
         "nm-backward-euler"
@@ -402,6 +448,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "NM-4.1.C"
        ],
        "drills": [
         "nm-euler-system",
@@ -440,6 +489,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "CA-2.3.A"
        ],
        "drills": [
         "nm-central-difference-error",

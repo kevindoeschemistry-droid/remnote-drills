@@ -75,7 +75,8 @@
        ],
        "needs": [
         "LA-2.2.A",
-        "SS-2.1.A"
+        "SS-2.1.A",
+        "STO-1.2.C"
        ],
        "drills": [
         "sto-two-step",
@@ -95,7 +96,8 @@
         "P1"
        ],
        "needs": [
-        "STO-1.1.A"
+        "STO-1.1.A",
+        "STO-1.2.D"
        ],
        "drills": [
         "sto-class-count",
@@ -120,6 +122,94 @@
        "drills": [
         "sto-absorption",
         "sto-hitting-time"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Reading a chain",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-markov-chains:M1"
+       ],
+       "do": "Read and complete a transition matrix.",
+       "ek": [
+        "Entry (i, j) is the probability of moving from state i to state j in one step. Every row is a probability distribution, so each row sums to 1; columns need not."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "SS-2.1.A"
+       ],
+       "drills": [
+        "sto-missing-entry",
+        "sto-matrix-reading"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ib-markov-chains:M1",
+        "cambridge-ib-markov-chains:M2"
+       ],
+       "do": "Classify a state as absorbing, transient or recurrent from the diagram.",
+       "ek": [
+        "A state is absorbing if the chain can never leave it. In a finite chain a state is recurrent if it lies in a closed class and transient if the chain can leave its class for good."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-1.2.A"
+       ],
+       "drills": [
+        "sto-classify-state",
+        "sto-class-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-markov-chains:M1"
+       ],
+       "do": "Find the probability of a particular path.",
+       "ek": [
+        "By the Markov property the probability of a path is the product of its one-step transition probabilities: the future depends on the past only through the present state."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-1.2.A"
+       ],
+       "drills": [
+        "sto-path-probability",
+        "sto-two-step-route"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-markov-chains:M1"
+       ],
+       "do": "Evolve a starting distribution for one or two steps.",
+       "ek": [
+        "If the chain starts with distribution μ (a row vector), after n steps its distribution is μPⁿ: multiply on the left, one step at a time."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-1.2.B",
+        "LA-2.2.A"
+       ],
+       "drills": [
+        "sto-distribution-step",
+        "sto-distribution-two-steps"
        ]
       }
      ]
@@ -156,7 +246,8 @@
         "P1"
        ],
        "needs": [
-        "STO-1.1.C"
+        "STO-1.1.C",
+        "STO-2.2.A"
        ],
        "drills": [
         "sto-ruin-biased",
@@ -176,11 +267,78 @@
         "P2"
        ],
        "needs": [
-        "STO-2.1.A"
+        "STO-2.1.A",
+        "STO-2.2.C"
        ],
        "drills": [
         "sto-return-probability",
         "sto-recurrence-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Walks by counting paths",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-markov-chains:M2"
+       ],
+       "do": "Find the distribution of a simple random walk after n steps by counting paths.",
+       "ek": [
+        "A walk of n steps ends at k when it takes (n + k)/2 steps up, so P(S_n = k) = C(n, (n + k)/2) p^((n+k)/2) q^((n−k)/2), and zero unless n and k have the same parity."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-1.2.B"
+       ],
+       "drills": [
+        "sto-walk-position",
+        "sto-walk-position-biased"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-markov-chains:M2"
+       ],
+       "do": "Find the mean and variance of a random walk's position.",
+       "ek": [
+        "Each step has mean p − q and variance 4pq, and steps are independent, so S_n has mean n(p − q) and variance 4npq. A symmetric walk is typically about √n from its start."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-2.2.A"
+       ],
+       "drills": [
+        "sto-walk-mean",
+        "sto-walk-sd"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-markov-chains:M2"
+       ],
+       "do": "Compute return probabilities of the symmetric walk.",
+       "ek": [
+        "The walk is at 0 after 2n steps with probability C(2n, n)/4ⁿ, about 1/√(πn). It first returns at step 2n with probability C(2n, n)/((2n − 1)4ⁿ)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-2.2.A"
+       ],
+       "drills": [
+        "sto-return-at-2n",
+        "sto-first-return"
        ]
       }
      ]
@@ -218,7 +376,8 @@
        ],
        "needs": [
         "STO-1.1.B",
-        "LA-5.1.A"
+        "LA-5.1.A",
+        "STO-3.2.A"
        ],
        "drills": [
         "sto-stationary-two",
@@ -239,7 +398,8 @@
        ],
        "needs": [
         "STO-3.1.A",
-        "STO-1.1.C"
+        "STO-1.1.C",
+        "STO-3.2.C"
        ],
        "drills": [
         "sto-return-time",
@@ -259,7 +419,8 @@
         "P1"
        ],
        "needs": [
-        "STO-3.1.A"
+        "STO-3.1.A",
+        "STO-3.2.B"
        ],
        "drills": [
         "sto-graph-walk",
@@ -284,6 +445,72 @@
        "drills": [
         "sto-second-eigenvalue",
         "sto-convergence-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Equilibrium by balance",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-markov-chains:M3"
+       ],
+       "do": "Check whether a given distribution is invariant.",
+       "ek": [
+        "π is invariant when πP = π: for each state, the probability flowing in over one step equals the probability already there."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-1.2.C"
+       ],
+       "drills": [
+        "sto-is-invariant",
+        "sto-balance-two"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-markov-chains:M3"
+       ],
+       "do": "Use symmetry to find an invariant distribution without solving.",
+       "ek": [
+        "If the columns of P also sum to 1 (a doubly stochastic matrix), the uniform distribution is invariant. A symmetric transition matrix is doubly stochastic."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-3.2.A"
+       ],
+       "drills": [
+        "sto-doubly-stochastic",
+        "sto-uniform-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-markov-chains:M3"
+       ],
+       "do": "Compute a long-run average from the invariant distribution.",
+       "ek": [
+        "For an irreducible positive-recurrent chain the long-run average of f(X_n) is Σ π_i f(i), whatever the starting state (the ergodic theorem)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-3.1.A"
+       ],
+       "drills": [
+        "sto-long-run-reward",
+        "sto-ergodic-facts"
        ]
       }
      ]
@@ -320,7 +547,8 @@
         "P1"
        ],
        "needs": [
-        "SS-6.3.A"
+        "SS-6.3.A",
+        "STO-4.2.A"
        ],
        "drills": [
         "sto-poisson-none",
@@ -340,7 +568,8 @@
         "P1"
        ],
        "needs": [
-        "STO-4.1.A"
+        "STO-4.1.A",
+        "STO-4.2.B"
        ],
        "drills": [
         "sto-poisson-race",
@@ -367,6 +596,72 @@
        "drills": [
         "sto-mm1-mean",
         "sto-birth-death"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Exponential clocks",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-applied-probability:P1"
+       ],
+       "do": "Compute with the exponential distribution and its memoryless property.",
+       "ek": [
+        "An exponential time with rate λ has P(T > t) = e^(−λt) and mean 1/λ. Memoryless: given T > s, the remaining time is again exponential with rate λ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "SS-6.3.B"
+       ],
+       "drills": [
+        "sto-exponential-tail",
+        "sto-memoryless"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-applied-probability:P1"
+       ],
+       "do": "Find the time until the first of several independent exponential events.",
+       "ek": [
+        "The minimum of independent exponentials with rates λ₁, …, λ_n is exponential with rate λ₁ + … + λ_n. With n identical clocks of rate λ the first rings after mean time 1/(nλ)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-4.2.A"
+       ],
+       "drills": [
+        "sto-first-of-n",
+        "sto-all-of-n"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-applied-probability:P3"
+       ],
+       "do": "Find the idle probability and the mean time in an M/M/1 queue.",
+       "ek": [
+        "With ρ = λ/μ < 1 the server is idle a fraction 1 − ρ of the time, and a customer spends on average 1/(μ − λ) in the system (Little's formula L = λW)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "STO-4.1.C"
+       ],
+       "drills": [
+        "sto-mm1-idle",
+        "sto-mm1-time"
        ]
       }
      ]
@@ -513,6 +808,50 @@
    "partial": []
   },
   {
+   "code": "STO-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-missing-entry",
+    "sto-matrix-reading"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-classify-state",
+    "sto-class-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-path-probability",
+    "sto-two-step-route"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-distribution-step",
+    "sto-distribution-two-steps"
+   ],
+   "partial": []
+  },
+  {
    "code": "STO-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -531,6 +870,39 @@
    "full": [
     "sto-return-probability",
     "sto-recurrence-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-walk-position",
+    "sto-walk-position-biased"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-walk-mean",
+    "sto-walk-sd"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-return-at-2n",
+    "sto-first-return"
    ],
    "partial": []
   },
@@ -579,6 +951,39 @@
    "partial": []
   },
   {
+   "code": "STO-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-is-invariant",
+    "sto-balance-two"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-doubly-stochastic",
+    "sto-uniform-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-long-run-reward",
+    "sto-ergodic-facts"
+   ],
+   "partial": []
+  },
+  {
    "code": "STO-4.1.A",
    "unit": 4,
    "topic": 1,
@@ -608,6 +1013,39 @@
    "full": [
     "sto-mm1-mean",
     "sto-birth-death"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-exponential-tail",
+    "sto-memoryless"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-first-of-n",
+    "sto-all-of-n"
+   ],
+   "partial": []
+  },
+  {
+   "code": "STO-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "sto-mm1-idle",
+    "sto-mm1-time"
    ],
    "partial": []
   },

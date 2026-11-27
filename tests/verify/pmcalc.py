@@ -789,4 +789,142 @@ def pm_distinct_values(expr, upto):
     return sp.Integer(len(vals))  # noqa: S307
 
 
+# ---- fourth layer: intermediate steps for number theory, topology, chains and geometry ----
+def pm_prime_count(lo, hi):
+    """primes p with lo <= p <= hi, by trial division"""
+    return sp.Integer(sum(1 for m in range(max(2, int(lo)), int(hi) + 1) if all(m % d for d in range(2, math.isqrt(m) + 1))))
+
+
+def pm_trial_bound(n):
+    """largest prime not exceeding the square root of n"""
+    r = math.isqrt(int(n))
+    return sp.Integer(max(m for m in range(2, r + 1) if all(m % d for d in range(2, m))))
+
+
+def pm_vp_factorial(n, p):
+    """exponent of the prime p in n!, by factorising each of 1..n"""
+    n, p, e = int(n), int(p), 0
+    for m in range(1, n + 1):
+        while m % p == 0:
+            m //= p; e += 1
+    return sp.Integer(e)
+
+
+def pm_cong_solutions(a, b, n):
+    """residues x modulo n with a x = b"""
+    a, b, n = int(a), int(b), int(n)
+    return sp.Integer(sum(1 for x in range(n) if (a * x - b) % n == 0))
+
+
+def pm_cong_least(a, b, n):
+    a, b, n = int(a), int(b), int(n)
+    return sp.Integer(next(x for x in range(n) if (a * x - b) % n == 0))
+
+
+def pm_digit_mod(num, m):
+    return sp.Integer(int(str(num)) % int(m))
+
+
+def pm_boundary_count(pieces):
+    """boundary points of a finite union of intervals and points of the real line, written '(0,1);[2,3);{5}'"""
+    ends, ivs, pts = set(), [], set()
+    for pc in str(pieces).split(";"):
+        if pc[0] == "{":
+            pts.add(sp.nsimplify(pc[1:-1]))
+        else:
+            a, b = [sp.nsimplify(v) for v in pc[1:-1].split(",")]
+            ivs.append((a, b)); ends |= {a, b}
+    inside = lambda v: any(a < v < b for a, b in ivs)  # noqa: E731
+    return sp.Integer(len({v for v in ends | pts if not inside(v)}))
+
+
+def pm_interval_components(pieces):
+    """connected components of a finite union of intervals and points, written '(0,1);[1,2);{5}'"""
+    ivs = []
+    for pc in str(pieces).split(";"):
+        if pc[0] == "{":
+            v = sp.nsimplify(pc[1:-1]); ivs.append([v, v, True, True])
+        else:
+            a, b = [sp.nsimplify(v) for v in pc[1:-1].split(",")]
+            ivs.append([a, b, pc[0] == "[", pc[-1] == "]"])
+    ivs.sort(key=lambda t: (t[0], not t[2]))
+    n, cur = 1, ivs[0][:]
+    for nx in ivs[1:]:
+        if nx[0] < cur[1] or (nx[0] == cur[1] and (cur[3] or nx[2])):
+            if nx[1] > cur[1] or (nx[1] == cur[1] and nx[3]):
+                cur[1], cur[3] = nx[1], nx[3]
+        else:
+            n, cur = n + 1, nx[:]
+    return sp.Integer(n)
+
+
+def pm_min_cover(points, sets):
+    """fewest of the listed sets ('ab|bc|cd') whose union is all the points"""
+    X = frozenset(str(points)); S = [frozenset(x) for x in str(sets).split("|")]
+    for k in range(1, len(S) + 1):
+        if any(frozenset().union(*c) == X for c in itertools.combinations(S, k)):
+            return sp.Integer(k)
+    return sp.Integer(0)
+
+
+def pm_preimage_open(points, sets, fmap, tsets):
+    """1 if the map 'a>x,b>y' between finite spaces is continuous: every open set of the target pulls back to an open set"""
+    T, U = _opens(sets), _opens(tsets)
+    f = dict(pr.split(">") for pr in str(fmap).split(","))
+    return sp.Integer(1 if all(frozenset(a for a in f if f[a] in u) in T for u in U) else 0)
+
+
+def pm_walk_prob(n, k, p):
+    """P(S_n = k) for a walk of n steps of +1 (probability p) or -1, by summing over every path"""
+    n, k, p = int(n), int(k), sp.nsimplify(p, rational=True)
+    tot = sp.Integer(0)
+    for path in itertools.product([1, -1], repeat=n):
+        if sum(path) == k:
+            ups = path.count(1)
+            tot += p ** ups * (1 - p) ** (n - ups)
+    return tot
+
+
+def pm_walk_first_return(n):
+    """probability that a simple symmetric walk first returns to 0 at step 2n"""
+    n = int(n); cnt = 0
+    for path in itertools.product([1, -1], repeat=2 * n):
+        s, ok = 0, True
+        for i, st in enumerate(path):
+            s += st
+            if s == 0 and i < 2 * n - 1:
+                ok = False; break
+        cnt += ok and s == 0
+    return sp.Rational(cnt, 2 ** (2 * n))
+
+
+def pm_mc_path(rows, path):
+    """probability of following the states 'i,j,k,...' in order, given the first"""
+    P = _P(rows); st = [int(x) for x in str(path).split(",")]
+    out = sp.Integer(1)
+    for a, b in zip(st, st[1:]):
+        out *= P[a, b]
+    return out
+
+
+def pm_mc_dist(rows, start, n, j):
+    """probability of state j after n steps from the start distribution 'a,b,...'"""
+    P = _P(rows)
+    mu = sp.Matrix([[sp.nsimplify(x, rational=True) for x in str(start).split(",")]])
+    return (mu * P ** int(n))[0, int(j)]
+
+
+def pm_mc_reward(rows, rewards):
+    """long-run average reward per step: sum over states of stationary probability times reward"""
+    P = _P(rows); r = [sp.nsimplify(x, rational=True) for x in str(rewards).split(",")]
+    return sum(pm_mc_stationary(rows, j) * r[j] for j in range(P.shape[0]))
+
+
+def pm_sphere_angle(lat1, lon1, lat2, lon2):
+    """central angle in degrees between two points given by latitude and longitude in degrees, from the dot product"""
+    d = sp.pi / 180
+    v = lambda la, lo: sp.Matrix([sp.cos(la * d) * sp.cos(lo * d), sp.cos(la * d) * sp.sin(lo * d), sp.sin(la * d)])  # noqa: E731
+    return sp.acos(v(sp.nsimplify(lat1), sp.nsimplify(lon1)).dot(v(sp.nsimplify(lat2), sp.nsimplify(lon2)))) / d
+
+
 FUNCS = {k: v for k, v in globals().items() if k.startswith("pm_") and callable(v)}

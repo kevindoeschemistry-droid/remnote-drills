@@ -72,7 +72,8 @@
         "P2"
        ],
        "needs": [
-        "RA-4.1.A"
+        "RA-4.1.A",
+        "TP-1.2.B"
        ],
        "drills": [
         "tp-is-topology",
@@ -92,7 +93,8 @@
         "P1"
        ],
        "needs": [
-        "TP-1.1.A"
+        "TP-1.1.A",
+        "TP-1.2.C"
        ],
        "drills": [
         "tp-closure-size",
@@ -112,7 +114,8 @@
         "P2"
        ],
        "needs": [
-        "TP-1.1.B"
+        "TP-1.1.B",
+        "TP-2.2.A"
        ],
        "drills": [
         "tp-topological-property",
@@ -133,11 +136,101 @@
         "P2"
        ],
        "needs": [
-        "TP-1.1.C"
+        "TP-1.1.C",
+        "TP-2.2.B"
        ],
        "drills": [
         "tp-quotient-identify",
         "tp-product-discrete"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Distances and open sets on the line",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-analysis-ii:M",
+        "cambridge-ib-topological-spaces:S1"
+       ],
+       "do": "Check the axioms of a metric and compute distances in different metrics.",
+       "ek": [
+        "A metric is non-negative, zero only between equal points, symmetric, and satisfies the triangle inequality. The Euclidean, taxicab and maximum metrics on the plane give different distances but the same open sets."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-6.2.A"
+       ],
+       "drills": [
+        "tp-metric-distance",
+        "tp-is-metric"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-topological-spaces:S1"
+       ],
+       "do": "Decide whether a subset of the real line is open, closed, both or neither.",
+       "ek": [
+        "A set is open if every point has a small interval around it inside the set, and closed if its complement is open. Only the empty set and the whole line are both; a half-open interval is neither."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.2.A",
+        "RA-4.1.A"
+       ],
+       "drills": [
+        "tp-open-closed-line",
+        "tp-open-closed-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-topological-spaces:S1"
+       ],
+       "do": "Find the boundary, interior and closure of a union of intervals.",
+       "ek": [
+        "The interior drops every endpoint, the closure adds every endpoint, and the boundary is the closure minus the interior: the endpoints and isolated points."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.2.B"
+       ],
+       "drills": [
+        "tp-boundary-count",
+        "tp-closure-interior-line"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ib-topological-spaces:S1"
+       ],
+       "do": "Identify the limit points of a set and relate them to closedness.",
+       "ek": [
+        "x is a limit point of A if every neighbourhood of x meets A in a point other than x. A set is closed exactly when it contains all its limit points."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.2.C",
+        "RA-2.2.B"
+       ],
+       "drills": [
+        "tp-limit-point-count",
+        "tp-limit-point-facts"
        ]
       }
      ]
@@ -173,7 +266,8 @@
         "P1"
        ],
        "needs": [
-        "TP-1.1.C"
+        "TP-1.1.C",
+        "TP-3.2.B"
        ],
        "drills": [
         "tp-components-line",
@@ -199,6 +293,52 @@
        "drills": [
         "tp-connected-theorems",
         "tp-homeomorphic-or-not"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Continuity on small spaces",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-topological-spaces:S1"
+       ],
+       "do": "Test a map between finite spaces for continuity by pulling back open sets.",
+       "ek": [
+        "f is continuous when the preimage of every open set is open. Into the two-point Sierpinski space, a continuous map is the same thing as a choice of open set."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.1.A"
+       ],
+       "drills": [
+        "tp-finite-continuous",
+        "tp-continuity-finite-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-topological-spaces:S1"
+       ],
+       "do": "Generate a topology from a basis or subbasis.",
+       "ek": [
+        "A subbasis generates the topology whose open sets are unions of finite intersections of its members; it is the smallest topology in which those sets are open."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.1.A"
+       ],
+       "drills": [
+        "tp-subbasis-topology",
+        "tp-basis-facts"
        ]
       }
      ]
@@ -236,7 +376,9 @@
        ],
        "needs": [
         "TP-1.1.C",
-        "RA-2.1.B"
+        "RA-2.1.B",
+        "TP-3.2.A",
+        "TP-1.2.D"
        ],
        "drills": [
         "tp-compact-or-not",
@@ -262,6 +404,52 @@
        "drills": [
         "tp-compact-theorems",
         "tp-cover-no-finite"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Covers by hand",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-topological-spaces:S3"
+       ],
+       "do": "Extract a smallest subcover from a cover.",
+       "ek": [
+        "A subcover keeps some of the cover's sets and still covers the space. Compactness says a finite one always exists; finding the smallest is a counting problem."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.2.B"
+       ],
+       "drills": [
+        "tp-min-subcover",
+        "tp-unit-interval-cover"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-topological-spaces:S2"
+       ],
+       "do": "Count the connected components of a graph or a union of intervals.",
+       "ek": [
+        "Components are the maximal connected pieces. For a graph, V − E + (number of independent cycles) counts them; for intervals on a line, pieces that overlap or touch merge."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.2.B"
+       ],
+       "drills": [
+        "tp-graph-components",
+        "tp-interval-components"
        ]
       }
      ]
@@ -298,7 +486,8 @@
         "P1"
        ],
        "needs": [
-        "TP-1.1.D"
+        "TP-1.1.D",
+        "TP-4.2.A"
        ],
        "drills": [
         "tp-euler-characteristic",
@@ -338,11 +527,79 @@
         "P1"
        ],
        "needs": [
-        "TP-4.1.B"
+        "TP-4.1.B",
+        "TP-4.2.C"
        ],
        "drills": [
         "tp-chi-from-word",
         "tp-connected-sum"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Surfaces by Euler's formula",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-topological-spaces:S5"
+       ],
+       "do": "Use Euler's formula on the sphere and on other surfaces.",
+       "ek": [
+        "A division of a surface into faces satisfies V − E + F = χ: 2 on a sphere, 0 on a torus. So a map on a torus has two fewer faces than the same vertex and edge counts would give on a sphere."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-1.1.D"
+       ],
+       "drills": [
+        "tp-faces-on-surface",
+        "tp-euler-formula-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-topological-spaces:S5"
+       ],
+       "do": "Count handles or crosscaps from the Euler characteristic.",
+       "ek": [
+        "An orientable closed surface has g = (2 − χ)/2 handles; a non-orientable one has k = 2 − χ crosscaps. One crosscap is the projective plane, two the Klein bottle."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-4.1.A"
+       ],
+       "drills": [
+        "tp-crosscaps",
+        "tp-sum-genus"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-topological-spaces:S4",
+        "cambridge-ib-topological-spaces:S5"
+       ],
+       "do": "Name a closed surface from its orientability and Euler characteristic.",
+       "ek": [
+        "The pair (orientable or not, χ) determines a closed surface: orientable χ = 2 sphere, 0 torus, −2 double torus; non-orientable χ = 1 projective plane, 0 Klein bottle."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "TP-4.2.B"
+       ],
+       "drills": [
+        "tp-name-surface",
+        "tp-classification-facts"
        ]
       }
      ]
@@ -503,6 +760,50 @@
    "partial": []
   },
   {
+   "code": "TP-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-metric-distance",
+    "tp-is-metric"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-open-closed-line",
+    "tp-open-closed-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-boundary-count",
+    "tp-closure-interior-line"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-limit-point-count",
+    "tp-limit-point-facts"
+   ],
+   "partial": []
+  },
+  {
    "code": "TP-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -525,6 +826,28 @@
    "partial": []
   },
   {
+   "code": "TP-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-finite-continuous",
+    "tp-continuity-finite-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-subbasis-topology",
+    "tp-basis-facts"
+   ],
+   "partial": []
+  },
+  {
    "code": "TP-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -543,6 +866,28 @@
    "full": [
     "tp-compact-theorems",
     "tp-cover-no-finite"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-min-subcover",
+    "tp-unit-interval-cover"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-graph-components",
+    "tp-interval-components"
    ],
    "partial": []
   },
@@ -576,6 +921,39 @@
    "full": [
     "tp-chi-from-word",
     "tp-connected-sum"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-faces-on-surface",
+    "tp-euler-formula-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-crosscaps",
+    "tp-sum-genus"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "tp-name-surface",
+    "tp-classification-facts"
    ],
    "partial": []
   },

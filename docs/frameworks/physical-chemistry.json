@@ -132,6 +132,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "CH-3.4.D",
+        "CH-6.10.B",
+        "PH-9.4.D",
+        "CA-12.2.B"
+       ],
        "drills": [
         "pc-gas-density",
         "pc-ideal-gas"
@@ -167,6 +173,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-1.1.A"
+       ],
        "drills": [
         "pc-volume-from-work",
         "pc-work-irrev"
@@ -186,6 +195,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-1.2.A"
        ],
        "drills": [
         "th-fl-isothermal",
@@ -207,6 +219,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-1.2.B"
+       ],
        "drills": [
         "td-isochoric-pressure",
         "th-fl-isochoric"
@@ -227,6 +242,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-1.2.C"
+       ],
        "drills": [
         "td-isobaric-dh",
         "th-fl-isobaric"
@@ -245,6 +263,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-1.2.D"
        ],
        "drills": [
         "td-adiabatic-work",
@@ -278,6 +299,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-1.2.E"
+       ],
        "drills": [
         "pc-system-types",
         "pc-du-signs"
@@ -296,6 +320,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-1.3.B"
        ],
        "drills": [
         "pc-du-from-dh",
@@ -344,6 +371,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-1.3.A",
+        "CH-6.9.A"
+       ],
        "drills": [
         "pc-bomb-calorimeter",
         "~pc-dh-du"
@@ -365,6 +396,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-2.1.A"
+       ],
        "drills": [
         "pc-hess-combine",
         "pc-hess"
@@ -382,6 +416,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-2.1.B"
        ],
        "drills": [
         "pc-dcp-from-two",
@@ -429,6 +466,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-1.3.A",
+        "CH-9.2.A"
+       ],
        "drills": [
         "pc-carnot-rejected",
         "pc-carnot"
@@ -462,6 +503,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-3.1.A"
+       ],
        "drills": [
         "pc-volume-from-ds",
         "pc-ds-expansion"
@@ -479,6 +523,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-3.2.A"
        ],
        "drills": [
         "pc-temperature-from-ds",
@@ -498,6 +545,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-3.2.B"
        ],
        "drills": [
         "pc-trouton-boiling",
@@ -519,6 +569,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-3.2.C"
        ],
        "drills": [
         "pc-reaction-entropy-t",
@@ -565,6 +618,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-2.1.C",
+        "PC-3.2.D",
+        "CH-9.5.C",
+        "CH-7.3.B"
+       ],
        "drills": [
         "pc-crossover-t",
         "pc-dg"
@@ -582,6 +641,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-4.1.A"
        ],
        "drills": [
         "pc-pressure-for-dg",
@@ -616,6 +678,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-4.1.B"
+       ],
        "drills": [
         "pc-extent",
         "pc-biochem-standard"
@@ -637,6 +702,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-4.2.C"
+       ],
        "drills": [
         "td-k-temperature-free",
         "th-ce-k"
@@ -654,6 +722,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-4.2.A"
        ],
        "drills": [
         "th-ce-vant-hoff",
@@ -702,6 +773,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-1.3.A",
+        "CH-3.6.A"
+       ],
        "drills": [
         "pc-volume-from-z",
         "pc-compression-z"
@@ -720,6 +795,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-5.1.A"
        ],
        "drills": [
         "pc-boyle-vdw",
@@ -741,6 +819,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-5.1.B"
+       ],
        "drills": [
         "pc-vdw-critical-t",
         "pc-reduced-temperature"
@@ -760,6 +841,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-5.1.C"
        ],
        "drills": [
         "pc-mu-from-phi",
@@ -812,6 +896,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-4.2.B",
+        "CH-6.5.B"
+       ],
        "drills": [
         "pc-lj-minimum",
         "pc-london-scale"
@@ -835,6 +923,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "PC-6.1.D"
        ],
        "drills": [
         "pc-imf-type",
@@ -860,6 +951,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-6.1.E"
+       ],
        "drills": [
         "pc-bragg",
         "pc-bands"
@@ -879,6 +973,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "PC-6.1.F"
        ],
        "drills": [
         "pc-surface-fraction",
@@ -900,6 +997,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-6.1.G"
+       ],
        "drills": [
         "pc-max-phases",
         "pc-phase-rule"
@@ -919,6 +1019,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-6.1.A"
+       ],
        "drills": [
         "th-pe-cc-pressure",
         "th-pe-cc-enthalpy",
@@ -937,6 +1040,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-6.1.B"
        ],
        "drills": [
         "pc-bubble-pressure",
@@ -983,6 +1089,11 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-4.2.B",
+        "PC-6.1.C",
+        "CH-3.7.D"
+       ],
        "drills": [
         "td-bubble-from-dew",
         "th-so-raoult"
@@ -1000,6 +1111,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-7.1.A"
        ],
        "drills": [
         "pc-overall-composition",
@@ -1019,6 +1133,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-7.1.B"
        ],
        "drills": [
         "pc-gibbs-duhem-dmu",
@@ -1050,6 +1167,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-7.1.C"
+       ],
        "drills": [
         "pc-molar-mass-freezing",
         "pc-colligative"
@@ -1067,6 +1187,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-7.2.A"
        ],
        "drills": [
         "pc-osmotic-column",
@@ -1098,6 +1221,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-7.2.B"
+       ],
        "drills": [
         "pc-pressure-from-gamma",
         "~th-so-activity"
@@ -1114,6 +1240,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-7.3.A"
        ],
        "drills": [
         "td-henry-pressure",
@@ -1159,6 +1288,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-7.3.B"
+       ],
        "drills": [
         "pc-molarity-from-i",
         "pc-ionic-strength"
@@ -1177,6 +1309,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-8.1.A"
        ],
        "drills": [
         "pc-nu-pm-factor",
@@ -1200,6 +1335,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-8.1.B"
+       ],
        "drills": [
         "pc-i-from-gamma",
         "pc-debye-huckel"
@@ -1218,6 +1356,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-8.1.C"
        ],
        "drills": [
         "pc-solubility-ab2",
@@ -1266,6 +1407,11 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-4.2.B",
+        "PC-8.1.D",
+        "CH-9.9.B"
+       ],
        "drills": [
         "pc-unknown-half",
         "pc-cell-potential"
@@ -1283,6 +1429,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-9.1.A"
        ],
        "drills": [
         "pc-e-from-dg",
@@ -1303,6 +1452,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-9.1.B"
+       ],
        "drills": [
         "pc-nernst-ratio",
         "pc-nernst"
@@ -1321,6 +1473,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-9.1.C"
        ],
        "drills": [
         "pc-e-from-k",
@@ -1370,6 +1525,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "CH-1.5.B",
+        "PH-15.5.A",
+        "PH-14.8.A"
+       ],
        "drills": [
         "pc-ms-mz",
         "pc-mass-energy"
@@ -1388,6 +1548,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-10.1.E"
+       ],
        "drills": [
         "pc-photon-rate",
         "pc-photon"
@@ -1404,6 +1567,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-10.1.A"
        ],
        "drills": [
         "pc-threshold-wavelength",
@@ -1422,6 +1588,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-10.1.B"
+       ],
        "drills": [
         "pc-voltage-for-wavelength",
         "pc-de-broglie"
@@ -1439,6 +1608,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-10.1.C"
        ],
        "drills": [
         "pc-series-limit",
@@ -1486,6 +1658,10 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-10.1.D",
+        "CA-7.2.A"
+       ],
        "drills": [
         "pc-second-derivative-eigen",
         "qm-eigenvalue"
@@ -1504,6 +1680,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-11.1.A"
+       ],
        "drills": [
         "qm-orthogonality",
         "qm-normalization-constant"
@@ -1521,6 +1700,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-11.1.B"
        ],
        "drills": [
         "pc-expansion-probability",
@@ -1554,6 +1736,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-11.1.C"
+       ],
        "drills": [
         "qm-pib-probability",
         "qm-superposition-probability"
@@ -1572,6 +1757,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-11.2.A"
+       ],
        "drills": [
         "pc-x2-expectation",
         "qm-expectation-energy"
@@ -1589,6 +1777,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-11.2.B"
        ],
        "drills": [
         "pc-beat-period",
@@ -1620,6 +1811,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-11.2.C"
+       ],
        "drills": [
         "qm-commutator",
         "qm-compatible-observables"
@@ -1636,6 +1830,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-11.3.A"
        ],
        "drills": [
         "pc-min-dx",
@@ -1682,6 +1879,11 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-11.3.B",
+        "PH-7.4.A",
+        "PH-6.3.B"
+       ],
        "drills": [
         "pc-box-from-wavelength",
         "pc-pib-energy"
@@ -1703,6 +1905,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-12.1.A"
+       ],
        "drills": [
         "qm-pib-node",
         "qm-pib-probability"
@@ -1721,6 +1926,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-12.1.B"
+       ],
        "drills": [
         "pc-rect-box-energy",
         "qm-3d-box-degeneracy"
@@ -1738,6 +1946,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-12.1.C"
        ],
        "drills": [
         "pc-chain-from-color",
@@ -1770,6 +1981,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-12.1.D"
+       ],
        "drills": [
         "pc-penetration-depth",
         "qm-tunnelling-decay-constant"
@@ -1788,6 +2002,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-12.2.A"
+       ],
        "drills": [
         "pc-barrier-width",
         "qm-tunnelling-probability"
@@ -1805,6 +2022,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-12.2.B"
        ],
        "drills": [
         "pc-tunnel-height",
@@ -1839,6 +2059,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-12.2.C"
+       ],
        "drills": [
         "pc-zpe-molar",
         "pc-harmonic"
@@ -1857,6 +2080,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-12.3.A"
+       ],
        "drills": [
         "pc-ring-wavelength",
         "qm-ring-transition"
@@ -1873,6 +2099,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-12.3.B"
        ],
        "drills": [
         "pc-rotational-line",
@@ -1892,6 +2121,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-12.3.C"
+       ],
        "drills": [
         "pc-angular-momentum-angle",
         "qm-angular-momentum-magnitude"
@@ -1909,6 +2141,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-12.3.D"
        ],
        "drills": [
         "pc-harmonic-count",
@@ -1960,6 +2195,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-12.3.E"
+       ],
        "drills": [
         "pc-isotope-shift",
         "pc-kie"
@@ -1978,6 +2216,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "PC-13.1.E"
        ],
        "drills": [
         "pc-ir-group",
@@ -1998,6 +2239,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-13.1.F"
+       ],
        "drills": [
         "pc-force-constant",
         "~pc-harmonic"
@@ -2017,6 +2261,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-13.1.A"
+       ],
        "drills": [
         "pc-mode-count",
         "qm-selection-rules"
@@ -2035,6 +2282,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-13.1.B"
+       ],
        "drills": [
         "pc-rotational-constant",
         "~pc-rigid-rotor"
@@ -2052,6 +2302,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-13.1.C"
        ],
        "drills": [
         "pc-spontaneous-ratio",
@@ -2098,6 +2351,11 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-12.3.E",
+        "CH-1.9.A",
+        "CA-13.7.A"
+       ],
        "drills": [
         "pc-hydrogenlike-transition",
         "qm-hydrogenlike-ionization"
@@ -2117,6 +2375,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-14.1.A"
+       ],
        "drills": [
         "pc-radial-nodes",
         "qm-orbitals-in-shell"
@@ -2135,6 +2396,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-14.1.B"
        ],
        "drills": [
         "pc-mean-radius",
@@ -2167,6 +2431,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-14.1.C"
+       ],
        "drills": [
         "pc-gaussian-variational",
         "qm-variational-principle"
@@ -2185,6 +2452,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-14.2.A"
        ],
        "drills": [
         "pc-slater-orbital-energy",
@@ -2205,6 +2475,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-14.2.B"
        ],
        "drills": [
         "qm-hf-closed-shell-energy",
@@ -2239,6 +2512,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-14.2.C"
+       ],
        "drills": [
         "pc-atomic-selection",
         "pc-allowed-count"
@@ -2258,6 +2534,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-14.3.D"
+       ],
        "drills": [
         "~qm-ground-term",
         "~qm-ground-level-j"
@@ -2276,6 +2555,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-14.3.A"
+       ],
        "drills": [
         "qm-ground-term",
         "qm-ground-level-j"
@@ -2293,6 +2575,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-14.3.B"
        ],
        "drills": [
         "pc-spin-orbit-constant",
@@ -2340,6 +2625,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-14.3.C",
+        "CH-2.8.A"
+       ],
        "drills": [
         "pc-hamiltonian-terms",
         "pc-born-oppenheimer"
@@ -2357,6 +2646,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "PC-15.1.E"
        ],
        "drills": [
         "pc-diatomic-multiplicity",
@@ -2377,6 +2669,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-15.1.F"
+       ],
        "drills": [
         "pc-lcao-gap",
         "qm-lcao-bonding-energy"
@@ -2395,6 +2690,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-15.1.A"
        ],
        "drills": [
         "pc-antibonding-asymmetry",
@@ -2415,6 +2713,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-15.1.B"
+       ],
        "drills": [
         "pc-unpaired-diatomic",
         "qm-paramagnetism"
@@ -2433,6 +2734,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-15.1.C"
        ],
        "drills": [
         "pc-bond-order-change",
@@ -2465,6 +2769,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-15.1.D"
+       ],
        "drills": [
         "qm-hybridisation"
        ]
@@ -2482,6 +2789,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-15.2.A"
+       ],
        "drills": [
         "~qm-walsh-ah2"
        ]
@@ -2498,6 +2808,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-15.2.B"
        ],
        "drills": [
         "pc-polyene-gap",
@@ -2531,6 +2844,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-15.2.C"
+       ],
        "drills": [
         "qm-hf-two-electron-energy"
        ]
@@ -2553,6 +2869,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-15.3.A"
+       ],
        "drills": [
         "pc-hessian-classify",
         "qm-stationary-point"
@@ -2571,6 +2890,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-15.3.B"
        ],
        "drills": [
         "pc-correlation-recovered",
@@ -2621,6 +2943,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-13.1.D",
+        "PC-15.3.C"
+       ],
        "drills": [
         "pc-quantum-yield",
         "pc-photochem"
@@ -2638,6 +2964,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-16.1.E"
        ],
        "drills": [
         "pc-ev-from-wavenumber",
@@ -2660,6 +2989,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-16.1.A"
+       ],
        "drills": [
         "pc-transmittance",
         "pc-beer-lambert"
@@ -2679,6 +3011,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-16.1.B"
+       ],
        "drills": [
         "pc-zero-zero-overlap",
         "qm-franck-condon-strongest"
@@ -2696,6 +3031,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-16.1.C"
        ],
        "drills": [
         "pc-stokes-energy",
@@ -2742,6 +3080,10 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-15.3.C",
+        "CH-2.7.B"
+       ],
        "drills": [
         "gt-group-order",
         "gt-mirror-planes"
@@ -2762,6 +3104,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-17.1.A"
+       ],
        "drills": [
         "gt-point-group-common",
         "gt-point-group-more"
@@ -2779,6 +3124,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-17.1.B"
        ],
        "drills": [
         "gt-normal-modes",
@@ -2802,6 +3150,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-17.1.D"
+       ],
        "drills": [
         "gt-ir-raman"
        ]
@@ -2818,6 +3169,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-17.1.E"
        ],
        "drills": [
         "gt-operation-product",
@@ -2839,6 +3193,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "PC-17.1.C"
        ],
        "drills": [
         "pc-specific-rotation",
@@ -2887,6 +3244,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-14.3.C",
+        "PH-12.2.C"
+       ],
        "drills": [
         "pc-field-for-frequency",
         "pc-larmor"
@@ -2903,6 +3264,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-18.1.A"
        ],
        "drills": [
         "pc-hz-other-field",
@@ -2922,6 +3286,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-18.1.B"
+       ],
        "drills": [
         "nmr-downfield"
        ]
@@ -2938,6 +3305,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-18.1.C"
        ],
        "drills": [
         "pc-two-set-splitting",
@@ -2956,6 +3326,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-18.1.D"
        ],
        "drills": [
         "nmr-karplus"
@@ -2998,6 +3371,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-1.3.A"
+       ],
        "drills": [
         "td-multinomial-probability",
         "sm-anagram"
@@ -3016,6 +3392,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-19.1.A"
+       ],
        "drills": [
         "pc-stirling-error",
         "sm-stirling"
@@ -3032,6 +3411,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-19.1.B"
        ],
        "drills": [
         "pc-discrete-variance",
@@ -3064,6 +3446,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-19.1.C"
+       ],
        "drills": [
         "pc-log-w-from-s",
         "~sm-two-state"
@@ -3082,6 +3467,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-19.2.A"
+       ],
        "drills": [
         "td-boltzmann-degenerate",
         "sm-bz-ratio"
@@ -3099,6 +3487,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-19.2.B"
        ],
        "drills": [
         "sm-pf-q",
@@ -3144,6 +3535,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-3.2.D",
+        "PC-12.3.E",
+        "PC-19.2.C",
+        "CA-10.2.A"
+       ],
        "drills": [
         "td-qtrans-scaling",
         "sm-ig-qtrans"
@@ -3161,6 +3558,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-20.1.A"
        ],
        "drills": [
         "td-symmetry-number",
@@ -3180,6 +3580,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-20.1.B"
+       ],
        "drills": [
         "pc-qrot-poly-scaling",
         "sm-rotational-partition-nonlinear"
@@ -3196,6 +3599,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-20.1.C"
        ],
        "drills": [
         "td-vibrational-population",
@@ -3215,6 +3621,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-20.1.D"
+       ],
        "drills": [
         "pc-no-upper-fraction",
         "sm-electronic-partition"
@@ -3232,6 +3641,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-20.1.E"
        ],
        "drills": [
         "td-equipartition-cp",
@@ -3265,6 +3677,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-20.1.F"
+       ],
        "drills": [
         "pc-vib-thermal-energy",
         "~sm-pf-u-two-level"
@@ -3281,6 +3696,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-20.2.A"
        ],
        "drills": [
         "td-einstein-temperature-from-cv",
@@ -3300,6 +3718,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-20.2.B"
+       ],
        "drills": [
         "pc-vib-entropy",
         "~sm-pf-s-two-level"
@@ -3317,6 +3738,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-20.2.C"
        ],
        "drills": [
         "pc-vib-helmholtz",
@@ -3336,6 +3760,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-20.2.D"
        ],
        "drills": [
         "pc-w-from-residual",
@@ -3385,6 +3812,11 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-1.3.A",
+        "PC-19.2.C",
+        "CH-3.5.B"
+       ],
        "drills": [
         "pc-rms-ratio",
         "kt-maxwell-compare"
@@ -3402,6 +3834,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-21.1.A"
+       ],
        "drills": [
         "pc-matching-temperature",
         "pc-speeds"
@@ -3418,6 +3853,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-21.1.B"
        ],
        "drills": [
         "pc-effusion-time",
@@ -3437,6 +3875,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-21.1.C"
+       ],
        "drills": [
         "pc-collision-scaling",
         "kt-collision-frequency"
@@ -3453,6 +3894,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-21.1.D"
        ],
        "drills": [
         "pc-pressure-for-mfp",
@@ -3486,6 +3930,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-21.1.E"
+       ],
        "drills": [
         "pc-gradient-for-flux",
         "tr-fick-flux"
@@ -3503,6 +3950,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-21.2.A"
+       ],
        "drills": [
         "pc-diffusion-time",
         "pc-diffusion-distance"
@@ -3519,6 +3969,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-21.2.B"
        ],
        "drills": [
         "pc-conductivity-from-flux",
@@ -3538,6 +3991,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-21.2.C"
        ],
        "drills": [
         "pc-gradient-from-stress",
@@ -3597,6 +4053,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-4.2.B",
+        "CH-5.11.A",
+        "CA-7.8.A"
+       ],
        "drills": [
         "pc-pseudo-first",
         "pc-kinetic-method"
@@ -3616,6 +4077,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-22.1.C"
+       ],
        "drills": [
         "pc-rate-prediction",
         "pc-initial-rates"
@@ -3634,6 +4098,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-22.1.A"
        ],
        "drills": [
         "pc-first-order",
@@ -3681,6 +4148,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-22.1.B"
+       ],
        "drills": [
         "pc-catalyst-speedup",
         "pc-control"
@@ -3698,6 +4168,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-22.2.D"
        ],
        "drills": [
         "sm-rate-ea",
@@ -3718,6 +4191,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-22.2.A"
+       ],
        "drills": [
         "pc-energetic-fraction",
         "kn-steric-factor"
@@ -3735,6 +4211,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-22.2.B"
        ],
        "drills": [
         "td-eyring-half-life",
@@ -3774,6 +4253,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PC-22.2.C"
+       ],
        "drills": [
         "pc-langmuir",
         "pc-langmuir-pressure"
@@ -3793,6 +4275,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-22.3.I"
+       ],
        "drills": [
         "pc-reversible-halfway",
         "kn-reversible-first-order"
@@ -3809,6 +4294,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PC-22.3.A"
        ],
        "drills": [
         "pc-parallel-time",
@@ -3827,6 +4315,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-22.3.B"
        ],
        "drills": [
         "pc-intermediate-max-time",
@@ -3848,6 +4339,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-22.3.C"
+       ],
        "drills": [
         "pc-steady-state-keff",
         "kn-steady-state-rate"
@@ -3866,6 +4360,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-22.3.D"
        ],
        "drills": [
         "pc-pre-equilibrium-ea",
@@ -3886,6 +4383,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "PC-22.3.E"
+       ],
        "drills": [
         "pc-lindemann-half",
         "kn-lindemann"
@@ -3905,6 +4405,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PC-22.3.F"
+       ],
        "drills": [
         "pc-substrate-for-fraction",
         "pc-michaelis"
@@ -3923,6 +4426,9 @@
        "p": [
         "P2",
         "P5"
+       ],
+       "needs": [
+        "PC-22.3.G"
        ],
        "drills": [
         "pc-initiation-from-chain",

@@ -87,6 +87,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "PH-8.2.B"
+       ],
        "drills": [
         "fm-kinematic-viscosity",
         "fm-dynamic-from-kinematic"
@@ -113,6 +116,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "FM-1.1.A"
+       ],
        "drills": [
         "fm-hydrostatic-pressure",
         "fm-manometer"
@@ -129,6 +135,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-1.2.A"
        ],
        "drills": [
         "fm-floating-fraction",
@@ -170,6 +179,9 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "FM-1.2.B"
+       ],
        "drills": [
         "fm-reynolds-number",
         "fm-hydraulic-diameter",
@@ -191,6 +203,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "FM-2.1.A"
+       ],
        "drills": [
         "fm-flow-regime",
         "fm-max-laminar-speed"
@@ -208,6 +223,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-2.1.B"
        ],
        "drills": [
         "fm-laminar-pressure-drop",
@@ -251,6 +269,10 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "FM-1.2.B",
+        "PH-8.4.B"
+       ],
        "drills": [
         "fm-continuity",
         "fm-bernoulli-pressure"
@@ -269,6 +291,9 @@
        "p": [
         "P1",
         "P3"
+       ],
+       "needs": [
+        "FM-3.1.A"
        ],
        "drills": [
         "fm-torricelli",
@@ -312,6 +337,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-2.1.C",
+        "FM-3.1.B"
+       ],
        "drills": [
         "fm-friction-head-loss",
         "fm-minor-loss",
@@ -344,6 +373,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "FM-4.1.A"
+       ],
        "drills": [
         "fm-pump-head",
         "fm-pump-power",
@@ -364,6 +396,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "FM-4.2.A"
        ],
        "drills": [
         "fm-pump-concepts",
@@ -403,6 +438,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-3.1.B"
+       ],
        "drills": [
         "fm-pitot",
         "fm-venturi"
@@ -419,6 +457,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "FM-5.1.A"
        ],
        "drills": [
         "fm-meter-choice",
@@ -459,6 +500,9 @@
         "P1",
         "P2"
        ],
+       "needs": [
+        "FM-4.2.B"
+       ],
        "drills": [
         "fm-speed-of-sound",
         "fm-mach-regime"
@@ -483,6 +527,9 @@
        "p": [
         "P1",
         "P2"
+       ],
+       "needs": [
+        "FM-6.1.A"
        ],
        "drills": [
         "fm-non-newtonian-type",
@@ -522,6 +569,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-3.1.B",
+        "PH-4.3.B"
+       ],
        "drills": [
         "fm-jet-plate",
         "fm-moving-plate-jet"
@@ -538,6 +589,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-7.1.A"
        ],
        "drills": [
         "fm-vane-force",
@@ -577,6 +631,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-2.1.C",
+        "FM-7.1.B",
+        "EM-2.1.C"
+       ],
        "drills": [
         "fm-couette-force",
         "fm-couette-dissipation"
@@ -593,6 +652,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-8.1.A"
        ],
        "drills": [
         "fm-poiseuille-flow",
@@ -611,6 +673,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-8.1.B"
+       ],
        "drills": [
         "fm-falling-film",
         "fm-film-thickness"
@@ -628,6 +693,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-8.1.C"
+       ],
        "drills": [
         "fm-continuity-2d",
         "fm-incompressible-check"
@@ -644,6 +712,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-8.1.D"
        ],
        "drills": [
         "fm-entry-length",
@@ -683,6 +754,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-2.1.C"
+       ],
        "drills": [
         "fm-pi-count",
         "fm-group-exponent"
@@ -699,6 +773,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-9.1.A"
        ],
        "drills": [
         "fm-model-similarity",
@@ -723,6 +800,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-9.1.B"
+       ],
        "drills": [
         "fm-drag-force",
         "fm-cd-from-force"
@@ -739,6 +819,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-9.2.A"
        ],
        "drills": [
         "fm-stokes-terminal",
@@ -779,6 +862,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-1.2.B",
+        "FM-4.2.B"
+       ],
        "drills": [
         "fm-parallel-pipes",
         "fm-laminar-split"
@@ -797,6 +884,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-10.1.A"
+       ],
        "drills": [
         "fm-pump-affinity",
         "fm-affinity-speed"
@@ -814,6 +904,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-10.1.B"
        ],
        "drills": [
         "fm-operating-point",
@@ -837,6 +930,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-10.1.C"
        ],
        "drills": [
         "fm-gate-force",
@@ -877,6 +973,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-1.2.B",
+        "FM-8.1.E",
+        "EM-12.1.A"
+       ],
        "drills": [
         "fm-curved-surface",
         "fm-curved-horizontal"
@@ -894,6 +995,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-11.1.A"
+       ],
        "drills": [
         "fm-layered-pressure",
         "fm-manometer-reading"
@@ -910,6 +1014,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-11.1.B"
        ],
        "drills": [
         "fm-rotating-tank",
@@ -934,6 +1041,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-11.1.C"
+       ],
        "drills": [
         "fm-streamline",
         "fm-travel-time"
@@ -950,6 +1060,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-11.2.A"
        ],
        "drills": [
         "fm-convective-acceleration",
@@ -968,6 +1081,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-11.2.B"
+       ],
        "drills": [
         "fm-stream-function",
         "fm-flow-between-streamlines"
@@ -984,6 +1100,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-11.2.C"
        ],
        "drills": [
         "fm-vorticity",
@@ -1002,6 +1121,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-11.2.D"
+       ],
        "drills": [
         "fm-velocity-potential",
         "fm-potential-pressure"
@@ -1018,6 +1140,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-11.2.E"
        ],
        "drills": [
         "fm-viscous-dissipation",
@@ -1058,6 +1183,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-6.2.A",
+        "FM-8.1.E",
+        "FM-9.2.B",
+        "EM-14.2.D"
+       ],
        "drills": [
         "fm-froude",
         "fm-critical-froude-depth"
@@ -1075,6 +1206,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.1.A"
+       ],
        "drills": [
         "fm-sprinkler-torque",
         "fm-sprinkler-free-spin"
@@ -1091,6 +1225,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.1.B"
        ],
        "drills": [
         "fm-diffuser",
@@ -1115,6 +1252,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.1.C"
+       ],
        "drills": [
         "fm-boundary-thickness",
         "fm-turbulent-bl-thickness"
@@ -1131,6 +1271,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.2.A"
        ],
        "drills": [
         "fm-pressure-gradient",
@@ -1155,6 +1298,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.2.B"
+       ],
        "drills": [
         "fm-source-velocity",
         "fm-source-strength"
@@ -1171,6 +1317,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.3.A"
        ],
        "drills": [
         "fm-rankine-stagnation",
@@ -1189,6 +1338,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.3.B"
+       ],
        "drills": [
         "fm-cylinder-cp",
         "fm-kutta-lift"
@@ -1205,6 +1357,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.3.C"
        ],
        "drills": [
         "fm-joukowski",
@@ -1223,6 +1378,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.3.D"
+       ],
        "drills": [
         "fm-thin-airfoil",
         "fm-thin-airfoil-alpha"
@@ -1239,6 +1397,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.3.E"
        ],
        "drills": [
         "fm-sphere-speed",
@@ -1263,6 +1424,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.3.F"
+       ],
        "drills": [
         "fm-stagnation-temperature",
         "fm-mach-from-stagnation"
@@ -1279,6 +1443,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.4.A"
        ],
        "drills": [
         "fm-area-mach",
@@ -1297,6 +1464,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.4.B"
+       ],
        "drills": [
         "fm-critical-pressure",
         "fm-choked-check"
@@ -1313,6 +1483,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.4.C"
        ],
        "drills": [
         "fm-normal-shock",
@@ -1331,6 +1504,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.4.D"
+       ],
        "drills": [
         "fm-mach-angle",
         "fm-mach-from-angle"
@@ -1347,6 +1523,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.4.E"
        ],
        "drills": [
         "fm-prandtl-meyer",
@@ -1365,6 +1544,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-12.4.F"
+       ],
        "drills": [
         "fm-fanno",
         "fm-fanno-temperature"
@@ -1381,6 +1563,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-12.4.G"
        ],
        "drills": [
         "fm-rayleigh",
@@ -1421,6 +1606,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-4.2.B",
+        "FM-10.2.A"
+       ],
        "drills": [
         "fm-critical-depth",
         "fm-minimum-specific-energy"
@@ -1437,6 +1626,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-13.1.A"
        ],
        "drills": [
         "fm-manning",
@@ -1455,6 +1647,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-13.1.B"
+       ],
        "drills": [
         "fm-best-section",
         "fm-best-rectangle-radius"
@@ -1472,6 +1667,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "FM-13.1.C"
+       ],
        "drills": [
         "fm-gradually-varied",
         "fm-profile-class"
@@ -1488,6 +1686,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-13.1.D"
        ],
        "drills": [
         "fm-hydraulic-jump",
@@ -1511,6 +1712,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "FM-13.1.E"
        ],
        "drills": [
         "fm-turbine-power",
