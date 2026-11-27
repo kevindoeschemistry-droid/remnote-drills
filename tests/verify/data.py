@@ -654,6 +654,8 @@ from cwcalc import FUNCS as _CW  # noqa: E402
 _merge(_CW, "_CW")
 from gccalc import FUNCS as _GC  # noqa: E402
 _merge(_GC, "_GC")
+from pmcalc import FUNCS as _PM  # noqa: E402
+_merge(_PM, "_PM")
 from edlcalc import FUNCS as _EDL  # noqa: E402
 _merge(_EDL, "_EDL")
 _bad = _sql_tables(TEMPLATES)

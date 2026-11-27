@@ -1,0 +1,88 @@
+# Stochastic Processes — curriculum framework (draft 1, for Kevin's markup)
+#
+# Markov chains are what molecular simulation runs on: detailed balance, stationary distributions and mixing
+# are the same objects whether the states are residues or configurations. Molecular Simulation uses them;
+# this framework is where they are defined and computed on chains small enough to do by hand.
+id: stochastic-processes
+title: Stochastic Processes
+code: STO
+draft: 1
+track: math
+requires: [statistics, linear-algebra]
+level: 4
+domains: [stoch]
+
+basis:
+  primary: cambridge-ib-markov-chains
+  also: [cambridge-ii-applied-probability]
+  note: "Anchored on the Cambridge Markov Chains schedule (read through an extraction), with the Poisson process and the M/M/1 queue from Applied Probability. Renewal theory, general continuous-time chains, martingales and Brownian motion are not built."
+
+big_ideas:
+  - id: STEP
+    title: "Condition on the first step"
+    text: "Hitting probabilities, expected times and invariant distributions all come from one move of the chain and a set of linear equations."
+  - id: EQ
+    title: "Equilibrium is a balance of flows"
+    text: "A distribution is invariant when probability flowing into each state equals what flows out; detailed balance is the special case where it balances pair by pair."
+
+practices:
+  - id: P1
+    title: Compute
+    text: "Carry the definition or theorem to a number, a count or an example."
+  - id: P2
+    title: Decide
+    text: "Say whether a statement holds, which hypothesis fails, or which example breaks it."
+
+units:
+  - id: chains
+    n: 1
+    title: "Markov chains"
+    std: ["cambridge-ib-markov-chains:M1"]
+    scope: core
+    ideas: [STEP]
+    topics:
+      - n: 1
+        title: "Transition matrices and hitting"
+        los:
+          - { id: A, std: ["cambridge-ib-markov-chains:M1"], do: "Compute n-step transition probabilities and push a distribution forward one step.", ek: ["The n-step probabilities are the entries of Pⁿ (Chapman-Kolmogorov), and a row vector of probabilities evolves by μ ↦ μP."], p: [P1], drills: [sto-two-step, sto-push-forward] }
+          - { id: B, std: ["cambridge-ib-markov-chains:M1"], do: "Find the communicating classes of a chain, say which are closed, and find the period of a state.", ek: ["States communicate when each can reach the other. A class is closed if the chain cannot leave it; a chain with one class is irreducible. The period of a state is the gcd of its possible return times."], p: [P1], drills: [sto-class-count, sto-period] }
+          - { id: C, std: ["cambridge-ib-markov-chains:M1"], do: "Find an absorption probability and a mean hitting time by first-step analysis.", ek: ["h(i), the probability of hitting A from i, satisfies h = 1 on A and h(i) = Σ p(i, j) h(j) elsewhere. k(i), the mean time to hit A, satisfies k = 0 on A and k(i) = 1 + Σ p(i, j) k(j)."], p: [P1], drills: [sto-absorption, sto-hitting-time] }
+  - id: walks
+    n: 2
+    title: "Random walks"
+    std: ["cambridge-ib-markov-chains:M1", "cambridge-ib-markov-chains:M2"]
+    scope: core
+    ideas: [STEP]
+    topics:
+      - n: 1
+        title: "Ruin, recurrence and transience"
+        los:
+          - { id: A, std: ["cambridge-ib-markov-chains:M1"], do: "Solve the gambler's ruin problem for the chance of winning and the expected duration.", ek: ["On 0…N with up-probability p and q = 1 − p: from i the chance of reaching N first is i/N if p = 1/2 and (1 − (q/p)^i)/(1 − (q/p)^N) otherwise. The fair game lasts i(N − i) steps on average."], p: [P1], drills: [sto-ruin-biased, sto-ruin-duration] }
+          - { id: B, std: ["cambridge-ib-markov-chains:M2"], do: "Say whether a random walk is recurrent or transient and find a biased walk's return probability.", ek: ["A state is recurrent if return is certain, equivalently if Σ pⁿ(i, i) diverges. The simple symmetric walk is recurrent in one and two dimensions and transient in three (Pólya). On the integers with p ≠ 1/2 the return probability is 1 − |p − q|."], p: [P2], drills: [sto-return-probability, sto-recurrence-facts] }
+  - id: longrun
+    n: 3
+    title: "Long-run behaviour"
+    std: ["cambridge-ib-markov-chains:M3", "cambridge-ib-markov-chains:M4"]
+    scope: core
+    ideas: [EQ]
+    topics:
+      - n: 1
+        title: "Invariant distributions and reversibility"
+        los:
+          - { id: A, std: ["cambridge-ib-markov-chains:M3"], do: "Find the invariant distribution of a small chain.", ek: ["π is invariant when πP = π with entries summing to 1. For two states with p(0, 1) = a and p(1, 0) = b, π = (b, a)/(a + b)."], p: [P1], drills: [sto-stationary-two, sto-stationary-three] }
+          - { id: B, std: ["cambridge-ib-markov-chains:M3"], do: "Relate the invariant distribution to mean return times and long-run proportions.", ek: ["In an irreducible positive-recurrent chain the mean return time to i is 1/π_i, and the long-run proportion of time spent in i is π_i whatever the start."], p: [P1], drills: [sto-return-time, sto-long-run-count] }
+          - { id: C, std: ["cambridge-ib-markov-chains:M4"], do: "Use detailed balance, including for a random walk on a graph.", ek: ["If π_i p(i, j) = π_j p(j, i) for all pairs then π is invariant and the chain is reversible. A random walk on a graph has π_v = deg(v)/(2E)."], p: [P1], drills: [sto-graph-walk, sto-detailed-balance-facts] }
+          - { id: D, std: ["cambridge-ib-markov-chains:M3"], do: "Say when a chain converges to equilibrium and how fast.", ek: ["An irreducible aperiodic positive-recurrent chain has pⁿ(i, j) → π_j. For two states, pⁿ(0, 0) − π₀ = π₁ λⁿ with λ = 1 − a − b, the second eigenvalue."], p: [P1], drills: [sto-second-eigenvalue, sto-convergence-facts] }
+  - id: poisson
+    n: 4
+    title: "Poisson processes and queues"
+    std: ["cambridge-ii-applied-probability:P1", "cambridge-ii-applied-probability:P3"]
+    scope: core
+    ideas: [EQ]
+    topics:
+      - n: 1
+        title: "Continuous time"
+        los:
+          - { id: A, std: ["cambridge-ii-applied-probability:P1"], do: "Compute probabilities and waiting times for a Poisson process.", ek: ["With rate λ, the number of arrivals in time t is Poisson with mean λt, the gaps are independent exponentials of mean 1/λ, and the kth arrival comes at mean time k/λ."], p: [P1], drills: [sto-poisson-none, sto-poisson-count] }
+          - { id: B, std: ["cambridge-ii-applied-probability:P1"], do: "Combine and split Poisson processes.", ek: ["Independent Poisson processes of rates λ and μ superpose to rate λ + μ, and the next event is from the first with probability λ/(λ + μ). Keeping each event with probability p gives a Poisson process of rate pλ."], p: [P1], drills: [sto-poisson-race, sto-poisson-thinning] }
+          - { id: C, std: ["cambridge-ii-applied-probability:P1", "cambridge-ii-applied-probability:P3"], do: "Find the equilibrium of a birth-death chain and of the M/M/1 queue.", ek: ["Balance across each cut: π_n λ_n = π_(n+1) μ_(n+1). For M/M/1 with ρ = λ/μ < 1, π_n = (1 − ρ)ρⁿ and the mean number in the system is ρ/(1 − ρ)."], p: [P1], drills: [sto-mm1-mean, sto-birth-death] }

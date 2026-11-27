@@ -1,0 +1,481 @@
+{
+ "id": "number-theory",
+ "title": "Number Theory",
+ "code": "NT",
+ "draft": 1,
+ "track": "math",
+ "requires": [
+  "discrete-mathematics"
+ ],
+ "level": 3,
+ "domains": [
+  "nt"
+ ],
+ "basis": {
+  "primary": "cambridge-ii-number-theory",
+  "also": [
+   "cambridge-ia-numbers-sets"
+  ],
+  "note": "Anchored on the Cambridge Numbers and Sets and Number Theory schedules (read through an extraction). The Jacobi symbol, binary quadratic forms and factorisation methods (T4, T5, T9) are not drilled in draft 1."
+ },
+ "big_ideas": [
+  {
+   "id": "MOD",
+   "title": "Work in the right modulus",
+   "text": "Most questions about integers become finite once reduced modulo the right number; the art is choosing it."
+  },
+  {
+   "id": "STRUCT",
+   "title": "The units modulo n form a group",
+   "text": "Fermat, Euler, Wilson and primitive roots are all statements about the group of units, and its order is φ(n)."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry the definition or theorem to a number, a count or an example."
+  },
+  {
+   "id": "P2",
+   "title": "Decide",
+   "text": "Say whether a statement holds, which hypothesis fails, or which example breaks it."
+  }
+ ],
+ "units": [
+  {
+   "id": "divisibility",
+   "n": 1,
+   "title": "Divisibility and factorisation",
+   "std": [
+    "cambridge-ii-number-theory:T1",
+    "cambridge-ia-numbers-sets:N4"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MOD"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Euclid and unique factorisation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Run Euclid's algorithm and say how long it takes.",
+       "ek": [
+        "gcd(a, b) = gcd(b, a mod b); the last non-zero remainder is the gcd. Consecutive Fibonacci numbers are the slowest inputs."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-gcd",
+        "nt-euclid-steps"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Solve a linear congruence or a linear Diophantine equation with Bezout's identity.",
+       "ek": [
+        "ax + by = c has integer solutions exactly when gcd(a, b) divides c; running Euclid backwards finds one, and the rest differ by multiples of (b/g, −a/g)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-linear-congruence",
+        "nt-coin-solutions"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Count and sum the divisors of an integer from its prime factorisation.",
+       "ek": [
+        "If n = Π p^a then n has Π (a + 1) divisors and σ(n) = Π (p^(a+1) − 1)/(p − 1); both functions are multiplicative."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-divisor-count",
+        "nt-divisor-sum"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "congruences",
+   "n": 2,
+   "title": "Congruences",
+   "std": [
+    "cambridge-ii-number-theory:T1",
+    "cambridge-ii-number-theory:T2",
+    "cambridge-ia-numbers-sets:N4"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MOD",
+    "STRUCT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Arithmetic modulo n",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Find a modular inverse and reduce a large power with Fermat's little theorem.",
+       "ek": [
+        "a has an inverse modulo n exactly when gcd(a, n) = 1. For a prime p not dividing a, a^(p−1) ≡ 1 (mod p), so exponents reduce modulo p − 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-inverse",
+        "nt-fermat-power"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T1",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Compute Euler's function and use Euler's theorem.",
+       "ek": [
+        "φ(n) = n Π (1 − 1/p) over the primes dividing n, and a^φ(n) ≡ 1 (mod n) whenever gcd(a, n) = 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-euler-phi",
+        "nt-last-two-digits"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-number-theory:T2",
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Solve simultaneous congruences and use Wilson's theorem.",
+       "ek": [
+        "If m and n are coprime, x ≡ a (mod m), x ≡ b (mod n) has exactly one solution modulo mn. Wilson: (p − 1)! ≡ −1 (mod p) exactly when p is prime."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-crt",
+        "nt-wilson"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ia-numbers-sets:N4"
+       ],
+       "do": "Find an RSA decryption exponent and encrypt a small message.",
+       "ek": [
+        "With n = pq and φ = (p − 1)(q − 1), the public exponent e and private exponent d satisfy ed ≡ 1 (mod φ); encryption is m^e mod n and decryption c^d mod n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-rsa-private",
+        "nt-rsa-encrypt"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "residues",
+   "n": 3,
+   "title": "Primitive roots and quadratic residues",
+   "std": [
+    "cambridge-ii-number-theory:T2",
+    "cambridge-ii-number-theory:T3"
+   ],
+   "scope": "core",
+   "ideas": [
+    "STRUCT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The structure of the units",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T2"
+       ],
+       "do": "Find the order of an element modulo a prime and count primitive roots.",
+       "ek": [
+        "The order of a modulo p divides p − 1. A primitive root has order p − 1; every prime has φ(p − 1) of them."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-order-mod-p",
+        "nt-primitive-root-count"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T3"
+       ],
+       "do": "Evaluate a Legendre symbol with Euler's criterion and the reciprocity laws.",
+       "ek": [
+        "(a/p) ≡ a^((p−1)/2) (mod p). (−1/p) = 1 exactly when p ≡ 1 (mod 4); (2/p) = 1 exactly when p ≡ ±1 (mod 8); for odd primes (p/q)(q/p) = −1 only when both are 3 mod 4."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-legendre",
+        "nt-reciprocity-facts"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "diophantine",
+   "n": 4,
+   "title": "Diophantine equations and primes",
+   "std": [
+    "cambridge-ii-number-theory:T6",
+    "cambridge-ii-number-theory:T7",
+    "cambridge-ii-number-theory:T8"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MOD"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Continued fractions, squares and primality",
+     "los": [
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-number-theory:T3",
+        "cambridge-ib-grm:RI"
+       ],
+       "do": "Decide whether an integer is a sum of two squares.",
+       "ek": [
+        "An odd prime is a sum of two squares exactly when it is 1 mod 4. In general n is one exactly when every prime that is 3 mod 4 divides n to an even power."
+       ],
+       "p": [
+        "P2"
+       ],
+       "drills": [
+        "nt-sum-two-squares",
+        "nt-two-squares-facts"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-number-theory:T7"
+       ],
+       "do": "Expand a rational as a continued fraction and solve a Pell equation.",
+       "ek": [
+        "The continued fraction of p/q is Euclid's algorithm written down. The convergents of √d give the solutions of x² − dy² = 1, and every solution is a power of the smallest."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-continued-fraction",
+        "nt-pell"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-number-theory:T6",
+        "cambridge-ii-number-theory:T8"
+       ],
+       "do": "Estimate how many primes lie below a bound and apply the Fermat primality test.",
+       "ek": [
+        "π(x) is about x/ln x. If a^(n−1) is not 1 modulo n then n is composite; composites that pass for base a are pseudoprimes, and Carmichael numbers such as 561 pass for every coprime base."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-prime-count-estimate",
+        "nt-fermat-test"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "NT-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-gcd",
+    "nt-euclid-steps"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-linear-congruence",
+    "nt-coin-solutions"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-divisor-count",
+    "nt-divisor-sum"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-inverse",
+    "nt-fermat-power"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-euler-phi",
+    "nt-last-two-digits"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-crt",
+    "nt-wilson"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-rsa-private",
+    "nt-rsa-encrypt"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-order-mod-p",
+    "nt-primitive-root-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-legendre",
+    "nt-reciprocity-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-sum-two-squares",
+    "nt-two-squares-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-continued-fraction",
+    "nt-pell"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-prime-count-estimate",
+    "nt-fermat-test"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
