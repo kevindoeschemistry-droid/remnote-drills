@@ -8,7 +8,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 
 | Framework | Primary basis | Kind | How firmly | Also | Wanted | Objectives | Anchored | House only |
 |---|---|---|---|---|---|---|---|---|
-| Abstract Algebra | Cambridge Mathematical Tripos, Part IA Groups schedule | course | read in part | cambridge-ib-grm, cambridge-ii-galois-theory | — | 20 | 20 | 0 |
+| Abstract Algebra | Cambridge Mathematical Tripos, Part IA Groups schedule | course | read in part | cambridge-ib-grm, cambridge-ii-galois-theory | — | 40 | 40 | 0 |
 | Financial Accounting (CPA FAR) | Uniform CPA Examination Blueprints: Financial Accounting and Reporting (FAR) | exam-spec | read in part | — | — | 26 | 26 | 0 |
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
@@ -23,7 +23,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Chemistry (AP) | AP Chemistry Course and Exam Description (Fall 2024) | standard | read in part | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 188 | 188 | 0 |
 | Computer Science | Computer Science Curricula 2023, Body of Knowledge | standard | read in full | — | — | 140 | 1 | 139 |
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
-| Discrete Mathematics | MAA CUPM Curriculum Guide 2015, Discrete Mathematics and Combinatorics course area report | standard | read in part | cambridge-ia-numbers-sets, cambridge-ii-graph-theory | — | 22 | 22 | 0 |
+| Discrete Mathematics | MAA CUPM Curriculum Guide 2015, Discrete Mathematics and Combinatorics course area report | standard | read in part | cambridge-ia-numbers-sets, cambridge-ii-graph-theory | — | 28 | 28 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
@@ -58,7 +58,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Programming Foundations | AP Computer Science A Course and Exam Description (Fall 2025) | standard | read in full | — | — | 140 | 140 | 0 |
 | Computational Protein Design | PyRosetta Jupyter Notebooks (RosettaCommons), taught as JHU 545.614 / 540.414 | course | read in part | rosetta-ref15, dl4proteins, kuhlman-bradley, jhu-545614 | — | 51 | 51 | 0 |
 | Chemical Reaction Engineering | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | icho-appendix-c, pe-chemical | — | 52 | 39 | 13 |
-| Real Analysis | Cambridge Mathematical Tripos, Part IA Analysis I schedule | course | read in part | cambridge-ia-numbers-sets, cambridge-ib-analysis-ii | — | 21 | 21 | 0 |
+| Real Analysis | Cambridge Mathematical Tripos, Part IA Analysis I schedule | course | read in part | cambridge-ia-numbers-sets, cambridge-ib-analysis-ii | — | 38 | 38 | 0 |
 | Separations | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical | — | 6 | 6 | 0 |
 | Speaking and Articulation | Competent Speaker Speech Evaluation Form, 2nd ed. | rubric | read in full | toastmasters-pathways | — | 69 | 0 | 69 |
 | SQL | Oracle Database SQL, exam 1Z0-071: exam topics | exam-spec | read through a crosswalk | — | — | 40 | 37 | 3 |
@@ -3697,12 +3697,12 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| G1 | Examples of groups: axioms, symmetry groups, permutations, subgroups, homomorphisms, the Möbius group | 6 | 6 | abstract-algebra (6) |
-| G2 | Lagrange's theorem: cosets, groups of small order, quaternions, Fermat-Euler | 7 | 7 | abstract-algebra (7) |
-| G3 | Group actions: orbits and stabilisers, Cayley's theorem, conjugacy classes, Cauchy's theorem | 7 | 7 | abstract-algebra (7) |
-| G4 | Quotient groups: normal subgroups and the isomorphism theorem | 4 | 4 | abstract-algebra (4) |
-| G5 | Matrix groups: general, special, orthogonal groups and rotations | 4 | 4 | abstract-algebra (4) |
-| G6 | Permutations: cycles, sign, conjugacy in the symmetric and alternating groups, simple groups | 6 | 6 | abstract-algebra (6) |
+| G1 | Examples of groups: axioms, symmetry groups, permutations, subgroups, homomorphisms, the Möbius group | 17 | 17 | abstract-algebra (17) |
+| G2 | Lagrange's theorem: cosets, groups of small order, quaternions, Fermat-Euler | 16 | 16 | abstract-algebra (16) |
+| G3 | Group actions: orbits and stabilisers, Cayley's theorem, conjugacy classes, Cauchy's theorem | 13 | 13 | abstract-algebra (13) |
+| G4 | Quotient groups: normal subgroups and the isomorphism theorem | 11 | 11 | abstract-algebra (11) |
+| G5 | Matrix groups: general, special, orthogonal groups and rotations | 7 | 7 | abstract-algebra (7) |
+| G6 | Permutations: cycles, sign, conjugacy in the symmetric and alternating groups, simple groups | 14 | 14 | abstract-algebra (14) |
 
 ## Cambridge Mathematical Tripos, Part IB Groups, Rings and Modules schedule
 
@@ -3712,9 +3712,9 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| GR | Groups: isomorphism theorems, actions, centre, p-groups, Sylow theorems, groups of small order | 6 | 6 | abstract-algebra (6) |
-| RI | Rings: ideals, quotients, prime and maximal ideals, fields, unique factorisation, Gaussian integers, polynomial rings | 7 | 7 | abstract-algebra (6), number-theory (1) |
-| MO | Modules: finitely generated modules over a Euclidean domain, abelian groups, Jordan normal form | 4 | 4 | abstract-algebra (4) |
+| GR | Groups: isomorphism theorems, actions, centre, p-groups, Sylow theorems, groups of small order | 10 | 10 | abstract-algebra (10) |
+| RI | Rings: ideals, quotients, prime and maximal ideals, fields, unique factorisation, Gaussian integers, polynomial rings | 13 | 13 | abstract-algebra (12), number-theory (1) |
+| MO | Modules: finitely generated modules over a Euclidean domain, abelian groups, Jordan normal form | 9 | 9 | abstract-algebra (9) |
 
 ## Cambridge Mathematical Tripos, Part IA Numbers and Sets schedule
 
@@ -3724,11 +3724,11 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| N1 | Number systems and logic: proof, counter-example, negation, contradiction | 4 | 4 | discrete-mathematics (4) |
+| N1 | Number systems and logic: proof, counter-example, negation, contradiction | 15 | 15 | discrete-mathematics (15) |
 | N2 | Sets, relations and functions: injections, surjections, equivalence relations, counting, inclusion-exclusion | 13 | 13 | discrete-mathematics (13) |
-| N3 | The integers: induction, well-ordering, the binomial theorem | 9 | 9 | discrete-mathematics (9) |
+| N3 | The integers: induction, well-ordering, the binomial theorem | 10 | 10 | discrete-mathematics (10) |
 | N4 | Elementary number theory: primes, Euclid's algorithm, congruences, Chinese remainder, Wilson, Fermat-Euler, RSA | 14 | 14 | number-theory (14) |
-| N5 | The real numbers: least upper bounds, monotone sequences, irrationality, decimal expansions | 4 | 4 | real-analysis (4) |
+| N5 | The real numbers: least upper bounds, monotone sequences, irrationality, decimal expansions | 10 | 10 | real-analysis (10) |
 | N6 | Countability and uncountability: countable unions, the reals, power sets | 5 | 5 | discrete-mathematics (5) |
 
 ## Cambridge Mathematical Tripos, Part II Number Theory schedule
@@ -3757,11 +3757,11 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| A1 | Limits and convergence: sequences and series, Bolzano-Weierstrass, Cauchy's principle, convergence tests | 14 | 14 | real-analysis (14) |
-| A2 | Continuity: the intermediate value theorem, bounds attained on a closed interval | 6 | 6 | real-analysis (6) |
-| A3 | Differentiability: Rolle, the mean value theorem, Taylor's theorem with remainder | 6 | 6 | real-analysis (6) |
-| A4 | Power series: radius of convergence, the exponential and trigonometric functions | 4 | 4 | real-analysis (4) |
-| A5 | Integration: the Riemann integral, integrable functions, the fundamental theorem, improper integrals | 6 | 6 | real-analysis (6) |
+| A1 | Limits and convergence: sequences and series, Bolzano-Weierstrass, Cauchy's principle, convergence tests | 33 | 33 | real-analysis (33) |
+| A2 | Continuity: the intermediate value theorem, bounds attained on a closed interval | 12 | 12 | real-analysis (12) |
+| A3 | Differentiability: Rolle, the mean value theorem, Taylor's theorem with remainder | 12 | 12 | real-analysis (12) |
+| A4 | Power series: radius of convergence, the exponential and trigonometric functions | 8 | 8 | real-analysis (8) |
+| A5 | Integration: the Riemann integral, integrable functions, the fundamental theorem, improper integrals | 9 | 9 | real-analysis (9) |
 
 ## Cambridge Mathematical Tripos, Part IB Topological Spaces schedule
 
@@ -3828,8 +3828,8 @@ https://www2.kenyon.edu/Depts/Math/schumacherc/public_html/Professional/CUPM/201
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
-| D1 | Basic logic and proof, with elementary number theory | 6 | 6 | discrete-mathematics (6) |
-| D2 | Sequences, induction and recursion | 4 | 4 | discrete-mathematics (4) |
+| D1 | Basic logic and proof, with elementary number theory | 17 | 17 | discrete-mathematics (17) |
+| D2 | Sequences, induction and recursion | 5 | 5 | discrete-mathematics (5) |
 | D3 | Sets, functions and relations | 8 | 8 | discrete-mathematics (8) |
 | D4 | Combinatorics and discrete probability | 7 | 7 | discrete-mathematics (7) |
 | D5 | Graphs and trees | 7 | 7 | discrete-mathematics (7) |

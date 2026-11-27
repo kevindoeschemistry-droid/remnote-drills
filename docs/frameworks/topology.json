@@ -60,23 +60,6 @@
      "title": "Open sets and continuity",
      "los": [
       {
-       "id": "C",
-       "std": [
-        "cambridge-ib-topological-spaces:S1"
-       ],
-       "do": "Recognise continuity, homeomorphism and topological properties, including the Hausdorff property.",
-       "ek": [
-        "f is continuous when preimages of open sets are open. A homeomorphism is a continuous bijection with continuous inverse; properties it preserves are topological. In a Hausdorff space distinct points have disjoint open neighbourhoods, so limits are unique."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "tp-topological-property",
-        "tp-hausdorff-facts"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "cambridge-ib-topological-spaces:S1"
@@ -87,6 +70,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "RA-4.1.A"
        ],
        "drills": [
         "tp-is-topology",
@@ -105,9 +91,32 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TP-1.1.A"
+       ],
        "drills": [
         "tp-closure-size",
         "tp-interior-size"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-topological-spaces:S1"
+       ],
+       "do": "Recognise continuity, homeomorphism and topological properties, including the Hausdorff property.",
+       "ek": [
+        "f is continuous when preimages of open sets are open. A homeomorphism is a continuous bijection with continuous inverse; properties it preserves are topological. In a Hausdorff space distinct points have disjoint open neighbourhoods, so limits are unique."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "TP-1.1.B"
+       ],
+       "drills": [
+        "tp-topological-property",
+        "tp-hausdorff-facts"
        ]
       },
       {
@@ -122,6 +131,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "TP-1.1.C"
        ],
        "drills": [
         "tp-quotient-identify",
@@ -149,23 +161,6 @@
      "title": "Connected and path-connected spaces",
      "los": [
       {
-       "id": "B",
-       "std": [
-        "cambridge-ib-topological-spaces:S2"
-       ],
-       "do": "Relate connectedness, path-connectedness and continuous images.",
-       "ek": [
-        "A continuous image of a connected space is connected (the intermediate value theorem is the case of an interval). Path-connected implies connected; the converse holds for open subsets of Euclidean space but fails for the topologist's sine curve."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "tp-connected-theorems",
-        "tp-homeomorphic-or-not"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "cambridge-ib-topological-spaces:S2"
@@ -177,9 +172,33 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TP-1.1.C"
+       ],
        "drills": [
         "tp-components-line",
         "tp-connected-or-not"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-topological-spaces:S2"
+       ],
+       "do": "Relate connectedness, path-connectedness and continuous images.",
+       "ek": [
+        "A continuous image of a connected space is connected (the intermediate value theorem is the case of an interval). Path-connected implies connected; the converse holds for open subsets of Euclidean space but fails for the topologist's sine curve."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "TP-2.1.A",
+        "RA-4.1.B"
+       ],
+       "drills": [
+        "tp-connected-theorems",
+        "tp-homeomorphic-or-not"
        ]
       }
      ]
@@ -204,23 +223,6 @@
      "title": "Compact spaces",
      "los": [
       {
-       "id": "B",
-       "std": [
-        "cambridge-ib-topological-spaces:S3"
-       ],
-       "do": "Use what compactness guarantees.",
-       "ek": [
-        "Closed subsets of compact spaces are compact; compact subsets of Hausdorff spaces are closed; continuous images of compact spaces are compact; a continuous bijection from a compact space to a Hausdorff space is a homeomorphism."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "tp-compact-theorems",
-        "tp-cover-no-finite"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "cambridge-ib-topological-spaces:S3"
@@ -232,9 +234,34 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "TP-1.1.C",
+        "RA-2.1.B"
+       ],
        "drills": [
         "tp-compact-or-not",
         "tp-cover-count"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-topological-spaces:S3"
+       ],
+       "do": "Use what compactness guarantees.",
+       "ek": [
+        "Closed subsets of compact spaces are compact; compact subsets of Hausdorff spaces are closed; continuous images of compact spaces are compact; a continuous bijection from a compact space to a Hausdorff space is a homeomorphism."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "TP-3.1.A",
+        "TP-2.1.B"
+       ],
+       "drills": [
+        "tp-compact-theorems",
+        "tp-cover-no-finite"
        ]
       }
      ]
@@ -270,6 +297,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TP-1.1.D"
+       ],
        "drills": [
         "tp-euler-characteristic",
         "tp-genus-from-chi"
@@ -287,6 +317,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TP-4.1.A"
+       ],
        "drills": [
         "tp-polygon-vertices",
         "tp-polygon-surface"
@@ -303,6 +336,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TP-4.1.B"
        ],
        "drills": [
         "tp-chi-from-word",
@@ -344,6 +380,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TP-2.1.B",
+        "TP-4.1.B"
+       ],
        "drills": [
         "tp-homotopy-type",
         "tp-homotopy-facts"
@@ -362,6 +402,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TP-5.1.A"
+       ],
        "drills": [
         "tp-graph-rank",
         "tp-fundamental-groups"
@@ -378,6 +421,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "TP-5.1.B",
+        "TP-4.1.C"
        ],
        "drills": [
         "tp-cover-genus",
@@ -396,6 +443,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "TP-5.1.B",
+        "TP-4.1.A"
+       ],
        "drills": [
         "tp-betti-one",
         "tp-homology-facts"
@@ -407,17 +458,6 @@
   }
  ],
  "rows": [
-  {
-   "code": "TP-1.1.C",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "tp-topological-property",
-    "tp-hausdorff-facts"
-   ],
-   "partial": []
-  },
   {
    "code": "TP-1.1.A",
    "unit": 1,
@@ -441,6 +481,17 @@
    "partial": []
   },
   {
+   "code": "TP-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "tp-topological-property",
+    "tp-hausdorff-facts"
+   ],
+   "partial": []
+  },
+  {
    "code": "TP-1.1.D",
    "unit": 1,
    "topic": 1,
@@ -448,17 +499,6 @@
    "full": [
     "tp-quotient-identify",
     "tp-product-discrete"
-   ],
-   "partial": []
-  },
-  {
-   "code": "TP-2.1.B",
-   "unit": 2,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "tp-connected-theorems",
-    "tp-homeomorphic-or-not"
    ],
    "partial": []
   },
@@ -474,13 +514,13 @@
    "partial": []
   },
   {
-   "code": "TP-3.1.B",
-   "unit": 3,
+   "code": "TP-2.1.B",
+   "unit": 2,
    "topic": 1,
    "status": "ok",
    "full": [
-    "tp-compact-theorems",
-    "tp-cover-no-finite"
+    "tp-connected-theorems",
+    "tp-homeomorphic-or-not"
    ],
    "partial": []
   },
@@ -492,6 +532,17 @@
    "full": [
     "tp-compact-or-not",
     "tp-cover-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "TP-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "tp-compact-theorems",
+    "tp-cover-no-finite"
    ],
    "partial": []
   },
