@@ -50,6 +50,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-1.1.A** (CHA-1.A, webwork-opl:CA1.1) Explain why an instantaneous rate of change has to be defined as a limit of average rates over shrinking intervals.
   - EK: Average rate = Δy/Δx over an interval; at a single instant Δx = 0, so the rate is what Δy/Δx approaches as Δx → 0.
+  - Needs: MH-2.2.C
   - P2 · drills: ca-shrinking-average-rate, ca-secant-to-tangent
 
 ### 1.2 Limits and limit notation
@@ -58,6 +59,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-1.2.A** (LIM-1.A, webwork-opl:CA1.20) Read and write limit statements in symbols and words, including one-sided limits.
   - EK: lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant.
+  - Needs: CA-1.1.A
   - P4 · drills: ca-limit-statement, ~ca-limit-graph
 - ● **CA-1.2.B** (LIM-1.B, webwork-opl:CA1.9) Decide whether a limit exists by comparing the two one-sided limits.
   - EK: lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit.
@@ -88,6 +90,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-1.5.A** (LIM-1.D, webwork-opl:CA1.3) Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.
   - EK: lim(f ± g), lim(fg), lim(f/g) (denominator limit ≠ 0) are the sums, products, quotients of the limits; elementary functions are continuous on their domains, so substitution works there.
+  - Needs: CA-1.4.A
   - P1 · drills: ca-lim-substitute, ca-lim-quotient
 
 ### 1.6 Algebraic manipulation of limits
@@ -96,7 +99,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-1.6.A** (LIM-1.E, webwork-opl:CA1.4, webwork-opl:CA1.5) Evaluate a 0/0 limit by factoring and cancelling, or by multiplying by a conjugate to clear a radical.
   - EK: f and the simplified form agree for x ≠ c, so their limits at c are the same; (√a − √b)(√a + √b) = a − b.
-  - Needs: CA-1.5.A
+  - Needs: CA-1.5.A, MH-12.5.B
   - P1 · drills: ca-lim-factor, ca-lim-conjugate
 - ● **CA-1.6.B** (LIM-1.E, webwork-opl:CA1.7) Evaluate trig limits by rewriting them in terms of sin x / x → 1 and (1 − cos x)/x → 0.
   - EK: lim_(x→0) sin(kx)/(kx) = 1; multiply and divide by k to set it up.
@@ -181,6 +184,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-1.15.A** (LIM-2.D, webwork-opl:CA1.14, webwork-opl:CA1.18) Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.
   - EK: Divide by the highest power in the denominator: deg num < deg den → 0, equal → ratio of leading coefficients, greater → unbounded; √(x²) = |x|; as x → ∞, ln x ≪ x^p ≪ e^x.
+  - Needs: CA-1.14.A
   - P1 · P2 · drills: ca-lim-infinity, ca-lim-infinity-radical
 
 ### 1.16 The Intermediate Value Theorem
@@ -202,6 +206,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-2.1.A** (CHA-2.A) Calculate an average rate of change as the slope of a secant line.
   - EK: (f(b) − f(a))/(b − a), in units of output per unit input.
+  - Needs: CA-1.16.A
   - P1 · drills: ca-avg-rate, ca-avg-rate-table
 - ● **CA-2.1.B** (CHA-2.B, webwork-opl:CA1.16) Express an instantaneous rate of change as the limit of a difference quotient.
   - EK: lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point.
@@ -245,7 +250,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-2.5.A** (FUN-3.A, webwork-opl:CA2.3) Differentiate x^n for any real n, rewriting roots and reciprocals as powers first.
   - EK: d/dx x^n = n x^(n−1); √x = x^(1/2), 1/x³ = x^(−3).
-  - Needs: CA-2.2.A
+  - Needs: CA-2.2.A, MH-2.6.B
   - P1 · drills: ca-power-rule, ca-power-reciprocal, ca-power-root, hy-derivative-which, hy-derivative-value
 
 ### 2.6 Constant, sum, difference and constant-multiple rules
@@ -263,7 +268,7 @@ Big ideas: CHA, LIM, FUN
 
 - ● **CA-2.7.A** (FUN-3.A, webwork-opl:CA2.8, webwork-opl:CA2.9, webwork-opl:CA2.10) Differentiate sin x, cos x, e^x and ln x and combinations of them with the sum and constant-multiple rules.
   - EK: (sin x)′ = cos x, (cos x)′ = −sin x, (e^x)′ = e^x, (ln x)′ = 1/x.
-  - Needs: CA-2.6.A
+  - Needs: CA-2.6.A, MH-17.1.C
   - P1 · drills: ca-elementary-derivative, ca-derivative-at-point
 - ● **CA-2.7.B** (LIM-3.A) Derive the derivative of sin x or e^x from the limit definition.
   - EK: sin(x+h) = sin x cos h + cos x sin h, then use sin h/h → 1 and (cos h − 1)/h → 0.
@@ -307,7 +312,7 @@ Big ideas: FUN
 
 - ● **CA-3.1.A** (FUN-3.C, webwork-opl:CA2.15, webwork-opl:CA2.16) Differentiate a composite function with the chain rule — nested compositions, b^x and log_b x, and from tables or graphs of f, g and their derivatives.
   - EK: (f(g(x)))′ = f′(g(x)) g′(x); (b^x)′ = b^x ln b, (log_b x)′ = 1/(x ln b); from a table read g(a) first, then f′ at that value.
-  - Needs: CA-2.10.A
+  - Needs: CA-2.10.A, MH-16.1.A
   - P1 · P2 · drills: ca-chain-power, ca-chain-trig, ca-chain-exp, ca-chain-ln, ca-chain-values, ca-exp-base
 
 ### 3.2 Implicit differentiation
@@ -325,7 +330,7 @@ Big ideas: FUN
 
 - ● **CA-3.3.A** (FUN-3.E, webwork-opl:CA2.11) Find the derivative of an inverse function at a point from f, a table or a graph.
   - EK: If f(a) = b then (f⁻¹)′(b) = 1/f′(a) — reciprocal slope at the reflected point.
-  - Needs: CA-3.1.A
+  - Needs: CA-3.1.A, MH-16.1.C
   - P1 · P2 · drills: ca-inverse-derivative, ca-inverse-derivative-table
 
 ### 3.4 Derivatives of inverse trig functions
@@ -334,7 +339,7 @@ Big ideas: FUN
 
 - ● **CA-3.4.A** (FUN-3.E, webwork-opl:CA2.12) Differentiate arcsin, arccos and arctan (and compositions with them).
   - EK: (arcsin x)′ = 1/√(1 − x²), (arccos x)′ = −1/√(1 − x²), (arctan x)′ = 1/(1 + x²).
-  - Needs: CA-3.3.A
+  - Needs: CA-3.3.A, MH-17.2.B
   - P1 · drills: ca-arctan-derivative, ca-arcsin-derivative
 
 ### 3.5 Selecting procedures for derivatives
@@ -765,7 +770,7 @@ Big ideas: CHA, FUN
 
 - ● **CA-7.8.A** (FUN-7.F, FUN-7.G, webwork-opl:DE2.6) Solve dy/dt = ky, apply it to growth, decay and Newton cooling, and find a doubling time, half-life or time to reach a value.
   - EK: y = y₀e^(kt); dT/dt = −k(T − T_a) ⇒ T = T_a + (T₀ − T_a)e^(−kt); t_double = ln 2/k, t_half = ln 2/|k|.
-  - Needs: CA-7.7.A
+  - Needs: CA-7.7.A, MH-14.1.A
   - P1 · P3 · drills: ca-exponential-growth, ca-half-life, ca-newton-cooling
 
 ### 7.9 Logistic models (BC only)
@@ -841,7 +846,7 @@ Big ideas: CHA, LIM
 
 - ● **CA-8.7.A** (CHA-5.B, webwork-opl:CA6.3) Find the volume of a solid with square or rectangular cross sections perpendicular to an axis.
   - EK: V = ∫A(x)dx; side s = top − bottom ⇒ A = s² (or s·(given height)).
-  - Needs: CA-8.4.A
+  - Needs: CA-8.4.A, MH-8.1.B
   - P1 · P2 · drills: ca-volume-squares, ca-cross-section-squares-y
 
 ### 8.8 Cross sections — triangles and semicircles
@@ -971,6 +976,7 @@ Big ideas: CHA, FUN
 
 - ● **CA-9.7.A** (FUN-3.G, webwork-opl:CA9.8) Convert points and curves between polar and rectangular form.
   - EK: x = r cos θ, y = r sin θ, r² = x² + y², tan θ = y/x (watch the quadrant).
+  - Needs: CA-9.6.A, MH-18.1.B
   - P2 · drills: ca-polar-convert, ca-rect-to-polar
 - ● **CA-9.7.B** (FUN-3.G, webwork-opl:CA9.5) Find dy/dx for a polar curve and interpret dr/dθ.
   - EK: Treat θ as the parameter: x = r(θ)cos θ, y = r(θ)sin θ; dr/dθ > 0 ⇒ moving away from the pole.
@@ -1014,7 +1020,7 @@ Big ideas: LIM, FUN
 
 - ● **CA-10.2.A** (LIM-7.A, webwork-opl:CA7.5) Decide whether a geometric series converges and find its sum.
   - EK: Σ_(n=0)^∞ ar^n = a/(1 − r) if |r| < 1; diverges if |r| ≥ 1.
-  - Needs: CA-10.1.A
+  - Needs: CA-10.1.A, MH-12.4.A
   - P1 · drills: ca-geometric-series, ca2-geometric-series-sum
 
 ### 10.3 The nth-term test
@@ -1169,6 +1175,7 @@ Book: stewart-8e §12.1, §12.2
 
 - ● **CA-11.1.A** (ST-12.1, ST-12.2, webwork-opl:MV3.2) Compute distances and spheres in 3-D, and add, scale and normalise vectors in components.
   - EK: |P₁P₂| = √(Δx² + Δy² + Δz²); (x − h)² + (y − k)² + (z − l)² = r²; |v| = √(v·v), û = v/|v|.
+  - Needs: MH-19.2.D
   - P1 · P4 · drills: cm-distance-3d, cm-unit-vector-component
 
 ### 11.2 The dot product
@@ -1506,12 +1513,15 @@ Big ideas: CHA
 
 - ● **CA-15.1.A** (ST-3.11, webwork-opl:CA2.13) Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.
   - EK: cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x.
+  - Needs: CA-3.6.A, MH-2.6.C
   - P1 · drills: hy-which-definition, hy-value-at-log, hy-tanh-value
 - ● **CA-15.1.B** (ST-3.11, webwork-opl:CA2.13) Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.
   - EK: Osborn's rule: flip the sign of any product of two sines.
+  - Needs: CA-15.1.A
   - P1 · drills: hy-pythagorean, hy-identity-check, hy-double-argument
 - ● **CA-15.1.C** (ST-3.11) Describe the graphs: parity, range and behaviour for small and large x.
   - EK: cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1.
+  - Needs: CA-15.1.B
   - P1 · drills: hy-parity-and-range, hy-cosh-value
 
 ### 15.2 Calculus and uses
@@ -1520,12 +1530,15 @@ Big ideas: CHA
 
 - ● **CA-15.2.A** (ST-3.11, webwork-opl:CA2.14, webwork-opl:CA5.6) Differentiate and integrate hyperbolic functions.
   - EK: sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes.
+  - Needs: CA-15.1.C
   - P1 · drills: hy-derivative-which, hy-derivative-value, hy-integral
 - ● **CA-15.2.C** (ST-3.11) Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.
   - EK: cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh.
+  - Needs: CA-15.2.A
   - P1 · drills: hy-ode-solution, hy-circular-link, hy-where-used
 - ● **CA-15.2.B** (ST-3.11) Write an inverse hyperbolic function as a logarithm.
   - EK: sinh⁻¹ s = ln(s + √(s² + 1)).
+  - Needs: CA-15.2.C
   - P1 · drills: hy-inverse-sinh, hy-arcsinh-value
 
 ## Unit 16 · Calculus in business, the sciences and probability
@@ -1538,16 +1551,20 @@ Big ideas: CHA
 
 - ● **CA-16.1.A** (webwork-opl:CA3.3) Find a marginal cost or revenue as a derivative.
   - EK: Marginal cost C′(q) approximates the cost of one more unit.
-  - P1 · drills: ca-marginal-cost
+  - Needs: CA-8.14.A
+  - P1 · drills: ca-marginal-cost, ca-marginal-revenue-zero
 - ● **CA-16.1.B** (webwork-opl:CA3.11) Maximise profit from revenue and cost functions.
   - EK: Profit is maximal where marginal revenue equals marginal cost.
-  - P1 · drills: ca-max-profit
+  - Needs: CA-16.1.A
+  - P1 · drills: ca-max-profit, ca-max-profit-value
 - ● **CA-16.1.C** (webwork-opl:CA3.13) Optimise a model from the natural sciences.
   - EK: Set the derivative to zero and check that the critical point is a maximum.
-  - P1 · drills: ca-peak-concentration
+  - Needs: CA-16.1.B
+  - P1 · drills: ca-peak-concentration, ca-peak-concentration-value
 - ● **CA-16.1.D** (webwork-opl:CA3.18) Compute a price elasticity of demand.
   - EK: E = −(dq/dp)(p/q); |E| > 1 is elastic.
-  - P1 · drills: ca-elasticity
+  - Needs: CA-16.1.C
+  - P1 · drills: ca-elasticity, ca-unit-elastic-price
 
 ### 16.2 Integrals in context
 
@@ -1555,13 +1572,16 @@ Big ideas: CHA
 
 - ● **CA-16.2.A** (webwork-opl:CA6.15) Find a consumer surplus.
   - EK: CS = ∫₀^q₀ (demand price − market price) dq.
-  - P1 · drills: ca-consumer-surplus
+  - Needs: CA-16.1.D
+  - P1 · drills: ca-consumer-surplus, ca-producer-surplus
 - ● **CA-16.2.B** (webwork-opl:CA6.16) Find cardiac output from a dye-dilution curve.
   - EK: F = amount injected / ∫ c dt.
-  - P1 · drills: ca-cardiac-output
+  - Needs: CA-16.2.A
+  - P1 · drills: ca-cardiac-output, ca-dye-amount
 - ● **CA-16.2.C** (webwork-opl:CA6.17) Use a probability density function.
   - EK: A density integrates to 1; probabilities are areas under it.
-  - P1 · drills: ca-pdf-constant
+  - Needs: CA-16.2.B
+  - P1 · drills: ca-pdf-constant, ca-pdf-mean
 
 ## Unit 17 · More integration techniques and applications
 
@@ -1573,16 +1593,20 @@ Big ideas: CHA
 
 - ● **CA-17.1.A** (webwork-opl:CA5.5) Integrate a product of powers of sine and cosine.
   - EK: With an odd power, save one factor and convert the rest; with even powers, use half-angle identities.
-  - P1 · drills: ca-trig-integral
+  - Needs: CA-8.14.A
+  - P1 · drills: ca-trig-integral, ca-trig-integral-strategy
 - ● **CA-17.1.B** (webwork-opl:CA5.8, fe-chemical:1.A) Evaluate an integral by trigonometric substitution.
   - EK: √(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ.
-  - P1 · drills: ca-trig-substitution
+  - Needs: CA-17.1.A
+  - P1 · drills: ca-trig-substitution, ca-trig-sub-choice
 - ● **CA-17.1.C** (webwork-opl:CA5.9) Use an integral from a table.
   - EK: Match the integrand to the table form, identify the constants, then substitute.
-  - P1 · drills: ca-integral-table
+  - Needs: CA-17.1.B
+  - P1 · drills: ca-integral-table, ca-table-arctan
 - ● **CA-17.1.D** (webwork-opl:CA5.10) Use and check a computer algebra system's antiderivative.
   - EK: Differentiate the CAS answer to check it, then apply the fundamental theorem.
-  - P1 · drills: ca-cas-antiderivative
+  - Needs: CA-17.1.C
+  - P1 · drills: ca-cas-antiderivative, ca-cas-check
 
 ### 17.2 Volumes, surfaces and forces
 
@@ -1590,16 +1614,20 @@ Big ideas: CHA
 
 - ● **CA-17.2.A** (webwork-opl:CA6.6) Find a volume by cylindrical shells.
   - EK: V = ∫ 2π (radius)(height) dx.
-  - P1 · drills: ca-shells
+  - Needs: CA-17.1.D
+  - P1 · drills: ca-shells, ca-shells-power
 - ● **CA-17.2.B** (webwork-opl:CA6.7) Find the same volume by two methods.
   - EK: Discs or washers in one variable and shells in the other must agree.
-  - P1 · drills: ca-two-methods
+  - Needs: CA-17.2.A
+  - P1 · drills: ca-two-methods, ca-two-methods-x-axis
 - ● **CA-17.2.C** (webwork-opl:CA6.9) Find the area of a surface of revolution.
   - EK: S = ∫ 2π y √(1 + y′²) dx.
-  - P1 · drills: ca-surface-revolution
+  - Needs: CA-17.2.B
+  - P1 · drills: ca-surface-revolution, ca-cone-frustum-area
 - ● **CA-17.2.D** (webwork-opl:CA6.12) Find the hydrostatic force on a submerged plate by integration.
   - EK: F = ∫ ρ g (depth) (width at that depth) d(depth).
-  - P1 · drills: ca-hydrostatic-triangle
+  - Needs: CA-17.2.C
+  - P1 · drills: ca-hydrostatic-triangle, ca-hydrostatic-gate
 
 ## Unit 18 · Sequences, series strategy, parametric and polar curves
 
@@ -1609,15 +1637,18 @@ Big ideas: CHA
 
 
 
-- ● **CA-18.1.C** (webwork-opl:CA7.13) Choose a convergence test for a series.
-  - EK: Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison.
-  - P1 · drills: ca-series-strategy
 - ● **CA-18.1.A** (webwork-opl:CA7.1) Find the limit of a sequence.
   - EK: Divide by the highest power of n.
-  - P1 · drills: ca-sequence-limit
+  - Needs: CA-9.9.A, CA-10.16.C
+  - P1 · drills: ca-sequence-limit, ca-sequence-limit-e
 - ● **CA-18.1.B** (webwork-opl:CA7.10) Apply the root test.
   - EK: L = lim |aₙ|^(1/n); converges if L < 1, diverges if L > 1.
-  - P1 · drills: ca-root-test
+  - Needs: CA-18.1.A
+  - P1 · drills: ca-root-test, ca-root-test-verdict
+- ● **CA-18.1.C** (webwork-opl:CA7.13) Choose a convergence test for a series.
+  - EK: Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison.
+  - Needs: CA-18.1.B
+  - P1 · drills: ca-series-strategy, ca-series-verdict
 
 ### 18.2 Parametric and polar curves
 
@@ -1625,22 +1656,28 @@ Big ideas: CHA
 
 - ● **CA-18.2.A** (webwork-opl:CA8.2) Eliminate the parameter.
   - EK: Solve one equation for t and substitute into the other.
-  - P1 · drills: ca-eliminate-parameter
+  - Needs: CA-18.1.C
+  - P1 · drills: ca-eliminate-parameter, ca-eliminate-exponential
 - ● **CA-18.2.B** (webwork-opl:CA8.6) Find the area under a parametric curve.
   - EK: A = ∫ y dx = ∫ y(t) x′(t) dt.
-  - P1 · drills: ca-parametric-area
+  - Needs: CA-18.2.A
+  - P1 · drills: ca-parametric-area, ca-ellipse-area-parametric
 - ● **CA-18.2.C** (webwork-opl:CA8.7) Find a volume of revolution for a parametric curve.
   - EK: V = ∫ π y² dx with dx = x′(t) dt.
-  - P1 · drills: ca-parametric-volume
+  - Needs: CA-18.2.B
+  - P1 · drills: ca-parametric-volume, ca-ellipsoid-volume-parametric
 - ● **CA-18.2.D** (webwork-opl:CA8.8) Find a surface area of revolution for a parametric curve.
   - EK: S = ∫ 2π y √(x′² + y′²) dt.
-  - P1 · drills: ca-parametric-surface
+  - Needs: CA-18.2.C
+  - P1 · drills: ca-parametric-surface, ca-parametric-cap-area
 - ● **CA-18.2.E** (webwork-opl:CA9.7) Find the arc length of a polar curve.
   - EK: L = ∫ √(r² + (dr/dθ)²) dθ.
-  - P1 · drills: ca-polar-arc-length
+  - Needs: CA-18.2.D
+  - P1 · drills: ca-polar-arc-length, ca-polar-spiral-length
 - ● **CA-18.2.F** (webwork-opl:MV2.2) Find the limit of a vector function.
   - EK: Take the limit of each component.
-  - P1 · drills: ca-vector-limit
+  - Needs: CA-18.2.E
+  - P1 · drills: ca-vector-limit, ca-vector-limit-magnitude
 
 ## Drills not yet placed on the map
 
@@ -1648,6 +1685,10 @@ Big ideas: CHA
 - mm-coverup-three (calc.partial-fractions)
 - mm-coverup-repeated (calc.partial-fractions)
 - mm-coverup-quadratic (calc.partial-fractions)
+- em-demoivre-real-part (calc.complex-euler)
+- em-quadratic-from-complex-roots (calc.complex-euler)
+- em-implicit-slope-ellipse (calc.multivariable)
+- em-exact-missing-coefficient (calc.multivariable)
 - mm-limit-at-infinity (calc.limits)
 - mm-asymptote (calc.limits)
 - mm-removable-limit (calc.limits)
@@ -1675,9 +1716,11 @@ Big ideas: CHA
 - mm-int-log-form (calc.antiderivatives)
 - mm-int-x-exp-square (calc.antiderivatives)
 - mm-int-sin-power-cos (calc.antiderivatives)
+- em-euler-two-steps (calc.diffeq)
 - vc-laplacian-radial (calc.vector-calculus)
 - vc-harmonic-radial (calc.vector-calculus)
 - vc-shell-temperature (calc.vector-calculus)
 - vc-shell-heat (calc.vector-calculus)
 - vc-div-radial (calc.vector-calculus)
 - vc-flux-conservation (calc.vector-calculus)
+- em-flux-divergence-source (calc.vector-calculus)

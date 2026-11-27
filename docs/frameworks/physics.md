@@ -71,6 +71,7 @@ Big ideas: CHG, SYS
 
 - ● **PH-1.1.A** (P1 1.1.A, CM 1.1.A) Classify a quantity as a scalar or a vector and state a vector's magnitude and direction.
   - EK: A vector has magnitude and direction (displacement, velocity, force); a scalar has magnitude only (distance, speed, mass, energy).
+  - Needs: MH-19.1.A
   - 3B · drills: ph-scalar-vector, ph-vector-sum-range
 - ● **PH-1.1.B** (P1 1.1.B) Add collinear vectors using a sign convention for direction.
   - EK: In 1-D, pick a positive direction; opposite vectors carry opposite signs and add algebraically.
@@ -83,7 +84,7 @@ Big ideas: CHG, SYS
 
 - ● **PH-1.2.A** (P1 1.2.A, CM 1.2.A) Calculate displacement and distinguish it from distance travelled.
   - EK: Δx = x_f − x_i depends only on start and end points; distance is the total path length.
-  - Needs: PH-1.1.B
+  - Needs: PH-1.1.B, MH-2.3.B
   - 2B · drills: ph-distance-vs-displacement, ph-round-trip-velocity
 - ● **PH-1.2.B** (P1 1.2.B, CM 1.2.B) Calculate average velocity and average acceleration over a time interval.
   - EK: v_avg = Δx/Δt; a_avg = Δv/Δt; acceleration opposite to velocity means slowing down.
@@ -126,7 +127,7 @@ Big ideas: CHG, SYS
 
 - ● **PH-1.5.A** (P1 1.5.A, CM 1.5.A) Resolve a vector into perpendicular components and rebuild a vector from its components.
   - EK: A_x = A cos θ, A_y = A sin θ (θ from +x); |A| = √(A_x² + A_y²), θ = tan⁻¹(A_y/A_x) with quadrant check.
-  - Needs: PH-1.1.A
+  - Needs: PH-1.1.A, MH-7.3.C
   - 2B · drills: ph-vector-components, ph-components-to-angle
 - ● **PH-1.5.B** (P1 1.5.B) Analyze a horizontally launched projectile by treating horizontal and vertical motion independently.
   - EK: Ignoring air: a_x = 0, a_y = −g; the two directions share only the time.
@@ -151,6 +152,7 @@ Big ideas: INT, SYS
 
 - ● **PH-2.1.A** (P1 2.1.A, CM 2.1.A) Choose a system and sort the forces on it into internal and external.
   - EK: Internal forces cancel in pairs; only external forces change the motion of the system's center of mass.
+  - Needs: PH-1.5.D
   - 1A · 3B · drills: ph-internal-external, ph-system-net-force
 - ● **PH-2.1.B** (P1 2.1.B, CM 2.1.B) Calculate the center of mass of a system of point masses.
   - EK: x_cm = Σm_i x_i / Σm_i (each axis separately); it lies closer to the heavier parts.
@@ -163,6 +165,7 @@ Big ideas: INT, SYS
 
 - ● **PH-2.2.A** (P1 2.2.A, CM 2.2.A) Identify each force on an object as an interaction with a named other object, contact or at a distance.
   - EK: Every force has an agent; no agent, no force ("force of motion" is not a force).
+  - Needs: PH-2.1.B
   - 3B · drills: ph-force-agent, ph-force-agent-pick
 - ● **PH-2.2.B** (P1 2.2.B, CM 2.2.B) Draw a free-body diagram with every force on the object, from its point of action, in the correct direction.
   - EK: Normal force is perpendicular to the surface, tension along the string away from the object, gravity toward Earth's center.
@@ -210,12 +213,15 @@ Big ideas: INT, SYS
 
 - ● **PH-2.6.C** (P1 2.6.C, P1 2.6.D, CM 2.6.C, CM 2.6.D) Find apparent weight in an accelerating frame and tell inertial from gravitational mass.
   - EK: A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision.
+  - Needs: PH-2.5.C
   - 2B · drills: ph-elevator-scale, ph-weightless
 - ● **PH-2.6.D** (P1 2.6.B, CM 2.6.B, CM 2.6.E) Decide when g is constant and find g above a planet or inside a uniform sphere.
   - EK: Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre.
+  - Needs: PH-2.6.C
   - 2B · drills: ph-g-altitude, ph-g-inside
 - ● **PH-2.6.A** (P1 2.6.A, CM 2.6.A) Calculate the gravitational force between two masses with Newton's law of gravitation.
   - EK: F = Gm₁m₂/r², r center to center; doubling r quarters F.
+  - Needs: PH-2.6.D
   - 2B · 2D · drills: ph-gravitation-force, ph-gravity-distance-scaling
 - ● **PH-2.6.B** (P1 2.6.A, CM 2.6.A) Calculate the gravitational field strength g at a planet's surface or at altitude.
   - EK: g = GM/r²; weight mg is the gravitational force, and g is also the free-fall acceleration.
@@ -241,6 +247,7 @@ Big ideas: INT, SYS
 
 - ● **PH-2.8.B** (CM 2.8.B) Combine springs in series and in parallel.
   - EK: Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force).
+  - Needs: PH-2.7.B
   - 2B · drills: ph-springs-combine, ph-spring-cut
 - ● **PH-2.8.A** (P1 2.8.A, CM 2.8.A) Apply Hooke's law to find a spring force, stretch or spring constant, including k from a force–extension graph.
   - EK: F_s = −kΔx, restoring toward equilibrium; k is the slope of F vs Δx.
@@ -399,7 +406,7 @@ Big ideas: INT, CHG
 
 - ● **PH-5.1.A** (P1 5.1.A, CM 5.1.A) Solve constant-angular-acceleration problems with the rotational kinematic equations.
   - EK: ω = ω₀ + αt; θ = ω₀t + ½αt²; ω² = ω₀² + 2αΔθ — the linear equations with θ, ω, α.
-  - Needs: PH-1.3.B
+  - Needs: PH-1.3.B, MH-13.1.A
   - 2B · drills: ph-rotational-kinematics, ph-spin-down-revs
 
 ### 5.2 Connecting linear and rotational motion
@@ -531,7 +538,7 @@ Big ideas: CHG, CONS, WAVE
 
 - ● **PH-7.1.A** (P1 7.1.A, CM 7.1.A) Identify simple harmonic motion from a restoring force proportional to displacement and locate the equilibrium position.
   - EK: SHM ⇔ F = −kx about equilibrium; a vertical spring oscillates about its stretched equilibrium, not its natural length.
-  - Needs: PH-2.8.A, PH-2.5.A
+  - Needs: PH-2.8.A, PH-2.5.A, MH-13.2.A
   - 3B · drills: ph-shm-identify, ph-shm-force-law
 
 ### 7.2 Frequency and period of SHM
@@ -575,6 +582,7 @@ Big ideas: INT, CONS
 
 - ● **PH-8.1.A** (P1 8.1.A) Calculate density and use it to compare materials or find a mass or volume.
   - EK: ρ = m/V; water is 1000 kg/m³.
+  - Needs: PH-2.9.C
   - 2B · drills: ph-density, ph-cube-mass-scaling
 
 ### 8.2 Pressure
@@ -609,6 +617,7 @@ Big ideas: INT, CONS
 
 - ● **PH-8.4.A** (P1 8.4.A, P1 8.4.B) Apply the continuity equation to find a flow speed or volume flow rate.
   - EK: Incompressible flow: A₁v₁ = A₂v₂ = volume flow rate; narrower pipe ⇒ faster flow.
+  - Needs: PH-8.3.B
   - 2B · 2D · drills: ph-continuity, ph-nozzle-speed-scaling
 - ● **PH-8.4.B** (P1 8.4.A, P1 8.4.B, webwork-opl:FM3.4) Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.
   - EK: P + ½ρv² + ρgy is constant along a streamline (energy per volume); open tank drain v = √(2gh).
@@ -815,6 +824,7 @@ Big ideas: CONS, CHG
 
 - ● **PH-11.2.A** (P2 11.2.A, CEM 11.2.A, fe-chemical:3.C) Tell open, closed and short circuits apart and predict what a single-loop circuit does.
   - EK: Current needs a closed loop; an open switch stops it everywhere in that loop; a short (near-zero resistance path) carries almost all the current; in one loop the current is the same everywhere.
+  - Needs: PH-11.1.A
   - 2B · drills: ph-simple-circuit, ph-short-current
 
 ### 11.3 Resistance, resistivity and Ohm's law
@@ -901,6 +911,7 @@ Big ideas: INT, CHG
 
 - ● **PH-12.1.A** (P2 12.1.A, CEM 12.1.A, P2 12.1.B, CEM 12.1.B, P2 12.1.C, CEM 12.1.C) Sketch the magnetic field of a bar magnet or of Earth and describe magnetic dipoles.
   - EK: Field lines leave N and enter S and form closed loops; there are no isolated magnetic poles.
+  - Needs: PH-10.7.A
   - 1A · drills: ph-magnetic-dipole, ph-compass-near-wire
 
 ### 12.2 Magnetism and moving charges
@@ -985,6 +996,7 @@ Big ideas: WAVE
 
 - ● **PH-13.3.A** (P2 13.3.A) Calculate an index of refraction and apply Snell's law at an interface.
   - EK: n = c/v; n₁ sin θ₁ = n₂ sin θ₂; light bends toward the normal entering a higher-n medium.
+  - Needs: PH-13.2.B, MH-17.2.B
   - 1A · 2B · drills: ph-snell, ph-index-from-speed
 - ● **PH-13.3.B** (P2 13.3.A) Calculate the critical angle and decide whether total internal reflection occurs.
   - EK: sin θ_c = n₂/n₁, only for light going from higher to lower n.
@@ -1186,7 +1198,7 @@ Big ideas: QUANT, CONS
 
 - ● **PH-15.8.A** (P2 15.8.A) Write a balanced alpha, beta or gamma decay equation.
   - EK: Nucleon number A and charge Z are conserved; α removes ⁴₂He, β⁻ turns n → p + e⁻ + ν̄, γ changes neither.
-  - Needs: PH-15.7.A, PH-10.2.A
+  - Needs: PH-15.7.A, PH-10.2.A, MH-14.1.A
   - 2A · drills: ra-decay-chain, ra-count-alphas
 - ● **PH-15.8.B** (P2 15.8.A) Calculate the amount remaining or the elapsed time from a half-life.
   - EK: N = N₀(½)^(t/T½); decay is random per nucleus but predictable in bulk.
@@ -1203,7 +1215,7 @@ Big ideas: CHG
 
 - ● **PH-16.2.A** (CM 1.2.A, CM 1.2.B, CM 1.2.C) Differentiate a position function to get velocity and acceleration as functions of time.
   - EK: v = dx/dt, a = dv/dt = d²x/dt²; turning points where v = 0.
-  - Needs: PH-1.3.A
+  - Needs: PH-1.3.A, CA-4.2.A
   - 2A · drills: pc-velocity-from-position, ph-acceleration-from-position
 - ● **PH-16.2.B** (CM 1.2.A, CM 1.2.B, CM 1.2.C, CM 1.3.A) Integrate a time-dependent acceleration or velocity with initial conditions to get v(t) and x(t).
   - EK: v(t) = v₀ + ∫₀ᵗ a dt′, x(t) = x₀ + ∫₀ᵗ v dt′; the constant-a equations are the special case.
@@ -1251,7 +1263,7 @@ Big ideas: INT, CHG
 
 - ● **PH-17.9.A** (CM 2.9.A) Set up and solve the equation of motion for a falling object with linear drag, and find its terminal velocity.
   - EK: m dv/dt = mg − bv ⇒ v(t) = v_T(1 − e^(−t/τ)), v_T = mg/b, τ = m/b.
-  - Needs: PH-17.5.A
+  - Needs: PH-17.5.A, CA-7.6.A
   - 2A · 2B · 1C · drills: ph-drag-time-fraction, ~lin-const
 
 ### 17.10 Circular motion
@@ -1273,7 +1285,7 @@ Big ideas: CONS, CHG
 
 - ● **PH-18.2.A** (CM 3.2.A) Calculate the work done by a position-dependent force by integration.
   - EK: W = ∫F · dr = ∫F_x dx in 1-D; the spring's ½kx² is ∫kx dx.
-  - Needs: PH-3.2.B, PH-16.2.B
+  - Needs: PH-3.2.B, PH-16.2.B, CA-6.7.A
   - 2A · 2B · drills: pc-variable-work, ph-inverse-square-work
 
 ### 18.3 Potential energy and conservative forces
@@ -1308,7 +1320,7 @@ Big ideas: CONS, CHG
 
 - ● **PH-19.2.A** (CM 4.2.A, CM 4.2.B) Calculate the impulse of a time-varying force by integration and the resulting velocity.
   - EK: J = ∫F dt = Δp; F = dp/dt.
-  - Needs: PH-4.2.A, PH-16.2.B
+  - Needs: PH-4.2.A, PH-16.2.B, CA-6.7.A
   - 2A · 2B · drills: pc-impulse-integral, ph-average-force
 
 ## Unit 20 · Rotational dynamics with calculus
@@ -1339,7 +1351,7 @@ Big ideas: CHG, INT
 
 - ● **PH-20.4.A** (CM 5.4.A, CM 5.4.B) Derive the rotational inertia of a rod, ring or disk by integration.
   - EK: I = ∫r² dm; rod about center ML²/12, about end ML²/3, disk ½MR², ring MR².
-  - Needs: PH-5.4.B, PH-17.1.A
+  - Needs: PH-5.4.B, PH-17.1.A, CA-8.3.A
   - 2A · drills: pc-inertia-integral, ph-rod-off-centre-inertia
 
 ## Unit 21 · Angular momentum and rolling with calculus
@@ -1374,7 +1386,7 @@ Big ideas: CHG, WAVE
 
 - ● **PH-22.1.A** (CM 7.1.A, CM 7.2.A) Derive the SHM differential equation from Newton's second law and read the angular frequency off it.
   - EK: F = −kx ⇒ d²x/dt² = −(k/m)x; any system of the form ẍ = −ω²x oscillates with ω.
-  - Needs: PH-7.1.A, PH-16.2.A
+  - Needs: PH-7.1.A, PH-16.2.A, CA-7.2.A
   - 2A · drills: ph-spring-period-energy, ~spring-frequency
 - ● **PH-22.1.B** (CM 7.3.A) Solve for amplitude and phase from initial position and velocity.
   - EK: x = A cos(ωt + φ); A = √(x₀² + (v₀/ω)²), tan φ = −v₀/(ωx₀).
@@ -1400,7 +1412,7 @@ Big ideas: INT, CHG
 
 - ● **PH-23.4.A** (CEM 8.4.A) Calculate the electric field of a continuous charge distribution (rod, ring, arc) by integration.
   - EK: dE = k dq/r², dq = λ dl; integrate components and use symmetry to cancel some.
-  - Needs: PH-10.3.A, PH-17.1.A
+  - Needs: PH-10.3.A, PH-17.1.A, CA-8.3.A
   - 1A · 2A · drills: pc-ring-field, ph-line-segment-field
 
 ### 23.5 Electric flux
@@ -1409,7 +1421,7 @@ Big ideas: INT, CHG
 
 - ● **PH-23.5.A** (CEM 8.5.A) Calculate the electric flux through a flat or closed surface.
   - EK: Φ_E = ∫E · dA; uniform field through a flat area Φ = EA cos θ; field lines through a closed surface count net enclosed charge.
-  - Needs: PH-10.3.D, PH-12.4.A
+  - Needs: PH-10.3.D, PH-12.4.A, CA-14.7.B
   - 2B · drills: pc-flux-flat, em-gauss-flux
 
 ### 23.6 Gauss's law
@@ -1435,7 +1447,7 @@ Big ideas: CONS, CHG
 
 - ● **PH-24.2.A** (CEM 9.2.A, CEM 9.2.B) Calculate a potential difference by integrating the electric field along a path.
   - EK: ΔV = −∫E · dr; path-independent because the electrostatic field is conservative.
-  - Needs: PH-10.5.B, PH-23.6.A, PH-18.3.A
+  - Needs: PH-10.5.B, PH-23.6.A, PH-18.3.A, CA-14.2.B
   - 2A · drills: pc-potential-integral, ph-point-potential-difference
 - ● **PH-24.2.B** (CEM 9.2.A, CEM 9.2.B) Calculate the potential of a continuous charge distribution by integration.
   - EK: V = ∫k dq/r — a scalar integral, easier than the field.
@@ -1509,7 +1521,7 @@ Big ideas: CHG, CONS
 
 - ● **PH-26.8.A** (CEM 11.8.A, CEM 11.8.B) Derive and solve the differential equation for a charging or discharging RC circuit.
   - EK: ε − IR − q/C = 0, I = dq/dt ⇒ q(t) = Cε(1 − e^(−t/RC)); discharge q = Q₀e^(−t/RC).
-  - Needs: PH-11.8.B, PH-11.6.A, PH-16.2.B
+  - Needs: PH-11.8.B, PH-11.6.A, PH-16.2.B, CA-7.8.A
   - 2A · drills: ph-rc-current, ~lin-const
 - ● **PH-26.8.B** (CEM 11.8.A, CEM 11.8.B) Calculate the time to reach a given charge or current fraction, and the energy dissipated in the resistor.
   - EK: t = τ ln(1/(1 − f)) charging; total heat on discharge = initial ½CV².
@@ -1544,7 +1556,7 @@ Big ideas: INT
 
 - ● **PH-27.4.A** (CEM 12.4.A) Apply Ampère's law to find B of a long wire (inside and out), a solenoid or a toroid.
   - EK: ∮B · dl = μ₀I_enc; solenoid B = μ₀nI inside, ~0 outside.
-  - Needs: PH-12.3.A, PH-23.6.A
+  - Needs: PH-12.3.A, PH-23.6.A, CA-14.2.B
   - 1A · 2A · drills: pc-ampere, em-solenoid-field
 
 ## Unit 28 · Electromagnetic induction
@@ -1566,7 +1578,7 @@ Big ideas: CHG, CONS
 
 - ● **PH-28.2.A** (CEM 13.2.A) Calculate the instantaneous emf from a time-varying flux, including a rotating coil (generator).
   - EK: ε = −N dΦ_B/dt; coil rotating at ω: ε = NBAω sin ωt.
-  - Needs: PH-28.1.A, PH-12.4.C
+  - Needs: PH-28.1.A, PH-12.4.C, CA-3.1.A
   - 2A · 2B · drills: pc-generator-emf, ph-ramp-emf
 
 ### 28.3 Induced currents and magnetic forces
@@ -1602,7 +1614,7 @@ Big ideas: CHG, CONS
 
 - ● **PH-28.6.A** (CEM 13.6.A) Show that an LC circuit oscillates and find its frequency and the energy exchange between C and L.
   - EK: L d²q/dt² + q/C = 0 ⇒ ω = 1/√(LC) — the mass–spring equation with L ↔ m, 1/C ↔ k.
-  - Needs: PH-28.4.A, PH-25.3.B, PH-22.1.B
+  - Needs: PH-28.4.A, PH-25.3.B, PH-22.1.B, CA-7.2.A
   - 2A · 2B · drills: pc-lc-current, em-lc-frequency
 
 ## Unit 29 · Special relativity (extension)
@@ -1615,6 +1627,7 @@ Big ideas: CONS
 
 - ● **PH-29.1.A** Compute the time measured in the lab for a moving clock.
   - EK: Δt = γΔτ, γ = 1/√(1 − β²).
+  - Needs: PH-1.4.A
   - 2A · drills: ph-time-dilation, ph-speed-for-gamma
 - ● **PH-29.1.B** Compute the length of a moving object along its motion.
   - EK: L = L₀/γ.
@@ -1648,5 +1661,5 @@ Big ideas: CONS, SYS
 
 - ● **PH-30.1.A** Find an acceleration or small-oscillation frequency from L = T − V.
   - EK: d/dt(∂L/∂q̇) = ∂L/∂q; constraint forces never appear.
-  - Needs: PH-6.1.A
+  - Needs: PH-6.1.A, CA-12.2.B
   - 2A · 1C · drills: ph-lagrangian, ph-atwood-lagrangian

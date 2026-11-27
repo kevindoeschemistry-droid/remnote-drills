@@ -116,7 +116,7 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 
 - ● **MK-1.4.A** (K.MD.A.1) Describe measurable attributes of objects, such as length or weight, and several attributes of one object.
   - EK: An object has several attributes that can be measured.
-  - MP6 · drills: k2-measurable-attribute
+  - MP6 · drills: k2-measurable-attribute, k2-attribute-tool
 - ● **MK-1.4.B** (K.MD.A.2) Directly compare two objects with a measurable attribute in common and say which has more or less of it.
   - EK: Line objects up from a common start to compare length.
   - Needs: MK-1.4.A
@@ -132,7 +132,7 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 
 - ● **MK-1.5.A** (K.G.A.1) Describe objects in the environment using names of shapes and their relative positions (above, below, beside, in front of, behind, next to).
   - EK: Position words describe where an object is relative to another.
-  - MP6 · drills: k2-position-words
+  - MP6 · drills: k2-position-words, k2-position-pick
 - ● **MK-1.5.B** (K.G.A.2) Name shapes correctly regardless of their orientation or overall size.
   - EK: A shape keeps its name when it is turned or resized.
   - MP7 · drills: k8-name-the-shape, k2-shape-sides
@@ -147,7 +147,7 @@ Big ideas: COUNT, OPS, MEAS, SHAPE
 - ● **MK-1.5.E** (K.G.B.5) Model shapes by building them from components (sticks, clay) and drawing them.
   - EK: Building a shape requires knowing its parts.
   - Needs: MK-1.5.D
-  - MP4 · drills: k2-build-shape
+  - MP4 · drills: k2-build-shape, k2-solid-corners
 - ● **MK-1.5.F** (K.G.B.6) Compose simple shapes to form larger shapes (two triangles make a rectangle).
   - EK: Shapes combine into new shapes.
   - Needs: MK-1.5.D

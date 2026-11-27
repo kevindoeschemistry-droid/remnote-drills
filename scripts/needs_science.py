@@ -56,6 +56,52 @@ G = {
  "chemistry-olympiad": ({1: [10], 2: [8, 11], 3: [9], 4: [7], 15: [5, 8, 10, 11], 16: [1, 2, 3]},
                         {5: ["CH-4"], 6: ["IN-4"], 7: ["CH-3"], 8: ["CH-9"], 9: ["CH-5"], 10: ["CH-8"], 11: ["CH-9"], 12: ["CH-1"], 13: ["CH-2"]}),
  "earth-space": ({4: [3]}, {1: ["PH-6.6", "PH-15.4"], 2: ["PH-15.8"], 3: ["PH-9.3"]}),
+ # third pass: professional, computing and practice frameworks
+ "accounting-far": ({2: [1], 3: [2]}, {}),
+ "ai-basics": ({2: [1], 3: [2], 4: [3], 5: [3], 6: [4], 7: [4], 8: [7], 9: [6], 10: [9]}, {}),
+ "biosecurity": ({7: [1], 2: [1], 3: [7], 4: [7], 5: [4], 6: [2, 3, 4, 5], 8: [3, 5]}, {1: ["BI-10.3"], 7: ["SS-2.1"]}),
+ "inbde": ({1: [10, 12], 2: [1, 4, 8, 11], 3: [13], 6: [5], 7: [5], 10: [7, 9], 11: [5, 6], 12: [8]}, {}),
+ "mental-math": ({2: [1], 3: [2], 4: [3], 5: [4], 6: [1]}, {}),
+ "sql": ({2: [1], 3: [2], 4: [3], 5: [1], 6: [5], 7: [6], 8: [3, 4]}, {}),
+ "dat": ({}, {1: ["BI-1.1"], 2: ["CH-0"]}),
+ "ai-safety": ({2: [1], 3: [2], 4: [1], 5: [1], 6: [5], 7: [3, 6], 8: [6], 9: [8], 10: [9], 11: [4], 12: [7]}, {1: ["CA-12.5"]}),
+ "swimming": ({2: [1], 3: [2], 4: [2], 5: [1], 9: [7, 8], 10: [2, 3, 4, 5], 11: [9], 12: [10, 11]}, {}),
+ "information-systems": ({2: [1], 3: [2], 4: [3], 5: [2], 6: [5], 7: [1], 8: [1]}, {4: ["CS-7"], 5: ["CS-10"], 6: ["CS-11"]}),
+ "basketball": ({2: [1], 3: [1], 4: [2, 3], 5: [3], 6: [1, 3], 9: [5, 8], 10: [1, 3]}, {}),
+ "wushu": ({2: [1], 3: [1], 4: [1], 5: [2], 6: [1], 7: [6], 8: [2, 7], 9: [1], 10: [1]}, {}),
+ "nclex-rn": ({5: [2], 3: [5], 4: [3], 6: [5], 7: [6], 8: [7], 1: [4, 8]}, {}),
+ "computer-science": ({2: [1], 3: [2], 4: [3], 5: [4], 7: [3], 9: [8], 10: [9], 11: [10], 12: [5], 13: [1, 4], 14: [9], 15: [6], 17: [4], 18: [10, 14], 19: [13]}, {}),
+ "engineering-math": ({2: [1], 3: [2], 4: [3], 5: [3, 8], 6: [3], 7: [3], 9: [3], 10: [9], 11: [9], 13: [5], 14: [1], 15: [14]},
+                      {1: ["CA-6.9"], 2: ["CA-7.6"], 8: ["LA-5.1"], 10: ["CA-12.2"], 12: ["CA-14.5"]}),
+ "speaking": ({2: [1], 3: [2], 5: [4], 6: [4], 7: [3, 4], 9: [2], 10: [3, 6], 11: [3]}, {}),
+ "calculus": ({2: [1], 3: [2], 4: [3], 5: [3], 6: [5], 7: [6], 8: [6], 9: [8], 10: [6], 12: [3, 11], 13: [8, 12], 14: [13], 15: [3], 16: [8], 17: [8], 18: [9, 10]}, {}),
+ "chemistry": ({1: [0], 2: [1], 3: [2], 4: [0], 5: [4], 6: [4], 7: [5], 8: [7], 9: [6, 7]}, {}),
+ "biology": ({2: [1], 3: [2], 4: [2], 5: [4], 6: [5], 7: [5], 8: [7], 9: [2], 10: [6]}, {1: ["CH-3.1"]}),
+ "programming": ({2: [1], 3: [2], 4: [3], 6: [5], 7: [4], 8: [7]}, {}),
+ "physics": ({2: [1], 3: [2], 4: [2], 5: [2], 6: [3, 5], 7: [3], 8: [2], 9: [3], 10: [2], 11: [10], 12: [10], 14: [7], 15: [10, 14], 16: [1], 17: [2, 16], 18: [3], 19: [4], 20: [5], 21: [6], 22: [7], 23: [10], 24: [23], 25: [10], 26: [11], 27: [12], 28: [27], 30: [18]}, {}),
+}
+# frameworks that were already linked objective by objective: only an objective with no prerequisite at all gets one
+FILL = {"programming", "computer-science", "engineering-math", "speaking", "calculus", "chemistry", "biology", "physics"}
+
+# The foundation's own cross-subject links (fourth pass). Before this, Chemistry, Physics, Calculus, Statistics and
+# Linear Algebra named no prerequisite in mathematics at all, and Math HS named none in K-8. Keys are a unit ("8") or a
+# topic ("8.2"); the first objective there (file order) needs the last objective of each anchor. Hand-chosen: the one
+# piece of earlier mathematics or chemistry the topic cannot be done without. An anchor here is an exact objective code.
+ANCHORS = {
+ "mental-math": {"1.1": ["MK-6.3.D"], "1.5": ["MK-6.2.F"], "1.8": ["MK-7.2.D"], "1.9": ["MK-7.1.E"], "1.10": ["MK-7.5.F"], "2.6": ["MK-8.1.E"], "2.10": ["MK-8.3.D"], "3.1": ["MK-9.2.A"], "3.2": ["MK-9.4.G"]},
+ "math-hs": {"1.1": ["MK-7.1.F"], "1.2": ["MK-7.3.D"], "1.3": ["MK-9.2.H"], "2.1": ["MK-9.3.A"], "2.3": ["MK-9.2.E"], "2.6": ["MK-9.2.A"], "2.7": ["MK-9.2.J"], "3.1": ["MK-7.5.F"], "3.2": ["MK-9.5.D"],
+             "4.1": ["MK-8.3.A"], "5.1": ["MK-9.1.A"], "6.1": ["MK-9.4.A"], "7.1": ["MK-9.4.D"], "7.3": ["MK-9.4.G"], "8.1": ["MK-9.4.I"], "9.1": ["MK-9.4.H"], "11.1": ["MK-8.5.H"], "12.1": ["MK-9.2.B"],
+             "19.1": ["MH-7.3.C"], "19.4": ["MH-2.7.B"]},
+ "calculus": {"1.1": ["MH-2.2.C"], "1.6": ["MH-12.5.B"], "2.5": ["MH-2.6.B"], "2.7": ["MH-17.1.C"], "3.1": ["MH-16.1.A"], "3.3": ["MH-16.1.C"], "3.4": ["MH-17.2.B"], "7.8": ["MH-14.1.A"], "8.7": ["MH-8.1.B"],
+              "9.7": ["MH-18.1.B"], "10.2": ["MH-12.4.A"], "11.1": ["MH-19.2.D"], "15.1": ["MH-2.6.C"]},
+ "linear-algebra": {"1.1": ["MH-2.7.B"], "1.2": ["MH-19.2.D"], "2.2": ["MH-19.4.C"]},
+ "statistics": {"1.1": ["MH-3.1.B"], "2.1": ["MH-11.2.B"], "3.1": ["MH-15.3.B"], "5.1": ["MH-3.3.A"], "6.1": ["MH-21.1.B"], "6.3": ["MH-15.1.A"]},
+ "chemistry": {"0.2": ["MK-9.2.D"], "0.3": ["MH-1.1.A"], "3.4": ["MH-1.4.D"], "5.3": ["MH-14.1.A"], "7.4": ["MH-4.3.D"], "8.2": ["MH-16.2.A"], "9.5": ["MH-16.2.B"]},
+ "physics": {"1.1": ["MH-19.1.A"], "1.2": ["MH-2.3.B"], "1.5": ["MH-7.3.C"], "5.1": ["MH-13.1.A"], "7.1": ["MH-13.2.A"], "13.3": ["MH-17.2.B"], "15.8": ["MH-14.1.A"],
+             "16.2": ["CA-4.2.A"], "17.9": ["CA-7.6.A"], "18.2": ["CA-6.7.A"], "19.2": ["CA-6.7.A"], "20.4": ["CA-8.3.A"], "22.1": ["CA-7.2.A"], "23.4": ["CA-8.3.A"], "23.5": ["CA-14.7.B"],
+             "24.2": ["CA-14.2.B"], "26.8": ["CA-7.8.A"], "27.4": ["CA-14.2.B"], "28.2": ["CA-3.1.A"], "28.6": ["CA-7.2.A"], "29.1": ["PH-1.4.A"], "30.1": ["CA-12.2.B"]},
+ "biology": {"1.3": ["CH-2.5.A"], "2.8": ["CH-3.14.C"], "3.1": ["CH-5.11.A"], "3.4": ["CH-9.7.A"], "3.6": ["CH-4.9.B"]},
+ "programming": {"1.2": ["MK-5.2.A"], "2.8": ["MH-2.4.C"], "8.1": ["MH-19.4.C"]},
 }
 
 
@@ -124,6 +170,7 @@ for f, (graph, ext) in G.items():
     for u, los in units.items():
         for k, (i, un, tn, lo) in enumerate(los):
             me = f"{c}-{un}.{tn}.{lo}"
+            if f in FILL and needs[me]: continue
             if k:
                 want = [f"{c}-{los[k - 1][1]}.{los[k - 1][2]}.{los[k - 1][3]}"]
             else:
@@ -135,11 +182,25 @@ for f, (graph, ext) in G.items():
                 if w in needs[me]: continue
                 if reaches(w, me): skipped += 1; print("  skipped (would close a cycle):", me, "needs", w); continue
                 needs[me].add(w); touched.setdefault((f, i), []).append(w); added += 1
+for f, table in ANCHORS.items():
+    c, seq, ok = code_of[f], order[f], closure(f) | {f}
+    for key, anc in table.items():
+        hit = [x for x in seq if (f"{x[1]}.{x[2]}" == key if "." in key else x[1] == key)]
+        if not hit: sys.exit(f"{f}: nothing at {key}")
+        i, un, tn, lo = hit[0]; me = f"{c}-{un}.{tn}.{lo}"
+        for a in anc:
+            if fw_of[a.split("-")[0]] not in ok: sys.exit(f"{f} {key}: anchor {a} is in a framework {f} does not require")
+            w = a if re.fullmatch(r"[A-Z]+-\d+\.\d+\.[A-Z]+", a) else last(a)
+            if w not in needs: sys.exit(f"{f} {key}: no objective {w}")
+            if w in needs[me] or w == me: continue
+            if reaches(w, me): skipped += 1; print("  skipped (would close a cycle):", me, "needs", w); continue
+            needs[me].add(w); touched.setdefault((f, i), []).append(w); added += 1
 for (f, i), new in touched.items():
     L = files[f]
     m = re.search(r"needs: \[([^\]]*)\]", L[i])
     if not m:
         L[i] = re.sub(r"(, drills: \[)", r", needs: [], drills: [", L[i], count=1)
+        if not re.search(r"needs: \[([^\]]*)\]", L[i]): L[i] = re.sub(r" \}\s*$", ", needs: [] }", L[i], count=1)
         m = re.search(r"needs: \[([^\]]*)\]", L[i])
         if not m: sys.exit(f"{f} line {i + 1}: no place for needs")
     have = [s.strip() for s in m.group(1).split(",") if s.strip()]

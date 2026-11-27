@@ -137,6 +137,9 @@
        "p": [
         "3B"
        ],
+       "needs": [
+        "MH-19.1.A"
+       ],
        "drills": [
         "ph-scalar-vector",
         "ph-vector-sum-range"
@@ -186,7 +189,8 @@
         "ph-round-trip-velocity"
        ],
        "needs": [
-        "PH-1.1.B"
+        "PH-1.1.B",
+        "MH-2.3.B"
        ]
       },
       {
@@ -359,7 +363,8 @@
         "ph-components-to-angle"
        ],
        "needs": [
-        "PH-1.1.A"
+        "PH-1.1.A",
+        "MH-7.3.C"
        ]
       },
       {
@@ -470,6 +475,9 @@
         "1A",
         "3B"
        ],
+       "needs": [
+        "PH-1.5.D"
+       ],
        "drills": [
         "ph-internal-external",
         "ph-system-net-force"
@@ -514,6 +522,9 @@
        ],
        "p": [
         "3B"
+       ],
+       "needs": [
+        "PH-2.1.B"
        ],
        "drills": [
         "ph-force-agent",
@@ -698,6 +709,9 @@
        "p": [
         "2B"
        ],
+       "needs": [
+        "PH-2.5.C"
+       ],
        "drills": [
         "ph-elevator-scale",
         "ph-weightless"
@@ -717,6 +731,9 @@
        "p": [
         "2B"
        ],
+       "needs": [
+        "PH-2.6.C"
+       ],
        "drills": [
         "ph-g-altitude",
         "ph-g-inside"
@@ -735,6 +752,9 @@
        "p": [
         "2B",
         "2D"
+       ],
+       "needs": [
+        "PH-2.6.D"
        ],
        "drills": [
         "ph-gravitation-force",
@@ -835,6 +855,9 @@
        ],
        "p": [
         "2B"
+       ],
+       "needs": [
+        "PH-2.7.B"
        ],
        "drills": [
         "ph-springs-combine",
@@ -1520,7 +1543,8 @@
         "ph-spin-down-revs"
        ],
        "needs": [
-        "PH-1.3.B"
+        "PH-1.3.B",
+        "MH-13.1.A"
        ]
       }
      ]
@@ -2014,7 +2038,8 @@
        ],
        "needs": [
         "PH-2.8.A",
-        "PH-2.5.A"
+        "PH-2.5.A",
+        "MH-13.2.A"
        ]
       }
      ]
@@ -2163,6 +2188,9 @@
        "p": [
         "2B"
        ],
+       "needs": [
+        "PH-2.9.C"
+       ],
        "drills": [
         "ph-density",
         "ph-cube-mass-scaling"
@@ -2291,6 +2319,9 @@
        "p": [
         "2B",
         "2D"
+       ],
+       "needs": [
+        "PH-8.3.B"
        ],
        "drills": [
         "ph-continuity",
@@ -3106,6 +3137,9 @@
        "p": [
         "2B"
        ],
+       "needs": [
+        "PH-11.1.A"
+       ],
        "drills": [
         "ph-simple-circuit",
         "ph-short-current"
@@ -3459,6 +3493,9 @@
        "p": [
         "1A"
        ],
+       "needs": [
+        "PH-10.7.A"
+       ],
        "drills": [
         "ph-magnetic-dipole",
         "ph-compass-near-wire"
@@ -3803,6 +3840,10 @@
        "p": [
         "1A",
         "2B"
+       ],
+       "needs": [
+        "PH-13.2.B",
+        "MH-17.2.B"
        ],
        "drills": [
         "ph-snell",
@@ -4516,7 +4557,8 @@
        ],
        "needs": [
         "PH-15.7.A",
-        "PH-10.2.A"
+        "PH-10.2.A",
+        "MH-14.1.A"
        ]
       },
       {
@@ -4582,7 +4624,8 @@
         "ph-acceleration-from-position"
        ],
        "needs": [
-        "PH-1.3.A"
+        "PH-1.3.A",
+        "CA-4.2.A"
        ]
       },
       {
@@ -4759,7 +4802,8 @@
         "ph-drag-time-fraction"
        ],
        "needs": [
-        "PH-17.5.A"
+        "PH-17.5.A",
+        "CA-7.6.A"
        ]
       }
      ]
@@ -4830,7 +4874,8 @@
        ],
        "needs": [
         "PH-3.2.B",
-        "PH-16.2.B"
+        "PH-16.2.B",
+        "CA-6.7.A"
        ]
       }
      ]
@@ -4950,7 +4995,8 @@
        ],
        "needs": [
         "PH-4.2.A",
-        "PH-16.2.B"
+        "PH-16.2.B",
+        "CA-6.7.A"
        ]
       }
      ]
@@ -5047,7 +5093,8 @@
        ],
        "needs": [
         "PH-5.4.B",
-        "PH-17.1.A"
+        "PH-17.1.A",
+        "CA-8.3.A"
        ]
       }
      ]
@@ -5163,7 +5210,8 @@
        ],
        "needs": [
         "PH-7.1.A",
-        "PH-16.2.A"
+        "PH-16.2.A",
+        "CA-7.2.A"
        ]
       },
       {
@@ -5260,7 +5308,8 @@
        ],
        "needs": [
         "PH-10.3.A",
-        "PH-17.1.A"
+        "PH-17.1.A",
+        "CA-8.3.A"
        ]
       }
      ]
@@ -5287,7 +5336,8 @@
        ],
        "needs": [
         "PH-10.3.D",
-        "PH-12.4.A"
+        "PH-12.4.A",
+        "CA-14.7.B"
        ]
       }
      ]
@@ -5378,7 +5428,8 @@
        "needs": [
         "PH-10.5.B",
         "PH-23.6.A",
-        "PH-18.3.A"
+        "PH-18.3.A",
+        "CA-14.2.B"
        ]
       },
       {
@@ -5641,7 +5692,8 @@
        "needs": [
         "PH-11.8.B",
         "PH-11.6.A",
-        "PH-16.2.B"
+        "PH-16.2.B",
+        "CA-7.8.A"
        ]
       },
       {
@@ -5760,7 +5812,8 @@
        ],
        "needs": [
         "PH-12.3.A",
-        "PH-23.6.A"
+        "PH-23.6.A",
+        "CA-14.2.B"
        ]
       }
      ]
@@ -5834,7 +5887,8 @@
        ],
        "needs": [
         "PH-28.1.A",
-        "PH-12.4.C"
+        "PH-12.4.C",
+        "CA-3.1.A"
        ]
       }
      ]
@@ -5947,7 +6001,8 @@
        "needs": [
         "PH-28.4.A",
         "PH-25.3.B",
-        "PH-22.1.B"
+        "PH-22.1.B",
+        "CA-7.2.A"
        ]
       }
      ]
@@ -5980,6 +6035,9 @@
        ],
        "p": [
         "2A"
+       ],
+       "needs": [
+        "PH-1.4.A"
        ],
        "drills": [
         "ph-time-dilation",
@@ -6093,7 +6151,8 @@
         "1C"
        ],
        "needs": [
-        "PH-6.1.A"
+        "PH-6.1.A",
+        "CA-12.2.B"
        ],
        "drills": [
         "ph-lagrangian",

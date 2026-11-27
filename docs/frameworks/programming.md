@@ -49,6 +49,7 @@ Book: csa-ced §1.1; csp-ced §1.3, §1.4, §3.3
   - P1 · drills: pr-collatz-steps, pr-algorithm-steps
 - ● **PR-1.1.B** (CSA-1.1.B) Put the steps of writing, compiling and running a Java program in order and say which step catches which problem.
   - EK: javac turns .java source into .class bytecode; the JVM runs the bytecode; the compiler checks syntax and types before anything runs.
+  - Needs: PR-1.1.A
   - P5 · drills: pr-compile-run, pr-compile-run-2
 - ● **PR-1.1.D** (CRD-2.J) Choose test inputs, including boundary cases, and state the output each should produce.
   - EK: Test typical, boundary (0, 1, empty, the limits) and invalid inputs; a test is useful only with a predicted answer.
@@ -65,6 +66,7 @@ Book: csp-ced §2.1
 
 - ● **PR-1.2.A** (DAT-1.C) Convert a non-negative integer between decimal and binary.
   - EK: Place values are powers of 2: 1011₂ = 8 + 2 + 1 = 11.
+  - Needs: PR-1.1.C, MK-5.2.A
   - P3 · drills: pr-binary, pr-to-binary
 - ● **PR-1.2.B** (DAT-1.A) Count the distinct values n bits can represent, and the bits needed for N values.
   - EK: n bits give 2ⁿ patterns; N values need ⌈log₂ N⌉ bits.
@@ -77,6 +79,7 @@ Book: csa-ced §1.2, §1.3, §1.4; csp-ced §3.1, §3.3
 
 - ● **PR-1.3.A** (CSA-1.2.A) Choose a primitive type (int, double, boolean) or a reference type (String, an object) for a described quantity.
   - EK: A primitive variable holds the value itself; a reference variable holds the address of an object.
+  - Needs: PR-1.2.B
   - P1 · drills: pr-type-choice, pr-primitive-reference
 - ● **PR-1.3.B** (CSA-1.2.B, AAP-1.A) Declare and initialise variables of type int, double and boolean.
   - EK: type name = value; a variable is declared before use and keeps one type for its lifetime.
@@ -127,6 +130,7 @@ Book: csa-ced §1.7, §1.8, §1.9, §1.10, §1.11; csp-ced §3.12, §3.14, §3.1
 
 - ● **PR-1.6.A** (CSA-1.7.A, CSA-1.9.A, AAP-3.D) Read API documentation to find what a class provides and which method to call.
   - EK: Documentation gives each method's signature (name, parameter types in order) and return type; a caller needs nothing more.
+  - Needs: PR-1.5.C
   - P5 · drills: pr-api-docs, pr-api-docs-2
 - ● **PR-1.6.B** (CSA-1.9.B, AAP-3.A) Write a call to a void or non-void method with arguments that match its signature, and pick which overload runs.
   - EK: Arguments match parameters by number, order and type; overloads share a name but differ in parameter list; a non-void result must be stored or used or it is lost.
@@ -308,7 +312,7 @@ Book: csa-ced §2.12; csp-ced §3.17
 
 - ● **PR-2.8.A** (CSA-2.12, AAP-4.A) Compare algorithms by counting statement executions as a function of input size n.
   - EK: One loop over n ~ n; nested ~ n²; halving each pass ~ log₂ n; polynomial counts run in reasonable time, exponential ones do not.
-  - Needs: PR-2.7.A
+  - Needs: PR-2.7.A, MH-2.4.C
   - P3 · drills: pr-stmt-count, pr-growth-compare
 
 ## Unit 3 · Class creation
@@ -385,6 +389,7 @@ Book: csa-ced §4.1, §4.2; csp-ced §2.3, §5.3, §5.6
 
 - ● **PR-4.1.A** (CSA-4.2, DAT-2.A, DAT-2.B, DAT-2.C) Identify what a data set and its metadata can tell you, and what cleaning it needs (missing, invalid or inconsistent entries).
   - EK: Metadata (units, source, date) describes the data; correlation in data does not show causation; invalid entries must be removed or fixed before analysis.
+  - Needs: PR-3.4.B
   - P5 · drills: pr-data-clean, pr-data-clean-2
 - ● **PR-4.1.B** (CSA-4.1, IOC-1.D, IOC-2.A) Identify privacy, bias and consent risks in collecting a data set, including personally identifiable information.
   - EK: Data that under-represents a group biases every result built on it; combined fields (ZIP + birth date + sex) can identify a person.
@@ -606,6 +611,7 @@ Book: swc-git §1, §3, §4
 
 - ● **PR-6.1.A** (SWC-GIT-1) Explain what a commit records and why it beats keeping copies like thesis_final_v2.
   - EK: A commit is a snapshot of the staged files with author, time, message and a link to its parent; history is the chain of commits.
+  - Needs: PR-5.5.B
   - P5 · drills: pr-git-why, pr-git-why-2
 - ● **PR-6.1.B** (SWC-GIT-3, SWC-GIT-4) Predict git status (untracked, modified, staged) after edits, git add and git commit.
   - EK: Working tree → git add → staging area → git commit → repository; only staged changes go into a commit.
@@ -764,7 +770,7 @@ Big ideas: NUM, DAT
 
 - ● **PR-8.1.A** (SCI-1) Create arrays with np.array, zeros, ones, arange and linspace, and give their shape, dtype and length.
   - EK: np.arange(0, 1, 0.25) excludes the end (4 values); np.linspace(0, 1, 5) includes it (5 values, spacing 0.25); all-integer input gives an int dtype.
-  - Needs: PR-7.3.A, PR-7.5.B
+  - Needs: PR-7.3.A, PR-7.5.B, MH-19.4.C
   - P3 · drills: pr-np-create, pr-np-create-facts
 - ● **PR-8.1.B** (SCI-1) Index and slice 1-D and 2-D arrays, including x[:, 0], x[1:, ::2] and boolean masks.
   - EK: x[i, j] is row i, column j; x[:, j] is column j; a slice is a view (writing to it changes x), x[mask] is a copy.
@@ -882,6 +888,7 @@ Book: csp-ced §4.3
 
 - ● **PR-9.2.A** (CSN-2.A, CSN-2.B) Compute the run time and speedup of a workload split across processors.
   - EK: Parallel time = sequential part + the longest parallel branch; speedup = sequential time / parallel time, capped by the part that cannot be split.
+  - Needs: PR-9.1.A
   - P3 · drills: pr-parallel-time, pr-parallel-limit
 
 ### 9.3 Compression

@@ -45,6 +45,7 @@ Big ideas: SYI, ENE, IST
 
 - ● **BI-1.1.A** (SYI-1.A) Explain how water's polarity lets it hydrogen-bond to other water molecules and to polar or charged solutes.
   - EK: O pulls electrons from H, leaving δ− on O and δ+ on each H; each water can H-bond to up to four neighbours.
+  - Needs: CH-3.1.B
   - P1 · drills: bi-water-interaction, bi-water-solutes
 - ● **BI-1.1.B** (SYI-1.A) Connect cohesion, adhesion, high specific heat, ice floating and solvent power to hydrogen bonding and to a biological consequence.
   - EK: Cohesion + adhesion drive transpiration pull; high specific heat buffers temperature; open-lattice ice insulates water below.
@@ -57,6 +58,7 @@ Big ideas: SYI, ENE, IST
 
 - ● **BI-1.2.A** (ENE-1.A) Identify which elements each macromolecule class contains and where C, N, P and S enter biological molecules.
   - EK: C, H, O in all four classes; N in proteins and nucleic acids; P in nucleic acids and phospholipids; S in cysteine and methionine.
+  - Needs: BI-1.1.B
   - P1 · drills: bi-macromolecule-elements, bi-element-source
 - ● **BI-1.2.B** (ENE-1.A) Predict which macromolecule class picks up a ³⁵S, ³²P or ¹⁵N label.
   - EK: ³⁵S marks protein only; ³²P marks nucleic acid (and phospholipid); ¹⁵N marks protein and nucleic acid.
@@ -69,6 +71,7 @@ Big ideas: SYI, ENE, IST
 
 - ● **BI-1.3.A** (SYI-1.B) Describe dehydration synthesis and hydrolysis as the reactions that build and break polymers.
   - EK: Joining monomers releases H₂O; hydrolysis adds H₂O to split them; enzymes catalyse both.
+  - Needs: BI-1.2.B, CH-2.5.A
   - P1 · drills: bi-dehydration-hydrolysis, bi-reaction-direction
 - ● **BI-1.3.B** (SYI-1.B) Count the water molecules released or consumed when n monomers are joined into, or cut out of, a linear polymer.
   - EK: A linear chain of n monomers has n − 1 linkages, so n − 1 waters.
@@ -93,9 +96,11 @@ Big ideas: SYI, ENE, IST
   - P1 · P2 · drills: bi-side-chain, bi-side-chain-placement
 - ● **BI-1.4.C** (SYI-1.B) Distinguish saturated fats, unsaturated fats, phospholipids and steroids by structure and physical property.
   - EK: cis double bonds kink tails so fats stay liquid; phospholipids are amphipathic; steroids are four fused rings.
+  - Needs: BI-1.4.B
   - P1 · P2 · drills: bi-lipid-types, bi-lipid-scenario
 - ● **BI-1.4.D** (SYI-1.B) Tell structural from storage polysaccharides by linkage and branching.
   - EK: Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse.
+  - Needs: BI-1.4.C
   - P1 · drills: bi-polysaccharide, bi-polysaccharide-scenario
 
 ### 1.5 Structure and function of biological macromolecules
@@ -112,6 +117,7 @@ Big ideas: SYI, ENE, IST
   - P6 · drills: bi-monomer-substitution, bi-substitution-predict
 - ● **BI-1.5.C** (SYI-1.C) Identify the directionality of proteins (N→C) and nucleic acids (5′→3′) and why polymers grow at one end only.
   - EK: New nucleotides add to the 3′-OH; new amino acids add to the C-terminus.
+  - Needs: BI-1.5.B
   - P1 · drills: bi-directionality, bi-direction-scenario
 
 ### 1.6 Nucleic acids
@@ -137,6 +143,7 @@ Big ideas: SYI, ENE, EVO
 
 - ● **BI-2.1.A** (SYI-1.D) Describe ribosome composition and explain why ribosomes in every cell point to common ancestry.
   - EK: Ribosomes are rRNA + protein, not membrane-bound, and make protein in all three domains.
+  - Needs: BI-1.6.B
   - P1 · drills: bi-ribosome-ancestry, bi-ribosome-scenario
 - ● **BI-2.1.B** (SYI-1.D) Match the rough ER, smooth ER, Golgi, mitochondrion, lysosome, vacuole and chloroplast to their functions.
   - EK: RER: secreted/membrane proteins; SER: lipids, detox, Ca²⁺ storage; Golgi: modify and sort; lysosome: hydrolytic digestion.
@@ -166,6 +173,7 @@ Big ideas: SYI, ENE, EVO
 
 - ● **BI-2.3.A** (ENE-1.B) Calculate the surface-area-to-volume ratio of a cube, sphere or cylinder and compare cells of different sizes.
   - EK: Cube: SA/V = 6/s; sphere: 3/r — the ratio falls as size grows.
+  - Needs: BI-2.2.C
   - P5 · drills: bi-sa-volume, bi-sav-scaling
 - ● **BI-2.3.B** (ENE-1.B) Explain why falling SA/V limits cell size and changes heat and material exchange in larger organisms.
   - EK: Volume (demand) grows as length³, surface (supply) as length².
@@ -199,6 +207,7 @@ Big ideas: SYI, ENE, EVO
   - P1 · P6 · drills: bi-bilayer-permeability, bi-crossing-rank
 - ● **BI-2.5.B** (ENE-2.D) Compare cell walls of plants, fungi and bacteria and explain how a wall prevents osmotic lysis.
   - EK: Plants: cellulose; fungi: chitin; bacteria: peptidoglycan; the wall resists turgor pressure.
+  - Needs: BI-2.5.A
   - P1 · drills: bi-cell-wall, bi-wall-scenario
 
 ### 2.6 Membrane transport
@@ -233,7 +242,7 @@ Big ideas: SYI, ENE, EVO
 
 - ● **BI-2.8.A** (ENE-2.H) Predict net water movement and the fate of animal and plant cells in hypotonic, isotonic and hypertonic solutions.
   - EK: Water moves toward higher solute concentration; animal cells lyse or crenate, plant cells go turgid or plasmolyse.
-  - Needs: BI-2.6.A
+  - Needs: BI-2.6.A, CH-3.14.C
   - P1 · P6 · drills: bi-tonicity, bi-tonicity-scenario
 - ● **BI-2.8.B** (ENE-2.H) Calculate solute potential ψs = −iCRT and water potential ψ = ψs + ψp, and predict which way water moves.
   - EK: R = 0.0831 L·bar/(mol·K), T in kelvin; water flows from higher to lower ψ.
@@ -293,7 +302,7 @@ Big ideas: ENE, SYI
 
 - ● **BI-3.1.A** (ENE-1.D) Explain how the shape and charge of an active site make an enzyme specific for its substrate.
   - EK: Substrate must fit the active site geometrically and chemically; induced fit tightens binding.
-  - Needs: BI-1.5.A
+  - Needs: BI-1.5.A, CH-5.11.A
   - P1 · drills: bi-active-site, bi-specificity-scenario
 
 ### 3.2 Enzyme catalysis
@@ -306,6 +315,7 @@ Big ideas: ENE, SYI
   - P1 · P2 · drills: bi-enzyme-energy, bi-enzyme-speedup
 - ● **BI-3.2.B** (ENE-1.E) Calculate an initial reaction rate from the slope of a product-versus-time graph.
   - EK: Rate = Δ[product]/Δt over the early linear region, before substrate runs low.
+  - Needs: BI-3.2.A
   - P4 · P5 · drills: bi-initial-rate, bi-product-after-time
 
 ### 3.3 Environmental impacts on enzyme function
@@ -331,7 +341,7 @@ Big ideas: ENE, SYI
 
 - ● **BI-3.4.A** (ENE-1.H) Explain how coupling to ATP hydrolysis drives an endergonic reaction.
   - EK: Coupled ΔG is the sum; transferring a phosphate to the substrate makes the overall ΔG negative.
-  - Needs: BI-3.2.A
+  - Needs: BI-3.2.A, CH-9.7.A
   - P1 · drills: bi-atp-coupling, bi-coupled-dg
 - ● **BI-3.4.B** (ENE-1.H) Explain why organisms need continuous energy input and what happens when it stops.
   - EK: Order is maintained only by spending energy; energy loss leads to disorder and death.
@@ -365,7 +375,7 @@ Big ideas: ENE, SYI
 
 - ● **BI-3.6.A** (ENE-1.K) Outline glycolysis, pyruvate oxidation, the Krebs cycle and oxidative phosphorylation with location and products.
   - EK: Glycolysis (cytosol) → acetyl-CoA and Krebs (matrix) → ETC and ATP synthase (inner membrane).
-  - Needs: BI-3.4.A, BI-2.2.C
+  - Needs: BI-3.4.A, BI-2.2.C, CH-4.9.B
   - P1 · drills: bi-respiration-stages, bi-atp-from-glucose
 - ● **BI-3.6.B** (ENE-1.L) Explain chemiosmosis in mitochondria and O₂'s role as the final electron acceptor.
   - EK: NADH and FADH₂ feed the ETC, which pumps H⁺ into the intermembrane space; ATP synthase uses the gradient; O₂ + e⁻ + H⁺ → H₂O.
@@ -403,6 +413,7 @@ Big ideas: IST, ENE
 
 - ● **BI-4.1.A** (IST-3.A) Distinguish communication by direct contact from communication by secreted chemical signals.
   - EK: Gap junctions and plasmodesmata join cytoplasms; surface molecules allow cell–cell recognition (e.g. antigen presentation).
+  - Needs: BI-2.11.B
   - P1 · drills: bi-contact-signal, bi-contact-scenario
 - ● **BI-4.1.B** (IST-3.B) Classify a signal as autocrine, paracrine, synaptic or endocrine, and recognise quorum sensing.
   - EK: Local signals act on neighbours; hormones travel in the blood to distant targets; bacteria sense density by signal concentration.
@@ -450,6 +461,7 @@ Big ideas: IST, ENE
 
 - ● **BI-4.5.A** (ENE-3.A) Classify a described regulatory loop as positive or negative feedback.
   - EK: Negative feedback opposes the change; positive feedback amplifies it.
+  - Needs: BI-4.4.A
   - P1 · P2 · drills: bi-feedback-type, bi-feedback-scenario
 - ● **BI-4.5.B** (ENE-3.B) Explain how negative feedback holds a set point, using blood glucose or body temperature.
   - EK: High glucose → insulin → uptake and storage; low glucose → glucagon → release.
@@ -783,6 +795,7 @@ Big ideas: EVO, SYI
 
 - ● **BI-7.6.A** (EVO-1.M) Describe the kinds of data that support evolution.
   - EK: Fossils, comparative anatomy, molecular sequences, embryology and biogeography.
+  - Needs: BI-7.5.C
   - P1 · drills: bi-evolution-evidence, bi-evidence-type
 - ● **BI-7.6.B** (EVO-1.N) Distinguish homologous, analogous and vestigial structures and date fossils from radioisotope half-lives.
   - EK: Fraction remaining = (1/2)^(t / t½); homology reflects shared ancestry, analogy reflects convergence.
@@ -851,6 +864,7 @@ Big ideas: EVO, SYI
 
 - ● **BI-7.11.A** (EVO-3.G) Describe factors that drive a population to extinction.
   - EK: Habitat loss, rapid environmental change, disease, competition, small population size.
+  - Needs: BI-7.10.C
   - P1 · drills: bi-extinction, bi-extinction-risk
 - ● **BI-7.11.B** (EVO-3.H) Explain how the speed of environmental change, including human change, affects extinction risk.
   - EK: Change faster than populations can adapt raises extinction rates.
@@ -923,6 +937,7 @@ Big ideas: ENE, SYI, EVO, IST
 
 - ● **BI-8.3.A** (SYI-1.G) Calculate per-capita birth and death rates and r from population counts.
   - EK: b = B/N, d = D/N, r = b − d.
+  - Needs: BI-8.2.D
   - P5 · drills: bi-population-rates, bi-population-after-year
 - ● **BI-8.3.B** (SYI-1.G) Calculate growth with dN/dt = r_max N and recognise a J-shaped curve.
   - EK: Unlimited resources give exponential growth; growth rate scales with N.
@@ -948,9 +963,11 @@ Big ideas: ENE, SYI, EVO, IST
 
 - ● **BI-8.5.A** (ENE-4.A) Calculate Simpson's diversity index and compare communities by richness and evenness.
   - EK: D = 1 − Σ(n/N)²; closer to 1 is more diverse.
+  - Needs: BI-8.4.B
   - P5 · drills: bi-simpson-index, bi-simpson-two
 - ● **BI-8.5.B** (ENE-4.B) Classify species interactions by their +, − or 0 effect on each partner.
   - EK: Mutualism +/+, commensalism +/0, predation and parasitism +/−, competition −/−.
+  - Needs: BI-8.5.A
   - P1 · drills: bi-interaction-type, bi-interaction-scenario
 - ● **BI-8.5.C** (ENE-4.B) Interpret predator–prey cycles, competitive exclusion and resource partitioning from data.
   - EK: Predator peaks lag prey peaks; two species cannot share one niche indefinitely.
@@ -1044,6 +1061,7 @@ Big ideas: SYI, ENE, IST
 
 - ● **BI-9.4.A** (DAT Bio · systems · circulatory) Trace blood through the heart and body and relate vessel structure to pressure.
   - EK: RA → RV → lungs → LA → LV → aorta; arteries thick and high-pressure, veins valved, capillaries one cell thick.
+  - Needs: BI-9.3.B
   - P1 · P2 · drills: bi-blood-path, bi-circulation-scenario
 - ● **BI-9.4.B** (DAT Bio · systems · circulatory) Predict how CO₂, pH and temperature shift the oxygen–hemoglobin dissociation curve.
   - EK: ↑CO₂, ↑H⁺, ↑temperature shift right (lower affinity, more unloading — Bohr effect).
@@ -1060,6 +1078,7 @@ Big ideas: SYI, ENE, IST
 
 - ● **BI-9.5.A** (DAT Bio · systems · immunological/lymphatic) Distinguish innate from adaptive immunity.
   - EK: Innate: barriers, phagocytes, inflammation, fast and nonspecific; adaptive: lymphocytes, specific, with memory.
+  - Needs: BI-9.4.C
   - P1 · drills: bi-innate-adaptive, bi-immunity-classify
 - ● **BI-9.5.B** (DAT Bio · systems · immunological/lymphatic) Explain humoral and cell-mediated responses, MHC presentation and immunological memory.
   - EK: B cells → plasma cells → antibodies; CD8⁺ T cells kill MHC-I-presenting infected cells; CD4⁺ helpers see MHC II; memory cells speed the second response.

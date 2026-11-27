@@ -36,6 +36,7 @@ Big ideas: MAIN
 
 - ● **LA-1.1.E** (cupm-2023-la:E2, cupm-2023-la:E9) Decide independence by counting: rank, the number of vectors and the dimension of the space.
   - EK: More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n).
+  - Needs: MH-2.7.B
   - P1 · drills: la-indep-det, la-indep-count
 - ● **LA-1.1.A** (lay-5e:1, webwork-opl:LA1.1, webwork-opl:LA1.2, webwork-opl:LA2.2, cupm-2023-la:E1) Solve a linear system by row reduction.
   - EK: Pivots give the basic variables; a row 0 = c means no solution.
@@ -60,7 +61,7 @@ Big ideas: MAIN
 
 - ● **LA-1.2.C** (cupm-2023-la:E3, cupm-2023-la:E5) Describe a span geometrically and find its dimension.
   - EK: The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3.
-  - Needs: LA-1.1.D
+  - Needs: LA-1.1.D, MH-19.2.D
   - P1 · drills: la-span-dim, la-span-shape
 - ● **LA-1.2.A** (cupm-2015-la:1, lay-5e:1, webwork-opl:LA1.5, webwork-opl:LA4.2, webwork-opl:LA4.3, cupm-2023-la:E3) Decide whether a vector is in the span of others.
   - EK: b is in the span exactly when [v1 … vk | b] has no pivot in the last column.
@@ -98,7 +99,7 @@ Big ideas: MAIN
 
 - ● **LA-2.2.A** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.1, cupm-2023-la:E4) Compute one entry of a product without computing the rest.
   - EK: (AB)_ij is row i of A dotted with column j of B.
-  - Needs: LA-1.1.D
+  - Needs: LA-1.1.D, MH-19.4.C
   - P1 · drills: la-product-entry, la-square-entry
 - ● **LA-2.2.B** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.1, webwork-opl:LA2.5, cupm-2023-la:E4) Track sizes through products and transposes.
   - EK: (AB)ᵀ = BᵀAᵀ; an m × n times an n × p is m × p.
@@ -408,5 +409,12 @@ Big ideas: MAIN
 
 ## Drills not yet placed on the map
 
+- em-system-no-solution-parameter (la.row-reduction)
+- em-dependence-parameter (la.independence)
+- em-inverse-entry (la.inverse)
 - hs2-inverse-2x2 (la.inverse)
+- em-determinant-scaling (la.determinant)
+- em-eigenvalue-from-trace-det (la.eigenvalues)
+- em-matrix-power-by-diagonalising (la.eigenvalues)
 - mm-trace-of-square (la.eigenvalues)
+- em-eigenvector-second-component (la.eigenvectors)

@@ -129,6 +129,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "CA-6.9.A"
+       ],
        "drills": [
         "usub-poly",
         "usub-exp",
@@ -150,6 +153,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.1.A"
+       ],
        "drills": [
         "parts-x-exp",
         "parts-x-trig",
@@ -170,6 +176,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-1.1.B"
        ],
        "drills": [
         "pf-distinct",
@@ -213,6 +222,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.1.C"
+       ],
        "drills": [
         "euler-rect",
         "euler-polar",
@@ -231,8 +243,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.2.A"
+       ],
        "drills": [
-        "euler-demoivre"
+        "euler-demoivre",
+        "em-demoivre-real-part"
        ]
       },
       {
@@ -247,8 +263,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.2.B"
+       ],
        "drills": [
-        "euler-quad-roots"
+        "euler-quad-roots",
+        "em-quadratic-from-complex-roots"
        ]
       }
      ]
@@ -270,6 +290,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-1.2.C"
        ],
        "drills": [
         "sigma-shift-down",
@@ -303,6 +326,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.3.A"
+       ],
        "drills": [
         "mv-partial",
         "mv-mixed"
@@ -317,8 +343,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.4.A"
+       ],
        "drills": [
-        "mv-implicit"
+        "mv-implicit",
+        "em-implicit-slope-ellipse"
        ]
       },
       {
@@ -333,8 +363,12 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-1.4.B"
+       ],
        "drills": [
-        "mv-exact-test"
+        "mv-exact-test",
+        "em-exact-missing-coefficient"
        ]
       }
      ]
@@ -381,6 +415,10 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "EM-1.4.C",
+        "CA-7.6.A"
+       ],
        "drills": [
         "~em-classify-ode",
         "em-verify-solution"
@@ -397,6 +435,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "EM-2.1.A"
        ],
        "drills": [
         "em-isoclines",
@@ -416,8 +457,12 @@
         "P3",
         "P5"
        ],
+       "needs": [
+        "EM-2.1.B"
+       ],
        "drills": [
-        "ca-euler-method"
+        "ca-euler-method",
+        "em-euler-two-steps"
        ]
       }
      ]
@@ -526,8 +571,12 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-2.3.A"
+       ],
        "drills": [
-        "if-test"
+        "if-test",
+        "em-integrating-factor-power"
        ]
       },
       {
@@ -572,6 +621,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-2.3.C"
        ],
        "drills": [
         "lin-switch-off",
@@ -672,6 +724,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-2.4.C"
+       ],
        "drills": [
         "recog-separable",
         "recog-substitution",
@@ -702,6 +757,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-2.5.A"
+       ],
        "drills": [
         "model-tank-growing",
         "model-tank-overflow"
@@ -721,8 +779,12 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "EM-2.6.E"
+       ],
        "drills": [
-        "model-mixing"
+        "model-mixing",
+        "em-mixing-half-time"
        ]
       },
       {
@@ -738,6 +800,9 @@
        "p": [
         "P1",
         "P6"
+       ],
+       "needs": [
+        "EM-2.6.A"
        ],
        "drills": [
         "model-cooling",
@@ -757,8 +822,12 @@
         "P1",
         "P6"
        ],
+       "needs": [
+        "EM-2.6.B"
+       ],
        "drills": [
-        "model-logistic"
+        "model-logistic",
+        "em-logistic-half-capacity-time"
        ]
       },
       {
@@ -773,8 +842,12 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-2.6.C"
+       ],
        "drills": [
-        "em-phase-line"
+        "em-phase-line",
+        "em-phase-line-fate"
        ]
       }
      ]
@@ -800,8 +873,12 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-2.6.D"
+       ],
        "drills": [
-        "em-existence"
+        "em-existence",
+        "em-existence-uniqueness-verdict"
        ]
       }
      ]
@@ -844,8 +921,12 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "EM-2.7.A"
+       ],
        "drills": [
-        "em-superposition-ivp"
+        "em-superposition-ivp",
+        "em-superposition-coefficient"
        ]
       },
       {
@@ -859,6 +940,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-3.1.A"
        ],
        "drills": [
         "red-euler",
@@ -880,6 +964,9 @@
        "p": [
         "P3",
         "P5"
+       ],
+       "needs": [
+        "EM-3.1.B"
        ],
        "drills": [
         "wr-exps",
@@ -912,6 +999,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-3.1.C"
        ],
        "drills": [
         "bvp-unique",
@@ -956,7 +1046,8 @@
         "P4"
        ],
        "drills": [
-        "char-ivp"
+        "char-ivp",
+        "em-repeated-root-ivp-value"
        ],
        "needs": [
         "EM-3.2.A"
@@ -985,8 +1076,12 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-3.2.B"
+       ],
        "drills": [
-        "ec-roots"
+        "ec-roots",
+        "em-euler-cauchy-exponent-sum"
        ]
       },
       {
@@ -1036,6 +1131,9 @@
         "P1",
         "P6"
        ],
+       "needs": [
+        "EM-3.3.B"
+       ],
        "drills": [
         "spring-frequency",
         "spring-amplitude-phase"
@@ -1050,8 +1148,12 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "EM-3.4.A"
+       ],
        "drills": [
-        "spring-undamped-ivp"
+        "spring-undamped-ivp",
+        "em-undamped-amplitude"
        ]
       },
       {
@@ -1064,8 +1166,12 @@
         "P2",
         "P6"
        ],
+       "needs": [
+        "EM-3.4.B"
+       ],
        "drills": [
-        "spring-classify"
+        "spring-classify",
+        "em-critical-damping-constant"
        ]
       },
       {
@@ -1134,6 +1240,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "EM-3.5.A"
+       ],
        "drills": [
         "uc-general",
         "vop-general"
@@ -1182,6 +1291,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "EM-3.5.C"
+       ],
        "drills": [
         "forced-steady",
         "forced-amplitude",
@@ -1197,6 +1309,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-3.6.A"
+       ],
        "drills": [
         "forced-resonance",
         "forced-beats"
@@ -1211,8 +1326,12 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-3.6.B"
+       ],
        "drills": [
-        "forced-practical"
+        "forced-practical",
+        "em-resonance-peak-limit"
        ]
       },
       {
@@ -1227,8 +1346,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-3.6.C"
+       ],
        "drills": [
-        "em-rlc"
+        "em-rlc",
+        "em-rlc-critical-resistance"
        ]
       }
      ]
@@ -1269,6 +1392,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-3.6.D"
+       ],
        "drills": [
         "hi-ec-roots",
         "hi-ec-solution"
@@ -1287,7 +1413,8 @@
         "P3"
        ],
        "drills": [
-        "wr-three"
+        "wr-three",
+        "em-wronskian-three-exponentials"
        ],
        "needs": [
         "EM-3.1.C",
@@ -1303,8 +1430,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-4.1.A"
+       ],
        "drills": [
-        "hi-roots"
+        "hi-roots",
+        "em-third-root"
        ]
       },
       {
@@ -1350,6 +1481,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-4.1.C"
        ],
        "drills": [
         "hi-trial-form",
@@ -1420,6 +1554,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-3.6.D",
+        "EM-8.6.D"
+       ],
        "drills": [
         "~phase-ode2",
         "em-first-order-system"
@@ -1437,8 +1575,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-5.1.A"
+       ],
        "drills": [
-        "kin-matrix"
+        "kin-matrix",
+        "em-series-kinetics-peak-time"
        ]
       }
      ]
@@ -1465,7 +1607,8 @@
         "P3"
        ],
        "drills": [
-        "sys-eigen"
+        "sys-eigen",
+        "em-system-dominant-rate"
        ],
        "needs": [
         "EM-8.4.A",
@@ -1528,8 +1671,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-5.2.C"
+       ],
        "drills": [
-        "sys-repeated"
+        "sys-repeated",
+        "em-repeated-eigenvalue"
        ]
       },
       {
@@ -1579,8 +1726,12 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-5.2.E"
+       ],
        "drills": [
-        "em-phase-portrait"
+        "em-phase-portrait",
+        "em-portrait-type"
        ]
       },
       {
@@ -1595,6 +1746,9 @@
        "p": [
         "P2",
         "P6"
+       ],
+       "needs": [
+        "EM-5.3.C"
        ],
        "drills": [
         "phase-matrix",
@@ -1614,8 +1768,12 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-5.3.A"
+       ],
        "drills": [
-        "phase-stability"
+        "phase-stability",
+        "em-stability-from-trace-det"
        ]
       }
      ]
@@ -1641,8 +1799,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-5.3.B"
+       ],
        "drills": [
-        "em-nonlinear-critical"
+        "em-nonlinear-critical",
+        "em-coexistence-point"
        ]
       },
       {
@@ -1658,7 +1820,8 @@
         "P6"
        ],
        "drills": [
-        "em-nonlinear-critical"
+        "em-nonlinear-critical",
+        "em-jacobian-determinant"
        ],
        "needs": [
         "EM-5.3.A",
@@ -1688,8 +1851,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-5.4.B"
+       ],
        "drills": [
-        "em-nonhomog-system"
+        "em-nonhomog-system",
+        "em-system-constant-particular"
        ]
       }
      ]
@@ -1729,8 +1896,12 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-3.6.D"
+       ],
        "drills": [
-        "series-classify-point"
+        "series-classify-point",
+        "em-singular-point-location"
        ]
       },
       {
@@ -1746,7 +1917,8 @@
         "P2"
        ],
        "drills": [
-        "series-radius"
+        "series-radius",
+        "em-radius-from-complex-singularity"
        ],
        "needs": [
         "EM-6.1.A"
@@ -1829,7 +2001,8 @@
         "P3"
        ],
        "drills": [
-        "frobenius-indicial"
+        "frobenius-indicial",
+        "em-indicial-p0"
        ],
        "needs": [
         "EM-6.1.A"
@@ -1848,7 +2021,8 @@
         "P2"
        ],
        "drills": [
-        "frobenius-case"
+        "frobenius-case",
+        "em-frobenius-case-from-roots"
        ],
        "needs": [
         "EM-6.3.A"
@@ -1867,7 +2041,8 @@
         "P3"
        ],
        "drills": [
-        "em-frobenius-first-solution"
+        "em-frobenius-first-solution",
+        "em-bessel-series-a2"
        ],
        "needs": [
         "EM-6.3.A",
@@ -1896,6 +2071,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-6.3.C"
+       ],
        "drills": [
         "spec-identify",
         "spec-legendre-n",
@@ -1915,8 +2093,12 @@
         "P2",
         "P3"
        ],
+       "needs": [
+        "EM-6.4.A"
+       ],
        "drills": [
-        "spec-bessel-scaled"
+        "spec-bessel-scaled",
+        "em-bessel-zero-scale"
        ]
       },
       {
@@ -1932,8 +2114,12 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "EM-6.4.B"
+       ],
        "drills": [
-        "spec-bessel-independent"
+        "spec-bessel-independent",
+        "em-bessel-second-solution"
        ]
       },
       {
@@ -1945,8 +2131,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-6.4.C"
+       ],
        "drills": [
-        "em-legendre-eval"
+        "em-legendre-eval",
+        "em-legendre-norm"
        ]
       }
      ]
@@ -1990,6 +2180,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-3.6.D"
+       ],
        "drills": [
         "lt-linear",
         "lt-trig",
@@ -2009,6 +2202,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-7.1.A"
        ],
        "drills": [
         "shift-s-forward",
@@ -2071,6 +2267,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-7.2.A"
+       ],
        "drills": [
         "lt-final-value",
         "lt-initial-value"
@@ -2109,6 +2308,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-7.3.A"
+       ],
        "drills": [
         "transfer-g",
         "transfer-poles",
@@ -2136,6 +2338,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-7.3.B"
+       ],
        "drills": [
         "lt-square-wave",
         "lt-sawtooth"
@@ -2154,6 +2359,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "EM-7.4.D"
+       ],
        "drills": [
         "shift-t-forward",
         "shift-piecewise"
@@ -2171,8 +2379,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-7.4.A"
+       ],
        "drills": [
-        "shift-t-inverse"
+        "shift-t-inverse",
+        "em-shifted-inverse-value"
        ]
       },
       {
@@ -2222,6 +2434,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "EM-7.4.C"
+       ],
        "drills": [
         "delta-ivp",
         "delta-response"
@@ -2250,8 +2465,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-7.5.A"
+       ],
        "drills": [
-        "conv-compute"
+        "conv-compute",
+        "em-convolution-two-exponentials"
        ]
       },
       {
@@ -2265,6 +2484,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-7.6.A"
        ],
        "drills": [
         "conv-inverse",
@@ -2284,7 +2506,8 @@
         "P3"
        ],
        "drills": [
-        "conv-volterra"
+        "conv-volterra",
+        "em-volterra-exponential"
        ],
        "needs": [
         "EM-7.6.B"
@@ -2310,6 +2533,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-7.6.C"
        ],
        "drills": [
         "tmul-forward",
@@ -2374,8 +2600,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "LA-5.1.B"
+       ],
        "drills": [
-        "la-system"
+        "la-system",
+        "em-system-no-solution-parameter"
        ]
       }
      ]
@@ -2398,8 +2628,12 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-8.1.A"
+       ],
        "drills": [
-        "la-independence"
+        "la-independence",
+        "em-dependence-parameter"
        ]
       }
      ]
@@ -2424,8 +2658,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-8.2.A"
+       ],
        "drills": [
-        "la-det"
+        "la-det",
+        "em-determinant-scaling"
        ]
       },
       {
@@ -2437,8 +2675,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-8.3.A"
+       ],
        "drills": [
-        "la-inverse"
+        "la-inverse",
+        "em-inverse-entry"
        ]
       }
      ]
@@ -2462,8 +2704,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-8.3.B"
+       ],
        "drills": [
-        "la-eigenvalues"
+        "la-eigenvalues",
+        "em-eigenvalue-from-trace-det"
        ]
       },
       {
@@ -2476,7 +2722,8 @@
         "P3"
        ],
        "drills": [
-        "la-eigenvector"
+        "la-eigenvector",
+        "em-eigenvector-second-component"
        ],
        "needs": [
         "EM-8.4.A"
@@ -2504,7 +2751,8 @@
         "P3"
        ],
        "drills": [
-        "em-diagonalise"
+        "em-diagonalise",
+        "em-matrix-power-by-diagonalising"
        ],
        "needs": [
         "EM-8.4.B",
@@ -2526,6 +2774,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-8.5.A"
+       ],
        "drills": [
         "la-rank-nullity",
         "la-rank-3x3"
@@ -2539,6 +2790,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-8.6.A"
        ],
        "drills": [
         "la-projection-scalar",
@@ -2556,6 +2810,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "EM-8.6.B"
+       ],
        "drills": [
         "la-least-squares-slope",
         "la-least-squares-facts"
@@ -2570,6 +2827,9 @@
        "p": [
         "P3",
         "P6"
+       ],
+       "needs": [
+        "EM-8.6.C"
        ],
        "drills": [
         "la-trace-of-power",
@@ -2613,6 +2873,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-3.6.D"
+       ],
        "drills": [
         "fs-jump-value",
         "fs-parseval"
@@ -2655,8 +2918,12 @@
         "P2",
         "P3"
        ],
+       "needs": [
+        "EM-9.1.A"
+       ],
        "drills": [
-        "fs-period-2l"
+        "fs-period-2l",
+        "em-fourier-abs-a1"
        ]
       },
       {
@@ -2671,8 +2938,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-9.1.B"
+       ],
        "drills": [
-        "fs-half-range"
+        "fs-half-range",
+        "em-half-range-sine-coefficient"
        ]
       },
       {
@@ -2686,7 +2957,8 @@
         "P6"
        ],
        "drills": [
-        "em-fourier-forced-response"
+        "em-fourier-forced-response",
+        "em-resonant-harmonic"
        ],
        "needs": [
         "EM-9.1.A",
@@ -2714,6 +2986,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-9.1.D"
+       ],
        "drills": [
         "sl-periodic-eigen",
         "sl-periodic-facts"
@@ -2728,8 +3003,12 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-9.2.F"
+       ],
        "drills": [
-        "sl-form"
+        "sl-form",
+        "em-sl-weight"
        ]
       },
       {
@@ -2742,7 +3021,8 @@
         "P2"
        ],
        "drills": [
-        "sl-classify"
+        "sl-classify",
+        "em-sl-kind"
        ],
        "needs": [
         "EM-9.2.A"
@@ -2761,8 +3041,12 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "EM-9.2.B"
+       ],
        "drills": [
-        "sl-eigenvalues"
+        "sl-eigenvalues",
+        "em-sl-mixed-eigenvalue"
        ]
       },
       {
@@ -2775,7 +3059,8 @@
         "P4"
        ],
        "drills": [
-        "sl-eigenfunctions"
+        "sl-eigenfunctions",
+        "em-eigenfunction-first-node"
        ],
        "needs": [
         "EM-9.2.C"
@@ -2821,8 +3106,12 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "EM-9.2.E"
+       ],
        "drills": [
-        "em-orthogonality"
+        "em-orthogonality",
+        "em-eigenfunction-norm"
        ]
       },
       {
@@ -2835,7 +3124,8 @@
         "P3"
        ],
        "drills": [
-        "em-legendre-expansion"
+        "em-legendre-expansion",
+        "em-legendre-coefficient"
        ],
        "needs": [
         "EM-9.3.A"
@@ -2857,6 +3147,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-9.3.B"
+       ],
        "drills": [
         "gf-string-value",
         "gf-string-solve"
@@ -2872,6 +3165,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-9.4.A"
+       ],
        "drills": [
         "gf-helmholtz-value",
         "gf-existence"
@@ -2886,6 +3182,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-9.4.B"
        ],
        "drills": [
         "gf-oscillator-step",
@@ -2949,6 +3248,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-10.1.B"
        ],
        "drills": [
         "pde-classify",
@@ -3086,7 +3388,8 @@
         "P3"
        ],
        "drills": [
-        "pde-flux-end-steady-state"
+        "pde-flux-end-steady-state",
+        "em-steady-flux-end"
        ],
        "needs": [
         "EM-10.2.C"
@@ -3102,7 +3405,8 @@
         "P2"
        ],
        "drills": [
-        "pde-time-bc-shift"
+        "pde-time-bc-shift",
+        "em-shift-leaves-source"
        ],
        "needs": [
         "EM-10.2.C"
@@ -3176,6 +3480,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-10.3.A"
        ],
        "drills": [
         "dalembert-displacement",
@@ -3268,7 +3575,8 @@
         "P3"
        ],
        "drills": [
-        "pde-sphere"
+        "pde-sphere",
+        "em-sphere-time-constant"
        ],
        "needs": [
         "EM-10.4.B",
@@ -3296,6 +3604,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-10.4.D"
        ],
        "drills": [
         "gf-image-fixed",
@@ -3358,7 +3669,8 @@
         "P2"
        ],
        "drills": [
-        "pde-method-choice"
+        "pde-method-choice",
+        "em-pde-method-pick"
        ],
        "needs": [
         "EM-10.5.B",
@@ -3385,6 +3697,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-10.5.C"
        ],
        "drills": [
         "mt-central-second-difference",
@@ -3420,7 +3735,8 @@
         "P3"
        ],
        "drills": [
-        "pde-fd-ghost"
+        "pde-fd-ghost",
+        "em-ghost-node-value"
        ],
        "needs": [
         "EM-10.6.B"
@@ -3437,7 +3753,8 @@
         "P4"
        ],
        "drills": [
-        "pde-fd-implicit"
+        "pde-fd-implicit",
+        "em-crank-nicolson-one-node"
        ],
        "needs": [
         "EM-10.6.B",
@@ -3477,8 +3794,12 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-9.4.C"
+       ],
        "drills": [
-        "em-fourier-cosine-sine"
+        "em-fourier-cosine-sine",
+        "em-fourier-sine-transform-exponential"
        ]
       },
       {
@@ -3492,6 +3813,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-11.1.A"
        ],
        "drills": [
         "em-fourier-transform-value",
@@ -3508,6 +3832,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.1.B"
+       ],
        "drills": [
         "ft-gaussian",
         "ft-rect"
@@ -3522,6 +3849,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-11.1.C"
        ],
        "drills": [
         "ft-scaling",
@@ -3540,6 +3870,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.1.D"
+       ],
        "drills": [
         "ft-heat-peak",
         "ft-heat-spread"
@@ -3554,6 +3887,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-11.1.E"
        ],
        "drills": [
         "fc-gaussians",
@@ -3577,6 +3913,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.1.F"
+       ],
        "drills": [
         "rw-endpoint",
         "rw-biased-msd"
@@ -3592,6 +3931,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.2.A"
+       ],
        "drills": [
         "rw-diffusivity",
         "rw-diffuse-time"
@@ -3606,6 +3948,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-11.2.B"
        ],
        "drills": [
         "rw-tail",
@@ -3650,8 +3995,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "CA-14.5.B"
+       ],
        "drills": [
-        "ca-conservation-law"
+        "ca-conservation-law",
+        "em-flux-divergence-source"
        ]
       },
       {
@@ -3663,6 +4012,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-12.1.B"
        ],
        "drills": [
         "vc-laplacian-radial",
@@ -3679,6 +4031,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-12.1.C"
+       ],
        "drills": [
         "vc-shell-temperature",
         "vc-shell-heat"
@@ -3694,6 +4049,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-12.1.D"
+       ],
        "drills": [
         "vc-div-radial",
         "vc-flux-conservation"
@@ -3707,6 +4065,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-12.1.E"
        ],
        "drills": [
         "~mv-partial",
@@ -3749,8 +4110,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-5.5.A"
+       ],
        "drills": [
-        "em-rc-current"
+        "em-rc-current",
+        "em-rc-charge-time"
        ]
       },
       {
@@ -3765,8 +4130,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-13.1.A"
+       ],
        "drills": [
-        "em-bifurcation"
+        "em-bifurcation",
+        "em-saddle-node-stable-branch"
        ]
       },
       {
@@ -3781,8 +4150,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-13.1.B"
+       ],
        "drills": [
-        "em-operator-exponential"
+        "em-operator-exponential",
+        "em-operator-on-exponential"
        ]
       },
       {
@@ -3797,8 +4170,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-13.1.C"
+       ],
        "drills": [
-        "em-existence-interval"
+        "em-existence-interval",
+        "em-existence-interval-end"
        ]
       },
       {
@@ -3813,8 +4190,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-13.1.D"
+       ],
        "drills": [
-        "em-system-verify"
+        "em-system-verify",
+        "em-system-solution-exponent"
        ]
       }
      ]
@@ -3840,22 +4221,6 @@
      "title": "Complex equations, regions and functions",
      "los": [
       {
-       "id": "C",
-       "std": [
-        "webwork-opl:CX3.1"
-       ],
-       "do": "Decide whether a point lies in a region of the plane.",
-       "ek": [
-        "|z − z₀| < r is the open disc of radius r about z₀."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "em-complex-region"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "webwork-opl:CX2.1"
@@ -3867,8 +4232,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-1.4.C"
+       ],
        "drills": [
-        "em-complex-linear"
+        "em-complex-linear",
+        "em-complex-linear-imaginary-part"
        ]
       },
       {
@@ -3883,8 +4252,32 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.1.A"
+       ],
        "drills": [
-        "em-complex-sqrt"
+        "em-complex-sqrt",
+        "em-complex-square-root"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX3.1"
+       ],
+       "do": "Decide whether a point lies in a region of the plane.",
+       "ek": [
+        "|z − z₀| < r is the open disc of radius r about z₀."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EM-14.1.B"
+       ],
+       "drills": [
+        "em-complex-region",
+        "em-point-and-circle"
        ]
       },
       {
@@ -3899,8 +4292,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.1.C"
+       ],
        "drills": [
-        "em-complex-map"
+        "em-complex-map",
+        "em-inversion-modulus"
        ]
       },
       {
@@ -3915,8 +4312,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.1.D"
+       ],
        "drills": [
-        "em-complex-limit"
+        "em-complex-limit",
+        "em-complex-limit-removable"
        ]
       }
      ]
@@ -3925,22 +4326,6 @@
      "n": 2,
      "title": "Analytic functions",
      "los": [
-      {
-       "id": "C",
-       "std": [
-        "webwork-opl:CX5.3"
-       ],
-       "do": "Recognise entire functions.",
-       "ek": [
-        "Entire = analytic at every point of the plane."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "em-entire"
-       ]
-      },
       {
        "id": "A",
        "std": [
@@ -3953,8 +4338,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.1.E"
+       ],
        "drills": [
-        "em-cauchy-riemann"
+        "em-cauchy-riemann",
+        "em-cauchy-riemann-coefficient"
        ]
       },
       {
@@ -3969,8 +4358,32 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.2.A"
+       ],
        "drills": [
-        "em-harmonic"
+        "em-harmonic",
+        "em-harmonic-coefficient"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX5.3"
+       ],
+       "do": "Recognise entire functions.",
+       "ek": [
+        "Entire = analytic at every point of the plane."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EM-14.2.B"
+       ],
+       "drills": [
+        "em-entire",
+        "em-analytic-where"
        ]
       },
       {
@@ -3985,8 +4398,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.2.C"
+       ],
        "drills": [
-        "em-harmonic-conjugate"
+        "em-harmonic-conjugate",
+        "em-harmonic-conjugate-value"
        ]
       }
      ]
@@ -3995,22 +4412,6 @@
      "n": 3,
      "title": "Integration and series",
      "los": [
-      {
-       "id": "B",
-       "std": [
-        "webwork-opl:CX8.1"
-       ],
-       "do": "Decide whether a complex sequence converges.",
-       "ek": [
-        "zⁿ → 0 when |z| < 1 and diverges when |z| > 1."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "em-complex-sequence"
-       ]
-      },
       {
        "id": "A",
        "std": [
@@ -4024,8 +4425,32 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.2.D"
+       ],
        "drills": [
-        "em-cauchy-formula"
+        "em-cauchy-formula",
+        "em-cauchy-formula-derivative"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CX8.1"
+       ],
+       "do": "Decide whether a complex sequence converges.",
+       "ek": [
+        "zⁿ → 0 when |z| < 1 and diverges when |z| > 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EM-14.3.A"
+       ],
+       "drills": [
+        "em-complex-sequence",
+        "em-complex-sequence-fate"
        ]
       },
       {
@@ -4040,8 +4465,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.3.B"
+       ],
        "drills": [
-        "em-complex-taylor"
+        "em-complex-taylor",
+        "em-taylor-coefficient-geometric"
        ]
       },
       {
@@ -4058,8 +4487,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.3.C"
+       ],
        "drills": [
-        "em-laurent-residue"
+        "em-laurent-residue",
+        "em-residue-double-pole-exp"
        ]
       },
       {
@@ -4074,8 +4507,12 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.3.D"
+       ],
        "drills": [
-        "em-zero-order"
+        "em-zero-order",
+        "em-zero-order-pick"
        ]
       }
      ]
@@ -4113,6 +4550,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.3.E"
+       ],
        "drills": [
         "em-conformal-magnification",
         "em-conformal-critical"
@@ -4130,6 +4570,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.1.A"
+       ],
        "drills": [
         "em-mobius-pole",
         "em-cayley-real-part"
@@ -4146,6 +4589,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.1.B"
        ],
        "drills": [
         "em-principal-arg",
@@ -4170,6 +4616,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.1.C"
+       ],
        "drills": [
         "em-contour-conjugate-line",
         "em-contour-conjugate-circle"
@@ -4187,6 +4636,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.2.A"
+       ],
        "drills": [
         "em-cauchy-inside-outside",
         "em-cauchy-count-poles"
@@ -4203,6 +4655,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.2.B"
        ],
        "drills": [
         "em-cauchy-derivative-formula",
@@ -4222,6 +4677,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.2.C"
+       ],
        "drills": [
         "em-ml-semicircle",
         "em-ml-decay-power"
@@ -4238,6 +4696,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.2.D"
        ],
        "drills": [
         "em-max-modulus",
@@ -4262,6 +4723,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.2.E"
+       ],
        "drills": [
         "em-laurent-inner",
         "em-laurent-outer"
@@ -4278,6 +4742,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.3.A"
        ],
        "drills": [
         "em-singularity-type",
@@ -4296,6 +4763,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.3.B"
+       ],
        "drills": [
         "em-residue-double-pole",
         "em-residue-simple-imag"
@@ -4312,6 +4782,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.3.C"
        ],
        "drills": [
         "em-radius-complex-pole",
@@ -4336,6 +4809,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.3.D"
+       ],
        "drills": [
         "em-residue-theorem-one",
         "em-residue-theorem-all"
@@ -4352,6 +4828,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.4.A"
        ],
        "drills": [
         "em-real-line-lorentzian",
@@ -4370,6 +4849,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.4.B"
+       ],
        "drills": [
         "em-trig-integral",
         "em-trig-integral-scaled"
@@ -4387,6 +4869,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.4.C"
+       ],
        "drills": [
         "em-jordan-cosine",
         "em-jordan-facts"
@@ -4403,6 +4888,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.4.D"
        ],
        "drills": [
         "em-rouche-count",
@@ -4478,7 +4966,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "euler-demoivre"
+    "euler-demoivre",
+    "em-demoivre-real-part"
    ],
    "partial": []
   },
@@ -4488,7 +4977,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "euler-quad-roots"
+    "euler-quad-roots",
+    "em-quadratic-from-complex-roots"
    ],
    "partial": []
   },
@@ -4523,7 +5013,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "mv-implicit"
+    "mv-implicit",
+    "em-implicit-slope-ellipse"
    ],
    "partial": []
   },
@@ -4533,7 +5024,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "mv-exact-test"
+    "mv-exact-test",
+    "em-exact-missing-coefficient"
    ],
    "partial": []
   },
@@ -4566,7 +5058,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-euler-method"
+    "ca-euler-method",
+    "em-euler-two-steps"
    ],
    "partial": []
   },
@@ -4617,7 +5110,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "if-test"
+    "if-test",
+    "em-integrating-factor-power"
    ],
    "partial": []
   },
@@ -4717,7 +5211,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "model-mixing"
+    "model-mixing",
+    "em-mixing-half-time"
    ],
    "partial": []
   },
@@ -4738,7 +5233,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "model-logistic"
+    "model-logistic",
+    "em-logistic-half-capacity-time"
    ],
    "partial": []
   },
@@ -4748,7 +5244,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "em-phase-line"
+    "em-phase-line",
+    "em-phase-line-fate"
    ],
    "partial": []
   },
@@ -4758,7 +5255,8 @@
    "topic": 7,
    "status": "ok",
    "full": [
-    "em-existence"
+    "em-existence",
+    "em-existence-uniqueness-verdict"
    ],
    "partial": []
   },
@@ -4768,7 +5266,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-superposition-ivp"
+    "em-superposition-ivp",
+    "em-superposition-coefficient"
    ],
    "partial": []
   },
@@ -4831,7 +5330,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "char-ivp"
+    "char-ivp",
+    "em-repeated-root-ivp-value"
    ],
    "partial": []
   },
@@ -4841,7 +5341,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "ec-roots"
+    "ec-roots",
+    "em-euler-cauchy-exponent-sum"
    ],
    "partial": []
   },
@@ -4875,7 +5376,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "spring-undamped-ivp"
+    "spring-undamped-ivp",
+    "em-undamped-amplitude"
    ],
    "partial": []
   },
@@ -4885,7 +5387,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "spring-classify"
+    "spring-classify",
+    "em-critical-damping-constant"
    ],
    "partial": []
   },
@@ -4966,7 +5469,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "forced-practical"
+    "forced-practical",
+    "em-resonance-peak-limit"
    ],
    "partial": []
   },
@@ -4976,7 +5480,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "em-rlc"
+    "em-rlc",
+    "em-rlc-critical-resistance"
    ],
    "partial": []
   },
@@ -4997,7 +5502,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "wr-three"
+    "wr-three",
+    "em-wronskian-three-exponentials"
    ],
    "partial": []
   },
@@ -5007,7 +5513,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "hi-roots"
+    "hi-roots",
+    "em-third-root"
    ],
    "partial": []
   },
@@ -5065,7 +5572,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "kin-matrix"
+    "kin-matrix",
+    "em-series-kinetics-peak-time"
    ],
    "partial": []
   },
@@ -5075,7 +5583,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sys-eigen"
+    "sys-eigen",
+    "em-system-dominant-rate"
    ],
    "partial": []
   },
@@ -5108,7 +5617,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sys-repeated"
+    "sys-repeated",
+    "em-repeated-eigenvalue"
    ],
    "partial": []
   },
@@ -5131,7 +5641,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-phase-portrait"
+    "em-phase-portrait",
+    "em-portrait-type"
    ],
    "partial": []
   },
@@ -5153,7 +5664,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "phase-stability"
+    "phase-stability",
+    "em-stability-from-trace-det"
    ],
    "partial": []
   },
@@ -5163,7 +5675,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "em-nonlinear-critical"
+    "em-nonlinear-critical",
+    "em-coexistence-point"
    ],
    "partial": []
   },
@@ -5173,7 +5686,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "em-nonlinear-critical"
+    "em-nonlinear-critical",
+    "em-jacobian-determinant"
    ],
    "partial": []
   },
@@ -5183,7 +5697,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "em-nonhomog-system"
+    "em-nonhomog-system",
+    "em-system-constant-particular"
    ],
    "partial": []
   },
@@ -5193,7 +5708,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "series-classify-point"
+    "series-classify-point",
+    "em-singular-point-location"
    ],
    "partial": []
   },
@@ -5203,7 +5719,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "series-radius"
+    "series-radius",
+    "em-radius-from-complex-singularity"
    ],
    "partial": []
   },
@@ -5236,7 +5753,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "frobenius-indicial"
+    "frobenius-indicial",
+    "em-indicial-p0"
    ],
    "partial": []
   },
@@ -5246,7 +5764,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "frobenius-case"
+    "frobenius-case",
+    "em-frobenius-case-from-roots"
    ],
    "partial": []
   },
@@ -5256,7 +5775,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-frobenius-first-solution"
+    "em-frobenius-first-solution",
+    "em-bessel-series-a2"
    ],
    "partial": []
   },
@@ -5278,7 +5798,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "spec-bessel-scaled"
+    "spec-bessel-scaled",
+    "em-bessel-zero-scale"
    ],
    "partial": []
   },
@@ -5288,7 +5809,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "spec-bessel-independent"
+    "spec-bessel-independent",
+    "em-bessel-second-solution"
    ],
    "partial": []
   },
@@ -5298,7 +5820,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "em-legendre-eval"
+    "em-legendre-eval",
+    "em-legendre-norm"
    ],
    "partial": []
   },
@@ -5406,7 +5929,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "shift-t-inverse"
+    "shift-t-inverse",
+    "em-shifted-inverse-value"
    ],
    "partial": []
   },
@@ -5439,7 +5963,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "conv-compute"
+    "conv-compute",
+    "em-convolution-two-exponentials"
    ],
    "partial": []
   },
@@ -5460,7 +5985,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "conv-volterra"
+    "conv-volterra",
+    "em-volterra-exponential"
    ],
    "partial": []
   },
@@ -5493,7 +6019,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "la-system"
+    "la-system",
+    "em-system-no-solution-parameter"
    ],
    "partial": []
   },
@@ -5503,7 +6030,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "la-independence"
+    "la-independence",
+    "em-dependence-parameter"
    ],
    "partial": []
   },
@@ -5513,7 +6041,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "la-det"
+    "la-det",
+    "em-determinant-scaling"
    ],
    "partial": []
   },
@@ -5523,7 +6052,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "la-inverse"
+    "la-inverse",
+    "em-inverse-entry"
    ],
    "partial": []
   },
@@ -5533,7 +6063,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "la-eigenvalues"
+    "la-eigenvalues",
+    "em-eigenvalue-from-trace-det"
    ],
    "partial": []
   },
@@ -5543,7 +6074,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "la-eigenvector"
+    "la-eigenvector",
+    "em-eigenvector-second-component"
    ],
    "partial": []
   },
@@ -5553,7 +6085,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "em-diagonalise"
+    "em-diagonalise",
+    "em-matrix-power-by-diagonalising"
    ],
    "partial": []
   },
@@ -5633,7 +6166,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "fs-period-2l"
+    "fs-period-2l",
+    "em-fourier-abs-a1"
    ],
    "partial": []
   },
@@ -5643,7 +6177,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "fs-half-range"
+    "fs-half-range",
+    "em-half-range-sine-coefficient"
    ],
    "partial": []
   },
@@ -5653,7 +6188,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-fourier-forced-response"
+    "em-fourier-forced-response",
+    "em-resonant-harmonic"
    ],
    "partial": []
   },
@@ -5674,7 +6210,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sl-form"
+    "sl-form",
+    "em-sl-weight"
    ],
    "partial": []
   },
@@ -5684,7 +6221,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sl-classify"
+    "sl-classify",
+    "em-sl-kind"
    ],
    "partial": []
   },
@@ -5694,7 +6232,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sl-eigenvalues"
+    "sl-eigenvalues",
+    "em-sl-mixed-eigenvalue"
    ],
    "partial": []
   },
@@ -5704,7 +6243,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "sl-eigenfunctions"
+    "sl-eigenfunctions",
+    "em-eigenfunction-first-node"
    ],
    "partial": []
   },
@@ -5726,7 +6266,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-orthogonality"
+    "em-orthogonality",
+    "em-eigenfunction-norm"
    ],
    "partial": []
   },
@@ -5736,7 +6277,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-legendre-expansion"
+    "em-legendre-expansion",
+    "em-legendre-coefficient"
    ],
    "partial": []
   },
@@ -5867,7 +6409,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "pde-flux-end-steady-state"
+    "pde-flux-end-steady-state",
+    "em-steady-flux-end"
    ],
    "partial": []
   },
@@ -5877,7 +6420,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "pde-time-bc-shift"
+    "pde-time-bc-shift",
+    "em-shift-leaves-source"
    ],
    "partial": []
   },
@@ -5960,7 +6504,8 @@
    "topic": 4,
    "status": "ok",
    "full": [
-    "pde-sphere"
+    "pde-sphere",
+    "em-sphere-time-constant"
    ],
    "partial": []
   },
@@ -6006,7 +6551,8 @@
    "topic": 5,
    "status": "ok",
    "full": [
-    "pde-method-choice"
+    "pde-method-choice",
+    "em-pde-method-pick"
    ],
    "partial": []
   },
@@ -6039,7 +6585,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "pde-fd-ghost"
+    "pde-fd-ghost",
+    "em-ghost-node-value"
    ],
    "partial": []
   },
@@ -6049,7 +6596,8 @@
    "topic": 6,
    "status": "ok",
    "full": [
-    "pde-fd-implicit"
+    "pde-fd-implicit",
+    "em-crank-nicolson-one-node"
    ],
    "partial": []
   },
@@ -6059,7 +6607,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-fourier-cosine-sine"
+    "em-fourier-cosine-sine",
+    "em-fourier-sine-transform-exponential"
    ],
    "partial": []
   },
@@ -6158,7 +6707,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-conservation-law"
+    "ca-conservation-law",
+    "em-flux-divergence-source"
    ],
    "partial": []
   },
@@ -6215,7 +6765,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-rc-current"
+    "em-rc-current",
+    "em-rc-charge-time"
    ],
    "partial": []
   },
@@ -6225,7 +6776,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-bifurcation"
+    "em-bifurcation",
+    "em-saddle-node-stable-branch"
    ],
    "partial": []
   },
@@ -6235,7 +6787,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-operator-exponential"
+    "em-operator-exponential",
+    "em-operator-on-exponential"
    ],
    "partial": []
   },
@@ -6245,7 +6798,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-existence-interval"
+    "em-existence-interval",
+    "em-existence-interval-end"
    ],
    "partial": []
   },
@@ -6255,17 +6809,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-system-verify"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-14.1.C",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "em-complex-region"
+    "em-system-verify",
+    "em-system-solution-exponent"
    ],
    "partial": []
   },
@@ -6275,7 +6820,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-complex-linear"
+    "em-complex-linear",
+    "em-complex-linear-imaginary-part"
    ],
    "partial": []
   },
@@ -6285,7 +6831,19 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-complex-sqrt"
+    "em-complex-sqrt",
+    "em-complex-square-root"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-region",
+    "em-point-and-circle"
    ],
    "partial": []
   },
@@ -6295,7 +6853,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-complex-map"
+    "em-complex-map",
+    "em-inversion-modulus"
    ],
    "partial": []
   },
@@ -6305,17 +6864,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "em-complex-limit"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-14.2.C",
-   "unit": 14,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "em-entire"
+    "em-complex-limit",
+    "em-complex-limit-removable"
    ],
    "partial": []
   },
@@ -6325,7 +6875,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "em-cauchy-riemann"
+    "em-cauchy-riemann",
+    "em-cauchy-riemann-coefficient"
    ],
    "partial": []
   },
@@ -6335,7 +6886,19 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "em-harmonic"
+    "em-harmonic",
+    "em-harmonic-coefficient"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.2.C",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "em-entire",
+    "em-analytic-where"
    ],
    "partial": []
   },
@@ -6345,17 +6908,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "em-harmonic-conjugate"
-   ],
-   "partial": []
-  },
-  {
-   "code": "EM-14.3.B",
-   "unit": 14,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "em-complex-sequence"
+    "em-harmonic-conjugate",
+    "em-harmonic-conjugate-value"
    ],
    "partial": []
   },
@@ -6365,7 +6919,19 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-cauchy-formula"
+    "em-cauchy-formula",
+    "em-cauchy-formula-derivative"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.B",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-complex-sequence",
+    "em-complex-sequence-fate"
    ],
    "partial": []
   },
@@ -6375,7 +6941,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-complex-taylor"
+    "em-complex-taylor",
+    "em-taylor-coefficient-geometric"
    ],
    "partial": []
   },
@@ -6385,7 +6952,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-laurent-residue"
+    "em-laurent-residue",
+    "em-residue-double-pole-exp"
    ],
    "partial": []
   },
@@ -6395,7 +6963,8 @@
    "topic": 3,
    "status": "ok",
    "full": [
-    "em-zero-order"
+    "em-zero-order",
+    "em-zero-order-pick"
    ],
    "partial": []
   },
@@ -6785,6 +7354,7 @@
   "mm-tangent-intercept",
   "ca-derive-sin-exp",
   "ca-elasticity",
+  "ca-unit-elastic-price",
   "ca-chain-power",
   "ca-chain-trig",
   "ca-chain-exp",
@@ -6828,6 +7398,7 @@
   "ca-rate-units",
   "ca2-related-rate-scaling",
   "ca-marginal-cost",
+  "ca-marginal-revenue-zero",
   "ca-mvt",
   "ca-critical-points",
   "ca-abs-extrema",
@@ -6852,7 +7423,9 @@
   "ca-optimization-setup",
   "ca2-concavity-meaning",
   "ca-max-profit",
+  "ca-max-profit-value",
   "ca-peak-concentration",
+  "ca-peak-concentration-value",
   "ca-riemann-sums",
   "ca-trapezoid-table",
   "ca-ftc-derivative",
@@ -6891,9 +7464,13 @@
   "mm-int-sin-power-cos",
   "ca-choose-technique",
   "ca-trig-integral",
+  "ca-trig-integral-strategy",
   "ca-trig-substitution",
+  "ca-trig-sub-choice",
   "ca-integral-table",
+  "ca-table-arctan",
   "ca-cas-antiderivative",
+  "ca-cas-check",
   "ca-verify-solution",
   "ca-separable-general",
   "ca-separable-ivp",
@@ -6940,12 +7517,19 @@
   "ca-volume-washer-line",
   "ca2-average-value",
   "ca-consumer-surplus",
+  "ca-producer-surplus",
   "ca-cardiac-output",
+  "ca-dye-amount",
   "ca-pdf-constant",
+  "ca-pdf-mean",
   "ca-shells",
+  "ca-shells-power",
   "ca-two-methods",
+  "ca-two-methods-x-axis",
   "ca-surface-revolution",
+  "ca-cone-frustum-area",
   "ca-hydrostatic-triangle",
+  "ca-hydrostatic-gate",
   "ca-parametric-slope",
   "ca-parametric-arc",
   "ca-vector-velocity",
@@ -6965,10 +7549,15 @@
   "ca-planar-distance",
   "ca-polar-between",
   "ca-eliminate-parameter",
+  "ca-eliminate-exponential",
   "ca-parametric-area",
+  "ca-ellipse-area-parametric",
   "ca-parametric-volume",
+  "ca-ellipsoid-volume-parametric",
   "ca-parametric-surface",
+  "ca-parametric-cap-area",
   "ca-polar-arc-length",
+  "ca-polar-spiral-length",
   "ca-partial-sums",
   "ca-geometric-series",
   "ca-nth-term-test",
@@ -6989,8 +7578,11 @@
   "ca-comparison-test",
   "ca2-geometric-series-sum",
   "ca-sequence-limit",
+  "ca-sequence-limit-e",
   "ca-root-test",
+  "ca-root-test-verdict",
   "ca-series-strategy",
+  "ca-series-verdict",
   "ca-taylor-exp",
   "ca-taylor-ln",
   "ca-taylor-coefficients",
@@ -7021,6 +7613,7 @@
   "cm-helix",
   "ca-quadric",
   "ca-vector-limit",
+  "ca-vector-limit-magnitude",
   "ca-critical-point-classify",
   "cm-tangent-plane",
   "cm-chain-rule",

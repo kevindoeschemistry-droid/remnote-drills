@@ -66,9 +66,9 @@ units:
       - n: 2
         title: "Accident and error prevention; restraints"
         los:
-          - { id: C, std: ["ncsbn-nclex-rn:SIPC.3", "ncsbn-nclex-rn:SIPC.5", "ncsbn-nclex-rn:SIPC.7"], do: "Apply ergonomic, home-safety and equipment-safety principles.", ek: ["Wide base of support and lift with the legs; remove throw rugs, add grab bars and lighting; inspect equipment and tag faulty items."], p: [P4], drills: [nr-home-safety, nr-ergonomic] }
-          - { id: A, std: ["ncsbn-nclex-rn:SIPC.1", "ncsbn-nclex-rn:SIPC.10"], do: "Apply client identification, fire response and restraint rules.", ek: ["Two identifiers; RACE and PASS; restraints tied to the frame, checked and released at least every 2 hours."], p: [P4], drills: [nr-safety-2, nr-safety-rules] }
-          - { id: B, std: ["ncsbn-nclex-rn:SIPC.2", "ncsbn-nclex-rn:SIPC.4", "ncsbn-nclex-rn:SIPC.8"], do: "Respond to emergencies and hazards: disaster triage, hazardous materials, radiation and security events.", ek: ["START triage tags; time, distance and shielding for radiation; sharps and biohazard disposal; follow the facility's security plan."], p: [P4], drills: [nr-triage, nr-radiation-distance] }
+          - { id: C, std: ["ncsbn-nclex-rn:SIPC.3", "ncsbn-nclex-rn:SIPC.5", "ncsbn-nclex-rn:SIPC.7"], do: "Apply ergonomic, home-safety and equipment-safety principles.", ek: ["Wide base of support and lift with the legs; remove throw rugs, add grab bars and lighting; inspect equipment and tag faulty items."], p: [P4], needs: [NR-2.1.B], drills: [nr-home-safety, nr-ergonomic] }
+          - { id: A, std: ["ncsbn-nclex-rn:SIPC.1", "ncsbn-nclex-rn:SIPC.10"], do: "Apply client identification, fire response and restraint rules.", ek: ["Two identifiers; RACE and PASS; restraints tied to the frame, checked and released at least every 2 hours."], p: [P4], needs: [NR-2.2.C], drills: [nr-safety-2, nr-safety-rules] }
+          - { id: B, std: ["ncsbn-nclex-rn:SIPC.2", "ncsbn-nclex-rn:SIPC.4", "ncsbn-nclex-rn:SIPC.8"], do: "Respond to emergencies and hazards: disaster triage, hazardous materials, radiation and security events.", ek: ["START triage tags; time, distance and shielding for radiation; sharps and biohazard disposal; follow the facility's security plan."], p: [P4], needs: [NR-2.2.A], drills: [nr-triage, nr-radiation-distance] }
 
   - id: basic-care
     n: 5
@@ -80,18 +80,18 @@ units:
       - n: 1
         title: "Nutrition and oral hydration"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:BCC.5"], do: "Match a diet rule to a condition or a drug.", ek: ["Gluten-free in celiac disease; no tyramine with MAOIs; steady vitamin K with warfarin; steady sodium with lithium."], p: [P4], drills: [nr-diet, nr-diet-2] }
-          - { id: B, std: ["ncsbn-nclex-rn:BCC.5"], do: "Total intake in mL from household measures.", ek: ["1 oz = 30 mL."], p: [P1], drills: [nr-io-total, nr-io-balance] }
+          - { id: A, std: ["ncsbn-nclex-rn:BCC.5"], do: "Match a diet rule to a condition or a drug.", ek: ["Gluten-free in celiac disease; no tyramine with MAOIs; steady vitamin K with warfarin; steady sodium with lithium."], p: [P4], needs: [NR-2.2.B], drills: [nr-diet, nr-diet-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:BCC.5"], do: "Total intake in mL from household measures.", ek: ["1 oz = 30 mL."], p: [P1], needs: [NR-5.1.A], drills: [nr-io-total, nr-io-balance] }
       - n: 2
         title: "Mobility and positioning"
         los:
-          - { id: B, std: ["ncsbn-nclex-rn:BCC.1", "ncsbn-nclex-rn:BCC.3"], do: "Teach the use of canes, crutches and walkers, and prevent complications of immobility.", ek: ["Cane on the strong side; move cane with the weak leg; turn at least every 2 h; immobility risks pressure injury, DVT, pneumonia and constipation."], p: [P4], drills: [nr-assistive, nr-immobility] }
-          - { id: A, std: ["ncsbn-nclex-rn:BCC.3"], do: "Position a client for a condition or procedure and say why.", ek: ["ICP: head up 30°, midline. Liver biopsy: right side. Air embolism: left side, head down."], p: [P4], drills: [nr-positioning, nr-position-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:BCC.1", "ncsbn-nclex-rn:BCC.3"], do: "Teach the use of canes, crutches and walkers, and prevent complications of immobility.", ek: ["Cane on the strong side; move cane with the weak leg; turn at least every 2 h; immobility risks pressure injury, DVT, pneumonia and constipation."], p: [P4], needs: [NR-5.1.B], drills: [nr-assistive, nr-immobility] }
+          - { id: A, std: ["ncsbn-nclex-rn:BCC.3"], do: "Position a client for a condition or procedure and say why.", ek: ["ICP: head up 30°, midline. Liver biopsy: right side. Air embolism: left side, head down."], p: [P4], needs: [NR-5.2.B], drills: [nr-positioning, nr-position-2] }
       - n: 3
         title: "Elimination, hygiene, comfort and sleep"
         los:
-          - { id: B, std: ["ncsbn-nclex-rn:BCC.4", "ncsbn-nclex-rn:BCC.6", "ncsbn-nclex-rn:BCC.7"], do: "Provide hygiene, nonpharmacological comfort and sleep promotion.", ek: ["Heat for muscle spasm, cold for acute injury (usual); sleep hygiene: regular schedule, limit caffeine and screens."], p: [P4], drills: [nr-comfort, nr-comfort-2] }
-          - { id: A, std: ["ncsbn-nclex-rn:BCC.2"], do: "Support elimination: catheters, enemas, ostomies and bladder training.", ek: ["Keep the drainage bag below the bladder; a healthy stoma is pink and moist; remove an indwelling catheter as soon as possible."], p: [P4], needs: [NR-5.1.B], drills: [nr-elimination, nr-urine-output] }
+          - { id: B, std: ["ncsbn-nclex-rn:BCC.4", "ncsbn-nclex-rn:BCC.6", "ncsbn-nclex-rn:BCC.7"], do: "Provide hygiene, nonpharmacological comfort and sleep promotion.", ek: ["Heat for muscle spasm, cold for acute injury (usual); sleep hygiene: regular schedule, limit caffeine and screens."], p: [P4], needs: [NR-5.2.A], drills: [nr-comfort, nr-comfort-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:BCC.2"], do: "Support elimination: catheters, enemas, ostomies and bladder training.", ek: ["Keep the drainage bag below the bladder; a healthy stoma is pink and moist; remove an indwelling catheter as soon as possible."], p: [P4], needs: [NR-5.1.B, NR-5.3.B], drills: [nr-elimination, nr-urine-output] }
 
   - id: health-promotion
     n: 3
@@ -103,25 +103,25 @@ units:
       - n: 1
         title: "Developmental stages and transitions"
         los:
-          - { id: C, std: ["ncsbn-nclex-rn:HPM.1"], do: "Recognise normal changes of aging and tell them from disease.", ek: ["Expected: presbyopia, presbycusis, slower reaction time, less skin elasticity; acute confusion is not normal aging."], p: [P4], drills: [nr-aging, nr-delirium-dementia] }
-          - { id: A, std: ["ncsbn-nclex-rn:HPM.3"], do: "Name Erikson's stage for an age and use it in care.", ek: ["Trust, autonomy, initiative, industry, identity, intimacy, generativity, integrity."], p: [P4], drills: [nr-erikson, nr-erikson-2] }
-          - { id: B, std: ["ncsbn-nclex-rn:HPM.3"], do: "Recall the main infant growth and motor milestones.", ek: ["Weight doubles by 5–6 months, triples by 1 year; walks about 12–15 months."], p: [P4], drills: [nr-milestones, nr-milestones-2] }
+          - { id: C, std: ["ncsbn-nclex-rn:HPM.1"], do: "Recognise normal changes of aging and tell them from disease.", ek: ["Expected: presbyopia, presbycusis, slower reaction time, less skin elasticity; acute confusion is not normal aging."], p: [P4], needs: [NR-5.3.A], drills: [nr-aging, nr-delirium-dementia] }
+          - { id: A, std: ["ncsbn-nclex-rn:HPM.3"], do: "Name Erikson's stage for an age and use it in care.", ek: ["Trust, autonomy, initiative, industry, identity, intimacy, generativity, integrity."], p: [P4], needs: [NR-3.1.C], drills: [nr-erikson, nr-erikson-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:HPM.3"], do: "Recall the main infant growth and motor milestones.", ek: ["Weight doubles by 5–6 months, triples by 1 year; walks about 12–15 months."], p: [P4], needs: [NR-3.1.A], drills: [nr-milestones, nr-milestones-2] }
       - n: 2
         title: "Antepartum, intrapartum, postpartum and newborn care"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:HPM.2"], do: "Score a newborn's APGAR from the five signs.", ek: ["Heart rate, respirations, tone, reflex irritability, color: 0–2 each."], p: [P1, P3], drills: [nr-apgar, nr-apgar-meaning] }
-          - { id: B, std: ["ncsbn-nclex-rn:HPM.2"], do: "Write a pregnancy history as GTPAL.", ek: ["Twins are one pregnancy and one birth but two living children."], p: [P1], drills: [nr-gtpal-2, nr-gtpal] }
-          - { id: C, std: ["ncsbn-nclex-rn:HPM.2"], do: "Interpret fundal height in pregnancy and after birth.", ek: ["Umbilicus at 20 weeks; after birth firm, midline, down about 1 cm a day."], p: [P3], drills: [nr-fundus, nr-fundal-weeks] }
+          - { id: A, std: ["ncsbn-nclex-rn:HPM.2"], do: "Score a newborn's APGAR from the five signs.", ek: ["Heart rate, respirations, tone, reflex irritability, color: 0–2 each."], p: [P1, P3], needs: [NR-3.1.B], drills: [nr-apgar, nr-apgar-meaning] }
+          - { id: B, std: ["ncsbn-nclex-rn:HPM.2"], do: "Write a pregnancy history as GTPAL.", ek: ["Twins are one pregnancy and one birth but two living children."], p: [P1], needs: [NR-3.2.A], drills: [nr-gtpal-2, nr-gtpal] }
+          - { id: C, std: ["ncsbn-nclex-rn:HPM.2"], do: "Interpret fundal height in pregnancy and after birth.", ek: ["Umbilicus at 20 weeks; after birth firm, midline, down about 1 cm a day."], p: [P3], needs: [NR-3.2.B], drills: [nr-fundus, nr-fundal-weeks] }
       - n: 3
         title: "Techniques of physical assessment"
         los:
-          - { id: B, std: ["ncsbn-nclex-rn:HPM.9"], do: "Use physical assessment techniques in the right order and read common findings.", ek: ["Inspection, palpation, percussion, auscultation; the abdomen is auscultated before palpation."], p: [P4], drills: [nr-assessment-order, nr-assessment-findings] }
-          - { id: A, std: ["ncsbn-nclex-rn:HPM.9"], do: "Compute and classify body mass index.", ek: ["kg/m²; 18.5–24.9 normal."], p: [P1], drills: [nr-bmi, nr-weight-for-bmi] }
+          - { id: B, std: ["ncsbn-nclex-rn:HPM.9"], do: "Use physical assessment techniques in the right order and read common findings.", ek: ["Inspection, palpation, percussion, auscultation; the abdomen is auscultated before palpation."], p: [P4], needs: [NR-3.2.C], drills: [nr-assessment-order, nr-assessment-findings] }
+          - { id: A, std: ["ncsbn-nclex-rn:HPM.9"], do: "Compute and classify body mass index.", ek: ["kg/m²; 18.5–24.9 normal."], p: [P1], needs: [NR-3.3.B], drills: [nr-bmi, nr-weight-for-bmi] }
       - n: 4
         title: "Screening, prevention and lifestyle"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:HPM.4", "ncsbn-nclex-rn:HPM.5"], do: "Recommend screenings and preventive care at the usual ages.", ek: ["Screening schedules follow USPSTF-style guidance (usual): colorectal from 45, cervical from 21 under USPSTF and ACOG (ACS 2020 says 25), mammography by age 40–50 depending on guideline."], p: [P4], drills: [nr-screening, nr-prevention-level] }
-          - { id: B, std: ["ncsbn-nclex-rn:HPM.6", "ncsbn-nclex-rn:HPM.7", "ncsbn-nclex-rn:HPM.8"], do: "Assess high-risk behaviors and support lifestyle change and self-care.", ek: ["Pack-years = packs/day × years; motivational interviewing; teach-back confirms self-care teaching."], p: [P4], drills: [nr-behavior-change, nr-pack-years] }
+          - { id: A, std: ["ncsbn-nclex-rn:HPM.4", "ncsbn-nclex-rn:HPM.5"], do: "Recommend screenings and preventive care at the usual ages.", ek: ["Screening schedules follow USPSTF-style guidance (usual): colorectal from 45, cervical from 21 under USPSTF and ACOG (ACS 2020 says 25), mammography by age 40–50 depending on guideline."], p: [P4], needs: [NR-3.3.A], drills: [nr-screening, nr-prevention-level] }
+          - { id: B, std: ["ncsbn-nclex-rn:HPM.6", "ncsbn-nclex-rn:HPM.7", "ncsbn-nclex-rn:HPM.8"], do: "Assess high-risk behaviors and support lifestyle change and self-care.", ek: ["Pack-years = packs/day × years; motivational interviewing; teach-back confirms self-care teaching."], p: [P4], needs: [NR-3.4.A], drills: [nr-behavior-change, nr-pack-years] }
 
   - id: psychosocial
     n: 4
@@ -133,24 +133,24 @@ units:
       - n: 1
         title: "Therapeutic communication"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PSY.15"], do: "Choose the therapeutic response and recognise the non-therapeutic ones.", ek: ["Reflect and explore; avoid reassurance, why questions, advice and changing the subject."], p: [P4], drills: [nr-therapeutic-comm, nr-comm-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:PSY.15"], do: "Choose the therapeutic response and recognise the non-therapeutic ones.", ek: ["Reflect and explore; avoid reassurance, why questions, advice and changing the subject."], p: [P4], needs: [NR-3.4.B], drills: [nr-therapeutic-comm, nr-comm-2] }
       - n: 2
         title: "Coping mechanisms"
         los:
           - { id: B, std: ["ncsbn-nclex-rn:PSY.5", "ncsbn-nclex-rn:PSY.13", "ncsbn-nclex-rn:PSY.14"], do: "Intervene in a crisis and support stress management and support systems.", ek: ["Crisis care is short-term and directive: ensure safety first, then problem-solve; ask directly about suicide."], p: [P4], needs: [NR-4.1.A], drills: [nr-crisis, nr-stress] }
-          - { id: A, std: ["ncsbn-nclex-rn:PSY.4"], do: "Name a defense mechanism from an example.", ek: ["Displacement, projection, denial, rationalization, regression, sublimation."], p: [P3], drills: [nr-defense, nr-defense-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:PSY.4"], do: "Name a defense mechanism from an example.", ek: ["Displacement, projection, denial, rationalization, regression, sublimation."], p: [P3], needs: [NR-4.2.B], drills: [nr-defense, nr-defense-2] }
       - n: 3
         title: "Mental health, dependence and abuse"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PSY.2", "ncsbn-nclex-rn:PSY.10", "ncsbn-nclex-rn:PSY.16"], do: "Use behavioral interventions and a therapeutic environment for mental-health conditions.", ek: ["Set clear limits; reduce stimulation for mania; orient to reality, don't argue with delusions; least restrictive intervention."], p: [P4], needs: [NR-4.1.A], drills: [nr-behavior-int, nr-lithium-ssri] }
-          - { id: C, std: ["ncsbn-nclex-rn:PSY.1"], do: "Recognise signs of abuse or neglect and report as required.", ek: ["Injuries that don't fit the story, delay in care, patterned bruises; nurses are mandatory reporters of child and elder abuse."], p: [P4], drills: [nr-abuse, nr-abuse-2] }
-          - { id: B, std: ["ncsbn-nclex-rn:PSY.3"], do: "Recognise withdrawal and intoxication and their usual timelines.", ek: ["Alcohol withdrawal usually begins 6–24 h after the last drink; delirium tremens peaks around 48–72 h; opioid withdrawal is miserable but rarely fatal."], p: [P4], drills: [nr-withdrawal, nr-ciwa-hours] }
+          - { id: A, std: ["ncsbn-nclex-rn:PSY.2", "ncsbn-nclex-rn:PSY.10", "ncsbn-nclex-rn:PSY.16"], do: "Use behavioral interventions and a therapeutic environment for mental-health conditions.", ek: ["Set clear limits; reduce stimulation for mania; orient to reality, don't argue with delusions; least restrictive intervention."], p: [P4], needs: [NR-4.1.A, NR-4.2.A], drills: [nr-behavior-int, nr-lithium-ssri] }
+          - { id: C, std: ["ncsbn-nclex-rn:PSY.1"], do: "Recognise signs of abuse or neglect and report as required.", ek: ["Injuries that don't fit the story, delay in care, patterned bruises; nurses are mandatory reporters of child and elder abuse."], p: [P4], needs: [NR-4.3.A], drills: [nr-abuse, nr-abuse-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:PSY.3"], do: "Recognise withdrawal and intoxication and their usual timelines.", ek: ["Alcohol withdrawal usually begins 6–24 h after the last drink; delirium tremens peaks around 48–72 h; opioid withdrawal is miserable but rarely fatal."], p: [P4], needs: [NR-4.3.C], drills: [nr-withdrawal, nr-ciwa-hours] }
       - n: 4
         title: "Loss, culture and family"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PSY.7", "ncsbn-nclex-rn:PSY.9"], do: "Support grieving clients and provide end-of-life care.", ek: ["Grief stages are not linear; signs of approaching death include mottling and Cheyne–Stokes breathing; hospice focuses on comfort."], p: [P4], needs: [NR-4.1.A], drills: [nr-end-of-life, nr-grief] }
-          - { id: B, std: ["ncsbn-nclex-rn:PSY.6", "ncsbn-nclex-rn:PSY.8", "ncsbn-nclex-rn:PSY.11"], do: "Adapt care to cultural, religious and family influences.", ek: ["Use a trained interpreter, not family; ask about dietary and religious practices; assess family roles and support."], p: [P4], drills: [nr-culture, nr-family] }
-          - { id: C, std: ["ncsbn-nclex-rn:PSY.12"], do: "Care for clients with sensory or perceptual alterations.", ek: ["Face a hearing-impaired client and speak clearly; orient a visually impaired client to the room using clock positions."], p: [P4], drills: [nr-sensory, nr-sensory-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:PSY.7", "ncsbn-nclex-rn:PSY.9"], do: "Support grieving clients and provide end-of-life care.", ek: ["Grief stages are not linear; signs of approaching death include mottling and Cheyne–Stokes breathing; hospice focuses on comfort."], p: [P4], needs: [NR-4.1.A, NR-4.3.B], drills: [nr-end-of-life, nr-grief] }
+          - { id: B, std: ["ncsbn-nclex-rn:PSY.6", "ncsbn-nclex-rn:PSY.8", "ncsbn-nclex-rn:PSY.11"], do: "Adapt care to cultural, religious and family influences.", ek: ["Use a trained interpreter, not family; ask about dietary and religious practices; assess family roles and support."], p: [P4], needs: [NR-4.4.A], drills: [nr-culture, nr-family] }
+          - { id: C, std: ["ncsbn-nclex-rn:PSY.12"], do: "Care for clients with sensory or perceptual alterations.", ek: ["Face a hearing-impaired client and speak clearly; orient a visually impaired client to the room using clock positions."], p: [P4], needs: [NR-4.4.B], drills: [nr-sensory, nr-sensory-2] }
 
   - id: pharm
     n: 6
@@ -162,33 +162,33 @@ units:
       - n: 1
         title: "Dosage calculation"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PPT.4"], do: "Calculate tablets or mL for an ordered dose.", ek: ["Desired over have, times the vehicle."], p: [P1], drills: [nr-tablets, nr-liquid] }
+          - { id: A, std: ["ncsbn-nclex-rn:PPT.4"], do: "Calculate tablets or mL for an ordered dose.", ek: ["Desired over have, times the vehicle."], p: [P1], needs: [NR-5.3.A], drills: [nr-tablets, nr-liquid] }
           - { id: B, std: ["ncsbn-nclex-rn:PPT.4"], do: "Calculate weight-based doses, divided daily doses, and check an order against a safe range.", ek: ["Pounds ÷ 2.2; mg/kg/day ÷ doses a day; compare the daily total with the range."], p: [P1, P3], needs: [NR-6.1.A], drills: [nr-lb-kg, nr-weight-dose, nr-daily-divided, nr-safe-range] }
-          - { id: C, std: ["ncsbn-nclex-rn:PPT.4"], do: "Draw up a reconstituted medication from its label concentration.", ek: ["Use the mg/mL after mixing, not the diluent volume."], p: [P1], needs: [NR-6.1.A], drills: [nr-reconstitute, nr-reconst-dose] }
+          - { id: C, std: ["ncsbn-nclex-rn:PPT.4"], do: "Draw up a reconstituted medication from its label concentration.", ek: ["Use the mg/mL after mixing, not the diluent volume."], p: [P1], needs: [NR-6.1.A, NR-6.1.B], drills: [nr-reconstitute, nr-reconst-dose] }
       - n: 2
         title: "Parenteral and intravenous therapies"
         los:
-          - { id: C, std: ["ncsbn-nclex-rn:PPT.7", "ncsbn-nclex-rn:PPT.1"], do: "Recognise IV complications and the first action for each.", ek: ["Infiltration cool and pale; phlebitis warm and red; overload crackles and JVD; air embolism sudden dyspnea."], p: [P3], drills: [nr-iv-complication, nr-iv-comp-2] }
-          - { id: A, std: ["ncsbn-nclex-rn:PPT.7"], do: "Calculate pump rates, gravity drip rates and infusion times.", ek: ["mL/h = volume ÷ hours; gtt/min = mL × drop factor ÷ minutes."], p: [P1], needs: [NR-6.1.A], drills: [nr-iv-mlh, nr-gtt, nr-infusion-time] }
+          - { id: C, std: ["ncsbn-nclex-rn:PPT.7", "ncsbn-nclex-rn:PPT.1"], do: "Recognise IV complications and the first action for each.", ek: ["Infiltration cool and pale; phlebitis warm and red; overload crackles and JVD; air embolism sudden dyspnea."], p: [P3], needs: [NR-6.1.C], drills: [nr-iv-complication, nr-iv-comp-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:PPT.7"], do: "Calculate pump rates, gravity drip rates and infusion times.", ek: ["mL/h = volume ÷ hours; gtt/min = mL × drop factor ÷ minutes."], p: [P1], needs: [NR-6.1.A, NR-6.2.C], drills: [nr-iv-mlh, nr-gtt, nr-infusion-time] }
           - { id: B, std: ["ncsbn-nclex-rn:PPT.7"], do: "Calculate titrated infusions in units/h and mcg/kg/min, both ways.", ek: ["Find the concentration first, then dose ÷ concentration."], p: [P1], needs: [NR-6.2.A, NR-6.1.B], drills: [nr-heparin-rate, nr-heparin-units, nr-mcg-kg-min, nr-insulin-drip] }
-          - { id: D, std: ["ncsbn-nclex-rn:PPT.3", "ncsbn-nclex-rn:PPT.9"], do: "Care for central venous access devices and total parenteral nutrition.", ek: ["Confirm tip placement before use; flush per policy; TPN through a central line, glucose monitored, never stopped abruptly; dextrose gives 3.4 kcal/g."], p: [P4], needs: [NR-6.2.A], drills: [nr-cvad, nr-tpn-kcal] }
+          - { id: D, std: ["ncsbn-nclex-rn:PPT.3", "ncsbn-nclex-rn:PPT.9"], do: "Care for central venous access devices and total parenteral nutrition.", ek: ["Confirm tip placement before use; flush per policy; TPN through a central line, glucose monitored, never stopped abruptly; dextrose gives 3.4 kcal/g."], p: [P4], needs: [NR-6.2.A, NR-6.2.B], drills: [nr-cvad, nr-tpn-kcal] }
       - n: 3
         title: "Blood and blood products"
         los:
-          - { id: B, std: ["ncsbn-nclex-rn:PPT.2"], do: "Apply transfusion safety rules and respond to a reaction.", ek: ["Normal saline only; first 15 minutes; finish within 4 hours; stop it at any reaction."], p: [P4], drills: [nr-transfusion, nr-transfusion-2] }
-          - { id: A, std: ["ncsbn-nclex-rn:PPT.2"], do: "Decide ABO and Rh red-cell compatibility.", ek: ["O− is the universal red-cell donor, AB+ the universal recipient."], p: [P3], drills: [nr-abo, nr-abo-donor] }
+          - { id: B, std: ["ncsbn-nclex-rn:PPT.2"], do: "Apply transfusion safety rules and respond to a reaction.", ek: ["Normal saline only; first 15 minutes; finish within 4 hours; stop it at any reaction."], p: [P4], needs: [NR-6.2.D], drills: [nr-transfusion, nr-transfusion-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:PPT.2"], do: "Decide ABO and Rh red-cell compatibility.", ek: ["O− is the universal red-cell donor, AB+ the universal recipient."], p: [P3], needs: [NR-6.3.B], drills: [nr-abo, nr-abo-donor] }
       - n: 4
         title: "Expected actions, adverse effects and interactions"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PPT.5"], do: "Name a drug's class from its suffix.", ek: ["-olol, -pril, -sartan, -statin, -prazole, -dipine…"], p: [P4], drills: [nr-drug-suffix, nr-suffix-2] }
-          - { id: B, std: ["ncsbn-nclex-rn:PPT.1"], do: "Name the antidote for a drug toxicity.", ek: ["Naloxone, flumazenil, protamine, vitamin K, acetylcysteine, digoxin immune fab."], p: [P4], drills: [nr-antidote, nr-antidote-2] }
-          - { id: C, std: ["ncsbn-nclex-rn:PPT.5", "ncsbn-nclex-rn:PPT.6"], do: "Apply the timing and mixing rules for insulins.", ek: ["Regular is the IV insulin; glargine has no peak and is never mixed; clear before cloudy."], p: [P4], drills: [nr-insulin, nr-insulin-2] }
-          - { id: D, std: ["ncsbn-nclex-rn:PPT.1", "ncsbn-nclex-rn:RRP.3"], do: "Recall therapeutic drug levels and hold parameters.", ek: ["Digoxin 0.5–2.0 ng/mL, hold below 60 apical; lithium 0.6–1.2; INR 2–3."], p: [P4, P3], drills: [nr-hold-levels, nr-levels-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:PPT.5"], do: "Name a drug's class from its suffix.", ek: ["-olol, -pril, -sartan, -statin, -prazole, -dipine…"], p: [P4], needs: [NR-6.3.A], drills: [nr-drug-suffix, nr-suffix-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:PPT.1"], do: "Name the antidote for a drug toxicity.", ek: ["Naloxone, flumazenil, protamine, vitamin K, acetylcysteine, digoxin immune fab."], p: [P4], needs: [NR-6.4.A], drills: [nr-antidote, nr-antidote-2] }
+          - { id: C, std: ["ncsbn-nclex-rn:PPT.5", "ncsbn-nclex-rn:PPT.6"], do: "Apply the timing and mixing rules for insulins.", ek: ["Regular is the IV insulin; glargine has no peak and is never mixed; clear before cloudy."], p: [P4], needs: [NR-6.4.B], drills: [nr-insulin, nr-insulin-2] }
+          - { id: D, std: ["ncsbn-nclex-rn:PPT.1", "ncsbn-nclex-rn:RRP.3"], do: "Recall therapeutic drug levels and hold parameters.", ek: ["Digoxin 0.5–2.0 ng/mL, hold below 60 apical; lithium 0.6–1.2; INR 2–3."], p: [P4, P3], needs: [NR-6.4.C], drills: [nr-hold-levels, nr-levels-2] }
       - n: 5
         title: "Medication administration and pain"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PPT.6"], do: "Apply the rights of medication administration and route techniques.", ek: ["Right client, drug, dose, route, time, documentation (and more); IM in the ventrogluteal site; insulin subcutaneous."], p: [P4], drills: [nr-med-admin, nr-units-mg] }
-          - { id: B, std: ["ncsbn-nclex-rn:PPT.8"], do: "Manage pharmacological pain relief safely.", ek: ["Assess pain and sedation; respiratory depression follows sedation; naloxone reverses opioids; PCA is client-controlled only."], p: [P4], needs: [NR-6.4.B], drills: [nr-opioid-safety, nr-naloxone-dose] }
+          - { id: A, std: ["ncsbn-nclex-rn:PPT.6"], do: "Apply the rights of medication administration and route techniques.", ek: ["Right client, drug, dose, route, time, documentation (and more); IM in the ventrogluteal site; insulin subcutaneous."], p: [P4], needs: [NR-6.4.D], drills: [nr-med-admin, nr-units-mg] }
+          - { id: B, std: ["ncsbn-nclex-rn:PPT.8"], do: "Manage pharmacological pain relief safely.", ek: ["Assess pain and sedation; respiratory depression follows sedation; naloxone reverses opioids; PCA is client-controlled only."], p: [P4], needs: [NR-6.4.B, NR-6.5.A], drills: [nr-opioid-safety, nr-naloxone-dose] }
 
   - id: risk-reduction
     n: 7
@@ -200,21 +200,21 @@ units:
       - n: 1
         title: "Laboratory values"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:RRP.3"], do: "Recall the usual adult ranges for electrolytes, blood counts, renal tests and ABGs.", ek: ["K 3.5–5.0, Na 135–145, Ca 9.0–10.5, Mg 1.3–2.1; pH 7.35–7.45, PaCO₂ 35–45, HCO₃⁻ 22–26."], p: [P4], drills: [nr-lab-range, nr-ranges-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:RRP.3"], do: "Recall the usual adult ranges for electrolytes, blood counts, renal tests and ABGs.", ek: ["K 3.5–5.0, Na 135–145, Ca 9.0–10.5, Mg 1.3–2.1; pH 7.35–7.45, PaCO₂ 35–45, HCO₃⁻ 22–26."], p: [P4], needs: [NR-6.5.B], drills: [nr-lab-range, nr-ranges-2] }
           - { id: B, std: ["ncsbn-nclex-rn:RRP.3"], do: "Flag a value as low, normal or high.", ek: ["Compare with the range; act on potassium first."], p: [P3], needs: [NR-7.1.A], drills: [nr-lab-flag, nr-flag-2] }
-          - { id: C, std: ["ncsbn-nclex-rn:RRP.3", "ncsbn-nclex-rn:PA.2"], do: "Interpret an arterial blood gas: primary disorder and compensation.", ek: ["Side from pH, cause from whichever value matches it, compensation from the other."], p: [P3], needs: [NR-7.1.A], drills: [nr-abg, nr-abg-compensation] }
+          - { id: C, std: ["ncsbn-nclex-rn:RRP.3", "ncsbn-nclex-rn:PA.2"], do: "Interpret an arterial blood gas: primary disorder and compensation.", ek: ["Side from pH, cause from whichever value matches it, compensation from the other."], p: [P3], needs: [NR-7.1.A, NR-7.1.B], drills: [nr-abg, nr-abg-compensation] }
       - n: 2
         title: "Vital signs and system-specific assessments"
         los:
-          - { id: C, std: ["ncsbn-nclex-rn:RRP.4", "ncsbn-nclex-rn:PA.2"], do: "Link ECG and neuromuscular signs to potassium and calcium imbalances.", ek: ["Peaked T: high K. U waves: low K. Chvostek and Trousseau: low Ca."], p: [P3], drills: [nr-electrolyte-signs, nr-electrolyte-2] }
-          - { id: A, std: ["ncsbn-nclex-rn:RRP.1", "ncsbn-nclex-rn:PA.3"], do: "Compute mean arterial pressure.", ek: ["(S + 2D)/3; below about 65 is poor perfusion."], p: [P1], drills: [nr-map, nr-dbp-from-map] }
-          - { id: B, std: ["ncsbn-nclex-rn:RRP.7"], do: "Score the Glasgow Coma Scale.", ek: ["Eyes 4, verbal 5, motor 6; 8 or less, protect the airway."], p: [P1, P3], drills: [nr-gcs, nr-gcs-severity] }
-          - { id: D, std: ["ncsbn-nclex-rn:RRP.1"], do: "Recognise abnormal vital signs, including orthostatic hypotension.", ek: ["Orthostatic hypotension: systolic drop of 20 mmHg or diastolic drop of 10 mmHg within 3 minutes of standing (usual definition)."], p: [P4], drills: [nr-vitals, nr-orthostatic] }
+          - { id: C, std: ["ncsbn-nclex-rn:RRP.4", "ncsbn-nclex-rn:PA.2"], do: "Link ECG and neuromuscular signs to potassium and calcium imbalances.", ek: ["Peaked T: high K. U waves: low K. Chvostek and Trousseau: low Ca."], p: [P3], needs: [NR-7.1.C], drills: [nr-electrolyte-signs, nr-electrolyte-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:RRP.1", "ncsbn-nclex-rn:PA.3"], do: "Compute mean arterial pressure.", ek: ["(S + 2D)/3; below about 65 is poor perfusion."], p: [P1], needs: [NR-7.2.C], drills: [nr-map, nr-dbp-from-map] }
+          - { id: B, std: ["ncsbn-nclex-rn:RRP.7"], do: "Score the Glasgow Coma Scale.", ek: ["Eyes 4, verbal 5, motor 6; 8 or less, protect the airway."], p: [P1, P3], needs: [NR-7.2.A], drills: [nr-gcs, nr-gcs-severity] }
+          - { id: D, std: ["ncsbn-nclex-rn:RRP.1"], do: "Recognise abnormal vital signs, including orthostatic hypotension.", ek: ["Orthostatic hypotension: systolic drop of 20 mmHg or diastolic drop of 10 mmHg within 3 minutes of standing (usual definition)."], p: [P4], needs: [NR-7.2.B], drills: [nr-vitals, nr-orthostatic] }
       - n: 3
         title: "Diagnostic tests, procedures and their complications"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:RRP.2", "ncsbn-nclex-rn:RRP.5"], do: "Prepare clients for diagnostic tests and watch for complications afterwards.", ek: ["Check contrast allergy and renal function; hold metformin around iodinated contrast (usual); after cardiac catheterization keep the leg straight and check distal pulses."], p: [P4], drills: [nr-diagnostic, nr-diagnostic-2] }
-          - { id: B, std: ["ncsbn-nclex-rn:RRP.6", "ncsbn-nclex-rn:RRP.8"], do: "Prevent and recognise postoperative and procedure complications.", ek: ["Incentive spirometry; early ambulation; dehiscence: cover with sterile saline dressing; watch for hemorrhage, infection, DVT, ileus."], p: [P4], drills: [nr-postop, nr-postop-temp] }
+          - { id: A, std: ["ncsbn-nclex-rn:RRP.2", "ncsbn-nclex-rn:RRP.5"], do: "Prepare clients for diagnostic tests and watch for complications afterwards.", ek: ["Check contrast allergy and renal function; hold metformin around iodinated contrast (usual); after cardiac catheterization keep the leg straight and check distal pulses."], p: [P4], needs: [NR-7.2.D], drills: [nr-diagnostic, nr-diagnostic-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:RRP.6", "ncsbn-nclex-rn:RRP.8"], do: "Prevent and recognise postoperative and procedure complications.", ek: ["Incentive spirometry; early ambulation; dehiscence: cover with sterile saline dressing; watch for hemorrhage, infection, DVT, ileus."], p: [P4], needs: [NR-7.3.A], drills: [nr-postop, nr-postop-temp] }
 
   - id: physiological
     n: 8
@@ -226,19 +226,19 @@ units:
       - n: 1
         title: "Fluid and electrolyte imbalances; hemodynamics"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PA.2"], do: "Calculate pediatric maintenance fluids by the 4-2-1 rule.", ek: ["4 mL/h for the first 10 kg, 2 for the next 10, 1 for each kg after."], p: [P1], drills: [nr-maintenance-fluid, nr-daily-fluid] }
-          - { id: B, std: ["ncsbn-nclex-rn:PA.2", "ncsbn-nclex-rn:PA.5"], do: "Estimate burned surface area and the Parkland fluid rate.", ek: ["Rule of nines; 4 mL × kg × %TBSA, half in the first 8 hours."], p: [P1], drills: [nr-rule-nines, nr-parkland] }
+          - { id: A, std: ["ncsbn-nclex-rn:PA.2"], do: "Calculate pediatric maintenance fluids by the 4-2-1 rule.", ek: ["4 mL/h for the first 10 kg, 2 for the next 10, 1 for each kg after."], p: [P1], needs: [NR-7.3.B], drills: [nr-maintenance-fluid, nr-daily-fluid] }
+          - { id: B, std: ["ncsbn-nclex-rn:PA.2", "ncsbn-nclex-rn:PA.5"], do: "Estimate burned surface area and the Parkland fluid rate.", ek: ["Rule of nines; 4 mL × kg × %TBSA, half in the first 8 hours."], p: [P1], needs: [NR-8.1.A], drills: [nr-rule-nines, nr-parkland] }
       - n: 2
         title: "Illness management and medical emergencies"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:RRP.8"], do: "Manage a chest drainage system and respond to its problems.", ek: ["Continuous bubbling in the water seal is an air leak; tidaling is expected."], p: [P3, P4], drills: [nr-chest-tube, nr-chest-tube-2] }
-          - { id: B, std: ["ncsbn-nclex-rn:PA.4"], do: "Choose oxygen devices and targets.", ek: ["Cannula 1–6 L/min; Venturi for a set FiO₂; non-rebreather for the highest; 88–92% in CO₂ retainers."], p: [P4], drills: [nr-oxygen, nr-oxygen-2] }
-          - { id: C, std: ["ncsbn-nclex-rn:PA.5"], do: "Respond to medical emergencies: cardiac arrest, anaphylaxis, choking and hypoglycemia.", ek: ["Adult CPR at 100–120 compressions/min, depth at least 2 in (5 cm), 30:2 without an advanced airway; anaphylaxis: IM epinephrine first."], p: [P4], drills: [nr-cpr, nr-cpr-cycle] }
+          - { id: A, std: ["ncsbn-nclex-rn:RRP.8"], do: "Manage a chest drainage system and respond to its problems.", ek: ["Continuous bubbling in the water seal is an air leak; tidaling is expected."], p: [P3, P4], needs: [NR-8.1.B], drills: [nr-chest-tube, nr-chest-tube-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:PA.4"], do: "Choose oxygen devices and targets.", ek: ["Cannula 1–6 L/min; Venturi for a set FiO₂; non-rebreather for the highest; 88–92% in CO₂ retainers."], p: [P4], needs: [NR-8.2.A], drills: [nr-oxygen, nr-oxygen-2] }
+          - { id: C, std: ["ncsbn-nclex-rn:PA.5"], do: "Respond to medical emergencies: cardiac arrest, anaphylaxis, choking and hypoglycemia.", ek: ["Adult CPR at 100–120 compressions/min, depth at least 2 in (5 cm), 30:2 without an advanced airway; anaphylaxis: IM epinephrine first."], p: [P4], needs: [NR-8.2.B], drills: [nr-cpr, nr-cpr-cycle] }
       - n: 3
         title: "Pathophysiology, hemodynamics and unexpected responses"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:PA.3"], do: "Recognise types of shock and read basic hemodynamic indicators.", ek: ["Hypovolemic, cardiogenic, distributive (septic, anaphylactic, neurogenic) and obstructive; shock index = HR/SBP, above about 0.9 is concerning."], p: [P4], needs: [NR-7.2.A], drills: [nr-shock-type, nr-shock-index] }
-          - { id: B, std: ["ncsbn-nclex-rn:PA.1", "ncsbn-nclex-rn:PA.4", "ncsbn-nclex-rn:PA.6", "ncsbn-nclex-rn:PA.7"], do: "Link pathophysiology to findings and recognise unexpected responses to therapy.", ek: ["DKA: ketoacidosis and Kussmaul breathing; HHS: extreme glucose, no ketosis; an unexpected response needs the provider notified."], p: [P4], needs: [NR-7.1.C], drills: [nr-dka-hhs, nr-anion-gap] }
+          - { id: A, std: ["ncsbn-nclex-rn:PA.3"], do: "Recognise types of shock and read basic hemodynamic indicators.", ek: ["Hypovolemic, cardiogenic, distributive (septic, anaphylactic, neurogenic) and obstructive; shock index = HR/SBP, above about 0.9 is concerning."], p: [P4], needs: [NR-7.2.A, NR-8.2.C], drills: [nr-shock-type, nr-shock-index] }
+          - { id: B, std: ["ncsbn-nclex-rn:PA.1", "ncsbn-nclex-rn:PA.4", "ncsbn-nclex-rn:PA.6", "ncsbn-nclex-rn:PA.7"], do: "Link pathophysiology to findings and recognise unexpected responses to therapy.", ek: ["DKA: ketoacidosis and Kussmaul breathing; HHS: extreme glucose, no ketosis; an unexpected response needs the provider notified."], p: [P4], needs: [NR-7.1.C, NR-8.3.A], drills: [nr-dka-hhs, nr-anion-gap] }
 
   - id: management
     n: 1
@@ -250,7 +250,7 @@ units:
       - n: 1
         title: "Establishing priorities"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:MOC.10"], do: "Choose which client to see first from airway, breathing and circulation, acute over chronic, unstable over stable.", ek: ["A silent chest in asthma, a pulseless limb, stridor after neck surgery and a transfusion reaction come before pain at 5/10."], p: [P2], needs: [NR-7.1.B, NR-7.2.A], drills: [nr-priority, nr-priority-2] }
+          - { id: A, std: ["ncsbn-nclex-rn:MOC.10"], do: "Choose which client to see first from airway, breathing and circulation, acute over chronic, unstable over stable.", ek: ["A silent chest in asthma, a pulseless limb, stridor after neck surgery and a transfusion reaction come before pain at 5/10."], p: [P2], needs: [NR-7.1.B, NR-7.2.A, NR-4.4.C, NR-8.3.B], drills: [nr-priority, nr-priority-2] }
       - n: 2
         title: "Assignment, delegation and supervision"
         los:
@@ -258,10 +258,10 @@ units:
       - n: 3
         title: "Legal rights, informed consent and ethical practice"
         los:
-          - { id: B, std: ["ncsbn-nclex-rn:MOC.2", "ncsbn-nclex-rn:MOC.5", "ncsbn-nclex-rn:MOC.8", "ncsbn-nclex-rn:MOC.11", "ncsbn-nclex-rn:MOC.13"], do: "Protect client rights and confidentiality, including in electronic records and social media, and act as an advocate.", ek: ["Share information only with those caring for the client; never post client details; access only records you need; speak up when care is unsafe."], p: [P4], drills: [nr-confidentiality, nr-client-rights] }
-          - { id: A, std: ["ncsbn-nclex-rn:MOC.1", "ncsbn-nclex-rn:MOC.12", "ncsbn-nclex-rn:MOC.14", "ncsbn-nclex-rn:SIPC.6"], do: "Apply informed consent, the right to refuse, advance directives and incident reporting.", ek: ["The provider informs, the nurse witnesses; incident reports never go in the chart."], p: [P4], drills: [nr-legal, nr-legal-2] }
+          - { id: B, std: ["ncsbn-nclex-rn:MOC.2", "ncsbn-nclex-rn:MOC.5", "ncsbn-nclex-rn:MOC.8", "ncsbn-nclex-rn:MOC.11", "ncsbn-nclex-rn:MOC.13"], do: "Protect client rights and confidentiality, including in electronic records and social media, and act as an advocate.", ek: ["Share information only with those caring for the client; never post client details; access only records you need; speak up when care is unsafe."], p: [P4], needs: [NR-1.2.A], drills: [nr-confidentiality, nr-client-rights] }
+          - { id: A, std: ["ncsbn-nclex-rn:MOC.1", "ncsbn-nclex-rn:MOC.12", "ncsbn-nclex-rn:MOC.14", "ncsbn-nclex-rn:SIPC.6"], do: "Apply informed consent, the right to refuse, advance directives and incident reporting.", ek: ["The provider informs, the nurse witnesses; incident reports never go in the chart."], p: [P4], needs: [NR-1.3.B], drills: [nr-legal, nr-legal-2] }
       - n: 4
         title: "Coordinating care"
         los:
-          - { id: A, std: ["ncsbn-nclex-rn:MOC.4", "ncsbn-nclex-rn:MOC.6", "ncsbn-nclex-rn:MOC.9", "ncsbn-nclex-rn:MOC.16"], do: "Coordinate care: hand-off reports, referrals, case management and the right team member for a need.", ek: ["SBAR hand-off; refer to the discipline that meets the need (PT, OT, social work, dietitian); case managers coordinate across settings."], p: [P4], drills: [nr-referral, nr-handoff] }
-          - { id: B, std: ["ncsbn-nclex-rn:MOC.7", "ncsbn-nclex-rn:MOC.15"], do: "Apply management and quality-improvement concepts: chain of command, root-cause analysis and PDSA.", ek: ["Report up the chain of command; QI looks at systems, not blame; PDSA tests small changes."], p: [P4], drills: [nr-quality, nr-rate-measure] }
+          - { id: A, std: ["ncsbn-nclex-rn:MOC.4", "ncsbn-nclex-rn:MOC.6", "ncsbn-nclex-rn:MOC.9", "ncsbn-nclex-rn:MOC.16"], do: "Coordinate care: hand-off reports, referrals, case management and the right team member for a need.", ek: ["SBAR hand-off; refer to the discipline that meets the need (PT, OT, social work, dietitian); case managers coordinate across settings."], p: [P4], needs: [NR-1.3.A], drills: [nr-referral, nr-handoff] }
+          - { id: B, std: ["ncsbn-nclex-rn:MOC.7", "ncsbn-nclex-rn:MOC.15"], do: "Apply management and quality-improvement concepts: chain of command, root-cause analysis and PDSA.", ek: ["Report up the chain of command; QI looks at systems, not blame; PDSA tests small changes."], p: [P4], needs: [NR-1.4.A], drills: [nr-quality, nr-rate-measure] }

@@ -45,7 +45,7 @@ units:
       - n: 1
         title: "Row reduction"
         los:
-          - { id: E, std: ["cupm-2023-la:E2", "cupm-2023-la:E9"], do: "Decide independence by counting: rank, the number of vectors and the dimension of the space.", ek: ["More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n)."], p: [P1], drills: [la-indep-det, la-indep-count] }
+          - { id: E, std: ["cupm-2023-la:E2", "cupm-2023-la:E9"], do: "Decide independence by counting: rank, the number of vectors and the dimension of the space.", ek: ["More than n vectors in Rⁿ are always dependent; n vectors in Rⁿ are independent exactly when the matrix they form has nonzero determinant (rank n)."], p: [P1], needs: [MH-2.7.B], drills: [la-indep-det, la-indep-count] }
           - { id: A, std: ["lay-5e:1", "webwork-opl:LA1.1", "webwork-opl:LA1.2", "webwork-opl:LA2.2", "cupm-2023-la:E1"], do: "Solve a linear system by row reduction.", ek: ["Pivots give the basic variables; a row 0 = c means no solution."], p: [P1], needs: [LA-1.1.E], drills: ["la-system", "la-is-solution"] }
           - { id: B, std: ["lay-5e:1", "webwork-opl:LA4.4", "cupm-2023-la:E2"], do: "Decide whether a set of vectors is linearly independent.", ek: ["Independent exactly when the only solution of Ax = 0 is zero."], p: [P1], needs: [LA-1.1.A], drills: ["la-independence", "la-independence-parameter"] }
           - { id: C, std: ["cupm-2015-la:1", "webwork-opl:LA1.6", "webwork-opl:LA2.3", "cupm-2023-la:E1"], do: "Read the number of solutions off an echelon form.", ek: ["A pivot in every variable column: one; a free variable: infinitely many; a row 0 = c: none."], p: [P1], needs: [LA-1.1.B], drills: ["la-solution-type", la-inconsistent-h] }
@@ -53,7 +53,7 @@ units:
       - n: 2
         title: "Vector equations and span"
         los:
-          - { id: C, std: ["cupm-2023-la:E3", "cupm-2023-la:E5"], do: "Describe a span geometrically and find its dimension.", ek: ["The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3."], p: [P1], needs: [LA-1.1.D], drills: [la-span-dim, la-span-shape] }
+          - { id: C, std: ["cupm-2023-la:E3", "cupm-2023-la:E5"], do: "Describe a span geometrically and find its dimension.", ek: ["The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3."], p: [P1], needs: [LA-1.1.D, MH-19.2.D], drills: [la-span-dim, la-span-shape] }
           - { id: A, std: ["cupm-2015-la:1", "lay-5e:1", "webwork-opl:LA1.5", "webwork-opl:LA4.2", "webwork-opl:LA4.3", "cupm-2023-la:E3"], do: "Decide whether a vector is in the span of others.", ek: ["b is in the span exactly when [v1 … vk | b] has no pivot in the last column."], p: [P1], needs: [LA-1.2.C], drills: ["la-span-membership", la-span-h] }
           - { id: B, std: ["cupm-2015-la:1", "lay-5e:1", "cupm-2023-la:E5", "cupm-2023-la:E1"], do: "Describe the solution set of Ax = b as a shifted null space.", ek: ["Every solution is a particular solution plus a solution of Ax = 0."], p: [P1], needs: [LA-1.2.A], drills: ["la-solution-set-shape", la-solution-set-dim] }
   - id: matrix-algebra
@@ -72,7 +72,7 @@ units:
       - n: 2
         title: "Matrix operations"
         los:
-          - { id: A, std: ["cupm-2015-la:1", "lay-5e:2", "webwork-opl:LA2.1", "cupm-2023-la:E4"], do: "Compute one entry of a product without computing the rest.", ek: ["(AB)_ij is row i of A dotted with column j of B."], p: [P1], needs: [LA-1.1.D], drills: ["la-product-entry", la-square-entry] }
+          - { id: A, std: ["cupm-2015-la:1", "lay-5e:2", "webwork-opl:LA2.1", "cupm-2023-la:E4"], do: "Compute one entry of a product without computing the rest.", ek: ["(AB)_ij is row i of A dotted with column j of B."], p: [P1], needs: [LA-1.1.D, MH-19.4.C], drills: ["la-product-entry", la-square-entry] }
           - { id: B, std: ["cupm-2015-la:1", "lay-5e:2", "webwork-opl:LA2.1", "webwork-opl:LA2.5", "cupm-2023-la:E4"], do: "Track sizes through products and transposes.", ek: ["(AB)ᵀ = BᵀAᵀ; an m × n times an n × p is m × p."], p: [P1], needs: [LA-2.2.A], drills: ["la-product-size", la-multiplication-count] }
       - n: 3
         title: "LU factorisation"
