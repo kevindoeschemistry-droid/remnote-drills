@@ -41,6 +41,8 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: gc, title: "Graduate ChemE methods past Kreyszig" }
+  - { id: micro, title: "Microbiology" }
+  - { id: hap, title: "Anatomy and Physiology" }
   - { id: ngeo, title: "Geometry" }
   - { id: stoch, title: "Stochastic Processes" }
   - { id: top, title: "Topology" }
@@ -965,6 +967,26 @@ skills:
   - { id: gc.perturbation, domain: gc, title: "Perturbation and asymptotic methods", short: "Perturbation", prereqs: [gc.scaling] }
   - { id: gc.similarity, domain: gc, title: "Similarity solutions and combination of variables", short: "Similarity", prereqs: [gc.scaling] }
   - { id: gc.eigen, domain: gc, title: "Eigenfunction expansions in curvilinear geometry", short: "Curvilinear eigenfunctions", prereqs: [bvp.sl-eigenfunctions] }
+  - { id: micro.diversity, domain: micro, title: "Domains of life, classification and the evolution of microbial populations", short: "Diversity and evolution" }
+  - { id: micro.structure, domain: micro, title: "Bacterial cell envelopes and appendages, eukaryotic microbes and viruses", short: "Cell structure and viruses", prereqs: [micro.diversity] }
+  - { id: micro.growth, domain: micro, title: "Metabolic types, environmental limits and the arithmetic of exponential growth", short: "Metabolism and growth", prereqs: [micro.structure] }
+  - { id: micro.genetics, domain: micro, title: "Plasmids, horizontal gene transfer and operon regulation", short: "Microbial genetics", prereqs: [micro.growth] }
+  - { id: micro.ecology, domain: micro, title: "Biofilms, symbioses, nutrient cycles and the microbiome", short: "Microbial ecology", prereqs: [micro.growth] }
+  - { id: micro.control, domain: micro, title: "Infection concepts, sterilisation and disinfection, antimicrobial targets, vaccines and uses of microbes", short: "Microbes and people", prereqs: [micro.genetics, micro.ecology] }
+  - { id: micro.lab, domain: micro, title: "Microscopy, staining, plate counts, dilutions, media and containment levels", short: "Laboratory skills", prereqs: [micro.structure] }
+  - { id: hap.body-plan, domain: hap, title: "Anatomical terms, planes, cavities and homeostatic feedback", short: "Body plan and homeostasis" }
+  - { id: hap.tissues, domain: hap, title: "The four tissue types, membranes and the skin", short: "Tissues and integument", prereqs: [hap.body-plan] }
+  - { id: hap.skeletal, domain: hap, title: "Bone tissue, the skeleton and joints", short: "Skeletal system", prereqs: [hap.tissues] }
+  - { id: hap.muscular, domain: hap, title: "Sarcomeres, excitation-contraction coupling, motor units and muscle actions", short: "Muscular system", prereqs: [hap.skeletal] }
+  - { id: hap.nervous, domain: hap, title: "Membrane potentials, synapses, the central, peripheral and autonomic divisions", short: "Nervous system", prereqs: [hap.muscular] }
+  - { id: hap.senses, domain: hap, title: "Vision, hearing, equilibrium and the general senses", short: "Senses", prereqs: [hap.nervous] }
+  - { id: hap.endocrine, domain: hap, title: "Hormone classes, the pituitary axes and metabolic hormones", short: "Endocrine system", prereqs: [hap.nervous] }
+  - { id: hap.cardio, domain: hap, title: "Blood, the heart, vessels, flow and pressure", short: "Cardiovascular system", prereqs: [hap.endocrine] }
+  - { id: hap.immune, domain: hap, title: "Lymphatic organs, innate and adaptive immunity", short: "Lymphatic system and immunity", prereqs: [hap.cardio] }
+  - { id: hap.respiratory, domain: hap, title: "Ventilation, lung volumes, gas exchange and transport", short: "Respiratory system", prereqs: [hap.cardio] }
+  - { id: hap.digestive, domain: hap, title: "The gut tube, secretions, absorption and energy balance", short: "Digestion and metabolism", prereqs: [hap.tissues] }
+  - { id: hap.renal, domain: hap, title: "The nephron, filtration, clearance, fluid compartments and acid-base balance", short: "Urinary system and fluids", prereqs: [hap.cardio, hap.respiratory] }
+  - { id: hap.repro, domain: hap, title: "Gametogenesis, the reproductive cycles and early development", short: "Reproduction and development", prereqs: [hap.endocrine] }
   - { id: ngeo.spherical, domain: ngeo, title: "Great circles, lunes, spherical triangles and rotations of the sphere", short: "Spherical geometry" }
   - { id: ngeo.hyperbolic, domain: ngeo, title: "The half-plane and disc models, geodesics, distance and hyperbolic triangles", short: "Hyperbolic geometry", prereqs: [ngeo.spherical] }
   - { id: ngeo.curvature, domain: ngeo, title: "Gaussian curvature of the model spaces and the Gauss-Bonnet relation", short: "Curvature", prereqs: [ngeo.hyperbolic] }

@@ -13,6 +13,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | AI Basics | Harper Carroll, Academy: free AI course (10 modules, 90 lessons) | course | read in part | — | — | 19 | 19 | 0 |
 | AI Safety | BlueDot Impact course syllabi (Technical AI Safety, Governance, AGI Strategy) | course | read in full | — | — | 104 | 0 | 104 |
 | Analytical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Analytical Chemistry (Holme, Bauer, Trate, Reed, Raker & Murphy, J. Chem. Educ. 2020, ed9b00856) | standard | read in full | icho-appendix-c, gre-chemistry, aamc-mcat-outline, usnco, icho-syllabus, acs-accm-general, acs-accm-inorganic | — | 42 | 42 | 0 |
+| Anatomy and Physiology | HAPS Anatomy and Physiology Learning Outcomes (revised fall 2019) | standard | read in part | — | — | 54 | 54 | 0 |
 | Anchor Quantities | CODATA Recommended Values of the Fundamental Physical Constants: 2022 (NIST SP 961) | reference | read in part | snapshot-key-numbers, francl-take-a-number, cfr-21-101-9, acs-accm-pchem, acs-accm-general, acs-accm-analytical | — | 14 | 12 | 2 |
 | Basketball | USA Basketball Player Development Curriculum | standard | read in part | ncaa-mbb-rules | — | 88 | 0 | 88 |
 | Biochemistry | ASBMB core concepts for biochemistry and molecular biology (Tansey et al., BAMBED 41:289, 2013) | standard | read in full | asbmb-cert, aamc-mcat-outline, acs-accm-analytical | — | 49 | 49 | 0 |
@@ -43,6 +44,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
+| Microbiology | ASM Curriculum Guidelines for Undergraduate Microbiology (2024 revision) | standard | read in part | — | — | 25 | 25 | 0 |
 | Molecular Simulation | Hayes Group New Student Orientation (RyanHayes-Lab/Orientation) | course | read in full | livecoms, livecoms-afe, alchemistry-wiki, hayes-lambda-examples | — | 121 | 50 | 71 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
@@ -77,6 +79,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **AI Basics**: Units follow the ten modules of Harper Carroll's free Academy course. Only her module titles were readable, so the objectives under them are a house list.
 - **AI Safety**: No accredited standard exists; course syllabi and lab frameworks are the closest thing.
 - **Analytical Chemistry**: Primary since Nov 2026: the ACS analytical content map, read in full; every articulation is answered (unit 6 was built for the ones nothing else reached). Earlier topics were named by IChO Appendix C, GRE Chemistry and MCAT 5C. Objectives and their order are ours.
+- **Anatomy and Physiology**: Anchored on the HAPS Anatomy and Physiology Learning Outcomes (2019), read through its module and topic headings only. Cell biology (module C) and heredity (module S) are left to the Biology framework. Clinical judgment is in NCLEX and INBDE; this is the normal structure and function they assume.
 - **Anchor Quantities**: Values from CODATA 2022, standard atomic weights and 21 CFR 101.9. Which values to carry is a house list for units 1–4 and the SnapShot Key Numbers in Biology sheet for units 5–6. No chemistry standard lists these values; the ACS Physical Chemistry content map (read) asks for the mole-scale and Boltzmann reasoning they serve, and AQ objectives cite those articulations.
 - **Basketball**: Introductory level read in full, higher levels in overview only.
 - **Biochemistry**: Concepts and statements from ASBMB (core concepts paper and exam objectives); the objective list is ours.
@@ -102,6 +105,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
+- **Microbiology**: Anchored on the ASM Curriculum Guidelines for Undergraduate Microbiology (2024), read through an extraction of its concept areas, fundamental statements and skills. A general course: structure, growth, genetics, ecology, control and laboratory counting. Organism-by-organism medical microbiology is not built; host defence is in Anatomy and Physiology unit 9.
 - **Molecular Simulation**: No accredited standard exists for this subject. Kevin's own group's orientation repository is the closest thing to a curriculum for the work he will actually do, and it was read in full, so it is primary; the best-practice papers and the alchemistry wiki fix the parts it assumes.
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
 - **NGSS High School Science**: One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items.
@@ -134,6 +138,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Financial Accounting (CPA FAR)**: exam-spec, read in part
 - **AI Basics**: course, read in part
 - **AI Safety**: course, read in full
+- **Anatomy and Physiology**: standard, read in part
 - **Anchor Quantities**: reference, read in part
 - **Basketball**: standard, read in part
 - **Biology (AP)**: standard, read in part
@@ -148,6 +153,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Geometry**: course, read in part
 - **Graduate Chemical Engineering Core**: course, read in full
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
+- **Microbiology**: standard, read in part
 - **Molecular Simulation**: course, read in full
 - **NCLEX-RN**: exam-spec, read in part
 - **NGSS High School Science**: standard, read in part
@@ -3908,6 +3914,51 @@ https://www.maths.cam.ac.uk/undergrad/course/schedules.pdf
 | RIE | Riemannian metrics on the plane and sphere: lengths, areas, geodesics | 9 | 9 | geometry (9) |
 | HYP | Hyperbolic geometry: the half-plane and disc models, isometries, triangles and area, parallels | 13 | 13 | geometry (13) |
 | CUR | Curvature of the sphere, the plane and the hyperbolic plane | 8 | 8 | geometry (8) |
+
+## HAPS Anatomy and Physiology Learning Outcomes (revised fall 2019)
+
+https://hapsweb.org/wp-content/uploads/2024/09/AP-Learning-Outcomes-PDF.pdf
+
+18 of 20 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A | Body plan and organisation: anatomical position, planes, directional terms, cavities, organ systems | 5 | 5 | anatomy-physiology (5) |
+| B | Homeostasis: feedback loops and their components | 4 | 4 | anatomy-physiology (4) |
+| C | Chemistry and cell biology review | — | — | **nothing yet** |
+| D | Histology: the four tissue types and membranes | 5 | 5 | anatomy-physiology (5) |
+| E | Integumentary system | 4 | 4 | anatomy-physiology (4) |
+| F | Skeletal system and articulations | 8 | 8 | anatomy-physiology (8) |
+| G | Muscular system | 8 | 8 | anatomy-physiology (8) |
+| H | Nervous system | 14 | 14 | anatomy-physiology (14) |
+| I | General and special senses | 4 | 4 | anatomy-physiology (4) |
+| J | Endocrine system | 7 | 7 | anatomy-physiology (7) |
+| K | Cardiovascular system: blood, heart, vessels and pressure | 16 | 16 | anatomy-physiology (16) |
+| L | Lymphatic system and immunity | 8 | 8 | anatomy-physiology (8) |
+| M | Respiratory system | 8 | 8 | anatomy-physiology (8) |
+| N | Digestive system | 7 | 7 | anatomy-physiology (7) |
+| O | Nutrients and metabolism | 5 | 5 | anatomy-physiology (5) |
+| P | Urinary system | 8 | 8 | anatomy-physiology (8) |
+| Q | Fluid, electrolyte and acid-base balance | 7 | 7 | anatomy-physiology (7) |
+| R | Reproductive system | 5 | 5 | anatomy-physiology (5) |
+| S | Introduction to heredity | — | — | **nothing yet** |
+| T | Embryology and development | 4 | 4 | anatomy-physiology (4) |
+
+## ASM Curriculum Guidelines for Undergraduate Microbiology (2024 revision)
+
+https://escholarship.org/uc/item/9bk8b81b
+
+7 of 7 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| EV | Evolution: common ancestry, diversity, selection and the evolution of resistance | 4 | 4 | microbiology (4) |
+| CS | Cell structure and function: bacterial, archaeal and eukaryotic microbial cells, and viruses | 8 | 8 | microbiology (8) |
+| MP | Metabolic pathways: metabolic diversity, growth and its control by the environment | 8 | 8 | microbiology (8) |
+| IF | Information flow and genetics: mutation, gene transfer and regulation | 6 | 6 | microbiology (6) |
+| ME | Microbial ecology: communities, biofilms, symbioses and the human microbiome | 6 | 6 | microbiology (6) |
+| IM | Impact of microbes: health and disease, control, biotechnology and the environment | 10 | 10 | microbiology (10) |
+| LAB | Scientific thinking and laboratory skills: microscopy, pure culture, counting, safety | 8 | 8 | microbiology (8) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
