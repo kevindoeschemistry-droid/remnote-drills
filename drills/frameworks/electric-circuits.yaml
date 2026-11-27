@@ -1,0 +1,132 @@
+# Electric Circuits and Signals — curriculum framework (draft 1, for Kevin's markup)
+#
+# Circuit analysis from Ohm's law to phasors, then what circuits do to signals (transients, resonance,
+# filters, sampling), the standard electronic building blocks, three-phase power and machines, and
+# feedback control. Every circuit is described in words, so each card is one relation and one number.
+id: electric-circuits
+title: Electric Circuits and Signals
+code: EE
+draft: 1
+track: engineering
+requires: [physics, engineering-math]
+level: 3
+domains: [ee]
+
+basis:
+  primary: fe-electrical
+  note: "Anchored on the NCEES FE Electrical and Computer specification, sections 6-10 and 12, read to their lettered lines. Electromagnetics (section 11) is left to Physics and is not cited; communications, networks, digital and computer systems and software are in Computer Science or not built. Circuits are described in words because no schematic figure type exists yet."
+
+big_ideas:
+  - id: CONS
+    title: "Charge and energy are conserved"
+    text: "Currents into a node sum to zero and voltages round a loop sum to zero; every circuit method is bookkeeping on those two facts."
+  - id: PHASOR
+    title: "Sinusoids become complex numbers"
+    text: "At one frequency a capacitor and an inductor behave as imaginary resistances, so AC analysis is DC analysis with complex arithmetic."
+  - id: POLE
+    title: "Poles tell the story"
+    text: "Where a system's poles lie fixes how fast it responds, whether it rings and whether it is stable."
+
+practices:
+  - id: P1
+    title: Compute
+    text: "Carry a circuit or system relation to a number with its unit."
+  - id: P2
+    title: Classify
+    text: "Name the behaviour, the filter or the stability from a description."
+
+units:
+  - id: dc
+    n: 1
+    title: "DC circuits"
+    std: ["fe-electrical:6A", "fe-electrical:6B", "fe-electrical:6C", "fe-electrical:6D"]
+    scope: core
+    ideas: [CONS]
+    topics:
+      - n: 1
+        title: "Resistive circuits"
+        los:
+          - { id: A, std: ["fe-electrical:6A"], do: "Apply Kirchhoff's current and voltage laws.", ek: ["KCL: the currents entering a node equal the currents leaving it. KVL: the voltage rises and drops round any closed loop sum to zero."], p: [P1], needs: [PH-11.7.B], drills: [ee-kcl-node, ee-kvl-loop] }
+          - { id: B, std: ["fe-electrical:6B"], do: "Reduce series and parallel resistors and use the divider rules.", ek: ["Series resistances add. For two in parallel, R = R1 R2 ÷ (R1 + R2). A voltage divider gives V2 = V × R2 ÷ (R1 + R2); a current divider sends the larger current through the smaller resistance."], p: [P1], needs: [EE-1.1.A], drills: [ee-parallel, ee-voltage-divider] }
+          - { id: C, std: ["fe-electrical:6C"], do: "Find a Thevenin equivalent and the maximum power it can deliver.", ek: ["Any linear two-terminal network is equivalent to a source Vth (the open-circuit voltage) in series with Rth (the resistance seen with sources switched off). A load draws maximum power when it equals Rth, and that power is Vth² ÷ (4 Rth)."], p: [P1], needs: [EE-1.1.B], drills: [ee-thevenin-resistance, ee-max-power] }
+          - { id: D, std: ["fe-electrical:6D"], do: "Solve a single-node circuit by node analysis and by superposition.", ek: ["Write KCL at the unknown node with each branch current as a voltage difference over a resistance. With several sources, superposition gives the same answer: find the response to each source with the others switched off, then add."], p: [P1], needs: [EE-1.1.C], drills: [ee-node-voltage, ee-superposition] }
+  - id: ac
+    n: 2
+    title: "AC steady state"
+    std: ["fe-electrical:6E", "fe-electrical:6F", "fe-electrical:6G", "fe-electrical:10A"]
+    scope: core
+    ideas: [PHASOR]
+    topics:
+      - n: 1
+        title: "Sinusoids and impedance"
+        los:
+          - { id: A, std: ["fe-electrical:6E"], do: "Convert between peak, RMS, frequency and period.", ek: ["For a sinusoid the RMS value is the peak divided by √2; it is the DC value that would heat a resistor equally. Frequency is the reciprocal of the period, and angular frequency is 2πf."], p: [P1], needs: [EE-1.1.D, EM-1.2.C], drills: [ee-rms, ee-angular-frequency] }
+          - { id: B, std: ["fe-electrical:6G"], do: "Compute the reactance of an inductor and a capacitor.", ek: ["An inductor's reactance is ωL and rises with frequency; a capacitor's is 1 ÷ (ωC) and falls with frequency. As impedances they are jωL and 1 ÷ (jωC): current lags voltage in an inductor and leads it in a capacitor."], p: [P1], needs: [EE-2.1.A], drills: [ee-inductive-reactance, ee-capacitive-reactance] }
+          - { id: C, std: ["fe-electrical:6F", "fe-electrical:6G"], do: "Combine resistance and reactance into an impedance magnitude and phase.", ek: ["In a series circuit Z = R + j(X_L − X_C), so |Z| = √(R² + X²) and the phase angle is arctan(X ÷ R): positive (current lags) when the circuit is inductive."], p: [P1], needs: [EE-2.1.B], drills: [ee-impedance-magnitude, ee-phase-angle] }
+          - { id: D, std: ["fe-electrical:10A"], do: "Compute real, reactive and apparent power and the power factor.", ek: ["Apparent power S = V_rms I_rms (VA). Real power P = S cos φ (W); reactive power Q = S sin φ (var); S² = P² + Q². The power factor is cos φ = P ÷ S."], p: [P1], needs: [EE-2.1.C], drills: [ee-real-power, ee-reactive-power] }
+  - id: systems
+    n: 3
+    title: "Transients and linear systems"
+    std: ["fe-electrical:7A", "fe-electrical:7B", "fe-electrical:7C", "fe-electrical:7D"]
+    scope: core
+    ideas: [POLE]
+    topics:
+      - n: 1
+        title: "Response in time and frequency"
+        los:
+          - { id: A, std: ["fe-electrical:7A"], do: "Find a first-order time constant and the response at a given time.", ek: ["An RC circuit has time constant τ = RC and an RL circuit τ = L ÷ R. A step response rises as V(1 − e^(−t/τ)): 63% after one time constant, effectively complete after five."], p: [P1], needs: [EE-2.1.D, EM-7.3.B, PH-11.8.B], drills: [ee-time-constant, ee-step-response] }
+          - { id: B, std: ["fe-electrical:7B"], do: "Find the resonant frequency and quality factor of an RLC circuit.", ek: ["Resonance is where the inductive and capacitive reactances are equal: ω0 = 1 ÷ √(LC). For a series RLC circuit Q = ω0 L ÷ R, and the bandwidth is the resonant frequency divided by Q."], p: [P1], needs: [EE-3.1.A], drills: [ee-resonant-frequency, ee-quality-factor] }
+          - { id: C, std: ["fe-electrical:7C", "fe-electrical:7D"], do: "Read a transfer function for DC gain, time constant and stability.", ek: ["For H(s) = K ÷ (s + a) the pole is at s = −a, the time constant is 1 ÷ a and the DC gain is H(0) = K ÷ a. A system is stable when every pole has a negative real part."], p: [P1], needs: [EE-3.1.B], drills: [ee-dc-gain, ee-pole-stability] }
+          - { id: D, std: ["fe-electrical:7A", "fe-electrical:7D"], do: "Find a first-order cutoff frequency and express a gain in decibels.", ek: ["An RC low-pass filter has H = 1 ÷ (1 + jωRC), cutoff frequency fc = 1 ÷ (2πRC) and gain 1/√2 (−3 dB) there. A voltage gain in decibels is 20 log10 of the ratio."], p: [P1], needs: [EE-3.1.C], drills: [ee-cutoff-frequency, ee-decibels] }
+  - id: signals
+    n: 4
+    title: "Signal processing"
+    std: ["fe-electrical:8A", "fe-electrical:8B", "fe-electrical:8C"]
+    scope: core
+    ideas: [POLE]
+    topics:
+      - n: 1
+        title: "Sampling and filtering"
+        los:
+          - { id: A, std: ["fe-electrical:8A"], do: "Apply the Nyquist criterion and find an alias frequency.", ek: ["A signal must be sampled at more than twice its highest frequency. A component above half the sampling rate appears at the distance to the nearest multiple of the sampling rate: f_alias = |f − k fs|."], p: [P1], needs: [EE-3.1.D], drills: [ee-nyquist-rate, ee-alias-frequency] }
+          - { id: B, std: ["fe-electrical:8B"], do: "Name filter types and compute a first-order filter's gain.", ek: ["Low-pass, high-pass, band-pass and band-stop filters are named for what they let through. A first-order low-pass filter has gain 1 ÷ √(1 + (f/fc)²) and rolls off at 20 dB per decade above cutoff."], p: [P1], needs: [EE-4.1.A], drills: [ee-filter-type, ee-first-order-gain] }
+          - { id: C, std: ["fe-electrical:8C"], do: "Run a difference equation and find a digital filter's DC gain.", ek: ["A digital filter computes each output from present and past samples. FIR filters use inputs only; IIR filters also feed back past outputs. The DC gain is the transfer function H(z) at z = 1."], p: [P1], needs: [EE-4.1.B], drills: [ee-difference-equation, ee-digital-dc-gain] }
+  - id: electronics
+    n: 5
+    title: "Electronics"
+    std: ["fe-electrical:9A", "fe-electrical:9B", "fe-electrical:9C", "fe-electrical:9D", "fe-electrical:9E"]
+    scope: core
+    ideas: [CONS]
+    topics:
+      - n: 1
+        title: "Devices and amplifiers"
+        los:
+          - { id: A, std: ["fe-electrical:9A", "fe-electrical:9B"], do: "Use the constant-drop diode model and the transistor current gain.", ek: ["A forward-biased silicon diode is modelled as a 0.7 V drop; reverse-biased, it is an open circuit. In the active region a bipolar transistor's collector current is β times its base current."], p: [P1], needs: [EE-1.1.D], drills: [ee-diode-current, ee-bjt-collector] }
+          - { id: B, std: ["fe-electrical:9C"], do: "Find the gain of ideal op-amp circuits.", ek: ["An ideal op-amp with negative feedback holds its two inputs at the same voltage and draws no input current. Inverting amplifier: gain −Rf ÷ Rin. Non-inverting amplifier: gain 1 + Rf ÷ R1."], p: [P1], needs: [EE-5.1.A], drills: [ee-inverting-output, ee-noninverting-gain] }
+          - { id: C, std: ["fe-electrical:9D", "fe-electrical:9E"], do: "Compute converter resolution and a rectifier's average output.", ek: ["An n-bit converter divides its range into 2^n steps, so one step is the range ÷ 2^n. The average (DC) value of an ideal full-wave rectified sine is 2Vp ÷ π; half-wave gives Vp ÷ π."], p: [P1], needs: [EE-5.1.B], drills: [ee-adc-resolution, ee-rectifier-average] }
+  - id: power
+    n: 6
+    title: "Power systems"
+    std: ["fe-electrical:10A", "fe-electrical:10B", "fe-electrical:10C", "fe-electrical:10D"]
+    scope: core
+    ideas: [PHASOR]
+    topics:
+      - n: 1
+        title: "Three-phase, transformers and machines"
+        los:
+          - { id: A, std: ["fe-electrical:10A", "fe-electrical:10B"], do: "Relate line and phase quantities and compute three-phase power.", ek: ["In a balanced wye connection the line voltage is √3 times the phase voltage and line current equals phase current; in delta the roles swap. Total real power is √3 × V_line × I_line × power factor."], p: [P1], needs: [EE-2.1.D], drills: [ee-line-voltage, ee-three-phase-power] }
+          - { id: B, std: ["fe-electrical:10C"], do: "Use the turns ratio of an ideal transformer.", ek: ["For an ideal transformer V1 ÷ V2 = N1 ÷ N2 and I1 ÷ I2 = N2 ÷ N1, so power is conserved. A load Z on the secondary looks like (N1 ÷ N2)² Z from the primary."], p: [P1], needs: [EE-6.1.A], drills: [ee-transformer-voltage, ee-reflected-impedance] }
+          - { id: C, std: ["fe-electrical:10D"], do: "Compute synchronous speed and slip.", ek: ["Synchronous speed in rev/min is 120 f ÷ P for P poles. An induction motor runs slightly slower; slip = (synchronous speed − rotor speed) ÷ synchronous speed."], p: [P1], needs: [EE-6.1.B], drills: [ee-synchronous-speed, ee-slip] }
+  - id: control
+    n: 7
+    title: "Control systems"
+    std: ["fe-electrical:12A", "fe-electrical:12B", "fe-electrical:12C", "fe-electrical:12D"]
+    scope: core
+    ideas: [POLE]
+    topics:
+      - n: 1
+        title: "Feedback"
+        los:
+          - { id: A, std: ["fe-electrical:12A", "fe-electrical:12D"], do: "Reduce a feedback loop and find its steady-state error.", ek: ["With forward gain G and feedback gain H, negative feedback gives a closed-loop gain of G ÷ (1 + GH). For unity feedback and a step input, a system with DC loop gain K has a steady-state error of 1 ÷ (1 + K); an integrator in the loop makes it zero."], p: [P1], needs: [EE-3.1.D], drills: [ee-closed-loop-gain, ee-steady-state-error] }
+          - { id: B, std: ["fe-electrical:12C", "fe-electrical:12D"], do: "Predict overshoot, settling time and damping type from ζ and ωn.", ek: ["A second-order system is underdamped for ζ < 1, critically damped at ζ = 1 and overdamped above. For ζ < 1 the percent overshoot is 100 e^(−πζ/√(1−ζ²)), and the 2% settling time is about 4 ÷ (ζ ωn)."], p: [P1], needs: [EE-7.1.A], drills: [ee-overshoot, ee-settling-time] }
+          - { id: C, std: ["fe-electrical:12B", "fe-electrical:12C"], do: "Read Bode slopes and judge stability from margins.", ek: ["Each pole adds −20 dB per decade above its corner frequency and each zero adds +20 dB per decade. A closed loop is stable when the open loop has positive gain and phase margins; phase margin is 180° plus the open-loop phase at the gain-crossover frequency."], p: [P1], needs: [EE-7.1.B], drills: [ee-bode-slope, ee-phase-margin] }
