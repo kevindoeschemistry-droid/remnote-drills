@@ -152,18 +152,18 @@ units:
         title: "Measurement and Data"
         ccss: K.MD
         los:
-          - { id: A, std: [K.MD.A.1], do: "Describe measurable attributes of objects, such as length or weight, and several attributes of one object.", ek: ["An object has several attributes that can be measured."], p: [MP6], drills: ["k2-measurable-attribute"] }
+          - { id: A, std: [K.MD.A.1], do: "Describe measurable attributes of objects, such as length or weight, and several attributes of one object.", ek: ["An object has several attributes that can be measured."], p: [MP6], drills: ["k2-measurable-attribute", k2-attribute-tool] }
           - { id: B, std: [K.MD.A.2], do: "Directly compare two objects with a measurable attribute in common and say which has more or less of it.", ek: ["Line objects up from a common start to compare length."], p: [MP6], needs: [MK-1.4.A], drills: ["~k8-order-lengths", "k2-compare-attribute"] }
           - { id: C, std: [K.MD.B.3], do: "Classify objects into given categories, count the objects in each category, and sort the categories by count (counts ≤ 10).", ek: ["Sorting then counting turns a pile into data."], p: [MP4], needs: [MK-1.1.E], drills: ["k8-data-graph", "k2-sort-count"] }
       - n: 5
         title: "Geometry"
         ccss: K.G
         los:
-          - { id: A, std: [K.G.A.1], do: "Describe objects in the environment using names of shapes and their relative positions (above, below, beside, in front of, behind, next to).", ek: ["Position words describe where an object is relative to another."], p: [MP6], drills: ["k2-position-words"] }
+          - { id: A, std: [K.G.A.1], do: "Describe objects in the environment using names of shapes and their relative positions (above, below, beside, in front of, behind, next to).", ek: ["Position words describe where an object is relative to another."], p: [MP6], drills: ["k2-position-words", k2-position-pick] }
           - { id: B, std: [K.G.A.2], do: "Name shapes correctly regardless of their orientation or overall size.", ek: ["A shape keeps its name when it is turned or resized."], p: [MP7], drills: ["k8-name-the-shape", "k2-shape-sides"] }
           - { id: C, std: [K.G.A.3], do: "Identify shapes as two-dimensional (flat) or three-dimensional (solid).", ek: ["Flat shapes have length and width; solids also have depth."], p: [MP6], needs: [MK-1.5.B], drills: ["k8-flat-or-solid", "k2-solid-or-flat"] }
           - { id: D, std: [K.G.B.4], do: "Analyze and compare two- and three-dimensional shapes by their parts and attributes (number of sides, vertices, equal sides).", ek: ["Shapes are defined by their parts, not by how they look at first glance."], p: [MP3, MP7], needs: [MK-1.5.B, MK-1.5.C], drills: ["k8-shape-attr", "k2-solid-faces"] }
-          - { id: E, std: [K.G.B.5], do: "Model shapes by building them from components (sticks, clay) and drawing them.", ek: ["Building a shape requires knowing its parts."], p: [MP4], needs: [MK-1.5.D], drills: ["k2-build-shape"] }
+          - { id: E, std: [K.G.B.5], do: "Model shapes by building them from components (sticks, clay) and drawing them.", ek: ["Building a shape requires knowing its parts."], p: [MP4], needs: [MK-1.5.D], drills: ["k2-build-shape", k2-solid-corners] }
           - { id: F, std: [K.G.B.6], do: "Compose simple shapes to form larger shapes (two triangles make a rectangle).", ek: ["Shapes combine into new shapes."], p: [MP7], needs: [MK-1.5.D], drills: ["k8-compose-shapes", "k2-compose-count"] }
   # ── 2 ── Grade 1 ───────────────────────────────────────────────────────────
   - id: g1

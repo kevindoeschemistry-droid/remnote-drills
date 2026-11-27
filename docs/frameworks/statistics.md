@@ -39,6 +39,7 @@ Big ideas: MAIN
 
 - ● **SS-1.1.E** (ap-statistics-2026:1.2.A, ap-statistics-2026:1.2.B, ap-statistics-2026:1.2.C, ap-statistics-2026:1.1.A) Classify variables and tell parameters from statistics.
   - EK: Categorical vs quantitative (discrete counts, continuous measures); a parameter describes a population, a statistic a sample.
+  - Needs: MH-3.1.B
   - P1 · drills: st-variable-type, st-param-statistic
 - ● **SS-1.1.C** (ap-statistics-2026:1.5.A, ap-statistics-2026:1.6.A, ap-statistics-2026:1.6.B, ap-statistics-2026:1.7.F, ap-statistics-2026:1.8.B, ap-statistics-2026:1.9.A, ap-statistics-2026:1.9.B, ap-statistics-2026:1.9.C) Describe a distribution's shape and pick the centre and spread that suit it.
   - EK: Skewed right: mean > median; skewed or with outliers, report median and IQR; symmetric, mean and SD.
@@ -92,7 +93,7 @@ Big ideas: MAIN
 
 - ● **SS-2.1.B** (ap-statistics-2026:2.1.A, ap-statistics-2026:2.1.B, ap-statistics-2026:2.2.A, ap-statistics-2026:2.2.B, ap-statistics-2026:2.2.C) Read joint, marginal and conditional percentages from a two-way table and judge association.
   - EK: Conditional % = cell ÷ its row (or column) total; variables are associated when the conditional distributions differ.
-  - Needs: SS-1.1.B
+  - Needs: SS-1.1.B, MH-11.2.B
   - P1 · drills: st-conditional-pct, st-association
 - ● **SS-2.1.C** (ap-statistics-2026:2.3.A, ap-statistics-2026:2.10.D, ap-statistics-2026:2.12.A) Estimate a probability from a simulation and design one.
   - EK: Estimated probability = successes ÷ trials; assign random digits in proportion to each outcome's probability.
@@ -150,7 +151,7 @@ Big ideas: MAIN
 
 - ● **SS-3.1.D** (ap-statistics-2026:3.3.A, ap-statistics-2026:3.5.A, ap-statistics-2026:3.10.A, ap-statistics-2026:3.12.A, ap-statistics-2026:3.14.B, ap-statistics-2026:4.2.B, ap-statistics-2026:4.4.A, ap-statistics-2026:4.7.A, ap-statistics-2026:4.9.A) Choose the inference procedure for a study.
   - EK: One or two groups; proportion or mean; paired or independent; one categorical variable vs two (goodness of fit, homogeneity, independence).
-  - Needs: SS-2.2.C, SS-1.2.B
+  - Needs: SS-2.2.C, SS-1.2.B, MH-15.3.B
   - P1 · drills: st-choose-procedure, st-parameter-name
 - ● **SS-3.1.E** (ap-statistics-2026:3.3.B, ap-statistics-2026:3.5.B, ap-statistics-2026:3.5.C, ap-statistics-2026:3.10.B, ap-statistics-2026:3.12.B, ap-statistics-2026:3.12.C, ap-statistics-2026:3.14.C, ap-statistics-2026:3.14.D, ap-statistics-2026:4.2.C, ap-statistics-2026:4.4.B, ap-statistics-2026:4.4.C, ap-statistics-2026:4.7.B, ap-statistics-2026:4.9.B, ap-statistics-2026:4.9.C) State hypotheses about a parameter and check the conditions for the procedure.
   - EK: H₀ names a parameter value (or no difference); conditions are random, 10%, and large counts or normal/large sample.
@@ -216,7 +217,7 @@ Big ideas: MAIN
 
 - ● **SS-5.1.B** (ap-statistics-2026:5.1.A, ap-statistics-2026:5.1.B, ap-statistics-2026:5.1.C, ap-statistics-2026:5.4.B, ap-statistics-2026:5.4.C) Describe a scatterplot and read residuals and residual plots.
   - EK: Direction, form, strength, unusual points; residual = y − ŷ; a curved residual plot says a line is the wrong model.
-  - Needs: SS-1.1.B
+  - Needs: SS-1.1.B, MH-3.3.A
   - P1 · drills: st-scatter-describe, st-residual
 - ● **SS-5.1.A** (ap-statistics-2026:5, webwork-opl:ST7.1, webwork-opl:ST7.2, webwork-opl:ST7.3, webwork-opl:ST7.4, ap-statistics-2026:5.2.A, ap-statistics-2026:5.3.A, ap-statistics-2026:5.4.A, ap-statistics-2026:5.5.A, ap-statistics-2026:5.5.B) Find and interpret a correlation, a regression line, a residual and r².
   - EK: b = r·s_y/s_x; r² is the share of variation explained.
@@ -233,7 +234,7 @@ Big ideas: MAIN
 
 - ● **SS-6.1.A** (webwork-opl:PB1.6) Convert between probability and odds.
   - EK: Odds in favour = p/(1 − p).
-  - Needs: SS-2.2.C
+  - Needs: SS-2.2.C, MH-21.1.B
   - P1 · drills: st-odds, st-odds-against
 - ● **SS-6.1.B** (webwork-opl:PB2.3) Find the median of a continuous distribution.
   - EK: Solve F(m) = 1/2.
@@ -299,7 +300,7 @@ Big ideas: MAIN
 
 - ● **SS-6.3.A** (webwork-opl:PB4.1) Find the variance of a uniform distribution.
   - EK: Var = (b − a)²/12.
-  - Needs: SS-6.1.H
+  - Needs: SS-6.1.H, MH-15.1.A
   - P1 · drills: st-uniform-variance, st-uniform-tail
 - ● **SS-6.3.B** (webwork-opl:PB4.2) Use the exponential distribution.
   - EK: P(X > t) = e^{−λt}; memoryless.

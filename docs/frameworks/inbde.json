@@ -1445,6 +1445,24 @@
      "title": "Analgesics, antibiotics, interactions and dosing",
      "los": [
       {
+       "id": "A",
+       "std": [
+        "jcnde-domain:FK8",
+        "jcnde-domain:CC26"
+       ],
+       "do": "Recall analgesic choices and limits for dental pain.",
+       "ek": [
+        "Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "drills": [
+        "dn-analgesics",
+        "dn-acetaminophen-tablets"
+       ]
+      },
+      {
        "id": "B",
        "std": [
         "jcnde-domain:FK8",
@@ -1457,6 +1475,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "DN-8.1.A"
        ],
        "drills": [
         "dn-antibiotics",
@@ -1486,27 +1507,6 @@
        ]
       },
       {
-       "id": "A",
-       "std": [
-        "jcnde-domain:FK8",
-        "jcnde-domain:CC26"
-       ],
-       "do": "Recall analgesic choices and limits for dental pain.",
-       "ek": [
-        "Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum)."
-       ],
-       "p": [
-        "P3"
-       ],
-       "needs": [
-        "DN-8.1.C"
-       ],
-       "drills": [
-        "dn-analgesics",
-        "dn-acetaminophen-tablets"
-       ]
-      },
-      {
        "id": "D",
        "std": [
         "jcnde-domain:FK8",
@@ -1520,7 +1520,7 @@
         "P1"
        ],
        "needs": [
-        "DN-8.1.A"
+        "DN-8.1.C"
        ],
        "drills": [
         "dn-peds-amoxicillin",
@@ -1589,26 +1589,6 @@
        ]
       },
       {
-       "id": "C",
-       "std": [
-        "jcnde-domain:FK5"
-       ],
-       "do": "Classify hypersensitivity reactions met in dentistry.",
-       "ek": [
-        "Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates)."
-       ],
-       "p": [
-        "P3"
-       ],
-       "needs": [
-        "DN-9.1.A"
-       ],
-       "drills": [
-        "dn-hypersensitivity",
-        "dn-hypersensitivity-more"
-       ]
-      },
-      {
        "id": "B",
        "std": [
         "jcnde-domain:FK7",
@@ -1622,11 +1602,31 @@
         "P3"
        ],
        "needs": [
-        "DN-9.1.C"
+        "DN-9.1.A"
        ],
        "drills": [
         "dn-exposure",
         "dn-exposure-expected"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "jcnde-domain:FK5"
+       ],
+       "do": "Classify hypersensitivity reactions met in dentistry.",
+       "ek": [
+        "Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates)."
+       ],
+       "p": [
+        "P3"
+       ],
+       "needs": [
+        "DN-9.1.B"
+       ],
+       "drills": [
+        "dn-hypersensitivity",
+        "dn-hypersensitivity-more"
        ]
       }
      ]
@@ -1667,7 +1667,7 @@
        ],
        "needs": [
         "DN-7.1.C",
-        "DN-9.1.B"
+        "DN-9.1.C"
        ],
        "drills": [
         "dn-soft-lesions",
@@ -2698,6 +2698,17 @@
    "partial": []
   },
   {
+   "code": "DN-8.1.A",
+   "unit": 8,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dn-analgesics",
+    "dn-acetaminophen-tablets"
+   ],
+   "partial": []
+  },
+  {
    "code": "DN-8.1.B",
    "unit": 8,
    "topic": 1,
@@ -2716,17 +2727,6 @@
    "full": [
     "dn-interactions",
     "dn-interaction-scenarios"
-   ],
-   "partial": []
-  },
-  {
-   "code": "DN-8.1.A",
-   "unit": 8,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "dn-analgesics",
-    "dn-acetaminophen-tablets"
    ],
    "partial": []
   },
@@ -2764,17 +2764,6 @@
    "partial": []
   },
   {
-   "code": "DN-9.1.C",
-   "unit": 9,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "dn-hypersensitivity",
-    "dn-hypersensitivity-more"
-   ],
-   "partial": []
-  },
-  {
    "code": "DN-9.1.B",
    "unit": 9,
    "topic": 1,
@@ -2782,6 +2771,17 @@
    "full": [
     "dn-exposure",
     "dn-exposure-expected"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DN-9.1.C",
+   "unit": 9,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dn-hypersensitivity",
+    "dn-hypersensitivity-more"
    ],
    "partial": []
   },

@@ -37,6 +37,7 @@ Big ideas: SEE, KNOW, EST
 
 - ● **MM-1.1.B** (H1.1, J1.1, J2.1, E3.1, E4.1) Take a fraction of a whole number by dividing first.
   - EK: p/q of n: divide by q, then multiply by p.
+  - Needs: MK-6.3.D
   - P1 · P2 · drills: mm-fraction-of, mm-whole-from-fraction
 - ● **MM-1.1.A** (H1.1, J1.1, J2.1, E3.1, E4.1) Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.
   - EK: Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.
@@ -77,7 +78,7 @@ Big ideas: SEE, KNOW, EST
 
 - ● **MM-1.5.A** (H1.5, J1.5, J2.2, J2.14, J4.11, E1.4, E2.6, E3.12, E4.6) Multiply by 11, 25, 5, 99 and 101 by rewriting the multiplier.
   - EK: 11 = 10 + 1; 25 = 100/4; 5 = 10/2; 99 = 100 − 1; 101 = 100 + 1.
-  - Needs: MM-1.4.A
+  - Needs: MM-1.4.A, MK-6.2.F
   - P1 · P2 · drills: mm-times-11, mm-times-25, mm-times-5, mm-times-99-101
 - ● **MM-1.5.B** (H1.5, J1.5, J2.2, J4.11, E1.4, E2.6, E3.12, E4.6) Multiply two numbers just under 100 from their shortfalls.
   - EK: (100 − a)(100 − b) = 100(100 − a − b) + ab.
@@ -136,7 +137,7 @@ Big ideas: SEE, KNOW, EST
 
 - ● **MM-1.8.A** (H1.8, J2.9, E2.10) Find the GCD and LCM of two numbers under 100.
   - EK: The GCD divides the difference; LCM = product ÷ GCD.
-  - Needs: MM-1.7.C
+  - Needs: MM-1.7.C, MK-7.2.D
   - P1 · P2 · drills: mm-gcd, mm-lcm
 
 ### 1.9 Percent problems
@@ -145,7 +146,7 @@ Big ideas: SEE, KNOW, EST
 
 - ● **MM-1.9.A** (H1.9, J2.3, J4.9, E4.13) Take a percent of a number by swapping or building from 10%, and apply a percent increase or decrease.
   - EK: a% of b = b% of a; a change of p% multiplies by 1 ± p/100.
-  - Needs: MM-1.8.A
+  - Needs: MM-1.8.A, MK-7.1.E
   - P1 · P2 · drills: mm-percent-swap, mm-percent-change
 
 ### 1.10 Mean, median and mode
@@ -154,7 +155,7 @@ Big ideas: SEE, KNOW, EST
 
 - ● **MM-1.10.A** (H1.10, J1.8) Find a mean with a focus number and the median of a short unsorted list.
   - EK: Mean = guess + (sum of deviations)/n; the median survives striking extremes in pairs.
-  - Needs: MM-1.9.A
+  - Needs: MM-1.9.A, MK-7.5.F
   - P1 · P2 · drills: mm-mean-focus, mm-median
 
 ### 1.11 Sums of integers
@@ -257,7 +258,7 @@ Big ideas: SEE, KNOW
 
 - ● **MM-2.6.A** (H2.6, J2.12, E2.7) Solve a proportion by scaling or cross-multiplying.
   - EK: a/b = c/d means ad = bc.
-  - Needs: MM-2.5.A
+  - Needs: MM-2.5.A, MK-8.1.E
   - P1 · P2 · drills: mm-proportion, mm-unit-rate
 
 ### 2.7 Square roots and cube roots
@@ -293,7 +294,7 @@ Big ideas: SEE, KNOW
 
 - ● **MM-2.10.A** (H2.10, J2.7, E3.6) Solve a one- or two-step linear equation mentally.
   - EK: Undo operations in reverse order.
-  - Needs: MM-2.9.A
+  - Needs: MM-2.9.A, MK-8.3.D
   - P1 · P2 · drills: mm-linear-equation, mm-both-sides
 
 ### 2.11 Systems of equations
@@ -360,7 +361,7 @@ Big ideas: SEE, KNOW
 
 - ● **MM-3.1.A** (H3.1) Simplify a product or quotient of powers by moving to a common base.
   - EK: aᵐaⁿ = aᵐ⁺ⁿ; (aᵐ)ⁿ = aᵐⁿ; 4 = 2², 8 = 2³.
-  - Needs: MM-2.16.A
+  - Needs: MM-2.16.A, MK-9.2.A
   - P1 · P2 · drills: mm-exponent-laws, mm-exponent-solve
 
 ### 3.2 Right triangles
@@ -369,7 +370,7 @@ Big ideas: SEE, KNOW
 
 - ● **MM-3.2.A** (H3.2, J3.3, J3.9, E3.11) Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.
   - EK: 3-4-5, 5-12-13, 8-15-17, 7-24-25 and their multiples.
-  - Needs: MM-3.1.A
+  - Needs: MM-3.1.A, MK-9.4.G
   - P1 · P2 · drills: mm-pythagorean-triple, mm-right-triangle-area
 
 ### 3.3 Coordinate geometry

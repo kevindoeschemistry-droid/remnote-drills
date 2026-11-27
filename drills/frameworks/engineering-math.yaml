@@ -605,24 +605,24 @@ units:
       - n: 1
         title: "Complex equations, regions and functions"
         los:
-          - { id: C, std: ["webwork-opl:CX3.1"], do: "Decide whether a point lies in a region of the plane.", ek: ["|z − z₀| < r is the open disc of radius r about z₀."], p: [P1], needs: [EM-1.4.C], drills: [em-complex-region] }
-          - { id: A, std: ["webwork-opl:CX2.1"], do: "Solve a linear equation in z.", ek: ["Divide by multiplying top and bottom by the conjugate."], p: [P1], needs: [EM-14.1.C], drills: [em-complex-linear] }
+          - { id: A, std: ["webwork-opl:CX2.1"], do: "Solve a linear equation in z.", ek: ["Divide by multiplying top and bottom by the conjugate."], p: [P1], needs: [EM-1.4.C], drills: [em-complex-linear] }
           - { id: B, std: ["webwork-opl:CX2.3"], do: "Solve a nonlinear equation in z.", ek: ["Write the right side in polar form; z² = w has two roots ±√w."], p: [P1], needs: [EM-14.1.A], drills: [em-complex-sqrt] }
-          - { id: D, std: ["webwork-opl:CX4.1"], do: "Find the image of a point under a complex map.", ek: ["w = z² squares the modulus and doubles the argument."], p: [P1], needs: [EM-14.1.B], drills: [em-complex-map] }
+          - { id: C, std: ["webwork-opl:CX3.1"], do: "Decide whether a point lies in a region of the plane.", ek: ["|z − z₀| < r is the open disc of radius r about z₀."], p: [P1], needs: [EM-14.1.B], drills: [em-complex-region] }
+          - { id: D, std: ["webwork-opl:CX4.1"], do: "Find the image of a point under a complex map.", ek: ["w = z² squares the modulus and doubles the argument."], p: [P1], needs: [EM-14.1.C], drills: [em-complex-map] }
           - { id: E, std: ["webwork-opl:CX4.2"], do: "Evaluate a limit of a complex function.", ek: ["A complex limit must agree from every direction; algebra works as for real limits."], p: [P1], needs: [EM-14.1.D], drills: [em-complex-limit] }
       - n: 2
         title: "Analytic functions"
         los:
-          - { id: C, std: ["webwork-opl:CX5.3"], do: "Recognise entire functions.", ek: ["Entire = analytic at every point of the plane."], p: [P1], needs: [EM-14.1.E], drills: [em-entire] }
-          - { id: A, std: ["webwork-opl:CX5.1"], do: "Use the Cauchy–Riemann equations.", ek: ["f = u + iv is analytic where uₓ = v_y and u_y = −vₓ."], p: [P1], needs: [EM-14.2.C], drills: [em-cauchy-riemann] }
+          - { id: A, std: ["webwork-opl:CX5.1"], do: "Use the Cauchy–Riemann equations.", ek: ["f = u + iv is analytic where uₓ = v_y and u_y = −vₓ."], p: [P1], needs: [EM-14.1.E], drills: [em-cauchy-riemann] }
           - { id: B, std: ["webwork-opl:CX5.2"], do: "Test whether a function is harmonic.", ek: ["u is harmonic when u_xx + u_yy = 0; real parts of analytic functions are."], p: [P1], needs: [EM-14.2.A], drills: [em-harmonic] }
-          - { id: D, std: ["webwork-opl:CX5.4"], do: "Find a harmonic conjugate.", ek: ["Integrate v_y = uₓ in y, then fix the function of x with vₓ = −u_y."], p: [P1], needs: [EM-14.2.B], drills: [em-harmonic-conjugate] }
+          - { id: C, std: ["webwork-opl:CX5.3"], do: "Recognise entire functions.", ek: ["Entire = analytic at every point of the plane."], p: [P1], needs: [EM-14.2.B], drills: [em-entire] }
+          - { id: D, std: ["webwork-opl:CX5.4"], do: "Find a harmonic conjugate.", ek: ["Integrate v_y = uₓ in y, then fix the function of x with vₓ = −u_y."], p: [P1], needs: [EM-14.2.C], drills: [em-harmonic-conjugate] }
       - n: 3
         title: "Integration and series"
         los:
-          - { id: B, std: ["webwork-opl:CX8.1"], do: "Decide whether a complex sequence converges.", ek: ["zⁿ → 0 when |z| < 1 and diverges when |z| > 1."], p: [P1], needs: [EM-14.2.D], drills: [em-complex-sequence] }
-          - { id: A, std: ["webwork-opl:CX7.1", "cheme-grad-core:MM.5"], do: "Use Cauchy's integral formula.", ek: ["∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic."], p: [P1], needs: [EM-14.3.B], drills: [em-cauchy-formula] }
-          - { id: C, std: ["webwork-opl:CX8.2"], do: "Find a Taylor coefficient of an analytic function.", ek: ["e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1."], p: [P1], needs: [EM-14.3.A], drills: [em-complex-taylor] }
+          - { id: A, std: ["webwork-opl:CX7.1", "cheme-grad-core:MM.5"], do: "Use Cauchy's integral formula.", ek: ["∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic."], p: [P1], needs: [EM-14.2.D], drills: [em-cauchy-formula] }
+          - { id: B, std: ["webwork-opl:CX8.1"], do: "Decide whether a complex sequence converges.", ek: ["zⁿ → 0 when |z| < 1 and diverges when |z| > 1."], p: [P1], needs: [EM-14.3.A], drills: [em-complex-sequence] }
+          - { id: C, std: ["webwork-opl:CX8.2"], do: "Find a Taylor coefficient of an analytic function.", ek: ["e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1."], p: [P1], needs: [EM-14.3.B], drills: [em-complex-taylor] }
           - { id: D, std: ["webwork-opl:CX8.3", "webwork-opl:CX8.5", "cheme-grad-core:MM.5"], do: "Find a Laurent coefficient (a residue).", ek: ["The coefficient of 1/(z − z₀) is the residue."], p: [P1], needs: [EM-14.3.C], drills: [em-laurent-residue] }
           - { id: E, std: ["webwork-opl:CX8.4"], do: "Find the order of a zero.", ek: ["The order is the power of the first nonzero term of the Taylor series."], p: [P1], needs: [EM-14.3.D], drills: [em-zero-order] }
   # <<< opl-fill:opl-em

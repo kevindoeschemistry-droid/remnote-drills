@@ -4154,25 +4154,6 @@
      "title": "Complex equations, regions and functions",
      "los": [
       {
-       "id": "C",
-       "std": [
-        "webwork-opl:CX3.1"
-       ],
-       "do": "Decide whether a point lies in a region of the plane.",
-       "ek": [
-        "|z − z₀| < r is the open disc of radius r about z₀."
-       ],
-       "p": [
-        "P1"
-       ],
-       "needs": [
-        "EM-1.4.C"
-       ],
-       "drills": [
-        "em-complex-region"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "webwork-opl:CX2.1"
@@ -4185,7 +4166,7 @@
         "P1"
        ],
        "needs": [
-        "EM-14.1.C"
+        "EM-1.4.C"
        ],
        "drills": [
         "em-complex-linear"
@@ -4211,6 +4192,25 @@
        ]
       },
       {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX3.1"
+       ],
+       "do": "Decide whether a point lies in a region of the plane.",
+       "ek": [
+        "|z − z₀| < r is the open disc of radius r about z₀."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EM-14.1.B"
+       ],
+       "drills": [
+        "em-complex-region"
+       ]
+      },
+      {
        "id": "D",
        "std": [
         "webwork-opl:CX4.1"
@@ -4223,7 +4223,7 @@
         "P1"
        ],
        "needs": [
-        "EM-14.1.B"
+        "EM-14.1.C"
        ],
        "drills": [
         "em-complex-map"
@@ -4255,25 +4255,6 @@
      "title": "Analytic functions",
      "los": [
       {
-       "id": "C",
-       "std": [
-        "webwork-opl:CX5.3"
-       ],
-       "do": "Recognise entire functions.",
-       "ek": [
-        "Entire = analytic at every point of the plane."
-       ],
-       "p": [
-        "P1"
-       ],
-       "needs": [
-        "EM-14.1.E"
-       ],
-       "drills": [
-        "em-entire"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "webwork-opl:CX5.1"
@@ -4286,7 +4267,7 @@
         "P1"
        ],
        "needs": [
-        "EM-14.2.C"
+        "EM-14.1.E"
        ],
        "drills": [
         "em-cauchy-riemann"
@@ -4312,6 +4293,25 @@
        ]
       },
       {
+       "id": "C",
+       "std": [
+        "webwork-opl:CX5.3"
+       ],
+       "do": "Recognise entire functions.",
+       "ek": [
+        "Entire = analytic at every point of the plane."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EM-14.2.B"
+       ],
+       "drills": [
+        "em-entire"
+       ]
+      },
+      {
        "id": "D",
        "std": [
         "webwork-opl:CX5.4"
@@ -4324,7 +4324,7 @@
         "P1"
        ],
        "needs": [
-        "EM-14.2.B"
+        "EM-14.2.C"
        ],
        "drills": [
         "em-harmonic-conjugate"
@@ -4336,25 +4336,6 @@
      "n": 3,
      "title": "Integration and series",
      "los": [
-      {
-       "id": "B",
-       "std": [
-        "webwork-opl:CX8.1"
-       ],
-       "do": "Decide whether a complex sequence converges.",
-       "ek": [
-        "zⁿ → 0 when |z| < 1 and diverges when |z| > 1."
-       ],
-       "p": [
-        "P1"
-       ],
-       "needs": [
-        "EM-14.2.D"
-       ],
-       "drills": [
-        "em-complex-sequence"
-       ]
-      },
       {
        "id": "A",
        "std": [
@@ -4369,10 +4350,29 @@
         "P1"
        ],
        "needs": [
-        "EM-14.3.B"
+        "EM-14.2.D"
        ],
        "drills": [
         "em-cauchy-formula"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "webwork-opl:CX8.1"
+       ],
+       "do": "Decide whether a complex sequence converges.",
+       "ek": [
+        "zⁿ → 0 when |z| < 1 and diverges when |z| > 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EM-14.3.A"
+       ],
+       "drills": [
+        "em-complex-sequence"
        ]
       },
       {
@@ -4388,7 +4388,7 @@
         "P1"
        ],
        "needs": [
-        "EM-14.3.A"
+        "EM-14.3.B"
        ],
        "drills": [
         "em-complex-taylor"
@@ -6667,16 +6667,6 @@
    "partial": []
   },
   {
-   "code": "EM-14.1.C",
-   "unit": 14,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "em-complex-region"
-   ],
-   "partial": []
-  },
-  {
    "code": "EM-14.1.A",
    "unit": 14,
    "topic": 1,
@@ -6693,6 +6683,16 @@
    "status": "ok",
    "full": [
     "em-complex-sqrt"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.1.C",
+   "unit": 14,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "em-complex-region"
    ],
    "partial": []
   },
@@ -6717,16 +6717,6 @@
    "partial": []
   },
   {
-   "code": "EM-14.2.C",
-   "unit": 14,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "em-entire"
-   ],
-   "partial": []
-  },
-  {
    "code": "EM-14.2.A",
    "unit": 14,
    "topic": 2,
@@ -6747,6 +6737,16 @@
    "partial": []
   },
   {
+   "code": "EM-14.2.C",
+   "unit": 14,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "em-entire"
+   ],
+   "partial": []
+  },
+  {
    "code": "EM-14.2.D",
    "unit": 14,
    "topic": 2,
@@ -6757,22 +6757,22 @@
    "partial": []
   },
   {
-   "code": "EM-14.3.B",
-   "unit": 14,
-   "topic": 3,
-   "status": "ok",
-   "full": [
-    "em-complex-sequence"
-   ],
-   "partial": []
-  },
-  {
    "code": "EM-14.3.A",
    "unit": 14,
    "topic": 3,
    "status": "ok",
    "full": [
     "em-cauchy-formula"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EM-14.3.B",
+   "unit": 14,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "em-complex-sequence"
    ],
    "partial": []
   },
@@ -7192,6 +7192,7 @@
   "mm-tangent-intercept",
   "ca-derive-sin-exp",
   "ca-elasticity",
+  "ca-unit-elastic-price",
   "ca-chain-power",
   "ca-chain-trig",
   "ca-chain-exp",
@@ -7235,6 +7236,7 @@
   "ca-rate-units",
   "ca2-related-rate-scaling",
   "ca-marginal-cost",
+  "ca-marginal-revenue-zero",
   "ca-mvt",
   "ca-critical-points",
   "ca-abs-extrema",
@@ -7259,7 +7261,9 @@
   "ca-optimization-setup",
   "ca2-concavity-meaning",
   "ca-max-profit",
+  "ca-max-profit-value",
   "ca-peak-concentration",
+  "ca-peak-concentration-value",
   "ca-riemann-sums",
   "ca-trapezoid-table",
   "ca-ftc-derivative",
@@ -7298,9 +7302,13 @@
   "mm-int-sin-power-cos",
   "ca-choose-technique",
   "ca-trig-integral",
+  "ca-trig-integral-strategy",
   "ca-trig-substitution",
+  "ca-trig-sub-choice",
   "ca-integral-table",
+  "ca-table-arctan",
   "ca-cas-antiderivative",
+  "ca-cas-check",
   "ca-verify-solution",
   "ca-separable-general",
   "ca-separable-ivp",
@@ -7347,12 +7355,19 @@
   "ca-volume-washer-line",
   "ca2-average-value",
   "ca-consumer-surplus",
+  "ca-producer-surplus",
   "ca-cardiac-output",
+  "ca-dye-amount",
   "ca-pdf-constant",
+  "ca-pdf-mean",
   "ca-shells",
+  "ca-shells-power",
   "ca-two-methods",
+  "ca-two-methods-x-axis",
   "ca-surface-revolution",
+  "ca-cone-frustum-area",
   "ca-hydrostatic-triangle",
+  "ca-hydrostatic-gate",
   "ca-parametric-slope",
   "ca-parametric-arc",
   "ca-vector-velocity",
@@ -7372,10 +7387,15 @@
   "ca-planar-distance",
   "ca-polar-between",
   "ca-eliminate-parameter",
+  "ca-eliminate-exponential",
   "ca-parametric-area",
+  "ca-ellipse-area-parametric",
   "ca-parametric-volume",
+  "ca-ellipsoid-volume-parametric",
   "ca-parametric-surface",
+  "ca-parametric-cap-area",
   "ca-polar-arc-length",
+  "ca-polar-spiral-length",
   "ca-partial-sums",
   "ca-geometric-series",
   "ca-nth-term-test",
@@ -7396,8 +7416,11 @@
   "ca-comparison-test",
   "ca2-geometric-series-sum",
   "ca-sequence-limit",
+  "ca-sequence-limit-e",
   "ca-root-test",
+  "ca-root-test-verdict",
   "ca-series-strategy",
+  "ca-series-verdict",
   "ca-taylor-exp",
   "ca-taylor-ln",
   "ca-taylor-coefficients",
@@ -7428,6 +7451,7 @@
   "cm-helix",
   "ca-quadric",
   "ca-vector-limit",
+  "ca-vector-limit-magnitude",
   "ca-critical-point-classify",
   "cm-tangent-plane",
   "cm-chain-rule",

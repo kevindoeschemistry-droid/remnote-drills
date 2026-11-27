@@ -116,20 +116,20 @@ units:
         book: { csa-ced: ["1.1"], csp-ced: ["1.3", "1.4", "3.3"] }
         los:
           - { id: A, std: [CSA-1.1.A, AAP-2.A], do: "Write an everyday procedure as ordered, unambiguous steps and trace it on an input.", ek: ["An algorithm is a finite sequence of precise steps; sequence, selection and iteration are enough to express any algorithm."], p: [P1], drills: [pr-collatz-steps, pr-algorithm-steps] }
-          - { id: B, std: [CSA-1.1.B], do: "Put the steps of writing, compiling and running a Java program in order and say which step catches which problem.", ek: ["javac turns .java source into .class bytecode; the JVM runs the bytecode; the compiler checks syntax and types before anything runs."], p: [P5], drills: [pr-compile-run, pr-compile-run-2] }
+          - { id: B, std: [CSA-1.1.B], do: "Put the steps of writing, compiling and running a Java program in order and say which step catches which problem.", ek: ["javac turns .java source into .class bytecode; the JVM runs the bytecode; the compiler checks syntax and types before anything runs."], p: [P5], needs: [PR-1.1.A], drills: [pr-compile-run, pr-compile-run-2] }
           - { id: D, std: [CRD-2.J], do: "Choose test inputs, including boundary cases, and state the output each should produce.", ek: ["Test typical, boundary (0, 1, empty, the limits) and invalid inputs; a test is useful only with a predicted answer."], p: [P6], drills: [pr-test-inputs, pr-test-expected], needs: [PR-1.1.A] }
           - { id: C, std: [CSA-1.1.C, CRD-2.I], do: "Classify an error as syntax (compile-time), run-time (exception) or logic, given the code and its symptom.", ek: ["Syntax errors stop compilation; run-time errors throw during execution (int division by 0 throws ArithmeticException); logic errors run and give a wrong answer."], p: [P4], drills: ["pr-error-kind", pr-error-kind-code], needs: [PR-1.1.B] }
       - n: 2
         title: Bits and binary numbers
         book: { csp-ced: ["2.1"] }
         los:
-          - { id: A, std: [DAT-1.C], do: "Convert a non-negative integer between decimal and binary.", ek: ["Place values are powers of 2: 1011₂ = 8 + 2 + 1 = 11."], p: [P3], drills: ["pr-binary", pr-to-binary] }
+          - { id: A, std: [DAT-1.C], do: "Convert a non-negative integer between decimal and binary.", ek: ["Place values are powers of 2: 1011₂ = 8 + 2 + 1 = 11."], p: [P3], needs: [PR-1.1.C, MK-5.2.A], drills: ["pr-binary", pr-to-binary] }
           - { id: B, std: [DAT-1.A], do: "Count the distinct values n bits can represent, and the bits needed for N values.", ek: ["n bits give 2ⁿ patterns; N values need ⌈log₂ N⌉ bits."], p: [P3], drills: ["pr-bits", pr-max-unsigned], needs: [PR-1.2.A] }
       - n: 3
         title: Variables, types, expressions and output
         book: { csa-ced: ["1.2", "1.3", "1.4"], csp-ced: ["3.1", "3.3"] }
         los:
-          - { id: A, std: [CSA-1.2.A], do: "Choose a primitive type (int, double, boolean) or a reference type (String, an object) for a described quantity.", ek: ["A primitive variable holds the value itself; a reference variable holds the address of an object."], p: [P1], drills: [pr-type-choice, pr-primitive-reference] }
+          - { id: A, std: [CSA-1.2.A], do: "Choose a primitive type (int, double, boolean) or a reference type (String, an object) for a described quantity.", ek: ["A primitive variable holds the value itself; a reference variable holds the address of an object."], p: [P1], needs: [PR-1.2.B], drills: [pr-type-choice, pr-primitive-reference] }
           - { id: B, std: [CSA-1.2.B, AAP-1.A], do: "Declare and initialise variables of type int, double and boolean.", ek: ["type name = value; a variable is declared before use and keeps one type for its lifetime."], p: [P2], drills: [pr-declare-init, pr-declare-legal], needs: [PR-1.3.A] }
           - { id: C, std: [CSA-1.3.C, AAP-2.C], do: "Evaluate an arithmetic expression with int and double operands, including integer division and %.", ek: ["int / int truncates toward zero (7 / 2 = 3, −7 / 2 = −3); % keeps the sign of the dividend (−7 % 2 = −1); one double operand makes the result double; * / % bind tighter than + −."], p: [P3], drills: ["pr-int-arith", pr-int-average], needs: [PR-1.3.B] }
           - { id: D, std: [CSA-1.3.A, CSA-1.3.B], do: "Predict exactly what print and println statements display, including string concatenation with numbers.", ek: ['+ runs left to right: "1" + 2 + 3 is "123" but 1 + 2 + "3" is "33"; println ends the line, print does not.'], p: [P3], drills: ["pr-print-concat", pr-println-lines], needs: [PR-1.3.C] }
@@ -150,7 +150,7 @@ units:
         title: APIs, method signatures and the Math class
         book: { csa-ced: ["1.7", "1.8", "1.9", "1.10", "1.11"], csp-ced: ["3.12", "3.14", "3.15"] }
         los:
-          - { id: A, std: [CSA-1.7.A, CSA-1.9.A, AAP-3.D], do: "Read API documentation to find what a class provides and which method to call.", ek: ["Documentation gives each method's signature (name, parameter types in order) and return type; a caller needs nothing more."], p: [P5], drills: [pr-api-docs, pr-api-docs-2] }
+          - { id: A, std: [CSA-1.7.A, CSA-1.9.A, AAP-3.D], do: "Read API documentation to find what a class provides and which method to call.", ek: ["Documentation gives each method's signature (name, parameter types in order) and return type; a caller needs nothing more."], p: [P5], needs: [PR-1.5.C], drills: [pr-api-docs, pr-api-docs-2] }
           - { id: B, std: [CSA-1.9.B, AAP-3.A], do: "Write a call to a void or non-void method with arguments that match its signature, and pick which overload runs.", ek: ["Arguments match parameters by number, order and type; overloads share a name but differ in parameter list; a non-void result must be stored or used or it is lost."], p: [P2], drills: [pr-overload-pick, pr-call-signature], needs: [PR-1.6.A, PR-1.3.B] }
           - { id: C, std: [CSA-1.10.A], do: "Call a static (class) method as ClassName.method(...) and give the value it returns.", ek: ["Static methods belong to the class, not to an object; inside the same class the class name can be left off."], p: [P3], drills: [pr-static-calls, pr-static-facts], needs: [PR-1.6.B] }
           - { id: E, std: [CSA-1.8.A, CRD-2.G], do: "Write a comment stating what a method does, its preconditions and its postconditions.", ek: ["A precondition must be true before the call (the caller's job); a postcondition is what the method guarantees afterwards."], p: [P5], drills: [pr-pre-post, pr-pre-post-2], needs: [PR-1.6.B] }
@@ -231,7 +231,7 @@ units:
         title: Informal run-time analysis
         book: { csa-ced: ["2.12"], csp-ced: ["3.17"] }
         los:
-          - { id: A, std: [CSA-2.12, AAP-4.A], do: "Compare algorithms by counting statement executions as a function of input size n.", ek: ["One loop over n ~ n; nested ~ n²; halving each pass ~ log₂ n; polynomial counts run in reasonable time, exponential ones do not."], p: [P3], drills: [pr-stmt-count, pr-growth-compare], needs: [PR-2.7.A] }
+          - { id: A, std: [CSA-2.12, AAP-4.A], do: "Compare algorithms by counting statement executions as a function of input size n.", ek: ["One loop over n ~ n; nested ~ n²; halving each pass ~ log₂ n; polynomial counts run in reasonable time, exponential ones do not."], p: [P3], drills: [pr-stmt-count, pr-growth-compare], needs: [PR-2.7.A, MH-2.4.C] }
 
   # ── 3 ────────────────────────────────────────────────────────────────────
   - id: class-creation
@@ -280,7 +280,7 @@ units:
         title: Data sets and their ethics
         book: { csa-ced: ["4.1", "4.2"], csp-ced: ["2.3", "5.3", "5.6"] }
         los:
-          - { id: A, std: [CSA-4.2, DAT-2.A, DAT-2.B, DAT-2.C], do: "Identify what a data set and its metadata can tell you, and what cleaning it needs (missing, invalid or inconsistent entries).", ek: ["Metadata (units, source, date) describes the data; correlation in data does not show causation; invalid entries must be removed or fixed before analysis."], p: [P5], drills: [pr-data-clean, pr-data-clean-2] }
+          - { id: A, std: [CSA-4.2, DAT-2.A, DAT-2.B, DAT-2.C], do: "Identify what a data set and its metadata can tell you, and what cleaning it needs (missing, invalid or inconsistent entries).", ek: ["Metadata (units, source, date) describes the data; correlation in data does not show causation; invalid entries must be removed or fixed before analysis."], p: [P5], needs: [PR-3.4.B], drills: [pr-data-clean, pr-data-clean-2] }
           - { id: B, std: [CSA-4.1, IOC-1.D, IOC-2.A], do: "Identify privacy, bias and consent risks in collecting a data set, including personally identifiable information.", ek: ["Data that under-represents a group biases every result built on it; combined fields (ZIP + birth date + sex) can identify a person."], p: [P5], drills: [pr-data-privacy, pr-data-privacy-2], needs: [PR-4.1.A] }
       - n: 2
         title: Arrays
@@ -393,7 +393,7 @@ units:
         title: Tracking changes
         book: { swc-git: ["1", "3", "4"] }
         los:
-          - { id: A, std: [SWC-GIT-1], do: "Explain what a commit records and why it beats keeping copies like thesis_final_v2.", ek: ["A commit is a snapshot of the staged files with author, time, message and a link to its parent; history is the chain of commits."], p: [P5], drills: [pr-git-why, pr-git-why-2] }
+          - { id: A, std: [SWC-GIT-1], do: "Explain what a commit records and why it beats keeping copies like thesis_final_v2.", ek: ["A commit is a snapshot of the staged files with author, time, message and a link to its parent; history is the chain of commits."], p: [P5], needs: [PR-5.5.B], drills: [pr-git-why, pr-git-why-2] }
           - { id: B, std: [SWC-GIT-3, SWC-GIT-4], do: "Predict git status (untracked, modified, staged) after edits, git add and git commit.", ek: ["Working tree → git add → staging area → git commit → repository; only staged changes go into a commit."], p: [P3], drills: ["pr-git-status", pr-git-status-2], needs: [PR-6.1.A, PR-5.2.A] }
       - n: 2
         title: Exploring and undoing history
@@ -472,7 +472,7 @@ units:
       - n: 1
         title: NumPy arrays
         los:
-          - { id: A, std: [SCI-1], do: "Create arrays with np.array, zeros, ones, arange and linspace, and give their shape, dtype and length.", ek: ["np.arange(0, 1, 0.25) excludes the end (4 values); np.linspace(0, 1, 5) includes it (5 values, spacing 0.25); all-integer input gives an int dtype."], p: [P3], drills: [pr-np-create, pr-np-create-facts], needs: [PR-7.3.A, PR-7.5.B] }
+          - { id: A, std: [SCI-1], do: "Create arrays with np.array, zeros, ones, arange and linspace, and give their shape, dtype and length.", ek: ["np.arange(0, 1, 0.25) excludes the end (4 values); np.linspace(0, 1, 5) includes it (5 values, spacing 0.25); all-integer input gives an int dtype."], p: [P3], drills: [pr-np-create, pr-np-create-facts], needs: [PR-7.3.A, PR-7.5.B, MH-19.4.C] }
           - { id: B, std: [SCI-1], do: "Index and slice 1-D and 2-D arrays, including x[:, 0], x[1:, ::2] and boolean masks.", ek: ["x[i, j] is row i, column j; x[:, j] is column j; a slice is a view (writing to it changes x), x[mask] is a copy."], p: [P3], drills: [pr-np-index, pr-np-shape-index], needs: [PR-8.1.A, PR-4.7.A] }
           - { id: C, std: [SCI-1], do: "Reduce an array along an axis (sum, mean, max) and give the shape of the result.", ek: ["For shape (R, C), axis=0 collapses the rows and leaves C values (one per column); axis=1 leaves R; no axis gives a single number."], p: [P3], drills: [pr-np-axis-shape, pr-np-axis-value], needs: [PR-8.1.B] }
       - n: 2
@@ -524,7 +524,7 @@ units:
         title: Parallel and distributed computing
         book: { csp-ced: ["4.3"] }
         los:
-          - { id: A, std: [CSN-2.A, CSN-2.B], do: "Compute the run time and speedup of a workload split across processors.", ek: ["Parallel time = sequential part + the longest parallel branch; speedup = sequential time / parallel time, capped by the part that cannot be split."], p: [P3], drills: [pr-parallel-time, pr-parallel-limit] }
+          - { id: A, std: [CSN-2.A, CSN-2.B], do: "Compute the run time and speedup of a workload split across processors.", ek: ["Parallel time = sequential part + the longest parallel branch; speedup = sequential time / parallel time, capped by the part that cannot be split."], p: [P3], needs: [PR-9.1.A], drills: [pr-parallel-time, pr-parallel-limit] }
       - n: 3
         title: Compression
         book: { csp-ced: ["2.2"] }

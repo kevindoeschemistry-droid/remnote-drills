@@ -114,7 +114,7 @@ units:
         ced: pre
         dat: [Stoichiometry and General Concepts, Laboratory]
         los:
-          - { id: B, std: [N-Q.A.3], do: "Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.", ek: ["× ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit."], p: [P5], needs: [CH-0.1.B], drills: [ac-sig-figs, ac-sig-figs-product] }
+          - { id: B, std: [N-Q.A.3], do: "Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.", ek: ["× ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit."], p: [P5], needs: [CH-0.1.B, MK-9.2.D], drills: [ac-sig-figs, ac-sig-figs-product] }
           - { id: D, std: ["N-Q.A.1", "A-CED.A.4", "acs-accm-general:I.D.3", "acs-accm-general:IX.B.2"], do: "Calculate density, mass or volume from the other two, including volume by water displacement.", ek: ["ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature."], p: [P5], needs: [CH-0.2.B], drills: [ph-density, ac-density-displacement] }
           - { id: A, std: [8.EE.A.3, 8.EE.A.4, N-Q.A.1], do: "Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).", ek: ["Each prefix is a power of ten; moving the decimal changes the exponent by the same count."], p: [P5], needs: [CH-0.2.D], drills: ["ac-si-prefix", "ac2-largest-length"] }
           - { id: C, std: ["N-Q.A.3", "acs-accm-general:IX.G.1", "acs-accm-inorganic:IX.E.1"], do: "Distinguish accuracy from precision and calculate percent error.", ek: ["Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100."], p: [P2, P4], needs: [CH-0.2.A], drills: ["ac-percent-error", "ac2-percent-error-reverse"] }
@@ -124,7 +124,7 @@ units:
         ced: pre
         dat: [Stoichiometry and General Concepts]
         los:
-          - { id: A, std: [N-Q.A.1, 6.RP.A.3.D], do: "Convert a quantity through a chain of conversion factors, including squared and cubed units.", ek: ["Multiply by factors equal to one, arranged so unwanted units cancel; cube the factor for volume (1 m³ = 10⁶ cm³)."], p: [P5], drills: ["ac-unit-chain-cubed", "ac2-density-units"], needs: [CH-0.2.A] }
+          - { id: A, std: [N-Q.A.1, 6.RP.A.3.D], do: "Convert a quantity through a chain of conversion factors, including squared and cubed units.", ek: ["Multiply by factors equal to one, arranged so unwanted units cancel; cube the factor for volume (1 m³ = 10⁶ cm³)."], p: [P5], drills: ["ac-unit-chain-cubed", "ac2-density-units"], needs: [CH-0.2.A, MH-1.1.A] }
       - n: 4
         title: Atoms, ions, the periodic table and naming
         ced: "pre-1.5, 1.8"
@@ -347,7 +347,7 @@ units:
         ced: "3.4"
         dat: [Gases]
         los:
-          - { id: A, std: ["SAP-7.A", "acs-accm-general:IV.A.1", "acs-accm-general:X.E.1"], do: "Solve PV = nRT for any variable with consistent units and the matching value of R.", ek: ["R = 0.08206 L·atm/(mol·K) = 8.314 J/(mol·K); T in kelvin; 1 atm = 760 torr = 101.325 kPa."], p: [P5], drills: [ac-ideal-gas-solve, pc-ideal-gas], needs: [CH-0.2.E] }
+          - { id: A, std: ["SAP-7.A", "acs-accm-general:IV.A.1", "acs-accm-general:X.E.1"], do: "Solve PV = nRT for any variable with consistent units and the matching value of R.", ek: ["R = 0.08206 L·atm/(mol·K) = 8.314 J/(mol·K); T in kelvin; 1 atm = 760 torr = 101.325 kPa."], p: [P5], drills: [ac-ideal-gas-solve, pc-ideal-gas], needs: [CH-0.2.E, MH-1.4.D] }
           - { id: B, std: [SAP-7.A], do: "Predict a new P, V, T or n when conditions change, using the combined gas law and Boyle's, Charles's, Gay-Lussac's and Avogadro's laws.", ek: ["P₁V₁/(n₁T₁) = P₂V₂/(n₂T₂); cancel whatever is held constant."], p: [P5], drills: [ac-combined-gas, ph-ideal-gas-change], needs: [CH-3.4.A] }
           - { id: C, std: [SAP-7.A], do: "Calculate a gas's density or molar mass from P, V, T and mass.", ek: ["M = ρRT/P; at STP one mole occupies 22.4 L."], p: [P5], drills: [ac-gas-molar-mass, sc-ideal-gas-density], needs: [CH-3.4.A, CH-1.1.A] }
           - { id: D, std: [SAP-7.A], do: "Calculate partial pressures and mole fractions with Dalton's law, including a gas collected over water.", ek: ["P_total = Σ P_i; P_i = χ_i P_total; subtract water's vapor pressure from the collected gas pressure."], p: [P5], drills: ["ac-dalton-over-water", "ac2-mole-fraction-from-pressure"], needs: [CH-3.4.A] }
@@ -540,7 +540,7 @@ units:
         ced: "5.3"
         dat: [Chemical Kinetics]
         los:
-          - { id: A, std: [TRA-3.C], do: "Use the zero-, first- or second-order integrated rate law to find a concentration at time t, or the time to reach one.", ek: ["[A] = [A]₀ − kt; ln[A] = ln[A]₀ − kt; 1/[A] = 1/[A]₀ + kt."], p: [P5], drills: [ac-zero-order, pc-first-order, pc-second-order], needs: [CH-5.2.A] }
+          - { id: A, std: [TRA-3.C], do: "Use the zero-, first- or second-order integrated rate law to find a concentration at time t, or the time to reach one.", ek: ["[A] = [A]₀ − kt; ln[A] = ln[A]₀ − kt; 1/[A] = 1/[A]₀ + kt."], p: [P5], drills: [ac-zero-order, pc-first-order, pc-second-order], needs: [CH-5.2.A, MH-14.1.A] }
           - { id: B, std: ["TRA-3.C", "acs-accm-general:X.D.2", "acs-accm-organic:X.D"], do: "Identify reaction order from which plot ([A], ln[A] or 1/[A] vs t) is linear, and read k from its slope.", ek: ["Linear [A] ⇒ zero; linear ln[A] ⇒ first (slope −k); linear 1/[A] ⇒ second (slope +k)."], p: [P3, P4], drills: ["ac-linear-plot", "ac2-k-units-order"], needs: [CH-5.3.A] }
           - { id: C, std: [TRA-3.C], do: "Calculate a half-life, and use the constancy of first-order half-life to solve decay problems.", ek: ["First order t½ = 0.693/k, independent of [A]₀; radioactive decay is first order."], p: [P5], drills: ["ac-first-order-half-life", "ac2-half-life-from-fraction"], needs: [CH-5.3.A, CH-1.10.C] }
       - n: 4
@@ -726,7 +726,7 @@ units:
         ced: "7.4"
         dat: [Chemical Equilibria]
         los:
-          - { id: A, std: [TRA-7.B], do: "Calculate K from equilibrium concentrations or partial pressures.", ek: ["Substitute equilibrium (not initial) values into the K expression."], p: [P5], drills: [ac-k-from-concentrations, "ac-k-reverse-multiply"], needs: [CH-7.3.A] }
+          - { id: A, std: [TRA-7.B], do: "Calculate K from equilibrium concentrations or partial pressures.", ek: ["Substitute equilibrium (not initial) values into the K expression."], p: [P5], drills: [ac-k-from-concentrations, "ac-k-reverse-multiply"], needs: [CH-7.3.A, MH-4.3.D] }
           - { id: B, std: ["TRA-7.B", "acs-accm-analytical:VIII.C.1"], do: "Use an ICE table with initial amounts and one equilibrium amount to find K.", ek: ["Changes follow the coefficients: −ax, −bx, +cx; one known equilibrium value fixes x."], p: [P5], drills: [ac-ice-k, "ac-ice-equilibrium-amount"], needs: [CH-7.4.A] }
           - { id: C, std: [TRA-7.B], do: "Convert between K_c and K_p.", ek: ["K_p = K_c(RT)^Δn with R = 0.08206 and Δn = moles gas products − reactants."], p: [P5], drills: ["ac-kc-kp", "ac2-kc-from-kp"], needs: [CH-7.4.A, CH-3.4.A] }
       - n: 5
@@ -811,7 +811,7 @@ units:
         ced: "8.2"
         dat: [Acids and Bases]
         los:
-          - { id: A, std: [SAP-9.B], do: "Identify the strong acids and bases, and calculate the pH of their solutions.", ek: ["Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first H), HClO₄; strong bases: Group 1 and heavy Group 2 hydroxides; they ionize completely."], p: [P5], drills: ["ac-strong-acid-ph", "ac2-strong-dilution-ph"], needs: [CH-8.1.A, CH-3.7.C] }
+          - { id: A, std: [SAP-9.B], do: "Identify the strong acids and bases, and calculate the pH of their solutions.", ek: ["Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first H), HClO₄; strong bases: Group 1 and heavy Group 2 hydroxides; they ionize completely."], p: [P5], drills: ["ac-strong-acid-ph", "ac2-strong-dilution-ph"], needs: [CH-8.1.A, CH-3.7.C, MH-16.2.A] }
       - n: 3
         title: Weak acid and base equilibria
         std: ["ap-chemistry:8.3.A"]
@@ -929,7 +929,7 @@ units:
         ced: "9.5"
         dat: [Thermodynamics and Thermochemistry, Chemical Equilibria]
         los:
-          - { id: A, std: ["ENE-5.A", "acs-accm-general:VIII.F.1", "acs-accm-organic:VIII.F", "acs-accm-inorganic:VI.A.2"], do: "Calculate K from ΔG°.", ek: ["K = exp(−ΔG°/RT); ΔG° < 0 ⇔ K > 1."], p: [P5], drills: ["th-ce-k", "ac2-dg-sign-from-k"], needs: [CH-9.3.A, CH-7.5.A] }
+          - { id: A, std: ["ENE-5.A", "acs-accm-general:VIII.F.1", "acs-accm-organic:VIII.F", "acs-accm-inorganic:VI.A.2"], do: "Calculate K from ΔG°.", ek: ["K = exp(−ΔG°/RT); ΔG° < 0 ⇔ K > 1."], p: [P5], drills: ["th-ce-k", "ac2-dg-sign-from-k"], needs: [CH-9.3.A, CH-7.5.A, MH-16.2.B] }
           - { id: B, std: [ENE-5.A], do: "Calculate ΔG° from K.", ek: ["ΔG° = −RT ln K, with R = 8.314 J/(mol·K)."], p: [P5], drills: [th-ce-dg, "ac-k-from-dg"], needs: [CH-9.5.A] }
           - { id: C, std: [ENE-5.A], do: "Calculate ΔG under nonstandard conditions and predict the direction of reaction.", ek: ["ΔG = ΔG° + RT ln Q = RT ln(Q/K); ΔG < 0 ⇒ forward."], p: [P5, P6], drills: [th-ce-direction, "ac-q-direction-dg"], needs: [CH-9.5.B, CH-7.3.B] }
       - n: 6

@@ -1032,21 +1032,21 @@ Big ideas: MODEL
 
 
 
-- ● **EM-14.1.C** (webwork-opl:CX3.1) Decide whether a point lies in a region of the plane.
-  - EK: |z − z₀| < r is the open disc of radius r about z₀.
-  - Needs: EM-1.4.C
-  - P1 · drills: em-complex-region
 - ● **EM-14.1.A** (webwork-opl:CX2.1) Solve a linear equation in z.
   - EK: Divide by multiplying top and bottom by the conjugate.
-  - Needs: EM-14.1.C
+  - Needs: EM-1.4.C
   - P1 · drills: em-complex-linear
 - ● **EM-14.1.B** (webwork-opl:CX2.3) Solve a nonlinear equation in z.
   - EK: Write the right side in polar form; z² = w has two roots ±√w.
   - Needs: EM-14.1.A
   - P1 · drills: em-complex-sqrt
+- ● **EM-14.1.C** (webwork-opl:CX3.1) Decide whether a point lies in a region of the plane.
+  - EK: |z − z₀| < r is the open disc of radius r about z₀.
+  - Needs: EM-14.1.B
+  - P1 · drills: em-complex-region
 - ● **EM-14.1.D** (webwork-opl:CX4.1) Find the image of a point under a complex map.
   - EK: w = z² squares the modulus and doubles the argument.
-  - Needs: EM-14.1.B
+  - Needs: EM-14.1.C
   - P1 · drills: em-complex-map
 - ● **EM-14.1.E** (webwork-opl:CX4.2) Evaluate a limit of a complex function.
   - EK: A complex limit must agree from every direction; algebra works as for real limits.
@@ -1057,38 +1057,38 @@ Big ideas: MODEL
 
 
 
-- ● **EM-14.2.C** (webwork-opl:CX5.3) Recognise entire functions.
-  - EK: Entire = analytic at every point of the plane.
-  - Needs: EM-14.1.E
-  - P1 · drills: em-entire
 - ● **EM-14.2.A** (webwork-opl:CX5.1) Use the Cauchy–Riemann equations.
   - EK: f = u + iv is analytic where uₓ = v_y and u_y = −vₓ.
-  - Needs: EM-14.2.C
+  - Needs: EM-14.1.E
   - P1 · drills: em-cauchy-riemann
 - ● **EM-14.2.B** (webwork-opl:CX5.2) Test whether a function is harmonic.
   - EK: u is harmonic when u_xx + u_yy = 0; real parts of analytic functions are.
   - Needs: EM-14.2.A
   - P1 · drills: em-harmonic
+- ● **EM-14.2.C** (webwork-opl:CX5.3) Recognise entire functions.
+  - EK: Entire = analytic at every point of the plane.
+  - Needs: EM-14.2.B
+  - P1 · drills: em-entire
 - ● **EM-14.2.D** (webwork-opl:CX5.4) Find a harmonic conjugate.
   - EK: Integrate v_y = uₓ in y, then fix the function of x with vₓ = −u_y.
-  - Needs: EM-14.2.B
+  - Needs: EM-14.2.C
   - P1 · drills: em-harmonic-conjugate
 
 ### 14.3 Integration and series
 
 
 
-- ● **EM-14.3.B** (webwork-opl:CX8.1) Decide whether a complex sequence converges.
-  - EK: zⁿ → 0 when |z| < 1 and diverges when |z| > 1.
-  - Needs: EM-14.2.D
-  - P1 · drills: em-complex-sequence
 - ● **EM-14.3.A** (webwork-opl:CX7.1, cheme-grad-core:MM.5) Use Cauchy's integral formula.
   - EK: ∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic.
-  - Needs: EM-14.3.B
+  - Needs: EM-14.2.D
   - P1 · drills: em-cauchy-formula
+- ● **EM-14.3.B** (webwork-opl:CX8.1) Decide whether a complex sequence converges.
+  - EK: zⁿ → 0 when |z| < 1 and diverges when |z| > 1.
+  - Needs: EM-14.3.A
+  - P1 · drills: em-complex-sequence
 - ● **EM-14.3.C** (webwork-opl:CX8.2) Find a Taylor coefficient of an analytic function.
   - EK: e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1.
-  - Needs: EM-14.3.A
+  - Needs: EM-14.3.B
   - P1 · drills: em-complex-taylor
 - ● **EM-14.3.D** (webwork-opl:CX8.3, webwork-opl:CX8.5, cheme-grad-core:MM.5) Find a Laurent coefficient (a residue).
   - EK: The coefficient of 1/(z − z₀) is the residue.
@@ -1390,6 +1390,7 @@ Big ideas: TRANS
 - mm-tangent-intercept (calc.derivative-rules)
 - ca-derive-sin-exp (calc.derivative-rules)
 - ca-elasticity (calc.derivative-rules)
+- ca-unit-elastic-price (calc.derivative-rules)
 - ca-chain-power (calc.chain-rule)
 - ca-chain-trig (calc.chain-rule)
 - ca-chain-exp (calc.chain-rule)
@@ -1433,6 +1434,7 @@ Big ideas: TRANS
 - ca-rate-units (calc.rates)
 - ca2-related-rate-scaling (calc.rates)
 - ca-marginal-cost (calc.rates)
+- ca-marginal-revenue-zero (calc.rates)
 - ca-mvt (calc.extrema)
 - ca-critical-points (calc.extrema)
 - ca-abs-extrema (calc.extrema)
@@ -1457,7 +1459,9 @@ Big ideas: TRANS
 - ca-optimization-setup (calc.extrema)
 - ca2-concavity-meaning (calc.extrema)
 - ca-max-profit (calc.extrema)
+- ca-max-profit-value (calc.extrema)
 - ca-peak-concentration (calc.extrema)
+- ca-peak-concentration-value (calc.extrema)
 - ca-riemann-sums (calc.riemann-ftc)
 - ca-trapezoid-table (calc.riemann-ftc)
 - ca-ftc-derivative (calc.riemann-ftc)
@@ -1496,9 +1500,13 @@ Big ideas: TRANS
 - mm-int-sin-power-cos (calc.antiderivatives)
 - ca-choose-technique (calc.antiderivatives)
 - ca-trig-integral (calc.antiderivatives)
+- ca-trig-integral-strategy (calc.antiderivatives)
 - ca-trig-substitution (calc.antiderivatives)
+- ca-trig-sub-choice (calc.antiderivatives)
 - ca-integral-table (calc.antiderivatives)
+- ca-table-arctan (calc.antiderivatives)
 - ca-cas-antiderivative (calc.antiderivatives)
+- ca-cas-check (calc.antiderivatives)
 - ca-verify-solution (calc.diffeq)
 - ca-separable-general (calc.diffeq)
 - ca-separable-ivp (calc.diffeq)
@@ -1545,12 +1553,19 @@ Big ideas: TRANS
 - ca-volume-washer-line (calc.integration-apps)
 - ca2-average-value (calc.integration-apps)
 - ca-consumer-surplus (calc.integration-apps)
+- ca-producer-surplus (calc.integration-apps)
 - ca-cardiac-output (calc.integration-apps)
+- ca-dye-amount (calc.integration-apps)
 - ca-pdf-constant (calc.integration-apps)
+- ca-pdf-mean (calc.integration-apps)
 - ca-shells (calc.integration-apps)
+- ca-shells-power (calc.integration-apps)
 - ca-two-methods (calc.integration-apps)
+- ca-two-methods-x-axis (calc.integration-apps)
 - ca-surface-revolution (calc.integration-apps)
+- ca-cone-frustum-area (calc.integration-apps)
 - ca-hydrostatic-triangle (calc.integration-apps)
+- ca-hydrostatic-gate (calc.integration-apps)
 - ca-parametric-slope (calc.parametric-polar)
 - ca-parametric-arc (calc.parametric-polar)
 - ca-vector-velocity (calc.parametric-polar)
@@ -1570,10 +1585,15 @@ Big ideas: TRANS
 - ca-planar-distance (calc.parametric-polar)
 - ca-polar-between (calc.parametric-polar)
 - ca-eliminate-parameter (calc.parametric-polar)
+- ca-eliminate-exponential (calc.parametric-polar)
 - ca-parametric-area (calc.parametric-polar)
+- ca-ellipse-area-parametric (calc.parametric-polar)
 - ca-parametric-volume (calc.parametric-polar)
+- ca-ellipsoid-volume-parametric (calc.parametric-polar)
 - ca-parametric-surface (calc.parametric-polar)
+- ca-parametric-cap-area (calc.parametric-polar)
 - ca-polar-arc-length (calc.parametric-polar)
+- ca-polar-spiral-length (calc.parametric-polar)
 - ca-partial-sums (calc.series)
 - ca-geometric-series (calc.series)
 - ca-nth-term-test (calc.series)
@@ -1594,8 +1614,11 @@ Big ideas: TRANS
 - ca-comparison-test (calc.series)
 - ca2-geometric-series-sum (calc.series)
 - ca-sequence-limit (calc.series)
+- ca-sequence-limit-e (calc.series)
 - ca-root-test (calc.series)
+- ca-root-test-verdict (calc.series)
 - ca-series-strategy (calc.series)
+- ca-series-verdict (calc.series)
 - ca-taylor-exp (calc.taylor)
 - ca-taylor-ln (calc.taylor)
 - ca-taylor-coefficients (calc.taylor)
@@ -1626,6 +1649,7 @@ Big ideas: TRANS
 - cm-helix (calc.vectors-3d)
 - ca-quadric (calc.vectors-3d)
 - ca-vector-limit (calc.vectors-3d)
+- ca-vector-limit-magnitude (calc.vectors-3d)
 - ca-critical-point-classify (calc.partials-apps)
 - cm-tangent-plane (calc.partials-apps)
 - cm-chain-rule (calc.partials-apps)

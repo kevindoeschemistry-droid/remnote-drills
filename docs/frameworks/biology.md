@@ -71,7 +71,7 @@ Big ideas: SYI, ENE, IST
 
 - ● **BI-1.3.A** (SYI-1.B) Describe dehydration synthesis and hydrolysis as the reactions that build and break polymers.
   - EK: Joining monomers releases H₂O; hydrolysis adds H₂O to split them; enzymes catalyse both.
-  - Needs: BI-1.2.B
+  - Needs: BI-1.2.B, CH-2.5.A
   - P1 · drills: bi-dehydration-hydrolysis, bi-reaction-direction
 - ● **BI-1.3.B** (SYI-1.B) Count the water molecules released or consumed when n monomers are joined into, or cut out of, a linear polymer.
   - EK: A linear chain of n monomers has n − 1 linkages, so n − 1 waters.
@@ -242,7 +242,7 @@ Big ideas: SYI, ENE, EVO
 
 - ● **BI-2.8.A** (ENE-2.H) Predict net water movement and the fate of animal and plant cells in hypotonic, isotonic and hypertonic solutions.
   - EK: Water moves toward higher solute concentration; animal cells lyse or crenate, plant cells go turgid or plasmolyse.
-  - Needs: BI-2.6.A
+  - Needs: BI-2.6.A, CH-3.14.C
   - P1 · P6 · drills: bi-tonicity, bi-tonicity-scenario
 - ● **BI-2.8.B** (ENE-2.H) Calculate solute potential ψs = −iCRT and water potential ψ = ψs + ψp, and predict which way water moves.
   - EK: R = 0.0831 L·bar/(mol·K), T in kelvin; water flows from higher to lower ψ.
@@ -302,7 +302,7 @@ Big ideas: ENE, SYI
 
 - ● **BI-3.1.A** (ENE-1.D) Explain how the shape and charge of an active site make an enzyme specific for its substrate.
   - EK: Substrate must fit the active site geometrically and chemically; induced fit tightens binding.
-  - Needs: BI-1.5.A
+  - Needs: BI-1.5.A, CH-5.11.A
   - P1 · drills: bi-active-site, bi-specificity-scenario
 
 ### 3.2 Enzyme catalysis
@@ -341,7 +341,7 @@ Big ideas: ENE, SYI
 
 - ● **BI-3.4.A** (ENE-1.H) Explain how coupling to ATP hydrolysis drives an endergonic reaction.
   - EK: Coupled ΔG is the sum; transferring a phosphate to the substrate makes the overall ΔG negative.
-  - Needs: BI-3.2.A
+  - Needs: BI-3.2.A, CH-9.7.A
   - P1 · drills: bi-atp-coupling, bi-coupled-dg
 - ● **BI-3.4.B** (ENE-1.H) Explain why organisms need continuous energy input and what happens when it stops.
   - EK: Order is maintained only by spending energy; energy loss leads to disorder and death.
@@ -375,7 +375,7 @@ Big ideas: ENE, SYI
 
 - ● **BI-3.6.A** (ENE-1.K) Outline glycolysis, pyruvate oxidation, the Krebs cycle and oxidative phosphorylation with location and products.
   - EK: Glycolysis (cytosol) → acetyl-CoA and Krebs (matrix) → ETC and ATP synthase (inner membrane).
-  - Needs: BI-3.4.A, BI-2.2.C
+  - Needs: BI-3.4.A, BI-2.2.C, CH-4.9.B
   - P1 · drills: bi-respiration-stages, bi-atp-from-glucose
 - ● **BI-3.6.B** (ENE-1.L) Explain chemiosmosis in mitochondria and O₂'s role as the final electron acceptor.
   - EK: NADH and FADH₂ feed the ETC, which pumps H⁺ into the intermembrane space; ATP synthase uses the gradient; O₂ + e⁻ + H⁺ → H₂O.

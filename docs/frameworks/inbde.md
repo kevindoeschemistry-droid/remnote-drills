@@ -396,20 +396,20 @@ Big ideas: DX
 
 
 
+- ● **DN-8.1.A** (jcnde-domain:FK8, jcnde-domain:CC26) Recall analgesic choices and limits for dental pain.
+  - EK: Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum).
+  - P3 · drills: dn-analgesics, dn-acetaminophen-tablets
 - ● **DN-8.1.B** (jcnde-domain:FK8, jcnde-domain:CC26, jcnde-domain:CC27) Choose antibiotics and know their dental side effects.
   - EK: Amoxicillin first line; penicillin allergy: azithromycin or doxycycline (clindamycin no longer recommended for prophylaxis, AHA 2021).
+  - Needs: DN-8.1.A
   - P3 · drills: dn-antibiotics, dn-antibiotic-risks
 - ● **DN-8.1.C** (jcnde-domain:FK8, jcnde-domain:CC27, jcnde-domain:CC8) Recognise drug interactions and complications that change dental care.
   - EK: Epinephrine with nonselective β-blockers: hypertension and reflex bradycardia. Antiresorptives: MRONJ. Bisphosphonates and denosumab before extractions.
   - Needs: DN-8.1.B
   - P3 · drills: dn-interactions, dn-interaction-scenarios
-- ● **DN-8.1.A** (jcnde-domain:FK8, jcnde-domain:CC26) Recall analgesic choices and limits for dental pain.
-  - EK: Ibuprofen 400 mg ± acetaminophen 500–1000 mg beats opioids for most dental pain; acetaminophen ≤ 4 g/day (usual adult maximum).
-  - Needs: DN-8.1.C
-  - P3 · drills: dn-analgesics, dn-acetaminophen-tablets
 - ● **DN-8.1.D** (jcnde-domain:FK8, jcnde-domain:CC26) Calculate a weight-based pediatric antibiotic dose.
   - EK: Endocarditis prophylaxis: amoxicillin 50 mg/kg, not above the adult 2 g.
-  - Needs: DN-8.1.A
+  - Needs: DN-8.1.C
   - P1 · drills: dn-peds-amoxicillin, dn-suspension-volume
 - ● **DN-8.1.E** (jcnde-domain:FK8) Find how much drug remains after a number of half-lives.
   - EK: Fraction left = (1/2)^{t/t½}; about 5 half-lives to clear 97%.
@@ -427,14 +427,14 @@ Big ideas: DX
 - ● **DN-9.1.A** (jcnde-domain:FK7, jcnde-domain:CC21, jcnde-domain:CC22) Link oral diseases to their organisms.
   - EK: Caries: S. mutans starts, lactobacilli advance. Periodontitis: the red complex (P. gingivalis, T. forsythia, T. denticola).
   - P3 · drills: dn-oral-microbes, dn-organism-lesion
-- ● **DN-9.1.C** (jcnde-domain:FK5) Classify hypersensitivity reactions met in dentistry.
-  - EK: Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates).
-  - Needs: DN-9.1.A
-  - P3 · drills: dn-hypersensitivity, dn-hypersensitivity-more
 - ● **DN-9.1.B** (jcnde-domain:FK7, jcnde-domain:CC51) Know bloodborne pathogen risk and the response to an exposure.
   - EK: Percutaneous transmission risk, unvaccinated source-positive: HBV up to about 30%, HCV about 1.8%, HIV about 0.3%.
-  - Needs: DN-9.1.C
+  - Needs: DN-9.1.A
   - P3 · drills: dn-exposure, dn-exposure-expected
+- ● **DN-9.1.C** (jcnde-domain:FK5) Classify hypersensitivity reactions met in dentistry.
+  - EK: Type I IgE (latex anaphylaxis, penicillin), IV T-cell (contact dermatitis to latex accelerators, nickel, methacrylates).
+  - Needs: DN-9.1.B
+  - P3 · drills: dn-hypersensitivity, dn-hypersensitivity-more
 
 ## Unit 10 · Oral and general pathology (FK6, CC23)
 
@@ -446,7 +446,7 @@ Big ideas: DX
 
 - ● **DN-10.1.A** (jcnde-domain:FK6, jcnde-domain:CC23, jcnde-domain:CC5) Name a soft-tissue lesion from its description.
   - EK: Mucocele: lower lip, after trauma. Ranula: floor of mouth. Fibroma: firm, smooth, on the bite line. Pyogenic granuloma: red, bleeds easily, often in pregnancy.
-  - Needs: DN-7.1.C, DN-9.1.B
+  - Needs: DN-7.1.C, DN-9.1.C
   - P2 · drills: dn-soft-lesions, dn-lesion-site
 - ● **DN-10.1.B** (jcnde-domain:FK6, jcnde-domain:CC23) Rank lesions by malignant risk and know oral cancer's usual sites.
   - EK: Erythroplakia carries the highest risk; squamous cell carcinoma is most common on the lateral and ventral tongue and floor of mouth.

@@ -62,7 +62,7 @@ units:
       - n: 1
         title: "Operations on integers, fractions and decimals"
         los:
-          - { id: B, std: ["H1.1", "J1.1", "J2.1", "E3.1", "E4.1"], do: "Take a fraction of a whole number by dividing first.", ek: ["p/q of n: divide by q, then multiply by p."], p: [P1, P2], drills: [mm-fraction-of, mm-whole-from-fraction] }
+          - { id: B, std: ["H1.1", "J1.1", "J2.1", "E3.1", "E4.1"], do: "Take a fraction of a whole number by dividing first.", ek: ["p/q of n: divide by q, then multiply by p."], p: [P1, P2], needs: [MK-6.3.D], drills: [mm-fraction-of, mm-whole-from-fraction] }
           - { id: A, std: ["H1.1", "J1.1", "J2.1", "E3.1", "E4.1"], do: "Add and subtract multi-digit numbers left to right, and subtract from a power of ten by complements.", ek: ["Say the large part of the answer first; 1000 − n is nines-and-a-ten on the digits.", "Slide both numbers so the one taken away is round (541 − 229 = 542 − 230); count up when the two are close."], p: [P1, P2], needs: [MM-1.1.B], drills: [mm-add-left-to-right, mm-subtract-from-1000, mm-sub-same-change, mm-sub-round-repay, mm-sub-count-up, mm-add-compensate, mm-money-subtract] }
       - n: 2
         title: "Order of operations"
@@ -79,7 +79,7 @@ units:
       - n: 5
         title: "Multiplication and division short-cuts"
         los:
-          - { id: A, std: ["H1.5", "J1.5", "J2.2", "J2.14", "J4.11", "E1.4", "E2.6", "E3.12", "E4.6"], do: "Multiply by 11, 25, 5, 99 and 101 by rewriting the multiplier.", ek: ["11 = 10 + 1; 25 = 100/4; 5 = 10/2; 99 = 100 − 1; 101 = 100 + 1."], p: [P1, P2], needs: [MM-1.4.A], drills: [mm-times-11, mm-times-25, mm-times-5, mm-times-99-101] }
+          - { id: A, std: ["H1.5", "J1.5", "J2.2", "J2.14", "J4.11", "E1.4", "E2.6", "E3.12", "E4.6"], do: "Multiply by 11, 25, 5, 99 and 101 by rewriting the multiplier.", ek: ["11 = 10 + 1; 25 = 100/4; 5 = 10/2; 99 = 100 − 1; 101 = 100 + 1."], p: [P1, P2], needs: [MM-1.4.A, MK-6.2.F], drills: [mm-times-11, mm-times-25, mm-times-5, mm-times-99-101] }
           - { id: B, std: ["H1.5", "J1.5", "J2.2", "J4.11", "E1.4", "E2.6", "E3.12", "E4.6"], do: "Multiply two numbers just under 100 from their shortfalls.", ek: ["(100 − a)(100 − b) = 100(100 − a − b) + ab."], p: [P1, P2], needs: [MM-1.5.A], drills: [mm-near-100, mm-above-100] }
           - { id: C, std: ["H1.5", "J1.5", "J2.2", "J4.11", "E1.4", "E2.6", "E3.12"], do: "Multiply two-digit numbers that share a tens digit and whose ones digits sum to 10, or that sit evenly around a round number.", ek: ["(10t + u)(10t + 10 − u) = 100t(t + 1) + u(10 − u); (m − d)(m + d) = m² − d²."], p: [P1, P2], needs: [MM-1.5.B], drills: [mm-same-tens, mm-difference-of-squares] }
           - { id: D, std: ["H1.5", "J1.5", "J2.2", "J4.11", "E1.4", "E2.6", "E3.12"], do: "Double one factor and halve the other to make a round number.", ek: ["ab = (a/2)(2b); a factor ending in 5 doubles to a multiple of 10."], p: [P1, P2], needs: [MM-1.5.C], drills: [mm-double-and-halve, mm-times-25] }
@@ -99,15 +99,15 @@ units:
       - n: 8
         title: "GCD and LCM"
         los:
-          - { id: A, std: ["H1.8", "J2.9", "E2.10"], do: "Find the GCD and LCM of two numbers under 100.", ek: ["The GCD divides the difference; LCM = product ÷ GCD."], p: [P1, P2], needs: [MM-1.7.C], drills: [mm-gcd, mm-lcm] }
+          - { id: A, std: ["H1.8", "J2.9", "E2.10"], do: "Find the GCD and LCM of two numbers under 100.", ek: ["The GCD divides the difference; LCM = product ÷ GCD."], p: [P1, P2], needs: [MM-1.7.C, MK-7.2.D], drills: [mm-gcd, mm-lcm] }
       - n: 9
         title: "Percent problems"
         los:
-          - { id: A, std: ["H1.9", "J2.3", "J4.9", "E4.13"], do: "Take a percent of a number by swapping or building from 10%, and apply a percent increase or decrease.", ek: ["a% of b = b% of a; a change of p% multiplies by 1 ± p/100."], p: [P1, P2], needs: [MM-1.8.A], drills: [mm-percent-swap, mm-percent-change] }
+          - { id: A, std: ["H1.9", "J2.3", "J4.9", "E4.13"], do: "Take a percent of a number by swapping or building from 10%, and apply a percent increase or decrease.", ek: ["a% of b = b% of a; a change of p% multiplies by 1 ± p/100."], p: [P1, P2], needs: [MM-1.8.A, MK-7.1.E], drills: [mm-percent-swap, mm-percent-change] }
       - n: 10
         title: "Mean, median and mode"
         los:
-          - { id: A, std: ["H1.10", "J1.8"], do: "Find a mean with a focus number and the median of a short unsorted list.", ek: ["Mean = guess + (sum of deviations)/n; the median survives striking extremes in pairs."], p: [P1, P2], needs: [MM-1.9.A], drills: [mm-mean-focus, mm-median] }
+          - { id: A, std: ["H1.10", "J1.8"], do: "Find a mean with a focus number and the median of a short unsorted list.", ek: ["Mean = guess + (sum of deviations)/n; the median survives striking extremes in pairs."], p: [P1, P2], needs: [MM-1.9.A, MK-7.5.F], drills: [mm-mean-focus, mm-median] }
       - n: 11
         title: "Sums of integers"
         los:
@@ -158,7 +158,7 @@ units:
       - n: 6
         title: "Ratio and proportion"
         los:
-          - { id: A, std: ["H2.6", "J2.12", "E2.7"], do: "Solve a proportion by scaling or cross-multiplying.", ek: ["a/b = c/d means ad = bc."], p: [P1, P2], needs: [MM-2.5.A], drills: [mm-proportion, mm-unit-rate] }
+          - { id: A, std: ["H2.6", "J2.12", "E2.7"], do: "Solve a proportion by scaling or cross-multiplying.", ek: ["a/b = c/d means ad = bc."], p: [P1, P2], needs: [MM-2.5.A, MK-8.1.E], drills: [mm-proportion, mm-unit-rate] }
       - n: 7
         title: "Square roots and cube roots"
         los:
@@ -174,7 +174,7 @@ units:
       - n: 10
         title: "Simple equations"
         los:
-          - { id: A, std: ["H2.10", "J2.7", "E3.6"], do: "Solve a one- or two-step linear equation mentally.", ek: ["Undo operations in reverse order."], p: [P1, P2], needs: [MM-2.9.A], drills: [mm-linear-equation, mm-both-sides] }
+          - { id: A, std: ["H2.10", "J2.7", "E3.6"], do: "Solve a one- or two-step linear equation mentally.", ek: ["Undo operations in reverse order."], p: [P1, P2], needs: [MM-2.9.A, MK-8.3.D], drills: [mm-linear-equation, mm-both-sides] }
       - n: 11
         title: "Systems of equations"
         los:
@@ -209,11 +209,11 @@ units:
       - n: 1
         title: "Laws of exponents"
         los:
-          - { id: A, std: ["H3.1"], do: "Simplify a product or quotient of powers by moving to a common base.", ek: ["aᵐaⁿ = aᵐ⁺ⁿ; (aᵐ)ⁿ = aᵐⁿ; 4 = 2², 8 = 2³."], p: [P1, P2], needs: [MM-2.16.A], drills: [mm-exponent-laws, mm-exponent-solve] }
+          - { id: A, std: ["H3.1"], do: "Simplify a product or quotient of powers by moving to a common base.", ek: ["aᵐaⁿ = aᵐ⁺ⁿ; (aᵐ)ⁿ = aᵐⁿ; 4 = 2², 8 = 2³."], p: [P1, P2], needs: [MM-2.16.A, MK-9.2.A], drills: [mm-exponent-laws, mm-exponent-solve] }
       - n: 2
         title: "Right triangles"
         los:
-          - { id: A, std: ["H3.2", "J3.3", "J3.9", "E3.11"], do: "Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.", ek: ["3-4-5, 5-12-13, 8-15-17, 7-24-25 and their multiples."], p: [P1, P2], needs: [MM-3.1.A], drills: [mm-pythagorean-triple, mm-right-triangle-area] }
+          - { id: A, std: ["H3.2", "J3.3", "J3.9", "E3.11"], do: "Complete a Pythagorean triple or a 30-60-90 or 45-45-90 triangle.", ek: ["3-4-5, 5-12-13, 8-15-17, 7-24-25 and their multiples."], p: [P1, P2], needs: [MM-3.1.A, MK-9.4.G], drills: [mm-pythagorean-triple, mm-right-triangle-area] }
       - n: 3
         title: "Coordinate geometry"
         los:

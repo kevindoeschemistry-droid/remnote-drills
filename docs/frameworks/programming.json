@@ -133,6 +133,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "PR-1.1.A"
+       ],
        "drills": [
         "pr-compile-run",
         "pr-compile-run-2"
@@ -202,6 +205,10 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "PR-1.1.C",
+        "MK-5.2.A"
+       ],
        "drills": [
         "pr-binary",
         "pr-to-binary"
@@ -255,6 +262,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "PR-1.2.B"
        ],
        "drills": [
         "pr-type-choice",
@@ -491,6 +501,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "PR-1.5.C"
        ],
        "drills": [
         "pr-api-docs",
@@ -1322,7 +1335,8 @@
         "pr-growth-compare"
        ],
        "needs": [
-        "PR-2.7.A"
+        "PR-2.7.A",
+        "MH-2.4.C"
        ]
       }
      ]
@@ -1647,6 +1661,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "PR-3.4.B"
        ],
        "drills": [
         "pr-data-clean",
@@ -2593,6 +2610,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "PR-5.5.B"
+       ],
        "drills": [
         "pr-git-why",
         "pr-git-why-2"
@@ -3214,7 +3234,8 @@
        ],
        "needs": [
         "PR-7.3.A",
-        "PR-7.5.B"
+        "PR-7.5.B",
+        "MH-19.4.C"
        ]
       },
       {
@@ -3696,6 +3717,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "PR-9.1.A"
        ],
        "drills": [
         "pr-parallel-time",

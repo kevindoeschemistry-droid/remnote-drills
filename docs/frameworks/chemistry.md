@@ -57,7 +57,7 @@ Big ideas: SPQ
 
 - ● **CH-0.2.B** (N-Q.A.3) Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.
   - EK: × ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit.
-  - Needs: CH-0.1.B
+  - Needs: CH-0.1.B, MK-9.2.D
   - P5 · drills: ac-sig-figs, ac-sig-figs-product
 - ● **CH-0.2.D** (N-Q.A.1, A-CED.A.4, acs-accm-general:I.D.3, acs-accm-general:IX.B.2) Calculate density, mass or volume from the other two, including volume by water displacement.
   - EK: ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature.
@@ -82,7 +82,7 @@ Big ideas: SPQ
 
 - ● **CH-0.3.A** (N-Q.A.1, 6.RP.A.3.D) Convert a quantity through a chain of conversion factors, including squared and cubed units.
   - EK: Multiply by factors equal to one, arranged so unwanted units cancel; cube the factor for volume (1 m³ = 10⁶ cm³).
-  - Needs: CH-0.2.A
+  - Needs: CH-0.2.A, MH-1.1.A
   - P5 · drills: ac-unit-chain-cubed, ac2-density-units
 
 ### 0.4 Atoms, ions, the periodic table and naming
@@ -415,7 +415,7 @@ Big ideas: SAP, SPQ
 
 - ● **CH-3.4.A** (SAP-7.A, acs-accm-general:IV.A.1, acs-accm-general:X.E.1) Solve PV = nRT for any variable with consistent units and the matching value of R.
   - EK: R = 0.08206 L·atm/(mol·K) = 8.314 J/(mol·K); T in kelvin; 1 atm = 760 torr = 101.325 kPa.
-  - Needs: CH-0.2.E
+  - Needs: CH-0.2.E, MH-1.4.D
   - P5 · drills: ac-ideal-gas-solve, pc-ideal-gas
 - ● **CH-3.4.B** (SAP-7.A) Predict a new P, V, T or n when conditions change, using the combined gas law and Boyle's, Charles's, Gay-Lussac's and Avogadro's laws.
   - EK: P₁V₁/(n₁T₁) = P₂V₂/(n₂T₂); cancel whatever is held constant.
@@ -709,7 +709,7 @@ Big ideas: TRA, ENE
 
 - ● **CH-5.3.A** (TRA-3.C) Use the zero-, first- or second-order integrated rate law to find a concentration at time t, or the time to reach one.
   - EK: [A] = [A]₀ − kt; ln[A] = ln[A]₀ − kt; 1/[A] = 1/[A]₀ + kt.
-  - Needs: CH-5.2.A
+  - Needs: CH-5.2.A, MH-14.1.A
   - P5 · drills: ac-zero-order, pc-first-order, pc-second-order
 - ● **CH-5.3.B** (TRA-3.C, acs-accm-general:X.D.2, acs-accm-organic:X.D) Identify reaction order from which plot ([A], ln[A] or 1/[A] vs t) is linear, and read k from its slope.
   - EK: Linear [A] ⇒ zero; linear ln[A] ⇒ first (slope −k); linear 1/[A] ⇒ second (slope +k).
@@ -968,7 +968,7 @@ Big ideas: TRA, SPQ
 
 - ● **CH-7.4.A** (TRA-7.B) Calculate K from equilibrium concentrations or partial pressures.
   - EK: Substitute equilibrium (not initial) values into the K expression.
-  - Needs: CH-7.3.A
+  - Needs: CH-7.3.A, MH-4.3.D
   - P5 · drills: ac-k-from-concentrations, ac-k-reverse-multiply
 - ● **CH-7.4.B** (TRA-7.B, acs-accm-analytical:VIII.C.1) Use an ICE table with initial amounts and one equilibrium amount to find K.
   - EK: Changes follow the coefficients: −ax, −bx, +cx; one known equilibrium value fixes x.
@@ -1086,7 +1086,7 @@ Big ideas: SAP, TRA, SPQ
 
 - ● **CH-8.2.A** (SAP-9.B) Identify the strong acids and bases, and calculate the pH of their solutions.
   - EK: Strong acids: HCl, HBr, HI, HNO₃, H₂SO₄ (first H), HClO₄; strong bases: Group 1 and heavy Group 2 hydroxides; they ionize completely.
-  - Needs: CH-8.1.A, CH-3.7.C
+  - Needs: CH-8.1.A, CH-3.7.C, MH-16.2.A
   - P5 · drills: ac-strong-acid-ph, ac2-strong-dilution-ph
 
 ### 8.3 Weak acid and base equilibria
@@ -1260,7 +1260,7 @@ Big ideas: ENE, TRA
 
 - ● **CH-9.5.A** (ENE-5.A, acs-accm-general:VIII.F.1, acs-accm-organic:VIII.F, acs-accm-inorganic:VI.A.2) Calculate K from ΔG°.
   - EK: K = exp(−ΔG°/RT); ΔG° < 0 ⇔ K > 1.
-  - Needs: CH-9.3.A, CH-7.5.A
+  - Needs: CH-9.3.A, CH-7.5.A, MH-16.2.B
   - P5 · drills: th-ce-k, ac2-dg-sign-from-k
 - ● **CH-9.5.B** (ENE-5.A) Calculate ΔG° from K.
   - EK: ΔG° = −RT ln K, with R = 8.314 J/(mol·K).

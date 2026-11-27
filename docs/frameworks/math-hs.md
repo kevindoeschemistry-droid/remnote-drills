@@ -60,6 +60,7 @@ Big ideas: EQUIV, MODEL
 
 - ● **MH-1.1.A** (N-Q.A.1) Use units to choose and check the solution path of a multi-step problem, converting units and choosing scales for graphs.
   - EK: Units multiply and divide like factors; a result in the wrong units is wrong.
+  - Needs: MK-7.1.F
   - MP2 · MP6 · drills: hs-rate-unit-conversion, hs2-unit-check, ~k8-convert
 - ● **MH-1.1.B** (N-Q.A.2) Define the quantities and variables needed to describe a situation.
   - EK: A quantity is a number with a unit attached to a specific attribute of a specific object.
@@ -76,6 +77,7 @@ Big ideas: EQUIV, MODEL
 
 - ● **MH-1.2.A** (A-SSE.A.1a) Identify the terms, factors and coefficients of an expression and say what each means in context.
   - EK: Terms are added, factors are multiplied; a coefficient scales its variable.
+  - Needs: MK-7.3.D
   - MP2 · MP7 · drills: k8-coefficient, hs2-expression-parts-context
 - ● **MH-1.2.B** (A-SSE.A.1b) Interpret a complicated expression by viewing one or more of its parts as a single entity, e.g. P(1 + r)^n as the product of P and a factor not depending on P.
   - EK: Treating a sub-expression as one object shows the role it plays in the whole.
@@ -88,6 +90,7 @@ Big ideas: EQUIV, MODEL
 
 - ● **MH-1.3.A** (A-REI.A.1) Explain each step in solving a simple equation as following from the equality asserted in the previous step, and justify the method.
   - EK: Applying the same invertible operation to both sides keeps the solution set unchanged.
+  - Needs: MK-9.2.H
   - MP3 · MP7 · drills: hs-justify-step, hs2-property-of-step, mm-linear-equation, ~alg-linear-eq
 - ● **MH-1.3.B** (A-REI.B.3) Solve a linear equation in one variable, including equations with coefficients represented by letters.
   - EK: Collect the variable terms on one side and constants on the other, then divide by the (nonzero) coefficient.
@@ -129,6 +132,7 @@ Big ideas: FUNC, MODEL, EQUIV
 
 - ● **MH-2.1.A** (F-IF.A.1) Decide whether a relation given by a table, graph, mapping or rule is a function, and state its domain and range.
   - EK: A function assigns to each input exactly one output; its graph is the set of points (x, f(x)).
+  - Needs: MK-9.3.A
   - MP6 · drills: k8-is-function, hs2-function-equation
 - ● **MH-2.1.B** (F-IF.A.2) Evaluate a function written in function notation for given inputs and interpret f(a) in context.
   - EK: f(a) is the output when the input is a; f(a + 1) is not f(a) + 1.
@@ -162,7 +166,7 @@ Big ideas: FUNC, MODEL, EQUIV
 
 - ● **MH-2.3.A** (A-REI.D.10) Explain that the graph of an equation in two variables is the set of all its solutions plotted in the coordinate plane.
   - EK: A point lies on the graph exactly when its coordinates satisfy the equation.
-  - Needs: MH-1.4.B
+  - Needs: MH-1.4.B, MK-9.2.E
   - MP3 · drills: hs-point-on-graph, hs2-point-on-line
 - ● **MH-2.3.B** (F-IF.C.7a) Graph a linear function from its equation, showing the intercepts and the slope.
   - EK: y = mx + b: slope m = rise/run, y-intercept b, x-intercept −b/m.
@@ -213,6 +217,7 @@ Big ideas: FUNC, MODEL, EQUIV
 
 - ● **MH-2.6.A** (N-RN.A.1) Explain how the meaning of rational exponents follows from extending the properties of integer exponents, e.g. why 5^(1/3) is the cube root of 5.
   - EK: (5^(1/3))³ = 5^((1/3)·3) = 5, so 5^(1/3) must be a cube root of 5.
+  - Needs: MK-9.2.A
   - MP3 · MP7 · drills: alg-rational-exp, hs2-rational-exponent
 - ● **MH-2.6.B** (N-RN.A.2) Rewrite expressions involving radicals and rational exponents using the properties of exponents.
   - EK: x^(m/n) = (ⁿ√x)^m; a^p·a^q = a^(p+q); (a^p)^q = a^(pq); a^(−p) = 1/a^p.
@@ -237,7 +242,7 @@ Big ideas: FUNC, MODEL, EQUIV
 
 - ● **MH-2.7.A** (A-REI.C.6) Solve a system of two linear equations approximately by graphing.
   - EK: The solution is the intersection point; parallel lines give no solution, coincident lines infinitely many.
-  - Needs: MH-2.3.B
+  - Needs: MH-2.3.B, MK-9.2.J
   - MP5 · drills: hs-system-graph, hs2-intersection-meaning, mm-sum-and-difference, ~k8-system
 - ● **MH-2.7.B** (A-REI.C.6, webwork-opl:LA1.1) Solve a system of two linear equations exactly by substitution or elimination.
   - EK: Eliminate one variable to get a one-variable equation, solve, then back-substitute.
@@ -266,6 +271,7 @@ Big ideas: DATA, MODEL
 
 - ● **MH-3.1.A** (S-ID.A.1, webwork-opl:ST3.1, webwork-opl:ST3.3) Represent data with plots on the real number line: dot plots, histograms and box plots.
   - EK: A box plot shows the five-number summary: minimum, Q1, median, Q3, maximum.
+  - Needs: MK-7.5.F
   - MP5 · MP6 · drills: k8-histogram-read, k8-box-plot, ~k8-dot-plot, ~k8-box-plot
 - ● **MH-3.1.B** (S-ID.A.2, webwork-opl:ST3.2) Compare the center (median, mean) and spread (interquartile range, standard deviation) of two or more data sets, using statistics suited to their shape.
   - EK: Skewed data or outliers → median and IQR; roughly symmetric → mean and standard deviation.
@@ -282,6 +288,7 @@ Big ideas: DATA, MODEL
 
 - ● **MH-3.2.A** (S-ID.B.5, webwork-opl:ST3.5) Summarise categorical data for two categories in two-way frequency tables and interpret joint, marginal and conditional relative frequencies.
   - EK: Joint = cell / grand total; marginal = row or column total / grand total; conditional = cell / its row or column total.
+  - Needs: MK-9.5.D
   - MP2 · MP6 · drills: stats-two-way, hs2-two-way-marginal
 - ● **MH-3.2.B** (S-ID.B.6a, webwork-opl:ST7.2) Fit a function (linear, quadratic or exponential) to data on two quantitative variables in a scatter plot and use it to solve problems in the context of the data.
   - EK: Pick the family from the shape of the scatter and the context, then use technology to fit its parameters.
@@ -323,7 +330,7 @@ Big ideas: EQUIV, NUM
 
 - ● **MH-4.1.A** (A-APR.A.1) Add, subtract and multiply polynomials, and explain why the result is again a polynomial.
   - EK: Polynomials are closed under +, − and ×, like the integers; multiply by distributing every term over every term.
-  - Needs: MH-1.2.A
+  - Needs: MH-1.2.A, MK-8.3.A
   - MP6 · MP7 · drills: alg-poly-arith, hs2-poly-degree
 - ● **MH-4.1.B** (A-SSE.A.2) Use the structure of an expression to rewrite it, e.g. x⁴ − y⁴ as (x²)² − (y²)² = (x² − y²)(x² + y²).
   - EK: Recognise a² − b², a² ± 2ab + b² and common factors, where a and b may themselves be expressions.
@@ -387,7 +394,7 @@ Big ideas: FUNC, EQUIV, NUM, MODEL
 
 - ● **MH-5.1.A** (N-RN.B.3) Explain why the sum or product of two rational numbers is rational, the sum of a rational and an irrational number is irrational, and the product of a nonzero rational and an irrational number is irrational.
   - EK: If r + x were rational for rational r, then x = (r + x) − r would be rational too.
-  - Needs: MH-4.3.C
+  - Needs: MH-4.3.C, MK-9.1.A
   - MP3 · drills: hs-rational-irrational, hs2-rational-sum-type
 
 ### 5.2 Analyze quadratic and related functions using different representations
@@ -454,6 +461,7 @@ Big ideas: XFORM
 
 - ● **MH-6.1.A** (G-CO.A.1) State precise definitions of angle, circle, perpendicular line, parallel line and line segment, based on the undefined notions of point, line, distance along a line and distance around a circular arc.
   - EK: A circle is the set of points in a plane at a fixed distance from a center; a definition must name exactly the objects intended.
+  - Needs: MK-9.4.A
   - MP6 · drills: hs-geometry-definitions, hs2-definition-term
 - ● **MH-6.1.B** (G-CO.A.2) Represent transformations as functions that take points in the plane to other points, and compare those that preserve distance and angle (rigid motions) with those that do not (e.g. a horizontal stretch).
   - EK: A transformation is a function on points; rigid motions preserve every distance and angle.
@@ -529,7 +537,7 @@ Big ideas: XFORM, MODEL
 
 - ● **MH-7.1.A** (G-SRT.A.1a) Verify experimentally that a dilation takes a line not through the center to a parallel line, and leaves a line through the center unchanged.
   - EK: A dilation with center O and factor k sends P to P′ on ray OP with OP′ = k·OP.
-  - Needs: MH-6.1.E
+  - Needs: MH-6.1.E, MK-9.4.D
   - MP5 · MP8 · drills: hs2-dilation-parallel, ~geo-dilation
 - ● **MH-7.1.B** (G-SRT.A.1b) Verify experimentally that a dilation multiplies the length of every segment by the scale factor.
   - EK: In coordinates, dilation about the origin: (x, y) → (kx, ky), so every length scales by |k|.
@@ -563,7 +571,7 @@ Big ideas: XFORM, MODEL
 
 - ● **MH-7.3.A** (G-SRT.C.6) Explain that by similarity the side ratios of a right triangle depend only on its acute angle, which defines sine, cosine and tangent.
   - EK: sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse, tan θ = opposite/adjacent.
-  - Needs: MH-7.1.D
+  - Needs: MH-7.1.D, MK-9.4.G
   - MP3 · MP7 · drills: geo-trig-ratio, hs2-trig-from-sides
 - ● **MH-7.3.B** (G-SRT.C.7) Explain and use the relationship between the sine and cosine of complementary angles.
   - EK: sin θ = cos(90° − θ): the side opposite one acute angle is adjacent to the other.
@@ -602,7 +610,7 @@ Big ideas: XFORM, MODEL
 - ● **MH-7.5.B** (G-SRT.D.10) Prove the Laws of Sines and Cosines.
   - EK: a/sin A = b/sin B = c/sin C; c² = a² + b² − 2ab cos C.
   - Needs: MH-7.5.A
-  - MP3 · drills: hs2-law-of-sines
+  - MP3 · drills: hs2-law-of-sines, hs2-law-of-cosines-side
 - ● **MH-7.5.C** (G-SRT.D.11) Use the Laws of Sines and Cosines to find unknown measurements in right and non-right triangles, including the ambiguous SSA case.
   - EK: Two sides and the included angle, or three sides → Law of Cosines; an angle and its opposite side known → Law of Sines (check for a second triangle).
   - Needs: MH-7.5.B
@@ -618,7 +626,7 @@ Big ideas: XFORM, MODEL
 
 - ● **MH-8.1.A** (G-GMD.A.1) Give an informal argument for the circumference and area of a circle and the volume of a cylinder, pyramid and cone (dissection, Cavalieri's principle, limits).
   - EK: Cut a circle into thin sectors and rearrange into a near-parallelogram of base πr and height r: A = πr².
-  - Needs: MH-6.4.B, MH-7.1.B
+  - Needs: MH-6.4.B, MH-7.1.B, MK-9.4.I
   - MP3 · MP8 · drills: mm-volume-in-pi, mm-sphere-in-pi, ~hs-cavalieri-ratios
 - ● **MH-8.1.B** (G-GMD.A.3) Use the volume formulas for cylinders, pyramids, cones and spheres to solve problems.
   - EK: V = Bh (prism, cylinder); V = ⅓Bh (pyramid, cone); V = (4/3)πr³ (sphere).
@@ -648,7 +656,7 @@ Big ideas: XFORM, EQUIV
 
 - ● **MH-9.1.A** (G-GPE.B.4) Use coordinates to prove simple geometric theorems algebraically, e.g. that a given quadrilateral is a rectangle.
   - EK: Equal slopes ⇒ parallel; equal distances ⇒ congruent segments; midpoint ((x₁ + x₂)/2, (y₁ + y₂)/2).
-  - Needs: MH-2.3.B, MH-6.3.C
+  - Needs: MH-2.3.B, MH-6.3.C, MK-9.4.H
   - MP3 · drills: geo-coord-proof, hs2-coordinate-right-angle
 - ● **MH-9.1.B** (G-GPE.B.5) Prove the slope criteria for parallel and perpendicular lines and use them to write the equation of a line parallel or perpendicular to a given line through a given point.
   - EK: Parallel: m₁ = m₂; perpendicular: m₁m₂ = −1.
@@ -695,7 +703,7 @@ Big ideas: XFORM, EQUIV
 - ● **MH-10.1.D** (G-C.A.4) (+) Construct a tangent line from a point outside a given circle to the circle.
   - EK: The tangent point lies on the circle whose diameter joins the outside point to the center (right angle in a semicircle).
   - Needs: MH-10.1.B, MH-6.4.A
-  - MP5 · drills: hs2-tangent-length
+  - MP5 · drills: hs2-tangent-length, hs2-tangent-angle
 
 ### 10.2 Find arc lengths and areas of sectors of circles
 
@@ -729,6 +737,7 @@ Big ideas: DATA
 
 - ● **MH-11.1.A** (S-CP.A.1, webwork-opl:PB1.1) Describe events as subsets of a sample space using characteristics of the outcomes, or as unions, intersections or complements of other events.
   - EK: 'Or' is union, 'and' is intersection, 'not' is complement; P(not A) = 1 − P(A).
+  - Needs: MK-8.5.H
   - MP6 · drills: hs-events-as-sets, mm-subsets, ~stats-addition
 - ● **MH-11.1.B** (S-CP.A.2) Decide whether two events are independent using the fact that A and B are independent exactly when P(A and B) = P(A)·P(B).
   - EK: Independent ⇔ P(A ∩ B) = P(A)P(B).
@@ -791,6 +800,7 @@ Big ideas: NUM, EQUIV, FUNC
 
 - ● **MH-12.1.A** (N-CN.A.1) Know there is a complex number i with i² = −1, and write every complex number in the form a + bi with a and b real.
   - EK: √(−k) = i√k for k > 0; a is the real part, b the imaginary part.
+  - Needs: MK-9.2.B
   - MP6 · drills: alg-complex-arith, hs2-i-power
 - ● **MH-12.1.B** (N-CN.A.2) Add, subtract and multiply complex numbers using i² = −1 and the commutative, associative and distributive properties.
   - EK: (a + bi)(c + di) = (ac − bd) + (ad + bc)i.
@@ -1122,6 +1132,7 @@ Big ideas: NUM, XFORM
 
 - ● **MH-19.1.A** (N-VM.A.1) (+) Recognise vector quantities as having both magnitude and direction, represent them by directed line segments, and use notation such as v, |v| and ‖v‖.
   - EK: Velocity, force and displacement are vectors; speed and mass are scalars.
+  - Needs: MH-7.3.C
   - MP6 · drills: hs-vector-magnitude-direction, hs2-vector-or-scalar, ~alg-vector, ~hs-vector-components
 - ● **MH-19.1.B** (N-VM.A.2) (+) Find the components of a vector by subtracting the coordinates of its initial point from those of its terminal point.
   - EK: From P(x₁, y₁) to Q(x₂, y₂): ⟨x₂ − x₁, y₂ − y₁⟩, magnitude by the distance formula.
@@ -1168,6 +1179,7 @@ Big ideas: NUM, XFORM
 
 - ● **MH-19.4.A** (N-VM.C.6) (+) Use matrices to represent and manipulate data, e.g. payoffs or incidence relationships in a network.
   - EK: Entry (i, j) records the relationship of row item i to column item j.
+  - Needs: MH-2.7.B
   - MP4 · drills: hs-matrix-as-data, hs2-matrix-data, ~hs-matrix-ops
 - ● **MH-19.4.B** (N-VM.C.7) (+) Multiply a matrix by a scalar to produce a new matrix, e.g. when all of the payoffs in a game are doubled.
   - EK: cA multiplies every entry by c.

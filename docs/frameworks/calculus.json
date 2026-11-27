@@ -86,6 +86,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "MH-2.2.C"
+       ],
        "drills": [
         "ca-shrinking-average-rate",
         "ca-secant-to-tangent"
@@ -251,7 +254,8 @@
         "ca-lim-conjugate"
        ],
        "needs": [
-        "CA-1.5.A"
+        "CA-1.5.A",
+        "MH-12.5.B"
        ]
       },
       {
@@ -765,7 +769,8 @@
         "hy-derivative-value"
        ],
        "needs": [
-        "CA-2.2.A"
+        "CA-2.2.A",
+        "MH-2.6.B"
        ]
       }
      ]
@@ -823,7 +828,8 @@
         "ca-derivative-at-point"
        ],
        "needs": [
-        "CA-2.6.A"
+        "CA-2.6.A",
+        "MH-17.1.C"
        ]
       },
       {
@@ -977,7 +983,8 @@
         "ca-exp-base"
        ],
        "needs": [
-        "CA-2.10.A"
+        "CA-2.10.A",
+        "MH-16.1.A"
        ]
       }
      ]
@@ -1035,7 +1042,8 @@
         "ca-inverse-derivative-table"
        ],
        "needs": [
-        "CA-3.1.A"
+        "CA-3.1.A",
+        "MH-16.1.C"
        ]
       }
      ]
@@ -1063,7 +1071,8 @@
         "ca-arcsin-derivative"
        ],
        "needs": [
-        "CA-3.3.A"
+        "CA-3.3.A",
+        "MH-17.2.B"
        ]
       }
      ]
@@ -2547,7 +2556,8 @@
         "ca-newton-cooling"
        ],
        "needs": [
-        "CA-7.7.A"
+        "CA-7.7.A",
+        "MH-14.1.A"
        ]
       }
      ]
@@ -2792,7 +2802,8 @@
         "ca-cross-section-squares-y"
        ],
        "needs": [
-        "CA-8.4.A"
+        "CA-8.4.A",
+        "MH-8.1.B"
        ]
       }
      ]
@@ -3199,7 +3210,8 @@
         "P2"
        ],
        "needs": [
-        "CA-9.6.A"
+        "CA-9.6.A",
+        "MH-18.1.B"
        ],
        "drills": [
         "ca-polar-convert",
@@ -3353,7 +3365,8 @@
         "ca2-geometric-series-sum"
        ],
        "needs": [
-        "CA-10.1.A"
+        "CA-10.1.A",
+        "MH-12.4.A"
        ]
       }
      ]
@@ -3896,6 +3909,9 @@
        "p": [
         "P1",
         "P4"
+       ],
+       "needs": [
+        "MH-19.2.D"
        ],
        "drills": [
         "cm-distance-3d",
@@ -5273,7 +5289,8 @@
         "P1"
        ],
        "needs": [
-        "CA-3.6.A"
+        "CA-3.6.A",
+        "MH-2.6.C"
        ],
        "drills": [
         "hy-which-definition",
@@ -5431,7 +5448,8 @@
         "CA-8.14.A"
        ],
        "drills": [
-        "ca-marginal-cost"
+        "ca-marginal-cost",
+        "ca-marginal-revenue-zero"
        ]
       },
       {
@@ -5450,7 +5468,8 @@
         "CA-16.1.A"
        ],
        "drills": [
-        "ca-max-profit"
+        "ca-max-profit",
+        "ca-max-profit-value"
        ]
       },
       {
@@ -5469,7 +5488,8 @@
         "CA-16.1.B"
        ],
        "drills": [
-        "ca-peak-concentration"
+        "ca-peak-concentration",
+        "ca-peak-concentration-value"
        ]
       },
       {
@@ -5488,7 +5508,8 @@
         "CA-16.1.C"
        ],
        "drills": [
-        "ca-elasticity"
+        "ca-elasticity",
+        "ca-unit-elastic-price"
        ]
       }
      ]
@@ -5513,7 +5534,8 @@
         "CA-16.1.D"
        ],
        "drills": [
-        "ca-consumer-surplus"
+        "ca-consumer-surplus",
+        "ca-producer-surplus"
        ]
       },
       {
@@ -5532,7 +5554,8 @@
         "CA-16.2.A"
        ],
        "drills": [
-        "ca-cardiac-output"
+        "ca-cardiac-output",
+        "ca-dye-amount"
        ]
       },
       {
@@ -5551,7 +5574,8 @@
         "CA-16.2.B"
        ],
        "drills": [
-        "ca-pdf-constant"
+        "ca-pdf-constant",
+        "ca-pdf-mean"
        ]
       }
      ]
@@ -5592,7 +5616,8 @@
         "CA-8.14.A"
        ],
        "drills": [
-        "ca-trig-integral"
+        "ca-trig-integral",
+        "ca-trig-integral-strategy"
        ]
       },
       {
@@ -5612,7 +5637,8 @@
         "CA-17.1.A"
        ],
        "drills": [
-        "ca-trig-substitution"
+        "ca-trig-substitution",
+        "ca-trig-sub-choice"
        ]
       },
       {
@@ -5631,7 +5657,8 @@
         "CA-17.1.B"
        ],
        "drills": [
-        "ca-integral-table"
+        "ca-integral-table",
+        "ca-table-arctan"
        ]
       },
       {
@@ -5650,7 +5677,8 @@
         "CA-17.1.C"
        ],
        "drills": [
-        "ca-cas-antiderivative"
+        "ca-cas-antiderivative",
+        "ca-cas-check"
        ]
       }
      ]
@@ -5675,7 +5703,8 @@
         "CA-17.1.D"
        ],
        "drills": [
-        "ca-shells"
+        "ca-shells",
+        "ca-shells-power"
        ]
       },
       {
@@ -5694,7 +5723,8 @@
         "CA-17.2.A"
        ],
        "drills": [
-        "ca-two-methods"
+        "ca-two-methods",
+        "ca-two-methods-x-axis"
        ]
       },
       {
@@ -5713,7 +5743,8 @@
         "CA-17.2.B"
        ],
        "drills": [
-        "ca-surface-revolution"
+        "ca-surface-revolution",
+        "ca-cone-frustum-area"
        ]
       },
       {
@@ -5732,7 +5763,8 @@
         "CA-17.2.C"
        ],
        "drills": [
-        "ca-hydrostatic-triangle"
+        "ca-hydrostatic-triangle",
+        "ca-hydrostatic-gate"
        ]
       }
      ]
@@ -5758,26 +5790,6 @@
      "title": "Sequences and series",
      "los": [
       {
-       "id": "C",
-       "std": [
-        "webwork-opl:CA7.13"
-       ],
-       "do": "Choose a convergence test for a series.",
-       "ek": [
-        "Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison."
-       ],
-       "p": [
-        "P1"
-       ],
-       "needs": [
-        "CA-9.9.A",
-        "CA-10.16.C"
-       ],
-       "drills": [
-        "ca-series-strategy"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "webwork-opl:CA7.1"
@@ -5790,10 +5802,12 @@
         "P1"
        ],
        "needs": [
-        "CA-18.1.C"
+        "CA-9.9.A",
+        "CA-10.16.C"
        ],
        "drills": [
-        "ca-sequence-limit"
+        "ca-sequence-limit",
+        "ca-sequence-limit-e"
        ]
       },
       {
@@ -5812,7 +5826,28 @@
         "CA-18.1.A"
        ],
        "drills": [
-        "ca-root-test"
+        "ca-root-test",
+        "ca-root-test-verdict"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "webwork-opl:CA7.13"
+       ],
+       "do": "Choose a convergence test for a series.",
+       "ek": [
+        "Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "CA-18.1.B"
+       ],
+       "drills": [
+        "ca-series-strategy",
+        "ca-series-verdict"
        ]
       }
      ]
@@ -5834,10 +5869,11 @@
         "P1"
        ],
        "needs": [
-        "CA-18.1.B"
+        "CA-18.1.C"
        ],
        "drills": [
-        "ca-eliminate-parameter"
+        "ca-eliminate-parameter",
+        "ca-eliminate-exponential"
        ]
       },
       {
@@ -5856,7 +5892,8 @@
         "CA-18.2.A"
        ],
        "drills": [
-        "ca-parametric-area"
+        "ca-parametric-area",
+        "ca-ellipse-area-parametric"
        ]
       },
       {
@@ -5875,7 +5912,8 @@
         "CA-18.2.B"
        ],
        "drills": [
-        "ca-parametric-volume"
+        "ca-parametric-volume",
+        "ca-ellipsoid-volume-parametric"
        ]
       },
       {
@@ -5894,7 +5932,8 @@
         "CA-18.2.C"
        ],
        "drills": [
-        "ca-parametric-surface"
+        "ca-parametric-surface",
+        "ca-parametric-cap-area"
        ]
       },
       {
@@ -5913,7 +5952,8 @@
         "CA-18.2.D"
        ],
        "drills": [
-        "ca-polar-arc-length"
+        "ca-polar-arc-length",
+        "ca-polar-spiral-length"
        ]
       },
       {
@@ -5932,7 +5972,8 @@
         "CA-18.2.E"
        ],
        "drills": [
-        "ca-vector-limit"
+        "ca-vector-limit",
+        "ca-vector-limit-magnitude"
        ]
       }
      ]
@@ -7997,7 +8038,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-marginal-cost"
+    "ca-marginal-cost",
+    "ca-marginal-revenue-zero"
    ],
    "partial": []
   },
@@ -8007,7 +8049,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-max-profit"
+    "ca-max-profit",
+    "ca-max-profit-value"
    ],
    "partial": []
   },
@@ -8017,7 +8060,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-peak-concentration"
+    "ca-peak-concentration",
+    "ca-peak-concentration-value"
    ],
    "partial": []
   },
@@ -8027,7 +8071,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-elasticity"
+    "ca-elasticity",
+    "ca-unit-elastic-price"
    ],
    "partial": []
   },
@@ -8037,7 +8082,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-consumer-surplus"
+    "ca-consumer-surplus",
+    "ca-producer-surplus"
    ],
    "partial": []
   },
@@ -8047,7 +8093,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-cardiac-output"
+    "ca-cardiac-output",
+    "ca-dye-amount"
    ],
    "partial": []
   },
@@ -8057,7 +8104,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-pdf-constant"
+    "ca-pdf-constant",
+    "ca-pdf-mean"
    ],
    "partial": []
   },
@@ -8067,7 +8115,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-trig-integral"
+    "ca-trig-integral",
+    "ca-trig-integral-strategy"
    ],
    "partial": []
   },
@@ -8077,7 +8126,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-trig-substitution"
+    "ca-trig-substitution",
+    "ca-trig-sub-choice"
    ],
    "partial": []
   },
@@ -8087,7 +8137,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-integral-table"
+    "ca-integral-table",
+    "ca-table-arctan"
    ],
    "partial": []
   },
@@ -8097,7 +8148,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-cas-antiderivative"
+    "ca-cas-antiderivative",
+    "ca-cas-check"
    ],
    "partial": []
   },
@@ -8107,7 +8159,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-shells"
+    "ca-shells",
+    "ca-shells-power"
    ],
    "partial": []
   },
@@ -8117,7 +8170,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-two-methods"
+    "ca-two-methods",
+    "ca-two-methods-x-axis"
    ],
    "partial": []
   },
@@ -8127,7 +8181,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-surface-revolution"
+    "ca-surface-revolution",
+    "ca-cone-frustum-area"
    ],
    "partial": []
   },
@@ -8137,17 +8192,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-hydrostatic-triangle"
-   ],
-   "partial": []
-  },
-  {
-   "code": "CA-18.1.C",
-   "unit": 18,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "ca-series-strategy"
+    "ca-hydrostatic-triangle",
+    "ca-hydrostatic-gate"
    ],
    "partial": []
   },
@@ -8157,7 +8203,8 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-sequence-limit"
+    "ca-sequence-limit",
+    "ca-sequence-limit-e"
    ],
    "partial": []
   },
@@ -8167,7 +8214,19 @@
    "topic": 1,
    "status": "ok",
    "full": [
-    "ca-root-test"
+    "ca-root-test",
+    "ca-root-test-verdict"
+   ],
+   "partial": []
+  },
+  {
+   "code": "CA-18.1.C",
+   "unit": 18,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ca-series-strategy",
+    "ca-series-verdict"
    ],
    "partial": []
   },
@@ -8177,7 +8236,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-eliminate-parameter"
+    "ca-eliminate-parameter",
+    "ca-eliminate-exponential"
    ],
    "partial": []
   },
@@ -8187,7 +8247,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-parametric-area"
+    "ca-parametric-area",
+    "ca-ellipse-area-parametric"
    ],
    "partial": []
   },
@@ -8197,7 +8258,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-parametric-volume"
+    "ca-parametric-volume",
+    "ca-ellipsoid-volume-parametric"
    ],
    "partial": []
   },
@@ -8207,7 +8269,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-parametric-surface"
+    "ca-parametric-surface",
+    "ca-parametric-cap-area"
    ],
    "partial": []
   },
@@ -8217,7 +8280,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-polar-arc-length"
+    "ca-polar-arc-length",
+    "ca-polar-spiral-length"
    ],
    "partial": []
   },
@@ -8227,7 +8291,8 @@
    "topic": 2,
    "status": "ok",
    "full": [
-    "ca-vector-limit"
+    "ca-vector-limit",
+    "ca-vector-limit-magnitude"
    ],
    "partial": []
   }
