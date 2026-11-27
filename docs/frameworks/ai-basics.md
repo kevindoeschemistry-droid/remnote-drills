@@ -41,7 +41,7 @@ Big ideas: MATH
 
 - ● **AB-1.1.A** (harper-carroll-academy:1) Place a system in the nested fields AI ⊃ machine learning ⊃ deep learning ⊃ generative AI.
   - EK: ML learns from data; deep learning uses many-layer networks; generative AI produces new content.
-  - P2 · drills: ab-ai-ml-dl
+  - P2 · drills: ab-ai-ml-dl, ab-field-pick
 
 ## Unit 2 · The world as numbers
 
@@ -104,7 +104,7 @@ Big ideas: MATH, TOOL
 - ● **AB-4.1.D** (harper-carroll-academy:4) Convert a parameter count and precision to the memory the weights need.
   - EK: 16-bit = 2 bytes per parameter; a billion bytes ≈ 1 GB.
   - Needs: AB-4.1.C
-  - P1 · drills: ab-weight-memory
+  - P1 · drills: ab-weight-memory, ab-parameters-that-fit
 
 ## Unit 5 · Training
 
@@ -142,7 +142,7 @@ Big ideas: TOOL
 - ● **AB-6.1.B** (harper-carroll-academy:6) Choose the prompt change that fixes a given problem with an answer.
   - EK: Context, format, examples, steps.
   - Needs: AB-6.1.A
-  - P3 · drills: ab-prompt-fix
+  - P3 · drills: ab-prompt-fix, ab-prompt-fix-pick
 
 ## Unit 7 · AI and tools
 

@@ -2636,7 +2636,7 @@ https://pubs.acs.org/doi/10.1021/acs.jchemed.7b00531
 | III.A.3 | Moment of inertia, rotational constant and isotope effects in spectra | 4 | 4 | physical-chemistry (4) |
 | III.B.1 | Molecular shape sets the point group | 2 | 2 | physical-chemistry (2) |
 | III.B.2 | Hybridisation and local geometry | 1 | 1 | physical-chemistry (1) |
-| III.B.3 | Shape from the lowest-energy molecular wavefunction | 1 | 0 | physical-chemistry (1) |
+| III.B.3 | Shape from the lowest-energy molecular wavefunction | 1 | 1 | physical-chemistry (1) |
 | III.C.1 | Geometry optimisation by energy minimisation | 1 | 1 | physical-chemistry (1) |
 | III.C.2 | Spectra as checks on computation | 1 | 1 | physical-chemistry (1) |
 | III.C.3 | Energies of non-minimum geometries (surfaces, transition states) | 1 | 1 | physical-chemistry (1) |
@@ -3094,7 +3094,7 @@ https://www.pianetachimica.it/olimpiadi/41icho/IChOsyllabus.pdf
 | a4 | Prep only: stereoselective reactions, conformations, advanced aromatic substitution | 6 | 6 | organic-reactions (6) |
 | a5 | Prep only: advanced polymers and supramolecular chemistry | 4 | 4 | materials (4) |
 | a6 | Prep only: biochemistry (amino acids, proteins, enzymes, carbohydrates, nucleic acids) | 23 | 23 | biology (16), structures (7) |
-| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 27 | 26 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (20) |
+| a7 | Prep only: complex solubility, Schrodinger equation, simple MO theory | 27 | 27 | analytical-chemistry (2), chemistry-olympiad (5), physical-chemistry (20) |
 | a8 | Prep only: mass spectrometry and NMR | 8 | 8 | chemistry-olympiad (3), physical-chemistry (5) |
 | a9 | Prep only: advanced synthesis and analysis techniques | 3 | 3 | analytical-chemistry (3) |
 | d1 | Facts: s-block reactions and flame colours | 4 | 4 | inorganic-chemistry (4) |

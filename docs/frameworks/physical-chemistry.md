@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/physical-chemistry.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**158 learning objectives** in 22 units (158 core): 156 drilled, 2 partly, 0 with no drills. Core: 156 / 158 drilled.
+**158 learning objectives** in 22 units (158 core): 157 drilled, 1 partly, 0 with no drills. Core: 157 / 158 drilled.
 
 ## Big ideas
 
@@ -39,7 +39,7 @@ Generated from `drills/frameworks/physical-chemistry.yaml` by `scripts/framework
 | 12 · Model systems: box, oscillator and rotor | core | — | 12 | 12 | 0 | 0 |
 | 13 · Vibrational and rotational spectroscopy | core | — | 6 | 6 | 0 | 0 |
 | 14 · The hydrogen atom and many-electron atoms | core | — | 10 | 9 | 1 | 0 |
-| 15 · Chemical bonding and computational chemistry | core | — | 12 | 11 | 1 | 0 |
+| 15 · Chemical bonding and computational chemistry | core | — | 12 | 12 | 0 | 0 |
 | 16 · Electronic spectroscopy | core | — | 5 | 5 | 0 | 0 |
 | 17 · Molecular symmetry | core | — | 6 | 6 | 0 | 0 |
 | 18 · Nuclear magnetic resonance | core | — | 5 | 5 | 0 | 0 |
@@ -626,11 +626,11 @@ Book: engel-reid-3e §24.2, §24.5, §24:huckel
 - ● **PC-15.2.A** (acs-accm-pchem:III.B.2) Assign hybridisation and predict geometry from the number of electron domains.
   - EK: sp linear 180°, sp² trigonal 120°, sp³ tetrahedral 109.5°.
   - Needs: PC-15.1.D
-  - P2 · P5 · drills: qm-hybridisation
-- ◐ **PC-15.2.B** (acs-accm-pchem:III.B.3) Use qualitative MO theory to identify the HOMO and LUMO and predict a geometry.
+  - P2 · P5 · drills: qm-hybridisation, pc-hybrid-p-character
+- ● **PC-15.2.B** (acs-accm-pchem:III.B.3) Use qualitative MO theory to identify the HOMO and LUMO and predict a geometry.
   - EK: A Walsh diagram tracks orbital energy against angle; the HOMO decides the shape.
   - Needs: PC-15.2.A
-  - P2 · P5 · drills: ~qm-walsh-ah2
+  - P2 · P5 · drills: pc-walsh-ah2-shape, ~qm-walsh-ah2
 - ● **PC-15.2.C** (acs-accm-pchem:II.E.1) Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.
   - EK: E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative.
   - Needs: PC-15.2.B
@@ -643,7 +643,7 @@ Book: engel-reid-3e §26:hf, §26:pes, §26:post-hf
 - ● **PC-15.3.A** (acs-accm-pchem:II.E.1, acs-accm-pchem:II.B.2) Compute a Hartree–Fock energy from given one- and two-electron integrals.
   - EK: E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals.
   - Needs: PC-15.2.C
-  - P2 · P5 · drills: qm-hf-two-electron-energy
+  - P2 · P5 · drills: qm-hf-two-electron-energy, pc-singlet-triplet-gap
 - ● **PC-15.3.B** (acs-accm-pchem:III.C.3, acs-accm-pchem:III.C.1, acs-accm-pchem:V.B.4, acs-accm-general:III.C, acs-accm-organic:III.C.1, acs-accm-inorganic:III.C.1) Classify stationary points on a potential-energy surface.
   - EK: All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one.
   - Needs: PC-15.3.A
@@ -705,7 +705,7 @@ Book: engel-reid-3e §27:symmetry, §27:point-groups, §27:character-tables, §2
 - ● **PC-17.1.E** (acs-accm-pchem:III.D.2, acs-accm-organic:III.D.1, acs-accm-inorganic:II.E.4, acs-accm-inorganic:III.D.3, acs-accm-inorganic:III.D.4) Decide from symmetry whether a mode is IR active, Raman active or both.
   - EK: IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre.
   - Needs: PC-17.1.D
-  - P2 · P5 · drills: gt-ir-raman
+  - P2 · P5 · drills: gt-ir-raman, pc-ir-raman-activity
 - ● **PC-17.1.C** (acs-accm-pchem:III.D.2) Reduce a representation with a character table.
   - EK: n_i = (1/h) Σ χ(R) χ_i(R) over all operations.
   - Needs: PC-17.1.E
@@ -734,7 +734,7 @@ Book: engel-reid-3e §28:larmor, §28:chemical-shift, §28:shielding, §28:spin-
 - ● **PC-18.1.C** (acs-accm-pchem:I.A.2) Relate shielding to chemical shift and predict which nuclei appear downfield.
   - EK: Electron-withdrawing neighbours deshield, giving a larger δ.
   - Needs: PC-18.1.B
-  - P2 · P5 · drills: nmr-downfield
+  - P2 · P5 · drills: nmr-downfield, pc-chemical-shift-ppm
 - ● **PC-18.1.D** (acs-accm-pchem:I.A.2) Predict the multiplicity of a signal from the n + 1 rule.
   - EK: n equivalent spin-½ neighbours split a signal into n + 1 lines with Pascal's-triangle intensities.
   - Needs: PC-18.1.C
@@ -742,7 +742,7 @@ Book: engel-reid-3e §28:larmor, §28:chemical-shift, §28:shielding, §28:spin-
 - ● **PC-18.1.E** (acs-accm-pchem:I.A.2) Estimate a three-bond coupling constant from a dihedral angle.
   - EK: ³J = A − B cos φ + C cos² φ (Karplus); largest near 0° and 180°.
   - Needs: PC-18.1.D
-  - P2 · P5 · drills: nmr-karplus
+  - P2 · P5 · drills: nmr-karplus, pc-karplus-size
 
 ## Unit 19 · Probability and the Boltzmann distribution
 

@@ -54,13 +54,13 @@ units:
       - n: 1
         title: "For-profit financial statements"
         los:
-          - { id: A, std: ["cpa-far:I.A"], do: "Place an item in the statement where it is reported.", ek: ["A short list of unrealized items goes to OCI; owner transactions to the statement of changes in equity."], p: [P2], drills: [fa-statement-home] }
+          - { id: A, std: ["cpa-far:I.A"], do: "Place an item in the statement where it is reported.", ek: ["A short list of unrealized items goes to OCI; owner transactions to the statement of changes in equity."], p: [P2], drills: [fa-statement-home, fa-cash-flow-section] }
           - { id: B, std: ["cpa-far:I.A"], do: "Classify cash flows and compute operating cash flow by the indirect method and cash collected from customers.", ek: ["Interest paid and dividends received are operating under US GAAP."], p: [P1, P2], needs: [FA-1.1.A], drills: [fa-cf-class, fa-cfo-indirect, fa-cash-collected] }
           - { id: C, std: ["cpa-far:I.A"], do: "Compute goodwill, the noncontrolling interest's share of income, and intercompany profit to eliminate in consolidation.", ek: ["Goodwill = consideration + NCI fair value − net identifiable assets."], p: [P1], needs: [FA-1.1.B], drills: [fa-goodwill, fa-nci-income, fa-intercompany-profit] }
       - n: 2
         title: "Not-for-profit entities"
         los:
-          - { id: A, std: ["cpa-far:I.B"], do: "Classify contributions and releases between net assets with and without donor restrictions.", ek: ["Only donors restrict; board designations do not."], p: [P2], needs: [FA-1.1.C], drills: [fa-nfp-net-assets] }
+          - { id: A, std: ["cpa-far:I.B"], do: "Classify contributions and releases between net assets with and without donor restrictions.", ek: ["Only donors restrict; board designations do not."], p: [P2], needs: [FA-1.1.C], drills: [fa-nfp-net-assets, fa-nfp-restricted-balance] }
       - n: 3
         title: "State and local government"
         los:
@@ -68,8 +68,8 @@ units:
       - n: 4
         title: "Public companies and special purpose frameworks"
         los:
-          - { id: A, std: ["cpa-far:I.D"], do: "Name SEC filings and the segment reporting thresholds.", ek: ["10-K, 10-Q, 8-K; 10% tests, 75% coverage."], p: [P3], needs: [FA-1.3.A], drills: [fa-public-reporting] }
-          - { id: B, std: ["cpa-far:I.E"], do: "Apply the cash, modified cash and tax bases.", ek: ["Describe the basis and its differences from GAAP."], p: [P3], needs: [FA-1.4.A], drills: [fa-special-framework] }
+          - { id: A, std: ["cpa-far:I.D"], do: "Name SEC filings and the segment reporting thresholds.", ek: ["10-K, 10-Q, 8-K; 10% tests, 75% coverage."], p: [P3], needs: [FA-1.3.A], drills: [fa-public-reporting, fa-segment-75-test] }
+          - { id: B, std: ["cpa-far:I.E"], do: "Apply the cash, modified cash and tax bases.", ek: ["Describe the basis and its differences from GAAP."], p: [P3], needs: [FA-1.4.A], drills: [fa-special-framework, fa-cash-to-accrual-revenue] }
       - n: 5
         title: "Ratios and performance metrics"
         los:
@@ -94,7 +94,7 @@ units:
         title: "Property, plant and equipment"
         los:
           - { id: A, std: ["cpa-far:II.D"], do: "Compute straight-line, double-declining-balance and sum-of-the-years'-digits depreciation, a disposal gain or loss, and depreciation after a change in estimate.", ek: ["Estimates change prospectively."], p: [P1], needs: [FA-2.2.A], drills: [fa-dep-sl, fa-dep-ddb, fa-dep-syd, fa-disposal, fa-change-estimate] }
-          - { id: B, std: ["cpa-far:II.D"], do: "Compute interest capitalized during construction.", ek: ["Avoidable interest, capped at actual."], p: [P1], needs: [FA-2.3.A], drills: [fa-capitalized-interest] }
+          - { id: B, std: ["cpa-far:II.D"], do: "Compute interest capitalized during construction.", ek: ["Avoidable interest, capped at actual."], p: [P1], needs: [FA-2.3.A], drills: [fa-capitalized-interest, fa-avoidable-interest] }
       - n: 4
         title: "Investments"
         los:
@@ -102,11 +102,11 @@ units:
       - n: 5
         title: "Intangible assets"
         los:
-          - { id: A, std: ["cpa-far:II.F"], do: "Measure a goodwill impairment.", ek: ["Carrying amount over fair value, capped at goodwill."], p: [P1], needs: [FA-2.4.A], drills: [fa-goodwill-impairment] }
+          - { id: A, std: ["cpa-far:II.F"], do: "Measure a goodwill impairment.", ek: ["Carrying amount over fair value, capped at goodwill."], p: [P1], needs: [FA-2.4.A], drills: [fa-goodwill-impairment, fa-goodwill-after-impairment] }
       - n: 6
         title: "Payables and debt"
         los:
-          - { id: A, std: ["cpa-far:II.G"], do: "Accrue interest on a note payable.", ek: ["Principal × rate × time."], p: [P1], needs: [FA-2.5.A], drills: [fa-accrued-interest] }
+          - { id: A, std: ["cpa-far:II.G"], do: "Accrue interest on a note payable.", ek: ["Principal × rate × time."], p: [P1], needs: [FA-2.5.A], drills: [fa-accrued-interest, fa-note-principal-from-accrual] }
           - { id: B, std: ["cpa-far:II.H"], do: "Price a bond and amortize its discount or premium by the effective interest method.", ek: ["Expense at the market rate on carrying amount; cash at the coupon rate on face."], p: [P1], needs: [FA-2.6.A], drills: [fa-bond-price, fa-bond-amortization] }
       - n: 7
         title: "Equity"
@@ -121,9 +121,9 @@ units:
       - n: 1
         title: "Changes, contingencies and subsequent events"
         los:
-          - { id: A, std: ["cpa-far:III.A"], do: "Tell a change in principle, a change in estimate and an error correction apart, and say how each is reported.", ek: ["Retrospective, prospective, restatement."], p: [P2], needs: [FA-2.7.A], drills: [fa-accounting-change] }
-          - { id: B, std: ["cpa-far:III.B"], do: "Decide whether to accrue, disclose or ignore a contingency.", ek: ["Probable and estimable → accrue; a range → best estimate or minimum."], p: [P3], needs: [FA-3.1.A], drills: [fa-contingency] }
-          - { id: C, std: ["cpa-far:III.G"], do: "Decide whether a subsequent event is recognized or only disclosed.", ek: ["Conditions existing at the balance-sheet date are recognized."], p: [P2], needs: [FA-3.1.B], drills: [fa-subsequent-event] }
+          - { id: A, std: ["cpa-far:III.A"], do: "Tell a change in principle, a change in estimate and an error correction apart, and say how each is reported.", ek: ["Retrospective, prospective, restatement."], p: [P2], needs: [FA-2.7.A], drills: [fa-accounting-change, fa-change-treatment] }
+          - { id: B, std: ["cpa-far:III.B"], do: "Decide whether to accrue, disclose or ignore a contingency.", ek: ["Probable and estimable → accrue; a range → best estimate or minimum."], p: [P3], needs: [FA-3.1.A], drills: [fa-contingency, fa-contingency-amount] }
+          - { id: C, std: ["cpa-far:III.G"], do: "Decide whether a subsequent event is recognized or only disclosed.", ek: ["Conditions existing at the balance-sheet date are recognized."], p: [P2], needs: [FA-3.1.B], drills: [fa-subsequent-event, fa-subsequent-event-liability] }
       - n: 2
         title: "Revenue recognition"
         los:
@@ -135,7 +135,7 @@ units:
       - n: 4
         title: "Fair value"
         los:
-          - { id: A, std: ["cpa-far:III.E"], do: "Place a valuation input in the fair value hierarchy.", ek: ["Level 1 quoted identical, Level 2 observable, Level 3 unobservable."], p: [P2], needs: [FA-3.3.A], drills: [fa-fair-value-level] }
+          - { id: A, std: ["cpa-far:III.E"], do: "Place a valuation input in the fair value hierarchy.", ek: ["Level 1 quoted identical, Level 2 observable, Level 3 unobservable."], p: [P2], needs: [FA-3.3.A], drills: [fa-fair-value-level, fa-valuation-approach] }
       - n: 5
         title: "Lessee accounting"
         los:
