@@ -55,7 +55,7 @@ units:
       - n: 1
         title: "AI, machine learning, deep learning, generative AI"
         los:
-          - { id: A, std: ["harper-carroll-academy:1"], do: "Place a system in the nested fields AI ⊃ machine learning ⊃ deep learning ⊃ generative AI.", ek: ["ML learns from data; deep learning uses many-layer networks; generative AI produces new content."], p: [P2], drills: [ab-ai-ml-dl] }
+          - { id: A, std: ["harper-carroll-academy:1"], do: "Place a system in the nested fields AI ⊃ machine learning ⊃ deep learning ⊃ generative AI.", ek: ["ML learns from data; deep learning uses many-layer networks; generative AI produces new content."], p: [P2], drills: [ab-ai-ml-dl, ab-field-pick] }
   - id: as-math
     n: 2
     title: "The world as numbers"
@@ -91,7 +91,7 @@ units:
           - { id: A, std: ["harper-carroll-academy:4"], do: "Define token, context window, embedding, inference, attention, temperature and hallucination, and order the steps of generating text.", ek: ["Generation is repeated next-token prediction."], p: [P2], needs: [AB-3.1.C], drills: [ab-llm-term, ab-next-token] }
           - { id: B, std: ["harper-carroll-academy:4"], do: "Estimate token counts and how much text fits in a context window.", ek: ["About 0.75 English words per token."], p: [P1], needs: [AB-4.1.A], drills: [ab-tokens, ab-context-pages] }
           - { id: C, std: ["harper-carroll-academy:4"], do: "Compute next-token probabilities with softmax, with and without temperature.", ek: ["Low temperature sharpens, high flattens."], p: [P1], needs: [AB-4.1.B], drills: [ab-softmax, ab-temperature] }
-          - { id: D, std: ["harper-carroll-academy:4"], do: "Convert a parameter count and precision to the memory the weights need.", ek: ["16-bit = 2 bytes per parameter; a billion bytes ≈ 1 GB."], p: [P1], needs: [AB-4.1.C], drills: [ab-weight-memory] }
+          - { id: D, std: ["harper-carroll-academy:4"], do: "Convert a parameter count and precision to the memory the weights need.", ek: ["16-bit = 2 bytes per parameter; a billion bytes ≈ 1 GB."], p: [P1], needs: [AB-4.1.C], drills: [ab-weight-memory, ab-parameters-that-fit] }
   - id: training
     n: 5
     title: "Training"
@@ -114,7 +114,7 @@ units:
         title: "Limits, trust and prompts"
         los:
           - { id: A, std: ["harper-carroll-academy:6"], do: "Explain hallucination, say what a model can know, and decide what to verify.", ek: ["Training data up to a cutoff, plus the context window; nothing else."], p: [P2, P3], needs: [AB-4.1.D], drills: [ab-hallucination, ab-what-model-knows] }
-          - { id: B, std: ["harper-carroll-academy:6"], do: "Choose the prompt change that fixes a given problem with an answer.", ek: ["Context, format, examples, steps."], p: [P3], needs: [AB-6.1.A], drills: [ab-prompt-fix] }
+          - { id: B, std: ["harper-carroll-academy:6"], do: "Choose the prompt change that fixes a given problem with an answer.", ek: ["Context, format, examples, steps."], p: [P3], needs: [AB-6.1.A], drills: [ab-prompt-fix, ab-prompt-fix-pick] }
   - id: agents
     n: 7
     title: "AI and tools"

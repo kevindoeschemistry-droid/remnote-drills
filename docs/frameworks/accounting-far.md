@@ -34,7 +34,7 @@ Big ideas: PRES, ACCR
 
 - ● **FA-1.1.A** (cpa-far:I.A) Place an item in the statement where it is reported.
   - EK: A short list of unrealized items goes to OCI; owner transactions to the statement of changes in equity.
-  - P2 · drills: fa-statement-home
+  - P2 · drills: fa-statement-home, fa-cash-flow-section
 - ● **FA-1.1.B** (cpa-far:I.A) Classify cash flows and compute operating cash flow by the indirect method and cash collected from customers.
   - EK: Interest paid and dividends received are operating under US GAAP.
   - Needs: FA-1.1.A
@@ -51,7 +51,7 @@ Big ideas: PRES, ACCR
 - ● **FA-1.2.A** (cpa-far:I.B) Classify contributions and releases between net assets with and without donor restrictions.
   - EK: Only donors restrict; board designations do not.
   - Needs: FA-1.1.C
-  - P2 · drills: fa-nfp-net-assets
+  - P2 · drills: fa-nfp-net-assets, fa-nfp-restricted-balance
 
 ### 1.3 State and local government
 
@@ -69,11 +69,11 @@ Big ideas: PRES, ACCR
 - ● **FA-1.4.A** (cpa-far:I.D) Name SEC filings and the segment reporting thresholds.
   - EK: 10-K, 10-Q, 8-K; 10% tests, 75% coverage.
   - Needs: FA-1.3.A
-  - P3 · drills: fa-public-reporting
+  - P3 · drills: fa-public-reporting, fa-segment-75-test
 - ● **FA-1.4.B** (cpa-far:I.E) Apply the cash, modified cash and tax bases.
   - EK: Describe the basis and its differences from GAAP.
   - Needs: FA-1.4.A
-  - P3 · drills: fa-special-framework
+  - P3 · drills: fa-special-framework, fa-cash-to-accrual-revenue
 
 ### 1.5 Ratios and performance metrics
 
@@ -125,7 +125,7 @@ Big ideas: MEAS
 - ● **FA-2.3.B** (cpa-far:II.D) Compute interest capitalized during construction.
   - EK: Avoidable interest, capped at actual.
   - Needs: FA-2.3.A
-  - P1 · drills: fa-capitalized-interest
+  - P1 · drills: fa-capitalized-interest, fa-avoidable-interest
 
 ### 2.4 Investments
 
@@ -143,7 +143,7 @@ Big ideas: MEAS
 - ● **FA-2.5.A** (cpa-far:II.F) Measure a goodwill impairment.
   - EK: Carrying amount over fair value, capped at goodwill.
   - Needs: FA-2.4.A
-  - P1 · drills: fa-goodwill-impairment
+  - P1 · drills: fa-goodwill-impairment, fa-goodwill-after-impairment
 
 ### 2.6 Payables and debt
 
@@ -152,7 +152,7 @@ Big ideas: MEAS
 - ● **FA-2.6.A** (cpa-far:II.G) Accrue interest on a note payable.
   - EK: Principal × rate × time.
   - Needs: FA-2.5.A
-  - P1 · drills: fa-accrued-interest
+  - P1 · drills: fa-accrued-interest, fa-note-principal-from-accrual
 - ● **FA-2.6.B** (cpa-far:II.H) Price a bond and amortize its discount or premium by the effective interest method.
   - EK: Expense at the market rate on carrying amount; cash at the coupon rate on face.
   - Needs: FA-2.6.A
@@ -178,15 +178,15 @@ Big ideas: ACCR, MEAS
 - ● **FA-3.1.A** (cpa-far:III.A) Tell a change in principle, a change in estimate and an error correction apart, and say how each is reported.
   - EK: Retrospective, prospective, restatement.
   - Needs: FA-2.7.A
-  - P2 · drills: fa-accounting-change
+  - P2 · drills: fa-accounting-change, fa-change-treatment
 - ● **FA-3.1.B** (cpa-far:III.B) Decide whether to accrue, disclose or ignore a contingency.
   - EK: Probable and estimable → accrue; a range → best estimate or minimum.
   - Needs: FA-3.1.A
-  - P3 · drills: fa-contingency
+  - P3 · drills: fa-contingency, fa-contingency-amount
 - ● **FA-3.1.C** (cpa-far:III.G) Decide whether a subsequent event is recognized or only disclosed.
   - EK: Conditions existing at the balance-sheet date are recognized.
   - Needs: FA-3.1.B
-  - P2 · drills: fa-subsequent-event
+  - P2 · drills: fa-subsequent-event, fa-subsequent-event-liability
 
 ### 3.2 Revenue recognition
 
@@ -213,7 +213,7 @@ Big ideas: ACCR, MEAS
 - ● **FA-3.4.A** (cpa-far:III.E) Place a valuation input in the fair value hierarchy.
   - EK: Level 1 quoted identical, Level 2 observable, Level 3 unobservable.
   - Needs: FA-3.3.A
-  - P2 · drills: fa-fair-value-level
+  - P2 · drills: fa-fair-value-level, fa-valuation-approach
 
 ### 3.5 Lessee accounting
 

@@ -416,14 +416,14 @@ units:
         title: "Polyatomic molecules"
         book: { engel-reid-3e: ["24.2", "24.5", "24:huckel"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:III.B.2"], do: "Assign hybridisation and predict geometry from the number of electron domains.", ek: ["sp linear 180°, sp² trigonal 120°, sp³ tetrahedral 109.5°."], p: [P2, P5], needs: [PC-15.1.D], drills: ["qm-hybridisation"] }
-          - { id: B, std: ["acs-accm-pchem:III.B.3"], do: "Use qualitative MO theory to identify the HOMO and LUMO and predict a geometry.", ek: ["A Walsh diagram tracks orbital energy against angle; the HOMO decides the shape."], p: [P2, P5], needs: [PC-15.2.A], drills: ["~qm-walsh-ah2"] }
+          - { id: A, std: ["acs-accm-pchem:III.B.2"], do: "Assign hybridisation and predict geometry from the number of electron domains.", ek: ["sp linear 180°, sp² trigonal 120°, sp³ tetrahedral 109.5°."], p: [P2, P5], needs: [PC-15.1.D], drills: ["qm-hybridisation", pc-hybrid-p-character] }
+          - { id: B, std: ["acs-accm-pchem:III.B.3"], do: "Use qualitative MO theory to identify the HOMO and LUMO and predict a geometry.", ek: ["A Walsh diagram tracks orbital energy against angle; the HOMO decides the shape."], p: [P2, P5], needs: [PC-15.2.A], drills: ["~qm-walsh-ah2", pc-walsh-ah2-shape] }
           - { id: C, std: ["acs-accm-pchem:II.E.1"], do: "Calculate Hückel π-orbital energies and the π-electron energy of a conjugated chain.", ek: ["E_k = α + 2β cos(kπ/(N + 1)), k = 1 … N; β is negative."], p: [P2, P5], needs: [PC-15.2.B], drills: [pc-polyene-gap, "qm-huckel-chain"] }
       - n: 3
         title: "Computational chemistry"
         book: { engel-reid-3e: ["26:hf", "26:pes", "26:post-hf"] }
         los:
-          - { id: A, std: ["acs-accm-pchem:II.E.1", "acs-accm-pchem:II.B.2"], do: "Compute a Hartree–Fock energy from given one- and two-electron integrals.", ek: ["E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals."], p: [P2, P5], needs: [PC-15.2.C], drills: ["qm-hf-two-electron-energy"] }
+          - { id: A, std: ["acs-accm-pchem:II.E.1", "acs-accm-pchem:II.B.2"], do: "Compute a Hartree–Fock energy from given one- and two-electron integrals.", ek: ["E_HF = Σ h_i + ½ Σ(J_ij − K_ij) over spin orbitals."], p: [P2, P5], needs: [PC-15.2.C], drills: ["qm-hf-two-electron-energy", pc-singlet-triplet-gap] }
           - { id: B, std: ["acs-accm-pchem:III.C.3", "acs-accm-pchem:III.C.1", "acs-accm-pchem:V.B.4", "acs-accm-general:III.C", "acs-accm-organic:III.C.1", "acs-accm-inorganic:III.C.1"], do: "Classify stationary points on a potential-energy surface.", ek: ["All first derivatives vanish; a minimum has no negative curvatures, a transition state exactly one."], p: [P2, P5], needs: [PC-15.3.A], drills: [pc-hessian-classify, "qm-stationary-point"] }
           - { id: C, std: ["acs-accm-pchem:II.A.2", "acs-accm-pchem:II.E.1"], do: "Calculate a correlation energy and rank methods by the correlation they recover.", ek: ["E_corr = E_exact − E_HF, always negative; HF < MP2 < CCSD(T) toward the exact answer."], p: [P2, P5], needs: [PC-15.3.B], drills: [pc-correlation-recovered, "~qm-correlation-energy"] }
 
@@ -459,7 +459,7 @@ units:
           - { id: A, std: ["acs-accm-pchem:III.B.1", "acs-accm-inorganic:X.D.3"], do: "Identify the symmetry elements of a molecule.", ek: ["E, C_n, σ, i, S_n; every molecule has at least E."], p: [P2, P5], needs: [PC-15.3.C, CH-2.7.B], drills: [gt-group-order, gt-mirror-planes] }
           - { id: B, std: ["acs-accm-pchem:III.B.1", "acs-accm-general:III.D", "acs-accm-inorganic:III.D.1"], do: "Assign a molecule to its point group.", ek: ["Work down the flow chart: linear? high symmetry? principal axis? perpendicular C₂? mirror planes?"], p: [P2, P5], needs: [PC-17.1.A], drills: [gt-point-group-common, gt-point-group-more] }
           - { id: D, std: ["acs-accm-pchem:III.D.2"], do: "Count the normal modes of a molecule and find their symmetries.", ek: ["3N − 6 for nonlinear, 3N − 5 for linear molecules."], p: [P2, P5], needs: [PC-17.1.B], drills: [gt-normal-modes, gt-modes-symmetry] }
-          - { id: E, std: ["acs-accm-pchem:III.D.2", "acs-accm-organic:III.D.1", "acs-accm-inorganic:II.E.4", "acs-accm-inorganic:III.D.3", "acs-accm-inorganic:III.D.4"], do: "Decide from symmetry whether a mode is IR active, Raman active or both.", ek: ["IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre."], p: [P2, P5], needs: [PC-17.1.D], drills: [gt-ir-raman] }
+          - { id: E, std: ["acs-accm-pchem:III.D.2", "acs-accm-organic:III.D.1", "acs-accm-inorganic:II.E.4", "acs-accm-inorganic:III.D.3", "acs-accm-inorganic:III.D.4"], do: "Decide from symmetry whether a mode is IR active, Raman active or both.", ek: ["IR active if it transforms like x, y or z; Raman active like a quadratic; mutually exclusive with an inversion centre."], p: [P2, P5], needs: [PC-17.1.D], drills: [gt-ir-raman, pc-ir-raman-activity] }
           - { id: C, std: ["acs-accm-pchem:III.D.2"], do: "Reduce a representation with a character table.", ek: ["n_i = (1/h) Σ χ(R) χ_i(R) over all operations."], p: [P2, P5], needs: [PC-17.1.E], drills: [gt-operation-product, gt-reduce-c2v, gt-reduce-c3v] }
           - { id: F, std: ["acs-accm-pchem:III.E.1", "acs-accm-organic:III.E.5", "acs-accm-organic:IX.C.2", "acs-accm-analytical:III.E.1"], do: "Use optical rotation to find specific rotation and enantiomeric excess.", ek: ["[α] = α/(l·c) with l in dm and c in g/mL; ee = [α]_obs/[α]_pure × 100%."], p: [P1], needs: [PC-17.1.C], drills: [pc-specific-rotation, pc-ee] }
 
@@ -477,9 +477,9 @@ units:
         los:
           - { id: A, std: ["acs-accm-pchem:I.A.2"], do: "Calculate the Larmor frequency of a nucleus in a given field.", ek: ["ν₀ = γB₀/2π; for ¹H, 42.58 MHz per tesla."], p: [P3], needs: [PC-14.3.C, PH-12.2.C], drills: [pc-field-for-frequency, "pc-larmor"] }
           - { id: B, std: ["acs-accm-pchem:I.A.2"], do: "Convert between a frequency offset in hertz and a chemical shift in ppm.", ek: ["δ = (ν_sample − ν_ref)/ν_ref × 10⁶; the ppm value does not depend on the field."], p: [P3], needs: [PC-18.1.A], drills: [pc-hz-other-field, "pc-chemical-shift"] }
-          - { id: C, std: ["acs-accm-pchem:I.A.2"], do: "Relate shielding to chemical shift and predict which nuclei appear downfield.", ek: ["Electron-withdrawing neighbours deshield, giving a larger δ."], p: [P2, P5], needs: [PC-18.1.B], drills: ["nmr-downfield"] }
+          - { id: C, std: ["acs-accm-pchem:I.A.2"], do: "Relate shielding to chemical shift and predict which nuclei appear downfield.", ek: ["Electron-withdrawing neighbours deshield, giving a larger δ."], p: [P2, P5], needs: [PC-18.1.B], drills: ["nmr-downfield", pc-chemical-shift-ppm] }
           - { id: D, std: ["acs-accm-pchem:I.A.2"], do: "Predict the multiplicity of a signal from the n + 1 rule.", ek: ["n equivalent spin-½ neighbours split a signal into n + 1 lines with Pascal's-triangle intensities."], p: [P2, P5], needs: [PC-18.1.C], drills: [pc-two-set-splitting, "nmr-multiplicity"] }
-          - { id: E, std: ["acs-accm-pchem:I.A.2"], do: "Estimate a three-bond coupling constant from a dihedral angle.", ek: ["³J = A − B cos φ + C cos² φ (Karplus); largest near 0° and 180°."], p: [P2, P5], needs: [PC-18.1.D], drills: ["nmr-karplus"] }
+          - { id: E, std: ["acs-accm-pchem:I.A.2"], do: "Estimate a three-bond coupling constant from a dihedral angle.", ek: ["³J = A − B cos φ + C cos² φ (Karplus); largest near 0° and 180°."], p: [P2, P5], needs: [PC-18.1.D], drills: ["nmr-karplus", pc-karplus-size] }
 
   # ── 19 ────────────────────────────────────────────────────────────────────
   - id: boltzmann

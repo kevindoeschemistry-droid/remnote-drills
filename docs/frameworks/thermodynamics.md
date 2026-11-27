@@ -127,11 +127,11 @@ Book: dill-bromberg-2e §2, §6; shell-2015 §4.4, §4.5, §4.6, §4.7
 - ● **TD-2.2.B** (webwork-opl:TH1.7) Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.
   - EK: ∂S/∂U = 1/T, ∂S/∂V = P/T, ∂S/∂N = −μ/T must match across the wall.
   - Needs: TD-2.2.A
-  - P1 · P3 · drills: td-max-entropy-equal
+  - P1 · P3 · drills: td-max-entropy-equal, td-thermal-contact-temperature
 - ● **TD-2.2.C** Show that maximum entropy at fixed U is equivalent to minimum energy at fixed S.
   - EK: Internal constraints released ⇒ S rises (second law); the energy-minimum principle is its inverse.
   - Needs: TD-2.2.B
-  - P3 · drills: td-max-s-min-u
+  - P3 · drills: td-max-s-min-u, td-extremum-principle
 
 ### 2.3 The fundamental equation and its integrated forms
 
@@ -148,7 +148,7 @@ Book: dill-bromberg-2e §6, §7; shell-2015 §5.1, §5.2, §5.3
 - ● **TD-2.3.C** Check that a proposed fundamental equation is extensive (first-order homogeneous).
   - EK: S(λU, λV, λN) = λS(U, V, N); exponents of extensive variables sum to 1.
   - Needs: TD-2.3.B
-  - P6 · drills: td-extensive
+  - P6 · drills: td-extensive, td-extensive-exponent
 - ● **TD-2.3.D** Calculate U, or any one term, from the Euler relation.
   - EK: U = TS − PV + μN; equivalently G = μN for one component.
   - Needs: TD-2.3.C

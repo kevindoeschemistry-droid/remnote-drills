@@ -133,15 +133,15 @@ units:
         book: { dill-bromberg-2e: ["2", "6"], shell-2015: ["4.4", "4.5", "4.6", "4.7"] }
         los:
           - { id: A, do: "Calculate the probability of each energy split between two solids in thermal contact and identify the most probable one.", ek: ["P(q_A) ∝ W_A(q_A) W_B(q − q_A); the peak sharpens as N grows."], p: [P1, P4], needs: [TD-2.1.D], drills: [sm-einstein-share, td-most-probable-split] }
-          - { id: B, std: ["webwork-opl:TH1.7"], do: "Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.", ek: ["∂S/∂U = 1/T, ∂S/∂V = P/T, ∂S/∂N = −μ/T must match across the wall."], p: [P1, P3], needs: [TD-2.2.A], drills: ["td-max-entropy-equal"] }
-          - { id: C, do: "Show that maximum entropy at fixed U is equivalent to minimum energy at fixed S.", ek: ["Internal constraints released ⇒ S rises (second law); the energy-minimum principle is its inverse."], p: [P3], needs: [TD-2.2.B], drills: ["td-max-s-min-u"] }
+          - { id: B, std: ["webwork-opl:TH1.7"], do: "Derive equality of T, P and μ by maximising total entropy over exchange of U, V and N.", ek: ["∂S/∂U = 1/T, ∂S/∂V = P/T, ∂S/∂N = −μ/T must match across the wall."], p: [P1, P3], needs: [TD-2.2.A], drills: ["td-max-entropy-equal", td-thermal-contact-temperature] }
+          - { id: C, do: "Show that maximum entropy at fixed U is equivalent to minimum energy at fixed S.", ek: ["Internal constraints released ⇒ S rises (second law); the energy-minimum principle is its inverse."], p: [P3], needs: [TD-2.2.B], drills: ["td-max-s-min-u", td-extremum-principle] }
       - n: 3
         title: The fundamental equation and its integrated forms
         book: { dill-bromberg-2e: ["6", "7"], shell-2015: ["5.1", "5.2", "5.3"] }
         los:
           - { id: A, do: "Find T, P or μ as derivatives of a given S(U, V, N).", ek: ["dS = (1/T)dU + (P/T)dV − (μ/T)dN."], p: [P3], needs: [TD-2.2.C], drills: [th-fe-entropy-rep, th-fe-ideal] }
           - { id: B, do: "Find T, P or μ as derivatives of a given U(S, V, N).", ek: ["dU = T dS − P dV + μ dN."], p: [P3], needs: [TD-2.3.A], drills: [th-fe-energy-rep, td-temperature-from-s] }
-          - { id: C, do: "Check that a proposed fundamental equation is extensive (first-order homogeneous).", ek: ["S(λU, λV, λN) = λS(U, V, N); exponents of extensive variables sum to 1."], p: [P6], needs: [TD-2.3.B], drills: ["td-extensive"] }
+          - { id: C, do: "Check that a proposed fundamental equation is extensive (first-order homogeneous).", ek: ["S(λU, λV, λN) = λS(U, V, N); exponents of extensive variables sum to 1."], p: [P6], needs: [TD-2.3.B], drills: ["td-extensive", td-extensive-exponent] }
           - { id: D, do: "Calculate U, or any one term, from the Euler relation.", ek: ["U = TS − PV + μN; equivalently G = μN for one component."], p: [P5], needs: [TD-2.3.C], drills: [th-fe-euler, td-euler-mu] }
           - { id: E, std: ["webwork-opl:TH15.9"], do: "Apply the Gibbs–Duhem equation to relate changes in the intensive variables.", ek: ["S dT − V dP + N dμ = 0; at fixed T, dμ = v dP."], p: [P3, P5], needs: [TD-2.3.D], drills: [th-fe-gibbs-duhem, td-gibbs-duhem-dmu] }
 
