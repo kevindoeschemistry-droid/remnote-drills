@@ -1,0 +1,974 @@
+{
+ "id": "microbiology",
+ "title": "Microbiology",
+ "code": "MI",
+ "draft": 1,
+ "track": "science",
+ "requires": [
+  "biology",
+  "chemistry"
+ ],
+ "level": 4,
+ "domains": [
+  "micro"
+ ],
+ "basis": {
+  "primary": "asm-micro-2024",
+  "note": "Anchored on the ASM Curriculum Guidelines for Undergraduate Microbiology (2024), read through an extraction of its concept areas, fundamental statements and skills. A general course: structure, growth, genetics, ecology, control and laboratory counting. Organism-by-organism medical microbiology is not built; host defence is in Anatomy and Physiology unit 9."
+ },
+ "big_ideas": [
+  {
+   "id": "SMALL",
+   "title": "Small, many and fast",
+   "text": "A microbe's power is in numbers: populations double in minutes to hours, so rare events (a mutation, a transfer) happen somewhere every generation."
+  },
+  {
+   "id": "ENV",
+   "title": "The environment selects",
+   "text": "Which microbes grow is set by oxygen, temperature, nutrients and what else is living there; the same rule explains enrichment media, the microbiome and resistance."
+  },
+  {
+   "id": "COUNT",
+   "title": "You know it when you can count it",
+   "text": "A colony stands for one cell that was plated; dilution arithmetic turns a plate into a concentration."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry a growth, dilution or optics relation to a number."
+  },
+  {
+   "id": "P2",
+   "title": "Identify",
+   "text": "Name the structure, process or category from a description."
+  }
+ ],
+ "units": [
+  {
+   "id": "diversity",
+   "n": 1,
+   "title": "Diversity and evolution",
+   "std": [
+    "asm-micro-2024:EV"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SMALL",
+    "ENV"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The microbial world",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "asm-micro-2024:EV"
+       ],
+       "do": "Place a microbe in its domain from its cell features.",
+       "ek": [
+        "Bacteria and Archaea are prokaryotes (no nucleus, 70S ribosomes); Bacteria have peptidoglycan and ester-linked lipids, Archaea have no peptidoglycan and ether-linked lipids. Eukarya (fungi, protozoa, algae) have nuclei, organelles and 80S ribosomes. Viruses are not cells."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "BI-2.11.B"
+       ],
+       "drills": [
+        "mi-domain-pick",
+        "mi-classification"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "asm-micro-2024:EV"
+       ],
+       "do": "Explain how selection acts on mutations in a large population.",
+       "ek": [
+        "Mutations arise at random, before any selection; in a large population a few resistant cells are already present, and a selective agent kills the rest so the survivors take over. Expected mutants = number of cells × mutation rate per cell."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MI-1.1.A"
+       ],
+       "drills": [
+        "mi-expected-mutants",
+        "mi-selection"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "structure",
+   "n": 2,
+   "title": "Cell structure and viruses",
+   "std": [
+    "asm-micro-2024:CS"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SMALL"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Cells and viruses",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "asm-micro-2024:CS"
+       ],
+       "do": "Contrast the Gram-positive and Gram-negative cell envelopes.",
+       "ek": [
+        "Gram-positive cells have a thick peptidoglycan layer with teichoic acids and no outer membrane. Gram-negative cells have a thin peptidoglycan layer in a periplasm beneath an outer membrane whose outer leaflet is lipopolysaccharide."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-1.1.B"
+       ],
+       "drills": [
+        "mi-gram-feature",
+        "mi-envelope-parts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "asm-micro-2024:CS"
+       ],
+       "do": "Match bacterial structures to their functions.",
+       "ek": [
+        "Flagella give motility, pili and fimbriae attachment (and the sex pilus conjugation), a capsule protection from drying and phagocytosis, endospores survival of heat and chemicals. Plasmids carry extra genes."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-2.1.A"
+       ],
+       "drills": [
+        "mi-structures",
+        "mi-endospores"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "asm-micro-2024:CS"
+       ],
+       "do": "Tell the eukaryotic microbes apart and compare them with bacteria.",
+       "ek": [
+        "Fungi are heterotrophs with chitin walls and ergosterol membranes (yeasts are single cells, moulds grow as hyphae); protozoa are single-celled and usually motile; algae photosynthesise. Their 80S ribosomes and sterol membranes make them harder to target without harming the host."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-2.1.B"
+       ],
+       "drills": [
+        "mi-eukaryotic-microbe",
+        "mi-eukaryote-vs-bacteria"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "asm-micro-2024:CS"
+       ],
+       "do": "Describe a virus particle and the stages of viral replication.",
+       "ek": [
+        "A virion is a genome (DNA or RNA) in a protein capsid, sometimes with a lipid envelope. Replication runs attachment, entry, synthesis, assembly, release. A lytic phage bursts its host; a temperate phage can integrate as a prophage (lysogeny)."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-2.1.C"
+       ],
+       "drills": [
+        "mi-virus-parts",
+        "mi-lytic-lysogenic"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "growth",
+   "n": 3,
+   "title": "Metabolism and growth",
+   "std": [
+    "asm-micro-2024:MP"
+   ],
+   "scope": "core",
+   "ideas": [
+    "ENV",
+    "SMALL"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Growth",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "asm-micro-2024:MP"
+       ],
+       "do": "Classify a microbe by its energy and carbon source.",
+       "ek": [
+        "Phototrophs take energy from light, chemotrophs from chemicals (organotrophs from organic compounds, lithotrophs from inorganic ones). Autotrophs fix carbon dioxide; heterotrophs need organic carbon."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-2.1.D",
+        "BI-3.6.E"
+       ],
+       "drills": [
+        "mi-metabolic-type",
+        "mi-energy-carbon"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "asm-micro-2024:MP"
+       ],
+       "do": "Predict where a microbe grows from its oxygen and temperature needs.",
+       "ek": [
+        "Obligate aerobes need oxygen, obligate anaerobes are harmed by it, facultative anaerobes use it when present, microaerophiles need a little, aerotolerant anaerobes ignore it. Psychrophiles, mesophiles (body temperature) and thermophiles are named by optimum temperature."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-3.1.A"
+       ],
+       "drills": [
+        "mi-oxygen-class",
+        "mi-environment-limits"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "asm-micro-2024:MP"
+       ],
+       "do": "Read a growth curve and do the arithmetic of doubling.",
+       "ek": [
+        "A batch culture shows lag, exponential (log), stationary and death phases. In exponential growth N = N0 × 2^n with n = time ÷ generation time, so the generation time is t × log 2 ÷ log(N/N0)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MI-3.1.B"
+       ],
+       "drills": [
+        "mi-doubling-count",
+        "mi-generation-time"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "asm-micro-2024:MP"
+       ],
+       "do": "Compare fermentation with respiration.",
+       "ek": [
+        "Respiration passes electrons down a transport chain to a terminal acceptor (oxygen in aerobic, nitrate or sulfate in anaerobic respiration) and makes ATP mostly by oxidative phosphorylation. Fermentation has no chain: ATP comes from glycolysis alone, and an organic molecule takes the electrons to regenerate NAD+."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-3.1.C"
+       ],
+       "drills": [
+        "mi-ferment-respire",
+        "mi-fermentation-facts"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "genetics",
+   "n": 4,
+   "title": "Microbial genetics",
+   "std": [
+    "asm-micro-2024:IF"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SMALL"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Genes on the move",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "asm-micro-2024:IF"
+       ],
+       "do": "Tell the three routes of horizontal gene transfer apart.",
+       "ek": [
+        "Transformation is uptake of free DNA from the surroundings; transduction is transfer by a bacteriophage; conjugation is transfer by cell-to-cell contact through a pilus, usually of a plasmid. All three move genes between cells of the same generation."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-3.1.D",
+        "BI-6.5.B"
+       ],
+       "drills": [
+        "mi-hgt-route",
+        "mi-hgt-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "asm-micro-2024:IF"
+       ],
+       "do": "Predict whether the lac operon is expressed.",
+       "ek": [
+        "The lac repressor binds the operator and blocks transcription unless allolactose (from lactose) removes it. Strong expression also needs low glucose, when cAMP with its activator protein helps RNA polymerase bind. So the operon is fully on only with lactose present and glucose absent."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-4.1.A"
+       ],
+       "drills": [
+        "mi-lac-state",
+        "mi-operon-parts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "asm-micro-2024:IF"
+       ],
+       "do": "Classify mutations and find a mutation frequency.",
+       "ek": [
+        "A point mutation may be silent, missense or nonsense; an insertion or deletion not in threes shifts the reading frame. Mutation frequency is mutant colonies over total viable cells plated."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MI-4.1.B"
+       ],
+       "drills": [
+        "mi-mutation-type",
+        "mi-mutation-frequency"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ecology",
+   "n": 5,
+   "title": "Microbial ecology",
+   "std": [
+    "asm-micro-2024:ME"
+   ],
+   "scope": "core",
+   "ideas": [
+    "ENV"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Communities",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "asm-micro-2024:ME"
+       ],
+       "do": "Describe biofilms and classify symbioses.",
+       "ek": [
+        "Most microbes live in biofilms: communities attached to a surface in a self-made matrix, coordinated by quorum sensing and far harder to remove than free cells. In mutualism both partners benefit, in commensalism one benefits and the other is unaffected, in parasitism one benefits at the other's cost."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-3.1.D"
+       ],
+       "drills": [
+        "mi-symbiosis",
+        "mi-biofilm"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "asm-micro-2024:ME"
+       ],
+       "do": "Assign microbes their steps in the nitrogen and carbon cycles.",
+       "ek": [
+        "Nitrogen fixation turns N2 into ammonia; nitrification oxidises ammonia to nitrite and nitrate; denitrification returns nitrate to N2; decomposers release ammonia from organic matter. Photosynthesisers fix carbon; decomposers and methanogens return it."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-5.1.A"
+       ],
+       "drills": [
+        "mi-nitrogen-step",
+        "mi-cycles"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "asm-micro-2024:ME"
+       ],
+       "do": "Describe the human microbiome and what it does for its host.",
+       "ek": [
+        "The body carries resident microbes, densest in the large intestine and absent from normally sterile sites such as blood and cerebrospinal fluid. Residents compete with invaders (colonisation resistance), make vitamins, digest fibre and train the immune system; broad antibiotics disturb them."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-5.1.B"
+       ],
+       "drills": [
+        "mi-microbiome-sites",
+        "mi-microbiome-roles"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "control",
+   "n": 6,
+   "title": "Microbes and people",
+   "std": [
+    "asm-micro-2024:IM"
+   ],
+   "scope": "core",
+   "ideas": [
+    "ENV",
+    "COUNT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Disease, control and use",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "asm-micro-2024:IM"
+       ],
+       "do": "Use the vocabulary of infection and tell endotoxin from exotoxin.",
+       "ek": [
+        "Infection is growth of a microbe in a host; disease is damage that results. Koch's postulates tie one organism to one disease by isolating it, growing it in pure culture and reproducing the disease. Exotoxins are secreted proteins; endotoxin is the lipid A of Gram-negative outer membranes, released when cells break up."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-4.1.C",
+        "MI-5.1.C"
+       ],
+       "drills": [
+        "mi-toxin-type",
+        "mi-infection-terms"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "asm-micro-2024:IM"
+       ],
+       "do": "Tell sterilisation from disinfection and compute a decimal reduction.",
+       "ek": [
+        "Sterilisation removes or kills all life including endospores; disinfection reduces microbes on objects; antisepsis does so on living tissue. Death is exponential: each D-value (decimal reduction time) cuts the population tenfold, so survivors = N0 × 10^(−t/D)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MI-6.1.A"
+       ],
+       "drills": [
+        "mi-control-term",
+        "mi-decimal-reduction"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "asm-micro-2024:IM"
+       ],
+       "do": "Match antimicrobial drug classes to their targets and name general resistance mechanisms.",
+       "ek": [
+        "Beta-lactams and glycopeptides block cell wall synthesis; aminoglycosides, tetracyclines and macrolides act on the 70S ribosome; fluoroquinolones on DNA gyrase; sulfonamides on folate synthesis. Resistance arises by destroying the drug, altering the target, pumping the drug out or keeping it out."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-6.1.B"
+       ],
+       "drills": [
+        "mi-drug-targets",
+        "mi-resistance-mechanism"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "asm-micro-2024:IM"
+       ],
+       "do": "Classify vaccines and explain why antibiotics do not treat viral infections.",
+       "ek": [
+        "Live attenuated vaccines replicate weakly and give strong lasting immunity; inactivated vaccines cannot replicate; subunit, toxoid and conjugate vaccines use parts; mRNA vaccines have the host cell make the antigen. Antibiotics target bacterial structures that viruses lack."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-6.1.C"
+       ],
+       "drills": [
+        "mi-vaccine-type",
+        "mi-antibiotic-virus"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "asm-micro-2024:IM"
+       ],
+       "do": "Give uses of microbes in food, industry and the environment.",
+       "ek": [
+        "Fermentations make bread, beer, wine, yoghurt, cheese and vinegar; engineered microbes make insulin and enzymes; microbes treat sewage and break down pollutants (bioremediation)."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-6.1.D"
+       ],
+       "drills": [
+        "mi-food-microbes",
+        "mi-industry-microbes"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lab",
+   "n": 7,
+   "title": "Laboratory skills",
+   "std": [
+    "asm-micro-2024:LAB"
+   ],
+   "scope": "core",
+   "ideas": [
+    "COUNT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Seeing and counting",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "asm-micro-2024:LAB"
+       ],
+       "do": "Find magnification and the resolution limit of a light microscope.",
+       "ek": [
+        "Total magnification is ocular × objective. The smallest resolvable distance is about 0.61 × wavelength ÷ numerical aperture, so shorter wavelengths and oil immersion (higher NA) resolve finer detail; about 0.2 micrometres is the practical limit."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MI-2.1.D"
+       ],
+       "drills": [
+        "mi-magnification",
+        "mi-resolution"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "asm-micro-2024:LAB"
+       ],
+       "do": "Order the Gram stain and choose a stain for a purpose.",
+       "ek": [
+        "Crystal violet (primary stain), iodine (mordant), alcohol (decolouriser), safranin (counterstain). The decolouriser step is the one that separates the two groups. Acid-fast staining shows waxy mycolic acid walls; malachite green shows endospores; negative stains show capsules."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-7.1.A"
+       ],
+       "drills": [
+        "mi-gram-steps",
+        "mi-stain-choice"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "asm-micro-2024:LAB"
+       ],
+       "do": "Turn a plate count and a dilution series into a concentration.",
+       "ek": [
+        "Each colony comes from one viable cell or clump (a colony-forming unit). CFU per mL = colonies ÷ (volume plated × dilution). A serial dilution multiplies the factors of each step. Plates with roughly 30 to 300 colonies are counted."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MI-7.1.B"
+       ],
+       "drills": [
+        "mi-cfu-per-ml",
+        "mi-serial-dilution"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "asm-micro-2024:LAB"
+       ],
+       "do": "Choose a medium and name the principles of aseptic work and containment levels.",
+       "ek": [
+        "A selective medium suppresses unwanted organisms; a differential medium makes groups look different; some do both. A streak plate thins cells until single colonies form a pure culture. Laboratories are graded biosafety level 1 to 4 by the risk of the agents handled, with practices and containment rising at each level."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MI-7.1.C"
+       ],
+       "drills": [
+        "mi-medium-type",
+        "mi-aseptic-containment"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "MI-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-domain-pick",
+    "mi-classification"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-expected-mutants",
+    "mi-selection"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-gram-feature",
+    "mi-envelope-parts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-structures",
+    "mi-endospores"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-eukaryotic-microbe",
+    "mi-eukaryote-vs-bacteria"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-virus-parts",
+    "mi-lytic-lysogenic"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-metabolic-type",
+    "mi-energy-carbon"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-oxygen-class",
+    "mi-environment-limits"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-doubling-count",
+    "mi-generation-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-ferment-respire",
+    "mi-fermentation-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-hgt-route",
+    "mi-hgt-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-lac-state",
+    "mi-operon-parts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-mutation-type",
+    "mi-mutation-frequency"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-symbiosis",
+    "mi-biofilm"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-nitrogen-step",
+    "mi-cycles"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-microbiome-sites",
+    "mi-microbiome-roles"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-toxin-type",
+    "mi-infection-terms"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-control-term",
+    "mi-decimal-reduction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-drug-targets",
+    "mi-resistance-mechanism"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-vaccine-type",
+    "mi-antibiotic-virus"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-6.1.E",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-food-microbes",
+    "mi-industry-microbes"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-magnification",
+    "mi-resolution"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-gram-steps",
+    "mi-stain-choice"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-cfu-per-ml",
+    "mi-serial-dilution"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MI-7.1.D",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mi-medium-type",
+    "mi-aseptic-containment"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
