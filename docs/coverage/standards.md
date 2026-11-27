@@ -25,7 +25,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
-| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl | — | 178 | 138 | 40 |
+| Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl, cambridge-ib-complex | cupm-2015-complex | 195 | 155 | 40 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Graduate Chemical Engineering Core | Graduate chemical engineering core curriculum (crosswalk of fifteen departments' published requirements) | course | read in full | icheme-level-f, uci-cbe-core, pe-chemical | — | 50 | 50 | 0 |
 | Heat Transfer | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | fe-mechanical, ib-physics-2025, pe-chemical | — | 101 | 63 | 38 |
@@ -128,7 +128,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Earth and Space Science**: standard, read in part
 - **Electric Double Layers**: textbook, read in part
 - **Electronic Structure**: course, read in part
-- **Applied Engineering Mathematics**: textbook, read in full
+- **Applied Engineering Mathematics**: textbook, read in full; should move to MAA CUPM Curriculum Guide 2015, Complex Analysis course area report
 - **Graduate Chemical Engineering Core**: course, read in full
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Molecular Simulation**: course, read in full
@@ -3654,6 +3654,19 @@ https://www.gomotionapp.com/efsl/UserFiles/Image/QuickUpload/table-of-contents_0
 | 6.5 | Planning senior practices | 6 | 6 | swimming (6) |
 | 6.6 | Fueling, hydration and drug-free sport | — | — | **nothing yet** |
 | 7 | Evaluation of athletes, coaches and the club (title only) | 6 | 6 | swimming (6) |
+
+## Cambridge Mathematical Tripos Part IB, Complex Analysis schedule
+
+https://dec41.user.srcf.net/notes/IB_L/complex_analysis.pdf
+
+4 of 4 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A | Analytic functions: complex differentiation, Cauchy-Riemann, conformal maps, branch points of log z and z^c | 20 | 20 | engineering-math (20) |
+| C | Contour integration and Cauchy's theorem: contour integrals, Cauchy's theorem and integral formula, maximum modulus, Liouville, the fundamental theorem of algebra, Morera | 22 | 22 | engineering-math (22) |
+| S | Expansions and singularities: Taylor and Laurent expansions, isolated zeros, residues, classifying isolated singularities | 21 | 21 | engineering-math (21) |
+| R | The residue theorem: winding numbers, the residue theorem, Jordan's lemma, definite integrals, Rouche and the argument principle | 23 | 23 | engineering-math (23) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 

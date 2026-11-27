@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**178 learning objectives** in 14 units (164 core): 178 drilled, 0 partly, 0 with no drills. Core: 164 / 164 drilled.
+**195 learning objectives** in 15 units (164 core): 195 drilled, 0 partly, 0 with no drills. Core: 164 / 164 drilled.
 
 ## Big ideas
 
@@ -39,6 +39,7 @@ Generated from `drills/frameworks/engineering-math.yaml` by `scripts/framework.m
 | 12 · Vector calculus for transport | extension | — | 5 | 5 | 0 | 0 |
 | 13 · More on ODEs: circuits, bifurcations, operators, existence | core | — | 5 | 5 | 0 | 0 |
 | 14 · Complex analysis | core | — | 14 | 14 | 0 | 0 |
+| 15 · Complex analysis: mappings, contours and residues | extension | — | 17 | 17 | 0 | 0 |
 
 ## Unit 1 · The calculus and complex-number toolkit
 
@@ -979,6 +980,81 @@ Big ideas: MODEL
 - ● **EM-14.3.E** (webwork-opl:CX8.4) Find the order of a zero.
   - EK: The order is the power of the first nonzero term of the Taylor series.
   - P1 · drills: em-zero-order
+
+## Unit 15 · Complex analysis: mappings, contours and residues (extension)
+
+Big ideas: TRANS
+
+### 15.1 Analytic functions as mappings
+
+
+
+- ● **EM-15.1.A** (cambridge-ib-complex:A) Find how an analytic map stretches and turns at a point, and where it fails to be conformal.
+  - EK: An analytic f is conformal wherever f′ ≠ 0: it magnifies by |f′(z₀)| and rotates by arg f′(z₀). Angles are lost exactly at the zeros of f′.
+  - P1 · drills: em-conformal-magnification, em-conformal-critical
+- ● **EM-15.1.B** (cambridge-ib-complex:A) Work with a Möbius map: its pole and the image of a point or a line.
+  - EK: w = (az + b)/(cz + d) sends z = −d/c to infinity and circles and lines to circles and lines; the Cayley map (z − i)/(z + i) sends the real axis to the unit circle.
+  - P1 · drills: em-mobius-pole, em-cayley-real-part
+- ● **EM-15.1.C** (cambridge-ib-complex:A) Evaluate the principal logarithm and principal powers and say where the branch cut lies.
+  - EK: Log z = ln|z| + i Arg z with −π < Arg z ≤ π, cut along the negative real axis; z^c = exp(c Log z), so i^i is real.
+  - P1 · drills: em-principal-arg, em-i-to-the-i
+
+### 15.2 Contour integration and Cauchy's theorem
+
+
+
+- ● **EM-15.2.A** (cambridge-ib-complex:C) Evaluate a contour integral by parametrising the path.
+  - EK: ∫ f(z) dz = ∫ f(z(t)) z′(t) dt. For a function that is not analytic, such as the conjugate, the answer depends on the path and a closed loop need not give zero.
+  - P1 · drills: em-contour-conjugate-line, em-contour-conjugate-circle
+- ● **EM-15.2.B** (cambridge-ib-complex:C) Use Cauchy's theorem and deformation of contours to evaluate a closed integral.
+  - EK: A closed integral of an analytic function is zero; around a simple pole it is 2πi times the coefficient, and only the singularities inside the contour count.
+  - P1 · drills: em-cauchy-inside-outside, em-cauchy-count-poles
+- ● **EM-15.2.C** (cambridge-ib-complex:C) Use Cauchy's integral formula for a function and for its derivatives.
+  - EK: f⁽ⁿ⁾(a) = (n!/2πi) ∮ f(z)/(z − a)ⁿ⁺¹ dz: values and all derivatives inside are fixed by the values on the contour.
+  - P1 · drills: em-cauchy-derivative-formula, em-cauchy-formula-value
+- ● **EM-15.2.D** (cambridge-ib-complex:C, cambridge-ib-complex:R) Bound a contour integral by the ML inequality and say when an arc's contribution vanishes.
+  - EK: |∫ f dz| ≤ M·L with M the largest |f| on the path and L its length; on a large semicircle the arc dies if |f| falls faster than 1/R.
+  - P1 · drills: em-ml-semicircle, em-ml-decay-power
+- ● **EM-15.2.E** (cambridge-ib-complex:C) Apply the maximum modulus principle and Liouville's theorem.
+  - EK: A non-constant analytic function takes its maximum modulus on the boundary; a bounded entire function is constant, which is how the fundamental theorem of algebra is proved.
+  - P1 · drills: em-max-modulus, em-liouville-facts
+
+### 15.3 Expansions and singularities
+
+
+
+- ● **EM-15.3.A** (cambridge-ib-complex:S) Find Laurent coefficients of the same function in different annuli.
+  - EK: A function has a different Laurent series in each annulus between its singularities; only the series in the punctured disc around a point gives that point's residue.
+  - P1 · drills: em-laurent-inner, em-laurent-outer
+- ● **EM-15.3.B** (cambridge-ib-complex:S) Classify an isolated singularity as removable, a pole of given order, or essential.
+  - EK: Look at the principal part: none is removable, finitely many terms is a pole whose order is the highest negative power, infinitely many is essential.
+  - P1 · drills: em-singularity-type, em-pole-order
+- ● **EM-15.3.C** (cambridge-ib-complex:S) Compute a residue at a simple pole and at a pole of higher order.
+  - EK: Simple pole: lim (z − a)f(z), or p(a)/q′(a). Order m: the (m − 1)th derivative of (z − a)ᵐf(z) at a, over (m − 1)!.
+  - P1 · drills: em-residue-double-pole, em-residue-simple-imag
+- ● **EM-15.3.D** (cambridge-ib-complex:S) Find a Taylor series' radius of convergence from the singularities.
+  - EK: The series converges out to the nearest singularity in the complex plane, even when that singularity is not on the real line.
+  - P1 · drills: em-radius-complex-pole, em-radius-nearest-pole
+
+### 15.4 The residue theorem and real integrals
+
+
+
+- ● **EM-15.4.A** (cambridge-ib-complex:R) Evaluate a closed integral with the residue theorem.
+  - EK: ∮ f dz = 2πi × (sum of the residues inside). Enlarging the contour past a pole adds that pole's residue.
+  - P1 · drills: em-residue-theorem-one, em-residue-theorem-all
+- ● **EM-15.4.B** (cambridge-ib-complex:R) Evaluate an integral over the whole real line by closing the contour in the upper half-plane.
+  - EK: For a rational function decaying faster than 1/x, the semicircle contributes nothing and the integral is 2πi times the residues in the upper half-plane.
+  - P1 · drills: em-real-line-lorentzian, em-real-line-squared
+- ● **EM-15.4.C** (cambridge-ib-complex:R) Evaluate a trigonometric integral over a full period on the unit circle.
+  - EK: With z = e^{iθ}, cos θ = (z + 1/z)/2 and dθ = dz/(iz): the integral becomes a closed contour integral around |z| = 1.
+  - P1 · drills: em-trig-integral, em-trig-integral-scaled
+- ● **EM-15.4.D** (cambridge-ib-complex:R) Evaluate a Fourier-type integral with Jordan's lemma.
+  - EK: For e^{ikz} with k > 0 close in the upper half-plane: the exponential decays there, so the arc vanishes even when f only falls like 1/R.
+  - P1 · drills: em-jordan-cosine, em-jordan-facts
+- ● **EM-15.4.E** (cambridge-ib-complex:R) Count zeros with the argument principle and Rouché's theorem.
+  - EK: (1/2πi)∮ f′/f dz = zeros − poles inside, counted with multiplicity. If |g| < |f| on the contour, f and f + g have the same number of zeros inside.
+  - P1 · drills: em-rouche-count, em-argument-principle
 
 ## Drills not yet placed on the map
 
