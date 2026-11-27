@@ -15,7 +15,8 @@
  "basis": {
   "primary": "cambridge-ia-groups",
   "also": [
-   "cambridge-ib-grm"
+   "cambridge-ib-grm",
+   "cambridge-ii-galois-theory"
   ],
   "note": "Anchored on the Cambridge Groups and Groups, Rings and Modules schedules (read through an extraction). Group theory is the weight, since it is what chemistry uses; rings stop at unique factorisation, and modules appear only as the classification of finite abelian groups. Fields and Galois theory are not built."
  },
@@ -426,6 +427,98 @@
      ]
     }
    ]
+  },
+  {
+   "id": "fields",
+   "n": 6,
+   "title": "Fields and Galois theory",
+   "std": [
+    "cambridge-ii-galois-theory:E",
+    "cambridge-ii-galois-theory:F",
+    "cambridge-ii-galois-theory:G",
+    "cambridge-ii-galois-theory:S"
+   ],
+   "scope": "extension",
+   "ideas": [
+    "SYM",
+    "DIV"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Extensions, finite fields and the Galois correspondence",
+     "los": [
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ii-galois-theory:S"
+       ],
+       "do": "Decide what can be constructed by ruler and compass or solved by radicals.",
+       "ek": [
+        "A length is constructible only if its degree over Q is a power of 2, so a regular n-gon is constructible exactly when φ(n) is a power of 2. A polynomial is soluble by radicals exactly when its Galois group is soluble; S₅ is not."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "aa-constructible-polygon",
+        "aa-impossibility-facts"
+       ]
+      },
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ii-galois-theory:E"
+       ],
+       "do": "Find the degree of a field extension and use the tower law.",
+       "ek": [
+        "[K(α) : K] is the degree of the minimal polynomial of α over K, and degrees multiply up a tower: [M : K] = [M : L][L : K]."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "aa-extension-degree",
+        "aa-tower-law"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ii-galois-theory:F"
+       ],
+       "do": "Count the elements, subfields and irreducible polynomials of a finite field.",
+       "ek": [
+        "There is exactly one field of each prime-power order pⁿ. Its non-zero elements form a cyclic group, its subfields are the fields of order p^d for d dividing n, and xᵖⁿ − x is the product of every monic irreducible over F_p whose degree divides n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "aa-irreducible-count",
+        "aa-subfield-count"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-galois-theory:G"
+       ],
+       "do": "Find the order of a Galois group and read the Galois correspondence.",
+       "ek": [
+        "For a Galois extension the group has order equal to the degree, and subgroups correspond to intermediate fields with inclusions reversed; a subfield is normal over the base exactly when its subgroup is normal. Q(ζ_n) has group the units modulo n, of order φ(n)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "aa-cyclotomic-degree",
+        "aa-galois-correspondence"
+       ]
+      }
+     ]
+    }
+   ]
   }
  ],
  "rows": [
@@ -602,6 +695,50 @@
    "full": [
     "aa-gaussian-norm",
     "aa-factorisation-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "aa-constructible-polygon",
+    "aa-impossibility-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "aa-extension-degree",
+    "aa-tower-law"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "aa-irreducible-count",
+    "aa-subfield-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "aa-cyclotomic-degree",
+    "aa-galois-correspondence"
    ],
    "partial": []
   }

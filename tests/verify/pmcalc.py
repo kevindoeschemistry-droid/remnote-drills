@@ -372,7 +372,7 @@ def pm_g_hamilton(edges):
 # ---- analysis ----
 def pm_first_n(expr, limit, eps):
     """least N with |a_n - limit| < eps for every n >= N, for a sequence monotone in |a_n - limit| (checked far out)"""
-    f = lambda n: abs(eval(expr, {"__builtins__": {}}, {"n": sp.Integer(n), "sqrt": sp.sqrt, "factorial": sp.factorial}) - sp.nsimplify(limit))  # noqa: S307,E731
+    f = lambda n: abs(eval(expr, {"__builtins__": {}}, {"n": sp.Integer(n), "sqrt": sp.sqrt, "factorial": sp.factorial, "Rational": sp.Rational}) - sp.nsimplify(limit))  # noqa: S307,E731
     e = sp.nsimplify(eps)
     n = 1
     while not f(n) < e:
@@ -575,6 +575,77 @@ def pm_ctmc_stationary(rates, j):
     for u, d in zip(up, down):
         w.append(w[-1] * u / d)
     return w[int(j)] / sum(w)
+
+
+# ---- second layer: fields, Jacobi, factorising, homotopy, pricing ----
+def pm_minpoly_deg(expr):
+    """degree over Q of the algebraic number written as a Python expression (sqrt, cbrt, I, Rational available)"""
+    t = sp.Symbol("t")
+    a = sp.sympify(eval(expr, {"__builtins__": {}}, {"sqrt": sp.sqrt, "cbrt": sp.cbrt, "I": sp.I, "Rational": sp.Rational, "root": sp.root, "exp": sp.exp, "pi": sp.pi, "cos": sp.cos}))  # noqa: S307
+    return sp.Integer(sp.degree(sp.minimal_polynomial(a, t), t))
+
+
+def pm_irreducible_count(p, d):
+    """monic irreducible polynomials of degree d over F_p, by removing every product of two monic polynomials"""
+    p, d = int(p), int(d)
+    def mul(a, b):
+        out = [0] * (len(a) + len(b) - 1)
+        for i, x in enumerate(a):
+            for j, y in enumerate(b):
+                out[i + j] = (out[i + j] + x * y) % p
+        return tuple(out)
+    monic = lambda k: [c + (1,) for c in itertools.product(range(p), repeat=k)]  # noqa: E731
+    red = {mul(a, b) for k in range(1, d // 2 + 1) for a in monic(k) for b in monic(d - k)}
+    return sp.Integer(len([f for f in monic(d) if f not in red]))
+
+
+def pm_jacobi(a, n):
+    """Jacobi symbol as a product of Legendre symbols over the prime factors of n"""
+    a, n, out, q = int(a), int(n), 1, 3
+    if math.gcd(a, n) > 1:
+        return sp.Integer(0)
+    while n > 1:
+        while n % q == 0:
+            out *= int(pm_legendre(a, q))
+            n //= q
+        q += 2
+    return sp.Integer(out)
+
+
+def pm_fermat_a(n):
+    """least a >= sqrt(n) with a^2 - n a perfect square"""
+    n = int(n)
+    a = math.isqrt(n)
+    if a * a < n:
+        a += 1
+    while math.isqrt(a * a - n) ** 2 != a * a - n:
+        a += 1
+    return sp.Integer(a)
+
+
+def pm_g_cycle_rank(edges):
+    """rank of the fundamental group of a connected graph: edges not in a spanning tree, found by building one"""
+    vs, es = _graph(edges)
+    par = {v: v for v in vs}
+    def find(x):
+        while par[x] != x:
+            x = par[x]
+        return x
+    extra = 0
+    for a, b in es:
+        if find(a) == find(b):
+            extra += 1
+        else:
+            par[find(a)] = find(b)
+    return sp.Integer(extra)
+
+
+def pm_replicate_price(s0, u, d, r, pu, pd):
+    """one-period binomial price by replication: hold D shares and B in the bank so both outcomes are matched"""
+    s0, u, d, r, pu, pd = [sp.nsimplify(x, rational=True) for x in (s0, u, d, r, pu, pd)]
+    D, B = sp.symbols("D B")
+    sol = sp.solve([D * s0 * u + B * (1 + r) - pu, D * s0 * d + B * (1 + r) - pd], [D, B], dict=True)[0]
+    return sol[D] * s0 + sol[B]
 
 
 FUNCS = {k: v for k, v in globals().items() if k.startswith("pm_") and callable(v)}

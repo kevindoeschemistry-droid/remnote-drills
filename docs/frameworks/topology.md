@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/topology.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**11 learning objectives** in 4 units (11 core): 11 drilled, 0 partly, 0 with no drills. Core: 11 / 11 drilled.
+**15 learning objectives** in 5 units (11 core): 15 drilled, 0 partly, 0 with no drills. Core: 11 / 11 drilled.
 
 ## Big ideas
 
@@ -22,6 +22,7 @@ Generated from `drills/frameworks/topology.yaml` by `scripts/framework.mjs`. ●
 | 2 · Connectedness | core | — | 2 | 2 | 0 | 0 |
 | 3 · Compactness | core | — | 2 | 2 | 0 | 0 |
 | 4 · Surfaces | core | — | 3 | 3 | 0 | 0 |
+| 5 · The fundamental group and homology | extension | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · Topological spaces
 
@@ -91,3 +92,24 @@ Big ideas: INV
 - ● **TP-4.1.C** (cambridge-ib-topological-spaces:S5) Use orientability and the Euler characteristic to classify a closed surface.
   - EK: Every closed surface is a sphere with g handles (χ = 2 − 2g) or a sphere with k crosscaps (χ = 2 − k). Orientability and χ together determine the surface. A connected sum has χ(A # B) = χ(A) + χ(B) − 2.
   - P1 · drills: tp-chi-from-word, tp-connected-sum
+
+## Unit 5 · The fundamental group and homology (extension)
+
+Big ideas: INV
+
+### 5.1 Loops, coverings and holes
+
+
+
+- ● **TP-5.1.A** (cambridge-ii-algebraic-topology:H) Recognise homotopy equivalence and say what a space deformation-retracts to.
+  - EK: Two spaces are homotopy equivalent when each maps to the other with both composites homotopic to the identity. A deformation retraction shrinks a space onto a subspace: an annulus or a Möbius band onto a circle, a disc onto a point.
+  - P1 · drills: tp-homotopy-type, tp-homotopy-facts
+- ● **TP-5.1.B** (cambridge-ii-algebraic-topology:H, cambridge-ii-algebraic-topology:K) Name the fundamental group of a standard space and find the rank of the fundamental group of a graph.
+  - EK: π₁ is trivial for a sphere (dimension ≥ 2) or a disc, Z for the circle, Z² for the torus, Z/2 for the projective plane, and free on n generators for a wedge of n circles. A connected graph has free fundamental group of rank E − V + 1.
+  - P1 · drills: tp-graph-rank, tp-fundamental-groups
+- ● **TP-5.1.C** (cambridge-ii-algebraic-topology:V) Count sheets of a covering and use the multiplicativity of Euler characteristic.
+  - EK: An n-sheeted covering has χ(cover) = n χ(base) and corresponds to a subgroup of index n in the fundamental group of the base. The real line covers the circle with infinitely many sheets; the sphere covers the projective plane twice.
+  - P1 · drills: tp-cover-genus, tp-covering-facts
+- ● **TP-5.1.D** (cambridge-ii-algebraic-topology:L) Read Betti numbers and Euler characteristic and use the fixed-point theorems they give.
+  - EK: χ = b₀ − b₁ + b₂ − … . A closed orientable surface of genus g has Betti numbers 1, 2g, 1; the sphere Sⁿ has homology only in degrees 0 and n. Brouwer: every continuous map of a closed ball to itself has a fixed point.
+  - P1 · drills: tp-betti-one, tp-homology-facts

@@ -262,6 +262,23 @@
         "nt-legendre",
         "nt-reciprocity-facts"
        ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ii-number-theory:T4"
+       ],
+       "do": "Evaluate a Jacobi symbol by reciprocity and say what it does and does not tell you.",
+       "ek": [
+        "The Jacobi symbol (a/n) for odd n multiplies the Legendre symbols over the prime factors of n and obeys the same reciprocity rules, so it is computed without factorising. (a/n) = −1 means a is not a square modulo n; (a/n) = 1 does not mean it is."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-jacobi",
+        "nt-jacobi-facts"
+       ]
       }
      ]
     }
@@ -336,6 +353,23 @@
        "drills": [
         "nt-prime-count-estimate",
         "nt-fermat-test"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ii-number-theory:T9"
+       ],
+       "do": "Factorise an integer by writing it as a difference of squares.",
+       "ek": [
+        "If n = a² − b² then n = (a − b)(a + b). Fermat's method tries a = ⌈√n⌉, ⌈√n⌉ + 1, … until a² − n is a square. More generally x² ≡ y² (mod n) with x ≢ ±y gives the factor gcd(x − y, n)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "nt-fermat-factorise",
+        "nt-congruent-squares"
        ]
       }
      ]
@@ -444,6 +478,17 @@
    "partial": []
   },
   {
+   "code": "NT-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-jacobi",
+    "nt-jacobi-facts"
+   ],
+   "partial": []
+  },
+  {
    "code": "NT-4.1.B",
    "unit": 4,
    "topic": 1,
@@ -473,6 +518,17 @@
    "full": [
     "nt-prime-count-estimate",
     "nt-fermat-test"
+   ],
+   "partial": []
+  },
+  {
+   "code": "NT-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "nt-fermat-factorise",
+    "nt-congruent-squares"
    ],
    "partial": []
   }

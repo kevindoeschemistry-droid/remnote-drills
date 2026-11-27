@@ -14,6 +14,7 @@ domains: [top]
 
 basis:
   primary: cambridge-ib-topological-spaces
+  also: [cambridge-ii-algebraic-topology]
   note: "Anchored on the Cambridge Topological Spaces schedule (read through an extraction). Point-set topology to compactness, then surfaces by Euler characteristic. The fundamental group, homology and knot theory are not built."
 
 big_ideas:
@@ -84,3 +85,17 @@ units:
           - { id: A, std: ["cambridge-ib-topological-spaces:S5"], do: "Compute an Euler characteristic and the genus it implies.", ek: ["χ = V − E + F for any triangulation or polygonal division. A closed orientable surface of genus g has χ = 2 − 2g: sphere 2, torus 0, double torus −2."], p: [P1], drills: [tp-euler-characteristic, tp-genus-from-chi] }
           - { id: B, std: ["cambridge-ib-topological-spaces:S4"], do: "Read a polygon with sides identified: count its vertices and name the surface.", ek: ["Follow each corner round the gluing to see which corners become one point. With one face and n edge pairs, χ = V − n + 1. Standard words: a a⁻¹ sphere, a a projective plane, a b a⁻¹ b⁻¹ torus, a b a b⁻¹ Klein bottle."], p: [P1], drills: [tp-polygon-vertices, tp-polygon-surface] }
           - { id: C, std: ["cambridge-ib-topological-spaces:S5"], do: "Use orientability and the Euler characteristic to classify a closed surface.", ek: ["Every closed surface is a sphere with g handles (χ = 2 − 2g) or a sphere with k crosscaps (χ = 2 − k). Orientability and χ together determine the surface. A connected sum has χ(A # B) = χ(A) + χ(B) − 2."], p: [P1], drills: [tp-chi-from-word, tp-connected-sum] }
+  - id: homotopy
+    n: 5
+    title: "The fundamental group and homology"
+    std: ["cambridge-ii-algebraic-topology:H", "cambridge-ii-algebraic-topology:V", "cambridge-ii-algebraic-topology:K", "cambridge-ii-algebraic-topology:L"]
+    scope: extension
+    ideas: [INV]
+    topics:
+      - n: 1
+        title: "Loops, coverings and holes"
+        los:
+          - { id: A, std: ["cambridge-ii-algebraic-topology:H"], do: "Recognise homotopy equivalence and say what a space deformation-retracts to.", ek: ["Two spaces are homotopy equivalent when each maps to the other with both composites homotopic to the identity. A deformation retraction shrinks a space onto a subspace: an annulus or a Möbius band onto a circle, a disc onto a point."], p: [P1], drills: [tp-homotopy-type, tp-homotopy-facts] }
+          - { id: B, std: ["cambridge-ii-algebraic-topology:H", "cambridge-ii-algebraic-topology:K"], do: "Name the fundamental group of a standard space and find the rank of the fundamental group of a graph.", ek: ["π₁ is trivial for a sphere (dimension ≥ 2) or a disc, Z for the circle, Z² for the torus, Z/2 for the projective plane, and free on n generators for a wedge of n circles. A connected graph has free fundamental group of rank E − V + 1."], p: [P1], drills: [tp-graph-rank, tp-fundamental-groups] }
+          - { id: C, std: ["cambridge-ii-algebraic-topology:V"], do: "Count sheets of a covering and use the multiplicativity of Euler characteristic.", ek: ["An n-sheeted covering has χ(cover) = n χ(base) and corresponds to a subgroup of index n in the fundamental group of the base. The real line covers the circle with infinitely many sheets; the sphere covers the projective plane twice."], p: [P1], drills: [tp-cover-genus, tp-covering-facts] }
+          - { id: D, std: ["cambridge-ii-algebraic-topology:L"], do: "Read Betti numbers and Euler characteristic and use the fixed-point theorems they give.", ek: ["χ = b₀ − b₁ + b₂ − … . A closed orientable surface of genus g has Betti numbers 1, 2g, 1; the sphere Sⁿ has homology only in degrees 0 and n. Brouwer: every continuous map of a closed ball to itself has a fixed point."], p: [P1], drills: [tp-betti-one, tp-homology-facts] }

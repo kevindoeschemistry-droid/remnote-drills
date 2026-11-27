@@ -2,7 +2,7 @@
 
 Generated from `drills/frameworks/stochastic-processes.yaml` by `scripts/framework.mjs`. ● drilled · ◐ partly · ○ no drills yet.
 
-**12 learning objectives** in 4 units (12 core): 12 drilled, 0 partly, 0 with no drills. Core: 12 / 12 drilled.
+**16 learning objectives** in 5 units (12 core): 16 drilled, 0 partly, 0 with no drills. Core: 12 / 12 drilled.
 
 ## Big ideas
 
@@ -22,6 +22,7 @@ Generated from `drills/frameworks/stochastic-processes.yaml` by `scripts/framewo
 | 2 · Random walks | core | — | 2 | 2 | 0 | 0 |
 | 3 · Long-run behaviour | core | — | 4 | 4 | 0 | 0 |
 | 4 · Poisson processes and queues | core | — | 3 | 3 | 0 | 0 |
+| 5 · Martingales and Brownian motion | extension | — | 4 | 4 | 0 | 0 |
 
 ## Unit 1 · Markov chains
 
@@ -94,3 +95,24 @@ Big ideas: EQ
 - ● **STO-4.1.C** (cambridge-ii-applied-probability:P1, cambridge-ii-applied-probability:P3) Find the equilibrium of a birth-death chain and of the M/M/1 queue.
   - EK: Balance across each cut: π_n λ_n = π_(n+1) μ_(n+1). For M/M/1 with ρ = λ/μ < 1, π_n = (1 − ρ)ρⁿ and the mean number in the system is ρ/(1 − ρ).
   - P1 · drills: sto-mm1-mean, sto-birth-death
+
+## Unit 5 · Martingales and Brownian motion (extension)
+
+Big ideas: STEP, EQ
+
+### 5.1 Fair games in discrete and continuous time
+
+
+
+- ● **STO-5.1.A** (cambridge-ii-stochastic-financial-models:MG) Compute a conditional expectation and decide whether a process is a martingale.
+  - EK: M is a martingale when E[M_(n+1) | past] = M_n: a fair game. For a simple symmetric walk S_n, both S_n and S_n² − n are martingales; for a biased walk, (q/p)^S_n is.
+  - P1 · drills: sto-conditional-expectation, sto-is-martingale
+- ● **STO-5.1.B** (cambridge-ii-stochastic-financial-models:MG) Use the optional stopping theorem to find exit probabilities and expected exit times.
+  - EK: For a martingale and a bounded stopping time (or bounded increments and finite mean time), E[M_T] = M₀. Applied to S_n it gives P(hit b before −a) = a/(a + b); applied to S_n² − n it gives E[T] = ab.
+  - P1 · drills: sto-exit-probability, sto-exit-time
+- ● **STO-5.1.C** (cambridge-ii-stochastic-financial-models:BM) Price a claim in the one-period binomial model by the risk-neutral probability.
+  - EK: If the stock moves from S to uS or dS and the bank pays 1 + r, with d < 1 + r < u, the risk-neutral up-probability is q = (1 + r − d)/(u − d), and any claim costs its discounted q-expectation: the price of the portfolio that replicates it.
+  - P1 · drills: sto-risk-neutral-q, sto-binomial-call
+- ● **STO-5.1.D** (cambridge-ii-stochastic-financial-models:BR) Compute variances, covariances and hitting probabilities for Brownian motion.
+  - EK: B_t − B_s is normal with mean 0 and variance t − s, independent of the past, so Cov(B_s, B_t) = min(s, t). Reflection principle: P(max over [0, t] ≥ a) = 2 P(B_t ≥ a).
+  - P1 · drills: sto-brownian-variance, sto-reflection
