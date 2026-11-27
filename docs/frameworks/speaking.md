@@ -54,6 +54,7 @@ Book: rosine-2021 §posture, §inhalation, §exhalation, §breath exercises; byu
 - ● **SPK-1.1.B** In a timed rep, sustain a steady exhale on [s] for a target count (build 4 → 8 → 16) and then speak a full sentence on one breath without trailing off.
   - EK: Rosine's 4-in / 2-hold / 4-out pattern, extended to 8 and 16 on [s] or [v], trains even outflow.
   - EK: Sentences that fade at the end usually ran out of air, not volume — mark breath points with a slash.
+  - Needs: SPK-1.1.A
   - P4 · P1 · drills: spk-exhale-build, spk-exhale-why
 
 ### 1.2 Projection and resonance
@@ -73,6 +74,7 @@ Book: rosine-2021 §consonants: manner, §voiced/unvoiced pairs; byu-voice §art
 - ● **SPK-1.3.A** Classify a consonant by manner (plosive, fricative, nasal, lateral, affricate) and voicing, and name the articulators that make it.
   - EK: Plosives p b t d k g stop then release; fricatives f v s z ʃ ʒ θ ð partly block; nasals m n ŋ route through the nose; l is lateral; tʃ dʒ are affricates.
   - EK: Voiced/unvoiced pairs: b/p, d/t, g/k, z/s, v/f, ʒ/ʃ, dʒ/tʃ.
+  - Needs: SPK-1.2.A
   - P1 · drills: spk-consonant-class, spk-final-consonants
 - ● **SPK-1.3.B** In a timed rep, read a dense technical sentence at 150 wpm with every final consonant and unstressed syllable audible on playback.
   - EK: Dropped and merged sounds — 'gonna', 'dinnt', 'hunnerd', 'probly' — are the common faults; low volume makes them worse.
@@ -88,6 +90,7 @@ Book: lumen-voice §pronunciation; nca-cs §5, §7
   - EK: Listeners can't re-read; long noun stacks and late verbs overload working memory.
   - EK: NCA competency 5: language clear, vivid, free of unexplained jargon for this audience.
   - EK: Check unfamiliar names and terms against dictionary audio or someone who knows; pick one accepted pronunciation, rehearse it aloud, use it consistently (NCA 7).
+  - Needs: SPK-1.3.B
   - P3 · P5 · drills: spk-for-the-ear, spk-clause-split
 
 ## Unit 2 · Pace, pauses and filler words
@@ -101,6 +104,7 @@ Book: lumen-voice §rate; vs-rate §by context, §practice data; riseguide §Pac
 - ● **SPK-2.1.A** Compute wpm from a transcript and its duration, and classify the result as slow, presentation-range, conversational or fast.
   - EK: wpm = words ÷ minutes; conversation ≈ 150 (NCVS), comfortable presentation ≈ 125–150, audiobooks 150–160.
   - EK: Below ~100 reads as hesitant or unprepared; sustained >180 overwhelms after a minute or two.
+  - Needs: SPK-1.4.A
   - P1 · drills: spk-wpm, spk-wpm-classify
 - ● **SPK-2.1.B** In a timed 60-second rep, hold 140–160 wpm on an answer and 125–150 wpm on an explanation, checked from the transcript.
   - EK: Top-scored practice talks in VirtualSpeech's data had a median of 138 wpm.
@@ -120,10 +124,12 @@ Book: lumen-voice §pauses, §fluency hiccups; clark-2002 §delay signalling; pr
 - ● **SPK-2.2.A** Place deliberate 1–2 second pauses after the main point, between sections and before a key number, and mark them with '/' or '//' on a script before delivering it.
   - EK: Intended pauses add emphasis and signal transitions; the speaker feels them as longer than the listener does.
   - EK: Mark breath and pause points on the outline; a pause after a question gives the room time to think.
+  - Needs: SPK-2.1.C
   - P4 · P3 · drills: spk-pause-budget, spk-pause-placement
 - ● **SPK-2.2.B** Classify a described pause as a deliberate pause, a fluency hiccup, or a filled pause, and say whether it helped or hurt.
   - EK: Fluency hiccups come from losing your place or thread; a brief silent hiccup often goes unnoticed or reads as deliberate.
   - EK: A filled pause (um, uh) spends the same time and announces the trouble.
+  - Needs: SPK-2.2.A
   - P2 · drills: spk-pause-kind, spk-pause-mix
 - ● **SPK-2.2.C** Start every on-the-spot answer with a silent 1–2 second pause instead of a filler or a restatement of the question.
   - EK: Silent pausers are rated surer than filler users (Brennan & Williams 1995, in Clark & Fox Tree 2002).
@@ -138,6 +144,7 @@ Book: clark-2002 §uh vs um; laske-2024 §0/2/5/12 per minute; qbs-hr §awarenes
 - ● **SPK-2.3.A** Count fillers per minute in a recording or transcript, separating filler sounds (um, uh, er) from filler words (like, you know, so, basically, right?).
   - EK: Fillers/min = count ÷ minutes; a student logged ~30 'um's in 3 minutes (10/min).
   - EK: Filler sounds hurt perceived effectiveness more than filler words (Laske et al. 2024).
+  - Needs: SPK-2.2.C
   - P1 · drills: spk-filler-rate, spk-filler-kinds
 - ● **SPK-2.3.B** In a timed 60-second rep on a random prompt, deliver with ≤ 3 filler sounds (target ≤ 1), measured from the transcript.
   - EK: 12 fillers/min clearly lowered listener ratings; ≤5/min was not significantly harmful — 'acceptable' is the floor, not the goal.
@@ -161,10 +168,12 @@ Book: lumen-voice §pitch; nca-cs §6; tm-eval §Vocal Variety; tm-paths §Intro
 - ● **SPK-3.1.A** End declarative sentences with a falling pitch, and in a recorded rep make every claim sentence of a 60-second answer fall rather than rise.
   - EK: Rising terminals on statements (upspeak) sound like questions and invite doubt; a slight drop marks completion, serious points and the ending.
   - EK: A lower pitch at the close cues the room that you're done.
+  - Needs: SPK-2.3.C
   - P4 · drills: spk-falling-endings, spk-falling-why
 - ● **SPK-3.1.B** Diagnose a described voice as monotone, sing-song, upspeaking or pressed, and choose the correction.
   - EK: Speakers believe they vary pitch more than listeners hear — recording is the check.
   - EK: Range exercise: slide from your highest to lowest comfortable note and back; use more of that range for key words.
+  - Needs: SPK-3.1.A
   - P2 · drills: spk-voice-diagnosis, spk-pitch-range
 
 ### 3.2 Emphasis and volume dynamics
@@ -174,10 +183,12 @@ Book: nca-cs §6; tm-eval §Vocal Variety
 - ● **SPK-3.2.A** Mark the one key word per sentence in a script and, on playback, stress it with pitch, volume or a pause before it — and change the meaning by moving the stress.
   - EK: 'I didn't say she took it' has seven meanings by stressed word; emphasis tells the listener where the information is.
   - EK: Stressing everything stresses nothing.
+  - Needs: SPK-3.1.B
   - P4 · P3 · drills: spk-key-word-count, spk-stress-markers
 - ● **SPK-3.2.B** Pick the stronger of two recorded or described deliveries of the same line on vocal variety, and name what made the difference.
   - EK: NCA 'excellent' vocal variety: exceptionally varied yet conversational, controlled pace, clearly heard, pitch that enhances the message.
   - EK: Variety serves meaning — random variation is as distracting as none.
+  - Needs: SPK-3.2.A
   - P6 · P2 · drills: spk-stronger-delivery, spk-variety-score
 
 ### 3.3 Physical presence
@@ -187,10 +198,12 @@ Book: nca-cs §8; tm-eval §Eye Contact, §Gestures, §Comfort Level; tm-paths �
 - ● **SPK-3.3.A** Hold eye contact for one complete thought per listener (about 3–5 seconds) and move across the room; on video, look at the lens for whole sentences.
   - EK: Eye contact gauges reaction and engages; darting or reading notes breaks it.
   - EK: On a call the lens is the listener's eyes.
+  - Needs: SPK-3.2.B
   - P4 · P5 · drills: spk-eye-contact, spk-eye-contact-how
 - ● **SPK-3.3.B** Stand or sit grounded — feet planted, hands still at rest, gestures only on purpose — and on video count distracting movements (sway, fidget, touch face) per minute.
   - EK: NCA: posture, gesture, movement, facial expression and eye contact consistently reinforce the message; Toastmasters rates distracting or absent gestures 'Emerging'.
   - EK: Stillness reads as confidence; a gesture that matches a word (size, sequence, contrast) reinforces it.
+  - Needs: SPK-3.3.A
   - P4 · P1 · drills: spk-grounded-stance, spk-gesture-count
 
 ### 3.4 Confidence under nerves
@@ -205,6 +218,7 @@ Book: tm-paths §Confidence (core competency); tm-eval §Comfort Level; prep §n
 - ● **SPK-3.4.B** Cut hedges and apologies from an answer — 'sorry, this might be wrong, but', 'I just think', 'kind of' — and in a rep state the claim plainly with its real confidence level once.
   - EK: Never apologise for an impromptu answer; hedging every clause signals less certainty than you have.
   - EK: Calibrated confidence: say 'I'm fairly sure' once, where it applies, not on every sentence.
+  - Needs: SPK-3.4.A
   - P4 · P3 · drills: spk-cut-hedges, spk-hedge-count
 
 ## Unit 4 · Structure — answer first, signposting, endings
@@ -222,6 +236,7 @@ Book: minto-scqa §pyramid principle; nca-cs §2; riseguide §Structure
 - ● **SPK-4.1.B** Pick the stronger of two openings to the same question — answer-first or context-first — and say what the weaker one makes the listener wait for.
   - EK: Context-first ('So, background…') makes the listener hold details with no frame to hang them on.
   - EK: Busy listeners (committees, managers, interviewers) decide in the first sentence whether to keep listening.
+  - Needs: SPK-4.1.A
   - P6 · P3 · drills: spk-opening-choice, spk-opening-seconds
 - ● **SPK-4.1.C** Group support into two or three parallel reasons and announce the count ('two reasons: cost and risk').
   - EK: Reasons at one level should be the same kind of thing and not overlap; three is the most a listener reliably holds without notes.
@@ -235,10 +250,12 @@ Book: prep §PREP, §past–present–future; minto-scqa §SCQA
 - ● **SPK-4.2.A** In a timed 60-second rep, deliver a PREP answer: Point, Reason, Example, Point restated — each element identifiable in the transcript.
   - EK: PREP = state the point, give a reason, support with one specific example, restate the point.
   - EK: One concrete example beats three vague ones.
+  - Needs: SPK-4.1.C
   - P3 · P4 · drills: spk-prep-split, spk-prep-parts
 - ● **SPK-4.2.B** Frame a meeting update or proposal as SCQA — Situation, Complication, Question, Answer — in four sentences.
   - EK: Situation = agreed current state; Complication = what changed or went wrong; Question = the one problem to solve; Answer = the recommendation the rest supports.
   - EK: Close by restating the answer and the ask.
+  - Needs: SPK-4.2.A
   - P3 · P5 · drills: spk-scqa, spk-scqa-time
 - ● **SPK-4.2.C** Choose the right frame for a described prompt — PREP (opinion), SCQA (proposal), STAR (behavioural), past–present–future (trend), problem–solution — and justify it.
   - EK: The frame follows the question type; forcing STAR on an opinion question or PREP on a story wastes the structure.
@@ -252,10 +269,12 @@ Book: nca-cs §4; tm-eval §Clarity
 - ● **SPK-4.3.A** Preview, signpost and summarise for the ear: announce the parts, mark each move ('first… the second reason… so'), and recap before closing; in a 2-minute rep, a listener can list your parts afterwards.
   - EK: Spoken structure must be audible — headings don't exist out loud.
   - EK: Tell them what you'll say, say it, tell them what you said: redundant on paper, necessary by ear.
+  - Needs: SPK-4.2.C
   - P3 · P4 · drills: spk-signpost-count, spk-signpost-words
 - ● **SPK-4.3.B** Diagnose a described rambling answer — buried point, tangent, no transitions, circling back — and name the restructure.
   - EK: Rambling is usually a missing top line: the speaker is searching for the point while talking.
   - EK: The fix is choosing the point in the opening pause, not talking faster.
+  - Needs: SPK-4.3.A
   - P2 · drills: spk-ramble-diagnosis, spk-ramble-ratio
 
 ### 4.4 Openings and endings
@@ -265,6 +284,7 @@ Book: nca-cs §4; minto-scqa §close with call to action; prep §strong conclusi
 - ● **SPK-4.4.A** End on purpose: restate the point or give the ask in one sentence, drop pitch, then stop — no trailing 'so, yeah, that's it'.
   - EK: NCA 'excellent' conclusion reflects the content and leaves a strong message or call to action.
   - EK: The last sentence is the one remembered; trailing off spends it.
+  - Needs: SPK-4.3.B
   - P3 · P4 · drills: spk-ending, spk-ending-length
 
 ## Unit 5 · Impromptu speaking — table topics, Q&A, interviews
@@ -283,6 +303,7 @@ Book: prep §impromptu speech; tm-paths §The Power of Humor in an Impromptu Spe
 - ● **SPK-5.1.B** When you don't know the answer, say what you do know, what you'd need to find out, and when — in under 20 seconds, without fillers or apology.
   - EK: Bluffing costs more credibility than a clear 'I don't know, here's how I'd find out'.
   - EK: A partial answer stated plainly is still an answer.
+  - Needs: SPK-5.1.A
   - P4 · P5 · drills: spk-dont-know, spk-followup-promise
 
 ### 5.2 Handling questions
@@ -297,6 +318,7 @@ Book: nca-cs §2, §5; tm-eval §Audience Awareness
   - P3 · P5 · drills: spk-qa-budget, spk-qa-shape
 - ● **SPK-5.2.B** Classify a described question as clarifying, challenging, off-topic or a comment-not-a-question, and choose the response move for each.
   - EK: Challenge: acknowledge the point, give your reason, don't concede what you don't believe; off-topic: brief answer, offer to follow up; comment: thank and bridge.
+  - Needs: SPK-5.2.A
   - P2 · P5 · drills: spk-question-kind, spk-qa-mix
 
 ### 5.3 Interview answers
@@ -306,6 +328,7 @@ Book: star-uw §Situation, §Task, §Action, §Result
 - ● **SPK-5.3.A** In a timed 90–120-second rep, answer a 'tell me about a time' question in STAR with roughly 20 / 10 / 60 / 10 time split and a quantified result.
   - EK: Situation ~20%, Task ~10%, Action ~60% (what *you* did, even on a team), Result ~10% with numbers.
   - EK: Most weak STAR answers over-spend on Situation.
+  - Needs: SPK-5.2.B
   - P3 · P4 · drills: spk-star-split, spk-star-action-share
 - ● **SPK-5.3.B** Diagnose a described STAR answer — too much context, 'we' instead of 'I', missing result, no lesson — and fix it.
   - EK: Use 'I' for your actions; state the outcome with a number and, if asked, what you'd do differently.
@@ -327,6 +350,7 @@ Book: nca-cs §1, §5; tm-eval §Audience Awareness
 - ● **SPK-6.1.A** Before explaining, state in one sentence what the listener already knows and what they need to be able to do afterwards, and cut anything that doesn't serve it.
   - EK: NCA 'excellent' topic: suited to purpose, time limit and audience, from real audience analysis.
   - EK: The expert's blind spot: once you know a thing it is hard to imagine not knowing it — name the prerequisite explicitly.
+  - Needs: SPK-4.4.A
   - P5 · drills: spk-audience-model, spk-starting-point
 - ● **SPK-6.1.B** In a timed rep, explain a concept from your field in three sentences to a novice — what it is, a concrete example, why it matters — with no undefined jargon.
   - EK: Three sentences force the top line; every technical term is either defined in plain words or removed.
@@ -346,10 +370,12 @@ Book: mcneil-fyfe §concreteness fading; rosenshine §models and worked examples
 - ● **SPK-6.2.A** Order an explanation concrete → bridge → abstract: a specific case first, then the general rule or symbol.
   - EK: Concreteness fading (McNeil & Fyfe 2012): concrete, then intermediate, then abstract beat either alone on transfer at 1 and 3 weeks (70% vs 38% at ceiling).
   - EK: Lead with the example the listener can picture; name the rule once they've seen it work.
+  - Needs: SPK-6.1.C
   - P3 · P5 · drills: spk-concrete-first, spk-case-first-order
 - ● **SPK-6.2.B** Build an analogy for a technical idea, then state explicitly where the analogy breaks.
   - EK: A good analogy maps the structure (what causes what), not surface features.
   - EK: Saying where it breaks prevents the listener from over-extending it.
+  - Needs: SPK-6.2.A
   - P3 · P5 · drills: spk-analogy-break, spk-analogy-mapping
 - ● **SPK-6.2.C** Pick the stronger of two explanations of the same idea — abstract-first vs example-first, or jargon-dense vs plain — and say why.
   - EK: Example-first wins for novices; experts tolerate abstract-first but still benefit from a worked case.
@@ -362,10 +388,12 @@ Book: rosenshine §small steps, §ask many questions, §check for understanding,
 
 - ● **SPK-6.3.A** Break a multi-step explanation into steps of one idea each, and pause after each step for the listener to try or restate it before moving on.
   - EK: Rosenshine: present new material in small steps with practice after each; aim for a high success rate before moving on.
+  - Needs: SPK-6.2.C
   - P3 · P5 · drills: spk-step-pauses, spk-one-idea-step
 - ● **SPK-6.3.B** Check understanding with a question that requires the listener to use the idea (predict, apply, explain back) instead of 'any questions?' or 'make sense?'.
   - EK: Effective teachers ask many questions and check every student's response, not just volunteers'.
   - EK: 'Make sense?' gets a nod; 'what would happen if we doubled it?' gets evidence.
+  - Needs: SPK-6.3.A
   - P5 · P4 · drills: spk-check-question, spk-check-rate
 - ● **SPK-6.3.C** Diagnose a described misunderstanding from a listener's answer and re-explain with a different example, not the same words louder.
   - EK: A wrong answer reveals the listener's model; repair the model, don't repeat the script.
@@ -379,9 +407,11 @@ Book: nca-cs §3; tm-eval §Well Supported
 - ● **SPK-6.4.A** State a number for the ear: round it, give one comparison ('about a third — one in three'), and say the unit.
   - EK: Listeners can't hold 3.847 × 10⁻⁴; give the order of magnitude and what it means.
   - EK: One well-chosen number beats a list of five.
+  - Needs: SPK-6.3.C
   - P5 · P3 · drills: spk-number-for-ear, spk-number-rules
 - ● **SPK-6.4.B** Talk a listener through a figure or board diagram: say what the axes are, where to look, and the one takeaway, before the details.
   - EK: Supporting material should be clearly tied to the thesis and add clarity; a slide the speaker doesn't narrate is noise.
+  - Needs: SPK-6.4.A
   - P3 · P4 · drills: spk-talk-through-figure, spk-figure-sentences
 
 ## Unit 7 · Persuasion and storytelling
@@ -394,6 +424,7 @@ Book: monroe §Attention, §Need, §Satisfaction, §Visualisation, §Action; tm-
 
 - ● **SPK-7.1.A** Outline a 2-minute pitch in Monroe's Motivated Sequence — attention, need, satisfaction, visualisation, action — one or two sentences each.
   - EK: Need = the problem, who it hurts and how much; Satisfaction = a concrete step-by-step plan; Visualisation = life once solved (and answering objections); Action = one easy, immediate ask.
+  - Needs: SPK-3.4.B, SPK-4.4.A
   - P3 · drills: spk-monroe-steps, spk-monroe-timing
 - ● **SPK-7.1.B** Make a recommendation that names the strongest objection and answers it before the listener raises it.
   - EK: Pre-empting the obvious objection builds credibility with a sceptical audience; ignoring it invites it in Q&A.
@@ -402,6 +433,7 @@ Book: monroe §Attention, §Need, §Satisfaction, §Visualisation, §Action; tm-
   - P3 · P5 · drills: spk-objection-first, spk-objection-budget
 - ● **SPK-7.1.C** End a persuasive turn with one specific, easy ask (who does what, by when), and pick the stronger of two given asks.
   - EK: 'Let's think about it' is not an ask; 'can we pilot it on two evals by Friday?' is.
+  - Needs: SPK-7.1.B
   - P3 · P6 · drills: spk-ask-specificity, spk-ask-parts
 
 ### 7.2 Storytelling
@@ -411,6 +443,7 @@ Book: tm-paths §Connect with Storytelling
 - ● **SPK-7.2.A** In a timed 90-second rep, tell a story with a person, a goal, an obstacle, a turn and a point, and say the point in the last sentence.
   - EK: A story needs someone wanting something and something in the way; the point is what changed.
   - EK: Specific details (a time, a place, a line of dialogue) make it vivid; background beyond that is cut.
+  - Needs: SPK-7.1.C
   - P3 · P4 · drills: spk-story-shape, spk-story-pacing
 - ● **SPK-7.2.B** Choose a short story or case to open a lesson or argument and connect it explicitly to the claim it illustrates.
   - EK: A story that isn't tied back is an anecdote; the bridge sentence ('that's why…') makes it evidence.
@@ -431,6 +464,7 @@ Book: tm-paths §Active Listening; tm-eval §Audience Awareness
   - P5 · P4 · drills: spk-paraphrase, spk-paraphrase-length
 - ● **SPK-8.1.B** Ask a follow-up question that builds on the speaker's last point rather than changing the subject, and classify given questions as open, closed or leading.
   - EK: Open questions ('what led you to…') invite elaboration; closed ones confirm facts; leading ones push an answer.
+  - Needs: SPK-8.1.A
   - P5 · P2 · drills: spk-followup-question, spk-build-rate
 
 ### 8.2 Speaking in meetings
@@ -462,6 +496,7 @@ Book: lumen-voice §record yourself, §filler log; riseguide §learn → record 
   - P1 · P6 · drills: spk-four-numbers, spk-which-four
 - ● **SPK-9.1.B** Score a recording against the NCA eight competencies (1–3 each, 8–24 total) and name the lowest one as the next target.
   - EK: NCA competencies: topic, thesis, support, organisation, language, vocal variety, pronunciation/grammar/articulation, physical behaviours.
+  - Needs: SPK-9.1.A
   - P6 · drills: spk-nca-score, spk-lowest-competency
 - ● **SPK-9.1.C** Set one measurable target per practice block (e.g. ≤ 2 fillers in 60 s, answer in first sentence), run 3–5 reps, and stop when it holds on 3 in a row.
   - EK: One target per rep: trying to fix pace, fillers and structure at once fixes none.
@@ -477,9 +512,11 @@ Book: tm-eval §Commend / Recommend / Challenge, §8100E3 evaluator speech; tm-p
   - EK: Toastmasters: what they excelled at, what they may want to work on, a stretch goal; feedback must be tactful, constructive and timed.
   - EK: Specific beats general: 'your pause before the 70% landed' not 'good pausing'.
   - EK: Receiving it: thank, ask one clarifying question, turn it into the next rep's target.
+  - Needs: SPK-9.1.C
   - P6 · drills: spk-evaluation-shape, spk-evaluation-time
 - ● **SPK-9.2.B** Rate a described delivery on a Toastmasters criterion (Clarity, Vocal Variety, Eye Contact, Gestures, Audience Awareness, Comfort, Interest, Well Supported) on the 1–5 scale and justify the rating.
   - EK: 5 Exemplary · 4 Excels · 3 Accomplished · 2 Emerging · 1 Developing; e.g. gestures 'distracting or limited' = 2.
+  - Needs: SPK-9.2.A
   - P6 · P2 · drills: spk-criterion-rating, spk-criterion-spread
 
 ## Unit 10 · Lecturing and long-form talks (extension)
@@ -515,6 +552,7 @@ Book: tm-eval §Eye Contact, §Audience Awareness; lumen-voice §microphone
 - ● **SPK-11.1.A** Set up for a video call or recording — lens at eye level, light in front, mic 15–30 cm away — and keep energy one notch above in-person to compensate for compression.
   - EK: Video flattens vocal variety and facial expression; slightly more energy and pitch range reads as normal on screen.
   - EK: With a mic, keep a constant distance; don't project into it.
+  - Needs: SPK-3.4.B
   - P4 · P5 · drills: spk-remote-setup, spk-mic-distance
 - ● **SPK-11.1.B** Handle a remote Q&A or interview turn with the lag in mind: finish with a clear falling ending and a handoff ('happy to go deeper on any of that') so no one talks over you.
   - EK: Latency of a few hundred ms causes collisions; clear endings and explicit handoffs replace the visual turn-taking cues lost on calls.

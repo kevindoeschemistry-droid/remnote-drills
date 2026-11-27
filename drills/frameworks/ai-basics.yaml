@@ -65,8 +65,8 @@ units:
       - n: 1
         title: "Encoding and vectors"
         los:
-          - { id: A, std: ["harper-carroll-academy:2"], do: "Say how images, text, audio and categories are encoded, and count the numbers in an image.", ek: ["Pixels × 3 channels; tokens → embeddings; one-hot for categories."], p: [P1, P2], drills: [ab-represent, ab-pixels] }
-          - { id: B, std: ["harper-carroll-academy:2"], do: "Compute a dot product and a cosine similarity between vectors.", ek: ["Cosine = dot ÷ (lengths); 1 same direction, 0 unrelated."], p: [P1], drills: [ab-dot, ab-cosine] }
+          - { id: A, std: ["harper-carroll-academy:2"], do: "Say how images, text, audio and categories are encoded, and count the numbers in an image.", ek: ["Pixels × 3 channels; tokens → embeddings; one-hot for categories."], p: [P1, P2], needs: [AB-1.1.A], drills: [ab-represent, ab-pixels] }
+          - { id: B, std: ["harper-carroll-academy:2"], do: "Compute a dot product and a cosine similarity between vectors.", ek: ["Cosine = dot ÷ (lengths); 1 same direction, 0 unrelated."], p: [P1], needs: [AB-2.1.A], drills: [ab-dot, ab-cosine] }
   - id: networks
     n: 3
     title: "Neural networks"
@@ -76,9 +76,9 @@ units:
       - n: 1
         title: "Neurons and layers"
         los:
-          - { id: B, std: ["harper-carroll-academy:3"], do: "Name the parts of a network and say why activations must be nonlinear.", ek: ["Parameters, forward pass, backpropagation; stacked linear layers collapse to one."], p: [P2], drills: [ab-activation, ab-network-parts] }
-          - { id: A, std: ["harper-carroll-academy:3"], do: "Compute a neuron's output with ReLU or sigmoid.", ek: ["Weighted sum plus bias, then the activation."], p: [P1], drills: [ab-neuron, ab-sigmoid] }
-          - { id: C, std: ["harper-carroll-academy:3"], do: "Count the parameters of a fully connected layer or small network.", ek: ["Each neuron: one weight per input plus a bias."], p: [P1], drills: [ab-params-layer, ab-params-net] }
+          - { id: B, std: ["harper-carroll-academy:3"], do: "Name the parts of a network and say why activations must be nonlinear.", ek: ["Parameters, forward pass, backpropagation; stacked linear layers collapse to one."], p: [P2], needs: [AB-2.1.B], drills: [ab-activation, ab-network-parts] }
+          - { id: A, std: ["harper-carroll-academy:3"], do: "Compute a neuron's output with ReLU or sigmoid.", ek: ["Weighted sum plus bias, then the activation."], p: [P1], needs: [AB-3.1.B], drills: [ab-neuron, ab-sigmoid] }
+          - { id: C, std: ["harper-carroll-academy:3"], do: "Count the parameters of a fully connected layer or small network.", ek: ["Each neuron: one weight per input plus a bias."], p: [P1], needs: [AB-3.1.A], drills: [ab-params-layer, ab-params-net] }
   - id: llms
     n: 4
     title: "Language models"
@@ -88,10 +88,10 @@ units:
       - n: 1
         title: "Key terms and generation"
         los:
-          - { id: A, std: ["harper-carroll-academy:4"], do: "Define token, context window, embedding, inference, attention, temperature and hallucination, and order the steps of generating text.", ek: ["Generation is repeated next-token prediction."], p: [P2], drills: [ab-llm-term, ab-next-token] }
-          - { id: B, std: ["harper-carroll-academy:4"], do: "Estimate token counts and how much text fits in a context window.", ek: ["About 0.75 English words per token."], p: [P1], drills: [ab-tokens, ab-context-pages] }
-          - { id: C, std: ["harper-carroll-academy:4"], do: "Compute next-token probabilities with softmax, with and without temperature.", ek: ["Low temperature sharpens, high flattens."], p: [P1], drills: [ab-softmax, ab-temperature] }
-          - { id: D, std: ["harper-carroll-academy:4"], do: "Convert a parameter count and precision to the memory the weights need.", ek: ["16-bit = 2 bytes per parameter; a billion bytes ≈ 1 GB."], p: [P1], drills: [ab-weight-memory] }
+          - { id: A, std: ["harper-carroll-academy:4"], do: "Define token, context window, embedding, inference, attention, temperature and hallucination, and order the steps of generating text.", ek: ["Generation is repeated next-token prediction."], p: [P2], needs: [AB-3.1.C], drills: [ab-llm-term, ab-next-token] }
+          - { id: B, std: ["harper-carroll-academy:4"], do: "Estimate token counts and how much text fits in a context window.", ek: ["About 0.75 English words per token."], p: [P1], needs: [AB-4.1.A], drills: [ab-tokens, ab-context-pages] }
+          - { id: C, std: ["harper-carroll-academy:4"], do: "Compute next-token probabilities with softmax, with and without temperature.", ek: ["Low temperature sharpens, high flattens."], p: [P1], needs: [AB-4.1.B], drills: [ab-softmax, ab-temperature] }
+          - { id: D, std: ["harper-carroll-academy:4"], do: "Convert a parameter count and precision to the memory the weights need.", ek: ["16-bit = 2 bytes per parameter; a billion bytes ≈ 1 GB."], p: [P1], needs: [AB-4.1.C], drills: [ab-weight-memory] }
   - id: training
     n: 5
     title: "Training"
@@ -101,9 +101,9 @@ units:
       - n: 1
         title: "How models learn"
         los:
-          - { id: A, std: ["harper-carroll-academy:5"], do: "Classify a task as supervised, unsupervised, reinforcement or self-supervised learning, and name the stages of building a chat assistant.", ek: ["Pretraining, fine-tuning, feedback-based RL, then inference."], p: [P2], drills: [ab-learning-type, ab-train-stage] }
-          - { id: B, std: ["harper-carroll-academy:5"], do: "Take a gradient-descent step, compute a mean squared error and count training updates.", ek: ["w ← w − learning rate × gradient."], p: [P1], drills: [ab-gd-step, ab-mse, ab-steps] }
-          - { id: C, std: ["harper-carroll-academy:5"], do: "Diagnose overfitting and underfitting, name the data splits, and compute precision and recall.", ek: ["Judge on unseen data; precision is of what was flagged, recall of what was there."], p: [P1, P2], drills: [ab-fit, ab-data-split, ab-precision, ab-recall] }
+          - { id: A, std: ["harper-carroll-academy:5"], do: "Classify a task as supervised, unsupervised, reinforcement or self-supervised learning, and name the stages of building a chat assistant.", ek: ["Pretraining, fine-tuning, feedback-based RL, then inference."], p: [P2], needs: [AB-3.1.C], drills: [ab-learning-type, ab-train-stage] }
+          - { id: B, std: ["harper-carroll-academy:5"], do: "Take a gradient-descent step, compute a mean squared error and count training updates.", ek: ["w ← w − learning rate × gradient."], p: [P1], needs: [AB-5.1.A], drills: [ab-gd-step, ab-mse, ab-steps] }
+          - { id: C, std: ["harper-carroll-academy:5"], do: "Diagnose overfitting and underfitting, name the data splits, and compute precision and recall.", ek: ["Judge on unseen data; precision is of what was flagged, recall of what was there."], p: [P1, P2], needs: [AB-5.1.B], drills: [ab-fit, ab-data-split, ab-precision, ab-recall] }
   - id: wisely
     n: 6
     title: "Using AI wisely"
@@ -113,8 +113,8 @@ units:
       - n: 1
         title: "Limits, trust and prompts"
         los:
-          - { id: A, std: ["harper-carroll-academy:6"], do: "Explain hallucination, say what a model can know, and decide what to verify.", ek: ["Training data up to a cutoff, plus the context window; nothing else."], p: [P2, P3], drills: [ab-hallucination, ab-what-model-knows] }
-          - { id: B, std: ["harper-carroll-academy:6"], do: "Choose the prompt change that fixes a given problem with an answer.", ek: ["Context, format, examples, steps."], p: [P3], drills: [ab-prompt-fix] }
+          - { id: A, std: ["harper-carroll-academy:6"], do: "Explain hallucination, say what a model can know, and decide what to verify.", ek: ["Training data up to a cutoff, plus the context window; nothing else."], p: [P2, P3], needs: [AB-4.1.D], drills: [ab-hallucination, ab-what-model-knows] }
+          - { id: B, std: ["harper-carroll-academy:6"], do: "Choose the prompt change that fixes a given problem with an answer.", ek: ["Context, format, examples, steps."], p: [P3], needs: [AB-6.1.A], drills: [ab-prompt-fix] }
   - id: agents
     n: 7
     title: "AI and tools"
@@ -124,7 +124,7 @@ units:
       - n: 1
         title: "Agents and retrieval"
         los:
-          - { id: A, std: ["harper-carroll-academy:7"], do: "Name the parts of an agent and the steps of its loop and of retrieval-augmented generation.", ek: ["Model + tools + memory + loop; embed, retrieve, answer from context."], p: [P2], drills: [ab-agent-part, ab-agent-loop, ab-rag-step] }
+          - { id: A, std: ["harper-carroll-academy:7"], do: "Name the parts of an agent and the steps of its loop and of retrieval-augmented generation.", ek: ["Model + tools + memory + loop; embed, retrieve, answer from context."], p: [P2], needs: [AB-4.1.D], drills: [ab-agent-part, ab-agent-loop, ab-rag-step] }
   - id: toolbox
     n: 8
     title: "The toolbox"
@@ -134,7 +134,7 @@ units:
       - n: 1
         title: "Choosing and costing a model"
         los:
-          - { id: A, std: ["harper-carroll-academy:8"], do: "Choose a kind of model for a job and work out what an API job costs.", ek: ["Input and output tokens are priced separately."], p: [P1, P3], drills: [ab-model-choice, ab-api-cost] }
+          - { id: A, std: ["harper-carroll-academy:8"], do: "Choose a kind of model for a job and work out what an API job costs.", ek: ["Input and output tokens are priced separately."], p: [P1, P3], needs: [AB-7.1.A], drills: [ab-model-choice, ab-api-cost] }
   - id: safety
     n: 9
     title: "Staying safe"
@@ -144,7 +144,7 @@ units:
       - n: 1
         title: "Scams, deepfakes and privacy"
         los:
-          - { id: A, std: ["harper-carroll-academy:9"], do: "Respond safely to a voice-clone, deepfake or phishing attempt, check where media came from, and decide what not to share with a chatbot.", ek: ["Verify through a channel you already trust; provenance beats detectors."], p: [P3], drills: [ab-scam-defense, ab-deepfake-check, ab-privacy] }
+          - { id: A, std: ["harper-carroll-academy:9"], do: "Respond safely to a voice-clone, deepfake or phishing attempt, check where media came from, and decide what not to share with a chatbot.", ek: ["Verify through a channel you already trust; provenance beats detectors."], p: [P3], needs: [AB-6.1.B], drills: [ab-scam-defense, ab-deepfake-check, ab-privacy] }
   - id: big-questions
     n: 10
     title: "Big questions"
@@ -154,4 +154,4 @@ units:
       - n: 1
         title: "Scaling and alignment"
         los:
-          - { id: A, std: ["harper-carroll-academy:10"], do: "Define scaling laws, alignment, AGI and foundation models, and estimate training compute and compute-optimal data.", ek: ["Compute ≈ 6 × parameters × tokens; about 20 tokens per parameter."], p: [P1, P2], drills: [ab-big-ideas, ab-train-compute, ab-chinchilla] }
+          - { id: A, std: ["harper-carroll-academy:10"], do: "Define scaling laws, alignment, AGI and foundation models, and estimate training compute and compute-optimal data.", ek: ["Compute ≈ 6 × parameters × tokens; about 20 tokens per parameter."], p: [P1, P2], needs: [AB-9.1.A], drills: [ab-big-ideas, ab-train-compute, ab-chinchilla] }

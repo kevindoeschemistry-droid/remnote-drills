@@ -129,6 +129,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "CA-6.9.A"
+       ],
        "drills": [
         "usub-poly",
         "usub-exp",
@@ -150,6 +153,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.1.A"
+       ],
        "drills": [
         "parts-x-exp",
         "parts-x-trig",
@@ -170,6 +176,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-1.1.B"
        ],
        "drills": [
         "pf-distinct",
@@ -213,6 +222,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.1.C"
+       ],
        "drills": [
         "euler-rect",
         "euler-polar",
@@ -231,6 +243,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.2.A"
+       ],
        "drills": [
         "euler-demoivre"
        ]
@@ -246,6 +261,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-1.2.B"
        ],
        "drills": [
         "euler-quad-roots"
@@ -270,6 +288,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-1.2.C"
        ],
        "drills": [
         "sigma-shift-down",
@@ -303,6 +324,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-1.3.A"
+       ],
        "drills": [
         "mv-partial",
         "mv-mixed"
@@ -316,6 +340,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-1.4.A"
        ],
        "drills": [
         "mv-implicit"
@@ -332,6 +359,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-1.4.B"
        ],
        "drills": [
         "mv-exact-test"
@@ -381,6 +411,10 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "EM-1.4.C",
+        "CA-7.6.A"
+       ],
        "drills": [
         "~em-classify-ode",
         "em-verify-solution"
@@ -397,6 +431,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "EM-2.1.A"
        ],
        "drills": [
         "em-isoclines",
@@ -415,6 +452,9 @@
        "p": [
         "P3",
         "P5"
+       ],
+       "needs": [
+        "EM-2.1.B"
        ],
        "drills": [
         "ca-euler-method"
@@ -526,6 +566,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-2.3.A"
+       ],
        "drills": [
         "if-test"
        ]
@@ -572,6 +615,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-2.3.C"
        ],
        "drills": [
         "lin-switch-off",
@@ -672,6 +718,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-2.4.C"
+       ],
        "drills": [
         "recog-separable",
         "recog-substitution",
@@ -702,6 +751,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-2.5.A"
+       ],
        "drills": [
         "model-tank-growing",
         "model-tank-overflow"
@@ -721,6 +773,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "EM-2.6.E"
+       ],
        "drills": [
         "model-mixing"
        ]
@@ -738,6 +793,9 @@
        "p": [
         "P1",
         "P6"
+       ],
+       "needs": [
+        "EM-2.6.A"
        ],
        "drills": [
         "model-cooling",
@@ -757,6 +815,9 @@
         "P1",
         "P6"
        ],
+       "needs": [
+        "EM-2.6.B"
+       ],
        "drills": [
         "model-logistic"
        ]
@@ -772,6 +833,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "EM-2.6.C"
        ],
        "drills": [
         "em-phase-line"
@@ -799,6 +863,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-2.6.D"
        ],
        "drills": [
         "em-existence"
@@ -844,6 +911,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "EM-2.7.A"
+       ],
        "drills": [
         "em-superposition-ivp"
        ]
@@ -859,6 +929,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-3.1.A"
        ],
        "drills": [
         "red-euler",
@@ -880,6 +953,9 @@
        "p": [
         "P3",
         "P5"
+       ],
+       "needs": [
+        "EM-3.1.B"
        ],
        "drills": [
         "wr-exps",
@@ -912,6 +988,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-3.1.C"
        ],
        "drills": [
         "bvp-unique",
@@ -985,6 +1064,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-3.2.B"
+       ],
        "drills": [
         "ec-roots"
        ]
@@ -1036,6 +1118,9 @@
         "P1",
         "P6"
        ],
+       "needs": [
+        "EM-3.3.B"
+       ],
        "drills": [
         "spring-frequency",
         "spring-amplitude-phase"
@@ -1050,6 +1135,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "EM-3.4.A"
+       ],
        "drills": [
         "spring-undamped-ivp"
        ]
@@ -1063,6 +1151,9 @@
        "p": [
         "P2",
         "P6"
+       ],
+       "needs": [
+        "EM-3.4.B"
        ],
        "drills": [
         "spring-classify"
@@ -1134,6 +1225,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "EM-3.5.A"
+       ],
        "drills": [
         "uc-general",
         "vop-general"
@@ -1182,6 +1276,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "EM-3.5.C"
+       ],
        "drills": [
         "forced-steady",
         "forced-amplitude",
@@ -1197,6 +1294,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-3.6.A"
+       ],
        "drills": [
         "forced-resonance",
         "forced-beats"
@@ -1210,6 +1310,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "EM-3.6.B"
        ],
        "drills": [
         "forced-practical"
@@ -1226,6 +1329,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-3.6.C"
        ],
        "drills": [
         "em-rlc"
@@ -1269,6 +1375,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-3.6.D"
+       ],
        "drills": [
         "hi-ec-roots",
         "hi-ec-solution"
@@ -1302,6 +1411,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-4.1.A"
        ],
        "drills": [
         "hi-roots"
@@ -1350,6 +1462,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-4.1.C"
        ],
        "drills": [
         "hi-trial-form",
@@ -1420,6 +1535,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-3.6.D",
+        "EM-8.6.D"
+       ],
        "drills": [
         "~phase-ode2",
         "em-first-order-system"
@@ -1436,6 +1555,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-5.1.A"
        ],
        "drills": [
         "kin-matrix"
@@ -1528,6 +1650,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-5.2.C"
+       ],
        "drills": [
         "sys-repeated"
        ]
@@ -1579,6 +1704,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-5.2.E"
+       ],
        "drills": [
         "em-phase-portrait"
        ]
@@ -1595,6 +1723,9 @@
        "p": [
         "P2",
         "P6"
+       ],
+       "needs": [
+        "EM-5.3.C"
        ],
        "drills": [
         "phase-matrix",
@@ -1613,6 +1744,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "EM-5.3.A"
        ],
        "drills": [
         "phase-stability"
@@ -1640,6 +1774,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-5.3.B"
        ],
        "drills": [
         "em-nonlinear-critical"
@@ -1688,6 +1825,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-5.4.B"
+       ],
        "drills": [
         "em-nonhomog-system"
        ]
@@ -1728,6 +1868,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-3.6.D"
        ],
        "drills": [
         "series-classify-point"
@@ -1896,6 +2039,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "EM-6.3.C"
+       ],
        "drills": [
         "spec-identify",
         "spec-legendre-n",
@@ -1915,6 +2061,9 @@
         "P2",
         "P3"
        ],
+       "needs": [
+        "EM-6.4.A"
+       ],
        "drills": [
         "spec-bessel-scaled"
        ]
@@ -1932,6 +2081,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "EM-6.4.B"
+       ],
        "drills": [
         "spec-bessel-independent"
        ]
@@ -1944,6 +2096,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-6.4.C"
        ],
        "drills": [
         "em-legendre-eval"
@@ -1990,6 +2145,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-3.6.D"
+       ],
        "drills": [
         "lt-linear",
         "lt-trig",
@@ -2009,6 +2167,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-7.1.A"
        ],
        "drills": [
         "shift-s-forward",
@@ -2071,6 +2232,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-7.2.A"
+       ],
        "drills": [
         "lt-final-value",
         "lt-initial-value"
@@ -2109,6 +2273,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "EM-7.3.A"
+       ],
        "drills": [
         "transfer-g",
         "transfer-poles",
@@ -2136,6 +2303,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-7.3.B"
+       ],
        "drills": [
         "lt-square-wave",
         "lt-sawtooth"
@@ -2154,6 +2324,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "EM-7.4.D"
+       ],
        "drills": [
         "shift-t-forward",
         "shift-piecewise"
@@ -2170,6 +2343,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-7.4.A"
        ],
        "drills": [
         "shift-t-inverse"
@@ -2222,6 +2398,9 @@
         "P1",
         "P3"
        ],
+       "needs": [
+        "EM-7.4.C"
+       ],
        "drills": [
         "delta-ivp",
         "delta-response"
@@ -2250,6 +2429,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-7.5.A"
+       ],
        "drills": [
         "conv-compute"
        ]
@@ -2265,6 +2447,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-7.6.A"
        ],
        "drills": [
         "conv-inverse",
@@ -2310,6 +2495,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-7.6.C"
        ],
        "drills": [
         "tmul-forward",
@@ -2374,6 +2562,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "LA-5.1.B"
+       ],
        "drills": [
         "la-system"
        ]
@@ -2397,6 +2588,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-8.1.A"
        ],
        "drills": [
         "la-independence"
@@ -2424,6 +2618,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-8.2.A"
+       ],
        "drills": [
         "la-det"
        ]
@@ -2436,6 +2633,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-8.3.A"
        ],
        "drills": [
         "la-inverse"
@@ -2461,6 +2661,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-8.3.B"
        ],
        "drills": [
         "la-eigenvalues"
@@ -2526,6 +2729,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-8.5.A"
+       ],
        "drills": [
         "la-rank-nullity",
         "la-rank-3x3"
@@ -2539,6 +2745,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-8.6.A"
        ],
        "drills": [
         "la-projection-scalar",
@@ -2556,6 +2765,9 @@
         "P3",
         "P6"
        ],
+       "needs": [
+        "EM-8.6.B"
+       ],
        "drills": [
         "la-least-squares-slope",
         "la-least-squares-facts"
@@ -2570,6 +2782,9 @@
        "p": [
         "P3",
         "P6"
+       ],
+       "needs": [
+        "EM-8.6.C"
        ],
        "drills": [
         "la-trace-of-power",
@@ -2613,6 +2828,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-3.6.D"
+       ],
        "drills": [
         "fs-jump-value",
         "fs-parseval"
@@ -2655,6 +2873,9 @@
         "P2",
         "P3"
        ],
+       "needs": [
+        "EM-9.1.A"
+       ],
        "drills": [
         "fs-period-2l"
        ]
@@ -2670,6 +2891,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-9.1.B"
        ],
        "drills": [
         "fs-half-range"
@@ -2714,6 +2938,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-9.1.D"
+       ],
        "drills": [
         "sl-periodic-eigen",
         "sl-periodic-facts"
@@ -2727,6 +2954,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-9.2.F"
        ],
        "drills": [
         "sl-form"
@@ -2760,6 +2990,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "EM-9.2.B"
        ],
        "drills": [
         "sl-eigenvalues"
@@ -2821,6 +3054,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "EM-9.2.E"
+       ],
        "drills": [
         "em-orthogonality"
        ]
@@ -2857,6 +3093,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-9.3.B"
+       ],
        "drills": [
         "gf-string-value",
         "gf-string-solve"
@@ -2872,6 +3111,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-9.4.A"
+       ],
        "drills": [
         "gf-helmholtz-value",
         "gf-existence"
@@ -2886,6 +3128,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-9.4.B"
        ],
        "drills": [
         "gf-oscillator-step",
@@ -2949,6 +3194,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-10.1.B"
        ],
        "drills": [
         "pde-classify",
@@ -3177,6 +3425,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-10.3.A"
+       ],
        "drills": [
         "dalembert-displacement",
         "dalembert-velocity"
@@ -3297,6 +3548,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-10.4.D"
+       ],
        "drills": [
         "gf-image-fixed",
         "gf-image-insulated"
@@ -3385,6 +3639,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "EM-10.5.C"
        ],
        "drills": [
         "mt-central-second-difference",
@@ -3477,6 +3734,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-9.4.C"
+       ],
        "drills": [
         "em-fourier-cosine-sine"
        ]
@@ -3493,6 +3753,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "EM-11.1.A"
+       ],
        "drills": [
         "em-fourier-transform-value",
         "em-fourier-derivative-rule"
@@ -3508,6 +3771,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.1.B"
+       ],
        "drills": [
         "ft-gaussian",
         "ft-rect"
@@ -3522,6 +3788,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-11.1.C"
        ],
        "drills": [
         "ft-scaling",
@@ -3540,6 +3809,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.1.D"
+       ],
        "drills": [
         "ft-heat-peak",
         "ft-heat-spread"
@@ -3554,6 +3826,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-11.1.E"
        ],
        "drills": [
         "fc-gaussians",
@@ -3577,6 +3852,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.1.F"
+       ],
        "drills": [
         "rw-endpoint",
         "rw-biased-msd"
@@ -3592,6 +3870,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-11.2.A"
+       ],
        "drills": [
         "rw-diffusivity",
         "rw-diffuse-time"
@@ -3606,6 +3887,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-11.2.B"
        ],
        "drills": [
         "rw-tail",
@@ -3650,6 +3934,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "CA-14.5.B"
+       ],
        "drills": [
         "ca-conservation-law"
        ]
@@ -3663,6 +3950,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-12.1.B"
        ],
        "drills": [
         "vc-laplacian-radial",
@@ -3679,6 +3969,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-12.1.C"
+       ],
        "drills": [
         "vc-shell-temperature",
         "vc-shell-heat"
@@ -3694,6 +3987,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-12.1.D"
+       ],
        "drills": [
         "vc-div-radial",
         "vc-flux-conservation"
@@ -3707,6 +4003,9 @@
        ],
        "p": [
         "P3"
+       ],
+       "needs": [
+        "EM-12.1.E"
        ],
        "drills": [
         "~mv-partial",
@@ -3749,6 +4048,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-5.5.A"
+       ],
        "drills": [
         "em-rc-current"
        ]
@@ -3764,6 +4066,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-13.1.A"
        ],
        "drills": [
         "em-bifurcation"
@@ -3781,6 +4086,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-13.1.B"
+       ],
        "drills": [
         "em-operator-exponential"
        ]
@@ -3797,6 +4105,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-13.1.C"
+       ],
        "drills": [
         "em-existence-interval"
        ]
@@ -3812,6 +4123,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-13.1.D"
        ],
        "drills": [
         "em-system-verify"
@@ -3851,6 +4165,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-1.4.C"
+       ],
        "drills": [
         "em-complex-region"
        ]
@@ -3866,6 +4183,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-14.1.C"
        ],
        "drills": [
         "em-complex-linear"
@@ -3883,6 +4203,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.1.A"
+       ],
        "drills": [
         "em-complex-sqrt"
        ]
@@ -3899,6 +4222,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.1.B"
+       ],
        "drills": [
         "em-complex-map"
        ]
@@ -3914,6 +4240,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-14.1.D"
        ],
        "drills": [
         "em-complex-limit"
@@ -3937,6 +4266,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.1.E"
+       ],
        "drills": [
         "em-entire"
        ]
@@ -3952,6 +4284,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-14.2.C"
        ],
        "drills": [
         "em-cauchy-riemann"
@@ -3969,6 +4304,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.2.A"
+       ],
        "drills": [
         "em-harmonic"
        ]
@@ -3984,6 +4322,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-14.2.B"
        ],
        "drills": [
         "em-harmonic-conjugate"
@@ -4007,6 +4348,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.2.D"
+       ],
        "drills": [
         "em-complex-sequence"
        ]
@@ -4024,6 +4368,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.3.B"
+       ],
        "drills": [
         "em-cauchy-formula"
        ]
@@ -4039,6 +4386,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-14.3.A"
        ],
        "drills": [
         "em-complex-taylor"
@@ -4058,6 +4408,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.3.C"
+       ],
        "drills": [
         "em-laurent-residue"
        ]
@@ -4073,6 +4426,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-14.3.D"
        ],
        "drills": [
         "em-zero-order"
@@ -4113,6 +4469,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-14.3.E"
+       ],
        "drills": [
         "em-conformal-magnification",
         "em-conformal-critical"
@@ -4130,6 +4489,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.1.A"
+       ],
        "drills": [
         "em-mobius-pole",
         "em-cayley-real-part"
@@ -4146,6 +4508,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.1.B"
        ],
        "drills": [
         "em-principal-arg",
@@ -4170,6 +4535,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.1.C"
+       ],
        "drills": [
         "em-contour-conjugate-line",
         "em-contour-conjugate-circle"
@@ -4187,6 +4555,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.2.A"
+       ],
        "drills": [
         "em-cauchy-inside-outside",
         "em-cauchy-count-poles"
@@ -4203,6 +4574,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.2.B"
        ],
        "drills": [
         "em-cauchy-derivative-formula",
@@ -4222,6 +4596,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.2.C"
+       ],
        "drills": [
         "em-ml-semicircle",
         "em-ml-decay-power"
@@ -4238,6 +4615,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.2.D"
        ],
        "drills": [
         "em-max-modulus",
@@ -4262,6 +4642,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.2.E"
+       ],
        "drills": [
         "em-laurent-inner",
         "em-laurent-outer"
@@ -4278,6 +4661,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.3.A"
        ],
        "drills": [
         "em-singularity-type",
@@ -4296,6 +4682,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.3.B"
+       ],
        "drills": [
         "em-residue-double-pole",
         "em-residue-simple-imag"
@@ -4312,6 +4701,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.3.C"
        ],
        "drills": [
         "em-radius-complex-pole",
@@ -4336,6 +4728,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.3.D"
+       ],
        "drills": [
         "em-residue-theorem-one",
         "em-residue-theorem-all"
@@ -4352,6 +4747,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.4.A"
        ],
        "drills": [
         "em-real-line-lorentzian",
@@ -4370,6 +4768,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.4.B"
+       ],
        "drills": [
         "em-trig-integral",
         "em-trig-integral-scaled"
@@ -4387,6 +4788,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "EM-15.4.C"
+       ],
        "drills": [
         "em-jordan-cosine",
         "em-jordan-facts"
@@ -4403,6 +4807,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "EM-15.4.D"
        ],
        "drills": [
         "em-rouche-count",

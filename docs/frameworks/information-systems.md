@@ -47,6 +47,7 @@ Book: msis2016 §ISSG
   - P1 · drills: is-strategic-role, is-margin-from-cost
 - ● **IS-1.1.B** Place each application of a portfolio in the McFarlan grid (support, factory, turnaround, strategic) from its current and future impact.
   - EK: Strategic = high current and future impact; factory = high current, low future; the quadrant sets how it should be governed and funded.
+  - Needs: IS-1.1.A
   - P3 · P4 · drills: is-mcfarlan, is-portfolio-share
 
 ### 1.2 IT investment appraisal
@@ -55,12 +56,15 @@ Book: msis2016 §ISSG, §ISMO
 
 - ● **IS-1.2.A** Compute NPV, ROI and payback period of an IT project from its cash flows and discount rate, and accept or reject it.
   - EK: NPV = Σ CF_t/(1 + r)^t − I₀; accept if NPV > 0; payback ignores the time value of money and later flows.
+  - Needs: IS-1.1.B
   - P2 · P4 · drills: is-npv-project, is-payback-roi
 - ● **IS-1.2.B** Compute total cost of ownership over a horizon for build, buy (licence) and SaaS options, including hidden costs.
   - EK: TCO = acquisition + implementation + operation + support + exit; licences are often < 30% of TCO.
+  - Needs: IS-1.2.A
   - P2 · P4 · drills: is-tco-saas, is-tco-breakeven
 - ● **IS-1.2.C** Rank a set of proposed projects by a weighted scoring model under a budget constraint.
   - EK: Score = Σ weight × rating; pick in score-per-cost order until the budget binds, checking dependencies.
+  - Needs: IS-1.2.B
   - P2 · P4 · drills: is-weighted-score, is-budget-pick
 
 ### 1.3 Governance frameworks and decision rights
@@ -69,12 +73,15 @@ Book: msis2016 §ISSG
 
 - ● **IS-1.3.A** Assign decision rights for an IT decision domain (principles, architecture, infrastructure, applications, investment) to a governance archetype for a scenario.
   - EK: Weill & Ross archetypes: business monarchy, IT monarchy, federal, duopoly, feudal, anarchy; investment is usually business-led.
+  - Needs: IS-1.2.C
   - P5 · drills: is-decision-rights, is-archetype-count
 - ● **IS-1.3.B** Match a governance need to the framework that addresses it — COBIT, ITIL, ISO/IEC 27001, NIST CSF, TOGAF.
   - EK: COBIT governs and audits IT overall; ITIL runs services; 27001 certifies an ISMS; NIST CSF organises cyber risk; TOGAF develops architecture.
+  - Needs: IS-1.3.A
   - P5 · P4 · drills: is-which-framework, is-control-overlap
 - ● **IS-1.3.C** Build a RACI matrix for a described process and find its defects (no A, several A's, no R).
   - EK: Exactly one Accountable per activity; at least one Responsible; Consulted is two-way, Informed one-way.
+  - Needs: IS-1.3.B
   - P5 · drills: is-raci-defect, is-raci-cells
 
 ## Unit 2 · Enterprise architecture (extension)
@@ -87,9 +94,11 @@ Book: msis2016 §EARC
 
 - ● **IS-2.1.A** Assign an artefact or decision to its architecture domain (business, data, application, technology) and to the TOGAF ADM phase that produces it.
   - EK: ADM: Preliminary, A Vision, B Business, C Information Systems (data + application), D Technology, E Opportunities, F Migration, G Governance, H Change.
+  - Needs: IS-1.3.C
   - P3 · drills: is-architecture-domain, is-adm-cycle
 - ● **IS-2.1.B** Build a capability map for a described organisation and mark the capabilities where heat-mapped investment should go.
   - EK: Capabilities say what the business does, independent of org chart and systems; they are stable while processes change.
+  - Needs: IS-2.1.A
   - P3 · P4 · drills: is-capability-heat, is-capability-vs-process
 
 ### 2.2 Application portfolio and integration
@@ -98,13 +107,15 @@ Book: msis2016 §EARC, §SDAD
 
 - ● **IS-2.2.A** Classify applications as Tolerate, Invest, Migrate or Eliminate from their business value and technical fit.
   - EK: Gartner TIME: high value + good fit ⇒ invest; high value + poor fit ⇒ migrate; low + good ⇒ tolerate; low + poor ⇒ eliminate.
+  - Needs: IS-2.1.B
   - P4 · drills: is-time-quadrant, is-portfolio-savings
 - ● **IS-2.2.B** Choose an integration style (file transfer, shared database, API/RPC, messaging, event streaming) for a described pair of systems and count point-to-point links avoided by a hub.
   - EK: n systems point-to-point need n(n − 1)/2 links; a bus or hub needs n; asynchronous messaging decouples availability.
+  - Needs: IS-2.2.A
   - P4 · P2 · drills: is-hub-links, is-integration-style
 - ● **IS-2.2.C** Identify which migration strategy a cloud move uses (rehost, replatform, refactor, repurchase, retire, retain) from its description.
   - EK: Rehost = lift-and-shift; refactor rewrites for cloud-native; repurchase moves to SaaS.
-  - Needs: CS-18.2.A
+  - Needs: CS-18.2.A, IS-2.2.B
   - P4 · drills: is-cloud-six-r, is-migration-mix
 
 ## Unit 3 · Systems analysis, development and deployment (extension)
@@ -117,12 +128,15 @@ Book: msis2016 §SDAD
 
 - ● **IS-3.1.A** Model a described business process in BPMN with pools, lanes, gateways and events, and spot the hand-off that causes delay.
   - EK: Exclusive gateway = one path; parallel = all paths; message flows cross pools, sequence flows stay inside one.
+  - Needs: IS-2.2.C
   - P3 · drills: is-bpmn, is-handoff-time
 - ● **IS-3.1.B** Write a use case (actor, preconditions, main flow, extensions) or user stories with acceptance criteria from an interview transcript.
   - EK: Story = as a <role> I want <goal> so that <benefit>; INVEST: independent, negotiable, valuable, estimable, small, testable.
+  - Needs: IS-3.1.A
   - P3 · P1 · drills: is-user-story, is-story-count
 - ● **IS-3.1.C** Prioritise a requirement list with MoSCoW or Kano and justify which items fall out of a release.
   - EK: Must / Should / Could / Won't (this time); Kano: basic, performance and delighter features age into basics.
+  - Needs: IS-3.1.B
   - P4 · drills: is-moscow, is-moscow-drop
 
 ### 3.2 Project scheduling and control
@@ -131,12 +145,15 @@ Book: msis2016 §SDAD, §ISMO
 
 - ● **IS-3.2.A** Find the critical path, project duration and each activity's slack from an activity-on-node network — auto-checked.
   - EK: Forward pass gives earliest start/finish, backward pass latest; slack = LS − ES; zero-slack activities form the critical path.
+  - Needs: IS-3.1.C
   - P2 · drills: is-critical-path, is-slack
 - ● **IS-3.2.B** Compute earned-value metrics (PV, EV, AC, CV, SV, CPI, SPI, EAC) from a status report and say whether the project is over budget or late.
   - EK: CPI = EV/AC, SPI = EV/PV; < 1 means over cost or behind; EAC = BAC/CPI if the trend continues.
+  - Needs: IS-3.2.A
   - P2 · P5 · drills: is-earned-value, is-eac
 - ● **IS-3.2.C** Choose a delivery approach (predictive, agile, hybrid) and a deployment strategy (big bang, phased, parallel, pilot, blue-green, canary) for a described rollout.
   - EK: Parallel running costs most and risks least; canary exposes a small share of users first; regulated or fixed-scope work leans predictive.
+  - Needs: IS-3.2.B
   - P4 · drills: is-deployment-strategy, is-canary-exposure
 
 ## Unit 4 · Data, information and analytics management (extension)
@@ -149,13 +166,15 @@ Book: msis2016 §DATA-11, §DATA-12, §DATA-13, §DATA-16, §DATA-20
 
 - ● **IS-4.1.A** Capture a scenario's data requirements as a conceptual model and choose the data-management technology the domain needs.
   - EK: Conceptual (entities, relationships) → logical (tables, keys) → physical; the access pattern and consistency need pick the store.
-  - Needs: CS-7.1.A, CS-7.6.A
+  - Needs: CS-7.1.A, CS-7.6.A, IS-3.2.C, CS-7.6.B
   - P3 · P4 · drills: is-data-technology, is-conceptual-first
 - ● **IS-4.1.B** Compute data-quality scores (completeness, validity, uniqueness, timeliness) for a sample table and name the root cause of the worst one.
   - EK: Completeness = non-null / total; uniqueness = distinct keys / rows; quality problems are fixed at the source process, not downstream.
+  - Needs: IS-4.1.A
   - P2 · drills: is-data-quality, is-uniqueness
 - ● **IS-4.1.C** Assign data owner, steward and custodian roles for a data domain and write the policy decision each makes.
   - EK: Owner is accountable (business); steward defines meaning and quality rules; custodian (IT) operates storage and access.
+  - Needs: IS-4.1.B
   - P5 · drills: is-data-roles, is-steward-load
 
 ### 4.2 Warehousing and integration
@@ -164,17 +183,19 @@ Book: msis2016 §DATA-18, §DATA-19, §DATA-22
 
 - ● **IS-4.2.A** Design a star schema for a described analytic question: declare the grain, the fact table measures and the dimensions.
   - EK: State the grain first; facts are additive numeric measures at that grain; dimensions carry descriptive attributes, denormalised.
-  - Needs: CS-7.1.A
+  - Needs: CS-7.1.A, IS-4.1.C
   - P3 · drills: is-star-grain, is-fact-rows
 - ● **IS-4.2.B** Choose the slowly-changing-dimension type (1, 2, 3) for an attribute whose history does or doesn't matter, and show the resulting rows.
   - EK: Type 1 overwrites; type 2 adds a new row with effective dates and a surrogate key; type 3 keeps a previous-value column.
+  - Needs: IS-4.2.A
   - P4 · P3 · drills: is-scd-type, is-scd2-rows
 - ● **IS-4.2.C** Choose between ETL into a warehouse, ELT into a lakehouse and streaming ingestion for a described data volume, variety and latency need.
   - EK: ELT pushes transformation to scalable storage; streaming fits seconds-level latency; schema-on-read trades governance for flexibility.
+  - Needs: IS-4.2.B
   - P4 · drills: is-ingestion-choice, is-latency-budget
 - ● **IS-4.2.D** Write the SQL aggregation that answers a business question over a star schema — auto-checked by result set.
   - EK: Join the fact to the needed dimensions, filter on dimension attributes, GROUP BY the reporting level.
-  - Needs: CS-7.2.A, IS-4.2.A
+  - Needs: CS-7.2.A, IS-4.2.A, IS-4.2.C
   - P2 · drills: is-sql-aggregate, is-join-rows
 
 ### 4.3 Analytics for decisions
@@ -183,13 +204,15 @@ Book: msis2016 §DATA-23, §DATA-24
 
 - ● **IS-4.3.A** Match a business question to descriptive, diagnostic, predictive or prescriptive analytics and to a method (dashboard, cohort, regression, classification, optimisation).
   - EK: Descriptive = what happened; diagnostic = why; predictive = what will; prescriptive = what to do.
+  - Needs: IS-4.2.D
   - P4 · P1 · drills: is-analytics-type, is-dashboard-decisions
 - ● **IS-4.3.B** Compute the expected profit of acting on a classifier's predictions from its confusion matrix and the cost of each error.
   - EK: Expected value = Σ count × payoff per cell; the best threshold depends on error costs, not accuracy.
-  - Needs: CS-13.2.A
+  - Needs: CS-13.2.A, IS-4.3.A
   - P2 · P4 · drills: is-confusion-profit, is-threshold-breakeven
 - ● **IS-4.3.C** Define a KPI for a described objective with formula, target, owner and data source, and flag a vanity metric.
   - EK: A KPI ties to a decision and has a target; vanity metrics (raw sign-ups, page views) move without changing outcomes.
+  - Needs: IS-4.3.B
   - P5 · drills: is-vanity-metric, is-kpi-target-gap
 
 ## Unit 5 · IT infrastructure and service operations (extension)
@@ -202,13 +225,15 @@ Book: msis2016 §INFR
 
 - ● **IS-5.1.A** Size the servers or cloud instances a described workload needs at peak with headroom, and the cost of each option.
   - EK: Capacity = peak demand / (per-unit capacity × target utilisation); size for peak, not average.
-  - Needs: CS-18.2.B
+  - Needs: CS-18.2.B, IS-2.2.C, CS-10.5.A
   - P2 · drills: is-instance-sizing, is-cloud-vs-own
 - ● **IS-5.1.B** Choose IaaS, PaaS, SaaS or on-premises for a described system and state who manages each layer under the shared-responsibility model.
   - EK: The provider takes more layers as you move IaaS → PaaS → SaaS; data and identity stay the customer's responsibility in every model.
+  - Needs: IS-5.1.A
   - P4 · P5 · drills: is-shared-responsibility, is-patch-scope
 - ● **IS-5.1.C** Recommend in-house, outsourced, offshored or cloud sourcing for a function using transaction-cost reasoning.
   - EK: Outsource commodity, well-specified work; keep asset-specific, strategic, hard-to-monitor work inside.
+  - Needs: IS-5.1.B
   - P4 · drills: is-sourcing-choice, is-outsourcing-overhead
 
 ### 5.2 Service management
@@ -217,16 +242,19 @@ Book: msis2016 §ISMO
 
 - ● **IS-5.2.A** Classify a described event as an incident, problem, service request or change, and the change as standard, normal or emergency.
   - EK: Incident = restore service fast; problem = find the root cause; standard changes are pre-approved and low-risk.
+  - Needs: IS-5.1.C
   - P5 · drills: is-itil-classify, is-change-mix
 - ● **IS-5.2.B** Compute SLA attainment, MTTR and allowed downtime from an incident log and decide whether a credit is owed.
   - EK: Availability = (agreed time − downtime) / agreed time; MTTR = total repair time / incidents.
-  - Needs: CS-6.5.A
+  - Needs: CS-6.5.A, IS-5.2.A
   - P2 · P5 · drills: is-sla-attainment, is-mttr
 - ● **IS-5.2.C** Prioritise an incident from its impact and urgency using a priority matrix.
   - EK: Priority = f(impact, urgency): high/high = P1; priority sets the response and resolution targets.
+  - Needs: IS-5.2.B
   - P4 · drills: is-priority-matrix, is-queue-order
 - ● **IS-5.2.D** Choose a vendor by a weighted evaluation of a set of RFP responses and name the contract terms that protect exit.
   - EK: Weight criteria before scoring; protect exit with data-portability, termination-assistance and escrow clauses.
+  - Needs: IS-5.2.C
   - P4 · P2 · drills: is-vendor-score, is-exit-terms
 
 ## Unit 6 · Business continuity and information assurance (extension)
@@ -239,13 +267,15 @@ Book: msis2016 §BCIA-5, §BCIA-6, §BCIA-7
 
 - ● **IS-6.1.A** Score risks on a likelihood × impact matrix and choose a treatment (avoid, mitigate, transfer, accept) for each.
   - EK: Inherent risk before controls, residual after; accept only within the stated risk appetite.
+  - Needs: IS-5.2.D, CS-11.4.B
   - P2 · P4 · drills: is-risk-score, is-risk-treatment
 - ● **IS-6.1.B** Compute ALE before and after a proposed control and its return on security investment.
   - EK: ROSI = (ALE_before − ALE_after − control cost) / control cost.
-  - Needs: CS-11.4.B
+  - Needs: CS-11.4.B, IS-6.1.A
   - P2 · drills: is-ale, is-rosi
 - ● **IS-6.1.C** Classify a control as preventive, detective or corrective and administrative, technical or physical.
   - EK: Defense in depth layers control types so one failure is caught by another.
+  - Needs: IS-6.1.B
   - P5 · drills: is-control-class, is-control-balance
 
 ### 6.2 Continuity and recovery
@@ -254,9 +284,11 @@ Book: msis2016 §BCIA-2, §BCIA-4, §BCIA-8
 
 - ● **IS-6.2.A** Derive RTO and RPO for a business process from a business-impact analysis, and pick the recovery site and backup frequency that meet them.
   - EK: RPO = tolerable data loss ⇒ backup or replication interval; RTO = tolerable downtime ⇒ hot, warm or cold site.
+  - Needs: IS-6.1.C
   - P1 · P4 · drills: is-rto-rpo, is-recovery-site
 - ● **IS-6.2.B** Compute what a full, incremental or differential backup schedule must restore after a failure on a given day, and the worst-case data loss.
   - EK: Incremental restore = last full + every incremental since; differential = last full + latest differential; loss = time since last backup.
+  - Needs: IS-6.2.A
   - P3 · P2 · drills: is-backup-restore, is-worst-case-loss
 
 ### 6.3 Security programme and audit
@@ -265,10 +297,11 @@ Book: msis2016 §BCIA-1, §BCIA-3, §BCIA-9
 
 - ● **IS-6.3.A** Map a described control to its NIST CSF 2.0 function (Govern, Identify, Protect, Detect, Respond, Recover).
   - EK: Govern was added in 2.0 for strategy and supply-chain risk; the functions run concurrently, not as a sequence.
+  - Needs: IS-6.2.B
   - P5 · drills: is-nist-csf, is-csf-coverage
 - ● **IS-6.3.B** Identify the segregation-of-duties conflict in a described set of user roles and propose the compensating control.
   - EK: No one person should both initiate and approve, or both hold assets and record them; where SoD can't be split, add review.
-  - Needs: CS-11.1.A
+  - Needs: CS-11.1.A, IS-6.3.A
   - P5 · P6 · drills: is-sod-conflict, is-sod-pairs
 
 ## Unit 7 · Innovation, organisational change and entrepreneurship (extension)
@@ -281,12 +314,15 @@ Book: msis2016 §IOCE
 
 - ● **IS-7.1.A** Predict adoption of a described system from TAM/UTAUT factors and name the intervention that raises it.
   - EK: Perceived usefulness and ease of use drive intention; UTAUT adds social influence and facilitating conditions.
+  - Needs: IS-1.3.C
   - P6 · drills: is-tam, is-adoption-rate
 - ● **IS-7.1.B** Place a described organisation's change effort in a change model (Lewin, Kotter, ADKAR) and name the step it skipped.
   - EK: Kotter: urgency, coalition, vision, communicate, empower, short-term wins, consolidate, anchor; skipping urgency stalls most efforts.
+  - Needs: IS-7.1.A
   - P6 · drills: is-change-model, is-change-steps-left
 - ● **IS-7.1.C** Locate a technology's adopters on the diffusion curve and decide how to cross the chasm to the early majority.
   - EK: Innovators 2.5%, early adopters 13.5%, early majority 34%; the early majority buys whole-product solutions and references.
+  - Needs: IS-7.1.B
   - P4 · P6 · drills: is-chasm-share, is-cross-chasm
 
 ### 7.2 Digital business models
@@ -295,12 +331,15 @@ Book: msis2016 §IOCE
 
 - ● **IS-7.2.A** Fill a business model canvas for a described digital venture and identify its riskiest assumption.
   - EK: Nine blocks: segments, value proposition, channels, relationships, revenue, resources, activities, partners, costs; test the riskiest first.
+  - Needs: IS-7.1.C
   - P3 · P1 · drills: is-canvas-risk, is-runway
 - ● **IS-7.2.B** Compute customer lifetime value and CAC payback for a subscription product and decide whether growth is profitable.
   - EK: LTV ≈ ARPU × gross margin / churn; healthy SaaS often wants LTV/CAC ≥ 3 and payback < 12 months.
+  - Needs: IS-7.2.A
   - P2 · drills: is-clv, is-cac-payback
 - ● **IS-7.2.C** Identify the network effects (direct, indirect/two-sided) in a platform and the side to subsidise.
   - EK: Subsidise the side whose participation most attracts the other and that is more price-sensitive.
+  - Needs: IS-7.2.B
   - P4 · drills: is-network-effects, is-subsidy-split
 
 ## Unit 8 · Ethics, impacts and sustainability (extension)
@@ -313,10 +352,11 @@ Book: msis2016 §ETIS, §DATA-17
 
 - ● **IS-8.1.A** Determine whether GDPR, CCPA/CPRA, HIPAA or FERPA applies to a described data flow and the lawful basis or consent it needs.
   - EK: GDPR follows EU data subjects; CCPA/CPRA covers qualifying businesses handling California residents' data; HIPAA covers health data of covered entities; FERPA covers education records.
+  - Needs: IS-1.3.C
   - P6 · P5 · drills: is-which-regime, is-regime-count
 - ● **IS-8.1.B** Decide when a data-protection impact assessment is required and list the privacy-by-design measures for a described system.
   - EK: High-risk processing (large-scale sensitive data, profiling, monitoring) needs a DPIA; minimise, pseudonymise, limit retention, default to private.
-  - Needs: CS-16.1.C
+  - Needs: CS-16.1.C, IS-8.1.A
   - P6 · drills: is-dpia, is-minimisation-fields
 
 ### 8.2 Responsible and sustainable IS
@@ -325,7 +365,9 @@ Book: msis2016 §ETIS
 
 - ● **IS-8.2.A** Analyse a described IS decision with stakeholder, utilitarian and rights-based reasoning and recommend an action.
   - EK: Identify every affected stakeholder; consequences and duties can disagree — state which one governs and why.
+  - Needs: IS-8.1.B
   - P6 · drills: is-ethical-lens, is-stakeholder-count
 - ● **IS-8.2.B** Compare the lifetime carbon and cost of keeping versus refreshing a hardware fleet, including embodied emissions.
   - EK: Embodied carbon of manufacture often exceeds years of use-phase emissions for end-user devices; extending life is usually greener.
+  - Needs: IS-8.2.A
   - P2 · P6 · drills: is-fleet-carbon, is-fleet-cost

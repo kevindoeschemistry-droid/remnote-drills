@@ -48,6 +48,7 @@ Big ideas: SPQ
   - P1 · drills: ac-classify-matter, ac-separate-mixture
 - ● **CH-0.1.B** (TRA-1.D, acs-accm-general:I.D.3) Sort properties and changes into physical and chemical.
   - EK: A chemical change makes new substances (bonds broken and formed); a physical change alters state or form only.
+  - Needs: CH-0.1.A
   - P6 · drills: ac-physical-chemical, ac-change-evidence
 
 ### 0.2 Measurement, significant figures and error
@@ -56,18 +57,23 @@ Big ideas: SPQ
 
 - ● **CH-0.2.B** (N-Q.A.3) Count significant figures in a measurement and round a calculated result correctly for × ÷ and for + −.
   - EK: × ÷: keep the fewest significant figures; + −: keep the fewest decimal places; exact counts and defined constants don't limit.
+  - Needs: CH-0.1.B
   - P5 · drills: ac-sig-figs, ac-sig-figs-product
 - ● **CH-0.2.D** (N-Q.A.1, A-CED.A.4, acs-accm-general:I.D.3, acs-accm-general:IX.B.2) Calculate density, mass or volume from the other two, including volume by water displacement.
   - EK: ρ = m/V; 1 mL = 1 cm³; water ≈ 1.00 g/mL near room temperature.
+  - Needs: CH-0.2.B
   - P5 · drills: ph-density, ac-density-displacement
 - ● **CH-0.2.A** (8.EE.A.3, 8.EE.A.4, N-Q.A.1) Write quantities in scientific notation and convert between SI prefixes (p, n, μ, m, c, k, M, G).
   - EK: Each prefix is a power of ten; moving the decimal changes the exponent by the same count.
+  - Needs: CH-0.2.D
   - P5 · drills: ac-si-prefix, ac2-largest-length
 - ● **CH-0.2.C** (N-Q.A.3, acs-accm-general:IX.G.1, acs-accm-inorganic:IX.E.1) Distinguish accuracy from precision and calculate percent error.
   - EK: Accuracy = closeness to the true value; precision = agreement among repeats; % error = |measured − true|/true × 100.
+  - Needs: CH-0.2.A
   - P2 · P4 · drills: ac-percent-error, ac2-percent-error-reverse
 - ● **CH-0.2.E** (N-Q.A.1) Convert temperatures among °C, K and °F.
   - EK: K = °C + 273.15; °F = 1.8·°C + 32; gas laws and thermodynamics need kelvin.
+  - Needs: CH-0.2.C
   - P5 · drills: ac-temperature-convert, ac2-hotter
 
 ### 0.3 Dimensional analysis
@@ -85,9 +91,11 @@ Big ideas: SPQ
 
 - ● **CH-0.4.A** (SAP-1.A, acs-accm-general:I.A.1, acs-accm-inorganic:I.A.1) Count protons, neutrons and electrons from a nuclide symbol for an atom or ion.
   - EK: Z = protons; A = protons + neutrons; electrons = Z − charge.
+  - Needs: CH-0.3.A
   - P1 · drills: ac-nuclide-count, nu-neutron-number
 - ● **CH-0.4.C** (SAP-2.B, acs-accm-general:IX.C.1, acs-accm-inorganic:I.C.3, acs-accm-analytical:IX.B.1) Use periodic-table position (group, metal or nonmetal) to name, and write formulas for, binary ionic, polyatomic ionic, binary molecular compounds and common acids.
   - EK: Metals left of the staircase form cations, nonmetals anions. Ionic: cation then anion, charges balance, Roman numeral for variable-charge metals; molecular: Greek prefixes; -ate → -ic acid, -ite → -ous acid.
+  - Needs: CH-0.4.A
   - P1 · drills: ac-ionic-formula, ac2-atoms-in-formula
 
 ### 0.5 The mole as a counting unit
@@ -96,6 +104,7 @@ Big ideas: SPQ
 
 - ● **CH-0.5.B** (acs-accm-general:I.E.3) Use the picometre size of atoms to see why a mole is so large.
   - EK: Atoms are about 100–300 pm across; a millimetre holds millions of them in a row, so a visible sample holds ~10²³.
+  - Needs: CH-0.4.C
   - P1 · drills: ch-atoms-in-a-line, ch-mole-of-marbles
 - ● **CH-0.5.A** (SPQ-1.A, acs-accm-general:I.E.1, acs-accm-general:X.B.1) Explain the mole as a count of particles and compute a compound's molar mass from its formula.
   - EK: 1 mol = 6.022 × 10²³ particles; molar mass in g/mol = sum of atomic masses × subscripts.
@@ -108,18 +117,23 @@ Big ideas: SPQ
 
 - ● **CH-0.6.A** (acs-accm-general:IX.F.1, acs-accm-general:IX.G.2, acs-accm-organic:IX.F) Classify an error as random or systematic, predict its direction, and choose a procedure that limits it.
   - EK: Systematic errors push every result one way (a mis-zeroed balance, a wet sample); random errors scatter both ways and shrink with replicates; blanks and calibration remove systematic ones.
+  - Needs: CH-0.5.A
   - P1 · drills: ch-error-type, ch-systematic-direction
 - ● **CH-0.6.B** (acs-accm-general:IX.G.3, acs-accm-organic:IX.E, acs-accm-inorganic:IX.F.2, acs-accm-analytical:IX.E.1) Keep a laboratory record that others can verify.
   - EK: Write directly in a bound notebook in ink, date every entry, cross out mistakes with one line instead of erasing, and record conditions and raw data.
+  - Needs: CH-0.6.A
   - P1 · drills: ch-notebook, ch-procedure-design
 - ● **CH-0.6.C** (acs-accm-general:IX.H.1, acs-accm-general:IX.H.2, acs-accm-general:IX.H.4, acs-accm-inorganic:IX.G.4, acs-accm-analytical:IX.G.2) Choose the safety equipment and handling for a hazard, reading GHS pictograms and safety data sheets.
   - EK: Goggles always; fume hood for volatile or toxic substances; know the eyewash, shower and extinguisher; GHS pictograms and SDS sections name the hazard and the response.
+  - Needs: CH-0.6.B
   - P1 · drills: ch-safety-equipment, ch-ghs-pictograms
 - ● **CH-0.6.D** (acs-accm-general:IX.H.3, acs-accm-analytical:IX.G.1) Dispose of laboratory waste by category.
   - EK: Separate halogenated from non-halogenated solvents, keep oxidisers apart from organics, neutralise or collect acids and bases, never pour heavy metals or organics down the drain.
+  - Needs: CH-0.6.C
   - P1 · drills: ch-waste, ch-waste-2
 - ● **CH-0.6.E** (acs-accm-general:IX.H.5) Reduce radiation dose with time, distance and shielding.
   - EK: Dose rate falls with the square of the distance from a point source; each half-value layer of shielding halves it; dose = rate × time.
+  - Needs: CH-0.6.D
   - P1 · drills: ch-inverse-square, ch-half-value-layers
 
 ## Unit 1 · Atomic structure and properties
@@ -279,6 +293,7 @@ Big ideas: SAP
 
 - ● **CH-2.2.A** (SAP-3.B, acs-accm-general:II.C.1, acs-accm-general:II.C.2, acs-accm-organic:II.C.1) Read bond length and bond energy from a potential-energy vs internuclear-distance curve, and compare curves for different bonds.
   - EK: The well's minimum gives bond length (x) and bond energy (depth); higher bond order and smaller atoms ⇒ deeper, shorter well.
+  - Needs: CH-2.1.A
   - P4 · drills: ac-pe-curve, ac-bond-length-compare
 - ● **CH-2.2.B** (SAP-3.B, acs-accm-general:II.A.1, acs-accm-inorganic:II.B.3, acs-accm-inorganic:II.C.2, acs-accm-inorganic:VI.E.2) Rank ionic compounds by lattice energy using Coulomb's law.
   - EK: Lattice energy ∝ q₁q₂/(r₁ + r₂): charge dominates, then ion size.
@@ -587,6 +602,7 @@ Big ideas: TRA, SPQ
 
 - ● **CH-4.5.F** (acs-accm-general:III.H.3) Find the mass of an element that can be recovered from an ore or mineral sample.
   - EK: Mass of element = mass of ore × fraction of mineral × (mass of element in one formula unit ÷ formula mass).
+  - Needs: CH-4.4.A
   - P1 · drills: ch-metal-from-ore, ch-ore-needed
 - ● **CH-4.5.A** (SPQ-4.A, acs-accm-general:V.A.2, acs-accm-general:V.A.3) Calculate the mass of a product or reactant from the mass of another, through the mole ratio.
   - EK: grams A → mol A → (coefficient ratio) → mol B → grams B.
@@ -719,6 +735,7 @@ Big ideas: TRA, ENE
 
 - ● **CH-5.5.B** (acs-accm-general:VII.A.3) Explain and quantify how dividing a solid raises its surface area and its reaction rate.
   - EK: Cutting a cube into n³ smaller cubes multiplies the exposed area by n; a surface reaction speeds up in proportion.
+  - Needs: CH-5.4.A
   - P1 · drills: ch-surface-area-cut, ch-surface-area-facts
 - ● **CH-5.5.A** (TRA-4.B, acs-accm-general:VII.D.1, acs-accm-organic:IV.C.1) Explain rate in terms of collision frequency, orientation and the fraction of collisions with energy above E_a.
   - EK: Raising T shifts the Maxwell–Boltzmann tail past E_a, so a small T rise greatly increases the effective collisions.
@@ -824,6 +841,7 @@ Big ideas: ENE
 
 - ● **CH-6.4.A** (ENE-2.D, acs-accm-general:VI.C.1) Calculate heat, mass, specific heat or temperature change with q = mcΔT.
   - EK: Water's c = 4.18 J/(g·°C); ΔT in °C equals ΔT in K.
+  - Needs: CH-6.3.A
   - P5 · drills: ac-q-mcdt, ac2-mixing-temperature
 - ● **CH-6.4.B** (ENE-2.D) Find the final temperature when two bodies at different temperatures reach equilibrium.
   - EK: Isolated system: q_lost + q_gained = 0, so m₁c₁(T_f − T₁) + m₂c₂(T_f − T₂) = 0.
@@ -967,6 +985,7 @@ Big ideas: TRA, SPQ
 
 - ● **CH-7.5.B** (acs-accm-general:VIII.G.3) Find the fraction of a protein bound to its ligand from the dissociation constant.
   - EK: P + L ⇌ PL with K_d = [P][L]/[PL]; with ligand in excess, the fraction bound is [L]/(K_d + [L]): half bound when [L] = K_d.
+  - Needs: CH-7.4.C
   - P1 · drills: ch-fraction-bound, ch-ligand-for-fraction
 - ● **CH-7.5.A** (TRA-7.C, acs-accm-general:VIII.D.1, acs-accm-organic:VIII.A.1, acs-accm-inorganic:VIII.G.1) Judge from the size of K whether reactants or products are favored at equilibrium.
   - EK: K ≫ 1 ⇒ products favored; K ≪ 1 ⇒ reactants favored.

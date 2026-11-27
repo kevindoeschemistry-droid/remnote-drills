@@ -168,7 +168,7 @@ units:
       - n: 2
         title: Forces and free-body diagrams
         los:
-          - { id: A, std: ["P1 2.2.A", "CM 2.2.A"], do: "Identify each force on an object as an interaction with a named other object, contact or at a distance.", ek: ["Every force has an agent; no agent, no force (\"force of motion\" is not a force)."], p: [3B], drills: ["ph-force-agent", "ph-force-agent-pick"] }
+          - { id: A, std: ["P1 2.2.A", "CM 2.2.A"], do: "Identify each force on an object as an interaction with a named other object, contact or at a distance.", ek: ["Every force has an agent; no agent, no force (\"force of motion\" is not a force)."], p: [3B], needs: [PH-2.1.B], drills: ["ph-force-agent", "ph-force-agent-pick"] }
           - { id: B, std: ["P1 2.2.B", "CM 2.2.B"], do: "Draw a free-body diagram with every force on the object, from its point of action, in the correct direction.", ek: ["Normal force is perpendicular to the surface, tension along the string away from the object, gravity toward Earth's center."], p: [1A], drills: ["ph-fbd-count", "ph-net-force-list"], needs: [PH-2.2.A] }
       - n: 3
         title: Newton's third law
@@ -187,9 +187,9 @@ units:
       - n: 6
         title: Gravitational force
         los:
-          - { id: C, std: ["P1 2.6.C", "P1 2.6.D", "CM 2.6.C", "CM 2.6.D"], do: "Find apparent weight in an accelerating frame and tell inertial from gravitational mass.", ek: ["A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision."], p: [2B], drills: [ph-elevator-scale, ph-weightless] }
-          - { id: D, std: ["P1 2.6.B", "CM 2.6.B", "CM 2.6.E"], do: "Decide when g is constant and find g above a planet or inside a uniform sphere.", ek: ["Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre."], p: [2B], drills: [ph-g-altitude, ph-g-inside] }
-          - { id: A, std: ["P1 2.6.A", "CM 2.6.A"], do: "Calculate the gravitational force between two masses with Newton's law of gravitation.", ek: ["F = Gm₁m₂/r², r center to center; doubling r quarters F."], p: [2B, 2D], drills: ["ph-gravitation-force", "ph-gravity-distance-scaling"] }
+          - { id: C, std: ["P1 2.6.C", "P1 2.6.D", "CM 2.6.C", "CM 2.6.D"], do: "Find apparent weight in an accelerating frame and tell inertial from gravitational mass.", ek: ["A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision."], p: [2B], needs: [PH-2.5.C], drills: [ph-elevator-scale, ph-weightless] }
+          - { id: D, std: ["P1 2.6.B", "CM 2.6.B", "CM 2.6.E"], do: "Decide when g is constant and find g above a planet or inside a uniform sphere.", ek: ["Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre."], p: [2B], needs: [PH-2.6.C], drills: [ph-g-altitude, ph-g-inside] }
+          - { id: A, std: ["P1 2.6.A", "CM 2.6.A"], do: "Calculate the gravitational force between two masses with Newton's law of gravitation.", ek: ["F = Gm₁m₂/r², r center to center; doubling r quarters F."], p: [2B, 2D], needs: [PH-2.6.D], drills: ["ph-gravitation-force", "ph-gravity-distance-scaling"] }
           - { id: B, std: ["P1 2.6.A", "CM 2.6.A"], do: "Calculate the gravitational field strength g at a planet's surface or at altitude.", ek: ["g = GM/r²; weight mg is the gravitational force, and g is also the free-fall acceleration."], p: [2A, 2B], drills: ["ph-g-at-altitude", "ph-g-planet-scaling"], needs: [PH-2.6.A] }
       - n: 7
         title: Kinetic and static friction
@@ -199,7 +199,7 @@ units:
       - n: 8
         title: Spring forces
         los:
-          - { id: B, std: ["CM 2.8.B"], do: "Combine springs in series and in parallel.", ek: ["Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force)."], p: [2B], drills: [ph-springs-combine, ph-spring-cut] }
+          - { id: B, std: ["CM 2.8.B"], do: "Combine springs in series and in parallel.", ek: ["Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force)."], p: [2B], needs: [PH-2.7.B], drills: [ph-springs-combine, ph-spring-cut] }
           - { id: A, std: ["P1 2.8.A", "CM 2.8.A"], do: "Apply Hooke's law to find a spring force, stretch or spring constant, including k from a force–extension graph.", ek: ["F_s = −kΔx, restoring toward equilibrium; k is the slope of F vs Δx."], p: [1B, 2B], drills: ["ph-hooke", "ph-springs-combined"], needs: [PH-2.4.A] }
       - n: 9
         title: Circular motion
@@ -404,7 +404,7 @@ units:
       - n: 4
         title: Fluids and conservation laws
         los:
-          - { id: A, std: ["P1 8.4.A", "P1 8.4.B"], do: "Apply the continuity equation to find a flow speed or volume flow rate.", ek: ["Incompressible flow: A₁v₁ = A₂v₂ = volume flow rate; narrower pipe ⇒ faster flow."], p: [2B, 2D], drills: ["ph-continuity", "ph-nozzle-speed-scaling"] }
+          - { id: A, std: ["P1 8.4.A", "P1 8.4.B"], do: "Apply the continuity equation to find a flow speed or volume flow rate.", ek: ["Incompressible flow: A₁v₁ = A₂v₂ = volume flow rate; narrower pipe ⇒ faster flow."], p: [2B, 2D], needs: [PH-8.3.B], drills: ["ph-continuity", "ph-nozzle-speed-scaling"] }
           - { id: B, std: ["P1 8.4.A", "P1 8.4.B", "webwork-opl:FM3.4"], do: "Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.", ek: ["P + ½ρv² + ρgy is constant along a streamline (energy per volume); open tank drain v = √(2gh)."], p: [2A, 2B], drills: ["ph-bernoulli", "sc-torricelli-head"], needs: [PH-8.4.A, PH-8.2.B, PH-3.4.A] }
 
   # ── 9 · P2 Unit 9 ────────────────────────────────────────────────────────
@@ -512,7 +512,7 @@ units:
       - n: 2
         title: "Simple circuits"
         los:
-          - { id: A, std: ["P2 11.2.A", "CEM 11.2.A", "fe-chemical:3.C"], do: "Tell open, closed and short circuits apart and predict what a single-loop circuit does.", ek: ["Current needs a closed loop; an open switch stops it everywhere in that loop; a short (near-zero resistance path) carries almost all the current; in one loop the current is the same everywhere."], p: [2B], drills: [ph-simple-circuit, ph-short-current] }
+          - { id: A, std: ["P2 11.2.A", "CEM 11.2.A", "fe-chemical:3.C"], do: "Tell open, closed and short circuits apart and predict what a single-loop circuit does.", ek: ["Current needs a closed loop; an open switch stops it everywhere in that loop; a short (near-zero resistance path) carries almost all the current; in one loop the current is the same everywhere."], p: [2B], needs: [PH-11.1.A], drills: [ph-simple-circuit, ph-short-current] }
       - n: 3
         title: Resistance, resistivity and Ohm's law
         los:
@@ -598,7 +598,7 @@ units:
       - n: 3
         title: Refraction
         los:
-          - { id: A, std: ["P2 13.3.A"], do: "Calculate an index of refraction and apply Snell's law at an interface.", ek: ["n = c/v; n₁ sin θ₁ = n₂ sin θ₂; light bends toward the normal entering a higher-n medium."], p: [1A, 2B], drills: ["ph-snell", "ph-index-from-speed"] }
+          - { id: A, std: ["P2 13.3.A"], do: "Calculate an index of refraction and apply Snell's law at an interface.", ek: ["n = c/v; n₁ sin θ₁ = n₂ sin θ₂; light bends toward the normal entering a higher-n medium."], p: [1A, 2B], needs: [PH-13.2.B], drills: ["ph-snell", "ph-index-from-speed"] }
           - { id: B, std: ["P2 13.3.A"], do: "Calculate the critical angle and decide whether total internal reflection occurs.", ek: ["sin θ_c = n₂/n₁, only for light going from higher to lower n."], p: [2B, 3B], drills: ["ph-critical-angle", "ph-fiber-tir"], needs: [PH-13.3.A] }
       - n: 4
         title: Images formed by lenses

@@ -58,19 +58,19 @@ units:
         title: "Relational concepts"
         los:
           - { id: A, std: ["oracle-1z0-071:1"], do: "Classify a statement as DML, DDL, DCL or transaction control.", ek: ["TRUNCATE, RENAME and COMMENT are DDL; MERGE is DML."], p: [P3], drills: [sq-statement-kind, sq-commit-kind] }
-          - { id: B, std: ["oracle-1z0-071:1"], do: "Identify primary keys, foreign keys and self-references in a schema.", ek: ["A foreign key may be null and may point into its own table."], p: [P2], drills: [sq-keys, sq-fk-behaviour] }
+          - { id: B, std: ["oracle-1z0-071:1"], do: "Identify primary keys, foreign keys and self-references in a schema.", ek: ["A foreign key may be null and may point into its own table."], p: [P2], needs: [SQ-1.1.A], drills: [sq-keys, sq-fk-behaviour] }
       - n: 2
         title: "SELECT"
         los:
-          - { id: A, std: ["oracle-1z0-071:2"], do: "Evaluate an arithmetic expression in the select list, including one with NULL.", ek: ["Usual precedence; anything combined with NULL is NULL."], p: [P1], drills: [sq-select-expr, sq-null-arith] }
-          - { id: B, std: ["oracle-1z0-071:2"], do: "Count the rows DISTINCT returns over one or more columns.", ek: ["DISTINCT covers the whole select list; all NULLs are one value."], p: [P1], drills: [sq-distinct-rows, sq-count-distinct] }
-          - { id: C, std: ["oracle-1z0-071:2"], do: "Use aliases, concatenation and the q-quote correctly, including Oracle's treatment of empty strings.", ek: ["Aliases exist only from SELECT onward; '' is NULL; || ignores NULL."], p: [P1, P3], drills: [sq-alias-legal, sq-concat, sq-oracle-empty-string] }
+          - { id: A, std: ["oracle-1z0-071:2"], do: "Evaluate an arithmetic expression in the select list, including one with NULL.", ek: ["Usual precedence; anything combined with NULL is NULL."], p: [P1], needs: [SQ-1.1.B], drills: [sq-select-expr, sq-null-arith] }
+          - { id: B, std: ["oracle-1z0-071:2"], do: "Count the rows DISTINCT returns over one or more columns.", ek: ["DISTINCT covers the whole select list; all NULLs are one value."], p: [P1], needs: [SQ-1.2.A], drills: [sq-distinct-rows, sq-count-distinct] }
+          - { id: C, std: ["oracle-1z0-071:2"], do: "Use aliases, concatenation and the q-quote correctly, including Oracle's treatment of empty strings.", ek: ["Aliases exist only from SELECT onward; '' is NULL; || ignores NULL."], p: [P1, P3], needs: [SQ-1.2.B], drills: [sq-alias-legal, sq-concat, sq-oracle-empty-string] }
       - n: 3
         title: "Restricting and sorting"
         los:
-          - { id: A, std: ["oracle-1z0-071:3"], do: "Count the rows a WHERE clause keeps, with AND/OR precedence, BETWEEN, IN, LIKE and IS NULL.", ek: ["AND before OR; a comparison with NULL is never true."], p: [P1], drills: [sq-where-count, sq-null-trap] }
-          - { id: B, std: ["oracle-1z0-071:3"], do: "Predict the order of rows from ORDER BY, including where Oracle puts NULLs, and which rows FETCH and OFFSET keep.", ek: ["NULLs sort high: last ascending, first descending."], p: [P1], drills: [sq-order-first, sq-fetch-rows] }
-          - { id: C, std: ["oracle-1z0-071:3"], do: "Say how &, &&, DEFINE and VERIFY behave.", ek: ["&& prompts once and defines the variable for the session."], p: [P3], drills: [sq-substitution, sq-substitution-2] }
+          - { id: A, std: ["oracle-1z0-071:3"], do: "Count the rows a WHERE clause keeps, with AND/OR precedence, BETWEEN, IN, LIKE and IS NULL.", ek: ["AND before OR; a comparison with NULL is never true."], p: [P1], needs: [SQ-1.2.C], drills: [sq-where-count, sq-null-trap] }
+          - { id: B, std: ["oracle-1z0-071:3"], do: "Predict the order of rows from ORDER BY, including where Oracle puts NULLs, and which rows FETCH and OFFSET keep.", ek: ["NULLs sort high: last ascending, first descending."], p: [P1], needs: [SQ-1.3.A], drills: [sq-order-first, sq-fetch-rows] }
+          - { id: C, std: ["oracle-1z0-071:3"], do: "Say how &, &&, DEFINE and VERIFY behave.", ek: ["&& prompts once and defines the variable for the session."], p: [P3], needs: [SQ-1.3.B], drills: [sq-substitution, sq-substitution-2] }
   - id: functions
     n: 2
     title: "Functions"
@@ -80,15 +80,15 @@ units:
       - n: 1
         title: "Single-row functions"
         los:
-          - { id: A, std: ["oracle-1z0-071:4"], do: "Evaluate character functions: SUBSTR, INSTR, LENGTH, LPAD, RPAD, TRIM, REPLACE, INITCAP.", ek: ["Positions count from 1; a negative SUBSTR start counts from the end."], p: [P1], drills: [sq-char-number, sq-char-text] }
-          - { id: B, std: ["oracle-1z0-071:4"], do: "Evaluate ROUND, TRUNC and MOD, including negative places and negative numbers.", ek: ["ROUND halves away from zero; MOD takes the dividend's sign."], p: [P1], drills: [sq-number-fn, sq-round-trunc-2] }
-          - { id: C, std: ["oracle-1z0-071:4"], do: "Do date arithmetic and evaluate MONTHS_BETWEEN, ADD_MONTHS, LAST_DAY and NEXT_DAY.", ek: ["DATE − DATE is days; month-ends stay month-ends."], p: [P1], drills: [sq-date-number, sq-date-text] }
+          - { id: A, std: ["oracle-1z0-071:4"], do: "Evaluate character functions: SUBSTR, INSTR, LENGTH, LPAD, RPAD, TRIM, REPLACE, INITCAP.", ek: ["Positions count from 1; a negative SUBSTR start counts from the end."], p: [P1], needs: [SQ-1.3.C], drills: [sq-char-number, sq-char-text] }
+          - { id: B, std: ["oracle-1z0-071:4"], do: "Evaluate ROUND, TRUNC and MOD, including negative places and negative numbers.", ek: ["ROUND halves away from zero; MOD takes the dividend's sign."], p: [P1], needs: [SQ-2.1.A], drills: [sq-number-fn, sq-round-trunc-2] }
+          - { id: C, std: ["oracle-1z0-071:4"], do: "Do date arithmetic and evaluate MONTHS_BETWEEN, ADD_MONTHS, LAST_DAY and NEXT_DAY.", ek: ["DATE − DATE is days; month-ends stay month-ends."], p: [P1], needs: [SQ-2.1.B], drills: [sq-date-number, sq-date-text] }
       - n: 2
         title: "Conversion and conditional expressions"
         los:
-          - { id: A, std: ["oracle-1z0-071:5"], do: "Evaluate NVL, NVL2, NULLIF and COALESCE.", ek: ["COALESCE returns its first non-null argument."], p: [P1], drills: [sq-null-fn, sq-null-fn-agg] }
-          - { id: B, std: ["oracle-1z0-071:5"], do: "Evaluate CASE and DECODE.", ek: ["DECODE matches NULL to NULL; CASE with no ELSE gives NULL."], p: [P1], drills: [sq-case-decode, sq-case-count] }
-          - { id: C, std: ["oracle-1z0-071:5"], do: "Read TO_CHAR and TO_NUMBER format models and say when Oracle converts implicitly.", ek: ["Too-narrow models print #; strings compared with dates use NLS_DATE_FORMAT."], p: [P1, P3], drills: [sq-to-char, sq-implicit] }
+          - { id: A, std: ["oracle-1z0-071:5"], do: "Evaluate NVL, NVL2, NULLIF and COALESCE.", ek: ["COALESCE returns its first non-null argument."], p: [P1], needs: [SQ-2.1.C], drills: [sq-null-fn, sq-null-fn-agg] }
+          - { id: B, std: ["oracle-1z0-071:5"], do: "Evaluate CASE and DECODE.", ek: ["DECODE matches NULL to NULL; CASE with no ELSE gives NULL."], p: [P1], needs: [SQ-2.2.A], drills: [sq-case-decode, sq-case-count] }
+          - { id: C, std: ["oracle-1z0-071:5"], do: "Read TO_CHAR and TO_NUMBER format models and say when Oracle converts implicitly.", ek: ["Too-narrow models print #; strings compared with dates use NLS_DATE_FORMAT."], p: [P1, P3], needs: [SQ-2.2.B], drills: [sq-to-char, sq-implicit] }
   - id: aggregation
     n: 3
     title: "Aggregation"
@@ -98,9 +98,9 @@ units:
       - n: 1
         title: "Group functions, GROUP BY and HAVING"
         los:
-          - { id: A, std: ["oracle-1z0-071:6"], do: "Evaluate COUNT, SUM, AVG, MIN and MAX on a column with NULLs.", ek: ["COUNT(*) counts rows; everything else skips NULLs."], p: [P1], drills: [sq-aggregate, sq-avg-nulls] }
-          - { id: B, std: ["oracle-1z0-071:6"], do: "Count the groups a GROUP BY … HAVING query returns and evaluate a nested group function.", ek: ["WHERE filters rows before grouping, HAVING groups after."], p: [P1], drills: [sq-group-rows, sq-group-nested] }
-          - { id: C, std: ["oracle-1z0-071:6"], do: "Spot the grouping error in a query and state the logical order of the clauses.", ek: ["Ungrouped columns and group functions in WHERE are errors."], p: [P3], drills: [sq-group-error, sq-clause-order] }
+          - { id: A, std: ["oracle-1z0-071:6"], do: "Evaluate COUNT, SUM, AVG, MIN and MAX on a column with NULLs.", ek: ["COUNT(*) counts rows; everything else skips NULLs."], p: [P1], needs: [SQ-2.2.C], drills: [sq-aggregate, sq-avg-nulls] }
+          - { id: B, std: ["oracle-1z0-071:6"], do: "Count the groups a GROUP BY … HAVING query returns and evaluate a nested group function.", ek: ["WHERE filters rows before grouping, HAVING groups after."], p: [P1], needs: [SQ-3.1.A], drills: [sq-group-rows, sq-group-nested] }
+          - { id: C, std: ["oracle-1z0-071:6"], do: "Spot the grouping error in a query and state the logical order of the clauses.", ek: ["Ungrouped columns and group functions in WHERE are errors."], p: [P3], needs: [SQ-3.1.B], drills: [sq-group-error, sq-clause-order] }
   - id: multiple-tables
     n: 4
     title: "Multiple tables"
@@ -110,20 +110,20 @@ units:
       - n: 1
         title: "Joins"
         los:
-          - { id: A, std: ["oracle-1z0-071:7"], do: "Count the rows of an inner, outer, cross, natural or USING join, and choose the join that keeps the rows asked for.", ek: ["Outer joins keep unmatched rows with NULLs; CROSS multiplies."], p: [P1, P2], drills: [sq-join-count, sq-join-pick] }
-          - { id: B, std: ["oracle-1z0-071:7"], do: "Evaluate a self-join and a non-equijoin.", ek: ["Two aliases of one table; a range condition instead of =."], p: [P1], drills: [sq-self-join, sq-nonequi] }
-          - { id: C, std: ["oracle-1z0-071:7"], do: "Translate Oracle's (+) outer-join notation to ANSI syntax.", ek: ["(+) marks the side that may be missing."], p: [P3], drills: [sq-oracle-plus, sq-plus-ansi] }
+          - { id: A, std: ["oracle-1z0-071:7"], do: "Count the rows of an inner, outer, cross, natural or USING join, and choose the join that keeps the rows asked for.", ek: ["Outer joins keep unmatched rows with NULLs; CROSS multiplies."], p: [P1, P2], needs: [SQ-3.1.C], drills: [sq-join-count, sq-join-pick] }
+          - { id: B, std: ["oracle-1z0-071:7"], do: "Evaluate a self-join and a non-equijoin.", ek: ["Two aliases of one table; a range condition instead of =."], p: [P1], needs: [SQ-4.1.A], drills: [sq-self-join, sq-nonequi] }
+          - { id: C, std: ["oracle-1z0-071:7"], do: "Translate Oracle's (+) outer-join notation to ANSI syntax.", ek: ["(+) marks the side that may be missing."], p: [P3], needs: [SQ-4.1.B], drills: [sq-oracle-plus, sq-plus-ansi] }
       - n: 2
         title: "Subqueries"
         los:
-          - { id: A, std: ["oracle-1z0-071:8"], do: "Count the rows of a query with a single-row, multiple-row (IN, ANY, ALL), correlated or EXISTS subquery.", ek: ["> ALL is above the maximum; a correlated subquery reruns per row."], p: [P1], drills: [sq-subquery-count, sq-scalar-sub] }
-          - { id: B, std: ["oracle-1z0-071:8"], do: "Say whether a subquery comparison runs, returns nothing or fails.", ek: ["= with a multi-row subquery raises ORA-01427."], p: [P3], drills: [sq-subquery-error, sq-subquery-rules] }
-          - { id: C, std: ["oracle-1z0-071:8"], do: "Predict the result of a correlated UPDATE or DELETE.", ek: ["The subquery sees the table as the statement began."], p: [P1], drills: [sq-correlated-dml, sq-correlated-after] }
+          - { id: A, std: ["oracle-1z0-071:8"], do: "Count the rows of a query with a single-row, multiple-row (IN, ANY, ALL), correlated or EXISTS subquery.", ek: ["> ALL is above the maximum; a correlated subquery reruns per row."], p: [P1], needs: [SQ-4.1.C], drills: [sq-subquery-count, sq-scalar-sub] }
+          - { id: B, std: ["oracle-1z0-071:8"], do: "Say whether a subquery comparison runs, returns nothing or fails.", ek: ["= with a multi-row subquery raises ORA-01427."], p: [P3], needs: [SQ-4.2.A], drills: [sq-subquery-error, sq-subquery-rules] }
+          - { id: C, std: ["oracle-1z0-071:8"], do: "Predict the result of a correlated UPDATE or DELETE.", ek: ["The subquery sees the table as the statement began."], p: [P1], needs: [SQ-4.2.B], drills: [sq-correlated-dml, sq-correlated-after] }
       - n: 3
         title: "Set operators"
         los:
-          - { id: A, std: ["oracle-1z0-071:9"], do: "Count the rows of UNION, UNION ALL, INTERSECT and MINUS.", ek: ["Only UNION ALL keeps duplicates."], p: [P1], drills: [sq-set-count, sq-set-sum] }
-          - { id: B, std: ["oracle-1z0-071:9"], do: "State the rules for compound queries: matching columns, names, ORDER BY and precedence.", ek: ["Names from the first query; ORDER BY once at the end; equal precedence."], p: [P3], drills: [sq-set-rules, sq-set-rules-2] }
+          - { id: A, std: ["oracle-1z0-071:9"], do: "Count the rows of UNION, UNION ALL, INTERSECT and MINUS.", ek: ["Only UNION ALL keeps duplicates."], p: [P1], needs: [SQ-4.2.C], drills: [sq-set-count, sq-set-sum] }
+          - { id: B, std: ["oracle-1z0-071:9"], do: "State the rules for compound queries: matching columns, names, ORDER BY and precedence.", ek: ["Names from the first query; ORDER BY once at the end; equal precedence."], p: [P3], needs: [SQ-4.3.A], drills: [sq-set-rules, sq-set-rules-2] }
   - id: changing-data
     n: 5
     title: "Changing data"
@@ -133,12 +133,12 @@ units:
       - n: 1
         title: "DML"
         los:
-          - { id: A, std: ["oracle-1z0-071:10"], do: "Predict a table after INSERT, UPDATE or DELETE.", ek: ["No WHERE means every row; omitted columns get their default."], p: [P1], drills: [sq-dml-after, sq-dml-after-2] }
-          - { id: B, std: ["oracle-1z0-071:10"], do: "Predict the result of MERGE and of a multitable INSERT ALL or INSERT FIRST.", ek: ["INSERT FIRST stops at the first true WHEN."], p: [P1], drills: [sq-merge, sq-multi-insert] }
+          - { id: A, std: ["oracle-1z0-071:10"], do: "Predict a table after INSERT, UPDATE or DELETE.", ek: ["No WHERE means every row; omitted columns get their default."], p: [P1], needs: [SQ-1.3.C], drills: [sq-dml-after, sq-dml-after-2] }
+          - { id: B, std: ["oracle-1z0-071:10"], do: "Predict the result of MERGE and of a multitable INSERT ALL or INSERT FIRST.", ek: ["INSERT FIRST stops at the first true WHEN."], p: [P1], needs: [SQ-5.1.A], drills: [sq-merge, sq-multi-insert] }
       - n: 2
         title: "Transactions"
         los:
-          - { id: A, std: ["oracle-1z0-071:10"], do: "Trace COMMIT, ROLLBACK, SAVEPOINT and implicit commits through a session.", ek: ["ROLLBACK TO keeps the transaction open; DDL commits."], p: [P1], drills: [sq-transaction, sq-transaction-2] }
+          - { id: A, std: ["oracle-1z0-071:10"], do: "Trace COMMIT, ROLLBACK, SAVEPOINT and implicit commits through a session.", ek: ["ROLLBACK TO keeps the transaction open; DDL commits."], p: [P1], needs: [SQ-5.1.B], drills: [sq-transaction, sq-transaction-2] }
   - id: schema-objects
     n: 6
     title: "Schema objects"
@@ -148,17 +148,17 @@ units:
       - n: 1
         title: "Indexes, synonyms and sequences"
         los:
-          - { id: A, std: ["oracle-1z0-071:11"], do: "Compute the values a sequence hands out, with and without CYCLE.", ek: ["First NEXTVAL is START WITH; CURRVAL repeats the session's last."], p: [P1], drills: [sq-sequence, sq-sequence-cycle] }
-          - { id: B, std: ["oracle-1z0-071:11"], do: "Say whether an index can serve a condition, and how indexes and synonyms relate to their tables.", ek: ["Functions and leading wildcards defeat a plain index; synonyms grant nothing."], p: [P3], drills: [sq-index-use, sq-objects] }
+          - { id: A, std: ["oracle-1z0-071:11"], do: "Compute the values a sequence hands out, with and without CYCLE.", ek: ["First NEXTVAL is START WITH; CURRVAL repeats the session's last."], p: [P1], needs: [SQ-5.2.A], drills: [sq-sequence, sq-sequence-cycle] }
+          - { id: B, std: ["oracle-1z0-071:11"], do: "Say whether an index can serve a condition, and how indexes and synonyms relate to their tables.", ek: ["Functions and leading wildcards defeat a plain index; synonyms grant nothing."], p: [P3], needs: [SQ-6.1.A], drills: [sq-index-use, sq-objects] }
       - n: 2
         title: "Tables and constraints"
         los:
-          - { id: A, std: ["oracle-1z0-071:12"], do: "Find the INSERT that violates a PRIMARY KEY, UNIQUE, CHECK or FOREIGN KEY constraint, and name constraint types by their dictionary code.", ek: ["UNIQUE allows many NULLs; a CHECK passes on NULL."], p: [P1, P3], drills: [sq-constraint-fail, sq-constraint-type] }
-          - { id: B, std: ["oracle-1z0-071:12"], do: "Choose between DELETE, TRUNCATE and DROP, and state the rules for data types, temporary and external tables and unused columns.", ek: ["TRUNCATE is DDL; NUMBER(p,s) rounds extra decimals."], p: [P2, P3], drills: [sq-ddl-facts, sq-datatypes, sq-temp-external] }
+          - { id: A, std: ["oracle-1z0-071:12"], do: "Find the INSERT that violates a PRIMARY KEY, UNIQUE, CHECK or FOREIGN KEY constraint, and name constraint types by their dictionary code.", ek: ["UNIQUE allows many NULLs; a CHECK passes on NULL."], p: [P1, P3], needs: [SQ-6.1.B], drills: [sq-constraint-fail, sq-constraint-type] }
+          - { id: B, std: ["oracle-1z0-071:12"], do: "Choose between DELETE, TRUNCATE and DROP, and state the rules for data types, temporary and external tables and unused columns.", ek: ["TRUNCATE is DDL; NUMBER(p,s) rounds extra decimals."], p: [P2, P3], needs: [SQ-6.2.A], drills: [sq-ddl-facts, sq-datatypes, sq-temp-external] }
       - n: 3
         title: "Views"
         los:
-          - { id: A, std: ["oracle-1z0-071:13"], do: "Say whether DML works through a view and what OR REPLACE, FORCE and dropping do.", ek: ["GROUP BY, DISTINCT and READ ONLY block DML; CHECK OPTION keeps rows visible."], p: [P3], drills: [sq-view-dml, sq-view-facts] }
+          - { id: A, std: ["oracle-1z0-071:13"], do: "Say whether DML works through a view and what OR REPLACE, FORCE and dropping do.", ek: ["GROUP BY, DISTINCT and READ ONLY block DML; CHECK OPTION keeps rows visible."], p: [P3], needs: [SQ-6.2.B], drills: [sq-view-dml, sq-view-facts] }
   - id: administration
     n: 7
     title: "Access, the dictionary and time"
@@ -168,16 +168,16 @@ units:
       - n: 1
         title: "User access"
         los:
-          - { id: A, std: ["oracle-1z0-071:14"], do: "Classify privileges as system or object and predict what REVOKE takes from others.", ek: ["Object grants cascade on revoke; ADMIN OPTION grants do not."], p: [P3], drills: [sq-privilege-kind, sq-revoke-cascade, sq-grant-facts] }
+          - { id: A, std: ["oracle-1z0-071:14"], do: "Classify privileges as system or object and predict what REVOKE takes from others.", ek: ["Object grants cascade on revoke; ADMIN OPTION grants do not."], p: [P3], needs: [SQ-6.3.A], drills: [sq-privilege-kind, sq-revoke-cascade, sq-grant-facts] }
       - n: 2
         title: "Data dictionary"
         los:
-          - { id: A, std: ["oracle-1z0-071:15"], do: "Name the dictionary view that answers a question and the scope of its prefix.", ek: ["USER_ ⊂ ALL_ ⊂ DBA_."], p: [P3], drills: [sq-dictionary, sq-dictionary-prefix] }
+          - { id: A, std: ["oracle-1z0-071:15"], do: "Name the dictionary view that answers a question and the scope of its prefix.", ek: ["USER_ ⊂ ALL_ ⊂ DBA_."], p: [P3], needs: [SQ-7.1.A], drills: [sq-dictionary, sq-dictionary-prefix] }
       - n: 3
         title: "Time zones and intervals"
         los:
-          - { id: A, std: ["oracle-1z0-071:16"], do: "Say what CURRENT_DATE, CURRENT_TIMESTAMP, LOCALTIMESTAMP, SYSDATE and the TIMESTAMP types hold.", ek: ["CURRENT_ follow the session; SYS follow the server."], p: [P3], drills: [sq-timezone-fn, sq-tz-types] }
-          - { id: B, std: ["oracle-1z0-071:16"], do: "Convert and add INTERVAL YEAR TO MONTH and DAY TO SECOND values.", ek: ["Adding a month interval to the 31st can fail."], p: [P1], drills: [sq-interval-ym, sq-interval-ds, sq-interval-add] }
+          - { id: A, std: ["oracle-1z0-071:16"], do: "Say what CURRENT_DATE, CURRENT_TIMESTAMP, LOCALTIMESTAMP, SYSDATE and the TIMESTAMP types hold.", ek: ["CURRENT_ follow the session; SYS follow the server."], p: [P3], needs: [SQ-7.2.A], drills: [sq-timezone-fn, sq-tz-types] }
+          - { id: B, std: ["oracle-1z0-071:16"], do: "Convert and add INTERVAL YEAR TO MONTH and DAY TO SECOND values.", ek: ["Adding a month interval to the 31st can fail."], p: [P1], needs: [SQ-7.3.A], drills: [sq-interval-ym, sq-interval-ds, sq-interval-add] }
   - id: analytic
     n: 8
     title: "Analytic SQL (beyond the exam)"
@@ -187,6 +187,6 @@ units:
       - n: 1
         title: "Window functions and reporting"
         los:
-          - { id: A, do: "Evaluate ROW_NUMBER, RANK, DENSE_RANK, LAG and running or partitioned aggregates.", ek: ["PARTITION BY restarts; RANK leaves gaps after ties."], p: [P1], needs: [SQ-3.1.A], drills: [sq-window, sq-window-2] }
-          - { id: B, do: "Predict the rows of a top-n-per-group or paging query built on a window function.", ek: ["Number in an inline view, filter outside it."], p: [P1], drills: [sq-top-per-group, sq-top-n-2] }
-          - { id: C, do: "Evaluate an aggregation over a star schema: fact joined to dimensions, filtered and grouped.", ek: ["Compute the measure per fact row, then sum."], p: [P1], drills: [sq-star-agg, sq-star-2] }
+          - { id: A, do: "Evaluate ROW_NUMBER, RANK, DENSE_RANK, LAG and running or partitioned aggregates.", ek: ["PARTITION BY restarts; RANK leaves gaps after ties."], p: [P1], needs: [SQ-3.1.A, SQ-3.1.C, SQ-4.3.B], drills: [sq-window, sq-window-2] }
+          - { id: B, do: "Predict the rows of a top-n-per-group or paging query built on a window function.", ek: ["Number in an inline view, filter outside it."], p: [P1], needs: [SQ-8.1.A], drills: [sq-top-per-group, sq-top-n-2] }
+          - { id: C, do: "Evaluate an aggregation over a star schema: fact joined to dimensions, filtered and grouped.", ek: ["Compute the measure per fact row, then sum."], p: [P1], needs: [SQ-8.1.B], drills: [sq-star-agg, sq-star-2] }

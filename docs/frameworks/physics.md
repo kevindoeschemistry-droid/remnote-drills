@@ -163,6 +163,7 @@ Big ideas: INT, SYS
 
 - ● **PH-2.2.A** (P1 2.2.A, CM 2.2.A) Identify each force on an object as an interaction with a named other object, contact or at a distance.
   - EK: Every force has an agent; no agent, no force ("force of motion" is not a force).
+  - Needs: PH-2.1.B
   - 3B · drills: ph-force-agent, ph-force-agent-pick
 - ● **PH-2.2.B** (P1 2.2.B, CM 2.2.B) Draw a free-body diagram with every force on the object, from its point of action, in the correct direction.
   - EK: Normal force is perpendicular to the surface, tension along the string away from the object, gravity toward Earth's center.
@@ -210,12 +211,15 @@ Big ideas: INT, SYS
 
 - ● **PH-2.6.C** (P1 2.6.C, P1 2.6.D, CM 2.6.C, CM 2.6.D) Find apparent weight in an accelerating frame and tell inertial from gravitational mass.
   - EK: A scale reads the normal force: N = m(g + a) with a positive upward; in free fall N = 0 (weightless) though gravity still acts; inertial and gravitational mass are equal to high precision.
+  - Needs: PH-2.5.C
   - 2B · drills: ph-elevator-scale, ph-weightless
 - ● **PH-2.6.D** (P1 2.6.B, CM 2.6.B, CM 2.6.E) Decide when g is constant and find g above a planet or inside a uniform sphere.
   - EK: Outside: g = GM/r², nearly constant when the height is small next to the radius; inside a uniform sphere g = GMr/R³, growing linearly from zero at the centre.
+  - Needs: PH-2.6.C
   - 2B · drills: ph-g-altitude, ph-g-inside
 - ● **PH-2.6.A** (P1 2.6.A, CM 2.6.A) Calculate the gravitational force between two masses with Newton's law of gravitation.
   - EK: F = Gm₁m₂/r², r center to center; doubling r quarters F.
+  - Needs: PH-2.6.D
   - 2B · 2D · drills: ph-gravitation-force, ph-gravity-distance-scaling
 - ● **PH-2.6.B** (P1 2.6.A, CM 2.6.A) Calculate the gravitational field strength g at a planet's surface or at altitude.
   - EK: g = GM/r²; weight mg is the gravitational force, and g is also the free-fall acceleration.
@@ -241,6 +245,7 @@ Big ideas: INT, SYS
 
 - ● **PH-2.8.B** (CM 2.8.B) Combine springs in series and in parallel.
   - EK: Parallel: k = k₁ + k₂ (same stretch); series: 1/k = 1/k₁ + 1/k₂ (same force).
+  - Needs: PH-2.7.B
   - 2B · drills: ph-springs-combine, ph-spring-cut
 - ● **PH-2.8.A** (P1 2.8.A, CM 2.8.A) Apply Hooke's law to find a spring force, stretch or spring constant, including k from a force–extension graph.
   - EK: F_s = −kΔx, restoring toward equilibrium; k is the slope of F vs Δx.
@@ -609,6 +614,7 @@ Big ideas: INT, CONS
 
 - ● **PH-8.4.A** (P1 8.4.A, P1 8.4.B) Apply the continuity equation to find a flow speed or volume flow rate.
   - EK: Incompressible flow: A₁v₁ = A₂v₂ = volume flow rate; narrower pipe ⇒ faster flow.
+  - Needs: PH-8.3.B
   - 2B · 2D · drills: ph-continuity, ph-nozzle-speed-scaling
 - ● **PH-8.4.B** (P1 8.4.A, P1 8.4.B, webwork-opl:FM3.4) Apply Bernoulli's equation to find a pressure or speed, including efflux from a tank.
   - EK: P + ½ρv² + ρgy is constant along a streamline (energy per volume); open tank drain v = √(2gh).
@@ -815,6 +821,7 @@ Big ideas: CONS, CHG
 
 - ● **PH-11.2.A** (P2 11.2.A, CEM 11.2.A, fe-chemical:3.C) Tell open, closed and short circuits apart and predict what a single-loop circuit does.
   - EK: Current needs a closed loop; an open switch stops it everywhere in that loop; a short (near-zero resistance path) carries almost all the current; in one loop the current is the same everywhere.
+  - Needs: PH-11.1.A
   - 2B · drills: ph-simple-circuit, ph-short-current
 
 ### 11.3 Resistance, resistivity and Ohm's law
@@ -985,6 +992,7 @@ Big ideas: WAVE
 
 - ● **PH-13.3.A** (P2 13.3.A) Calculate an index of refraction and apply Snell's law at an interface.
   - EK: n = c/v; n₁ sin θ₁ = n₂ sin θ₂; light bends toward the normal entering a higher-n medium.
+  - Needs: PH-13.2.B
   - 1A · 2B · drills: ph-snell, ph-index-from-speed
 - ● **PH-13.3.B** (P2 13.3.A) Calculate the critical angle and decide whether total internal reflection occurs.
   - EK: sin θ_c = n₂/n₁, only for light going from higher to lower n.

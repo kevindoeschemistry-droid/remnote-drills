@@ -116,6 +116,9 @@
         "P3",
         "P4"
        ],
+       "needs": [
+        "IS-1.1.A"
+       ],
        "drills": [
         "is-mcfarlan",
         "is-portfolio-share"
@@ -143,6 +146,9 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "IS-1.1.B"
+       ],
        "drills": [
         "is-npv-project",
         "is-payback-roi"
@@ -158,6 +164,9 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "IS-1.2.A"
+       ],
        "drills": [
         "is-tco-saas",
         "is-tco-breakeven"
@@ -172,6 +181,9 @@
        "p": [
         "P2",
         "P4"
+       ],
+       "needs": [
+        "IS-1.2.B"
        ],
        "drills": [
         "is-weighted-score",
@@ -198,6 +210,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "IS-1.2.C"
+       ],
        "drills": [
         "is-decision-rights",
         "is-archetype-count"
@@ -213,6 +228,9 @@
         "P5",
         "P4"
        ],
+       "needs": [
+        "IS-1.3.A"
+       ],
        "drills": [
         "is-which-framework",
         "is-control-overlap"
@@ -226,6 +244,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "IS-1.3.B"
        ],
        "drills": [
         "is-raci-defect",
@@ -264,6 +285,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "IS-1.3.C"
+       ],
        "drills": [
         "is-architecture-domain",
         "is-adm-cycle"
@@ -278,6 +302,9 @@
        "p": [
         "P3",
         "P4"
+       ],
+       "needs": [
+        "IS-2.1.A"
        ],
        "drills": [
         "is-capability-heat",
@@ -305,6 +332,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "IS-2.1.B"
+       ],
        "drills": [
         "is-time-quadrant",
         "is-portfolio-savings"
@@ -319,6 +349,9 @@
        "p": [
         "P4",
         "P2"
+       ],
+       "needs": [
+        "IS-2.2.A"
        ],
        "drills": [
         "is-hub-links",
@@ -335,7 +368,8 @@
         "P4"
        ],
        "needs": [
-        "CS-18.2.A"
+        "CS-18.2.A",
+        "IS-2.2.B"
        ],
        "drills": [
         "is-cloud-six-r",
@@ -374,6 +408,9 @@
        "p": [
         "P3"
        ],
+       "needs": [
+        "IS-2.2.C"
+       ],
        "drills": [
         "is-bpmn",
         "is-handoff-time"
@@ -389,6 +426,9 @@
         "P3",
         "P1"
        ],
+       "needs": [
+        "IS-3.1.A"
+       ],
        "drills": [
         "is-user-story",
         "is-story-count"
@@ -402,6 +442,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "IS-3.1.B"
        ],
        "drills": [
         "is-moscow",
@@ -429,6 +472,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "IS-3.1.C"
+       ],
        "drills": [
         "is-critical-path",
         "is-slack"
@@ -444,6 +490,9 @@
         "P2",
         "P5"
        ],
+       "needs": [
+        "IS-3.2.A"
+       ],
        "drills": [
         "is-earned-value",
         "is-eac"
@@ -457,6 +506,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "IS-3.2.B"
        ],
        "drills": [
         "is-deployment-strategy",
@@ -502,7 +554,9 @@
        ],
        "needs": [
         "CS-7.1.A",
-        "CS-7.6.A"
+        "CS-7.6.A",
+        "IS-3.2.C",
+        "CS-7.6.B"
        ],
        "drills": [
         "is-data-technology",
@@ -518,6 +572,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "IS-4.1.A"
+       ],
        "drills": [
         "is-data-quality",
         "is-uniqueness"
@@ -531,6 +588,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "IS-4.1.B"
        ],
        "drills": [
         "is-data-roles",
@@ -560,7 +620,8 @@
         "P3"
        ],
        "needs": [
-        "CS-7.1.A"
+        "CS-7.1.A",
+        "IS-4.1.C"
        ],
        "drills": [
         "is-star-grain",
@@ -577,6 +638,9 @@
         "P4",
         "P3"
        ],
+       "needs": [
+        "IS-4.2.A"
+       ],
        "drills": [
         "is-scd-type",
         "is-scd2-rows"
@@ -590,6 +654,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "IS-4.2.B"
        ],
        "drills": [
         "is-ingestion-choice",
@@ -607,7 +674,8 @@
        ],
        "needs": [
         "CS-7.2.A",
-        "IS-4.2.A"
+        "IS-4.2.A",
+        "IS-4.2.C"
        ],
        "drills": [
         "is-sql-aggregate",
@@ -636,6 +704,9 @@
         "P4",
         "P1"
        ],
+       "needs": [
+        "IS-4.2.D"
+       ],
        "drills": [
         "is-analytics-type",
         "is-dashboard-decisions"
@@ -652,7 +723,8 @@
         "P4"
        ],
        "needs": [
-        "CS-13.2.A"
+        "CS-13.2.A",
+        "IS-4.3.A"
        ],
        "drills": [
         "is-confusion-profit",
@@ -667,6 +739,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "IS-4.3.B"
        ],
        "drills": [
         "is-vanity-metric",
@@ -706,7 +781,9 @@
         "P2"
        ],
        "needs": [
-        "CS-18.2.B"
+        "CS-18.2.B",
+        "IS-2.2.C",
+        "CS-10.5.A"
        ],
        "drills": [
         "is-instance-sizing",
@@ -723,6 +800,9 @@
         "P4",
         "P5"
        ],
+       "needs": [
+        "IS-5.1.A"
+       ],
        "drills": [
         "is-shared-responsibility",
         "is-patch-scope"
@@ -736,6 +816,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "IS-5.1.B"
        ],
        "drills": [
         "is-sourcing-choice",
@@ -762,6 +845,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "IS-5.1.C"
+       ],
        "drills": [
         "is-itil-classify",
         "is-change-mix"
@@ -778,7 +864,8 @@
         "P5"
        ],
        "needs": [
-        "CS-6.5.A"
+        "CS-6.5.A",
+        "IS-5.2.A"
        ],
        "drills": [
         "is-sla-attainment",
@@ -794,6 +881,9 @@
        "p": [
         "P4"
        ],
+       "needs": [
+        "IS-5.2.B"
+       ],
        "drills": [
         "is-priority-matrix",
         "is-queue-order"
@@ -808,6 +898,9 @@
        "p": [
         "P4",
         "P2"
+       ],
+       "needs": [
+        "IS-5.2.C"
        ],
        "drills": [
         "is-vendor-score",
@@ -848,6 +941,10 @@
         "P2",
         "P4"
        ],
+       "needs": [
+        "IS-5.2.D",
+        "CS-11.4.B"
+       ],
        "drills": [
         "is-risk-score",
         "is-risk-treatment"
@@ -863,7 +960,8 @@
         "P2"
        ],
        "needs": [
-        "CS-11.4.B"
+        "CS-11.4.B",
+        "IS-6.1.A"
        ],
        "drills": [
         "is-ale",
@@ -878,6 +976,9 @@
        ],
        "p": [
         "P5"
+       ],
+       "needs": [
+        "IS-6.1.B"
        ],
        "drills": [
         "is-control-class",
@@ -907,6 +1008,9 @@
         "P1",
         "P4"
        ],
+       "needs": [
+        "IS-6.1.C"
+       ],
        "drills": [
         "is-rto-rpo",
         "is-recovery-site"
@@ -921,6 +1025,9 @@
        "p": [
         "P3",
         "P2"
+       ],
+       "needs": [
+        "IS-6.2.A"
        ],
        "drills": [
         "is-backup-restore",
@@ -949,6 +1056,9 @@
        "p": [
         "P5"
        ],
+       "needs": [
+        "IS-6.2.B"
+       ],
        "drills": [
         "is-nist-csf",
         "is-csf-coverage"
@@ -965,7 +1075,8 @@
         "P6"
        ],
        "needs": [
-        "CS-11.1.A"
+        "CS-11.1.A",
+        "IS-6.3.A"
        ],
        "drills": [
         "is-sod-conflict",
@@ -1004,6 +1115,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "IS-1.3.C"
+       ],
        "drills": [
         "is-tam",
         "is-adoption-rate"
@@ -1017,6 +1131,9 @@
        ],
        "p": [
         "P6"
+       ],
+       "needs": [
+        "IS-7.1.A"
        ],
        "drills": [
         "is-change-model",
@@ -1032,6 +1149,9 @@
        "p": [
         "P4",
         "P6"
+       ],
+       "needs": [
+        "IS-7.1.B"
        ],
        "drills": [
         "is-chasm-share",
@@ -1059,6 +1179,9 @@
         "P3",
         "P1"
        ],
+       "needs": [
+        "IS-7.1.C"
+       ],
        "drills": [
         "is-canvas-risk",
         "is-runway"
@@ -1073,6 +1196,9 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "IS-7.2.A"
+       ],
        "drills": [
         "is-clv",
         "is-cac-payback"
@@ -1086,6 +1212,9 @@
        ],
        "p": [
         "P4"
+       ],
+       "needs": [
+        "IS-7.2.B"
        ],
        "drills": [
         "is-network-effects",
@@ -1127,6 +1256,9 @@
         "P6",
         "P5"
        ],
+       "needs": [
+        "IS-1.3.C"
+       ],
        "drills": [
         "is-which-regime",
         "is-regime-count"
@@ -1142,7 +1274,8 @@
         "P6"
        ],
        "needs": [
-        "CS-16.1.C"
+        "CS-16.1.C",
+        "IS-8.1.A"
        ],
        "drills": [
         "is-dpia",
@@ -1169,6 +1302,9 @@
        "p": [
         "P6"
        ],
+       "needs": [
+        "IS-8.1.B"
+       ],
        "drills": [
         "is-ethical-lens",
         "is-stakeholder-count"
@@ -1183,6 +1319,9 @@
        "p": [
         "P2",
         "P6"
+       ],
+       "needs": [
+        "IS-8.2.A"
        ],
        "drills": [
         "is-fleet-carbon",

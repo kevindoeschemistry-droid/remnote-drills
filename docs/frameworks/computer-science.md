@@ -61,6 +61,7 @@ Book: cs2023 §MSF-Discrete
   - P3 · P6 · drills: cs-equiv-check, cs-logic-law
 - ● **CS-1.1.B** Prove a claim about a recursive definition or a loop by induction, naming base case, hypothesis and step.
   - EK: Weak induction assumes P(k) to show P(k+1); strong induction assumes all P(j ≤ k); structural induction follows the recursive definition.
+  - Needs: CS-1.1.A
   - P6 · drills: cs-induction-parts, cs-induction-flaw
 
 ### 1.2 Counting, sums and recurrences
@@ -69,9 +70,11 @@ Book: cs2023 §MSF-Discrete
 
 - ● **CS-1.2.A** Count arrangements or selections with the product rule, permutations, combinations and inclusion–exclusion, giving a number.
   - EK: Order matters ⇒ P(n,k) = n!/(n−k)!; order ignored ⇒ C(n,k); |A ∪ B| = |A| + |B| − |A ∩ B|.
+  - Needs: CS-1.1.B
   - P1 · P2 · drills: cs-counting, cs-incl-excl
 - ● **CS-1.2.B** Evaluate a summation or simple linear recurrence in closed form (e.g. T(n) = T(n−1) + n).
   - EK: Σ i = n(n+1)/2; Σ 2^i = 2^(n+1) − 1; geometric series with ratio < 1 is bounded by its first term.
+  - Needs: CS-1.2.A
   - P2 · drills: cs-recurrence, cs-nested-count
 
 ### 1.3 Relations and graphs
@@ -80,6 +83,7 @@ Book: cs2023 §MSF-Discrete
 
 - ● **CS-1.3.A** Compute degrees, connectivity, and whether a small graph is bipartite, acyclic or a tree.
   - EK: Σ deg = 2|E|; a tree on n vertices has n − 1 edges; bipartite ⇔ no odd cycle.
+  - Needs: CS-1.2.B
   - P3 · drills: cs-graph-classify, cs-handshake
 
 ### 1.4 Probability and statistics for computing
@@ -88,12 +92,15 @@ Book: cs2023 §MSF-Probability, §MSF-Statistics
 
 - ● **CS-1.4.C** Compute the mean, standard deviation and a confidence interval from repeated benchmark runs, and decide whether two configurations differ.
   - EK: CI ≈ x̄ ± t·s/√n; overlapping intervals do not prove no difference; report variance, not one run.
+  - Needs: CS-1.3.A
   - P2 · P6 · drills: cs-bench-ci, cs-bench-practice
 - ● **CS-1.4.A** Compute an expected count (collisions, comparisons, hits) using linearity of expectation over indicator variables.
   - EK: E[ΣX_i] = ΣE[X_i] even when the X_i are dependent; E[indicator] = P(event).
+  - Needs: CS-1.4.C
   - P2 · drills: cs-expected-collisions, cs-birthday-pairs
 - ● **CS-1.4.B** (webwork-opl:PB1.5) Apply Bayes' rule to a detector or classifier scenario and find the probability an alert is real.
   - EK: P(A|B) = P(B|A)P(A)/P(B); a low base rate makes most positives false even for an accurate test.
+  - Needs: CS-1.4.A
   - P2 · P7 · drills: cs-bayes-alert, cs-false-alerts
 
 ## Unit 2 · Algorithm analysis
@@ -106,6 +113,7 @@ Book: cs2023 §AL-Foundational, §AL-Complexity
 
 - ● **CS-2.1.A** Rank a set of functions by growth rate (constant, log, polylog, polynomial, exponential, factorial).
   - EK: log n ≪ n^ε ≪ n^k ≪ c^n ≪ n!; bases of logs differ by a constant factor.
+  - Needs: CS-1.4.B
   - P2 · drills: cs-growth-rank, cs-growth-pair
 - ● **CS-2.1.B** Compute the Big-O of described or shown code — nested loops, dependent bounds, index doubling or halving — as an auto-checked answer.
   - EK: Nested independent loops multiply; i *= 2 runs log n times; Σ_{i=1..n} i = Θ(n²); sequential blocks add, the largest wins.
@@ -118,6 +126,7 @@ Book: cs2023 §AL-Foundational, §AL-Strategies
 
 - ● **CS-2.2.A** Write the running-time recurrence of a recursive function from its code.
   - EK: T(n) = a·T(n/b) + f(n): a recursive calls on size n/b plus non-recursive work f(n).
+  - Needs: CS-2.1.B
   - P1 · P2 · drills: cs-code-recurrence, cs-call-count
 - ● **CS-2.2.B** Solve a divide-and-conquer recurrence with the master theorem or a recursion tree, naming the case that applies.
   - EK: Compare f(n) with n^(log_b a): smaller ⇒ Θ(n^(log_b a)); equal ⇒ ×log n; larger (regular) ⇒ Θ(f(n)).
@@ -130,9 +139,11 @@ Book: cs2023 §AL-Foundational, §AL-Complexity
 
 - ● **CS-2.3.A** Identify the best-, worst- and average-case inputs of an algorithm and their costs (e.g. quicksort on sorted input).
   - EK: Worst case is a guarantee over all inputs of size n; average case needs an input distribution.
+  - Needs: CS-2.2.B
   - P2 · P6 · drills: cs-insertion-compares, cs-best-worst
 - ● **CS-2.3.B** Compute the amortized cost per operation of a sequence (dynamic-array doubling, binary counter) by the aggregate or accounting method.
   - EK: Doubling capacity costs n total copies over n appends ⇒ O(1) amortized; growing by a constant is O(n) amortized.
+  - Needs: CS-2.3.A
   - P2 · drills: cs-amortized, cs-doubling-copies
 
 ### 2.4 Correctness arguments
@@ -145,6 +156,7 @@ Book: cs2023 §AL-Foundational, §SDF-Algorithms
   - P6 · drills: cs-loop-invariant, cs-invariant-termination
 - ● **CS-2.4.B** Find the boundary input on which a given binary-search or loop variant fails (off-by-one, infinite loop, overflow in mid).
   - EK: Check empty, one-element and target-at-ends inputs; lo + (hi − lo)/2 avoids overflow; the interval must shrink every step.
+  - Needs: CS-2.4.A
   - P3 · P6 · drills: cs-bsearch-bug, cs-boundary-bugs
 
 ## Unit 3 · Data structures
@@ -157,6 +169,7 @@ Book: cs2023 §SDF-Data-Structures, §AL-Foundational
 
 - ● **CS-3.1.A** State the cost of access, insert-at-front, append and delete for arrays, dynamic arrays, singly and doubly linked lists and deques.
   - EK: Arrays: O(1) index, O(n) front insert; linked lists: O(1) splice given the node, O(n) index; contiguous memory is cache-friendly.
+  - Needs: CS-2.4.B
   - P2 · drills: cs-structure-cost, cs-structure-pick-op
 
 ### 3.2 Hash tables
@@ -165,6 +178,7 @@ Book: cs2023 §AL-Foundational, §SDF-Data-Structures
 
 - ● **CS-3.2.A** Trace insertions into a hash table under chaining, linear probing or double hashing for a given hash function, giving the final table.
   - EK: Linear probing tries h, h+1, h+2 … mod m; deletion under open addressing needs tombstones.
+  - Needs: CS-3.1.A
   - P3 · drills: cs-hash-probe, cs-chain-search
 - ● **CS-3.2.B** Compute the load factor and expected probes for a hash table and decide when it must resize.
   - EK: α = n/m; chaining: expected chain length α; linear probing degrades sharply above α ≈ 0.7.
@@ -177,6 +191,7 @@ Book: cs2023 §AL-Foundational, §SDF-Data-Structures
 
 - ● **CS-3.3.A** Trace BST insertion and deletion and produce the in-, pre- and post-order traversals of the result.
   - EK: In-order of a BST is sorted; deleting a two-child node swaps in its successor; height ranges from log n to n.
+  - Needs: CS-3.2.B
   - P3 · drills: cs-bst-traversal, cs-bst-height
 - ● **CS-3.3.B** Trace the rotations an AVL or red-black tree performs after an insertion.
   - EK: AVL keeps |balance| ≤ 1 via single or double rotations; both guarantee O(log n) height.
@@ -184,6 +199,7 @@ Book: cs2023 §AL-Foundational, §SDF-Data-Structures
   - P3 · drills: cs-avl-root, cs-rotation-kind
 - ● **CS-3.3.C** Compute the height of a B-tree or B+-tree of order m holding n keys and explain why databases use it.
   - EK: Height ≈ log_m n; high fanout makes each level one disk page, so a lookup costs a few I/Os.
+  - Needs: CS-3.3.B
   - P2 · P4 · drills: cs-btree-height, cs-btree-max-keys
 
 ### 3.4 Heaps and priority queues
@@ -192,6 +208,7 @@ Book: cs2023 §AL-Foundational, §SDF-Data-Structures
 
 - ● **CS-3.4.A** Trace a binary heap's array after insert, extract-min and bottom-up heapify.
   - EK: Children of i at 2i+1, 2i+2; sift-up/down are O(log n); bottom-up build is O(n).
+  - Needs: CS-3.3.C
   - P3 · drills: cs-heap-trace, cs-heap-index
 
 ### 3.5 Graph representations and disjoint sets
@@ -204,6 +221,7 @@ Book: cs2023 §AL-Foundational
   - P2 · P4 · drills: cs-adj-space, cs-adj-choice
 - ● **CS-3.5.B** Trace union-find with union by rank and path compression and give the resulting parent array.
   - EK: Both heuristics together give O(α(n)) amortized per operation — effectively constant.
+  - Needs: CS-3.5.A
   - P3 · drills: cs-union-find, cs-uf-sets
 
 ### 3.6 Choosing a structure
@@ -229,6 +247,7 @@ Book: cs2023 §AL-Foundational, §SDF-Algorithms
   - P2 · P4 · drills: cs-sort-pick, cs-sort-facts
 - ● **CS-4.1.A** Trace the array after k passes of insertion, selection or bubble sort, a quicksort partition, or a merge step.
   - EK: Insertion sort keeps a sorted prefix; selection places the k-th smallest at pass k; Lomuto/Hoare partitions differ in pivot placement.
+  - Needs: CS-4.1.B
   - P3 · drills: pr-sort-pass, cs-bubble-swaps
 
 ### 4.2 Greedy algorithms
@@ -237,9 +256,11 @@ Book: cs2023 §AL-Strategies
 
 - ● **CS-4.2.A** Apply a greedy rule (interval scheduling by earliest finish, Huffman coding) and give its output; for coin change with non-canonical coins, produce the counterexample.
   - EK: Greedy is correct only with the greedy-choice property and optimal substructure, shown by an exchange argument.
+  - Needs: CS-4.1.A
   - P3 · P6 · drills: cs-interval-schedule, cs-greedy-coins-fail
 - ● **CS-4.2.B** Build a Huffman code for given symbol frequencies and compute the encoded length in bits.
   - EK: Repeatedly merge the two least-frequent nodes; total bits = Σ freq × depth.
+  - Needs: CS-4.2.A
   - P3 · P2 · drills: cs-huffman, cs-huffman-avg
 
 ### 4.3 Dynamic programming
@@ -248,9 +269,11 @@ Book: cs2023 §AL-Strategies
 
 - ● **CS-4.3.B** Write the state, recurrence and base cases for a described optimisation problem and give its time and space.
   - EK: Time ≈ (# states) × (work per state); overlapping subproblems + optimal substructure ⇒ DP.
+  - Needs: CS-4.2.B
   - P1 · P2 · drills: cs-dp-design, cs-dp-cells
 - ● **CS-4.3.A** Fill a DP table (LCS, edit distance, 0/1 knapsack, coin-change count) and read off the optimum and one optimal solution.
   - EK: Each cell is a subproblem combined from already-filled cells; traceback through choices recovers the solution.
+  - Needs: CS-4.3.B
   - P3 · drills: cs-dp, cs-knapsack-coins
 
 ### 4.4 Graph traversal
@@ -263,6 +286,7 @@ Book: cs2023 §AL-Foundational
   - P3 · drills: cs-graph-search, cs-bfs-dist
 - ● **CS-4.4.B** Produce a topological order of a DAG, or report the cycle that prevents one.
   - EK: Kahn: repeatedly remove in-degree-0 vertices; DFS: reverse finish order; a back edge means a cycle.
+  - Needs: CS-4.4.A
   - P3 · P6 · drills: cs-topo, cs-topo-count
 
 ### 4.5 Shortest paths and spanning trees
@@ -271,6 +295,7 @@ Book: cs2023 §AL-Foundational
 
 - ● **CS-4.5.B** Run Bellman–Ford to find distances or detect a negative cycle, and explain why Dijkstra fails with negative edges.
   - EK: V − 1 rounds of relaxing every edge; an improvement in round V means a negative cycle.
+  - Needs: CS-4.4.B
   - P3 · P6 · drills: cs-bellman-dist, cs-neg-cycle
 - ● **CS-4.5.A** Trace Dijkstra's distance array and settled set after k extractions.
   - EK: Greedily settle the closest unsettled vertex and relax its edges; O((V + E) log V) with a binary heap.
@@ -291,12 +316,15 @@ Book: cs2023 §AL-Models
 
 - ● **CS-5.1.B** Write a regular expression or DFA for a described language, or argue it is not regular.
   - EK: Regular languages cannot count unboundedly (e.g. aⁿbⁿ); pumping lemma gives the contradiction.
+  - Needs: CS-4.5.C
   - P1 · P5 · drills: cs-regex-pick, cs-not-regular
 - ● **CS-5.1.C** Derive a string from a context-free grammar and show the grammar is ambiguous by giving two parse trees.
   - EK: CFGs capture nesting (balanced brackets) that regular expressions cannot; ambiguity = two leftmost derivations.
+  - Needs: CS-5.1.B
   - P3 · drills: cs-cfg-steps, cs-ambiguity
 - ● **CS-5.1.A** Trace a DFA or NFA on an input string and decide whether it accepts.
   - EK: A DFA has exactly one transition per symbol; an NFA accepts if any path does; every NFA has an equivalent DFA.
+  - Needs: CS-5.1.C
   - P3 · drills: cs-dfa, cs-subset-states
 
 ### 5.2 Computability and NP-completeness
@@ -305,9 +333,11 @@ Book: cs2023 §AL-Models, §AL-Complexity
 
 - ● **CS-5.2.A** Show a described problem is undecidable by reducing the halting problem to it.
   - EK: If a decider for X would yield a decider for HALT, X is undecidable; Rice's theorem covers non-trivial semantic properties.
+  - Needs: CS-5.1.A
   - P6 · drills: cs-halting-reduce, cs-decidability-2
 - ● **CS-5.2.B** Classify a described problem as in P, NP-complete, or undecidable, and verify a given certificate in polynomial time.
   - EK: NP = polynomially verifiable; NP-complete = in NP and every NP problem reduces to it; P = NP is open.
+  - Needs: CS-5.2.A
   - P4 · P6 · drills: cs-complexity-class, cs-brute-sat
 - ● **CS-5.2.C** State the direction of a polynomial reduction needed to prove a new problem NP-hard, and carry out a small one (3-SAT → independent set, vertex cover ↔ independent set).
   - EK: Reduce a known NP-hard problem TO the new one; S is a vertex cover ⇔ V∖S is an independent set.
@@ -332,9 +362,11 @@ Book: cs2023 §SE-Design, §FPL-OOP
 
 - ● **CS-6.2.A** Identify which SOLID principle a code snippet violates and the refactoring that fixes it.
   - EK: SRP one reason to change; OCP extend without editing; LSP subtypes substitutable; ISP small interfaces; DIP depend on abstractions.
+  - Needs: CS-6.1.A
   - P6 · drills: cs-design-pattern, cs-solid
 - ● **CS-6.2.B** Name the design pattern a snippet implements or needs (strategy, observer, factory, adapter, decorator, singleton, repository).
   - EK: Patterns are named solutions to recurring forces: vary an algorithm ⇒ strategy; notify dependents ⇒ observer; wrap an incompatible API ⇒ adapter.
+  - Needs: CS-6.2.A
   - P4 · drills: cs-design-pattern, cs-pattern-pick
 
 ### 6.3 Tools and construction
@@ -343,6 +375,7 @@ Book: cs2023 §SE-Tools, §SE-Construction
 
 - ● **CS-6.3.A** Predict the commit graph after a git merge, rebase, cherry-pick, revert or reset on a described history.
   - EK: Merge adds a two-parent commit; rebase replays commits with new hashes; revert adds an inverse commit; reset moves the branch pointer.
+  - Needs: CS-6.2.B
   - P3 · drills: cs-git-count, cs-git-ops
 
 ### 6.4 Testing and validation
@@ -351,9 +384,11 @@ Book: cs2023 §SE-Validation
 
 - ● **CS-6.4.A** Design test inputs for a specification by equivalence partitioning and boundary-value analysis.
   - EK: One input per partition plus each boundary and its neighbours; invalid partitions need tests too.
+  - Needs: CS-6.3.A
   - P6 · drills: cs-bva, cs-bva-count
 - ● **CS-6.4.B** Compute statement and branch coverage of a test suite on a given snippet, and add the test that raises it.
   - EK: Branch coverage counts each decision outcome; 100% statement coverage can miss a false branch.
+  - Needs: CS-6.4.A
   - P2 · P6 · drills: cs-branch-coverage, cs-coverage-facts
 
 ### 6.5 Reliability and specification
@@ -366,6 +401,7 @@ Book: cs2023 §SE-Reliability, §SE-Formal, §SF-Reliability
   - P6 · drills: cs-wp-assign, cs-hoare
 - ● **CS-6.5.A** Compute availability from MTBF and MTTR, and for components in series or redundant parallel; convert nines to downtime per year.
   - EK: A = MTBF/(MTBF + MTTR); series multiply A; parallel 1 − Π(1 − A_i); 99.9% ≈ 8.8 h/yr down.
+  - Needs: CS-6.5.B
   - P2 · drills: cs-availability, cs-replicas-needed
 
 ## Unit 7 · Databases and data management
@@ -378,9 +414,11 @@ Book: cs2023 §DM-Modeling, §DM-Relational
 
 - ● **CS-7.1.A** Build an ER model with cardinalities for a scenario and map it to relational tables with primary and foreign keys.
   - EK: 1:N ⇒ FK on the N side; M:N ⇒ junction table with composite key; weak entities borrow the owner's key.
+  - Needs: CS-3.6.A
   - P1 · P5 · drills: cs-er-map, cs-er-cardinality
 - ● **CS-7.1.B** Evaluate a relational-algebra expression (σ, π, ⋈, ∪, −, ρ) on small tables and give the result.
   - EK: Selection filters rows, projection columns (removing duplicates); natural join matches equal-named attributes.
+  - Needs: CS-7.1.A
   - P3 · drills: cs-ra-join, cs-ra-project
 
 ### 7.2 SQL
@@ -397,6 +435,7 @@ Book: cs2023 §DM-Querying
   - P5 · drills: sq-window, sq-top-per-group, sq-subquery-count
 - ● **CS-7.2.B** Predict the result of an outer join, a comparison with NULL, or an aggregate over a column containing NULLs.
   - EK: NULL = NULL is unknown, not true; COUNT(*) counts rows, COUNT(col) skips NULLs; LEFT JOIN keeps unmatched left rows with NULLs.
+  - Needs: CS-7.2.C
   - P3 · drills: sq-join-count, sq-null-trap, sq-aggregate
 
 ### 7.3 Functional dependencies and normal forms
@@ -405,6 +444,7 @@ Book: cs2023 §DM-Relational, §DM-Modeling
 
 - ● **CS-7.3.A** Compute an attribute closure from a set of FDs and find all candidate keys.
   - EK: X⁺ = everything X determines by repeatedly applying FDs; X is a superkey iff X⁺ = all attributes.
+  - Needs: CS-7.2.B
   - P3 · drills: cs-candidate-keys, cs-closure-pick
 - ● **CS-7.3.B** Determine the highest normal form (1NF–BCNF) a relation satisfies under given FDs.
   - EK: 2NF: no partial dependency on a key; 3NF: every non-trivial FD has a superkey LHS or prime RHS; BCNF: superkey LHS always.
@@ -425,6 +465,7 @@ Book: cs2023 §DM-Processing, §DM-Internals
   - P3 · P6 · drills: cs-conflict-serial, cs-2pl
 - ● **CS-7.4.A** Name the anomaly (dirty read, non-repeatable read, phantom, lost update, write skew) in a described interleaving and the weakest isolation level that prevents it.
   - EK: READ COMMITTED stops dirty reads; REPEATABLE READ stops non-repeatable reads; SERIALIZABLE stops phantoms and write skew.
+  - Needs: CS-7.4.B
   - P3 · P6 · drills: cs-isolation-anomaly, cs-isolation-levels
 
 ### 7.5 Storage, indexing and query processing
@@ -442,9 +483,11 @@ Book: cs2023 §DM-NoSQL, §DM-Distributed
 
 - ● **CS-7.6.A** Choose a data model (relational, document, key-value, wide-column, graph) for a described access pattern and consistency need.
   - EK: Model data around queries in NoSQL; joins and multi-row transactions favour relational; deep traversals favour graph.
+  - Needs: CS-7.5.A
   - P4 · drills: cs-data-model, cs-data-model-2
 - ● **CS-7.6.B** Apply CAP and PACELC to say what a described system gives up during a network partition and in normal operation.
   - EK: During a partition choose consistency or availability; else trade latency against consistency.
+  - Needs: CS-7.6.A
   - P4 · P6 · drills: cs-cap, cs-consistency-models
 
 ## Unit 8 · Computer architecture and systems performance
@@ -460,6 +503,7 @@ Book: cs2023 §AR-Representation
   - P3 · drills: cs-twos-complement, cs-overflow-wrap
 - ● **CS-8.1.B** Decode an IEEE 754 single-precision bit pattern and explain why 0.1 + 0.2 ≠ 0.3 in binary floating point.
   - EK: (−1)^s × 1.f × 2^(e−127); most decimal fractions have no finite binary expansion, so they round.
+  - Needs: CS-8.1.A
   - P3 · drills: pr-double-compare, cs-ieee-decode
 
 ### 8.2 Instruction execution
@@ -468,6 +512,7 @@ Book: cs2023 §AR-Assembly, §AR-Organization
 
 - ● **CS-8.2.A** Trace register and memory contents through a short RISC-V or x86 instruction sequence.
   - EK: Loads/stores move data between memory and registers; branches compare and set the PC; the stack grows downward.
+  - Needs: CS-8.1.B
   - P3 · drills: cs-riscv-trace, cs-isa-facts
 
 ### 8.3 Memory hierarchy
@@ -484,6 +529,7 @@ Book: cs2023 §AR-Memory, §SF-Performance
   - P3 · drills: cs-cache-sim, cs-cache-rate
 - ● **CS-8.3.C** Compute average memory access time for a multi-level hierarchy.
   - EK: AMAT = hit time + miss rate × miss penalty, applied recursively per level.
+  - Needs: CS-8.3.B
   - P2 · drills: cs-amat, cs-amat-reverse
 
 ### 8.4 Performance laws
@@ -492,12 +538,15 @@ Book: cs2023 §AR-Performance-Energy, §SF-Performance, §SF-Evaluation
 
 - ● **CS-8.4.A** Compute CPU time from instruction count, CPI and clock rate, and compare two designs.
   - EK: CPU time = IC × CPI / f; the 'iron law' — no single factor alone measures speed.
+  - Needs: CS-8.3.C
   - P2 · drills: cs-cpu-time, cs-mips
 - ● **CS-8.4.B** Apply Amdahl's law to compute overall speedup, or the fraction that must be sped up to hit a target.
   - EK: S = 1 / ((1 − p) + p/s); the serial fraction caps speedup at 1/(1 − p).
+  - Needs: CS-8.4.A
   - P2 · drills: cs-amdahl, cs-amdahl-limit
 - ● **CS-8.4.C** Apply Little's law and utilisation to relate throughput, latency and queue length in a service.
   - EK: L = λW; utilisation ρ = λ/μ; queueing delay explodes as ρ → 1.
+  - Needs: CS-8.4.B
   - P2 · drills: cs-little, cs-mm1
 
 ## Unit 9 · Operating systems and systems programming
@@ -510,6 +559,7 @@ Book: cs2023 §OS-Purpose, §OS-Process, §OS-Principles
 
 - ● **CS-9.1.A** Predict the output and number of processes created by code that calls fork(), exec() and wait().
   - EK: fork returns 0 in the child and the child PID in the parent; n sequential forks make 2ⁿ processes; exec replaces the image.
+  - Needs: CS-8.4.C
   - P3 · drills: cs-fork, cs-process-facts
 
 ### 9.2 CPU scheduling
@@ -518,6 +568,7 @@ Book: cs2023 §OS-Scheduling
 
 - ● **CS-9.2.A** Compute the schedule (Gantt order), average waiting and turnaround time under FCFS, SJF, SRTF, round-robin with quantum q, or priority — auto-checked.
   - EK: Turnaround = completion − arrival; waiting = turnaround − burst; SJF minimises average waiting time; RR trades it for response time.
+  - Needs: CS-9.1.A
   - P3 · P2 · drills: cs-scheduling, cs-sched-facts
 
 ### 9.3 Concurrency and synchronization
@@ -526,6 +577,7 @@ Book: cs2023 §OS-Concurrency, §PDC-Coordination
 
 - ● **CS-9.3.A** Identify the race condition in a shared-memory snippet and give an interleaving that produces a wrong result.
   - EK: count++ is load–add–store; two threads interleaving those steps lose an update.
+  - Needs: CS-9.2.A
   - P3 · P6 · drills: cs-race-interleave, cs-race-spot
 - ● **CS-9.3.B** Fix a race with a mutex, semaphore or condition variable and trace the semaphore values through a schedule.
   - EK: wait/P decrements and blocks below zero; signal/V increments and wakes one; check condition variables in a while loop.
@@ -533,6 +585,7 @@ Book: cs2023 §OS-Concurrency, §PDC-Coordination
   - P5 · P3 · drills: cs-semaphore, cs-sync-pick
 - ● **CS-9.3.C** Detect deadlock in a resource-allocation or wait-for graph, and run the banker's algorithm to decide whether a state is safe.
   - EK: Deadlock needs mutual exclusion, hold-and-wait, no preemption and circular wait; safe ⇔ some order lets every process finish.
+  - Needs: CS-9.3.B
   - P3 · P6 · drills: cs-banker, cs-waitfor
 
 ### 9.4 Memory management
@@ -549,6 +602,7 @@ Book: cs2023 §OS-Memory
   - P2 · drills: cs-eat, cs-tlb-needed
 - ● **CS-9.4.C** Simulate FIFO, LRU and optimal page replacement on a reference string and count page faults.
   - EK: OPT evicts the page used farthest in future; LRU approximates it; FIFO can suffer Belady's anomaly.
+  - Needs: CS-9.4.B
   - P3 · drills: cs-page-faults, cs-opt-faults
 
 ### 9.5 Files, storage and protection
@@ -557,9 +611,11 @@ Book: cs2023 §OS-Files, §OS-Devices, §OS-Protection
 
 - ● **CS-9.5.B** Decide whether a user can read, write or execute a file from its Unix permission bits, owner and group (e.g. chmod 754).
   - EK: Three octal digits for owner/group/other; r = 4, w = 2, x = 1; the first matching class applies.
+  - Needs: CS-9.4.C
   - P3 · drills: cs-unix-perm, cs-chmod-octal
 - ● **CS-9.5.A** Compute the maximum file size for an inode with given direct, single-, double- and triple-indirect pointers.
   - EK: Pointers per block = block size / pointer size; max = (direct + p + p² + p³) × block size.
+  - Needs: CS-9.5.B
   - P2 · drills: cs-inode-size, cs-direct-single
 
 ### 9.6 Virtualization
@@ -568,6 +624,7 @@ Book: cs2023 §OS-Virtualization
 
 - ● **CS-9.6.A** Compare a VM and a container for a described deployment by isolation boundary, startup cost and overhead.
   - EK: VMs virtualise hardware with a guest kernel; containers share the host kernel, isolated by namespaces and limited by cgroups.
+  - Needs: CS-9.5.A
   - P4 · drills: cs-vm-container, cs-vm-container-2
 
 ## Unit 10 · Networking
@@ -580,6 +637,7 @@ Book: cs2023 §NC-Fundamentals
 
 - ● **CS-10.1.A** Compute transmission, propagation and total delay of a transfer, and the bandwidth–delay product of a link.
   - EK: d_trans = L/R; d_prop = distance/speed; BDP = R × RTT is the data in flight needed to fill the pipe.
+  - Needs: CS-9.6.A
   - P2 · drills: cs-delay, cs-store-forward
 
 ### 10.2 Application layer
@@ -588,6 +646,7 @@ Book: cs2023 §NC-Applications, §SPD-Web
 
 - ● **CS-10.2.A** Trace a DNS resolution and an HTTP request, and predict the status code and caching behaviour from given headers.
   - EK: Recursive resolver walks root → TLD → authoritative, caching by TTL; Cache-Control/ETag decide 200 vs 304.
+  - Needs: CS-10.1.A
   - P3 · drills: cs-http-status, cs-http-cache
 
 ### 10.3 Reliable transport
@@ -596,6 +655,7 @@ Book: cs2023 §NC-Reliability
 
 - ● **CS-10.3.A** Trace sequence and acknowledgement numbers through a TCP handshake and data exchange.
   - EK: SYN and FIN each consume one sequence number; ACK = next byte expected.
+  - Needs: CS-10.2.A
   - P3 · drills: cs-tcp-ack, cs-tcp-handshake
 - ● **CS-10.3.B** Compute link utilisation and throughput for stop-and-wait and sliding-window protocols.
   - EK: U = (W · L/R) / (RTT + L/R), capped at 1; window ≥ BDP keeps the link busy.
@@ -603,6 +663,7 @@ Book: cs2023 §NC-Reliability
   - P2 · drills: cs-stop-wait, cs-window-needed
 - ● **CS-10.3.C** Trace TCP's congestion window across RTTs through slow start, congestion avoidance, a timeout and a triple duplicate ACK.
   - EK: Slow start doubles cwnd per RTT until ssthresh; AIMD adds 1 MSS per RTT; loss halves ssthresh (Reno fast recovery) or resets cwnd (timeout).
+  - Needs: CS-10.3.B
   - P3 · drills: cs-cwnd, cs-congestion
 
 ### 10.4 Addressing and routing
@@ -628,6 +689,7 @@ Book: cs2023 §NC-Security
 
 - ● **CS-10.5.A** Evaluate an ordered firewall rule set against a list of packets and say which are allowed.
   - EK: First match wins; end with default deny; stateful firewalls allow return traffic of established connections.
+  - Needs: CS-10.4.B
   - P3 · P7 · drills: cs-firewall, cs-firewall-facts
 
 ## Unit 11 · Security
@@ -640,9 +702,11 @@ Book: cs2023 §SEC-Foundations, §SEC-Engineering
 
 - ● **CS-11.1.A** Classify a described incident by the CIA property violated and separate threat, vulnerability and risk.
   - EK: Confidentiality, integrity, availability; risk = likelihood × impact of a threat exploiting a vulnerability.
+  - Needs: CS-10.5.A
   - P7 · drills: cs-cia, cs-threat-vuln-risk
 - ● **CS-11.1.B** Apply STRIDE to a data-flow diagram and list one threat and one mitigation per crossed trust boundary.
   - EK: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege; threats concentrate at trust boundaries.
+  - Needs: CS-11.1.A
   - P1 · P7 · drills: cs-stride, cs-stride-mitigate
 
 ### 11.2 Secure coding
@@ -651,6 +715,7 @@ Book: cs2023 §SEC-Coding, §DM-Security
 
 - ● **CS-11.2.A** Identify the vulnerability class in a code snippet — SQL injection, XSS, CSRF, buffer overflow, path traversal, IDOR, TOCTOU race, insecure deserialization — and its CWE — auto-checked.
   - EK: Most classes are untrusted input reaching an interpreter or memory without validation; IDOR is a missing authorization check, not an input bug.
+  - Needs: CS-11.1.B
   - P6 · P7 · drills: cs-vulnerability, cs-vuln-class-2
 - ● **CS-11.2.B** Give the specific fix for an identified vulnerability (parameterised query, context-aware output encoding, CSRF token/SameSite, bounds check, server-side authorization).
   - EK: Fix the sink, not the symptom: blocklists fail; parameterisation separates code from data.
@@ -663,6 +728,7 @@ Book: cs2023 §SEC-Crypto
 
 - ● **CS-11.3.A** Pick the primitive for a goal — confidentiality, integrity, authentication, non-repudiation — among symmetric cipher, hash, MAC, signature and key exchange.
   - EK: Hashes give integrity only against accidents; MACs need a shared key; signatures give non-repudiation; use AEAD for confidentiality + integrity.
+  - Needs: CS-11.2.B
   - P4 · drills: cs-crypto-pick, cs-crypto-facts
 - ● **CS-11.3.B** Encrypt and decrypt with toy RSA (small primes): compute n, φ(n), d and c = m^e mod n.
   - EK: d = e⁻¹ mod φ(n); modular exponentiation by repeated squaring; security rests on factoring n.
@@ -670,6 +736,7 @@ Book: cs2023 §SEC-Crypto
   - P3 · drills: cs-rsa, cs-rsa-d
 - ● **CS-11.3.C** Compute password entropy and brute-force time at a given guess rate, and state how passwords must be stored.
   - EK: Entropy = L·log₂(alphabet); time = 2^H / rate; store with a unique salt and a slow hash (bcrypt, scrypt, Argon2).
+  - Needs: CS-11.3.B
   - P2 · P7 · drills: cs-password-entropy, cs-password-length
 
 ### 11.4 Authentication, authorization and risk
@@ -678,9 +745,11 @@ Book: cs2023 §SEC-Engineering, §SEC-Governance
 
 - ● **CS-11.4.A** Trace an OAuth 2.0 authorization-code flow with PKCE and identify the token mishandling in a described implementation.
   - EK: Authentication says who; authorization says what; access tokens are bearer credentials; the ID token (OIDC) identifies the user.
+  - Needs: CS-11.3.C
   - P3 · P7 · drills: cs-oauth, cs-oauth-2
 - ● **CS-11.4.B** Compute annualised loss expectancy for a risk and decide whether a control is worth its cost.
   - EK: SLE = asset value × exposure factor; ALE = SLE × ARO; a control is justified if ΔALE > its annual cost.
+  - Needs: CS-11.4.A
   - P2 · P4 · drills: cs-ale, cs-control-worth
 
 ## Unit 12 · Programming languages
@@ -693,9 +762,11 @@ Book: cs2023 §FPL-OOP, §FPL-Functional
 
 - ● **CS-12.1.A** Predict the output of a snippet that mixes overriding, overloading and dynamic dispatch.
   - EK: Overloads resolve at compile time on static types; overrides dispatch at run time on the object's dynamic type.
+  - Needs: CS-5.2.C
   - P3 · drills: cs-dispatch, cs-dispatch-facts
 - ● **CS-12.1.B** Rewrite a loop with map, filter and reduce, and evaluate an expression built from higher-order functions and closures.
   - EK: A closure captures its defining environment; reduce folds with an accumulator from an initial value.
+  - Needs: CS-12.1.A
   - P5 · P3 · drills: cs-hof, cs-closure
 
 ### 12.2 Types
@@ -704,6 +775,7 @@ Book: cs2023 §FPL-Types
 
 - ● **CS-12.2.A** Decide whether an expression type-checks and infer the type of a polymorphic function.
   - EK: Hindley–Milner unifies constraints to the most general type, e.g. map : (a → b) → [a] → [b].
+  - Needs: CS-12.1.B
   - P6 · drills: cs-type-infer, cs-type-check
 - ● **CS-12.2.B** Identify the variance error in a generic subtyping snippet (arrays, List<T>, function parameters).
   - EK: Producers are covariant, consumers contravariant; mutable containers must be invariant; functions are contravariant in arguments.
@@ -716,9 +788,11 @@ Book: cs2023 §FPL-Constructs, §FPL-Run-Time, §FPL-Semantics
 
 - ● **CS-12.3.A** Predict a program's output under lexical versus dynamic scope, and under pass-by-value, -reference and -sharing.
   - EK: Lexical scope resolves names where code is written; pass-by-sharing copies the reference, so mutation is visible but rebinding is not.
+  - Needs: CS-12.2.B
   - P3 · drills: cs-pass-sharing, cs-scope
 - ● **CS-12.3.B** Predict the output order of async JavaScript mixing synchronous code, promises, await and setTimeout.
   - EK: Run the call stack to empty, then all microtasks (promise callbacks), then one macrotask (timers, I/O).
+  - Needs: CS-12.3.A
   - P3 · drills: cs-event-loop, cs-async-facts
 
 ### 12.4 Translation
@@ -749,12 +823,15 @@ Book: cs2023 §AI-ML
 
 - ● **CS-13.2.B** Diagnose under- or overfitting from training and validation curves and choose a remedy.
   - EK: High train and val error ⇒ bias; low train, high val ⇒ variance; regularise, add data or simplify for variance.
+  - Needs: CS-13.1.A
   - P6 · drills: cs-fit-diagnose, cs-fit-diagnose-2
 - ● **CS-13.2.D** Classify a point by k-NN, or compute the information gain or Gini decrease of a decision-tree split.
   - EK: Entropy H = −Σ p log₂ p; gain = H(parent) − weighted H(children); Gini = 1 − Σ p².
+  - Needs: CS-13.2.B
   - P3 · P2 · drills: cs-gini-gain, cs-info-gain
 - ● **CS-13.2.A** Compute accuracy, precision, recall and F1 from a confusion matrix and pick the metric a scenario needs.
   - EK: Precision = TP/(TP + FP); recall = TP/(TP + FN); imbalanced classes make accuracy misleading.
+  - Needs: CS-13.2.D
   - P2 · P4 · drills: cs-f1, cs-f1-from-pr
 - ● **CS-13.2.C** Compute one gradient-descent update for linear or logistic regression on a tiny dataset.
   - EK: w ← w − η∇L; for MSE ∇_w = (2/n)Xᵀ(Xw − y); too large η diverges.
@@ -767,6 +844,7 @@ Book: cs2023 §AI-NLP
 
 - ● **CS-13.3.A** Compute cosine similarity between embedding vectors and the softmax attention weights for a tiny query–key set.
   - EK: cos = a·b/(|a||b|); attention = softmax(QKᵀ/√d)V; cost grows as n² in sequence length.
+  - Needs: CS-13.2.C
   - P3 · P2 · drills: ab-cosine, ab-softmax
 
 ### 13.4 AI and society
@@ -788,6 +866,7 @@ Book: cs2023 §PDC-Programs, §PDC-Evaluation
 
 - ● **CS-14.1.B** Compute strong- and weak-scaling efficiency from timings and explain the gap with Amdahl and Gustafson.
   - EK: Efficiency = S/p; Gustafson: scaled speedup = p − α(p − 1) when the problem grows with p.
+  - Needs: CS-9.6.A
   - P2 · drills: cs-strong-eff, cs-gustafson
 - ● **CS-14.1.A** Compute work, span and parallelism of a task DAG and bound the runtime on p processors.
   - EK: T₁ = work, T∞ = span; parallelism = T₁/T∞; greedy scheduling gives T_p ≤ T₁/p + T∞.
@@ -800,9 +879,11 @@ Book: cs2023 §PDC-Communication, §PDC-Coordination
 
 - ● **CS-14.2.A** Assign Lamport timestamps or vector clocks to events in a message diagram and decide whether two events are causally ordered or concurrent.
   - EK: Lamport: L = max(local, received) + 1, consistent with but not implying causality; vector clocks capture happened-before exactly.
+  - Needs: CS-14.1.A
   - P3 · drills: cs-lamport, cs-vector-clock
 - ● **CS-14.2.B** Decide whether quorum settings R, W, N guarantee read-your-latest-write, and place keys on a consistent-hash ring.
   - EK: R + W > N ⇒ read and write quorums overlap; consistent hashing moves ~1/n of keys when a node joins.
+  - Needs: CS-14.2.A
   - P2 · P4 · drills: cs-quorum, cs-hash-ring
 
 ## Unit 15 · Human–computer interaction
@@ -815,9 +896,11 @@ Book: cs2023 §HCI-User, §HCI-Design, §HCI-Evaluation
 
 - ● **CS-15.1.A** Identify which of Nielsen's usability heuristics a described interface violates.
   - EK: Visibility of status, match with the real world, user control, consistency, error prevention, recognition over recall, …
+  - Needs: CS-6.5.A
   - P7 · drills: cs-nielsen, cs-nielsen-2
 - ● **CS-15.1.B** Use Fitts's law to compare the movement time for two target layouts.
   - EK: MT = a + b·log₂(1 + D/W); bigger, closer targets are faster; screen edges act as infinitely deep targets.
+  - Needs: CS-15.1.A
   - P2 · drills: cs-fitts, cs-fitts-compare
 - ● **CS-15.1.C** Choose an evaluation method (usability test, heuristic review, A/B test, survey) for a question, and decide whether an A/B result is significant.
   - EK: Formative tests find problems with ~5 users; A/B tests measure effects and need a pre-set sample size and two-proportion z-test.
@@ -830,6 +913,7 @@ Book: cs2023 §HCI-Accessibility
 
 - ● **CS-15.2.A** Compute a colour-contrast ratio and identify the WCAG 2.x failure in a markup snippet (alt text, labels, focus, contrast).
   - EK: Ratio = (L₁ + 0.05)/(L₂ + 0.05); AA needs ≥ 4.5:1 for body text, 3:1 for large text; every control needs an accessible name.
+  - Needs: CS-15.1.C
   - P2 · P7 · drills: cs-contrast, cs-wcag-fail
 
 ## Unit 16 · Society, ethics and the profession
@@ -845,9 +929,11 @@ Book: cs2023 §SEP-Ethical-Analysis, §SEP-Professional-Ethics, §SEP-IP, §SEP-
   - P7 · drills: cs-acm-code, cs-acm-code-2
 - ● **CS-16.1.B** State the obligations a reuse scenario triggers under MIT, Apache-2.0, GPL-3.0 or AGPL-3.0.
   - EK: Permissive: keep notice; Apache adds a patent grant; GPL: distribute derived source; AGPL: network use counts as distribution.
+  - Needs: CS-16.1.A
   - P7 · drills: cs-licenses, cs-licenses-2
 - ● **CS-16.1.C** Check whether a released table is k-anonymous for given quasi-identifiers and name the re-identification risk.
   - EK: Each quasi-identifier combination must appear ≥ k times; k-anonymity does not stop attribute disclosure (l-diversity).
+  - Needs: CS-16.1.B
   - P3 · P7 · drills: cs-kanon, cs-privacy-attacks
 
 ### 16.2 Sustainability
@@ -856,6 +942,7 @@ Book: cs2023 §SEP-Sustainability
 
 - ● **CS-16.2.A** Estimate the energy and carbon of a compute job from hardware power, utilisation, PUE and grid intensity.
   - EK: kWh = W × h × PUE / 1000; CO₂e = kWh × grid intensity (g/kWh); location and time shift matter.
+  - Needs: CS-16.1.C
   - P2 · P7 · drills: cs-carbon, cs-carbon-shift
 
 ## Unit 17 · Advanced algorithms (extension)
@@ -885,6 +972,7 @@ Book: cs2023 §AL-Strategies, §AL-Complexity
   - P2 · P6 · drills: cs-approx, cs-approx-ratio
 - ● **CS-17.2.B** Compute the KMP failure function for a pattern, or a Rabin–Karp rolling hash across a text window.
   - EK: Failure[i] = length of the longest proper prefix that is also a suffix of pattern[0..i]; rolling hash updates in O(1).
+  - Needs: CS-17.2.A
   - P3 · drills: cs-kmp-fail, cs-rabin-karp
 
 ## Unit 18 · Distributed systems and cloud (extension)
@@ -901,6 +989,7 @@ Book: cs2023 §PDC-Algorithms, §PDC-Coordination, §DM-Distributed
   - P3 · drills: cs-raft, cs-raft-majority
 - ● **CS-18.1.B** Identify where two-phase commit blocks when the coordinator fails, and what consensus-based commit changes.
   - EK: Participants that voted yes cannot decide alone; replicating the coordinator's decision with consensus removes the block.
+  - Needs: CS-18.1.A
   - P6 · drills: cs-2pc, cs-2pc-2
 
 ### 18.2 Cloud architecture
@@ -909,6 +998,7 @@ Book: cs2023 §PDC-Evaluation, §SF-Design
 
 - ● **CS-18.2.A** Compute the monthly cost of a workload under on-demand, reserved and serverless pricing and pick the cheapest model for its load shape.
   - EK: Serverless bills per request × duration and wins at low or spiky load; reserved wins at steady high utilisation.
+  - Needs: CS-18.1.B
   - P2 · P4 · drills: cs-cloud-cost, cs-serverless-cost
 - ● **CS-18.2.B** Compute the instances an autoscaler needs for a target load and utilisation, and the origin load left after a cache or CDN with a given hit rate.
   - EK: Instances = ⌈load / (per-instance capacity × target utilisation)⌉; origin load = (1 − hit rate) × requests.
@@ -916,6 +1006,7 @@ Book: cs2023 §PDC-Evaluation, §SF-Design
   - P2 · drills: cs-autoscale, cs-cdn-origin
 - ● **CS-18.2.C** Choose a shard key for a described dataset and query mix and predict hot-spotting.
   - EK: High-cardinality, evenly-accessed keys spread load; monotonic keys (timestamps) send all writes to one shard.
+  - Needs: CS-18.2.B
   - P4 · drills: cs-shard-key, cs-shard-key-2
 
 ## Unit 19 · Machine learning in depth (extension)
@@ -932,6 +1023,7 @@ Book: cs2023 §AI-ML
   - P3 · drills: cs-mlp-forward, cs-backprop-w
 - ● **CS-19.1.B** Count the parameters and output shape of a convolutional or fully-connected layer.
   - EK: Conv params = (k_h·k_w·C_in + 1)·C_out; output = ⌊(n + 2p − k)/s⌋ + 1.
+  - Needs: CS-19.1.A
   - P2 · drills: ab-params-layer, cs-conv-out
 
 ### 19.2 Unsupervised learning
@@ -940,4 +1032,5 @@ Book: cs2023 §AI-ML
 
 - ● **CS-19.2.A** Trace one k-means iteration (assign, recompute centroids), or compute variance explained by the top PCA components from eigenvalues.
   - EK: k-means minimises within-cluster squared distance and converges to a local optimum; variance explained = λ_i / Σλ.
+  - Needs: CS-19.1.B
   - P3 · P2 · drills: cs-kmeans-step, cs-pca-var

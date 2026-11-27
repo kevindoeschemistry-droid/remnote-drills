@@ -94,7 +94,7 @@ units:
         title: Limits and limit notation
         ced: "1.2"
         los:
-          - { id: A, std: [LIM-1.A, "webwork-opl:CA1.20"], do: "Read and write limit statements in symbols and words, including one-sided limits.", ek: ["lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant."], p: [P4], drills: ["~ca-limit-graph", ca-limit-statement] }
+          - { id: A, std: [LIM-1.A, "webwork-opl:CA1.20"], do: "Read and write limit statements in symbols and words, including one-sided limits.", ek: ["lim_(x→c) f(x) = L means f(x) can be made as close to L as wanted by taking x close enough to c (x ≠ c); f(c) itself is irrelevant."], p: [P4], needs: [CA-1.1.A], drills: ["~ca-limit-graph", ca-limit-statement] }
           - { id: B, std: [LIM-1.B, "webwork-opl:CA1.9"], do: "Decide whether a limit exists by comparing the two one-sided limits.", ek: ["lim_(x→c) f(x) exists ⇔ both one-sided limits exist and are equal; unbounded or oscillating behaviour means no limit."], p: [P3], drills: ["ca-lim-onesided", "ca2-onesided-exists"], needs: [CA-1.2.A] }
       - n: 3
         title: Estimating limits from graphs
@@ -110,7 +110,7 @@ units:
         title: Limit laws
         ced: "1.5"
         los:
-          - { id: A, std: [LIM-1.D, "webwork-opl:CA1.3"], do: "Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.", ek: ["lim(f ± g), lim(fg), lim(f/g) (denominator limit ≠ 0) are the sums, products, quotients of the limits; elementary functions are continuous on their domains, so substitution works there."], p: [P1], drills: [ca-lim-substitute, ca-lim-quotient] }
+          - { id: A, std: [LIM-1.D, "webwork-opl:CA1.3"], do: "Find limits of sums, products, quotients and compositions from the limits of their parts, and by direct substitution at points of an elementary function's domain.", ek: ["lim(f ± g), lim(fg), lim(f/g) (denominator limit ≠ 0) are the sums, products, quotients of the limits; elementary functions are continuous on their domains, so substitution works there."], p: [P1], needs: [CA-1.4.A], drills: [ca-lim-substitute, ca-lim-quotient] }
       - n: 6
         title: Algebraic manipulation of limits
         ced: "1.6"
@@ -161,7 +161,7 @@ units:
         title: Limits at infinity and horizontal asymptotes
         ced: "1.15"
         los:
-          - { id: A, std: [LIM-2.D, "webwork-opl:CA1.14", "webwork-opl:CA1.18"], do: "Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.", ek: ["Divide by the highest power in the denominator: deg num < deg den → 0, equal → ratio of leading coefficients, greater → unbounded; √(x²) = |x|; as x → ∞, ln x ≪ x^p ≪ e^x."], p: [P1, P2], drills: [ca-lim-infinity, ca-lim-infinity-radical] }
+          - { id: A, std: [LIM-2.D, "webwork-opl:CA1.14", "webwork-opl:CA1.18"], do: "Find limits at ±∞ and horizontal asymptotes of rational and radical expressions, and of expressions mixing exponentials, powers and logs.", ek: ["Divide by the highest power in the denominator: deg num < deg den → 0, equal → ratio of leading coefficients, greater → unbounded; √(x²) = |x|; as x → ∞, ln x ≪ x^p ≪ e^x."], p: [P1, P2], needs: [CA-1.14.A], drills: [ca-lim-infinity, ca-lim-infinity-radical] }
       - n: 16
         title: The Intermediate Value Theorem
         ced: "1.16"
@@ -179,7 +179,7 @@ units:
         title: Average and instantaneous rates of change
         ced: "2.1"
         los:
-          - { id: A, std: [CHA-2.A], do: "Calculate an average rate of change as the slope of a secant line.", ek: ["(f(b) − f(a))/(b − a), in units of output per unit input."], p: [P1], drills: [ca-avg-rate, "ca-avg-rate-table"] }
+          - { id: A, std: [CHA-2.A], do: "Calculate an average rate of change as the slope of a secant line.", ek: ["(f(b) − f(a))/(b − a), in units of output per unit input."], p: [P1], needs: [CA-1.16.A], drills: [ca-avg-rate, "ca-avg-rate-table"] }
           - { id: B, std: [CHA-2.B, "webwork-opl:CA1.16"], do: "Express an instantaneous rate of change as the limit of a difference quotient.", ek: ["lim_(h→0) (f(a + h) − f(a))/h — the secant slope as the interval shrinks to a point."], p: [P2], drills: ["~ca-def-derivative", ca-difference-quotient-limit], needs: [CA-2.1.A, CA-1.1.A] }
       - n: 2
         title: The derivative and its notation
@@ -640,7 +640,7 @@ units:
         title: Polar coordinates and their derivatives
         ced: "9.7"
         los:
-          - { id: A, std: [FUN-3.G, "webwork-opl:CA9.8"], do: "Convert points and curves between polar and rectangular form.", ek: ["x = r cos θ, y = r sin θ, r² = x² + y², tan θ = y/x (watch the quadrant)."], p: [P2], drills: [ca-polar-convert, "ca-rect-to-polar"] }
+          - { id: A, std: [FUN-3.G, "webwork-opl:CA9.8"], do: "Convert points and curves between polar and rectangular form.", ek: ["x = r cos θ, y = r sin θ, r² = x² + y², tan θ = y/x (watch the quadrant)."], p: [P2], needs: [CA-9.6.A], drills: [ca-polar-convert, "ca-rect-to-polar"] }
           - { id: B, std: [FUN-3.G, "webwork-opl:CA9.5"], do: "Find dy/dx for a polar curve and interpret dr/dθ.", ek: ["Treat θ as the parameter: x = r(θ)cos θ, y = r(θ)sin θ; dr/dθ > 0 ⇒ moving away from the pole."], p: [P1, P2], drills: [ca-polar-slope, "ca-polar-slope-reason"], needs: [CA-9.7.A, CA-9.1.A] }
       - n: 8
         title: Area of a polar region
@@ -947,15 +947,15 @@ units:
       - n: 1
         title: "Definitions and identities"
         los:
-          - { id: A, std: [ST-3.11, "webwork-opl:CA2.13"], do: "Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.", ek: ["cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x."], p: [P1], drills: [hy-which-definition, hy-value-at-log, hy-tanh-value] }
-          - { id: B, std: [ST-3.11, "webwork-opl:CA2.13"], do: "Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.", ek: ["Osborn's rule: flip the sign of any product of two sines."], p: [P1], drills: [hy-pythagorean, hy-identity-check, hy-double-argument] }
-          - { id: C, std: [ST-3.11], do: "Describe the graphs: parity, range and behaviour for small and large x.", ek: ["cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1."], p: [P1], drills: [hy-parity-and-range, "hy-cosh-value"] }
+          - { id: A, std: [ST-3.11, "webwork-opl:CA2.13"], do: "Recognise sinh, cosh and tanh from their exponential definitions and evaluate them at ln a.", ek: ["cosh x = ½(eˣ + e⁻ˣ), sinh x = ½(eˣ − e⁻ˣ); eˣ = cosh x + sinh x."], p: [P1], needs: [CA-3.6.A], drills: [hy-which-definition, hy-value-at-log, hy-tanh-value] }
+          - { id: B, std: [ST-3.11, "webwork-opl:CA2.13"], do: "Use cosh² − sinh² = 1 and the double-argument identities, and tell a true hyperbolic identity from a false one.", ek: ["Osborn's rule: flip the sign of any product of two sines."], p: [P1], needs: [CA-15.1.A], drills: [hy-pythagorean, hy-identity-check, hy-double-argument] }
+          - { id: C, std: [ST-3.11], do: "Describe the graphs: parity, range and behaviour for small and large x.", ek: ["cosh ≥ 1 and even; sinh odd and unbounded; tanh odd and between −1 and 1."], p: [P1], needs: [CA-15.1.B], drills: [hy-parity-and-range, "hy-cosh-value"] }
       - n: 2
         title: "Calculus and uses"
         los:
-          - { id: A, std: [ST-3.11, "webwork-opl:CA2.14", "webwork-opl:CA5.6"], do: "Differentiate and integrate hyperbolic functions.", ek: ["sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes."], p: [P1], drills: [hy-derivative-which, hy-derivative-value, hy-integral] }
-          - { id: C, std: [ST-3.11], do: "Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.", ek: ["cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh."], p: [P1], drills: [hy-ode-solution, hy-circular-link, hy-where-used] }
-          - { id: B, std: [ST-3.11], do: "Write an inverse hyperbolic function as a logarithm.", ek: ["sinh⁻¹ s = ln(s + √(s² + 1))."], p: [P1], drills: [hy-inverse-sinh, "hy-arcsinh-value"] }
+          - { id: A, std: [ST-3.11, "webwork-opl:CA2.14", "webwork-opl:CA5.6"], do: "Differentiate and integrate hyperbolic functions.", ek: ["sinh′ = cosh, cosh′ = sinh, tanh′ = sech²; no sign changes."], p: [P1], needs: [CA-15.1.C], drills: [hy-derivative-which, hy-derivative-value, hy-integral] }
+          - { id: C, std: [ST-3.11], do: "Solve y″ = k²y with cosh and sinh, connect them to the circular functions, and say where each turns up.", ek: ["cos(ix) = cosh x; catenary, fins and slabs use cosh; saturating ratios use tanh."], p: [P1], needs: [CA-15.2.A], drills: [hy-ode-solution, hy-circular-link, hy-where-used] }
+          - { id: B, std: [ST-3.11], do: "Write an inverse hyperbolic function as a logarithm.", ek: ["sinh⁻¹ s = ln(s + √(s² + 1))."], p: [P1], needs: [CA-15.2.C], drills: [hy-inverse-sinh, "hy-arcsinh-value"] }
   # >>> opl-fill:opl-ca (generated by scripts/opl_fill.py; edit the spec)
   - id: applied-fields
     n: 16
@@ -967,16 +967,16 @@ units:
       - n: 1
         title: "Derivatives in context"
         los:
-          - { id: A, std: ["webwork-opl:CA3.3"], do: "Find a marginal cost or revenue as a derivative.", ek: ["Marginal cost C′(q) approximates the cost of one more unit."], p: [P1], drills: [ca-marginal-cost] }
-          - { id: B, std: ["webwork-opl:CA3.11"], do: "Maximise profit from revenue and cost functions.", ek: ["Profit is maximal where marginal revenue equals marginal cost."], p: [P1], drills: [ca-max-profit] }
-          - { id: C, std: ["webwork-opl:CA3.13"], do: "Optimise a model from the natural sciences.", ek: ["Set the derivative to zero and check that the critical point is a maximum."], p: [P1], drills: [ca-peak-concentration] }
-          - { id: D, std: ["webwork-opl:CA3.18"], do: "Compute a price elasticity of demand.", ek: ["E = −(dq/dp)(p/q); |E| > 1 is elastic."], p: [P1], drills: [ca-elasticity] }
+          - { id: A, std: ["webwork-opl:CA3.3"], do: "Find a marginal cost or revenue as a derivative.", ek: ["Marginal cost C′(q) approximates the cost of one more unit."], p: [P1], needs: [CA-8.14.A], drills: [ca-marginal-cost] }
+          - { id: B, std: ["webwork-opl:CA3.11"], do: "Maximise profit from revenue and cost functions.", ek: ["Profit is maximal where marginal revenue equals marginal cost."], p: [P1], needs: [CA-16.1.A], drills: [ca-max-profit] }
+          - { id: C, std: ["webwork-opl:CA3.13"], do: "Optimise a model from the natural sciences.", ek: ["Set the derivative to zero and check that the critical point is a maximum."], p: [P1], needs: [CA-16.1.B], drills: [ca-peak-concentration] }
+          - { id: D, std: ["webwork-opl:CA3.18"], do: "Compute a price elasticity of demand.", ek: ["E = −(dq/dp)(p/q); |E| > 1 is elastic."], p: [P1], needs: [CA-16.1.C], drills: [ca-elasticity] }
       - n: 2
         title: "Integrals in context"
         los:
-          - { id: A, std: ["webwork-opl:CA6.15"], do: "Find a consumer surplus.", ek: ["CS = ∫₀^q₀ (demand price − market price) dq."], p: [P1], drills: [ca-consumer-surplus] }
-          - { id: B, std: ["webwork-opl:CA6.16"], do: "Find cardiac output from a dye-dilution curve.", ek: ["F = amount injected / ∫ c dt."], p: [P1], drills: [ca-cardiac-output] }
-          - { id: C, std: ["webwork-opl:CA6.17"], do: "Use a probability density function.", ek: ["A density integrates to 1; probabilities are areas under it."], p: [P1], drills: [ca-pdf-constant] }
+          - { id: A, std: ["webwork-opl:CA6.15"], do: "Find a consumer surplus.", ek: ["CS = ∫₀^q₀ (demand price − market price) dq."], p: [P1], needs: [CA-16.1.D], drills: [ca-consumer-surplus] }
+          - { id: B, std: ["webwork-opl:CA6.16"], do: "Find cardiac output from a dye-dilution curve.", ek: ["F = amount injected / ∫ c dt."], p: [P1], needs: [CA-16.2.A], drills: [ca-cardiac-output] }
+          - { id: C, std: ["webwork-opl:CA6.17"], do: "Use a probability density function.", ek: ["A density integrates to 1; probabilities are areas under it."], p: [P1], needs: [CA-16.2.B], drills: [ca-pdf-constant] }
   - id: more-integration
     n: 17
     title: "More integration techniques and applications"
@@ -987,17 +987,17 @@ units:
       - n: 1
         title: "Techniques"
         los:
-          - { id: A, std: ["webwork-opl:CA5.5"], do: "Integrate a product of powers of sine and cosine.", ek: ["With an odd power, save one factor and convert the rest; with even powers, use half-angle identities."], p: [P1], drills: [ca-trig-integral] }
-          - { id: B, std: ["webwork-opl:CA5.8", "fe-chemical:1.A"], do: "Evaluate an integral by trigonometric substitution.", ek: ["√(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ."], p: [P1], drills: [ca-trig-substitution] }
-          - { id: C, std: ["webwork-opl:CA5.9"], do: "Use an integral from a table.", ek: ["Match the integrand to the table form, identify the constants, then substitute."], p: [P1], drills: [ca-integral-table] }
-          - { id: D, std: ["webwork-opl:CA5.10"], do: "Use and check a computer algebra system's antiderivative.", ek: ["Differentiate the CAS answer to check it, then apply the fundamental theorem."], p: [P1], drills: [ca-cas-antiderivative] }
+          - { id: A, std: ["webwork-opl:CA5.5"], do: "Integrate a product of powers of sine and cosine.", ek: ["With an odd power, save one factor and convert the rest; with even powers, use half-angle identities."], p: [P1], needs: [CA-8.14.A], drills: [ca-trig-integral] }
+          - { id: B, std: ["webwork-opl:CA5.8", "fe-chemical:1.A"], do: "Evaluate an integral by trigonometric substitution.", ek: ["√(a² − x²): x = a sin θ; √(a² + x²): x = a tan θ; √(x² − a²): x = a sec θ."], p: [P1], needs: [CA-17.1.A], drills: [ca-trig-substitution] }
+          - { id: C, std: ["webwork-opl:CA5.9"], do: "Use an integral from a table.", ek: ["Match the integrand to the table form, identify the constants, then substitute."], p: [P1], needs: [CA-17.1.B], drills: [ca-integral-table] }
+          - { id: D, std: ["webwork-opl:CA5.10"], do: "Use and check a computer algebra system's antiderivative.", ek: ["Differentiate the CAS answer to check it, then apply the fundamental theorem."], p: [P1], needs: [CA-17.1.C], drills: [ca-cas-antiderivative] }
       - n: 2
         title: "Volumes, surfaces and forces"
         los:
-          - { id: A, std: ["webwork-opl:CA6.6"], do: "Find a volume by cylindrical shells.", ek: ["V = ∫ 2π (radius)(height) dx."], p: [P1], drills: [ca-shells] }
-          - { id: B, std: ["webwork-opl:CA6.7"], do: "Find the same volume by two methods.", ek: ["Discs or washers in one variable and shells in the other must agree."], p: [P1], drills: [ca-two-methods] }
-          - { id: C, std: ["webwork-opl:CA6.9"], do: "Find the area of a surface of revolution.", ek: ["S = ∫ 2π y √(1 + y′²) dx."], p: [P1], drills: [ca-surface-revolution] }
-          - { id: D, std: ["webwork-opl:CA6.12"], do: "Find the hydrostatic force on a submerged plate by integration.", ek: ["F = ∫ ρ g (depth) (width at that depth) d(depth)."], p: [P1], drills: [ca-hydrostatic-triangle] }
+          - { id: A, std: ["webwork-opl:CA6.6"], do: "Find a volume by cylindrical shells.", ek: ["V = ∫ 2π (radius)(height) dx."], p: [P1], needs: [CA-17.1.D], drills: [ca-shells] }
+          - { id: B, std: ["webwork-opl:CA6.7"], do: "Find the same volume by two methods.", ek: ["Discs or washers in one variable and shells in the other must agree."], p: [P1], needs: [CA-17.2.A], drills: [ca-two-methods] }
+          - { id: C, std: ["webwork-opl:CA6.9"], do: "Find the area of a surface of revolution.", ek: ["S = ∫ 2π y √(1 + y′²) dx."], p: [P1], needs: [CA-17.2.B], drills: [ca-surface-revolution] }
+          - { id: D, std: ["webwork-opl:CA6.12"], do: "Find the hydrostatic force on a submerged plate by integration.", ek: ["F = ∫ ρ g (depth) (width at that depth) d(depth)."], p: [P1], needs: [CA-17.2.C], drills: [ca-hydrostatic-triangle] }
   - id: sequences-curves
     n: 18
     title: "Sequences, series strategy, parametric and polar curves"
@@ -1008,16 +1008,16 @@ units:
       - n: 1
         title: "Sequences and series"
         los:
-          - { id: C, std: ["webwork-opl:CA7.13"], do: "Choose a convergence test for a series.", ek: ["Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison."], p: [P1], drills: [ca-series-strategy] }
-          - { id: A, std: ["webwork-opl:CA7.1"], do: "Find the limit of a sequence.", ek: ["Divide by the highest power of n."], p: [P1], drills: [ca-sequence-limit] }
-          - { id: B, std: ["webwork-opl:CA7.10"], do: "Apply the root test.", ek: ["L = lim |aₙ|^(1/n); converges if L < 1, diverges if L > 1."], p: [P1], drills: [ca-root-test] }
+          - { id: C, std: ["webwork-opl:CA7.13"], do: "Choose a convergence test for a series.", ek: ["Look at the form: geometric, p-series, factorials (ratio), nth powers (root), alternating, or a comparison."], p: [P1], needs: [CA-9.9.A, CA-10.16.C], drills: [ca-series-strategy] }
+          - { id: A, std: ["webwork-opl:CA7.1"], do: "Find the limit of a sequence.", ek: ["Divide by the highest power of n."], p: [P1], needs: [CA-18.1.C], drills: [ca-sequence-limit] }
+          - { id: B, std: ["webwork-opl:CA7.10"], do: "Apply the root test.", ek: ["L = lim |aₙ|^(1/n); converges if L < 1, diverges if L > 1."], p: [P1], needs: [CA-18.1.A], drills: [ca-root-test] }
       - n: 2
         title: "Parametric and polar curves"
         los:
-          - { id: A, std: ["webwork-opl:CA8.2"], do: "Eliminate the parameter.", ek: ["Solve one equation for t and substitute into the other."], p: [P1], drills: [ca-eliminate-parameter] }
-          - { id: B, std: ["webwork-opl:CA8.6"], do: "Find the area under a parametric curve.", ek: ["A = ∫ y dx = ∫ y(t) x′(t) dt."], p: [P1], drills: [ca-parametric-area] }
-          - { id: C, std: ["webwork-opl:CA8.7"], do: "Find a volume of revolution for a parametric curve.", ek: ["V = ∫ π y² dx with dx = x′(t) dt."], p: [P1], drills: [ca-parametric-volume] }
-          - { id: D, std: ["webwork-opl:CA8.8"], do: "Find a surface area of revolution for a parametric curve.", ek: ["S = ∫ 2π y √(x′² + y′²) dt."], p: [P1], drills: [ca-parametric-surface] }
-          - { id: E, std: ["webwork-opl:CA9.7"], do: "Find the arc length of a polar curve.", ek: ["L = ∫ √(r² + (dr/dθ)²) dθ."], p: [P1], drills: [ca-polar-arc-length] }
-          - { id: F, std: ["webwork-opl:MV2.2"], do: "Find the limit of a vector function.", ek: ["Take the limit of each component."], p: [P1], drills: [ca-vector-limit] }
+          - { id: A, std: ["webwork-opl:CA8.2"], do: "Eliminate the parameter.", ek: ["Solve one equation for t and substitute into the other."], p: [P1], needs: [CA-18.1.B], drills: [ca-eliminate-parameter] }
+          - { id: B, std: ["webwork-opl:CA8.6"], do: "Find the area under a parametric curve.", ek: ["A = ∫ y dx = ∫ y(t) x′(t) dt."], p: [P1], needs: [CA-18.2.A], drills: [ca-parametric-area] }
+          - { id: C, std: ["webwork-opl:CA8.7"], do: "Find a volume of revolution for a parametric curve.", ek: ["V = ∫ π y² dx with dx = x′(t) dt."], p: [P1], needs: [CA-18.2.B], drills: [ca-parametric-volume] }
+          - { id: D, std: ["webwork-opl:CA8.8"], do: "Find a surface area of revolution for a parametric curve.", ek: ["S = ∫ 2π y √(x′² + y′²) dt."], p: [P1], needs: [CA-18.2.C], drills: [ca-parametric-surface] }
+          - { id: E, std: ["webwork-opl:CA9.7"], do: "Find the arc length of a polar curve.", ek: ["L = ∫ √(r² + (dr/dθ)²) dθ."], p: [P1], needs: [CA-18.2.D], drills: [ca-polar-arc-length] }
+          - { id: F, std: ["webwork-opl:MV2.2"], do: "Find the limit of a vector function.", ek: ["Take the limit of each component."], p: [P1], needs: [CA-18.2.E], drills: [ca-vector-limit] }
   # <<< opl-fill:opl-ca

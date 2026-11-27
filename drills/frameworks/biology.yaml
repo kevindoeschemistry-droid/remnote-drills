@@ -101,19 +101,19 @@ units:
         title: Structure of water and hydrogen bonding
         std: ["ap-biology-2025:1.1.A"]
         los:
-          - { id: A, std: [SYI-1.A], do: "Explain how water's polarity lets it hydrogen-bond to other water molecules and to polar or charged solutes.", ek: ["O pulls electrons from H, leaving δ− on O and δ+ on each H; each water can H-bond to up to four neighbours."], p: [P1], drills: ["bi-water-interaction", bi-water-solutes] }
+          - { id: A, std: [SYI-1.A], do: "Explain how water's polarity lets it hydrogen-bond to other water molecules and to polar or charged solutes.", ek: ["O pulls electrons from H, leaving δ− on O and δ+ on each H; each water can H-bond to up to four neighbours."], p: [P1], needs: [CH-3.1.B], drills: ["bi-water-interaction", bi-water-solutes] }
           - { id: B, std: [SYI-1.A], do: "Connect cohesion, adhesion, high specific heat, ice floating and solvent power to hydrogen bonding and to a biological consequence.", ek: ["Cohesion + adhesion drive transpiration pull; high specific heat buffers temperature; open-lattice ice insulates water below."], p: [P1, P6], drills: ["bi-water-property", bi-water-scenario], needs: [BI-1.1.A] }
       - n: 2
         title: Elements of life
         std: ["ap-biology-2025:1.2.A"]
         los:
-          - { id: A, std: [ENE-1.A], do: "Identify which elements each macromolecule class contains and where C, N, P and S enter biological molecules.", ek: ["C, H, O in all four classes; N in proteins and nucleic acids; P in nucleic acids and phospholipids; S in cysteine and methionine."], p: [P1], drills: ["bi-macromolecule-elements", bi-element-source] }
+          - { id: A, std: [ENE-1.A], do: "Identify which elements each macromolecule class contains and where C, N, P and S enter biological molecules.", ek: ["C, H, O in all four classes; N in proteins and nucleic acids; P in nucleic acids and phospholipids; S in cysteine and methionine."], p: [P1], needs: [BI-1.1.B], drills: ["bi-macromolecule-elements", bi-element-source] }
           - { id: B, std: [ENE-1.A], do: "Predict which macromolecule class picks up a ³⁵S, ³²P or ¹⁵N label.", ek: ["³⁵S marks protein only; ³²P marks nucleic acid (and phospholipid); ¹⁵N marks protein and nucleic acid."], p: [P1, P3], drills: ["bi-radiolabel", bi-label-experiment], needs: [BI-1.2.A] }
       - n: 3
         title: Introduction to biological macromolecules
         std: ["ap-biology-2025:1.3.A"]
         los:
-          - { id: A, std: [SYI-1.B], do: "Describe dehydration synthesis and hydrolysis as the reactions that build and break polymers.", ek: ["Joining monomers releases H₂O; hydrolysis adds H₂O to split them; enzymes catalyse both."], p: [P1], drills: ["bi-dehydration-hydrolysis", bi-reaction-direction] }
+          - { id: A, std: [SYI-1.B], do: "Describe dehydration synthesis and hydrolysis as the reactions that build and break polymers.", ek: ["Joining monomers releases H₂O; hydrolysis adds H₂O to split them; enzymes catalyse both."], p: [P1], needs: [BI-1.2.B], drills: ["bi-dehydration-hydrolysis", bi-reaction-direction] }
           - { id: B, std: [SYI-1.B], do: "Count the water molecules released or consumed when n monomers are joined into, or cut out of, a linear polymer.", ek: ["A linear chain of n monomers has n − 1 linkages, so n − 1 waters."], p: [P5], drills: ["bi-polymer-water", bi-polymer-mass], needs: [BI-1.3.A] }
       - n: 4
         title: Properties of biological macromolecules
@@ -122,15 +122,15 @@ units:
           - { id: A, std: [SYI-1.B], do: "Name the monomer and linking bond of carbohydrates, proteins, nucleic acids and triglycerides.", ek: ["Monosaccharide–glycosidic; amino acid–peptide; nucleotide–phosphodiester; glycerol + fatty acids–ester."], p: [P1, P2], drills: ["bi-monomer-bond", bi-bond-identify], needs: [BI-1.3.A] }
           - { id: E, std: ["iupac-aa-1983:3AA-1"], do: "Draw the structure of each of the 20 coded amino acids from its name, and name each from its structure.", ek: ["Every one is H2N–CH(R)–COOH; only R changes (proline's R closes back onto the N)."], p: [P1, P2], drills: [aa-draw-gly, aa-name-gly, aa-draw-ala, aa-name-ala, aa-draw-val, aa-name-val, aa-draw-leu, aa-name-leu, aa-draw-ile, aa-name-ile, aa-draw-ser, aa-name-ser, aa-draw-thr, aa-name-thr, aa-draw-cys, aa-name-cys, aa-draw-met, aa-name-met, aa-draw-asp, aa-name-asp, aa-draw-glu, aa-name-glu, aa-draw-asn, aa-name-asn, aa-draw-gln, aa-name-gln, aa-draw-lys, aa-name-lys, aa-draw-arg, aa-name-arg, aa-draw-his, aa-name-his, aa-draw-phe, aa-name-phe, aa-draw-tyr, aa-name-tyr, aa-draw-trp, aa-name-trp, aa-draw-pro, aa-name-pro], needs: [BI-1.4.A] }
           - { id: B, std: [SYI-1.B], do: "Classify an amino acid side chain as nonpolar, polar or charged and predict where it sits in a folded soluble protein.", ek: ["Nonpolar R groups bury in the core; polar and charged ones face water."], p: [P1, P2], drills: ["bi-side-chain", bi-side-chain-placement], needs: [BI-1.4.A, BI-1.1.A] }
-          - { id: C, std: [SYI-1.B], do: "Distinguish saturated fats, unsaturated fats, phospholipids and steroids by structure and physical property.", ek: ["cis double bonds kink tails so fats stay liquid; phospholipids are amphipathic; steroids are four fused rings."], p: [P1, P2], drills: ["bi-lipid-types", bi-lipid-scenario] }
-          - { id: D, std: [SYI-1.B], do: "Tell structural from storage polysaccharides by linkage and branching.", ek: ["Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse."], p: [P1], drills: ["bi-polysaccharide", bi-polysaccharide-scenario] }
+          - { id: C, std: [SYI-1.B], do: "Distinguish saturated fats, unsaturated fats, phospholipids and steroids by structure and physical property.", ek: ["cis double bonds kink tails so fats stay liquid; phospholipids are amphipathic; steroids are four fused rings."], p: [P1, P2], needs: [BI-1.4.B], drills: ["bi-lipid-types", bi-lipid-scenario] }
+          - { id: D, std: [SYI-1.B], do: "Tell structural from storage polysaccharides by linkage and branching.", ek: ["Cellulose β(1→4) straight chains H-bond into fibres; starch and glycogen α(1→4) with α(1→6) branches are compact and easy to hydrolyse."], p: [P1], needs: [BI-1.4.C], drills: ["bi-polysaccharide", bi-polysaccharide-scenario] }
       - n: 5
         title: Structure and function of biological macromolecules
         std: ["ap-biology-2025:1.4.A", "ap-biology-2025:1.5.A", "ap-biology-2025:1.7.A"]
         los:
           - { id: A, std: ["SYI-1.C", "acs-accm-general:IV.B.1", "acs-accm-organic:IV.B.2", "acs-accm-inorganic:IV.B.3"], do: "Describe the four levels of protein structure and the interactions that hold each.", ek: ["1°: peptide bonds; 2°: backbone H-bonds (α helix, β sheet); 3°: R-group interactions incl. disulfides; 4°: multiple subunits."], p: [P1], drills: ["bi-protein-levels", bi-structure-level], needs: [BI-1.4.B] }
           - { id: B, std: [SYI-1.C], do: "Predict how substituting one monomer changes a polymer's structure and function.", ek: ["Swapping a charged for a nonpolar residue (Glu→Val in hemoglobin) can change folding, binding and aggregation."], p: [P6], drills: ["bi-monomer-substitution", bi-substitution-predict], needs: [BI-1.5.A] }
-          - { id: C, std: [SYI-1.C], do: "Identify the directionality of proteins (N→C) and nucleic acids (5′→3′) and why polymers grow at one end only.", ek: ["New nucleotides add to the 3′-OH; new amino acids add to the C-terminus."], p: [P1], drills: ["bi-directionality", bi-direction-scenario] }
+          - { id: C, std: [SYI-1.C], do: "Identify the directionality of proteins (N→C) and nucleic acids (5′→3′) and why polymers grow at one end only.", ek: ["New nucleotides add to the 3′-OH; new amino acids add to the C-terminus."], p: [P1], needs: [BI-1.5.B], drills: ["bi-directionality", bi-direction-scenario] }
       - n: 6
         title: Nucleic acids
         std: ["ap-biology-2025:1.6.A"]
@@ -151,7 +151,7 @@ units:
         title: "Cell structure: subcellular components"
         std: ["ap-biology-2025:2.1.A"]
         los:
-          - { id: A, std: [SYI-1.D], do: "Describe ribosome composition and explain why ribosomes in every cell point to common ancestry.", ek: ["Ribosomes are rRNA + protein, not membrane-bound, and make protein in all three domains."], p: [P1], drills: ["bi-ribosome-ancestry", bi-ribosome-scenario] }
+          - { id: A, std: [SYI-1.D], do: "Describe ribosome composition and explain why ribosomes in every cell point to common ancestry.", ek: ["Ribosomes are rRNA + protein, not membrane-bound, and make protein in all three domains."], p: [P1], needs: [BI-1.6.B], drills: ["bi-ribosome-ancestry", bi-ribosome-scenario] }
           - { id: B, std: [SYI-1.D], do: "Match the rough ER, smooth ER, Golgi, mitochondrion, lysosome, vacuole and chloroplast to their functions.", ek: ["RER: secreted/membrane proteins; SER: lipids, detox, Ca²⁺ storage; Golgi: modify and sort; lysosome: hydrolytic digestion."], p: [P1], drills: ["bi-organelle-function", bi-organelle-scenario], needs: [BI-2.1.A] }
       - n: 2
         title: Cell structure and function
@@ -164,7 +164,7 @@ units:
         title: Cell size
         std: ["ap-biology-2025:2.2.A"]
         los:
-          - { id: A, std: [ENE-1.B], do: "Calculate the surface-area-to-volume ratio of a cube, sphere or cylinder and compare cells of different sizes.", ek: ["Cube: SA/V = 6/s; sphere: 3/r — the ratio falls as size grows."], p: [P5], drills: ["bi-sa-volume", bi-sav-scaling] }
+          - { id: A, std: [ENE-1.B], do: "Calculate the surface-area-to-volume ratio of a cube, sphere or cylinder and compare cells of different sizes.", ek: ["Cube: SA/V = 6/s; sphere: 3/r — the ratio falls as size grows."], p: [P5], needs: [BI-2.2.C], drills: ["bi-sa-volume", bi-sav-scaling] }
           - { id: B, std: [ENE-1.B], do: "Explain why falling SA/V limits cell size and changes heat and material exchange in larger organisms.", ek: ["Volume (demand) grows as length³, surface (supply) as length²."], p: [P6], drills: ["bi-sa-v-consequence", bi-sav-predict], needs: [BI-2.3.A] }
           - { id: C, std: [ENE-1.C], do: "Identify structures that raise surface area for exchange and explain the gain.", ek: ["Microvilli, root hairs, alveoli, intestinal villi and gill lamellae fold surface without adding much volume."], p: [P1], drills: ["bi-exchange-surface", bi-microvilli-gain], needs: [BI-2.3.B] }
       - n: 4
@@ -178,7 +178,7 @@ units:
         std: ["ap-biology-2025:2.4.A", "ap-biology-2025:2.4.B", "ap-biology-2025:2.6.A"]
         los:
           - { id: A, std: [ENE-2.C], do: "Predict whether a molecule crosses a bare bilayer from its size, polarity and charge.", ek: ["Small nonpolar molecules (O₂, CO₂) pass freely; ions and large polar molecules need proteins; water crosses slowly without aquaporins."], p: [P1, P6], drills: ["bi-bilayer-permeability", bi-crossing-rank], needs: [BI-2.4.A, BI-1.1.A] }
-          - { id: B, std: [ENE-2.D], do: "Compare cell walls of plants, fungi and bacteria and explain how a wall prevents osmotic lysis.", ek: ["Plants: cellulose; fungi: chitin; bacteria: peptidoglycan; the wall resists turgor pressure."], p: [P1], drills: ["bi-cell-wall", bi-wall-scenario] }
+          - { id: B, std: [ENE-2.D], do: "Compare cell walls of plants, fungi and bacteria and explain how a wall prevents osmotic lysis.", ek: ["Plants: cellulose; fungi: chitin; bacteria: peptidoglycan; the wall resists turgor pressure."], p: [P1], needs: [BI-2.5.A], drills: ["bi-cell-wall", bi-wall-scenario] }
       - n: 6
         title: Membrane transport
         std: ["ap-biology-2025:2.5.A", "ap-biology-2025:2.5.B"]
@@ -236,7 +236,7 @@ units:
         std: ["ap-biology-2025:3.1.A"]
         los:
           - { id: A, std: [ENE-1.E], do: "Explain on an energy diagram how an enzyme lowers activation energy without changing ΔG.", ek: ["Enzymes stabilise the transition state; reactant and product energies stay the same."], p: [P1, P2], drills: ["bi-enzyme-energy", bi-enzyme-speedup], needs: [BI-3.1.A] }
-          - { id: B, std: [ENE-1.E], do: "Calculate an initial reaction rate from the slope of a product-versus-time graph.", ek: ["Rate = Δ[product]/Δt over the early linear region, before substrate runs low."], p: [P4, P5], drills: ["bi-initial-rate", bi-product-after-time] }
+          - { id: B, std: [ENE-1.E], do: "Calculate an initial reaction rate from the slope of a product-versus-time graph.", ek: ["Rate = Δ[product]/Δt over the early linear region, before substrate runs low."], p: [P4, P5], needs: [BI-3.2.A], drills: ["bi-initial-rate", bi-product-after-time] }
       - n: 3
         title: Environmental impacts on enzyme function
         std: ["ap-biology-2025:3.2.A", "ap-biology-2025:3.2.B"]
@@ -285,7 +285,7 @@ units:
         title: Cell communication
         std: ["ap-biology-2025:4.1.A", "ap-biology-2025:4.1.B"]
         los:
-          - { id: A, std: [IST-3.A], do: "Distinguish communication by direct contact from communication by secreted chemical signals.", ek: ["Gap junctions and plasmodesmata join cytoplasms; surface molecules allow cell–cell recognition (e.g. antigen presentation)."], p: [P1], drills: ["bi-contact-signal", bi-contact-scenario] }
+          - { id: A, std: [IST-3.A], do: "Distinguish communication by direct contact from communication by secreted chemical signals.", ek: ["Gap junctions and plasmodesmata join cytoplasms; surface molecules allow cell–cell recognition (e.g. antigen presentation)."], p: [P1], needs: [BI-2.11.B], drills: ["bi-contact-signal", bi-contact-scenario] }
           - { id: B, std: [IST-3.B], do: "Classify a signal as autocrine, paracrine, synaptic or endocrine, and recognise quorum sensing.", ek: ["Local signals act on neighbours; hormones travel in the blood to distant targets; bacteria sense density by signal concentration."], p: [P1], drills: ["bi-signal-range", bi-signal-range-scenario], needs: [BI-4.1.A] }
       - n: 2
         title: Introduction to signal transduction
@@ -308,7 +308,7 @@ units:
         title: Feedback
         std: ["ap-biology-2025:4.4.A"]
         los:
-          - { id: A, std: [ENE-3.A], do: "Classify a described regulatory loop as positive or negative feedback.", ek: ["Negative feedback opposes the change; positive feedback amplifies it."], p: [P1, P2], drills: ["bi-feedback-type", bi-feedback-scenario] }
+          - { id: A, std: [ENE-3.A], do: "Classify a described regulatory loop as positive or negative feedback.", ek: ["Negative feedback opposes the change; positive feedback amplifies it."], p: [P1, P2], needs: [BI-4.4.A], drills: ["bi-feedback-type", bi-feedback-scenario] }
           - { id: B, std: [ENE-3.B], do: "Explain how negative feedback holds a set point, using blood glucose or body temperature.", ek: ["High glucose → insulin → uptake and storage; low glucose → glucagon → release."], p: [P1], drills: ["bi-negative-feedback", bi-set-point], needs: [BI-4.5.A] }
           - { id: C, std: [ENE-3.C], do: "Explain a positive-feedback example and what ends it.", ek: ["Oxytocin in labour, ethylene in ripening, platelet clotting — each stops when the triggering event finishes."], p: [P1], drills: ["bi-positive-feedback", bi-positive-end], needs: [BI-4.5.A] }
       - n: 6
@@ -479,7 +479,7 @@ units:
         title: Evidence of evolution
         std: ["ap-biology-2025:7.6.A", "ap-biology-2025:7.6.B"]
         los:
-          - { id: A, std: [EVO-1.M], do: "Describe the kinds of data that support evolution.", ek: ["Fossils, comparative anatomy, molecular sequences, embryology and biogeography."], p: [P1], drills: ["bi-evolution-evidence", bi-evidence-type] }
+          - { id: A, std: [EVO-1.M], do: "Describe the kinds of data that support evolution.", ek: ["Fossils, comparative anatomy, molecular sequences, embryology and biogeography."], p: [P1], needs: [BI-7.5.C], drills: ["bi-evolution-evidence", bi-evidence-type] }
           - { id: B, std: [EVO-1.N], do: "Distinguish homologous, analogous and vestigial structures and date fossils from radioisotope half-lives.", ek: ["Fraction remaining = (1/2)^(t / t½); homology reflects shared ancestry, analogy reflects convergence."], p: [P1, P5], drills: ["bi-structure-homology", "bi-radiometric-dating"], needs: [BI-7.6.A, BI-7.3.B] }
       - n: 7
         title: Common ancestry
@@ -510,7 +510,7 @@ units:
         title: Extinction
         std: ["ap-biology-2025:7.10.A", "ap-biology-2025:7.10.B", "ap-biology-2025:7.10.C"]
         los:
-          - { id: A, std: [EVO-3.G], do: "Describe factors that drive a population to extinction.", ek: ["Habitat loss, rapid environmental change, disease, competition, small population size."], p: [P1], drills: ["bi-extinction", bi-extinction-risk] }
+          - { id: A, std: [EVO-3.G], do: "Describe factors that drive a population to extinction.", ek: ["Habitat loss, rapid environmental change, disease, competition, small population size."], p: [P1], needs: [BI-7.10.C], drills: ["bi-extinction", bi-extinction-risk] }
           - { id: B, std: [EVO-3.H], do: "Explain how the speed of environmental change, including human change, affects extinction risk.", ek: ["Change faster than populations can adapt raises extinction rates."], p: [P6], drills: ["bi-extinction", bi-rate-of-change], needs: [BI-7.11.A] }
           - { id: C, std: [EVO-3.I, EVO-3.J], do: "Explain diversity as speciation rate minus extinction rate and how mass extinctions open niches for adaptive radiation.", ek: ["After the end-Cretaceous extinction, mammals radiated into vacated niches."], p: [P1, P4], drills: ["bi-extinction", "bi-tempo-radiation"], needs: [BI-7.10.B, BI-7.11.A] }
       - n: 12
@@ -551,7 +551,7 @@ units:
         title: Population ecology
         std: ["ap-biology-2025:8.3.A"]
         los:
-          - { id: A, std: [SYI-1.G], do: "Calculate per-capita birth and death rates and r from population counts.", ek: ["b = B/N, d = D/N, r = b − d."], p: [P5], drills: ["bi-population-rates", bi-population-after-year] }
+          - { id: A, std: [SYI-1.G], do: "Calculate per-capita birth and death rates and r from population counts.", ek: ["b = B/N, d = D/N, r = b − d."], p: [P5], needs: [BI-8.2.D], drills: ["bi-population-rates", bi-population-after-year] }
           - { id: B, std: [SYI-1.G], do: "Calculate growth with dN/dt = r_max N and recognise a J-shaped curve.", ek: ["Unlimited resources give exponential growth; growth rate scales with N."], p: [P4, P5], drills: ["bi-exponential-growth", bi-doubling-time], needs: [BI-8.3.A] }
       - n: 4
         title: Effect of density of populations
@@ -563,8 +563,8 @@ units:
         title: Community ecology
         std: ["ap-biology-2025:8.5.A", "ap-biology-2025:8.5.B"]
         los:
-          - { id: A, std: [ENE-4.A], do: "Calculate Simpson's diversity index and compare communities by richness and evenness.", ek: ["D = 1 − Σ(n/N)²; closer to 1 is more diverse."], p: [P5], drills: ["bi-simpson-index", bi-simpson-two] }
-          - { id: B, std: [ENE-4.B], do: "Classify species interactions by their +, − or 0 effect on each partner.", ek: ["Mutualism +/+, commensalism +/0, predation and parasitism +/−, competition −/−."], p: [P1], drills: ["bi-interaction-type", bi-interaction-scenario] }
+          - { id: A, std: [ENE-4.A], do: "Calculate Simpson's diversity index and compare communities by richness and evenness.", ek: ["D = 1 − Σ(n/N)²; closer to 1 is more diverse."], p: [P5], needs: [BI-8.4.B], drills: ["bi-simpson-index", bi-simpson-two] }
+          - { id: B, std: [ENE-4.B], do: "Classify species interactions by their +, − or 0 effect on each partner.", ek: ["Mutualism +/+, commensalism +/0, predation and parasitism +/−, competition −/−."], p: [P1], needs: [BI-8.5.A], drills: ["bi-interaction-type", bi-interaction-scenario] }
           - { id: C, std: [ENE-4.B], do: "Interpret predator–prey cycles, competitive exclusion and resource partitioning from data.", ek: ["Predator peaks lag prey peaks; two species cannot share one niche indefinitely."], p: [P4, P6], drills: ["bi-community-data", bi-community-scenario], needs: [BI-8.5.B] }
           - { id: D, std: [ENE-4.C], do: "Explain how resource availability drives community change, including primary and secondary succession.", ek: ["Primary starts on bare rock with pioneer species; secondary starts on existing soil."], p: [P1], drills: ["bi-succession", bi-succession-scenario], needs: [BI-8.5.B] }
       - n: 6
@@ -609,13 +609,13 @@ units:
       - n: 4
         title: Circulatory and respiratory systems
         los:
-          - { id: A, std: ["DAT Bio · systems · circulatory"], do: "Trace blood through the heart and body and relate vessel structure to pressure.", ek: ["RA → RV → lungs → LA → LV → aorta; arteries thick and high-pressure, veins valved, capillaries one cell thick."], p: [P1, P2], drills: ["bi-blood-path", bi-circulation-scenario] }
+          - { id: A, std: ["DAT Bio · systems · circulatory"], do: "Trace blood through the heart and body and relate vessel structure to pressure.", ek: ["RA → RV → lungs → LA → LV → aorta; arteries thick and high-pressure, veins valved, capillaries one cell thick."], p: [P1, P2], needs: [BI-9.3.B], drills: ["bi-blood-path", bi-circulation-scenario] }
           - { id: B, std: ["DAT Bio · systems · circulatory"], do: "Predict how CO₂, pH and temperature shift the oxygen–hemoglobin dissociation curve.", ek: ["↑CO₂, ↑H⁺, ↑temperature shift right (lower affinity, more unloading — Bohr effect)."], p: [P4, P6], drills: ["bi-oxygen-curve", bi-bohr-predict], needs: [BI-9.4.A, BI-1.5.A] }
           - { id: C, std: ["DAT Bio · systems · respiratory"], do: "Explain ventilation, alveolar gas exchange and how blood CO₂ sets breathing rate.", ek: ["Diaphragm contracts → chest volume up, pressure down → air in; medulla responds to falling blood pH."], p: [P1], drills: ["bi-ventilation", bi-breathing-control], needs: [BI-9.4.B, BI-2.3.C] }
       - n: 5
         title: Immune and lymphatic systems
         los:
-          - { id: A, std: ["DAT Bio · systems · immunological/lymphatic"], do: "Distinguish innate from adaptive immunity.", ek: ["Innate: barriers, phagocytes, inflammation, fast and nonspecific; adaptive: lymphocytes, specific, with memory."], p: [P1], drills: ["bi-innate-adaptive", bi-immunity-classify] }
+          - { id: A, std: ["DAT Bio · systems · immunological/lymphatic"], do: "Distinguish innate from adaptive immunity.", ek: ["Innate: barriers, phagocytes, inflammation, fast and nonspecific; adaptive: lymphocytes, specific, with memory."], p: [P1], needs: [BI-9.4.C], drills: ["bi-innate-adaptive", bi-immunity-classify] }
           - { id: B, std: ["DAT Bio · systems · immunological/lymphatic"], do: "Explain humoral and cell-mediated responses, MHC presentation and immunological memory.", ek: ["B cells → plasma cells → antibodies; CD8⁺ T cells kill MHC-I-presenting infected cells; CD4⁺ helpers see MHC II; memory cells speed the second response."], p: [P1, P4], drills: ["bi-lymphocytes", bi-lymphocyte-scenario], needs: [BI-9.5.A, BI-4.1.A] }
       - n: 6
         title: Digestive and urinary systems
