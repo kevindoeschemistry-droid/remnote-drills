@@ -648,4 +648,145 @@ def pm_replicate_price(s0, u, d, r, pu, pd):
     return sol[D] * s0 + sol[B]
 
 
+# ---- third layer: dihedral groups, one-line permutations, quotients, proof bridge ----
+def _dihedral(n):
+    """the 2n symmetries of a regular n-gon as tuples acting on corners 0..n-1"""
+    rots = [tuple((i + k) % n for i in range(n)) for k in range(n)]
+    refl = [tuple((k - i) % n for i in range(n)) for k in range(n)]
+    return rots + refl
+
+
+def _comp(f, g):
+    return tuple(f[g[i]] for i in range(len(f)))
+
+
+def pm_dihedral_order2(n):
+    G = _dihedral(int(n)); e = G[0]
+    return sp.Integer(sum(1 for g in G if g != e and _comp(g, g) == e))
+
+
+def pm_dihedral_center(n):
+    G = _dihedral(int(n))
+    return sp.Integer(sum(1 for g in G if all(_comp(g, h) == _comp(h, g) for h in G)))
+
+
+def pm_dihedral_classes(n):
+    G = _dihedral(int(n))
+    inv = {g: next(h for h in G if _comp(g, h) == G[0]) for g in G}
+    return sp.Integer(len({frozenset(_comp(_comp(h, g), inv[h]) for h in G) for g in G}))
+
+
+def pm_dihedral_srs(n, k):
+    """the exponent j (0..n-1) with s r^k s = r^j, where r is a rotation and s a reflection"""
+    n, k = int(n), int(k)
+    G = _dihedral(n); r, s = G[1], G[n]
+    rk = G[0]
+    for _ in range(k):
+        rk = _comp(r, rk)
+    return sp.Integer(G.index(_comp(_comp(s, rk), s)))
+
+
+def _oneline(s):
+    xs = [int(x) for x in str(s).split()]
+    return {i + 1: v for i, v in enumerate(xs)}
+
+
+def _cycles(f):
+    seen, out = set(), []
+    for a in sorted(f):
+        if a in seen:
+            continue
+        ln, x = 0, a
+        while x not in seen:
+            seen.add(x); x = f[x]; ln += 1
+        out.append(ln)
+    return out
+
+
+def pm_oneline_order(s):
+    return sp.Integer(sp.ilcm(1, *_cycles(_oneline(s))))
+
+
+def pm_oneline_cycles(s):
+    """number of cycles, counting fixed points"""
+    return sp.Integer(len(_cycles(_oneline(s))))
+
+
+def pm_perm_power_image(cyc, k, x):
+    f = _perm(cyc, _deg(cyc)); x = int(x)
+    for _ in range(int(k)):
+        x = f[x]
+    return sp.Integer(x)
+
+
+def pm_perm_inverse_image(cyc, x):
+    f = _perm(cyc, _deg(cyc))
+    return sp.Integer(next(a for a in f if f[a] == int(x)))
+
+
+def pm_perm_transpositions(cyc, n):
+    """fewest transpositions whose product is the permutation, on n points: n minus the number of cycles"""
+    return sp.Integer(int(n) - len(_cycles(_perm(cyc, int(n)))))
+
+
+def pm_perm_orbits(cyc, n):
+    return sp.Integer(len(_cycles(_perm(cyc, int(n)))))
+
+
+def pm_conj_image(sigma, tau, x):
+    """where tau sigma tau^-1 sends x"""
+    n = _deg(sigma, tau)
+    f, g = _perm(sigma, n), _perm(tau, n)
+    ginv = {v: k for k, v in g.items()}
+    return sp.Integer(g[f[ginv[int(x)]]])
+
+
+def pm_kernel_size(k, n):
+    """elements x of Z_n with k x = 0"""
+    return sp.Integer(sum(1 for x in range(int(n)) if int(k) * x % int(n) == 0))
+
+
+def pm_prod_count_order(m, n, d):
+    """elements of order d in Z_m x Z_n"""
+    m, n, d = int(m), int(n), int(d)
+    def order(a, b):
+        k, x, y = 1, a % m, b % n
+        while x or y:
+            x, y, k = (x + a) % m, (y + b) % n, k + 1
+        return k
+    return sp.Integer(sum(1 for a in range(m) for b in range(n) if order(a, b) == d))
+
+
+def pm_quotient_order(a, d, n):
+    """order of the coset a + <d> in Z_n / <d>, d dividing n"""
+    a, d = int(a), int(d)
+    k, x = 1, a % d
+    while x:
+        x, k = (x + a) % d, k + 1
+    return sp.Integer(k)
+
+
+def pm_frobenius_next(a, b):
+    """least N such that every integer >= N is a non-negative combination of coprime a and b"""
+    a, b = int(a), int(b)
+    ok = lambda m: any((m - a * x) % b == 0 for x in range(m // a + 1))  # noqa: E731
+    top = a * b
+    bad = [m for m in range(1, top + 1) if not ok(m)]
+    return sp.Integer(max(bad) + 1)
+
+
+def pm_bisect_cover(a, d, x):
+    """least non-negative member of the coset x + <d> in Z_n"""
+    return sp.Integer(int(x) % int(d))
+
+
+def pm_distinct_values(expr, upto):
+    """number of distinct values a periodic sequence takes for n = 1..upto (its subsequential limits)"""
+    ns = {"sin": sp.sin, "cos": sp.cos, "pi": sp.pi, "Rational": sp.Rational}
+    vals = set()
+    for n in range(1, int(upto) + 1):
+        vals.add(sp.nsimplify(eval(expr, {"__builtins__": {}}, dict(ns, n=sp.Integer(n)))))  # noqa: S307
+    return sp.Integer(len(vals))  # noqa: S307
+
+
 FUNCS = {k: v for k, v in globals().items() if k.startswith("pm_") and callable(v)}

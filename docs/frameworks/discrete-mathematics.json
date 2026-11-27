@@ -62,24 +62,6 @@
      "title": "Statements",
      "los": [
       {
-       "id": "B",
-       "std": [
-        "cupm-2015-discrete:D1",
-        "cambridge-ia-numbers-sets:N1"
-       ],
-       "do": "Negate a quantified statement and say what a counterexample must be.",
-       "ek": [
-        "Negation swaps 'for all' and 'there exists' and negates the inside. A universal claim falls to one counterexample; an existential claim needs one witness."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "dm-negate-quantifiers",
-        "dm-counterexample"
-       ]
-      },
-      {
        "id": "C",
        "std": [
         "cupm-2015-discrete:D1"
@@ -90,6 +72,9 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "DM-1.2.C"
        ],
        "drills": [
         "dm-proof-first-line",
@@ -111,6 +96,161 @@
        "drills": [
         "dm-truth-rows",
         "dm-equivalent-forms"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-discrete:D1",
+        "cambridge-ia-numbers-sets:N1"
+       ],
+       "do": "Negate a quantified statement and say what a counterexample must be.",
+       "ek": [
+        "Negation swaps 'for all' and 'there exists' and negates the inside. A universal claim falls to one counterexample; an existential claim needs one witness."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-1.1.A"
+       ],
+       "drills": [
+        "dm-negate-quantifiers",
+        "dm-counterexample"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "From computing to proving",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cupm-2015-discrete:D1",
+        "cambridge-ia-numbers-sets:N1"
+       ],
+       "do": "Apply a definition exactly as written to decide whether an object qualifies.",
+       "ek": [
+        "A definition is a test. n is even if n = 2k for some integer k; a divides b if b = ak for some integer k; a number is rational if it is a quotient of integers with non-zero denominator. Edge cases (0, 1, negatives) are settled by the wording, not by intuition."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-1.1.A"
+       ],
+       "drills": [
+        "dm-definition-applies",
+        "dm-definition-wording"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cupm-2015-discrete:D1",
+        "cambridge-ia-numbers-sets:N1"
+       ],
+       "do": "Carry out the algebra a direct proof turns on.",
+       "ek": [
+        "A direct proof unpacks the hypothesis with the definition, computes, and repacks the result in the form the conclusion's definition demands: to show a product is odd, exhibit it as 2(something) + 1."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-1.2.A"
+       ],
+       "drills": [
+        "dm-odd-product-witness",
+        "dm-direct-proof-steps"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cupm-2015-discrete:D1",
+        "cambridge-ia-numbers-sets:N1"
+       ],
+       "do": "State the contrapositive of a claim and recognise the contradiction a proof reaches.",
+       "ek": [
+        "The contrapositive of 'if P then Q' is 'if not Q then not P' and is equivalent to it. A proof by contradiction assumes P and not Q together and derives something impossible."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-1.2.B",
+        "DM-1.1.B"
+       ],
+       "drills": [
+        "dm-contrapositive-of",
+        "dm-contradiction-reached"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cupm-2015-discrete:D1",
+        "cambridge-ia-numbers-sets:N1"
+       ],
+       "do": "Split a claim into cases and check them all.",
+       "ek": [
+        "A proof by cases must cover every possibility. Working modulo m reduces a claim about all integers to m cases: squares are 0 or 1 modulo 4, and 0, 1 or 4 modulo 8."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-1.2.B"
+       ],
+       "drills": [
+        "dm-square-residues",
+        "dm-cases-facts"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "cupm-2015-discrete:D1",
+        "cambridge-ia-numbers-sets:N1"
+       ],
+       "do": "Prove existence with a witness and say what uniqueness requires.",
+       "ek": [
+        "An existence claim needs one example. Uniqueness needs an argument that any two objects with the property are equal. 'There is exactly one' needs both."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-1.2.B",
+        "DM-1.1.B"
+       ],
+       "drills": [
+        "dm-witness",
+        "dm-uniqueness-facts"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "cupm-2015-discrete:D2",
+        "cambridge-ia-numbers-sets:N3"
+       ],
+       "do": "Lay out an induction: base cases, hypothesis and step, including strong induction.",
+       "ek": [
+        "Ordinary induction proves P(1) and that P(k) implies P(k + 1). Strong induction may use every earlier case, and needs as many base cases as the step reaches back."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-1.1.C"
+       ],
+       "drills": [
+        "dm-stamps-threshold",
+        "dm-induction-anatomy"
        ]
       }
      ]
@@ -149,6 +289,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-1.2.F"
+       ],
        "drills": [
         "dm-sum-squares",
         "dm-induction-step-term"
@@ -166,6 +309,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "DM-2.1.A"
        ],
        "drills": [
         "dm-recurrence-iterate",
@@ -195,24 +341,6 @@
      "title": "Sets and functions",
      "los": [
       {
-       "id": "D",
-       "std": [
-        "cupm-2015-discrete:D3",
-        "cambridge-ia-numbers-sets:N6"
-       ],
-       "do": "Decide whether a set is countable and say what Cantor's diagonal argument shows.",
-       "ek": [
-        "A set is countable if it can be listed. The integers, the rationals and any countable union of countable sets are countable; the reals and the power set of the naturals are not, and no set maps onto its own power set."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "dm-countable-or-not",
-        "dm-cantor-facts"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "cupm-2015-discrete:D3",
@@ -224,6 +352,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "DM-1.2.A"
        ],
        "drills": [
         "dm-union-size",
@@ -243,9 +374,34 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-3.1.A"
+       ],
        "drills": [
         "dm-injections",
         "dm-surjections"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cupm-2015-discrete:D3",
+        "cambridge-ia-numbers-sets:N6"
+       ],
+       "do": "Decide whether a set is countable and say what Cantor's diagonal argument shows.",
+       "ek": [
+        "A set is countable if it can be listed. The integers, the rationals and any countable union of countable sets are countable; the reals and the power set of the naturals are not, and no set maps onto its own power set."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-3.1.B",
+        "DM-1.2.C"
+       ],
+       "drills": [
+        "dm-countable-or-not",
+        "dm-cantor-facts"
        ]
       },
       {
@@ -260,6 +416,10 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "DM-3.1.A",
+        "DM-1.2.A"
        ],
        "drills": [
         "dm-relation-properties",
@@ -304,6 +464,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-3.1.A"
+       ],
        "drills": [
         "dm-word-arrangements",
         "dm-committee-at-least"
@@ -320,6 +483,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "DM-4.1.A"
        ],
        "drills": [
         "dm-stars-bars",
@@ -340,6 +506,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-4.1.A",
+        "DM-2.1.A"
+       ],
        "drills": [
         "dm-binomial-coefficient",
         "dm-even-subsets"
@@ -358,6 +528,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-4.1.A",
+        "DM-3.1.A"
+       ],
        "drills": [
         "dm-divisible-by-any",
         "dm-derangements"
@@ -374,6 +548,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "DM-4.1.A",
+        "DM-1.2.D"
        ],
        "drills": [
         "dm-pigeonhole-force",
@@ -413,6 +591,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-4.1.B",
+        "DM-4.1.C"
+       ],
        "drills": [
         "dm-gf-coefficient",
         "dm-gf-bounded"
@@ -430,6 +612,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "DM-5.1.A",
+        "DM-2.1.B"
        ],
        "drills": [
         "dm-gf-change",
@@ -464,26 +650,6 @@
      "title": "Degrees, trees and circuits",
      "los": [
       {
-       "id": "F",
-       "std": [
-        "cupm-2015-discrete:GT4",
-        "cambridge-ii-graph-theory:H2",
-        "cambridge-ii-graph-theory:H3",
-        "cambridge-ii-graph-theory:H6"
-       ],
-       "do": "Recognise Hamilton cycles, matchings and the first Ramsey number.",
-       "ek": [
-        "A Hamilton cycle visits every vertex once; Dirac: minimum degree at least n/2 guarantees one. Hall: a bipartite graph has a matching covering X exactly when every set S in X has at least |S| neighbours. R(3, 3) = 6."
-       ],
-       "p": [
-        "P2"
-       ],
-       "drills": [
-        "dm-hamilton-or-not",
-        "dm-hall-ramsey-facts"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "cupm-2015-discrete:D5",
@@ -496,6 +662,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "DM-4.1.A"
        ],
        "drills": [
         "dm-handshake-edges",
@@ -515,6 +684,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-6.1.A",
+        "DM-2.1.A"
+       ],
        "drills": [
         "dm-forest-edges",
         "dm-spanning-trees"
@@ -533,9 +706,36 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "DM-6.1.A"
+       ],
        "drills": [
         "dm-odd-vertices",
         "dm-euler-classify"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "cupm-2015-discrete:GT4",
+        "cambridge-ii-graph-theory:H2",
+        "cambridge-ii-graph-theory:H3",
+        "cambridge-ii-graph-theory:H6"
+       ],
+       "do": "Recognise Hamilton cycles, matchings and the first Ramsey number.",
+       "ek": [
+        "A Hamilton cycle visits every vertex once; Dirac: minimum degree at least n/2 guarantees one. Hall: a bipartite graph has a matching covering X exactly when every set S in X has at least |S| neighbours. R(3, 3) = 6."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "DM-6.1.C",
+        "DM-4.1.E"
+       ],
+       "drills": [
+        "dm-hamilton-or-not",
+        "dm-hall-ramsey-facts"
        ]
       },
       {
@@ -550,6 +750,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "DM-6.1.B"
        ],
        "drills": [
         "dm-chromatic-number",
@@ -569,6 +772,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "DM-6.1.B"
+       ],
        "drills": [
         "dm-euler-faces",
         "dm-planarity-facts"
@@ -580,17 +786,6 @@
   }
  ],
  "rows": [
-  {
-   "code": "DM-1.1.B",
-   "unit": 1,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "dm-negate-quantifiers",
-    "dm-counterexample"
-   ],
-   "partial": []
-  },
   {
    "code": "DM-1.1.C",
    "unit": 1,
@@ -610,6 +805,83 @@
    "full": [
     "dm-truth-rows",
     "dm-equivalent-forms"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dm-negate-quantifiers",
+    "dm-counterexample"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dm-definition-applies",
+    "dm-definition-wording"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dm-odd-product-witness",
+    "dm-direct-proof-steps"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dm-contrapositive-of",
+    "dm-contradiction-reached"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dm-square-residues",
+    "dm-cases-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-1.2.E",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dm-witness",
+    "dm-uniqueness-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-1.2.F",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "dm-stamps-threshold",
+    "dm-induction-anatomy"
    ],
    "partial": []
   },
@@ -636,17 +908,6 @@
    "partial": []
   },
   {
-   "code": "DM-3.1.D",
-   "unit": 3,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "dm-countable-or-not",
-    "dm-cantor-facts"
-   ],
-   "partial": []
-  },
-  {
    "code": "DM-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -665,6 +926,17 @@
    "full": [
     "dm-injections",
     "dm-surjections"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dm-countable-or-not",
+    "dm-cantor-facts"
    ],
    "partial": []
   },
@@ -757,17 +1029,6 @@
    "partial": []
   },
   {
-   "code": "DM-6.1.F",
-   "unit": 6,
-   "topic": 1,
-   "status": "ok",
-   "full": [
-    "dm-hamilton-or-not",
-    "dm-hall-ramsey-facts"
-   ],
-   "partial": []
-  },
-  {
    "code": "DM-6.1.A",
    "unit": 6,
    "topic": 1,
@@ -797,6 +1058,17 @@
    "full": [
     "dm-odd-vertices",
     "dm-euler-classify"
+   ],
+   "partial": []
+  },
+  {
+   "code": "DM-6.1.F",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "dm-hamilton-or-not",
+    "dm-hall-ramsey-facts"
    ],
    "partial": []
   },

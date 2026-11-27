@@ -93,6 +93,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-1.2.B"
+       ],
        "drills": [
         "aa-order-in-zn",
         "aa-count-order-d"
@@ -109,6 +112,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "AA-1.2.D"
        ],
        "drills": [
         "aa-coset-count",
@@ -127,9 +133,143 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-1.2.B",
+        "NT-2.1.B"
+       ],
        "drills": [
         "aa-unit-group-order",
         "aa-unit-group-cyclic"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "One group at a time",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-groups:G1"
+       ],
+       "do": "Compute in the group of units modulo n: products and inverses.",
+       "ek": [
+        "The units modulo n are the residues coprime to n, multiplied modulo n. The identity is 1 and each unit has exactly one inverse, which is again a unit."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.1.A",
+        "NT-2.1.A"
+       ],
+       "drills": [
+        "aa-unit-product",
+        "aa-unit-inverse"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-groups:G1",
+        "cambridge-ia-groups:G2"
+       ],
+       "do": "Find the order of an element of a multiplicative group by taking powers.",
+       "ek": [
+        "The order of a is the least k ≥ 1 with a^k equal to the identity. The powers of a cycle with that period, so a^m is the identity exactly when the order divides m."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.2.A"
+       ],
+       "drills": [
+        "aa-unit-order",
+        "aa-power-reduce"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-groups:G1"
+       ],
+       "do": "Find the subgroup an element generates and list the subgroups of a cyclic group.",
+       "ek": [
+        "In Z_n the element a generates the multiples of gcd(a, n), a subgroup of order n/gcd(a, n). Z_n has exactly one subgroup for each divisor of n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.1.B"
+       ],
+       "drills": [
+        "aa-generated-subgroup",
+        "aa-cyclic-subgroup-count"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ia-groups:G2"
+       ],
+       "do": "Split a cyclic group into the cosets of a subgroup.",
+       "ek": [
+        "The cosets of ⟨d⟩ in Z_n (d dividing n) are the residue classes modulo d: there are d of them, each of size n/d, and they partition the group."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.2.C"
+       ],
+       "drills": [
+        "aa-zn-coset-count",
+        "aa-coset-representative"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "cambridge-ia-groups:G1"
+       ],
+       "do": "Compute in a dihedral group with the relation between rotations and reflections.",
+       "ek": [
+        "The symmetry group of a regular n-gon has n rotations and n reflections. With r a rotation by one step and s a reflection, s r s = r⁻¹, so s rᵏ s = r⁻ᵏ and every reflection has order 2."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.2.B"
+       ],
+       "drills": [
+        "aa-dihedral-relation",
+        "aa-dihedral-involutions"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "cambridge-ia-groups:G1",
+        "cambridge-ia-groups:G2"
+       ],
+       "do": "Decide whether two small groups are isomorphic by comparing invariants.",
+       "ek": [
+        "Isomorphic groups have the same order, the same number of elements of each order, and are both abelian or both not. One mismatch is enough to tell two groups apart."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.1.D",
+        "AA-1.2.E"
+       ],
+       "drills": [
+        "aa-isomorphic-or-not",
+        "aa-isomorphism-invariants"
        ]
       }
      ]
@@ -164,6 +304,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-2.2.B"
+       ],
        "drills": [
         "aa-perm-order",
         "aa-perm-compose"
@@ -180,6 +323,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "AA-2.2.C"
        ],
        "drills": [
         "aa-perm-sign",
@@ -199,9 +345,99 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-2.2.D",
+        "AA-1.1.C"
+       ],
        "drills": [
         "aa-sn-class-count",
         "aa-sn-class-size"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Permutations by hand",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-groups:G6"
+       ],
+       "do": "Turn a permutation written as a list of images into cycles.",
+       "ek": [
+        "Start at 1, follow where each point is sent until you return, and repeat from the smallest point not yet reached. Fixed points are cycles of length 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.1.A"
+       ],
+       "drills": [
+        "aa-oneline-cycles",
+        "aa-oneline-order"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-groups:G6"
+       ],
+       "do": "Find powers and the inverse of a permutation.",
+       "ek": [
+        "σᵏ moves each point k steps along its cycle, and σ⁻¹ runs each cycle backwards. A cycle of length m satisfies σᵐ = identity."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-2.2.A"
+       ],
+       "drills": [
+        "aa-perm-power",
+        "aa-perm-inverse"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-groups:G6"
+       ],
+       "do": "Write a permutation as a product of transpositions and count how many are needed.",
+       "ek": [
+        "A cycle of length m is a product of m − 1 transpositions, so a permutation of n points with c cycles (fixed points included) needs n − c, and no fewer."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-2.1.A"
+       ],
+       "drills": [
+        "aa-transposition-count",
+        "aa-transposition-facts"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ia-groups:G6"
+       ],
+       "do": "Conjugate a permutation by relabelling its cycles.",
+       "ek": [
+        "τστ⁻¹ has the same cycle shape as σ, with every entry a replaced by τ(a). This is why conjugacy classes in S_n are cycle types."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-2.1.A"
+       ],
+       "drills": [
+        "aa-conjugate-image",
+        "aa-conjugation-facts"
        ]
       }
      ]
@@ -239,6 +475,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-3.2.A",
+        "AA-1.1.C"
+       ],
        "drills": [
         "aa-orbit-stabiliser",
         "aa-stabiliser-size"
@@ -255,6 +495,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "AA-3.2.B",
+        "AA-3.1.A"
        ],
        "drills": [
         "aa-necklaces",
@@ -274,9 +518,80 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-3.2.C",
+        "AA-2.1.C"
+       ],
        "drills": [
         "aa-centraliser-size",
         "aa-class-equation-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Orbits by counting",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-groups:G3"
+       ],
+       "do": "Find the orbits of a small group acting on a set.",
+       "ek": [
+        "The orbit of a point is everything the group can move it to; orbits partition the set. For the group generated by one permutation the orbits are its cycles."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-2.2.A"
+       ],
+       "drills": [
+        "aa-orbit-count",
+        "aa-orbit-size-divides"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-groups:G3"
+       ],
+       "do": "Count the colourings a symmetry fixes and apply Burnside to a polygon.",
+       "ek": [
+        "A symmetry fixes a colouring exactly when each cycle of the symmetry is one colour, so it fixes k^(number of cycles) colourings. Averaging over rotations and reflections counts patterns up to turning over."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-3.2.A"
+       ],
+       "drills": [
+        "aa-fixed-colourings",
+        "aa-bracelets"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-groups:G3"
+       ],
+       "do": "Find the centre and the conjugacy classes of a dihedral group.",
+       "ek": [
+        "In the symmetry group of a regular n-gon the centre is trivial for odd n and contains the half-turn for even n. There are (n + 3)/2 conjugacy classes for odd n and (n + 6)/2 for even n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.2.E",
+        "AA-2.2.D"
+       ],
+       "drills": [
+        "aa-dihedral-centre",
+        "aa-dihedral-classes"
        ]
       }
      ]
@@ -314,6 +629,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-4.2.C"
+       ],
        "drills": [
         "aa-image-size",
         "aa-hom-count"
@@ -330,6 +648,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "AA-4.2.D"
        ],
        "drills": [
         "aa-abelian-count",
@@ -348,9 +669,101 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-3.1.C",
+        "AA-4.2.A",
+        "AA-4.1.B"
+       ],
        "drills": [
         "aa-sylow-options",
         "aa-sylow-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Quotients and products of small groups",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-groups:G4"
+       ],
+       "do": "Decide whether a subgroup is normal.",
+       "ek": [
+        "N is normal when gNg⁻¹ = N for every g, equivalently when left and right cosets agree. Every subgroup of an abelian group is normal, and so is every subgroup of index 2."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.2.D",
+        "AA-2.2.D"
+       ],
+       "drills": [
+        "aa-normal-or-not",
+        "aa-normal-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-groups:G4"
+       ],
+       "do": "Compute in a quotient of a cyclic group.",
+       "ek": [
+        "Z_n/⟨d⟩ is cyclic of order d. The coset of a has order d/gcd(a, d): the least k for which ka lands back in the subgroup."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-4.2.A"
+       ],
+       "drills": [
+        "aa-quotient-element-order",
+        "aa-quotient-order"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-groups:G4"
+       ],
+       "do": "Find the kernel and image of a concrete homomorphism.",
+       "ek": [
+        "For x ↦ kx on Z_n the kernel has gcd(k, n) elements and the image n/gcd(k, n). The sign map on S_n has kernel A_n; the determinant on invertible matrices has kernel the matrices of determinant 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-4.2.B"
+       ],
+       "drills": [
+        "aa-kernel-size",
+        "aa-kernel-facts"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ib-grm:MO"
+       ],
+       "do": "Find orders of elements in a direct product.",
+       "ek": [
+        "The order of (a, b) is the least common multiple of the orders of a and b. Counting elements of each order is the quickest way to tell products such as Z₂ × Z₄ and Z₈ apart."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-1.1.B"
+       ],
+       "drills": [
+        "aa-product-element-order",
+        "aa-product-count-order"
        ]
       }
      ]
@@ -385,6 +798,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-1.2.A"
+       ],
        "drills": [
         "aa-zero-divisors",
         "aa-idempotents"
@@ -401,6 +817,10 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "AA-5.2.C",
+        "AA-5.2.B"
        ],
        "drills": [
         "aa-field-or-not",
@@ -419,9 +839,79 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-5.1.B"
+       ],
        "drills": [
         "aa-gaussian-norm",
         "aa-factorisation-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Ideals and polynomial arithmetic",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ib-grm:RI"
+       ],
+       "do": "Do arithmetic with polynomials whose coefficients are taken modulo a prime.",
+       "ek": [
+        "Coefficients add and multiply modulo p. Because p divides the middle binomial coefficients, (x + 1)ᵖ = xᵖ + 1 in Z_p[x]: the 'freshman's dream' is true in characteristic p."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-5.1.A"
+       ],
+       "drills": [
+        "aa-binomial-mod-p",
+        "aa-char-p-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-grm:RI"
+       ],
+       "do": "Combine ideals of the integers and count the ideals of Z_n.",
+       "ek": [
+        "Every ideal of Z is (m) for some m. (a) + (b) = (gcd), (a) ∩ (b) = (lcm), and (a) contains (b) exactly when a divides b. The ideals of Z_n correspond to the divisors of n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-5.1.A",
+        "NT-1.1.B"
+       ],
+       "drills": [
+        "aa-ideal-sum",
+        "aa-ideal-intersection"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ib-grm:RI"
+       ],
+       "do": "Use the remainder and factor theorems over Z_p.",
+       "ek": [
+        "Dividing f(x) by x − a leaves the remainder f(a); so a is a root exactly when x − a is a factor. A quadratic or cubic over a field is irreducible exactly when it has no root."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-5.2.A"
+       ],
+       "drills": [
+        "aa-remainder-mod-p",
+        "aa-cubic-roots-mod-p"
        ]
       }
      ]
@@ -449,23 +939,6 @@
      "title": "Extensions, finite fields and the Galois correspondence",
      "los": [
       {
-       "id": "D",
-       "std": [
-        "cambridge-ii-galois-theory:S"
-       ],
-       "do": "Decide what can be constructed by ruler and compass or solved by radicals.",
-       "ek": [
-        "A length is constructible only if its degree over Q is a power of 2, so a regular n-gon is constructible exactly when φ(n) is a power of 2. A polynomial is soluble by radicals exactly when its Galois group is soluble; S₅ is not."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "aa-constructible-polygon",
-        "aa-impossibility-facts"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "cambridge-ii-galois-theory:E"
@@ -476,6 +949,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "AA-5.1.B"
        ],
        "drills": [
         "aa-extension-degree",
@@ -494,6 +970,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-6.1.A",
+        "AA-5.2.C"
+       ],
        "drills": [
         "aa-irreducible-count",
         "aa-subfield-count"
@@ -511,9 +991,34 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "AA-6.1.B",
+        "AA-4.1.A"
+       ],
        "drills": [
         "aa-cyclotomic-degree",
         "aa-galois-correspondence"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ii-galois-theory:S"
+       ],
+       "do": "Decide what can be constructed by ruler and compass or solved by radicals.",
+       "ek": [
+        "A length is constructible only if its degree over Q is a power of 2, so a regular n-gon is constructible exactly when φ(n) is a power of 2. A polynomial is soluble by radicals exactly when its Galois group is soluble; S₅ is not."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "AA-6.1.C",
+        "AA-4.1.C"
+       ],
+       "drills": [
+        "aa-constructible-polygon",
+        "aa-impossibility-facts"
        ]
       }
      ]
@@ -567,6 +1072,72 @@
    "partial": []
   },
   {
+   "code": "AA-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-unit-product",
+    "aa-unit-inverse"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-unit-order",
+    "aa-power-reduce"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-generated-subgroup",
+    "aa-cyclic-subgroup-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-zn-coset-count",
+    "aa-coset-representative"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-1.2.E",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-dihedral-relation",
+    "aa-dihedral-involutions"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-1.2.F",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-isomorphic-or-not",
+    "aa-isomorphism-invariants"
+   ],
+   "partial": []
+  },
+  {
    "code": "AA-2.1.A",
    "unit": 2,
    "topic": 1,
@@ -596,6 +1167,50 @@
    "full": [
     "aa-sn-class-count",
     "aa-sn-class-size"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-oneline-cycles",
+    "aa-oneline-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-perm-power",
+    "aa-perm-inverse"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-transposition-count",
+    "aa-transposition-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-2.2.D",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-conjugate-image",
+    "aa-conjugation-facts"
    ],
    "partial": []
   },
@@ -633,6 +1248,39 @@
    "partial": []
   },
   {
+   "code": "AA-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-orbit-count",
+    "aa-orbit-size-divides"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-fixed-colourings",
+    "aa-bracelets"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-dihedral-centre",
+    "aa-dihedral-classes"
+   ],
+   "partial": []
+  },
+  {
    "code": "AA-4.1.A",
    "unit": 4,
    "topic": 1,
@@ -662,6 +1310,50 @@
    "full": [
     "aa-sylow-options",
     "aa-sylow-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-normal-or-not",
+    "aa-normal-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-quotient-element-order",
+    "aa-quotient-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-kernel-size",
+    "aa-kernel-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-4.2.D",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-product-element-order",
+    "aa-product-count-order"
    ],
    "partial": []
   },
@@ -699,13 +1391,35 @@
    "partial": []
   },
   {
-   "code": "AA-6.1.D",
-   "unit": 6,
-   "topic": 1,
+   "code": "AA-5.2.A",
+   "unit": 5,
+   "topic": 2,
    "status": "ok",
    "full": [
-    "aa-constructible-polygon",
-    "aa-impossibility-facts"
+    "aa-binomial-mod-p",
+    "aa-char-p-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-ideal-sum",
+    "aa-ideal-intersection"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "aa-remainder-mod-p",
+    "aa-cubic-roots-mod-p"
    ],
    "partial": []
   },
@@ -739,6 +1453,17 @@
    "full": [
     "aa-cyclotomic-degree",
     "aa-galois-correspondence"
+   ],
+   "partial": []
+  },
+  {
+   "code": "AA-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "aa-constructible-polygon",
+    "aa-impossibility-facts"
    ],
    "partial": []
   }

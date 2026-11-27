@@ -74,6 +74,9 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-1.2.B"
+       ],
        "drills": [
         "ra-supremum",
         "ra-sup-attained"
@@ -92,9 +95,75 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-1.1.A"
+       ],
        "drills": [
         "ra-archimedean",
         "ra-completeness-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Inequalities and bounds",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-numbers-sets:N5"
+       ],
+       "do": "Turn an absolute-value inequality into an interval and use the triangle inequality.",
+       "ek": [
+        "|x − a| < r means a − r < x < a + r. The triangle inequality |x + y| ≤ |x| + |y| and its reverse ||x| − |y|| ≤ |x − y| are the two tools nearly every estimate in analysis uses."
+       ],
+       "p": [
+        "P1"
+       ],
+       "drills": [
+        "ra-abs-interval",
+        "ra-triangle-inequality"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-numbers-sets:N5"
+       ],
+       "do": "Find upper and lower bounds of a set and say whether it is bounded.",
+       "ek": [
+        "An upper bound is any number at least as large as every element; the infimum is the greatest lower bound. A set is bounded when it has both kinds."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-1.2.A"
+       ],
+       "drills": [
+        "ra-infimum",
+        "ra-bounded-how"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-numbers-sets:N5"
+       ],
+       "do": "Use the AM-GM and Bernoulli inequalities to bound an expression.",
+       "ek": [
+        "For positive numbers the arithmetic mean is at least the geometric mean, with equality only when they are equal; so x + k/x ≥ 2√k. Bernoulli: (1 + x)ⁿ ≥ 1 + nx for x ≥ −1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-1.2.A"
+       ],
+       "drills": [
+        "ra-am-gm-minimum",
+        "ra-inequality-facts"
        ]
       }
      ]
@@ -129,6 +198,11 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-2.2.A",
+        "RA-1.1.B",
+        "DM-1.1.B"
+       ],
        "drills": [
         "ra-epsilon-n",
         "ra-limit-value"
@@ -145,6 +219,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RA-2.2.B",
+        "RA-1.1.A"
        ],
        "drills": [
         "ra-recursive-limit",
@@ -163,9 +241,99 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-2.2.B"
+       ],
        "drills": [
         "ra-limsup",
         "ra-limsup-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Limits by the rules",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Find a limit with the algebra of limits and the squeeze rule.",
+       "ek": [
+        "Limits respect sums, products and quotients (non-zero denominator). If a_n ≤ b_n ≤ c_n and the outer two share a limit, so does b_n: bounded × null is null."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-1.2.A",
+        "CA-1.2.A"
+       ],
+       "drills": [
+        "ra-squeeze-limit",
+        "ra-limit-algebra-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Rank the growth of standard sequences.",
+       "ek": [
+        "For large n: logarithms ≪ powers of n ≪ exponentials cⁿ (c > 1) ≪ n! ≪ nⁿ. The ratio of a slower to a faster one tends to 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-2.2.A"
+       ],
+       "drills": [
+        "ra-growth-ratio",
+        "ra-growth-order"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Use subsequences to show a sequence diverges and count its subsequential limits.",
+       "ek": [
+        "Every subsequence of a convergent sequence has the same limit, so two subsequences with different limits prove divergence."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-2.1.A"
+       ],
+       "drills": [
+        "ra-subsequential-limits",
+        "ra-converge-or-diverge"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Test a sequence against the Cauchy criterion.",
+       "ek": [
+        "A sequence is Cauchy when |a_m − a_n| can be made small for all large m and n together, not just neighbours. The harmonic sums fail: s_2n − s_n ≥ 1/2 for every n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-2.1.B"
+       ],
+       "drills": [
+        "ra-harmonic-block",
+        "ra-cauchy-facts"
        ]
       }
      ]
@@ -202,6 +370,10 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "RA-3.2.B",
+        "RA-3.2.D"
+       ],
        "drills": [
         "ra-series-classify",
         "ra-ratio-test"
@@ -218,6 +390,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RA-3.2.A"
        ],
        "drills": [
         "ra-telescoping",
@@ -236,9 +411,99 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-3.1.A"
+       ],
        "drills": [
         "ra-radius",
         "ra-endpoints"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Series from the ground up",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Compute partial sums and apply the nth-term test.",
+       "ek": [
+        "A series converges when its partial sums do. If the terms do not tend to 0 the series diverges; if they do, the test says nothing."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-2.2.A"
+       ],
+       "drills": [
+        "ra-partial-sum",
+        "ra-nth-term-test"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Decide convergence by comparison with a p-series.",
+       "ek": [
+        "For positive terms, a series behaves like Σ 1/nᵖ when its terms are comparable to 1/nᵖ, and that converges exactly when p > 1. For a ratio of polynomials, p is the degree gap."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-3.2.A",
+        "RA-2.2.C"
+       ],
+       "drills": [
+        "ra-comparison-degree",
+        "ra-p-threshold"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Say what absolute convergence allows that conditional convergence does not.",
+       "ek": [
+        "An absolutely convergent series can be rearranged freely with the same sum. A conditionally convergent one can be rearranged to converge to any number, or to diverge (Riemann)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-3.2.B"
+       ],
+       "drills": [
+        "ra-rearrangement-facts",
+        "ra-absolute-check"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-analysis-i:A1"
+       ],
+       "do": "Bound the error of an alternating series and of a p-series tail.",
+       "ek": [
+        "For an alternating series with terms decreasing to 0, the error after n terms is at most the next term. For Σ 1/kᵖ the tail after n terms is at most ∫ₙ^∞ x⁻ᵖ dx = 1/((p − 1)nᵖ⁻¹)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-3.2.B"
+       ],
+       "drills": [
+        "ra-alternating-terms",
+        "ra-integral-tail"
        ]
       }
      ]
@@ -274,6 +539,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-4.2.B",
+        "RA-2.1.A"
+       ],
        "drills": [
         "ra-delta-linear",
         "ra-delta-square"
@@ -290,6 +559,10 @@
        ],
        "p": [
         "P2"
+       ],
+       "needs": [
+        "RA-4.2.C",
+        "RA-4.1.A"
        ],
        "drills": [
         "ra-bisection-steps",
@@ -308,9 +581,79 @@
        "p": [
         "P2"
        ],
+       "needs": [
+        "RA-4.1.B"
+       ],
        "drills": [
         "ra-uniformly-continuous",
         "ra-lipschitz"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Limits of functions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-analysis-i:A2"
+       ],
+       "do": "Find one-sided limits and classify a discontinuity.",
+       "ek": [
+        "A limit exists when both one-sided limits exist and agree. Agree but differ from the value: removable. Exist but differ: jump. One fails to exist as a finite number: essential."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-2.2.A"
+       ],
+       "drills": [
+        "ra-discontinuity-type",
+        "ra-removable-value"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-analysis-i:A2"
+       ],
+       "do": "Evaluate standard limits of functions and use sequences to show a limit fails.",
+       "ek": [
+        "sin x / x → 1, (1 − cos x)/x² → 1/2 and (eˣ − 1)/x → 1 as x → 0. f(x) → L exactly when f(x_n) → L for every sequence x_n → a; two sequences with different outcomes show there is no limit."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-4.2.A",
+        "RA-2.2.B"
+       ],
+       "drills": [
+        "ra-standard-function-limit",
+        "ra-sequential-criterion"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-analysis-i:A2"
+       ],
+       "do": "Locate the points where a function is continuous.",
+       "ek": [
+        "Sums, products, quotients (non-zero denominator) and compositions of continuous functions are continuous. Step functions jump at their break points; a function can even be continuous at exactly one point."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-4.2.A"
+       ],
+       "drills": [
+        "ra-floor-jumps",
+        "ra-where-continuous"
        ]
       }
      ]
@@ -347,6 +690,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-5.2.A",
+        "RA-4.1.B"
+       ],
        "drills": [
         "ra-mvt-point",
         "ra-mvt-facts"
@@ -363,6 +710,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RA-5.2.B",
+        "RA-3.1.C"
        ],
        "drills": [
         "ra-taylor-degree",
@@ -381,6 +732,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-5.1.A",
+        "RA-2.1.A"
+       ],
        "drills": [
         "ra-upper-sum",
         "ra-upper-minus-lower"
@@ -398,9 +753,79 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-5.1.C",
+        "RA-3.2.C"
+       ],
        "drills": [
         "ra-improper-value",
         "ra-improper-converges"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "The derivative from its definition",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "cambridge-ia-analysis-i:A3"
+       ],
+       "do": "Compute a derivative from the difference quotient and decide differentiability at a point.",
+       "ek": [
+        "f′(a) = lim (f(a + h) − f(a))/h. Differentiable implies continuous but not conversely: |x| has a corner and ∛x a vertical tangent at 0."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-4.2.B"
+       ],
+       "drills": [
+        "ra-difference-quotient",
+        "ra-differentiable-at-zero"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ia-analysis-i:A3"
+       ],
+       "do": "Evaluate an indeterminate limit by L'Hôpital's rule or a Taylor expansion.",
+       "ek": [
+        "For 0/0 or ∞/∞ forms, lim f/g = lim f′/g′ when the latter exists. Expanding numerator and denominator to the first non-vanishing order gives the same answer and shows why."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-5.1.A"
+       ],
+       "drills": [
+        "ra-lhopital",
+        "ra-lhopital-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "cambridge-ia-analysis-i:A3"
+       ],
+       "do": "Differentiate an inverse function.",
+       "ek": [
+        "If f is differentiable with f′(a) ≠ 0 and b = f(a), then (f⁻¹)′(b) = 1/f′(a): the graph is reflected in the diagonal, so slopes are reciprocated."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-5.2.A"
+       ],
+       "drills": [
+        "ra-inverse-derivative",
+        "ra-inverse-derivative-exp"
        ]
       }
      ]
@@ -439,6 +864,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-4.1.C",
+        "RA-1.1.A"
+       ],
        "drills": [
         "ra-sup-norm",
         "ra-uniform-or-pointwise"
@@ -456,6 +885,10 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-6.1.A",
+        "RA-3.1.A"
+       ],
        "drills": [
         "ra-m-test-bound",
         "ra-exchange-facts"
@@ -468,23 +901,6 @@
      "title": "Metric spaces, completeness and contractions",
      "los": [
       {
-       "id": "B",
-       "std": [
-        "cambridge-ib-analysis-ii:C"
-       ],
-       "do": "Decide whether a metric space is complete and say what completeness buys.",
-       "ek": [
-        "A space is complete when every Cauchy sequence converges in it. Rⁿ and C[a, b] with the uniform norm are complete; the rationals and an open interval are not. A closed subset of a complete space is complete."
-       ],
-       "p": [
-        "P1"
-       ],
-       "drills": [
-        "ra-complete-or-not",
-        "ra-completeness-uses"
-       ]
-      },
-      {
        "id": "A",
        "std": [
         "cambridge-ib-analysis-ii:M"
@@ -496,9 +912,33 @@
        "p": [
         "P1"
        ],
+       "needs": [
+        "RA-1.2.A"
+       ],
        "drills": [
         "ra-norm-distance",
         "ra-norm-ratio"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "cambridge-ib-analysis-ii:C"
+       ],
+       "do": "Decide whether a metric space is complete and say what completeness buys.",
+       "ek": [
+        "A space is complete when every Cauchy sequence converges in it. Rⁿ and C[a, b] with the uniform norm are complete; the rationals and an open interval are not. A closed subset of a complete space is complete."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "RA-6.2.A",
+        "RA-2.2.D"
+       ],
+       "drills": [
+        "ra-complete-or-not",
+        "ra-completeness-uses"
        ]
       },
       {
@@ -512,6 +952,10 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RA-6.2.B",
+        "RA-4.1.C"
        ],
        "drills": [
         "ra-contraction-steps",
@@ -529,6 +973,9 @@
        ],
        "p": [
         "P1"
+       ],
+       "needs": [
+        "RA-5.1.B"
        ],
        "drills": [
         "ra-hessian-det",
@@ -560,6 +1007,39 @@
    "full": [
     "ra-archimedean",
     "ra-completeness-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-abs-interval",
+    "ra-triangle-inequality"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-infimum",
+    "ra-bounded-how"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-am-gm-minimum",
+    "ra-inequality-facts"
    ],
    "partial": []
   },
@@ -597,6 +1077,50 @@
    "partial": []
   },
   {
+   "code": "RA-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-squeeze-limit",
+    "ra-limit-algebra-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-growth-ratio",
+    "ra-growth-order"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-subsequential-limits",
+    "ra-converge-or-diverge"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-2.2.D",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-harmonic-block",
+    "ra-cauchy-facts"
+   ],
+   "partial": []
+  },
+  {
    "code": "RA-3.1.A",
    "unit": 3,
    "topic": 1,
@@ -630,6 +1154,50 @@
    "partial": []
   },
   {
+   "code": "RA-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-partial-sum",
+    "ra-nth-term-test"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-comparison-degree",
+    "ra-p-threshold"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-3.2.D",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-rearrangement-facts",
+    "ra-absolute-check"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-alternating-terms",
+    "ra-integral-tail"
+   ],
+   "partial": []
+  },
+  {
    "code": "RA-4.1.A",
    "unit": 4,
    "topic": 1,
@@ -659,6 +1227,39 @@
    "full": [
     "ra-uniformly-continuous",
     "ra-lipschitz"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-4.2.A",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-discontinuity-type",
+    "ra-removable-value"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-4.2.B",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-standard-function-limit",
+    "ra-sequential-criterion"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-4.2.C",
+   "unit": 4,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-floor-jumps",
+    "ra-where-continuous"
    ],
    "partial": []
   },
@@ -707,6 +1308,39 @@
    "partial": []
   },
   {
+   "code": "RA-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-difference-quotient",
+    "ra-differentiable-at-zero"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-lhopital",
+    "ra-lhopital-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-inverse-derivative",
+    "ra-inverse-derivative-exp"
+   ],
+   "partial": []
+  },
+  {
    "code": "RA-6.1.A",
    "unit": 6,
    "topic": 1,
@@ -729,17 +1363,6 @@
    "partial": []
   },
   {
-   "code": "RA-6.2.B",
-   "unit": 6,
-   "topic": 2,
-   "status": "ok",
-   "full": [
-    "ra-complete-or-not",
-    "ra-completeness-uses"
-   ],
-   "partial": []
-  },
-  {
    "code": "RA-6.2.A",
    "unit": 6,
    "topic": 2,
@@ -747,6 +1370,17 @@
    "full": [
     "ra-norm-distance",
     "ra-norm-ratio"
+   ],
+   "partial": []
+  },
+  {
+   "code": "RA-6.2.B",
+   "unit": 6,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "ra-complete-or-not",
+    "ra-completeness-uses"
    ],
    "partial": []
   },

@@ -39,15 +39,19 @@ Big ideas: MAIN
   - P1 · drills: la-indep-det, la-indep-count
 - ● **LA-1.1.A** (lay-5e:1, webwork-opl:LA1.1, webwork-opl:LA1.2, webwork-opl:LA2.2, cupm-2023-la:E1) Solve a linear system by row reduction.
   - EK: Pivots give the basic variables; a row 0 = c means no solution.
+  - Needs: LA-1.1.E
   - P1 · drills: la-system, la-is-solution
 - ● **LA-1.1.B** (lay-5e:1, webwork-opl:LA4.4, cupm-2023-la:E2) Decide whether a set of vectors is linearly independent.
   - EK: Independent exactly when the only solution of Ax = 0 is zero.
+  - Needs: LA-1.1.A
   - P1 · drills: la-independence, la-independence-parameter
 - ● **LA-1.1.C** (cupm-2015-la:1, webwork-opl:LA1.6, webwork-opl:LA2.3, cupm-2023-la:E1) Read the number of solutions off an echelon form.
   - EK: A pivot in every variable column: one; a free variable: infinitely many; a row 0 = c: none.
+  - Needs: LA-1.1.B
   - P1 · drills: la-solution-type, la-inconsistent-h
 - ● **LA-1.1.D** (cupm-2015-la:1, webwork-opl:LA1.3, cupm-2023-la:E1) Count the free variables of a consistent system.
   - EK: Free variables are the non-pivot columns.
+  - Needs: LA-1.1.C
   - P1 · drills: la-free-variables, la-min-free-vars
 
 ### 1.2 Vector equations and span
@@ -56,12 +60,15 @@ Big ideas: MAIN
 
 - ● **LA-1.2.C** (cupm-2023-la:E3, cupm-2023-la:E5) Describe a span geometrically and find its dimension.
   - EK: The span of vectors in R³ is a point, a line, a plane or all of R³, as its dimension (the rank) is 0, 1, 2 or 3.
+  - Needs: LA-1.1.D
   - P1 · drills: la-span-dim, la-span-shape
 - ● **LA-1.2.A** (cupm-2015-la:1, lay-5e:1, webwork-opl:LA1.5, webwork-opl:LA4.2, webwork-opl:LA4.3, cupm-2023-la:E3) Decide whether a vector is in the span of others.
   - EK: b is in the span exactly when [v1 … vk | b] has no pivot in the last column.
+  - Needs: LA-1.2.C
   - P1 · drills: la-span-membership, la-span-h
 - ● **LA-1.2.B** (cupm-2015-la:1, lay-5e:1, cupm-2023-la:E5, cupm-2023-la:E1) Describe the solution set of Ax = b as a shifted null space.
   - EK: Every solution is a particular solution plus a solution of Ax = 0.
+  - Needs: LA-1.2.A
   - P1 · drills: la-solution-set-shape, la-solution-set-dim
 
 ## Unit 2 · Matrix algebra
@@ -74,12 +81,15 @@ Big ideas: MAIN
 
 - ● **LA-2.1.A** (lay-5e:2, webwork-opl:LA2.6, cupm-2023-la:E4) Find the inverse of a 2 × 2 matrix.
   - EK: Swap the diagonal, negate the off-diagonal, divide by the determinant.
+  - Needs: LA-2.2.B
   - P1 · drills: la-inverse, la-inverse-check
 - ● **LA-2.1.B** (cupm-2015-la:1, webwork-opl:LA1.4, cupm-2023-la:E4) Solve Ax = b with a known inverse.
   - EK: x = A⁻¹b; row i of A⁻¹ dotted with b gives x_i.
+  - Needs: LA-2.1.A
   - P1 · drills: la-solve-with-inverse, la-transpose-inverse
 - ● **LA-2.1.C** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.6, cupm-2023-la:E4) Use the invertible matrix theorem.
   - EK: For a square matrix, invertible, n pivots, independent columns, det ≠ 0 and 0 not an eigenvalue stand or fall together.
+  - Needs: LA-2.1.B
   - P1 · drills: la-invertible-matrix-theorem, la-imt-consequence
 
 ### 2.2 Matrix operations
@@ -88,9 +98,11 @@ Big ideas: MAIN
 
 - ● **LA-2.2.A** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.1, cupm-2023-la:E4) Compute one entry of a product without computing the rest.
   - EK: (AB)_ij is row i of A dotted with column j of B.
+  - Needs: LA-1.1.D
   - P1 · drills: la-product-entry, la-square-entry
 - ● **LA-2.2.B** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA2.1, webwork-opl:LA2.5, cupm-2023-la:E4) Track sizes through products and transposes.
   - EK: (AB)ᵀ = BᵀAᵀ; an m × n times an n × p is m × p.
+  - Needs: LA-2.2.A
   - P1 · drills: la-product-size, la-multiplication-count
 
 ### 2.3 LU factorisation
@@ -99,9 +111,11 @@ Big ideas: MAIN
 
 - ● **LA-2.3.A** (lacsg-2:S2, cupm-2015-la:1, lay-5e:2, webwork-opl:LA3.2) Factor a matrix as LU.
   - EK: The multipliers of row reduction go below the diagonal of L; U is the echelon form.
+  - Needs: LA-2.1.C
   - P1 · drills: la-lu-pivot, la-det-from-lu
 - ● **LA-2.3.B** (cupm-2015-la:1, lay-5e:2, webwork-opl:LA3.2) Solve with LU by forward and back substitution.
   - EK: Ly = b, then Ux = y.
+  - Needs: LA-2.3.A
   - P1 · drills: la-lu-forward, la-forward-step
 
 ## Unit 3 · Determinants
@@ -114,6 +128,7 @@ Big ideas: MAIN
 
 - ● **LA-3.1.A** (lay-5e:3, webwork-opl:LA10.1) Compute a 3 × 3 determinant.
   - EK: Expand along the row or column with the most zeros.
+  - Needs: LA-2.2.B
   - P1 · drills: la-det, mm-determinant, la-det-triangular
 
 ### 3.2 Properties of determinants
@@ -122,12 +137,15 @@ Big ideas: MAIN
 
 - ● **LA-3.2.A** (cupm-2015-la:2, lay-5e:3, webwork-opl:LA10.2) Use det(AB) = det A det B, det Aᵀ = det A and det(kA) = kⁿ det A.
   - EK: A scalar multiplies every row, so it comes out to the nth power.
+  - Needs: LA-3.1.A
   - P1 · drills: la-det-properties, la-det-combo
 - ● **LA-3.2.B** (cupm-2015-la:2, lay-5e:3, webwork-opl:LA2.2, webwork-opl:LA10.2) Track the determinant through row operations.
   - EK: Swap: sign flips; scale a row: scales; add a multiple of a row: no change.
+  - Needs: LA-3.2.A
   - P1 · drills: la-det-row-ops, la-det-before-ops
 - ● **LA-3.2.C** (cupm-2015-la:2, lay-5e:3, webwork-opl:LA10.3) Read |det A| as the factor by which A scales area or volume.
   - EK: Area of the image = |det A| × area.
+  - Needs: LA-3.2.B
   - P1 · drills: la-det-area, la-triangle-area-det
 
 ## Unit 4 · Rank and the null space
@@ -140,6 +158,7 @@ Big ideas: MAIN
 
 - ● **LA-4.1.A** (lay-5e:4, webwork-opl:LA2.4, webwork-opl:LA4.7, cupm-2023-la:E5, cupm-2023-la:E9) Find the rank of a matrix and use the rank theorem.
   - EK: rank + dim Nul = number of columns.
+  - Needs: LA-1.1.D
   - P1 · drills: la-rank-3x3, la-rank-nullity, la-row-space-reverse
 
 ### 4.2 Subspaces, bases and dimension
@@ -148,9 +167,11 @@ Big ideas: MAIN
 
 - ● **LA-4.2.A** (cupm-2015-la:3, lay-5e:4, webwork-opl:LA4.5, cupm-2023-la:E5) Decide whether a set is a subspace.
   - EK: Contains 0, closed under addition and scaling.
+  - Needs: LA-1.2.B, LA-4.1.A
   - P1 · drills: la-subspace-test, la-subspace-which
 - ● **LA-4.2.B** (cupm-2015-la:3, lay-5e:4, webwork-opl:LA4.6, cupm-2023-la:E9, cupm-2023-la:E5) Find the dimension of a span.
   - EK: Dimension = the number of independent vectors = rank.
+  - Needs: LA-4.2.A
   - P1 · drills: la-span-dimension, la-span-dim-3
 
 ### 4.3 Coordinates and change of basis
@@ -159,9 +180,11 @@ Big ideas: MAIN
 
 - ● **LA-4.3.A** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA4.8, cupm-2023-la:E9) Find the coordinates of a vector in a basis.
   - EK: Solve P_B [x]_B = x.
+  - Needs: LA-4.2.B
   - P1 · drills: la-coordinates, la-orthogonal-coordinates
 - ● **LA-4.3.B** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA4.8, cupm-2023-la:E9) Convert coordinates back to the standard basis.
   - EK: x = P_B [x]_B, with the basis vectors as columns.
+  - Needs: LA-4.3.A
   - P1 · drills: la-change-of-basis, la-coords-to-standard-3
 
 ## Unit 5 · Eigenvalues and eigenvectors
@@ -174,9 +197,11 @@ Big ideas: MAIN
 
 - ● **LA-5.1.A** (lay-5e:5, webwork-opl:LA7.1, cupm-2023-la:E8) Find the eigenvalues and eigenvectors of a 2 × 2 matrix.
   - EK: Sum of eigenvalues = trace, product = determinant.
+  - Needs: LA-3.2.C, LA-4.2.B
   - P1 · drills: la-eigenvalues, la-eigenvector, mm-eigen-trace-det, la-eigen-triangular
 - ● **LA-5.1.B** (lacsg-2:F3, lay-5e:5, webwork-opl:LA3.1, webwork-opl:LA7.2, cupm-2023-la:E8, cupm-2023-la:E9) Decide whether a matrix is diagonalisable and use the diagonal form.
   - EK: n independent eigenvectors; powers act on the eigenvalues.
+  - Needs: LA-5.1.A
   - P1 · drills: la-diagonalizable-facts, la-trace-of-power, em-diagonalise
 
 ### 5.2 Eigenvectors at work
@@ -185,12 +210,15 @@ Big ideas: MAIN
 
 - ● **LA-5.2.A** (cupm-2015-la:5, lay-5e:5, webwork-opl:LA7.5, cupm-2023-la:E8, cupm-2023-la:E9) Compute Aᵏx by expanding x in eigenvectors.
   - EK: Each eigenvector component is multiplied by λᵏ.
+  - Needs: LA-5.1.B
   - P1 · drills: la-power-by-eigenvectors, la-det-power
 - ● **LA-5.2.B** (cupm-2015-la:5, lay-5e:5, webwork-opl:LA2.9, webwork-opl:PB7.1, cupm-2023-la:E8) Find the steady state of a Markov chain.
   - EK: The eigenvector for λ = 1, scaled to sum to 1.
+  - Needs: LA-5.2.A
   - P1 · drills: la-markov-steady-state, la-markov-two-step
 - ● **LA-5.2.C** (cupm-2015-la:5, lay-5e:5, webwork-opl:LA7.3, cupm-2023-la:E8) Read a complex eigenvalue as a rotation and a scaling.
   - EK: [[a, −b], [b, a]] rotates by arg λ and scales by |λ| = √(a² + b²).
+  - Needs: LA-5.2.B
   - P1 · drills: la-complex-eigen-modulus, la-rotation-angle
 
 ## Unit 6 · Orthogonality and least squares
@@ -203,12 +231,15 @@ Big ideas: MAIN
 
 - ● **LA-6.1.C** (cupm-2023-la:E11, cupm-2023-la:E10) Fit a least-squares line with the normal equations and read its residuals.
   - EK: Solve AᵀA c = Aᵀy for c = (b, m); the residual vector is orthogonal to every column of A, so its entries sum to zero when an intercept is fitted.
+  - Needs: LA-1.2.B
   - P1 · drills: la-lsq-slope, la-lsq-residual-sum
 - ● **LA-6.1.A** (lay-5e:6, webwork-opl:LA8.1, webwork-opl:LA8.3, webwork-opl:LA8.4, webwork-opl:LA8.5, cupm-2023-la:E10, cupm-2023-la:O2) Test orthogonality, project one vector on another and take a Gram–Schmidt step.
   - EK: proj = (u·v / v·v) v.
+  - Needs: LA-6.1.C
   - P1 · drills: la-orthogonal-check, la-projection-scalar, la-gram-schmidt-step
 - ● **LA-6.1.B** (lay-5e:6, webwork-opl:LA8.4, webwork-opl:LA8.7, cupm-2023-la:E11) Set up and solve a least-squares problem.
   - EK: AᵀAx = Aᵀb.
+  - Needs: LA-6.1.A
   - P1 · drills: la-least-squares-slope, la-least-squares-facts
 
 ### 6.2 Length, complements and QR
@@ -217,12 +248,15 @@ Big ideas: MAIN
 
 - ● **LA-6.2.A** (cupm-2015-la:6, lay-5e:6, webwork-opl:LA4.1, webwork-opl:LA8.4, cupm-2023-la:E10) Find lengths and distances.
   - EK: ‖u − v‖ = √((u − v)·(u − v)).
+  - Needs: LA-6.1.B
   - P1 · drills: la-distance, la-cos-angle
 - ● **LA-6.2.B** (cupm-2015-la:6, lay-5e:6, webwork-opl:LA8.4, cupm-2023-la:E10) Find vectors in an orthogonal complement.
   - EK: W⊥ is everything orthogonal to a spanning set of W.
+  - Needs: LA-6.2.A
   - P1 · drills: la-orthogonal-complement, la-perp-h
 - ● **LA-6.2.C** (lacsg-2:S2, cupm-2015-la:6, lay-5e:6, webwork-opl:LA3.3, cupm-2023-la:O2) Find an entry of the QR factorisation.
   - EK: r_ii = length after removing earlier directions; r_ij = q_i · a_j.
+  - Needs: LA-6.2.B
   - P1 · drills: la-qr-entry, la-qr-r11
 
 ## Unit 7 · Symmetric matrices and singular values
@@ -235,9 +269,11 @@ Big ideas: MAIN
 
 - ● **LA-7.1.A** (lacsg-2:F4, lay-5e:7, webwork-opl:LA3.4, cupm-2023-la:O3) Find a singular value of a small matrix.
   - EK: Singular values are the square roots of the eigenvalues of AᵀA.
+  - Needs: LA-7.2.B
   - P1 · drills: la-singular-value, la-rank-one-singular-value
 - ● **LA-7.1.B** (lacsg-2:S4, cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.2, cupm-2023-la:O4) Use orthogonality of a symmetric matrix's eigenvectors.
   - EK: Different eigenvalues, orthogonal eigenvectors.
+  - Needs: LA-7.1.A
   - P1 · drills: la-symmetric-eigenvector, la-symmetric-larger-eig
 
 ### 7.2 Quadratic forms
@@ -246,9 +282,11 @@ Big ideas: MAIN
 
 - ● **LA-7.2.A** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.4, cupm-2023-la:O4) Classify a quadratic form.
   - EK: The signs of the eigenvalues of its symmetric matrix decide.
+  - Needs: LA-5.2.C, LA-6.2.C
   - P1 · drills: la-quadratic-form-classify, la-form-min-eig
 - ● **LA-7.2.B** (cupm-2015-la:second, lay-5e:7, webwork-opl:LA7.4, cupm-2023-la:O4) Find the extreme values of a quadratic form on the unit sphere.
   - EK: The largest and smallest eigenvalues, at their eigenvectors.
+  - Needs: LA-7.2.A
   - P1 · drills: la-quadratic-form-max, la-form-max-radius
 
 ### 7.3 The singular value decomposition
@@ -257,12 +295,15 @@ Big ideas: MAIN
 
 - ● **LA-7.3.B** (lacsg-2:F4, cupm-2023-la:O3) Find the error of the best low-rank approximation from the singular values.
   - EK: Eckart–Young: the best rank-k approximation drops σ_(k+1), …; its 2-norm error is σ_(k+1), its Frobenius error √(σ_(k+1)² + …).
+  - Needs: LA-7.1.B
   - P1 · drills: la-rank1-error, la-frob-error
 - ● **LA-7.3.C** (lacsg-2:S5, lacsg-2:F4, cupm-2023-la:E11, cupm-2023-la:O3) Use the pseudo-inverse to get the least-squares solution of a full-column-rank system.
   - EK: A⁺ = (AᵀA)⁻¹Aᵀ when the columns are independent; x = A⁺b solves the normal equations; A⁺ inverts each nonzero singular value.
+  - Needs: LA-7.3.B
   - P1 · drills: la-pinv-entry, la-pinv-diag
 - ● **LA-7.3.A** (lacsg-2:F4, cupm-2015-la:second, lay-5e:7, webwork-opl:LA3.4, cupm-2023-la:O3) Find the condition number from the singular values.
   - EK: κ = σ_max / σ_min.
+  - Needs: LA-7.3.C
   - P1 · drills: la-condition-number, la-cond-diag
 
 ## Unit 8 · Linear transformations
@@ -275,12 +316,15 @@ Big ideas: MAIN
 
 - ● **LA-8.1.A** (lacsg-2:F1, cupm-2015-la:4, lay-5e:1, webwork-opl:LA9.1, webwork-opl:LA9.2, cupm-2023-la:E6) Build a map from the images of the basis vectors.
   - EK: The columns of the standard matrix are T(e1), …, T(en).
+  - Needs: LA-2.2.B, LA-4.2.B
   - P1 · drills: la-map-from-basis-images, la-rotate-point
 - ● **LA-8.1.B** (lacsg-2:F2, lacsg-2:F1, cupm-2015-la:4, lay-5e:2, webwork-opl:LA9.3, cupm-2023-la:E6, cupm-2023-la:E4) Compose linear maps as matrix products.
   - EK: S ∘ T has matrix ST: the first map stands on the right.
+  - Needs: LA-8.1.A
   - P1 · drills: la-composition, la-composition-order
 - ● **LA-8.1.C** (cupm-2015-la:4, lay-5e:1, webwork-opl:LA9.4, cupm-2023-la:E6) Decide whether a map is one-to-one or onto from its rank.
   - EK: One-to-one: rank = number of columns; onto: rank = number of rows.
+  - Needs: LA-8.1.B
   - P1 · drills: la-one-to-one-onto, la-rank-onto
 
 ### 8.2 Kernel, range and other bases
@@ -289,12 +333,15 @@ Big ideas: MAIN
 
 - ● **LA-8.2.C** (lacsg-2:S6, lacsg-2:F1, cupm-2023-la:E6, cupm-2023-la:E7, cupm-2023-la:E8) Find the eigenvalues and eigenvectors of a linear operator on a function space.
   - EK: Apply the operator to a basis (monomials, exponentials): T(p) = λp makes p an eigenvector; the matrix of D on polynomials is nilpotent, so its only eigenvalue is 0.
+  - Needs: LA-8.1.C, LA-4.3.B
   - P1 · drills: la-operator-eigen, la-derivative-nilpotent
 - ● **LA-8.2.A** (cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.6, webwork-opl:LA9.5, cupm-2023-la:E6, cupm-2023-la:E7) Find the dimensions of the kernel and range of a map on a function space.
   - EK: Rank–nullity holds for any linear map on a finite-dimensional space.
+  - Needs: LA-8.2.C
   - P1 · drills: la-kernel-dimension, la-derivative-range
 - ● **LA-8.2.B** (lacsg-2:F1, cupm-2015-la:4, lay-5e:4, webwork-opl:LA6.7, webwork-opl:LA9.3, cupm-2023-la:E6, cupm-2023-la:E9) Write the matrix of a map relative to a basis.
   - EK: Columns are the coordinates of T(b1), …, T(bn).
+  - Needs: LA-8.2.A
   - P1 · drills: la-matrix-relative-to-basis, la-shift-matrix-entry
 
 ## Unit 9 · Abstract vector spaces and special matrices
@@ -307,21 +354,27 @@ Big ideas: MAIN
 
 - ● **LA-9.1.A** (webwork-opl:LA6.1, webwork-opl:LA6.5, lacsg-2:S1, cupm-2023-la:E7) Decide whether a set with its operations is a vector space.
   - EK: Check the zero vector, closure under addition and under scaling; the rest of the axioms usually come free.
+  - Needs: LA-4.2.B, LA-8.1.C
   - P1 · drills: la-is-vector-space, la-axiom-fails
 - ● **LA-9.1.B** (webwork-opl:LA6.2, cupm-2023-la:E7) Write a polynomial as a combination of other polynomials.
   - EK: Match coefficients of each power and solve the linear system.
+  - Needs: LA-9.1.A
   - P1 · drills: la-poly-combination, la-poly-combo-2
 - ● **LA-9.1.C** (webwork-opl:LA6.3, cupm-2023-la:E7, cupm-2023-la:E3) Decide whether a polynomial lies in the span of others.
   - EK: In the span exactly when the coefficient system is consistent.
+  - Needs: LA-9.1.B
   - P1 · drills: la-poly-span, la-poly-span-h
 - ● **LA-9.1.D** (webwork-opl:LA6.4, cupm-2023-la:E7, cupm-2023-la:E2) Decide when polynomials are linearly dependent.
   - EK: Dependent exactly when the matrix of their coefficient vectors is singular.
+  - Needs: LA-9.1.C
   - P1 · drills: la-poly-dependence, la-poly-dependent-k
 - ● **LA-9.1.E** (webwork-opl:LA6.8, cupm-2023-la:E7, cupm-2023-la:E9) Find the dimension of a standard space of matrices or polynomials.
   - EK: Count the free entries: symmetric n(n+1)/2, skew n(n−1)/2, trace zero n² − 1, P_n has n + 1.
+  - Needs: LA-9.1.D
   - P1 · drills: la-space-dimension, la-special-dim
 - ● **LA-9.1.F** (webwork-opl:LA8.2, lacsg-2:S3, cupm-2023-la:O1) Compute an inner product of functions.
   - EK: ⟨f, g⟩ = ∫ f g dx is an inner product on continuous functions.
+  - Needs: LA-9.1.E
   - P1 · drills: la-function-inner-product, la-orthogonal-shift
 
 ### 9.2 Special matrices and applications
@@ -330,21 +383,27 @@ Big ideas: MAIN
 
 - ● **LA-9.2.A** (webwork-opl:LA1.7, cupm-2023-la:E5) Balance a chemical equation from the null space of its composition matrix.
   - EK: Each element gives one equation; the coefficients span the null space.
+  - Needs: LA-5.2.C, LA-2.1.C
   - P1 · drills: la-balance-combustion, la-oxygen-coefficient
 - ● **LA-9.2.B** (webwork-opl:LA2.7, cupm-2023-la:E4) Invert an elementary matrix.
   - EK: The inverse undoes the row operation: add −k instead of k, divide instead of multiply, swap back.
+  - Needs: LA-9.2.A
   - P1 · drills: la-elementary-inverse, la-elementary-power
 - ● **LA-9.2.C** (webwork-opl:LA2.8) Compute with complex matrix entries.
   - EK: Arithmetic is ordinary arithmetic with i² = −1; conjugates pair up into real numbers.
+  - Needs: LA-9.2.B
   - P1 · drills: la-complex-det, la-complex-det-modulus
 - ● **LA-9.2.D** (webwork-opl:LA3.5, lacsg-2:S7) Compute a power of a Jordan block.
   - EK: [[λ, 1], [0, λ]]ᵏ = [[λᵏ, kλᵏ⁻¹], [0, λᵏ]].
+  - Needs: LA-9.2.C
   - P1 · drills: la-jordan-power, la-jordan-exp
 - ● **LA-9.2.E** (webwork-opl:LA8.6, cupm-2023-la:O4) Use the properties of an orthogonal matrix.
   - EK: Qᵀ Q = I, so Q⁻¹ = Qᵀ and lengths and angles are preserved.
+  - Needs: LA-9.2.D
   - P1 · drills: la-orthogonal-inverse, la-orthogonal-norm
 - ● **LA-9.2.F** (webwork-opl:LA9.6, lacsg-2:F2, cupm-2023-la:E6) Invert a linear transformation.
   - EK: T is invertible exactly when its matrix is; T⁻¹ has the inverse matrix.
+  - Needs: LA-9.2.E
   - P1 · drills: la-map-inverse, la-poly-map-inverse
 
 ## Drills not yet placed on the map
