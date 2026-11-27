@@ -36,6 +36,36 @@
   verify:
     expect:
       v: diff(nsimplify(C)*E*(1 - exp(-x/(R*nsimplify(C)))), x).subs(x, nsimplify(t))
+- template: em-rc-charge-time
+  skill: ode1.modeling
+  pace: quick
+  given:
+    kcp:
+      pick:
+      - 1
+      - 10
+      - 47
+    kr:
+      pick:
+      - 1
+      - 2.2
+      - 10
+    kf:
+      pick:
+      - 0.5
+      - 0.9
+      - 0.99
+  prompt: A capacitor of {{kcp}} µF charges through {{kr}} kΩ from zero. After how many ms has it reached {{kf}} of its final voltage?
+  parts:
+  - ask: Answer
+    label: v
+    tex: t
+    value: -kr*kcp*log(1 - kf)
+    tol: 0.005
+    explain: v/V = 1 − e^(−t/RC), and kΩ × µF = ms
+  verify:
+    expect:
+      v: kr*kcp*integrate(1/(1 - Y), (Y, 0, nsimplify(kf)))
 - template: em-bifurcation
   skill: ode1.modeling
   pace: quick
@@ -60,6 +90,27 @@
   verify:
     expect:
       v: solve(Eq((2*a)**2 - 4*x, 0), x)[0]
+- template: em-saddle-node-stable-branch
+  skill: ode1.modeling
+  pace: quick
+  given:
+    kr:
+      pick:
+      - 4
+      - 9
+      - 2
+      - 16
+  prompt: y′ = {{kr}} − y². Find the stable equilibrium.
+  parts:
+  - ask: Answer
+    label: v
+    tex: y^*
+    value: sqrt(kr)
+    tol: 0.005
+    explain: The equilibria ±√r appear at r = 0. The upper one is stable because f′(y) = −2y is negative there
+  verify:
+    expect:
+      v: Max(*solve(kr - x**2, x))
 - template: em-operator-exponential
   skill: ode2.higher-order
   pace: quick
@@ -90,6 +141,34 @@
   verify:
     expect:
       v: simplify((diff(exp(k*x), x, 2) + a*diff(exp(k*x), x) + b*exp(k*x))/exp(k*x))
+- template: em-operator-on-exponential
+  skill: ode2.higher-order
+  pace: quick
+  cases:
+  - ka: 3
+    kb: 2
+    kr: 1
+  - ka: 1
+    kb: -6
+    kr: 2
+  - ka: -4
+    kb: 4
+    kr: 3
+  - ka: 2
+    kb: 5
+    kr: -1
+  prompt: Apply (D² + {{ka}}D + {{kb}}) to e^({{kr}}x) and evaluate the result at x = 0.
+  parts:
+  - ask: Answer
+    label: v
+    tex: P(r)
+    value: kr^2 + ka*kr + kb
+    final: true
+    tol: 0.0001
+    explain: 'P(D)e^(rx) = P(r)e^(rx): an exponential turns a differential operator into its characteristic polynomial'
+  verify:
+    expect:
+      v: (diff(exp(kr*x), x, 2) + ka*diff(exp(kr*x), x) + kb*exp(kr*x)).subs(x, 0)
 - template: em-existence-interval
   skill: ode2.wronskian
   pace: quick
@@ -117,6 +196,34 @@
   verify:
     expect:
       v: a - (-c)
+- template: em-existence-interval-end
+  skill: ode2.wronskian
+  pace: quick
+  cases:
+  - ka: 1
+    kb: 4
+    k0: 2
+  - ka: -2
+    kb: 3
+    k0: 0
+  - ka: 0
+    kb: 5
+    k0: 1
+  - ka: -3
+    kb: -1
+    k0: -2
+  prompt: (x − {{ka}})(x − {{kb}})y″ + y′ + y = 0 with y({{k0}}) = 1, y′({{k0}}) = 0. The solution is guaranteed on an interval a < x < b. Find b.
+  parts:
+  - ask: Answer
+    label: v
+    tex: b
+    value: kb
+    final: true
+    tol: 0.0001
+    explain: Divide by the leading coefficient; the coefficients are continuous between its zeros, and the interval is the one containing the initial point
+  verify:
+    expect:
+      v: Max(*solve((x - ka)*(x - kb), x))
 - template: em-system-verify
   skill: odesys.eigenvalue
   pace: quick
@@ -145,6 +252,42 @@
   verify:
     expect:
       v: (Matrix([[p, 1], [s**2, p]])*Matrix([1, s]))[0]
+- template: em-system-solution-exponent
+  skill: odesys.eigenvalue
+  pace: quick
+  cases:
+  - k1: 2
+    k2: 1
+    k3: 1
+    k4: 2
+    kv: 1
+  - k1: 2
+    k2: 1
+    k3: 1
+    k4: 2
+    kv: -1
+  - k1: 4
+    k2: 1
+    k3: 2
+    k4: 3
+    kv: 1
+  - k1: 4
+    k2: 1
+    k3: 2
+    k4: 3
+    kv: -2
+  prompt: y = e^(λt)(1, {{kv}}) solves y′ = Ay with A = [[{{k1}}, {{k2}}], [{{k3}}, {{k4}}]]. Find λ.
+  parts:
+  - ask: Answer
+    label: v
+    tex: \lambda
+    value: k1 + k2*kv
+    final: true
+    tol: 0.0001
+    explain: 'Substitute: λv = Av, so the first row gives λ = a + bv'
+  verify:
+    expect:
+      v: solve((Matrix([[k1, k2], [k3, k4]])*Matrix([1, kv]))[0] - Symbol('m'), Symbol('m'))[0]
 - template: em-complex-linear
   skill: cplx.functions
   pace: quick
@@ -178,6 +321,33 @@
   verify:
     expect:
       v: re(solve(Eq((a + b*I)*Symbol('z'), c + d*I), Symbol('z'))[0])
+- template: em-complex-linear-imaginary-part
+  skill: cplx.functions
+  pace: quick
+  cases:
+  - ka: 1
+    kb: 3
+    kg: 1
+  - ka: 2
+    kb: 1
+    kg: 3
+  - ka: 3
+    kb: 4
+    kg: 2
+  - ka: 1
+    kb: 1
+    kg: 3
+  prompt: Solve ({{ka}} + i)z = {{kb}} + {{kg}}i and give the imaginary part of z.
+  parts:
+  - ask: Answer
+    label: v
+    tex: \mathrm{Im}\,z
+    value: (ka*kg - kb)/(ka^2 + 1)
+    tol: 0.005
+    explain: Divide by multiplying top and bottom by the conjugate a − i
+  verify:
+    expect:
+      v: im((kb + kg*I)/(ka + I))
 - template: em-complex-sqrt
   skill: cplx.functions
   pace: quick
@@ -203,6 +373,27 @@
   verify:
     expect:
       v: re(sqrt(a**2 - b**2 + 2*a*b*I))
+- template: em-complex-square-root
+  skill: cplx.functions
+  pace: quick
+  given:
+    ka:
+      pick:
+      - 2
+      - 8
+      - 18
+      - 4
+  prompt: z² = {{ka}}i. Find the real part of the root in the first quadrant.
+  parts:
+  - ask: Answer
+    label: v
+    tex: \mathrm{Re}\,z
+    value: sqrt(ka/2)
+    tol: 0.005
+    explain: ai has modulus a and argument 90°, so its square root has modulus √a and argument 45°
+  verify:
+    expect:
+      v: re(sqrt(ka*I))
 - template: em-complex-region
   skill: cplx.functions
   pace: recall
@@ -242,6 +433,34 @@
   verify:
     choices:
       v: 0 if Abs((p + q*I) - (a + b*I)) < r else 1
+- template: em-point-and-circle
+  skill: cplx.functions
+  pace: recall
+  cases:
+  - q: '|z| = 5, the point 3 + 4i'
+    kc: 1
+  - q: '|z − 1| = 2, the point 2 + i'
+    kc: 0
+  - q: '|z − i| = 1, the point 2'
+    kc: 2
+  - q: '|z − (1 + i)| = 3, the point 1 − 2i'
+    kc: 1
+  - q: '|z + 1| = 2, the point 0'
+    kc: 0
+  - q: '|z| = 1, the point 1 + i'
+    kc: 2
+  prompt: 'Relative to the circle {{q}} is:'
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - Inside
+    - On the circle
+    - Outside
+    correct: kc
+    explain: '|z − c| is the distance from z to c; compare it with the radius'
+  verify:
+    authored: true
 - template: em-complex-map
   skill: cplx.functions
   pace: quick
@@ -267,6 +486,31 @@
   verify:
     expect:
       v: re(expand((p + q*I)**2))
+- template: em-inversion-modulus
+  skill: cplx.functions
+  pace: quick
+  cases:
+  - ka: 3
+    kb: 4
+  - ka: 1
+    kb: 1
+  - ka: 5
+    kb: 12
+  - ka: 2
+    kb: 0
+  - ka: 0
+    kb: 4
+  prompt: Under w = 1/z, find |w| for z = {{ka}} + {{kb}}i.
+  parts:
+  - ask: Answer
+    label: v
+    tex: '|w|'
+    value: 1/sqrt(ka^2 + kb^2)
+    tol: 0.005
+    explain: '|1/z| = 1/|z|: inversion sends points outside the unit circle inside, and the reverse'
+  verify:
+    expect:
+      v: Abs(1/(ka + kb*I))
 - template: em-complex-limit
   skill: cplx.functions
   pace: quick
@@ -292,6 +536,30 @@
   verify:
     expect:
       v: re(limit((Symbol('z')**2 - (p + q*I)**2)/(Symbol('z') - (p + q*I)), Symbol('z'), p + q*I))
+- template: em-complex-limit-removable
+  skill: cplx.functions
+  pace: quick
+  cases:
+  - ka: 1
+    ks: 1
+  - ka: 2
+    ks: 4
+  - ka: 3
+    ks: 9
+  - ka: 5
+    ks: 25
+  prompt: Find the imaginary part of the limit of (z² + {{ks}})/(z − {{ka}}i) as z → {{ka}}i.
+  parts:
+  - ask: Answer
+    label: v
+    tex: \mathrm{Im}
+    value: 2*ka
+    final: true
+    tol: 0.0001
+    explain: 'Factor: z² + a² = (z − ai)(z + ai), so the limit is 2ai'
+  verify:
+    expect:
+      v: im(limit((Z**2 + ks)/(Z - ka*I), Z, ka*I))
 - template: em-cauchy-riemann
   skill: cplx.analytic
   pace: quick
@@ -315,6 +583,30 @@
   verify:
     expect:
       v: solve(Eq(diff(x**2 - Symbol('y')**2 + a*x, x), diff(2*x*Symbol('y') + Symbol('B')*Symbol('y'), Symbol('y'))), Symbol('B'))[0]
+- template: em-cauchy-riemann-coefficient
+  skill: cplx.analytic
+  pace: quick
+  cases:
+  - ka: 1
+    kb: 2
+  - ka: 2
+    kb: 4
+  - ka: 3
+    kb: 6
+  - ka: 5
+    kb: 10
+  prompt: u = {{ka}}x² + my² and v = {{kb}}xy. For what m do the Cauchy–Riemann equations hold?
+  parts:
+  - ask: Answer
+    label: v
+    tex: m
+    value: -kb/2
+    final: true
+    tol: 0.0001
+    explain: u_x = v_y already holds (2ax = bx); u_y = −v_x then needs 2my = −by
+  verify:
+    expect:
+      v: solve(Eq(diff(ka*x**2 + Symbol('m')*Y**2, Y), -diff(kb*x*Y, x)), Symbol('m'))[0]
 - template: em-harmonic
   skill: cplx.analytic
   pace: quick
@@ -338,6 +630,28 @@
   verify:
     expect:
       v: solve(Eq(diff(a*x**3 + Symbol('B')*x*Symbol('y')**2, x, 2) + diff(a*x**3 + Symbol('B')*x*Symbol('y')**2, Symbol('y'), 2), 0), Symbol('B'))[0]
+- template: em-harmonic-coefficient
+  skill: cplx.analytic
+  pace: quick
+  given:
+    ka:
+      pick:
+      - 1
+      - 2
+      - 4
+      - -1
+  prompt: For what m is u = {{ka}}x³ + mxy² harmonic?
+  parts:
+  - ask: Answer
+    label: v
+    tex: m
+    value: -3*ka
+    final: true
+    tol: 0.0001
+    explain: u_xx + u_yy = 6ax + 2mx must vanish. With a = 1 this is the real part of z³
+  verify:
+    expect:
+      v: solve(Eq(diff(ka*x**3 + Symbol('m')*x*Y**2, x, 2) + diff(ka*x**3 + Symbol('m')*x*Y**2, Y, 2), 0), Symbol('m'))[0]
 - template: em-entire
   skill: cplx.analytic
   pace: recall
@@ -371,6 +685,38 @@
     explain: Polynomials, exponentials, sine, cosine and their sums and products are entire. The conjugate and $|z|^2$ fail Cauchy–Riemann; $1/z$, $e^{1/z}$ and $\tan z$ blow up at points
   verify:
     authored: true
+- template: em-analytic-where
+  skill: cplx.analytic
+  pace: recall
+  cases:
+  - q: e^z
+    kc: 0
+  - q: 1/z
+    kc: 1
+  - q: the conjugate of z
+    kc: 2
+  - q: z³ − 2z
+    kc: 0
+  - q: '|z|²'
+    kc: 2
+  - q: tan z
+    kc: 1
+  - q: sin z
+    kc: 0
+  - q: 1/(z² + 1)
+    kc: 1
+  prompt: 'The function {{q}} is:'
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - Entire
+    - Analytic except at isolated points
+    - Analytic nowhere
+    correct: kc
+    explain: Polynomials, e^z, sin z and cos z are entire. Quotients fail only where the denominator vanishes. Anything built from the conjugate or |z| fails the Cauchy–Riemann equations (|z|² is differentiable only at 0)
+  verify:
+    authored: true
 - template: em-harmonic-conjugate
   skill: cplx.analytic
   pace: quick
@@ -400,6 +746,34 @@
   verify:
     expect:
       v: integrate(diff(x**2 - Symbol('y')**2 + c*x, x), (Symbol('y'), 0, y0)).subs(x, x0)
+- template: em-harmonic-conjugate-value
+  skill: cplx.analytic
+  pace: quick
+  cases:
+  - ka: 1
+    kx: 2
+    ky: 3
+  - ka: 3
+    kx: 1
+    ky: 1
+  - ka: 2
+    kx: -1
+    ky: 4
+  - ka: 4
+    kx: 2
+    ky: 1
+  prompt: u = x² − y² + {{ka}}x. Find its harmonic conjugate v, with v(0, 0) = 0, at ({{kx}}, {{ky}}).
+  parts:
+  - ask: Answer
+    label: v
+    tex: v
+    value: 2*kx*ky + ka*ky
+    final: true
+    tol: 0.0001
+    explain: v_y = u_x = 2x + a gives v = 2xy + ay + g(x), and v_x = −u_y = 2y makes g constant. This is z² + az
+  verify:
+    expect:
+      v: integrate(diff(x**2 - Y**2 + ka*x, x), (Y, 0, ky)).subs(x, kx)
 - template: em-cauchy-formula
   skill: cplx.series
   pace: quick
@@ -431,6 +805,27 @@
   verify:
     expect:
       v: limit((x - nsimplify(p))*exp(a*x)/(x - nsimplify(p)), x, nsimplify(p))
+- template: em-cauchy-formula-derivative
+  skill: cplx.series
+  pace: quick
+  given:
+    ka:
+      pick:
+      - 1
+      - 2
+      - 3
+      - 5
+  prompt: The integral of e^({{ka}}z)/z² once counterclockwise around |z| = 1 equals bi. Find b.
+  parts:
+  - ask: Answer
+    label: v
+    tex: b
+    value: 2*pi*ka
+    tol: 0.005
+    explain: 'Cauchy''s formula for the first derivative: ∮ f(z)/(z − z₀)² dz = 2πi f′(z₀)'
+  verify:
+    expect:
+      v: im(2*pi*I*diff(exp(ka*Z), Z).subs(Z, 0))
 - template: em-complex-sequence
   skill: cplx.series
   pace: recall
@@ -471,6 +866,38 @@
   verify:
     choices:
       v: 0 if Abs((a + b*I)/c) < 1 else 1
+- template: em-complex-sequence-fate
+  skill: cplx.series
+  pace: recall
+  cases:
+  - q: (i/2)^n
+    kc: 0
+  - q: ((3 + 4i)/5)^n
+    kc: 2
+  - q: (1 + i)^n
+    kc: 2
+  - q: (2n + i)/(n − i)
+    kc: 1
+  - q: ((1 + i)/2)^n
+    kc: 0
+  - q: i^n/n
+    kc: 0
+  - q: n/(n + i)
+    kc: 1
+  - q: i^n
+    kc: 2
+  prompt: 'The sequence z_n = {{q}}:'
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - Converges to 0
+    - Converges to a nonzero limit
+    - Diverges
+    correct: kc
+    explain: A power wⁿ goes to 0 when |w| < 1, blows up when |w| > 1, and circles for ever when |w| = 1 (unless w = 1). For a quotient, divide through by n
+  verify:
+    authored: true
 - template: em-complex-taylor
   skill: cplx.series
   pace: quick
@@ -496,6 +923,31 @@
   verify:
     expect:
       v: series(exp(a*x), x, 0, k + 1).removeO().coeff(x, k)
+- template: em-taylor-coefficient-geometric
+  skill: cplx.series
+  pace: quick
+  given:
+    ka:
+      pick:
+      - 2
+      - 3
+      - 5
+    kn:
+      pick:
+      - 1
+      - 2
+      - 3
+  prompt: Find the coefficient of z^{{kn}} in the Taylor series of 1/({{ka}} − z) about 0.
+  parts:
+  - ask: Answer
+    label: v
+    tex: c_n
+    value: 1/ka^(kn + 1)
+    tol: 0.005
+    explain: 1/(a − z) = (1/a)·1/(1 − z/a) = Σ zⁿ/a^(n+1), valid for |z| < a
+  verify:
+    expect:
+      v: diff(1/(ka - Z), Z, kn).subs(Z, 0)/factorial(kn)
 - template: em-laurent-residue
   skill: cplx.series
   pace: quick
@@ -522,6 +974,31 @@
   verify:
     expect:
       v: series(exp(a*x), x, 0, n + 1).removeO().coeff(x, n - 1)
+- template: em-residue-double-pole-exp
+  skill: cplx.series
+  pace: quick
+  cases:
+  - ka: 1
+    kq: 1
+  - ka: 2
+    kq: 1
+  - ka: 3
+    kq: -1
+  - ka: 1
+    kq: 2
+  - ka: 2
+    kq: -1
+  prompt: Find the residue of e^({{ka}}z)/(z − {{kq}})² at z = {{kq}}.
+  parts:
+  - ask: Answer
+    label: v
+    tex: \mathrm{Res}
+    value: ka*exp(ka*kq)
+    tol: 0.005
+    explain: At a double pole the residue is the derivative of (z − z₀)²f(z) at z₀
+  verify:
+    expect:
+      v: limit(diff(exp(ka*Z), Z), Z, kq)
 - template: em-zero-order
   skill: cplx.series
   pace: quick
@@ -558,3 +1035,34 @@
   verify:
     expect:
       v: series(Symbol('t')**m*calc(gp), Symbol('t'), 0, 12).removeO().as_ordered_terms()[-1].as_coeff_exponent(Symbol('t'))[1]
+- template: em-zero-order-pick
+  skill: cplx.series
+  pace: recall
+  cases:
+  - q: z² sin z
+    kc: 2
+  - q: 1 − cos z
+    kc: 1
+  - q: z − sin z
+    kc: 2
+  - q: e^z − 1 − z
+    kc: 1
+  - q: sin² z
+    kc: 1
+  - q: z³(e^z − 1)
+    kc: 3
+  - q: e^z − 1
+    kc: 0
+  prompt: 'At z = 0 the function {{q}} has a zero of order:'
+  parts:
+  - ask: Answer
+    label: v
+    choice:
+    - '1'
+    - '2'
+    - '3'
+    - '4'
+    correct: kc
+    explain: 'Expand about 0 and read off the first power that survives: sin z = z − z³/6 + …, cos z = 1 − z²/2 + …, e^z = 1 + z + z²/2 + …'
+  verify:
+    authored: true

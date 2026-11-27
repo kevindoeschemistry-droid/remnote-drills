@@ -68,7 +68,7 @@ Related reports: [standards and how much of each was read](../coverage/standards
 | Framework | Code | Objectives | Drilled | Partly | Open | Types | Anchored on |
 |---|---|---:|---:|---:|---:|---:|---|
 | [Abstract Algebra](abstract-algebra.md) | AA | 40 | 40 | 0 | 0 | 2.0 | Cambridge Mathematical Tripos, Part IA Groups schedule (course, read: part) |
-| [Applied Engineering Mathematics](engineering-math.md) | EM | 195 | 195 | 0 | 0 | 2.1 | Kreyszig, Advanced Engineering Mathematics, 10th ed. (textbook, read: full) |
+| [Applied Engineering Mathematics](engineering-math.md) | EM | 195 | 195 | 0 | 0 | 2.5 | Kreyszig, Advanced Engineering Mathematics, 10th ed. (textbook, read: full) |
 | [Calculus](calculus.md) | CA | 203 | 203 | 0 | 0 | 2.3 | AP Calculus AB and BC Course and Exam Description (standard, read: full) |
 | [Discrete Mathematics](discrete-mathematics.md) | DM | 28 | 28 | 0 | 0 | 2.0 | MAA CUPM Curriculum Guide 2015, Discrete Mathematics and Combinatorics course area report (standard, read: part) |
 | [Geometry](geometry.md) | GE | 16 | 16 | 0 | 0 | 2.0 | Cambridge Mathematical Tripos, Part IB Geometry schedule (course, read: part) |

@@ -73,11 +73,11 @@ Book: kreyszig-10e §2.2, §13.1, §13.2, §13.5
 - ● **EM-1.2.B** (webwork-opl:CX1.9) Compute powers and roots of a complex number with De Moivre's formula.
   - EK: (re^(iθ))^n = r^n e^(inθ); n distinct n-th roots spaced 2π/n apart.
   - Needs: EM-1.2.A
-  - P3 · drills: euler-demoivre
+  - P3 · drills: euler-demoivre, em-demoivre-real-part
 - ● **EM-1.2.C** (webwork-opl:CX2.2) Find the complex roots α ± βi of a real quadratic.
   - EK: Complex roots of real polynomials come in conjugate pairs; α = −b/2a, β = √(4ac − b²)/2a.
   - Needs: EM-1.2.B
-  - P3 · drills: euler-quad-roots
+  - P3 · drills: euler-quad-roots, em-quadratic-from-complex-roots
 
 ### 1.3 Summation notation
 
@@ -99,11 +99,11 @@ Book: kreyszig-10e §1.4, §9.6
 - ● **EM-1.4.B** Find dy/dx for a curve defined implicitly by F(x, y) = c.
   - EK: dy/dx = −F_x / F_y.
   - Needs: EM-1.4.A
-  - P3 · drills: mv-implicit
+  - P3 · drills: mv-implicit, em-implicit-slope-ellipse
 - ● **EM-1.4.C** (webwork-opl:DE2.2) Test whether M dx + N dy is an exact differential.
   - EK: Exact on a simply connected domain ⇔ ∂M/∂y = ∂N/∂x.
   - Needs: EM-1.4.B
-  - P2 · drills: mv-exact-test
+  - P2 · drills: mv-exact-test, em-exact-missing-coefficient
 
 ## Unit 2 · First-order ODEs
 
@@ -124,7 +124,7 @@ Book: kreyszig-10e §1.1, §1.2
 - ● **EM-2.1.C** (webwork-opl:DE6.1) Approximate an IVP solution with a few steps of Euler's method and estimate the error trend.
   - EK: y_(n+1) = y_n + h f(x_n, y_n); global error is O(h).
   - Needs: EM-2.1.B
-  - P3 · P5 · drills: ca-euler-method
+  - P3 · P5 · drills: ca-euler-method, em-euler-two-steps
 
 ### 2.2 Separable equations and reducing substitutions
 
@@ -150,7 +150,7 @@ Book: kreyszig-10e §1.4
 - ● **EM-2.3.B** (webwork-opl:DE2.13) Decide whether an integrating factor depending only on x or only on y exists.
   - EK: R = (M_y − N_x)/N a function of x alone ⇒ F(x) = exp∫R dx; R* = (N_x − M_y)/M of y alone ⇒ F(y).
   - Needs: EM-2.3.A
-  - P2 · drills: if-test
+  - P2 · drills: if-test, em-integrating-factor-power
 - ● **EM-2.3.C** (webwork-opl:DE2.13) Find the integrating factor and solve the resulting exact equation.
   - EK: Multiply by F, re-check exactness, then solve as exact.
   - Needs: EM-2.3.A, EM-2.3.B
@@ -197,7 +197,7 @@ Book: kreyszig-10e §1.3, §1.5
 - ● **EM-2.6.A** (webwork-opl:DE2.8, webwork-opl:MB5.2) Set up and solve a mixing-tank balance for concentration or mass of solute.
   - EK: dm/dt = (rate in) − (rate out), rate out = (m/V)·Q_out.
   - Needs: EM-2.6.E
-  - P1 · P3 · drills: model-mixing
+  - P1 · P3 · drills: model-mixing, em-mixing-half-time
 - ● **EM-2.6.B** (webwork-opl:DE2.6, webwork-opl:DE2.10) Model Newton's cooling and first-order decay, and extract a time constant, half-life or time to reach a value.
   - EK: dT/dt = −k(T − T_a); y = y_0 e^(−kt), t_1/2 = ln 2/k.
   - Needs: EM-2.6.A
@@ -205,11 +205,11 @@ Book: kreyszig-10e §1.3, §1.5
 - ● **EM-2.6.C** (webwork-opl:DE2.7) Solve the logistic equation and find its equilibria and carrying capacity.
   - EK: y′ = ky(1 − y/K) is separable and Bernoulli; y → K for y_0 > 0.
   - Needs: EM-2.6.B
-  - P1 · P6 · drills: model-logistic
+  - P1 · P6 · drills: model-logistic, em-logistic-half-capacity-time
 - ● **EM-2.6.D** (webwork-opl:DE2.5) Find and classify the equilibria of an autonomous ODE y′ = f(y) from a phase line.
   - EK: f(y*) = 0; stable if f′(y*) < 0.
   - Needs: EM-2.6.C
-  - P6 · drills: em-phase-line
+  - P6 · drills: em-phase-line, em-phase-line-fate
 
 ### 2.7 Existence and uniqueness
 
@@ -218,7 +218,7 @@ Book: kreyszig-10e §1.7
 - ● **EM-2.7.A** (webwork-opl:DE2.15) Decide whether an IVP has a unique solution near the initial point from the continuity of f and ∂f/∂y.
   - EK: f and f_y continuous on a rectangle around (x_0, y_0) ⇒ unique solution on some |x − x_0| < α.
   - Needs: EM-2.6.D
-  - P2 · drills: em-existence
+  - P2 · drills: em-existence, em-existence-uniqueness-verdict
 
 ## Unit 3 · Second-order linear ODEs
 
@@ -231,7 +231,7 @@ Book: kreyszig-10e §2.1, §2.6
 - ● **EM-3.1.A** Use superposition to build a general solution from a basis and fit it to an IVP.
   - EK: For a linear homogeneous ODE, any combination c_1y_1 + c_2y_2 of solutions is a solution; two independent ones form a basis.
   - Needs: EM-2.7.A
-  - P4 · drills: em-superposition-ivp
+  - P4 · drills: em-superposition-ivp, em-superposition-coefficient
 - ● **EM-3.1.B** (webwork-opl:DE3.1) Find a second solution from a known one by reduction of order.
   - EK: y_2 = u y_1, u′ = U = e^(−∫p dx)/y_1² (standard form y″ + py′ + qy = 0).
   - Needs: EM-3.1.A
@@ -256,7 +256,7 @@ Book: kreyszig-10e §2.2, §2.3
 - ● **EM-3.2.B** (webwork-opl:DE3.6) Solve a constant-coefficient IVP.
   - EK: Two conditions y(x_0), y′(x_0) fix c_1, c_2.
   - Needs: EM-3.2.A
-  - P4 · drills: char-ivp
+  - P4 · drills: char-ivp, em-repeated-root-ivp-value
 
 ### 3.3 Euler–Cauchy equations
 
@@ -265,7 +265,7 @@ Book: kreyszig-10e §2.5
 - ● **EM-3.3.A** (webwork-opl:DE3.7) Find the roots of the auxiliary equation of an Euler–Cauchy ODE.
   - EK: x²y″ + axy′ + by = 0 with y = x^m ⇒ m² + (a − 1)m + b = 0.
   - Needs: EM-3.2.B
-  - P2 · drills: ec-roots
+  - P2 · drills: ec-roots, em-euler-cauchy-exponent-sum
 - ● **EM-3.3.B** (webwork-opl:DE3.7) Write the general solution of an Euler–Cauchy ODE for each root case and fit an IVP.
   - EK: Distinct: x^(m₁), x^(m₂); double: x^m, x^m ln x; complex: x^μ cos(ν ln x), x^μ sin(ν ln x).
   - Needs: EM-3.3.A
@@ -282,11 +282,11 @@ Book: kreyszig-10e §2.4
 - ● **EM-3.4.B** Solve an undamped oscillator IVP.
   - EK: y(0) and y′(0) give A and B/ω₀.
   - Needs: EM-3.4.A
-  - P4 · drills: spring-undamped-ivp
+  - P4 · drills: spring-undamped-ivp, em-undamped-amplitude
 - ● **EM-3.4.C** Classify a damped oscillator as over-, critically or underdamped from c² − 4mk.
   - EK: c² > 4mk overdamped, = critical, < under; underdamped frequency ω* = √(4mk − c²)/2m.
   - Needs: EM-3.4.B
-  - P2 · P6 · drills: spring-classify
+  - P2 · P6 · drills: spring-classify, em-critical-damping-constant
 - ● **EM-3.4.D** (webwork-opl:DE3.2) Solve a damped oscillator IVP in each damping regime.
   - EK: Same three root cases as 3.2.A, with α = −c/2m < 0 so every solution decays.
   - Needs: EM-3.2.B
@@ -324,11 +324,11 @@ Book: kreyszig-10e §2.8, §2.9
 - ● **EM-3.6.C** Find the practical-resonance frequency of a damped forced oscillator.
   - EK: ω_max² = k/m − c²/2m², exists only if c² < 2mk.
   - Needs: EM-3.6.B
-  - P6 · drills: forced-practical
+  - P6 · drills: forced-practical, em-resonance-peak-limit
 - ● **EM-3.6.D** (webwork-opl:DE3.2) Model an RLC circuit as a second-order ODE and map it onto the mass–spring analogy.
   - EK: LI″ + RI′ + I/C = E′(t): L ↔ m, R ↔ c, 1/C ↔ k.
   - Needs: EM-3.6.C
-  - P1 · drills: em-rlc
+  - P1 · drills: em-rlc, em-rlc-critical-resistance
 
 ## Unit 4 · Higher-order linear ODEs
 
@@ -345,11 +345,11 @@ Book: kreyszig-10e §3.1, §3.2
 - ● **EM-4.1.A** (webwork-opl:DE3.11) Test n functions for linear independence with the n×n Wronskian.
   - EK: Rows are f, f′, …, f^(n−1); expand by cofactors.
   - Needs: EM-3.1.C, EM-8.3.A
-  - P3 · drills: wr-three
+  - P3 · drills: wr-three, em-wronskian-three-exponentials
 - ● **EM-4.1.B** Find the roots of an n-th order characteristic polynomial.
   - EK: Rational root test, then synthetic division to a quadratic.
   - Needs: EM-4.1.A
-  - P3 · drills: hi-roots
+  - P3 · drills: hi-roots, em-third-root
 - ● **EM-4.1.C** (webwork-opl:DE3.3) Write the general solution of an n-th order constant-coefficient ODE with distinct, repeated and complex roots, and fit an IVP.
   - EK: A root of multiplicity k gives e^(λx), xe^(λx), …, x^(k−1)e^(λx).
   - Needs: EM-4.1.B
@@ -383,7 +383,7 @@ Book: kreyszig-10e §4.1, §4.2
 - ● **EM-5.1.B** (webwork-opl:DE5.1) Write the rate matrix for series first-order kinetics A → B → C.
   - EK: d[A]/dt = −k₁[A], d[B]/dt = k₁[A] − k₂[B]; C follows from mass conservation.
   - Needs: EM-5.1.A
-  - P1 · drills: kin-matrix
+  - P1 · drills: kin-matrix, em-series-kinetics-peak-time
 
 ### 5.2 Constant-coefficient systems by eigenvalues
 
@@ -392,7 +392,7 @@ Book: kreyszig-10e §4.3
 - ● **EM-5.2.A** (webwork-opl:DE5.4) Find the eigenvalues and eigenvectors that give the basis solutions of y′ = Ay.
   - EK: y = x e^(λt) with (A − λI)x = 0.
   - Needs: EM-8.4.A, EM-8.4.B
-  - P3 · drills: sys-eigen
+  - P3 · drills: sys-eigen, em-system-dominant-rate
 - ● **EM-5.2.B** (webwork-opl:DE5.4) Write the general solution of a 2×2 system with real distinct eigenvalues and fit an IVP.
   - EK: y = c₁x⁽¹⁾e^(λ₁t) + c₂x⁽²⁾e^(λ₂t).
   - Needs: EM-5.2.A
@@ -404,7 +404,7 @@ Book: kreyszig-10e §4.3
 - ● **EM-5.2.D** (webwork-opl:DE5.6) Solve a 2×2 system with a repeated eigenvalue using a generalised eigenvector.
   - EK: Second solution x t e^(λt) + u e^(λt), (A − λI)u = x.
   - Needs: EM-5.2.C
-  - P3 · drills: sys-repeated
+  - P3 · drills: sys-repeated, em-repeated-eigenvalue
 - ● **EM-5.2.E** (webwork-opl:DE5.3) Solve series kinetics A → B → C and find the time of maximum intermediate.
   - EK: Eigenvalues −k₁, −k₂; [B] = k₁A₀(e^(−k₁t) − e^(−k₂t))/(k₂ − k₁); t_max = ln(k₁/k₂)/(k₁ − k₂), = 1/k when k₁ = k₂.
   - Needs: EM-5.1.B
@@ -417,7 +417,7 @@ Book: kreyszig-10e §4.3, §4.4
 - ● **EM-5.3.C** (webwork-opl:DE5.9) Sketch a phase portrait with eigenvector directions and trajectory orientation.
   - EK: Trajectories leave along the fast-growing eigenvector and approach along the slow-decaying one.
   - Needs: EM-5.2.E
-  - P6 · drills: em-phase-portrait
+  - P6 · drills: em-phase-portrait, em-portrait-type
 - ● **EM-5.3.A** (webwork-opl:DE5.9) Classify the critical point of a linear 2×2 system (node, saddle, centre, spiral) from its eigenvalues or from trace and determinant.
   - EK: p = tr A, q = det A, Δ = p² − 4q: q < 0 saddle; q > 0, Δ ≥ 0 node; Δ < 0 spiral (p ≠ 0) or centre (p = 0).
   - Needs: EM-5.3.C
@@ -425,7 +425,7 @@ Book: kreyszig-10e §4.3, §4.4
 - ● **EM-5.3.B** (webwork-opl:DE5.9) Decide whether a critical point is stable, asymptotically stable or unstable.
   - EK: Asymptotically stable ⇔ p < 0, q > 0; centre is stable, not asymptotically.
   - Needs: EM-5.3.A
-  - P6 · drills: phase-stability
+  - P6 · drills: phase-stability, em-stability-from-trace-det
 
 ### 5.4 Nonlinear systems
 
@@ -434,11 +434,11 @@ Book: kreyszig-10e §4.5
 - ● **EM-5.4.A** (webwork-opl:DE5.10) Find the critical points of a nonlinear autonomous system and linearise at each with the Jacobian.
   - EK: Set f = g = 0; J = [[f_x, f_y], [g_x, g_y]] at the point.
   - Needs: EM-5.3.B
-  - P3 · drills: em-nonlinear-critical
+  - P3 · drills: em-nonlinear-critical, em-coexistence-point
 - ● **EM-5.4.B** (webwork-opl:DE5.10) Classify each critical point of a nonlinear system from its linearisation, noting when linearisation is inconclusive.
   - EK: Hyperbolic points keep their type; a linear centre may be a spiral in the nonlinear system.
   - Needs: EM-5.3.A, EM-5.4.A
-  - P6 · drills: em-nonlinear-critical
+  - P6 · drills: em-nonlinear-critical, em-jacobian-determinant
 
 ### 5.5 Nonhomogeneous linear systems
 
@@ -447,7 +447,7 @@ Book: kreyszig-10e §4.6
 - ● **EM-5.5.A** (webwork-opl:DE5.8) Find a particular solution of y′ = Ay + g by undetermined coefficients, diagonalisation or variation of parameters.
   - EK: Fundamental matrix Y: y_p = Y∫Y⁻¹g dt.
   - Needs: EM-5.4.B
-  - P3 · drills: em-nonhomog-system
+  - P3 · drills: em-nonhomog-system, em-system-constant-particular
 
 ## Unit 6 · Series solutions and special functions
 
@@ -460,11 +460,11 @@ Book: kreyszig-10e §5.1, §5.3
 - ● **EM-6.1.A** (webwork-opl:DE7.2) Classify a point as ordinary, regular singular or irregular singular.
   - EK: Standard form y″ + py′ + qy = 0: ordinary if p, q analytic; regular singular if (x − x₀)p and (x − x₀)²q are analytic.
   - Needs: EM-3.6.D
-  - P2 · drills: series-classify-point
+  - P2 · drills: series-classify-point, em-singular-point-location
 - ● **EM-6.1.B** (webwork-opl:DE7.1) Give the guaranteed radius of convergence of a power-series solution about an ordinary point.
   - EK: At least the distance to the nearest singular point in the complex plane.
   - Needs: EM-6.1.A
-  - P2 · drills: series-radius
+  - P2 · drills: series-radius, em-radius-from-complex-singularity
 
 ### 6.2 Power series method
 
@@ -486,15 +486,15 @@ Book: kreyszig-10e §5.3
 - ● **EM-6.3.A** (webwork-opl:DE7.2) Find the indicial equation and its roots at a regular singular point.
   - EK: r(r − 1) + b₀r + c₀ = 0, b₀ = lim xp, c₀ = lim x²q.
   - Needs: EM-6.1.A
-  - P3 · drills: frobenius-indicial
+  - P3 · drills: frobenius-indicial, em-indicial-p0
 - ● **EM-6.3.B** (webwork-opl:DE7.2) Decide which Frobenius case applies and what form the second solution takes.
   - EK: Roots not differing by an integer: two x^r series; double root: second has ln x; differ by an integer: second may have ln x.
   - Needs: EM-6.3.A
-  - P2 · drills: frobenius-case
+  - P2 · drills: frobenius-case, em-frobenius-case-from-roots
 - ● **EM-6.3.C** (webwork-opl:DE7.2) Construct the first Frobenius series solution from the larger indicial root.
   - EK: y = x^r Σa_m x^m; same index-shifting as the power series method.
   - Needs: EM-6.3.A, EM-6.2.A
-  - P3 · drills: em-frobenius-first-solution
+  - P3 · drills: em-frobenius-first-solution, em-bessel-series-a2
 
 ### 6.4 Legendre and Bessel functions
 
@@ -507,15 +507,15 @@ Book: kreyszig-10e §5.2, §5.4, §5.5
 - ● **EM-6.4.B** (webwork-opl:DE7.3) Solve a scaled Bessel equation x²y″ + xy′ + (λ²x² − ν²)y = 0 with J_ν(λx), Y_ν(λx).
   - EK: Substitute z = λx.
   - Needs: EM-6.4.A
-  - P2 · P3 · drills: spec-bessel-scaled
+  - P2 · P3 · drills: spec-bessel-scaled, em-bessel-zero-scale
 - ● **EM-6.4.C** (webwork-opl:DE7.3) Write the general solution of Bessel's equation, choosing J₋ν or Y_ν as the second solution.
   - EK: J_ν, J₋ν independent unless ν is an integer, where J₋ₙ = (−1)ⁿJₙ; then use Y_ν.
   - Needs: EM-6.4.B
-  - P2 · P5 · drills: spec-bessel-independent
+  - P2 · P5 · drills: spec-bessel-independent, em-bessel-second-solution
 - ● **EM-6.4.D** Use Legendre polynomials' explicit form, Rodrigues' formula or orthogonality to evaluate P_n or an integral.
   - EK: P_n(x) = (1/2ⁿn!) dⁿ/dxⁿ (x² − 1)ⁿ; ∫P_mP_n = 0 on [−1, 1] for m ≠ n.
   - Needs: EM-6.4.C
-  - P3 · drills: em-legendre-eval
+  - P3 · drills: em-legendre-eval, em-legendre-norm
 
 ## Unit 7 · Laplace transforms
 
@@ -575,7 +575,7 @@ Book: kreyszig-10e §6.3
 - ● **EM-7.4.B** (webwork-opl:DE4.7) Invert a transform containing e^(−as).
   - EK: e^(−as)F(s) ↦ f(t − a)u(t − a).
   - Needs: EM-7.4.A
-  - P3 · drills: shift-t-inverse
+  - P3 · drills: shift-t-inverse, em-shifted-inverse-value
 - ● **EM-7.4.C** (webwork-opl:DE4.6) Solve an IVP with switched or piecewise forcing.
   - EK: Transform the step-written forcing; the solution is piecewise with continuous y and y′.
   - Needs: EM-7.3.A, EM-7.4.A
@@ -597,7 +597,7 @@ Book: kreyszig-10e §6.5
 - ● **EM-7.6.A** (webwork-opl:DE4.4) Compute a convolution integral directly.
   - EK: (f * g)(t) = ∫₀ᵗ f(τ)g(t − τ)dτ.
   - Needs: EM-7.5.A
-  - P3 · drills: conv-compute
+  - P3 · drills: conv-compute, em-convolution-two-exponentials
 - ● **EM-7.6.B** (webwork-opl:DE4.4) Invert a product of transforms or transform an integral using the convolution theorem.
   - EK: L{f * g} = FG; L{∫₀ᵗ f dτ} = F/s.
   - Needs: EM-7.6.A
@@ -605,7 +605,7 @@ Book: kreyszig-10e §6.5
 - ● **EM-7.6.C** (webwork-opl:DE4.4) Solve a Volterra integral equation of convolution type.
   - EK: Transform, solve for Y algebraically, invert.
   - Needs: EM-7.6.B
-  - P3 · drills: conv-volterra
+  - P3 · drills: conv-volterra, em-volterra-exponential
 
 ### 7.7 Transform derivatives and systems
 
@@ -631,7 +631,7 @@ Book: kreyszig-10e §7.3, §7.5
 - ● **EM-8.1.A** Solve a linear system by row reduction and state whether it has none, one or infinitely many solutions.
   - EK: Echelon form; rank A vs rank [A|b] decides existence; free variables give a family.
   - Needs: LA-5.1.B
-  - P3 · drills: la-system
+  - P3 · drills: la-system, em-system-no-solution-parameter
 
 ### 8.2 Linear independence and rank
 
@@ -640,7 +640,7 @@ Book: kreyszig-10e §7.4
 - ● **EM-8.2.A** Decide whether a set of vectors is linearly independent.
   - EK: Independent ⇔ only the trivial combination is zero ⇔ rank = number of vectors; for n vectors in ℝⁿ, det ≠ 0.
   - Needs: EM-8.1.A
-  - P2 · drills: la-independence
+  - P2 · drills: la-independence, em-dependence-parameter
 
 ### 8.3 Determinants and inverses
 
@@ -649,11 +649,11 @@ Book: kreyszig-10e §7.6, §7.7, §7.8
 - ● **EM-8.3.A** Evaluate a 3×3 determinant by cofactor expansion.
   - EK: Expand along the row or column with most zeros; sign pattern (−1)^(i+j).
   - Needs: EM-8.2.A
-  - P3 · drills: la-det
+  - P3 · drills: la-det, em-determinant-scaling
 - ● **EM-8.3.B** Find the inverse of a 2×2 matrix, or show it does not exist.
   - EK: A⁻¹ = (1/det A)[[d, −b], [−c, a]]; singular ⇔ det A = 0.
   - Needs: EM-8.3.A
-  - P3 · drills: la-inverse
+  - P3 · drills: la-inverse, em-inverse-entry
 
 ### 8.4 The matrix eigenvalue problem
 
@@ -662,11 +662,11 @@ Book: kreyszig-10e §8.1, §8.2
 - ● **EM-8.4.A** Find the eigenvalues of a 2×2 matrix from its characteristic polynomial.
   - EK: λ² − (tr A)λ + det A = 0.
   - Needs: EM-8.3.B
-  - P3 · drills: la-eigenvalues
+  - P3 · drills: la-eigenvalues, em-eigenvalue-from-trace-det
 - ● **EM-8.4.B** Find an eigenvector for each eigenvalue of a 2×2 matrix.
   - EK: Solve (A − λI)x = 0; one row suffices in 2×2.
   - Needs: EM-8.4.A
-  - P3 · drills: la-eigenvector
+  - P3 · drills: la-eigenvector, em-eigenvector-second-component
 
 ### 8.5 Symmetric matrices and diagonalisation
 
@@ -675,7 +675,7 @@ Book: kreyszig-10e §8.3, §8.4
 - ● **EM-8.5.A** Diagonalise a matrix with a full set of eigenvectors and use it to decouple a linear system.
   - EK: D = X⁻¹AX; symmetric A has real eigenvalues and orthogonal eigenvectors.
   - Needs: EM-8.4.B, EM-8.3.B
-  - P3 · drills: em-diagonalise
+  - P3 · drills: em-diagonalise, em-matrix-power-by-diagonalising
 
 ### 8.6 Rank, orthogonality and least squares
 
@@ -717,15 +717,15 @@ Book: kreyszig-10e §11.1, §11.2
 - ● **EM-9.1.B** (webwork-opl:CA7.20, webwork-opl:DE8.7) Compute the Fourier series of a function of period 2L, using even/odd symmetry to skip coefficients.
   - EK: Replace nx by nπx/L and 1/π by 1/L; even ⇒ cosine series, odd ⇒ sine series.
   - Needs: EM-9.1.A
-  - P2 · P3 · drills: fs-period-2l
+  - P2 · P3 · drills: fs-period-2l, em-fourier-abs-a1
 - ● **EM-9.1.C** (webwork-opl:CA7.20) Write the half-range sine or cosine expansion of a function on (0, L).
   - EK: Odd extension ⇒ sine series; even extension ⇒ cosine series; b_n = (2/L)∫₀ᴸ f sin(nπx/L).
   - Needs: EM-9.1.B
-  - P3 · drills: fs-half-range
+  - P3 · drills: fs-half-range, em-half-range-sine-coefficient
 - ● **EM-9.1.D** Find the periodic steady-state response of an oscillator to a periodic non-sinusoidal force by Fourier series.
   - EK: Solve term by term; the term with nω nearest ω₀ dominates.
   - Needs: EM-9.1.A, EM-3.6.A
-  - P3 · P6 · drills: em-fourier-forced-response
+  - P3 · P6 · drills: em-fourier-forced-response, em-resonant-harmonic
 
 ### 9.2 Sturm–Liouville problems
 
@@ -738,19 +738,19 @@ Book: kreyszig-10e §11.5
 - ● **EM-9.2.A** Rewrite a second-order eigenvalue ODE in Sturm–Liouville form and identify p, q and r.
   - EK: (py′)′ + (q + λr)y = 0; multiply by the integrating factor e^(∫a₁/a₂)/a₂ when needed.
   - Needs: EM-9.2.F
-  - P2 · drills: sl-form
+  - P2 · drills: sl-form, em-sl-weight
 - ● **EM-9.2.B** Classify a Sturm–Liouville problem as regular, periodic or singular.
   - EK: Regular: p > 0, r > 0 on [a, b] with separated BCs; periodic: y(a) = y(b), y′(a) = y′(b); singular: p vanishes at an end.
   - Needs: EM-9.2.A
-  - P2 · drills: sl-classify
+  - P2 · drills: sl-classify, em-sl-kind
 - ● **EM-9.2.C** (webwork-opl:DE3.10) Find the eigenvalues of y″ + λy = 0 under Dirichlet, Neumann or mixed boundary conditions.
   - EK: Check λ < 0, = 0, > 0 separately; Dirichlet on [0, L]: λ = (nπ/L)², n ≥ 1.
   - Needs: EM-9.2.B
-  - P3 · P4 · drills: sl-eigenvalues
+  - P3 · P4 · drills: sl-eigenvalues, em-sl-mixed-eigenvalue
 - ● **EM-9.2.D** Find the eigenfunction belonging to each eigenvalue.
   - EK: Determined up to a constant multiple; sin(nπx/L), cos(nπx/L) or sin((2n−1)πx/2L).
   - Needs: EM-9.2.C
-  - P4 · drills: sl-eigenfunctions
+  - P4 · drills: sl-eigenfunctions, em-eigenfunction-first-node
 - ● **EM-9.2.E** Find the eigenvalues and eigenfunctions of a shifted problem y″ + (λ + c)y = 0 and count its negative eigenvalues.
   - EK: Set μ = λ + c, solve as 9.2.C, then λ = μ − c.
   - Needs: EM-9.2.C
@@ -763,11 +763,11 @@ Book: kreyszig-10e §11.5, §11.6
 - ● **EM-9.3.A** Verify orthogonality of eigenfunctions with respect to the weight r(x).
   - EK: ∫ₐᵇ r y_m y_n dx = 0 for m ≠ n in a regular or periodic S–L problem.
   - Needs: EM-9.2.E
-  - P5 · drills: em-orthogonality
+  - P5 · drills: em-orthogonality, em-eigenfunction-norm
 - ● **EM-9.3.B** Expand a function in a generalised Fourier series of S–L eigenfunctions (e.g. Legendre or Fourier–Bessel).
   - EK: a_n = ∫ r f y_n dx / ∫ r y_n² dx.
   - Needs: EM-9.3.A
-  - P3 · drills: em-legendre-expansion
+  - P3 · drills: em-legendre-expansion, em-legendre-coefficient
 
 ### 9.4 Green's functions
 
@@ -830,11 +830,11 @@ Book: kreyszig-10e §12.5, §12.6
 - ● **EM-10.2.F** Find the steady state with a flux or insulated end, and handle a flux boundary in the transient problem.
   - EK: −k u'(L) = q″ fixes the slope; with insulated ends the steady state is the initial mean.
   - Needs: EM-10.2.C
-  - P2 · P3 · drills: pde-flux-end-steady-state
+  - P2 · P3 · drills: pde-flux-end-steady-state, em-steady-flux-end
 - ● **EM-10.2.G** Shift a boundary value that changes in time (w = x g(t)/L) and identify the source term it leaves in the equation.
   - EK: v = u − w has zero ends and v_t = k v_xx − w_t + k w_xx.
   - Needs: EM-10.2.C
-  - P2 · drills: pde-time-bc-shift
+  - P2 · drills: pde-time-bc-shift, em-shift-leaves-source
 - ● **EM-10.2.H** (webwork-opl:DE8.8) Solve the heat equation with a source: steady state from k u_s″ = −Q, transient by expanding the source in the eigenfunctions.
   - EK: Both ends zero: u_s = Qx(L − x)/2k; each mode obeys T_n′ + λ_n T_n = q_n.
   - Needs: EM-10.2.C, EM-10.2.E
@@ -872,7 +872,7 @@ Book: kreyszig-10e §12.6, §12.10, §12.11
 - ● **EM-10.4.D** Solve transient conduction in a sphere with v = r·u, which turns it into a rod.
   - EK: v_t = kv_rr, v(0) = v(a) = 0; u = Σ B_n sin(nπr/a)e^(−k(nπ/a)²t)/r.
   - Needs: EM-10.4.B, EM-10.2.B
-  - P3 · drills: pde-sphere
+  - P3 · drills: pde-sphere, em-sphere-time-constant
 
 ### 10.5 Transform methods for PDEs
 
@@ -893,7 +893,7 @@ Book: kreyszig-10e §12.7, §12.12
 - ● **EM-10.5.C** Choose the method for a PDE problem: separation, shift, transform or numerics.
   - EK: Finite domain with homogeneous BCs: separate. Nonzero BCs: shift first. Semi-infinite: transform. Messy geometry or data: finite differences.
   - Needs: EM-10.5.B, EM-10.2.C
-  - P2 · drills: pde-method-choice
+  - P2 · drills: pde-method-choice, em-pde-method-pick
 
 ### 10.6 Finite differences for PDEs
 
@@ -910,11 +910,11 @@ Book: kreyszig-10e §21.4, §21.6
 - ● **EM-10.6.C** Handle a flux or insulated boundary with a ghost node.
   - EK: u_{−1} = u_1 − 2h g from the central difference of u_x(0) = g.
   - Needs: EM-10.6.B
-  - P3 · drills: pde-fd-ghost
+  - P3 · drills: pde-fd-ghost, em-ghost-node-value
 - ● **EM-10.6.D** Take an implicit or Crank–Nicolson step by solving the tridiagonal system.
   - EK: θ = 1 backward Euler, θ = ½ Crank–Nicolson; unconditionally stable; Thomas algorithm.
   - Needs: EM-10.6.B, EM-8.1.A
-  - P3 · P4 · drills: pde-fd-implicit
+  - P3 · P4 · drills: pde-fd-implicit, em-crank-nicolson-one-node
 
 ## Unit 11 · Fourier integrals and transforms (extension)
 
@@ -927,7 +927,7 @@ Book: kreyszig-10e §11.7, §11.8, §11.9
 - ● **EM-11.1.A** Represent a non-periodic function by its Fourier integral, or its cosine or sine transform.
   - EK: Limit L → ∞ of the Fourier series; even ⇒ cosine transform, odd ⇒ sine.
   - Needs: EM-9.4.C
-  - P3 · drills: em-fourier-cosine-sine
+  - P3 · drills: em-fourier-cosine-sine, em-fourier-sine-transform-exponential
 - ● **EM-11.1.B** (cheme-grad-core:MM.5) Compute a Fourier transform and use its derivative property to turn an ODE into algebra.
   - EK: F{f′} = iwF{f}; F{e^(−ax²)} is Gaussian.
   - Needs: EM-11.1.A
@@ -977,7 +977,7 @@ Book: kreyszig-10e §9.7, §9.8, §9.9, §10.7, §10.9
 - ● **EM-12.1.B** (webwork-opl:FM4.2) Derive a differential conservation equation from an integral balance with the divergence theorem.
   - EK: ∭∇·F dV = ∯F·n dA ⇒ ∂c/∂t + ∇·N = R.
   - Needs: CA-14.5.B
-  - P1 · drills: ca-conservation-law
+  - P1 · drills: ca-conservation-law, em-flux-divergence-source
 - ● **EM-12.1.C** () Compute the Laplacian of a radial function in cylindrical and spherical coordinates.
   - EK: Cylindrical: (1/r)(r f′)′; spherical: (1/r²)(r² f′)′; for f = rⁿ these are n² r^(n−2) and n(n + 1) r^(n−2).
   - Needs: EM-12.1.B
@@ -1006,23 +1006,23 @@ Big ideas: MODEL
 - ● **EM-13.1.A** (webwork-opl:DE2.9) Solve an RC circuit.
   - EK: R q′ + q/C = E: the charge rises with time constant RC and the current decays.
   - Needs: EM-5.5.A
-  - P1 · drills: em-rc-current
+  - P1 · drills: em-rc-current, em-rc-charge-time
 - ● **EM-13.1.B** (webwork-opl:DE2.14) Locate a saddle-node bifurcation.
   - EK: Equilibria appear or vanish where f(y) = 0 and f′(y) = 0 together.
   - Needs: EM-13.1.A
-  - P1 · drills: em-bifurcation
+  - P1 · drills: em-bifurcation, em-saddle-node-stable-branch
 - ● **EM-13.1.C** (webwork-opl:DE3.12) Apply a differential operator.
   - EK: L[e^{kx}] = p(k)e^{kx} for L = p(D) with constant coefficients.
   - Needs: EM-13.1.B
-  - P1 · drills: em-operator-exponential
+  - P1 · drills: em-operator-exponential, em-operator-on-exponential
 - ● **EM-13.1.D** (webwork-opl:DE3.13) Find the interval on which a linear IVP is guaranteed a unique solution.
   - EK: The largest open interval around x₀ on which all coefficients are continuous.
   - Needs: EM-13.1.C
-  - P1 · drills: em-existence-interval
+  - P1 · drills: em-existence-interval, em-existence-interval-end
 - ● **EM-13.1.E** (webwork-opl:DE5.2) Verify that a vector function solves a linear system.
   - EK: x = e^{λt}v solves x′ = Ax exactly when Av = λv.
   - Needs: EM-13.1.D
-  - P1 · drills: em-system-verify
+  - P1 · drills: em-system-verify, em-system-solution-exponent
 
 ## Unit 14 · Complex analysis
 
@@ -1035,23 +1035,23 @@ Big ideas: MODEL
 - ● **EM-14.1.A** (webwork-opl:CX2.1) Solve a linear equation in z.
   - EK: Divide by multiplying top and bottom by the conjugate.
   - Needs: EM-1.4.C
-  - P1 · drills: em-complex-linear
+  - P1 · drills: em-complex-linear, em-complex-linear-imaginary-part
 - ● **EM-14.1.B** (webwork-opl:CX2.3) Solve a nonlinear equation in z.
   - EK: Write the right side in polar form; z² = w has two roots ±√w.
   - Needs: EM-14.1.A
-  - P1 · drills: em-complex-sqrt
+  - P1 · drills: em-complex-sqrt, em-complex-square-root
 - ● **EM-14.1.C** (webwork-opl:CX3.1) Decide whether a point lies in a region of the plane.
   - EK: |z − z₀| < r is the open disc of radius r about z₀.
   - Needs: EM-14.1.B
-  - P1 · drills: em-complex-region
+  - P1 · drills: em-complex-region, em-point-and-circle
 - ● **EM-14.1.D** (webwork-opl:CX4.1) Find the image of a point under a complex map.
   - EK: w = z² squares the modulus and doubles the argument.
   - Needs: EM-14.1.C
-  - P1 · drills: em-complex-map
+  - P1 · drills: em-complex-map, em-inversion-modulus
 - ● **EM-14.1.E** (webwork-opl:CX4.2) Evaluate a limit of a complex function.
   - EK: A complex limit must agree from every direction; algebra works as for real limits.
   - Needs: EM-14.1.D
-  - P1 · drills: em-complex-limit
+  - P1 · drills: em-complex-limit, em-complex-limit-removable
 
 ### 14.2 Analytic functions
 
@@ -1060,19 +1060,19 @@ Big ideas: MODEL
 - ● **EM-14.2.A** (webwork-opl:CX5.1) Use the Cauchy–Riemann equations.
   - EK: f = u + iv is analytic where uₓ = v_y and u_y = −vₓ.
   - Needs: EM-14.1.E
-  - P1 · drills: em-cauchy-riemann
+  - P1 · drills: em-cauchy-riemann, em-cauchy-riemann-coefficient
 - ● **EM-14.2.B** (webwork-opl:CX5.2) Test whether a function is harmonic.
   - EK: u is harmonic when u_xx + u_yy = 0; real parts of analytic functions are.
   - Needs: EM-14.2.A
-  - P1 · drills: em-harmonic
+  - P1 · drills: em-harmonic, em-harmonic-coefficient
 - ● **EM-14.2.C** (webwork-opl:CX5.3) Recognise entire functions.
   - EK: Entire = analytic at every point of the plane.
   - Needs: EM-14.2.B
-  - P1 · drills: em-entire
+  - P1 · drills: em-entire, em-analytic-where
 - ● **EM-14.2.D** (webwork-opl:CX5.4) Find a harmonic conjugate.
   - EK: Integrate v_y = uₓ in y, then fix the function of x with vₓ = −u_y.
   - Needs: EM-14.2.C
-  - P1 · drills: em-harmonic-conjugate
+  - P1 · drills: em-harmonic-conjugate, em-harmonic-conjugate-value
 
 ### 14.3 Integration and series
 
@@ -1081,23 +1081,23 @@ Big ideas: MODEL
 - ● **EM-14.3.A** (webwork-opl:CX7.1, cheme-grad-core:MM.5) Use Cauchy's integral formula.
   - EK: ∮ f(z)/(z − z₀) dz = 2πi f(z₀) for z₀ inside the contour and f analytic.
   - Needs: EM-14.2.D
-  - P1 · drills: em-cauchy-formula
+  - P1 · drills: em-cauchy-formula, em-cauchy-formula-derivative
 - ● **EM-14.3.B** (webwork-opl:CX8.1) Decide whether a complex sequence converges.
   - EK: zⁿ → 0 when |z| < 1 and diverges when |z| > 1.
   - Needs: EM-14.3.A
-  - P1 · drills: em-complex-sequence
+  - P1 · drills: em-complex-sequence, em-complex-sequence-fate
 - ● **EM-14.3.C** (webwork-opl:CX8.2) Find a Taylor coefficient of an analytic function.
   - EK: e^{az} = Σ aᵏ zᵏ / k!; 1/(1 − az) = Σ aᵏ zᵏ for |az| < 1.
   - Needs: EM-14.3.B
-  - P1 · drills: em-complex-taylor
+  - P1 · drills: em-complex-taylor, em-taylor-coefficient-geometric
 - ● **EM-14.3.D** (webwork-opl:CX8.3, webwork-opl:CX8.5, cheme-grad-core:MM.5) Find a Laurent coefficient (a residue).
   - EK: The coefficient of 1/(z − z₀) is the residue.
   - Needs: EM-14.3.C
-  - P1 · drills: em-laurent-residue
+  - P1 · drills: em-laurent-residue, em-residue-double-pole-exp
 - ● **EM-14.3.E** (webwork-opl:CX8.4) Find the order of a zero.
   - EK: The order is the power of the first nonzero term of the Taylor series.
   - Needs: EM-14.3.D
-  - P1 · drills: em-zero-order
+  - P1 · drills: em-zero-order, em-zero-order-pick
 
 ## Unit 15 · Complex analysis: mappings, contours and residues (extension)
 

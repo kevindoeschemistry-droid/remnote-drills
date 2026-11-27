@@ -409,5 +409,12 @@ Big ideas: MAIN
 
 ## Drills not yet placed on the map
 
+- em-system-no-solution-parameter (la.row-reduction)
+- em-dependence-parameter (la.independence)
+- em-inverse-entry (la.inverse)
 - hs2-inverse-2x2 (la.inverse)
+- em-determinant-scaling (la.determinant)
+- em-eigenvalue-from-trace-det (la.eigenvalues)
+- em-matrix-power-by-diagonalising (la.eigenvalues)
 - mm-trace-of-square (la.eigenvalues)
+- em-eigenvector-second-component (la.eigenvectors)
