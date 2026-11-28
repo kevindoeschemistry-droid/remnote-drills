@@ -1,6 +1,6 @@
 # The path — start to finish
 
-Every framework in `requires` order; inside each, units and objectives in order, except that 313 objectives move up to sit just after the prerequisites they need. 4942 objectives in 69 frameworks.
+Every framework in `requires` order; inside each, units and objectives in order, except that 313 objectives move up to sit just after the prerequisites they need. 5013 objectives in 70 frameworks.
 
 | # | Framework | Track | Requires | LOs | Path position |
 |---|---|---|---|---|---|
@@ -48,28 +48,29 @@ Every framework in `requires` order; inside each, units and objectives in order,
 | 42 | Computational Protein Design | science | biochemistry, molecular-simulation | 51 | 3378–3428 |
 | 43 | Electric Circuits and Signals | engineering | physics, engineering-math | 24 | 3429–3452 |
 | 44 | Engineering Mechanics | engineering | physics, calculus | 20 | 3453–3472 |
-| 45 | Fluid Mechanics | engineering | engineering-math, physics | 64 | 3473–3536 |
-| 46 | Material and Energy Balances | engineering | chemistry | 18 | 3537–3554 |
-| 47 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 3555–3571 |
-| 48 | Process Design, Economics and Safety | engineering | material-balances | 62 | 3572–3633 |
-| 49 | Chemical Reaction Engineering | engineering | material-balances | 52 | 3634–3685 |
-| 50 | Separations | engineering | material-balances, thermodynamics | 6 | 3686–3691 |
-| 51 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3692–3712 |
-| 52 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3713–3768 |
-| 53 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 50 | 3769–3818 |
-| 54 | Microeconomics | business | math-hs | 30 | 3819–3848 |
-| 55 | Macroeconomics | business | microeconomics | 27 | 3849–3875 |
-| 56 | Financial Accounting (CPA FAR) | business | — | 26 | 3876–3901 |
-| 57 | Managerial Accounting | business | accounting-far | 29 | 3902–3930 |
-| 58 | Dental Admission Test | health | biology, chemistry | 205 | 3931–4135 |
-| 59 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 4136–4206 |
-| 60 | INBDE (Dentistry) | health | — | 81 | 4207–4287 |
-| 61 | NCLEX-RN | health | — | 67 | 4288–4354 |
-| 62 | Anatomy and Physiology | health | biology, chemistry | 54 | 4355–4408 |
-| 63 | Pharmacology | health | anatomy-physiology, chemistry | 33 | 4409–4441 |
-| 64 | AI Safety | safety | programming, calculus | 104 | 4442–4545 |
-| 65 | Biosecurity | safety | biology, statistics | 64 | 4546–4609 |
-| 66 | Speaking and Articulation | communication | — | 69 | 4610–4678 |
-| 67 | Basketball | athletics | — | 88 | 4679–4766 |
-| 68 | Swimming | athletics | — | 88 | 4767–4854 |
-| 69 | Wushu | athletics | — | 88 | 4855–4942 |
+| 45 | Materials Science and Engineering | engineering | chemistry, physics, calculus, engineering-mechanics | 71 | 3473–3543 |
+| 46 | Fluid Mechanics | engineering | engineering-math, physics | 64 | 3544–3607 |
+| 47 | Material and Energy Balances | engineering | chemistry | 18 | 3608–3625 |
+| 48 | Numerical Methods | engineering | calculus, linear-algebra | 17 | 3626–3642 |
+| 49 | Process Design, Economics and Safety | engineering | material-balances | 62 | 3643–3704 |
+| 50 | Chemical Reaction Engineering | engineering | material-balances | 52 | 3705–3756 |
+| 51 | Separations | engineering | material-balances, thermodynamics | 6 | 3757–3762 |
+| 52 | Mass Transfer | engineering | heat-transfer, engineering-math | 21 | 3763–3783 |
+| 53 | Electric Double Layers | engineering | materials, thermodynamics | 56 | 3784–3839 |
+| 54 | Graduate Chemical Engineering Core | engineering | fluid-mechanics, heat-transfer, mass-transfer, thermodynamics, reaction-engineering, process-design, engineering-math | 50 | 3840–3889 |
+| 55 | Microeconomics | business | math-hs | 30 | 3890–3919 |
+| 56 | Macroeconomics | business | microeconomics | 27 | 3920–3946 |
+| 57 | Financial Accounting (CPA FAR) | business | — | 26 | 3947–3972 |
+| 58 | Managerial Accounting | business | accounting-far | 29 | 3973–4001 |
+| 59 | Dental Admission Test | health | biology, chemistry | 205 | 4002–4206 |
+| 60 | NGSS High School Science | science | chemistry, physics, biology, earth-space, nuclear, dat | 71 | 4207–4277 |
+| 61 | INBDE (Dentistry) | health | — | 81 | 4278–4358 |
+| 62 | NCLEX-RN | health | — | 67 | 4359–4425 |
+| 63 | Anatomy and Physiology | health | biology, chemistry | 54 | 4426–4479 |
+| 64 | Pharmacology | health | anatomy-physiology, chemistry | 33 | 4480–4512 |
+| 65 | AI Safety | safety | programming, calculus | 104 | 4513–4616 |
+| 66 | Biosecurity | safety | biology, statistics | 64 | 4617–4680 |
+| 67 | Speaking and Articulation | communication | — | 69 | 4681–4749 |
+| 68 | Basketball | athletics | — | 88 | 4750–4837 |
+| 69 | Swimming | athletics | — | 88 | 4838–4925 |
+| 70 | Wushu | athletics | — | 88 | 4926–5013 |

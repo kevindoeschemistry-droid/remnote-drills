@@ -130,7 +130,7 @@ expectPlace("ht.transient-one-term", "Incropera 8e §5.5–5.6");
 expectPlace("stat.partition-function", "Dill & Bromberg 2e Ch 10");
 expectPlace("stat.partition-function", "Shell Ch 16");
 if (primaryPlace("stat.partition-function", "shell-2015")?.source.id !== "shell-2015") fail("preferred source not honoured");
-if (SOURCES.length !== 66) fail(`expected 66 sources, got ${SOURCES.length}`);
+if (SOURCES.length !== 67) fail(`expected 67 sources, got ${SOURCES.length}`);
 // movement breaks: off at 0, due on every nth settled problem, and a set does not repeat until its list is used up
 if (moveDue(12, 0) || moveDue(0, 12) || moveDue(11, 12) || !moveDue(12, 12) || !moveDue(36, 12)) fail("movement break timing is wrong");
 for (const set of ["bodyweight", "martial", "holds"] as const) {

@@ -44,6 +44,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Managerial Accounting | CMA Content Specification Outlines (effective September 1, 2024) | exam-spec | read in part | — | — | 29 | 29 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
+| Materials Science and Engineering | Engineers Canada Examination Syllabus: Materials Engineering (2021) | exam-spec | read in part | fe-mechanical | — | 71 | 71 | 0 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 25 | 15 | 10 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
@@ -112,6 +113,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Managerial Accounting**: Anchored on the IMA CMA Content Specification Outlines (2024): Part 1 planning and budgeting, performance management and cost management, and Part 2 decision analysis and capital investment, read to the lettered lines of the outline. Financial reporting, internal controls, analytics, corporate finance, risk and ethics sections of the CMA are not built here.
 - **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
+- **Materials Science and Engineering**: Anchored on the Engineers Canada materials syllabus (exams A3, A4, A5, B6, B8, B11) and FE Mechanical section 9, both read to their topic lines. Dislocation geometry, Miller indices and slip systems sit under lines that say only 'crystal structures' and 'plastic deformation', so those objectives are a house list in textbook order. Asked in words and numbers: no lattice or phase-diagram figure type exists yet. Polymers, colloids, selection and corrosion are in Polymers and Materials (MT); axial stress and Mohr's circle are in Engineering Mechanics.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
@@ -168,6 +170,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Graduate Chemical Engineering Core**: course, read in full
 - **Macroeconomics**: standard, read in part
 - **Managerial Accounting**: exam-spec, read in part
+- **Materials Science and Engineering**: exam-spec, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Microbiology**: standard, read in part
 - **Microeconomics**: standard, read in part
@@ -312,7 +315,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
 https://www.bu.edu/eng/files/2020/02/FE-Mechanical-CBT-specs.pdf
 
-25 of 28 items have at least one objective answering to them.
+33 of 38 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -344,6 +347,16 @@ https://www.bu.edu/eng/files/2020/02/FE-Mechanical-CBT-specs.pdf
 | 8I | Deformations | 9 | 9 | engineering-mechanics (9) |
 | 8J | Column buckling | 9 | 9 | engineering-mechanics (9) |
 | 8K | Statically indeterminate systems | 9 | 9 | engineering-mechanics (9) |
+| 9A | Material properties (chemical, electrical, mechanical, physical, thermal) | 44 | 44 | materials-science (44) |
+| 9B | Stress-strain diagrams | 16 | 16 | materials-science (16) |
+| 9C | Ferrous metals | 31 | 31 | materials-science (31) |
+| 9D | Nonferrous metals | 18 | 18 | materials-science (18) |
+| 9E | Engineered materials (composites, polymers) | 20 | 20 | materials-science (20) |
+| 9F | Manufacturing processes | 18 | 18 | materials-science (18) |
+| 9G | Phase diagrams, phase transformation and heat treating | 18 | 18 | materials-science (18) |
+| 9H | Materials selection | — | — | **nothing yet** |
+| 9I | Corrosion mechanisms and control | — | — | **nothing yet** |
+| 9J | Failure mechanisms (thermal failure, fatigue, fracture, creep) | 10 | 10 | materials-science (10) |
 
 ## AP Chemistry Course and Exam Description (Fall 2024)
 
@@ -4210,6 +4223,43 @@ https://apcentral.collegeboard.org/media/pdf/ap-macroeconomics-course-at-a-glanc
 | 6.4 | Effects of policies and conditions on the foreign exchange market | 5 | 5 | macroeconomics (5) |
 | 6.5 | Changes in the foreign exchange market and net exports | 5 | 5 | macroeconomics (5) |
 | 6.6 | Real interest rates and international capital flows | 5 | 5 | macroeconomics (5) |
+
+## Engineers Canada Examination Syllabus: Materials Engineering (2021)
+
+https://engineerscanada.ca/become-an-engineer/examination-syllabi/materials-engineering-syllabus
+
+28 of 28 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A3.1 | Crystal structures of metals, ceramics and polymers | 18 | 18 | materials-science (18) |
+| A3.2 | Elemental and diffraction analysis (EDS, XPS, XRD) | 31 | 31 | materials-science (31) |
+| A3.3 | Optical and electron microscopy | 19 | 19 | materials-science (19) |
+| A3.4 | Thermal analysis (DTA, DSC, TGA) | 18 | 18 | materials-science (18) |
+| A4.1 | Elastic and plastic deformation | 37 | 37 | materials-science (37) |
+| A4.2 | Strengthening mechanisms | 31 | 31 | materials-science (31) |
+| A4.3 | Fracture mechanisms | 7 | 7 | materials-science (7) |
+| A4.4 | Introductory fracture mechanics | 9 | 9 | materials-science (9) |
+| A4.5 | High-temperature creep | 7 | 7 | materials-science (7) |
+| A4.6 | Cyclic stress and fatigue crack growth | 8 | 8 | materials-science (8) |
+| A4.7 | Thermal properties | 18 | 18 | materials-science (18) |
+| A4.8 | Electronic properties | 18 | 18 | materials-science (18) |
+| A5.1 | Binary phase diagrams | 17 | 17 | materials-science (17) |
+| A5.2 | Annealing and heat treatment | 13 | 13 | materials-science (13) |
+| A5.3 | Crystallization kinetics | 12 | 12 | materials-science (12) |
+| A5.4 | Diffusion | 9 | 9 | materials-science (9) |
+| A5.5 | Nucleation and growth | 13 | 13 | materials-science (13) |
+| A5.6 | Amorphous materials and the glass transition | 12 | 12 | materials-science (12) |
+| A5.7 | Time-temperature-transformation diagrams | 12 | 12 | materials-science (12) |
+| B6.1 | Bonding and ceramic structures | 19 | 19 | materials-science (19) |
+| B6.2 | Defects in ceramics | 12 | 12 | materials-science (12) |
+| B6.3 | Mechanical properties of ceramics | 18 | 18 | materials-science (18) |
+| B6.4 | Thermal stresses | 18 | 18 | materials-science (18) |
+| B8.1 | Band theory | 19 | 19 | materials-science (19) |
+| B8.2 | Semiconductors | 19 | 19 | materials-science (19) |
+| B8.3 | Magnetism and superconductivity | 18 | 18 | materials-science (18) |
+| B11.1 | Isostress and isostrain loading of composites | 20 | 20 | materials-science (20) |
+| B11.2 | Reinforcement type, orientation and length | 18 | 18 | materials-science (18) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 

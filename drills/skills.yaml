@@ -41,6 +41,7 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: gc, title: "Graduate ChemE methods past Kreyszig" }
+  - { id: mse, title: "Materials Science and Engineering" }
   - { id: mech, title: "Engineering Mechanics" }
   - { id: macro, title: "Macroeconomics" }
   - { id: ee, title: "Electric Circuits and Signals" }
@@ -973,6 +974,13 @@ skills:
   - { id: gc.perturbation, domain: gc, title: "Perturbation and asymptotic methods", short: "Perturbation", prereqs: [gc.scaling] }
   - { id: gc.similarity, domain: gc, title: "Similarity solutions and combination of variables", short: "Similarity", prereqs: [gc.scaling] }
   - { id: gc.eigen, domain: gc, title: "Eigenfunction expansions in curvilinear geometry", short: "Curvilinear eigenfunctions", prereqs: [bvp.sl-eigenfunctions] }
+  - { id: mse.structure, domain: mse, title: "Unit cells, packing, density, Miller indices, interplanar spacing and diffraction", short: "Crystal structure" }
+  - { id: mse.defects, domain: mse, title: "Vacancies, solid solutions, edge and screw dislocations, the Burgers circuit and vector, grain boundaries", short: "Defects and dislocations", prereqs: [mse.structure] }
+  - { id: mse.deformation, domain: mse, title: "Slip systems, Schmid's law, strengthening mechanisms and the tensile curve", short: "Deformation and strengthening", prereqs: [mse.defects] }
+  - { id: mse.diffusion, domain: mse, title: "Fick's laws, Arrhenius diffusivity and diffusion distance", short: "Diffusion in solids", prereqs: [mse.defects] }
+  - { id: mse.phases, domain: mse, title: "Phase rule, lever rule, eutectics, the iron-carbon system, TTT diagrams, nucleation and heat treatment", short: "Phase diagrams and transformations", prereqs: [mse.diffusion] }
+  - { id: mse.failure, domain: mse, title: "Fracture toughness, Griffith cracks, stress concentration, fatigue and creep", short: "Failure", prereqs: [mse.deformation] }
+  - { id: mse.classes, domain: mse, title: "Ceramics, composites, electronic and magnetic behaviour, alloys, processing and characterisation", short: "Material classes and characterisation", prereqs: [mse.structure] }
   - { id: mech.statics, domain: mech, title: "Resultants, moments, equilibrium, trusses, centroids, area moments and static friction", short: "Statics" }
   - { id: mech.dynamics, domain: mech, title: "Curvilinear motion, friction on inclines, energy and impulse, rigid-body rotation and rolling, vibration", short: "Dynamics and vibrations", prereqs: [mech.statics] }
   - { id: mech.materials, domain: mech, title: "Axial, thermal, torsional and bending stress, beam diagrams and deflection, Mohr's circle, pressure vessels and buckling", short: "Mechanics of materials", prereqs: [mech.statics] }

@@ -1,0 +1,2539 @@
+{
+ "id": "materials-science",
+ "title": "Materials Science and Engineering",
+ "code": "MSE",
+ "draft": 1,
+ "track": "engineering",
+ "requires": [
+  "chemistry",
+  "physics",
+  "calculus",
+  "engineering-mechanics"
+ ],
+ "level": 3,
+ "domains": [
+  "mse"
+ ],
+ "basis": {
+  "primary": "engineers-canada-materials",
+  "also": [
+   "fe-mechanical"
+  ],
+  "note": "Anchored on the Engineers Canada materials syllabus (exams A3, A4, A5, B6, B8, B11) and FE Mechanical section 9, both read to their topic lines. Dislocation geometry, Miller indices and slip systems sit under lines that say only 'crystal structures' and 'plastic deformation', so those objectives are a house list in textbook order. Asked in words and numbers: no lattice or phase-diagram figure type exists yet. Polymers, colloids, selection and corrosion are in Polymers and Materials (MT); axial stress and Mohr's circle are in Engineering Mechanics."
+ },
+ "big_ideas": [
+  {
+   "id": "LATTICE",
+   "title": "Structure sets what can move",
+   "text": "Which planes are densest and which directions are shortest decide how a crystal slips, diffracts and packs; everything else is counted from the unit cell."
+  },
+  {
+   "id": "DEFECT",
+   "title": "Properties live in the defects",
+   "text": "A perfect crystal would be a thousand times stronger and far less useful: vacancies carry diffusion, dislocations carry plastic flow, and every strengthening method is a way to pin a dislocation."
+  },
+  {
+   "id": "PATH",
+   "title": "Processing chooses the microstructure",
+   "text": "The phase diagram says where equilibrium is; cooling rate, cold work and heat treatment decide how far the material gets there, and so which phases and grain sizes it ends with."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry a geometric, rate or mechanical relation to a number with its unit."
+  },
+  {
+   "id": "P2",
+   "title": "Classify",
+   "text": "Name the structure, defect, mechanism or technique a description points to."
+  }
+ ],
+ "units": [
+  {
+   "id": "structure",
+   "n": 1,
+   "title": "Crystal structure",
+   "std": [
+    "engineers-canada-materials:A3.1",
+    "engineers-canada-materials:A3.2",
+    "fe-mechanical:9A"
+   ],
+   "scope": "core",
+   "ideas": [
+    "LATTICE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Unit cells",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A3.1"
+       ],
+       "do": "Count the atoms in a cubic unit cell and state its coordination number.",
+       "ek": [
+        "A corner atom is shared by 8 cells, a face atom by 2, a body atom by 1. FCC holds 4 atoms with 12 nearest neighbours; BCC holds 2 with 8; simple cubic holds 1 with 6."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "CH-3.2.A"
+       ],
+       "drills": [
+        "mse-cell-facts",
+        "mse-cell-count"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A3.1"
+       ],
+       "do": "Relate the cell edge to the atomic radius in FCC and BCC.",
+       "ek": [
+        "Atoms touch along the face diagonal in FCC, so a√2 = 4r; along the body diagonal in BCC, so a√3 = 4r."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.1.A"
+       ],
+       "drills": [
+        "mse-edge-from-radius",
+        "mse-radius-from-edge"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A3.1"
+       ],
+       "do": "Compute an atomic packing factor.",
+       "ek": [
+        "APF is the volume of the atoms in the cell over the cell volume: 0.74 for FCC and HCP, 0.68 for BCC, 0.52 for simple cubic."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.1.B"
+       ],
+       "drills": [
+        "mse-apf",
+        "mse-apf-facts"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A3.1",
+        "fe-mechanical:9A"
+       ],
+       "do": "Compute a theoretical density from the unit cell.",
+       "ek": [
+        "ρ = nA ÷ (V_cell N_A): atoms per cell times molar mass, over cell volume times Avogadro's number. With a in nm, a³ in cm³ is (a × 10⁻⁷)³."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.1.C"
+       ],
+       "drills": [
+        "mse-density",
+        "mse-molar-mass-from-cell"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Directions, planes and diffraction",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A3.1"
+       ],
+       "do": "Write the Miller indices of a plane from its intercepts and test whether a direction lies in a plane.",
+       "ek": [
+        "Take the intercepts in units of the cell edges, invert, and clear fractions; a plane parallel to an axis has index 0 for it. In a cubic crystal [uvw] lies in (hkl) when hu + kv + lw = 0."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-1.1.D"
+       ],
+       "drills": [
+        "mse-miller-plane",
+        "mse-direction-in-plane"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A3.1"
+       ],
+       "do": "Write a direction's indices and find the angle between two directions.",
+       "ek": [
+        "A direction is the vector between two lattice points reduced to smallest integers. In a cubic crystal the angle between [u₁v₁w₁] and [u₂v₂w₂] comes from the dot product."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.2.A"
+       ],
+       "drills": [
+        "mse-direction-angle",
+        "mse-direction-indices"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A3.1",
+        "engineers-canada-materials:A3.2"
+       ],
+       "do": "Compute the spacing of (hkl) planes in a cubic crystal.",
+       "ek": [
+        "d = a ÷ √(h² + k² + l²). Low-index planes are the most widely spaced and the most densely packed."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.2.B"
+       ],
+       "drills": [
+        "mse-d-spacing",
+        "mse-edge-from-spacing"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A3.2"
+       ],
+       "do": "Use Bragg's law.",
+       "ek": [
+        "nλ = 2d sin θ. A diffractometer reports 2θ, the angle between the incident and diffracted beams."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.2.C"
+       ],
+       "drills": [
+        "mse-bragg-angle",
+        "mse-bragg-spacing"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "engineers-canada-materials:A3.2"
+       ],
+       "do": "Decide which reflections a cubic structure allows.",
+       "ek": [
+        "BCC reflects only when h + k + l is even; FCC only when h, k and l are all odd or all even; simple cubic reflects for every plane."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-1.2.D"
+       ],
+       "drills": [
+        "mse-reflection-allowed",
+        "mse-first-peaks"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "engineers-canada-materials:A3.1"
+       ],
+       "do": "Compute a linear and a planar density.",
+       "ek": [
+        "Linear density is atom centres per length along a direction; planar density is atoms per area on a plane. Slip prefers the densest directions on the densest planes."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.2.E"
+       ],
+       "drills": [
+        "mse-linear-density",
+        "mse-planar-density"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "defects",
+   "n": 2,
+   "title": "Defects and dislocations",
+   "std": [
+    "engineers-canada-materials:A4.1",
+    "engineers-canada-materials:A4.2",
+    "engineers-canada-materials:B6.2"
+   ],
+   "scope": "core",
+   "ideas": [
+    "DEFECT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Point defects and solid solutions",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A4.1",
+        "engineers-canada-materials:A5.4"
+       ],
+       "do": "Compute an equilibrium vacancy concentration.",
+       "ek": [
+        "N_v ÷ N = exp(−Q_v ÷ kT), with k = 8.617 × 10⁻⁵ eV/K. Near melting about one site in ten thousand is vacant."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-1.2.F"
+       ],
+       "drills": [
+        "mse-vacancy-fraction",
+        "mse-vacancy-energy"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A4.2"
+       ],
+       "do": "Tell substitutional from interstitial solid solutions and apply the size rule.",
+       "ek": [
+        "A solute sits on host sites when its radius is within about 15% of the host's and the structures, valences and electronegativities are alike; a much smaller atom (C, N, H) sits between host atoms."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-2.1.A"
+       ],
+       "drills": [
+        "mse-solution-type",
+        "mse-size-mismatch"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A4.2",
+        "fe-mechanical:9A"
+       ],
+       "do": "Convert a composition between weight percent and atom percent.",
+       "ek": [
+        "Divide each weight percent by its molar mass to get moles, then normalise; multiply atom percents by molar mass and normalise to go back."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.1.B"
+       ],
+       "drills": [
+        "mse-wt-to-at",
+        "mse-at-to-wt"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:B6.2"
+       ],
+       "do": "Identify Schottky and Frenkel defects and the vacancies a dopant forces in an ionic crystal.",
+       "ek": [
+        "A Schottky defect is a cation vacancy with an anion vacancy; a Frenkel defect is a cation moved to an interstitial site. Both keep the crystal neutral, and an impurity of different charge brings compensating vacancies."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-2.1.C"
+       ],
+       "drills": [
+        "mse-ionic-defects",
+        "mse-dopant-vacancy"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Dislocations and the Burgers vector",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Tell edge, screw and mixed dislocations apart by the Burgers vector and the line.",
+       "ek": [
+        "The Burgers vector b is the lattice displacement a dislocation carries. Edge: b perpendicular to the line (an extra half-plane). Screw: b parallel to the line (a spiral ramp). Anything between is mixed."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-2.1.D"
+       ],
+       "drills": [
+        "mse-dislocation-facts",
+        "mse-dislocation-character"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Find a Burgers vector from a Burgers circuit.",
+       "ek": [
+        "Walk a closed loop of lattice steps around the line, equal steps in opposite directions. In perfect crystal the loop closes; around a dislocation it does not, and the vector needed to close it is b."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.2.A"
+       ],
+       "drills": [
+        "mse-burgers-circuit",
+        "mse-burgers-circuit-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Compute the magnitude of a Burgers vector from its indices.",
+       "ek": [
+        "A perfect dislocation's b joins nearest neighbours: (a/2)⟨110⟩ in FCC, (a/2)⟨111⟩ in BCC. Its length is (a/2)√(h² + k² + l²), which equals two atomic radii."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.2.B"
+       ],
+       "drills": [
+        "mse-burgers-magnitude",
+        "mse-burgers-from-radius"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A4.1",
+        "engineers-canada-materials:A4.2"
+       ],
+       "do": "Use the b² rule for a dislocation's energy and for dislocation reactions.",
+       "ek": [
+        "The elastic energy per length of a dislocation is about ½Gb². A reaction b₁ → b₂ + b₃ is favourable when b₁² > b₂² + b₃² (Frank's rule), which is why dislocations take the shortest lattice vector."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.2.C"
+       ],
+       "drills": [
+        "mse-dislocation-energy",
+        "mse-frank-rule"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Work with a dislocation density.",
+       "ek": [
+        "Density ρ is line length per volume, in m⁻²: about 10¹⁰ in an annealed metal, 10¹⁴ to 10¹⁶ after heavy cold work. The mean spacing between dislocations is about 1 ÷ √ρ."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.2.D"
+       ],
+       "drills": [
+        "mse-dislocation-spacing",
+        "mse-dislocation-length"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Grain boundaries and planar defects",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A3.3",
+        "engineers-canada-materials:A4.2"
+       ],
+       "do": "Convert between ASTM grain size number and grain count.",
+       "ek": [
+        "N = 2^(G − 1): N grains per square inch at 100× magnification for ASTM grain size number G. A larger G means finer grains."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.2.E"
+       ],
+       "drills": [
+        "mse-astm-grains",
+        "mse-astm-number"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A4.2"
+       ],
+       "do": "Identify low-angle boundaries, twins and stacking faults.",
+       "ek": [
+        "A low-angle tilt boundary is a wall of edge dislocations of spacing D with misorientation θ ≈ b ÷ D. A twin boundary is a mirror plane; a stacking fault is a mistake in the ABCABC sequence."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.3.A"
+       ],
+       "drills": [
+        "mse-tilt-angle",
+        "mse-planar-defects"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "deformation",
+   "n": 3,
+   "title": "Deformation and strengthening",
+   "std": [
+    "engineers-canada-materials:A4.1",
+    "engineers-canada-materials:A4.2",
+    "fe-mechanical:9A",
+    "fe-mechanical:9B"
+   ],
+   "scope": "core",
+   "ideas": [
+    "DEFECT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Slip",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Name the slip systems of FCC, BCC and HCP metals.",
+       "ek": [
+        "Slip runs on the most densely packed planes along the closest-packed directions: (111) planes and 110-type directions in FCC (12 systems), 111-type directions in BCC, the basal plane in HCP (3 systems)."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-2.3.B",
+        "MEC-3.1.H"
+       ],
+       "drills": [
+        "mse-slip-systems",
+        "mse-slip-count"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Apply Schmid's law.",
+       "ek": [
+        "τ_R = σ cos φ cos λ, with φ between the load axis and the slip-plane normal and λ between the load axis and the slip direction. Slip starts when τ_R reaches the critical resolved shear stress; the factor cannot exceed 0.5."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.1.A"
+       ],
+       "drills": [
+        "mse-schmid-stress",
+        "mse-schmid-yield"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Compare theoretical and observed shear strength.",
+       "ek": [
+        "Shearing a whole plane at once would take about G ÷ 2π. Real crystals yield at a thousandth of that because a dislocation moves the slip one row at a time."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.1.B"
+       ],
+       "drills": [
+        "mse-theoretical-strength",
+        "mse-why-weak"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Strengthening mechanisms",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A4.2"
+       ],
+       "do": "Use the Hall-Petch relation.",
+       "ek": [
+        "σ_y = σ₀ + k_y d^(−1/2): a grain boundary stops a dislocation, so finer grains give higher yield strength."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.1.C"
+       ],
+       "drills": [
+        "mse-hall-petch",
+        "mse-hall-petch-constant"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A4.2"
+       ],
+       "do": "Compute percent cold work and the strength from dislocation density.",
+       "ek": [
+        "%CW = (A₀ − A_d) ÷ A₀ × 100. Work hardening follows τ = αGb√ρ with α about 0.5: flow stress rises as the square root of dislocation density."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.2.A"
+       ],
+       "drills": [
+        "mse-cold-work",
+        "mse-taylor-hardening"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A4.2"
+       ],
+       "do": "Explain solid-solution and precipitation strengthening and use the Orowan stress.",
+       "ek": [
+        "Solute atoms strain the lattice and drag on dislocations. Fine coherent precipitates are cut; larger ones are bypassed by bowing between them at τ = Gb ÷ L, so strength peaks at an intermediate ageing time and falls on overageing."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.2.B"
+       ],
+       "drills": [
+        "mse-orowan",
+        "mse-precipitation-facts"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A5.2",
+        "fe-mechanical:9G"
+       ],
+       "do": "Order recovery, recrystallization and grain growth.",
+       "ek": [
+        "On annealing a cold-worked metal: recovery rearranges dislocations and relieves stress with little change in strength; recrystallization replaces the worked grains with new strain-free ones and restores ductility; grain growth then coarsens them."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-3.2.C"
+       ],
+       "drills": [
+        "mse-anneal-stage",
+        "mse-recrystallization-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "The tensile test",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A4.1",
+        "fe-mechanical:9B"
+       ],
+       "do": "Read ductility and plastic strain from a tensile test.",
+       "ek": [
+        "Percent elongation is (l_f − l₀) ÷ l₀ × 100. On unloading, the elastic strain σ ÷ E is recovered along a line parallel to the elastic slope, leaving the plastic strain."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.2.D"
+       ],
+       "drills": [
+        "mse-elongation",
+        "mse-plastic-strain"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A4.1",
+        "fe-mechanical:9B"
+       ],
+       "do": "Convert engineering stress and strain to true stress and strain.",
+       "ek": [
+        "σ_T = σ(1 + ε) and ε_T = ln(1 + ε) = ln(l ÷ l₀), valid up to necking. True strain adds up the increments dl ÷ l."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.3.A"
+       ],
+       "drills": [
+        "mse-true-stress",
+        "mse-true-strain"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A4.1",
+        "fe-mechanical:9B"
+       ],
+       "do": "Use the strain-hardening law.",
+       "ek": [
+        "In the plastic range σ_T = K ε_T^n. The exponent n runs from about 0.1 to 0.5, and necking begins when the true strain equals n."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.3.B"
+       ],
+       "drills": [
+        "mse-hardening-stress",
+        "mse-hardening-exponent"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A4.1",
+        "fe-mechanical:9A",
+        "fe-mechanical:9B"
+       ],
+       "do": "Compute the modulus of resilience and tell it from toughness.",
+       "ek": [
+        "Resilience is the elastic energy per volume up to yield, U_r = σ_y² ÷ 2E; toughness is the whole area under the stress-strain curve to fracture."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.3.C"
+       ],
+       "drills": [
+        "mse-resilience",
+        "mse-toughness-facts"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "fe-mechanical:9A",
+        "engineers-canada-materials:A4.1"
+       ],
+       "do": "Relate hardness to strength and name the hardness tests.",
+       "ek": [
+        "Hardness is resistance to local plastic indentation. For steels, tensile strength in MPa is about 3.45 times the Brinell number."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.3.D"
+       ],
+       "drills": [
+        "mse-hardness-strength",
+        "mse-hardness-tests"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "diffusion",
+   "n": 4,
+   "title": "Diffusion in solids",
+   "std": [
+    "engineers-canada-materials:A5.4"
+   ],
+   "scope": "core",
+   "ideas": [
+    "DEFECT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Rates of diffusion",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A5.4"
+       ],
+       "do": "Apply Fick's first law to steady diffusion through a plate.",
+       "ek": [
+        "J = −D dC/dx: flux runs down the concentration gradient. For a linear profile J = D ΔC ÷ Δx."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-2.3.B",
+        "CH-5.5.A"
+       ],
+       "drills": [
+        "mse-fick-flux",
+        "mse-fick-thickness"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A5.4"
+       ],
+       "do": "Use the Arrhenius law for a diffusion coefficient.",
+       "ek": [
+        "D = D₀ exp(−Q_d ÷ RT). A plot of ln D against 1 ÷ T is a line of slope −Q_d ÷ R."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-4.1.A"
+       ],
+       "drills": [
+        "mse-diffusivity",
+        "mse-diffusion-activation"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A5.4"
+       ],
+       "do": "Scale a diffusion depth with time and temperature.",
+       "ek": [
+        "For a fixed surface concentration, a given composition is reached at a depth proportional to √(Dt). The same profile results whenever the product Dt is the same."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-4.1.B"
+       ],
+       "drills": [
+        "mse-diffusion-time",
+        "mse-equal-dt"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A5.4"
+       ],
+       "do": "Compare diffusion mechanisms and paths.",
+       "ek": [
+        "Interstitial atoms diffuse faster than substitutional ones, which must wait for a vacancy. Grain boundaries and surfaces are faster paths than the lattice; open structures and low melting points give faster diffusion."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-4.1.C"
+       ],
+       "drills": [
+        "mse-diffusion-faster",
+        "mse-diffusion-mechanism"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "phases",
+   "n": 5,
+   "title": "Phase diagrams and transformations",
+   "std": [
+    "engineers-canada-materials:A5.1",
+    "engineers-canada-materials:A5.2",
+    "engineers-canada-materials:A5.3",
+    "engineers-canada-materials:A5.5",
+    "engineers-canada-materials:A5.6",
+    "engineers-canada-materials:A5.7",
+    "fe-mechanical:9C",
+    "fe-mechanical:9G"
+   ],
+   "scope": "core",
+   "ideas": [
+    "PATH"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Binary phase diagrams",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A5.1",
+        "fe-mechanical:9G"
+       ],
+       "do": "Apply the Gibbs phase rule at constant pressure.",
+       "ek": [
+        "F = C − P + 1 when pressure is fixed. In a binary system a two-phase field has one degree of freedom and a three-phase reaction (eutectic, eutectoid, peritectic) has none: it happens at one temperature."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-4.1.D"
+       ],
+       "drills": [
+        "mse-phase-rule",
+        "mse-phase-rule-meaning"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A5.1",
+        "fe-mechanical:9G"
+       ],
+       "do": "Use the lever rule.",
+       "ek": [
+        "In a two-phase field the phase compositions are the ends of the tie line, and the fraction of one phase is the opposite lever arm over the whole tie line."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-5.1.A"
+       ],
+       "drills": [
+        "mse-lever-rule",
+        "mse-lever-composition"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A5.1"
+       ],
+       "do": "Split a hypoeutectic alloy into primary phase and eutectic.",
+       "ek": [
+        "Just above the eutectic temperature the liquid has the eutectic composition; all of it becomes eutectic microconstituent. The primary phase fraction is a lever between the solubility limit and the eutectic point."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-5.1.B"
+       ],
+       "drills": [
+        "mse-primary-alpha",
+        "mse-eutectic-alpha"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A5.1",
+        "fe-mechanical:9G"
+       ],
+       "do": "Name the invariant reactions.",
+       "ek": [
+        "On cooling: eutectic, liquid → two solids; eutectoid, one solid → two solids; peritectic, liquid + solid → a different solid."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-5.1.C"
+       ],
+       "drills": [
+        "mse-invariant-name",
+        "mse-diagram-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Steel and heat treatment",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A5.1",
+        "fe-mechanical:9C"
+       ],
+       "do": "Identify the phases and landmarks of the iron-carbon diagram.",
+       "ek": [
+        "Ferrite (α) is BCC and holds at most 0.022 wt% C; austenite (γ) is FCC and holds up to 2.14; cementite Fe₃C is 6.70 wt% C. The eutectoid is 0.76 wt% C at 727 °C; steels lie below 2.14 wt% C, cast irons above."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-5.1.D"
+       ],
+       "drills": [
+        "mse-fe-c-facts",
+        "mse-steel-class"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A5.1",
+        "fe-mechanical:9C",
+        "fe-mechanical:9G"
+       ],
+       "do": "Compute the microconstituents of a slowly cooled steel.",
+       "ek": [
+        "In a hypoeutectoid steel the austenite left at 727 °C has 0.76 wt% C and becomes pearlite, so pearlite is a lever between 0.022 and 0.76. Total cementite is a lever between 0.022 and 6.70."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-5.2.A"
+       ],
+       "drills": [
+        "mse-pearlite-fraction",
+        "mse-cementite-fraction"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A5.7",
+        "fe-mechanical:9G"
+       ],
+       "do": "Predict the product of an isothermal or quench treatment from a TTT diagram.",
+       "ek": [
+        "Austenite held just below 727 °C gives coarse pearlite, lower gives fine pearlite, below the nose (about 550 to 250 °C) bainite; quenched fast enough to miss the nose it shears to martensite, which is hard, brittle and not on the equilibrium diagram."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-5.2.B"
+       ],
+       "drills": [
+        "mse-ttt-product",
+        "mse-martensite-facts"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A5.2",
+        "fe-mechanical:9G"
+       ],
+       "do": "Choose a heat treatment for steel and explain hardenability.",
+       "ek": [
+        "Full annealing (furnace cool) gives the softest structure; normalizing (air cool) a finer, stronger one; quench and temper gives the best strength with toughness. Hardenability is the depth to which a steel forms martensite, measured by the Jominy end-quench test and raised by alloying."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-5.2.C"
+       ],
+       "drills": [
+        "mse-heat-treatment",
+        "mse-hardenability-facts"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "engineers-canada-materials:A5.3",
+        "engineers-canada-materials:A5.5"
+       ],
+       "do": "Use the Avrami equation for the fraction transformed.",
+       "ek": [
+        "y = 1 − exp(−k tⁿ): the S-shaped curve of nucleation and growth. The rate is often quoted as 1 ÷ t at half transformation."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-5.2.D"
+       ],
+       "drills": [
+        "mse-avrami-fraction",
+        "mse-avrami-half-time"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Nucleation and glass",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A5.5"
+       ],
+       "do": "Compute a critical nucleus radius and scale the nucleation barrier.",
+       "ek": [
+        "A solid nucleus gains volume free energy and pays surface energy: r* = 2γT_m ÷ (ΔH_f ΔT) and ΔG* varies as 1 ÷ ΔT². Larger undercooling means smaller nuclei and a lower barrier."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-5.2.E"
+       ],
+       "drills": [
+        "mse-critical-radius",
+        "mse-nucleation-barrier"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A5.6"
+       ],
+       "do": "Tell a glass transition from melting.",
+       "ek": [
+        "A crystal melts sharply at T_m. An amorphous solid has no T_m: it softens over the glass transition T_g, where the slope of volume against temperature changes. A semicrystalline polymer shows both."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-5.3.A"
+       ],
+       "drills": [
+        "mse-tg-or-tm",
+        "mse-glass-facts"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "failure",
+   "n": 6,
+   "title": "Failure",
+   "std": [
+    "engineers-canada-materials:A4.3",
+    "engineers-canada-materials:A4.4",
+    "engineers-canada-materials:A4.5",
+    "engineers-canada-materials:A4.6",
+    "fe-mechanical:9J"
+   ],
+   "scope": "core",
+   "ideas": [
+    "DEFECT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Fracture, fatigue and creep",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A4.4",
+        "fe-mechanical:9J"
+       ],
+       "do": "Use fracture toughness to find a critical stress or flaw size.",
+       "ek": [
+        "K = Yσ√(πa); fracture when K reaches K_IC. For a surface crack a is the depth, for an internal crack half the length."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-3.3.E"
+       ],
+       "drills": [
+        "mse-critical-stress",
+        "mse-critical-flaw"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A4.3",
+        "engineers-canada-materials:A4.4"
+       ],
+       "do": "Apply the Griffith criterion and tell ductile from brittle fracture.",
+       "ek": [
+        "A brittle crack grows when the elastic energy released pays for the new surface: σ_c = √(2Eγ_s ÷ πa). Ductile fracture absorbs far more energy through plastic flow (cup and cone); BCC metals turn brittle below a transition temperature."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-6.1.A"
+       ],
+       "drills": [
+        "mse-griffith",
+        "mse-fracture-mode"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A4.4",
+        "fe-mechanical:9J"
+       ],
+       "do": "Compute the stress at the tip of a flaw.",
+       "ek": [
+        "σ_m = 2σ₀√(a ÷ ρ_t): the maximum stress at a crack of length a and tip radius ρ_t. Sharp cracks concentrate stress; drilling a hole at the tip blunts it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-6.1.B"
+       ],
+       "drills": [
+        "mse-tip-stress",
+        "mse-tip-radius"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:A4.6",
+        "fe-mechanical:9J"
+       ],
+       "do": "Describe a fatigue cycle and read an S-N curve.",
+       "ek": [
+        "σ_m = (σ_max + σ_min) ÷ 2, σ_a = (σ_max − σ_min) ÷ 2, R = σ_min ÷ σ_max. Steels and titanium alloys have a fatigue limit below which life is unlimited; aluminium, copper and magnesium do not."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-6.1.C"
+       ],
+       "drills": [
+        "mse-fatigue-amplitude",
+        "mse-fatigue-limit"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "engineers-canada-materials:A4.6"
+       ],
+       "do": "Use the Paris law for fatigue crack growth.",
+       "ek": [
+        "da/dN = A(ΔK)^m with ΔK = YΔσ√(πa) and m about 2 to 4 for metals. Life is the integral of dN from the initial to the critical crack length."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-6.1.D"
+       ],
+       "drills": [
+        "mse-paris-ratio",
+        "mse-paris-life"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "engineers-canada-materials:A4.5",
+        "fe-mechanical:9J"
+       ],
+       "do": "Work with steady-state creep and the Larson-Miller parameter.",
+       "ek": [
+        "Steady creep rate goes as σⁿ exp(−Q_c ÷ RT); creep matters above about 0.4 of the absolute melting temperature. The Larson-Miller parameter T(C + log t_r), with C about 20 and t_r in hours, trades temperature against rupture life."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-6.1.E"
+       ],
+       "drills": [
+        "mse-larson-miller",
+        "mse-creep-exponent"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "classes",
+   "n": 7,
+   "title": "Material classes and characterisation",
+   "std": [
+    "engineers-canada-materials:B6.1",
+    "engineers-canada-materials:B6.3",
+    "engineers-canada-materials:B6.4",
+    "engineers-canada-materials:B8.1",
+    "engineers-canada-materials:B8.2",
+    "engineers-canada-materials:B8.3",
+    "engineers-canada-materials:B11.1",
+    "engineers-canada-materials:B11.2",
+    "engineers-canada-materials:A3.2",
+    "engineers-canada-materials:A3.3",
+    "engineers-canada-materials:A3.4",
+    "engineers-canada-materials:A4.7",
+    "engineers-canada-materials:A4.8",
+    "fe-mechanical:9A",
+    "fe-mechanical:9C",
+    "fe-mechanical:9D",
+    "fe-mechanical:9E",
+    "fe-mechanical:9F"
+   ],
+   "scope": "core",
+   "ideas": [
+    "LATTICE",
+    "PATH"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Ceramics",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:B6.1"
+       ],
+       "do": "Predict a ceramic's coordination from the radius ratio and name the common structures.",
+       "ek": [
+        "The cation takes as many anion neighbours as can touch it: r_C ÷ r_A of 0.225 to 0.414 gives tetrahedral (4), 0.414 to 0.732 octahedral (6), 0.732 to 1.0 cubic (8)."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-1.2.F",
+        "MSE-3.3.E"
+       ],
+       "drills": [
+        "mse-radius-ratio",
+        "mse-ceramic-structures"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:B6.1"
+       ],
+       "do": "Compute a ceramic's density and cell edge from its ions.",
+       "ek": [
+        "ρ = n′(ΣA_C + ΣA_A) ÷ (V_cell N_A), with n′ formula units per cell. In rock salt the ions touch along the cell edge, so a = 2(r_C + r_A)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.1.A"
+       ],
+       "drills": [
+        "mse-ceramic-density",
+        "mse-rock-salt-edge"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:B6.3",
+        "fe-mechanical:9A"
+       ],
+       "do": "Compute a flexural strength from a three-point bend test.",
+       "ek": [
+        "Ceramics are tested in bending because they are hard to grip in tension. For a rectangular bar σ_fs = 3FL ÷ 2bd², with L the support span."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.1.B"
+       ],
+       "drills": [
+        "mse-flexural-strength",
+        "mse-flexural-load"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:B6.4",
+        "engineers-canada-materials:A4.7"
+       ],
+       "do": "Compute a thermal stress and a thermal shock limit.",
+       "ek": [
+        "A constrained body heated or cooled by ΔT carries σ = EαΔT. A brittle solid survives a sudden temperature change of about σ_f ÷ Eα, so low expansion and high conductivity resist thermal shock."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.1.C"
+       ],
+       "drills": [
+        "mse-thermal-stress",
+        "mse-thermal-shock"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "title": "Composites",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:B11.1",
+        "fe-mechanical:9E"
+       ],
+       "do": "Compute a continuous-fibre composite's modulus along the fibres.",
+       "ek": [
+        "Loaded along the fibres, fibre and matrix strain equally (isostrain): E_c = E_m V_m + E_f V_f, the upper bound."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.1.D"
+       ],
+       "drills": [
+        "mse-isostrain-modulus",
+        "mse-fibre-fraction"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:B11.1",
+        "fe-mechanical:9E"
+       ],
+       "do": "Compute the transverse modulus and say which loading gives which bound.",
+       "ek": [
+        "Loaded across the fibres, fibre and matrix carry equal stress (isostress): 1 ÷ E_c = V_m ÷ E_m + V_f ÷ E_f, the lower bound, dominated by the soft matrix."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.2.A"
+       ],
+       "drills": [
+        "mse-isostress-modulus",
+        "mse-composite-bound"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:B11.1",
+        "engineers-canada-materials:B11.2",
+        "fe-mechanical:9E"
+       ],
+       "do": "Compute the load carried by the fibres and the critical fibre length.",
+       "ek": [
+        "Under isostrain F_f ÷ F_m = E_f V_f ÷ E_m V_m. A fibre reaches its full strength only if it is longer than l_c = σ_f d ÷ 2τ_c, with τ_c the fibre-matrix bond strength."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.2.B"
+       ],
+       "drills": [
+        "mse-fibre-load-share",
+        "mse-critical-length"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "title": "Electronic and magnetic behaviour",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A4.8",
+        "engineers-canada-materials:B8.1"
+       ],
+       "do": "Compute a conductivity from carrier density and mobility.",
+       "ek": [
+        "σ = n|e|μ, with e = 1.602 × 10⁻¹⁹ C. Metals have about one free electron per atom or more; their mobility, not their carrier count, falls on heating or alloying."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.2.C"
+       ],
+       "drills": [
+        "mse-conductivity",
+        "mse-mobility"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:B8.1",
+        "engineers-canada-materials:B8.2"
+       ],
+       "do": "Classify a solid by its band gap and compute an intrinsic conductivity.",
+       "ek": [
+        "Metals have a partly filled band or overlapping bands; semiconductors a gap under about 2 eV; insulators a wider one. An intrinsic semiconductor has equal electrons and holes: σ = n_i|e|(μ_e + μ_h)."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MSE-7.3.A"
+       ],
+       "drills": [
+        "mse-intrinsic-conductivity",
+        "mse-band-class"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:B8.2"
+       ],
+       "do": "Predict the carrier type a dopant gives.",
+       "ek": [
+        "In silicon or germanium a group 15 atom (P, As, Sb) donates an electron: n-type. A group 13 atom (B, Al, Ga, In) accepts one and leaves a hole: p-type."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.3.B"
+       ],
+       "drills": [
+        "mse-dopant-type",
+        "mse-extrinsic-facts"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "engineers-canada-materials:B8.3"
+       ],
+       "do": "Classify magnetic behaviour and state what a superconductor does.",
+       "ek": [
+        "Diamagnets weakly oppose a field; paramagnets weakly align with it; ferromagnets (Fe, Co, Ni) align strongly and stay magnetised below the Curie temperature. Below T_c a superconductor has zero resistance and expels magnetic flux."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.3.C"
+       ],
+       "drills": [
+        "mse-magnetic-class",
+        "mse-magnet-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 4,
+     "title": "Alloys and processing",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "fe-mechanical:9C"
+       ],
+       "do": "Read a steel designation and tell the classes of ferrous alloy apart.",
+       "ek": [
+        "In AISI/SAE four-digit steels the last two digits are carbon in hundredths of a weight percent: 1040 is plain carbon with 0.40% C. Stainless steels need at least about 11% Cr. Gray iron has graphite flakes, ductile iron spheroids."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.3.D"
+       ],
+       "drills": [
+        "mse-steel-designation",
+        "mse-carbon-class"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "fe-mechanical:9D"
+       ],
+       "do": "Identify the common nonferrous alloys and how they are strengthened.",
+       "ek": [
+        "Brass is Cu-Zn, bronze Cu-Sn. Aluminium tempers: T means solution treated and aged, H strain hardened, O annealed. Titanium alloys give the best strength to weight; nickel superalloys keep strength hot."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.4.A"
+       ],
+       "drills": [
+        "mse-nonferrous-facts",
+        "mse-temper"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "fe-mechanical:9F"
+       ],
+       "do": "Match a manufacturing process to what it does to the metal.",
+       "ek": [
+        "Casting fills a mould with liquid; forging, rolling, extrusion and drawing shape the solid, hot (above recrystallization, no hardening) or cold (strain hardened, better finish); powder metallurgy presses and sinters powder; welding leaves a heat-affected zone."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.4.B"
+       ],
+       "drills": [
+        "mse-hot-or-cold",
+        "mse-process-facts"
+       ]
+      }
+     ]
+    },
+    {
+     "n": 5,
+     "title": "Characterisation",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "engineers-canada-materials:A3.2"
+       ],
+       "do": "Choose between XRD, EDS and XPS.",
+       "ek": [
+        "X-ray diffraction gives crystal structure, phases and lattice parameters. EDS in an electron microscope gives elemental composition from characteristic X-rays. XPS gives the composition and chemical state of the top few nanometres."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.4.C"
+       ],
+       "drills": [
+        "mse-analysis-choice",
+        "mse-analysis-facts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "engineers-canada-materials:A3.3"
+       ],
+       "do": "Choose between optical, scanning and transmission electron microscopy.",
+       "ek": [
+        "Optical microscopes resolve about 0.2 µm and show grains on a polished, etched surface. SEM resolves nanometres with great depth of field on bulk samples. TEM passes electrons through a thin foil and images dislocations and lattice planes."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.5.A"
+       ],
+       "drills": [
+        "mse-microscope-choice",
+        "mse-microscopy-facts"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "engineers-canada-materials:A3.4"
+       ],
+       "do": "Choose between DSC and TGA and read what each shows.",
+       "ek": [
+        "DSC (and DTA) record heat flow against temperature: glass transitions, melting, crystallisation, heats of reaction. TGA records mass against temperature: drying, decomposition, oxidation, filler content."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MSE-7.5.B"
+       ],
+       "drills": [
+        "mse-thermal-choice",
+        "mse-thermal-facts"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "MSE-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-cell-facts",
+    "mse-cell-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-edge-from-radius",
+    "mse-radius-from-edge"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-apf",
+    "mse-apf-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-density",
+    "mse-molar-mass-from-cell"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.2.A",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-miller-plane",
+    "mse-direction-in-plane"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.2.B",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-direction-angle",
+    "mse-direction-indices"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.2.C",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-d-spacing",
+    "mse-edge-from-spacing"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.2.D",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-bragg-angle",
+    "mse-bragg-spacing"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.2.E",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-reflection-allowed",
+    "mse-first-peaks"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-1.2.F",
+   "unit": 1,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-linear-density",
+    "mse-planar-density"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-vacancy-fraction",
+    "mse-vacancy-energy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-solution-type",
+    "mse-size-mismatch"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-wt-to-at",
+    "mse-at-to-wt"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-ionic-defects",
+    "mse-dopant-vacancy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.2.A",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-dislocation-facts",
+    "mse-dislocation-character"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.2.B",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-burgers-circuit",
+    "mse-burgers-circuit-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.2.C",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-burgers-magnitude",
+    "mse-burgers-from-radius"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.2.D",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-dislocation-energy",
+    "mse-frank-rule"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.2.E",
+   "unit": 2,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-dislocation-spacing",
+    "mse-dislocation-length"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.3.A",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-astm-grains",
+    "mse-astm-number"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-2.3.B",
+   "unit": 2,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-tilt-angle",
+    "mse-planar-defects"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-slip-systems",
+    "mse-slip-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-schmid-stress",
+    "mse-schmid-yield"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-theoretical-strength",
+    "mse-why-weak"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.2.A",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-hall-petch",
+    "mse-hall-petch-constant"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.2.B",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-cold-work",
+    "mse-taylor-hardening"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.2.C",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-orowan",
+    "mse-precipitation-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.2.D",
+   "unit": 3,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-anneal-stage",
+    "mse-recrystallization-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.3.A",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-elongation",
+    "mse-plastic-strain"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.3.B",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-true-stress",
+    "mse-true-strain"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.3.C",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-hardening-stress",
+    "mse-hardening-exponent"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.3.D",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-resilience",
+    "mse-toughness-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-3.3.E",
+   "unit": 3,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-hardness-strength",
+    "mse-hardness-tests"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-fick-flux",
+    "mse-fick-thickness"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-diffusivity",
+    "mse-diffusion-activation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-diffusion-time",
+    "mse-equal-dt"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-diffusion-faster",
+    "mse-diffusion-mechanism"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-phase-rule",
+    "mse-phase-rule-meaning"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-lever-rule",
+    "mse-lever-composition"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-primary-alpha",
+    "mse-eutectic-alpha"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-invariant-name",
+    "mse-diagram-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.2.A",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-fe-c-facts",
+    "mse-steel-class"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.2.B",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-pearlite-fraction",
+    "mse-cementite-fraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.2.C",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-ttt-product",
+    "mse-martensite-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.2.D",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-heat-treatment",
+    "mse-hardenability-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.2.E",
+   "unit": 5,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-avrami-fraction",
+    "mse-avrami-half-time"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.3.A",
+   "unit": 5,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-critical-radius",
+    "mse-nucleation-barrier"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-5.3.B",
+   "unit": 5,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-tg-or-tm",
+    "mse-glass-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-critical-stress",
+    "mse-critical-flaw"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-griffith",
+    "mse-fracture-mode"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-tip-stress",
+    "mse-tip-radius"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-fatigue-amplitude",
+    "mse-fatigue-limit"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-6.1.E",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-paris-ratio",
+    "mse-paris-life"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-6.1.F",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-larson-miller",
+    "mse-creep-exponent"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.1.A",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-radius-ratio",
+    "mse-ceramic-structures"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.1.B",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-ceramic-density",
+    "mse-rock-salt-edge"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.1.C",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-flexural-strength",
+    "mse-flexural-load"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.1.D",
+   "unit": 7,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mse-thermal-stress",
+    "mse-thermal-shock"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.2.A",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-isostrain-modulus",
+    "mse-fibre-fraction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.2.B",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-isostress-modulus",
+    "mse-composite-bound"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.2.C",
+   "unit": 7,
+   "topic": 2,
+   "status": "ok",
+   "full": [
+    "mse-fibre-load-share",
+    "mse-critical-length"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.3.A",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-conductivity",
+    "mse-mobility"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.3.B",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-intrinsic-conductivity",
+    "mse-band-class"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.3.C",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-dopant-type",
+    "mse-extrinsic-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.3.D",
+   "unit": 7,
+   "topic": 3,
+   "status": "ok",
+   "full": [
+    "mse-magnetic-class",
+    "mse-magnet-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.4.A",
+   "unit": 7,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "mse-steel-designation",
+    "mse-carbon-class"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.4.B",
+   "unit": 7,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "mse-nonferrous-facts",
+    "mse-temper"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.4.C",
+   "unit": 7,
+   "topic": 4,
+   "status": "ok",
+   "full": [
+    "mse-hot-or-cold",
+    "mse-process-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.5.A",
+   "unit": 7,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "mse-analysis-choice",
+    "mse-analysis-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.5.B",
+   "unit": 7,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "mse-microscope-choice",
+    "mse-microscopy-facts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MSE-7.5.C",
+   "unit": 7,
+   "topic": 5,
+   "status": "ok",
+   "full": [
+    "mse-thermal-choice",
+    "mse-thermal-facts"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
