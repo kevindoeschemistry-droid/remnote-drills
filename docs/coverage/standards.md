@@ -30,6 +30,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl, cambridge-ib-complex | cupm-2015-complex | 195 | 155 | 40 |
+| Engineering Mechanics | NCEES FE Mechanical CBT Exam Specifications (effective July 2020) | exam-spec | read in part | — | — | 20 | 20 | 0 |
 | Fluid Mechanics | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 64 | 64 | 0 |
 | Geometry | Cambridge Mathematical Tripos, Part IB Geometry schedule | course | read in part | — | — | 16 | 16 | 0 |
 | Graduate Chemical Engineering Core | Graduate chemical engineering core curriculum (crosswalk of fifteen departments' published requirements) | course | read in full | icheme-level-f, uci-cbe-core, pe-chemical | — | 50 | 50 | 0 |
@@ -39,6 +40,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | ACS Exams Institute Anchoring Concepts Content Map: Inorganic Chemistry (Marek, Raker, Holme & Murphy, J. Chem. Educ. 2018, 95, 233) | standard | read in full | cotton-wilkinson-6e, icho-appendix-c, gre-chemistry, acs-accm-general, acs-accm-organic, acs-accm-analytical | — | 80 | 51 | 29 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025, acs-accm-general, acs-accm-inorganic, acs-accm-analytical | — | 23 | 23 | 0 |
 | Linear Algebra | MAA CUPM Linear Algebra Course Area Report (August 17, 2023) | standard | read in full | cupm-2015-la, lay-5e, webwork-opl, lacsg-2 | — | 60 | 60 | 0 |
+| Macroeconomics | AP Macroeconomics Course and Exam Description (effective fall 2022) | standard | read in part | — | — | 27 | 27 | 0 |
 | Managerial Accounting | CMA Content Specification Outlines (effective September 1, 2024) | exam-spec | read in part | — | — | 29 | 29 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
@@ -97,6 +99,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Electric Double Layers**: A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
 - **Electronic Structure**: No accredited standard exists at this level. The Psi4NumPy modules are the closest published curriculum and the MolSSI lesson fixes the practical units; Szabo & Ostlund is a theory reference only. Objectives are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
+- **Engineering Mechanics**: Anchored on the NCEES FE Mechanical specification, sections 6-8, read to their lettered lines. Structures are described in words because no free-body or beam figure type exists yet, which limits trusses and shear and moment diagrams to their standard cases. Mechanisms (7G), machine design, thermodynamics, fluids and heat transfer sections of that exam are in other frameworks or not built.
 - **Fluid Mechanics**: Topics from FE Chemical area 6, read in full; units 7–10 extend past it on the WeBWorK OPL fluid-mechanics sections (read in full). Objectives and their order are ours; statics is assumed by the spec rather than listed.
 - **Geometry**: Anchored on the Cambridge Part IB Geometry schedule (read through an extraction). The three constant-curvature geometries side by side. Axiomatic Euclidean geometry, projective geometry and the differential geometry of general surfaces are not built; K-12 geometry lives in the school mathematics frameworks.
 - **Graduate Chemical Engineering Core**: No body publishes an itemised graduate chemical engineering content standard, so the primary basis is our own crosswalk of fifteen departments' published core-course requirements, each read in full. IChemE Level F carries the level this framework sits at: its outcomes are the same principles on more complex problems with the limits of the assumptions interrogated. UCI's catalogue descriptions, which this framework used to rest on alone, are now one department among the fifteen. PE Chemical is the nearest published exam and stops below this level, and FE Chemical closes the undergraduate layer that several departments' qualifying exams actually test.
@@ -105,6 +108,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Since Nov 2026 the primary basis is the ACS inorganic content map (read in full); every articulation is answered (scripts/accm_maps.py), unit 15 holding the principles the chapter units did not reach. Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
 - **Linear Algebra**: Anchored on the MAA CUPM 2023 linear algebra course report (read in full): every essential and optional core topic is cited by objectives here. Units keep Lay's order; determinants and LU, which the 2023 list leaves out, rest on Lay and the 2015 guide.
+- **Macroeconomics**: Anchored on the AP Macroeconomics Course and Exam Description (2022), read through its topic list. AP unit 1 is left to Microeconomics. Introductory level: the Solow model, IS-LM, expectations-augmented dynamics and open-economy models belong to an intermediate course and are not built.
 - **Managerial Accounting**: Anchored on the IMA CMA Content Specification Outlines (2024): Part 1 planning and budgeting, performance management and cost management, and Part 2 decision analysis and capital investment, read to the lettered lines of the outline. Financial reporting, internal controls, analytics, corporate finance, risk and ethics sections of the CMA are not built here.
 - **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
@@ -159,8 +163,10 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Electric Double Layers**: textbook, read in part
 - **Electronic Structure**: course, read in part
 - **Applied Engineering Mathematics**: textbook, read in full; should move to MAA CUPM Curriculum Guide 2015, Complex Analysis course area report
+- **Engineering Mechanics**: exam-spec, read in part
 - **Geometry**: course, read in part
 - **Graduate Chemical Engineering Core**: course, read in full
+- **Macroeconomics**: standard, read in part
 - **Managerial Accounting**: exam-spec, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Microbiology**: standard, read in part
@@ -301,6 +307,43 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 | 17.D | Intellectual property | 8 | 8 | process-design (8) |
 
 **Areas with nothing answering to them:** none.
+
+## NCEES FE Mechanical CBT Exam Specifications (effective July 2020)
+
+https://www.bu.edu/eng/files/2020/02/FE-Mechanical-CBT-specs.pdf
+
+25 of 28 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 6A | Resultants of force systems | 7 | 7 | engineering-mechanics (7) |
+| 6B | Concurrent force systems | 7 | 7 | engineering-mechanics (7) |
+| 6C | Equilibrium of rigid bodies | 7 | 7 | engineering-mechanics (7) |
+| 6D | Frames and trusses | 7 | 7 | engineering-mechanics (7) |
+| 6E | Centroids and moments of inertia | 7 | 7 | engineering-mechanics (7) |
+| 6F | Static friction | 7 | 7 | engineering-mechanics (7) |
+| 7A | Kinematics of particles | 7 | 7 | engineering-mechanics (7) |
+| 7B | Kinetic friction | 7 | 7 | engineering-mechanics (7) |
+| 7C | Newton's second law for particles | 7 | 7 | engineering-mechanics (7) |
+| 7D | Work-energy of particles | 7 | 7 | engineering-mechanics (7) |
+| 7E | Impulse-momentum of particles | 7 | 7 | engineering-mechanics (7) |
+| 7F | Kinematics of rigid bodies | 7 | 7 | engineering-mechanics (7) |
+| 7G | Kinematics of mechanisms | — | — | **nothing yet** |
+| 7H | Newton's second law for rigid bodies | 7 | 7 | engineering-mechanics (7) |
+| 7I | Work-energy of rigid bodies | 7 | 7 | engineering-mechanics (7) |
+| 7J | Impulse-momentum of rigid bodies | — | — | **nothing yet** |
+| 7K | Free and forced vibrations | 7 | 7 | engineering-mechanics (7) |
+| 8A | Shear and moment diagrams | 9 | 9 | engineering-mechanics (9) |
+| 8B | Stress transformations and Mohr's circle | 9 | 9 | engineering-mechanics (9) |
+| 8C | Stress and strain from axial loads | 9 | 9 | engineering-mechanics (9) |
+| 8D | Stress and strain from bending | 9 | 9 | engineering-mechanics (9) |
+| 8E | Stress and strain from torsion | 9 | 9 | engineering-mechanics (9) |
+| 8F | Stress and strain from shear | — | — | **nothing yet** |
+| 8G | Stress and strain from temperature change | 9 | 9 | engineering-mechanics (9) |
+| 8H | Combined loading | 9 | 9 | engineering-mechanics (9) |
+| 8I | Deformations | 9 | 9 | engineering-mechanics (9) |
+| 8J | Column buckling | 9 | 9 | engineering-mechanics (9) |
+| 8K | Statically indeterminate systems | 9 | 9 | engineering-mechanics (9) |
 
 ## AP Chemistry Course and Exam Description (Fall 2024)
 
@@ -4116,6 +4159,57 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Electrical-and-Computer-CBT-spec
 | 12B | Bode plots | 4 | 4 | electric-circuits (4) |
 | 12C | Closed-loop and open-loop response and stability | 5 | 5 | electric-circuits (5) |
 | 12D | Controller performance | 5 | 5 | electric-circuits (5) |
+
+## AP Macroeconomics Course and Exam Description (effective fall 2022)
+
+https://apcentral.collegeboard.org/media/pdf/ap-macroeconomics-course-at-a-glance.pdf
+
+36 of 42 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1 | Scarcity | — | — | **nothing yet** |
+| 1.2 | Opportunity cost and the production possibilities curve | — | — | **nothing yet** |
+| 1.3 | Comparative advantage and gains from trade | — | — | **nothing yet** |
+| 1.4 | Demand | — | — | **nothing yet** |
+| 1.5 | Supply | — | — | **nothing yet** |
+| 1.6 | Market equilibrium, disequilibrium and changes in equilibrium | — | — | **nothing yet** |
+| 2.1 | The circular flow and GDP | 6 | 6 | macroeconomics (6) |
+| 2.2 | Limitations of GDP | 6 | 6 | macroeconomics (6) |
+| 2.3 | Unemployment | 6 | 6 | macroeconomics (6) |
+| 2.4 | Price indices and inflation | 6 | 6 | macroeconomics (6) |
+| 2.5 | Costs of inflation | 6 | 6 | macroeconomics (6) |
+| 2.6 | Real versus nominal GDP | 6 | 6 | macroeconomics (6) |
+| 2.7 | Business cycles | 6 | 6 | macroeconomics (6) |
+| 3.1 | Aggregate demand | 7 | 7 | macroeconomics (7) |
+| 3.2 | Multipliers | 7 | 7 | macroeconomics (7) |
+| 3.3 | Short-run aggregate supply | 7 | 7 | macroeconomics (7) |
+| 3.4 | Long-run aggregate supply | 7 | 7 | macroeconomics (7) |
+| 3.5 | Equilibrium in the AD-AS model | 7 | 7 | macroeconomics (7) |
+| 3.6 | Changes in the AD-AS model in the short run | 7 | 7 | macroeconomics (7) |
+| 3.7 | Long-run self-adjustment | 7 | 7 | macroeconomics (7) |
+| 3.8 | Fiscal policy | 7 | 7 | macroeconomics (7) |
+| 3.9 | Automatic stabilisers | 7 | 7 | macroeconomics (7) |
+| 4.1 | Financial assets | 8 | 8 | macroeconomics (8) |
+| 4.2 | Nominal versus real interest rates | 8 | 8 | macroeconomics (8) |
+| 4.3 | Definition, measurement and functions of money | 8 | 8 | macroeconomics (8) |
+| 4.4 | Banking and the expansion of the money supply | 8 | 8 | macroeconomics (8) |
+| 4.5 | The money market | 8 | 8 | macroeconomics (8) |
+| 4.6 | Monetary policy | 8 | 8 | macroeconomics (8) |
+| 4.7 | The loanable funds market | 8 | 8 | macroeconomics (8) |
+| 5.1 | Fiscal and monetary policy actions in the short run | 6 | 6 | macroeconomics (6) |
+| 5.2 | The Phillips curve | 6 | 6 | macroeconomics (6) |
+| 5.3 | Money growth and inflation | 6 | 6 | macroeconomics (6) |
+| 5.4 | Government deficits and the national debt | 6 | 6 | macroeconomics (6) |
+| 5.5 | Crowding out | 6 | 6 | macroeconomics (6) |
+| 5.6 | Economic growth | 6 | 6 | macroeconomics (6) |
+| 5.7 | Public policy and economic growth | 6 | 6 | macroeconomics (6) |
+| 6.1 | Balance of payments accounts | 5 | 5 | macroeconomics (5) |
+| 6.2 | Exchange rates | 5 | 5 | macroeconomics (5) |
+| 6.3 | The foreign exchange market | 5 | 5 | macroeconomics (5) |
+| 6.4 | Effects of policies and conditions on the foreign exchange market | 5 | 5 | macroeconomics (5) |
+| 6.5 | Changes in the foreign exchange market and net exports | 5 | 5 | macroeconomics (5) |
+| 6.6 | Real interest rates and international capital flows | 5 | 5 | macroeconomics (5) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
