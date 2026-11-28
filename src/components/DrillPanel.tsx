@@ -12,6 +12,7 @@ import type { Answer, CheckResult, Problem } from "../drills/types";
 import { ago } from "../drills/warm";
 import { play } from "../drills/sound";
 import { recordTime } from "../drills/times";
+import { tickMove } from "../drills/moves";
 
 /** Problems with checked steps walk through them until the skill has this many in a row;
  *  after that only the final answer is asked, and a miss drops back into the steps. */
@@ -170,6 +171,20 @@ export function DrillPanel({
     reported.current = problem;
     onResult(phase === "correct" && !missedOnce);
   }, [done, phase, missedOnce, problem, onResult]);
+  // a movement break: counted once per settled problem, whoever is listening
+  const [move, setMove] = useState<string | null>(null);
+  const counted = useRef<Problem | null>(null);
+  useEffect(() => {
+    if (!done || counted.current === problem) return;
+    counted.current = problem;
+    let live = true;
+    void tickMove(plugin).then((m) => {
+      if (live && m) setMove(m);
+    });
+    return () => {
+      live = false;
+    };
+  }, [done, problem, plugin]);
 
   const miss = useCallback(
     async (kind: "wrong" | "revealed") => {
@@ -328,6 +343,16 @@ export function DrillPanel({
 
   return (
     <div className="odd-panel" onKeyDown={stop} onKeyUp={stop} onKeyPress={stop}>
+      {move && (
+        <div className="odd-move">
+          <span>
+            <b>Movement break:</b> {move}
+          </span>
+          <button className="odd-source odd-source-btn" onClick={() => setMove(null)}>
+            Done
+          </button>
+        </div>
+      )}
       <div className="odd-header">
         <span className="odd-skill">
           {place && (
