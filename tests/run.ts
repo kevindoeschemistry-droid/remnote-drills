@@ -12,6 +12,7 @@ import * as katex from "katex";
 import { LIVE_SKILLS, ALL_SKILLS, resolveSkill, placesFor, placeText, primaryPlace, SOURCES } from "../src/drills/skills";
 import { generate, generateTemplate, TEMPLATES, TEMPLATE_MAPS } from "../src/drills/registry";
 import { check } from "../src/drills/check";
+import { MOVES, moveDue, pickMove } from "../src/drills/moves";
 import type { Answer, Problem } from "../src/drills/types";
 import { LAPLACE_FOURIER_CASES } from "./cases/laplace-fourier";
 import { SCHOOL_MATH_CASES } from "./cases/school-math";
@@ -130,6 +131,18 @@ expectPlace("stat.partition-function", "Dill & Bromberg 2e Ch 10");
 expectPlace("stat.partition-function", "Shell Ch 16");
 if (primaryPlace("stat.partition-function", "shell-2015")?.source.id !== "shell-2015") fail("preferred source not honoured");
 if (SOURCES.length !== 66) fail(`expected 66 sources, got ${SOURCES.length}`);
+// movement breaks: off at 0, due on every nth settled problem, and a set does not repeat until its list is used up
+if (moveDue(12, 0) || moveDue(0, 12) || moveDue(11, 12) || !moveDue(12, 12) || !moveDue(36, 12)) fail("movement break timing is wrong");
+for (const set of ["bodyweight", "martial", "holds"] as const) {
+  const seen = new Set(MOVES[set].map((_, k) => pickMove(set, k)));
+  if (seen.size !== MOVES[set].length) fail(`movement set ${set} repeats before its list is done`);
+}
+{
+  const all = MOVES.bodyweight.length + MOVES.martial.length + MOVES.holds.length;
+  const firstThree = [0, 1, 2].map((k) => pickMove("mixed", k));
+  if (!MOVES.bodyweight.includes(firstThree[0]) || !MOVES.martial.includes(firstThree[1]) || !MOVES.holds.includes(firstThree[2])) fail("mixed movement breaks should rotate through the three kinds");
+  if (all < 15) fail("movement lists are too short");
+}
 expectPlace("k8.fractions", "Prealgebra 2e Ch 4");
 expectPlace("trig.identities", "Algebra & Trig 2e §9.2");
 

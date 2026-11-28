@@ -1,3 +1,4 @@
+import { MOVE_EVERY, MOVE_SET, MOVE_SETS } from "../drills/moves";
 import {
   AppEvents, BuiltInPowerupCodes, ReactRNPlugin, RNPlugin, WidgetLocation } from "@remnote/plugin-sdk";
 type RemObject = NonNullable<Awaited<ReturnType<RNPlugin["rem"]["findOne"]>>>;
@@ -49,6 +50,18 @@ async function registerDrills(plugin: ReactRNPlugin) {
     title: "Drills: play a sound when you get one right",
     description: "A short ding for a correct answer and a four-note flourish when a skill goes warm. Made in the browser; nothing is downloaded.",
     defaultValue: true,
+  });
+  await plugin.settings.registerNumberSetting({
+    id: MOVE_EVERY,
+    title: "Drills: movement break every this many problems (0 = off)",
+    description: "After this many answered problems the panel names a short set to do before the next card. The count starts again each time RemNote opens.",
+    defaultValue: 12,
+  });
+  await plugin.settings.registerDropdownSetting({
+    id: MOVE_SET,
+    title: "Drills: what a movement break asks for",
+    defaultValue: "mixed",
+    options: MOVE_SETS.map((s) => ({ key: s.key, label: s.label, value: s.key })),
   });
   await plugin.settings.registerNumberSetting({
     id: "drill-clear-at",
