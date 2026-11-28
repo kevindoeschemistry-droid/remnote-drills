@@ -981,6 +981,13 @@ skills:
   - { id: mse.phases, domain: mse, title: "Phase rule, lever rule, eutectics, the iron-carbon system, TTT diagrams, nucleation and heat treatment", short: "Phase diagrams and transformations", prereqs: [mse.diffusion] }
   - { id: mse.failure, domain: mse, title: "Fracture toughness, Griffith cracks, stress concentration, fatigue and creep", short: "Failure", prereqs: [mse.deformation] }
   - { id: mse.classes, domain: mse, title: "Ceramics, composites, electronic and magnetic behaviour, alloys, processing and characterisation", short: "Material classes and characterisation", prereqs: [mse.structure] }
+  - { id: mse.thermo, domain: mse, title: "Heat balances, Ellingham diagrams, solution models, solidification and heat loss in processing", short: "Thermodynamics and transport in processing", prereqs: [mse.phases] }
+  - { id: mse.service, domain: mse, title: "Material indices, life cycle, corrosion, oxidation, wear and protection", short: "Selection and degradation", prereqs: [mse.failure] }
+  - { id: mse.polymers, domain: mse, title: "Chain dimensions, molar mass methods, transitions, crystallinity, viscoelasticity and flow", short: "Polymer structure and properties", prereqs: [mse.structure] }
+  - { id: mse.extraction, domain: mse, title: "Mineral processing, pyrometallurgy, hydrometallurgy, electrometallurgy, iron and steelmaking", short: "Extraction and refining", prereqs: [mse.thermo] }
+  - { id: mse.fabrication, domain: mse, title: "Steel heat treatments, surface hardening, casting, forming, welding, powder and additive routes", short: "Fabrication", prereqs: [mse.phases] }
+  - { id: mse.functional, domain: mse, title: "Sintering, ionic conduction, dielectrics, optics, junctions, superconductors and microfabrication", short: "Functional materials and microfabrication", prereqs: [mse.classes] }
+  - { id: mse.practice, domain: mse, title: "Composite classes, fabrication and failure, inspection, failure analysis and life prediction", short: "Composites and service practice", prereqs: [mse.failure] }
   - { id: mech.statics, domain: mech, title: "Resultants, moments, equilibrium, trusses, centroids, area moments and static friction", short: "Statics" }
   - { id: mech.dynamics, domain: mech, title: "Curvilinear motion, friction on inclines, energy and impulse, rigid-body rotation and rolling, vibration", short: "Dynamics and vibrations", prereqs: [mech.statics] }
   - { id: mech.materials, domain: mech, title: "Axial, thermal, torsional and bending stress, beam diagrams and deflection, Mohr's circle, pressure vessels and buckling", short: "Mechanics of materials", prereqs: [mech.statics] }

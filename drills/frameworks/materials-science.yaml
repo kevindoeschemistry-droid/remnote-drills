@@ -14,8 +14,8 @@ domains: [mse]
 
 basis:
   primary: engineers-canada-materials
-  also: [fe-mechanical]
-  note: "Anchored on the Engineers Canada materials syllabus (exams A3, A4, A5, B6, B8, B11) and FE Mechanical section 9, both read to their topic lines. Dislocation geometry, Miller indices and slip systems sit under lines that say only 'crystal structures' and 'plastic deformation', so those objectives are a house list in textbook order. Asked in words and numbers: no lattice or phase-diagram figure type exists yet. Polymers, colloids, selection and corrosion are in Polymers and Materials (MT); axial stress and Mohr's circle are in Engineering Mechanics."
+  also: [pe-metmat, fe-mechanical]
+  note: "Anchored on the Engineers Canada materials syllabus (all eighteen exams), the PE Metallurgical and Materials specification and FE Mechanical section 9, each read to its topic lines. Dislocation geometry, Miller indices and slip systems sit under lines that say only 'crystal structures' and 'plastic deformation', so those objectives are a house list in textbook order. Asked in words and numbers: no lattice or phase-diagram figure type exists yet. Polymer chemistry and colloids are in Polymers and Materials (MT); axial stress and Mohr's circle are in Engineering Mechanics."
 
 big_ideas:
   - id: LATTICE
@@ -40,7 +40,7 @@ units:
   - id: structure
     n: 1
     title: "Crystal structure"
-    std: ["engineers-canada-materials:A3.1", "engineers-canada-materials:A3.2", "fe-mechanical:9A"]
+    std: ["engineers-canada-materials:A3.1", "engineers-canada-materials:A3.2", "fe-mechanical:9A", "pe-metmat:1A", "pe-metmat:4A"]
     scope: core
     ideas: [LATTICE]
     topics:
@@ -63,7 +63,7 @@ units:
   - id: defects
     n: 2
     title: "Defects and dislocations"
-    std: ["engineers-canada-materials:A4.1", "engineers-canada-materials:A4.2", "engineers-canada-materials:B6.2"]
+    std: ["engineers-canada-materials:A4.1", "engineers-canada-materials:A4.2", "engineers-canada-materials:B6.2", "pe-metmat:1A", "pe-metmat:1E"]
     scope: core
     ideas: [DEFECT]
     topics:
@@ -90,7 +90,7 @@ units:
   - id: deformation
     n: 3
     title: "Deformation and strengthening"
-    std: ["engineers-canada-materials:A4.1", "engineers-canada-materials:A4.2", "fe-mechanical:9A", "fe-mechanical:9B"]
+    std: ["engineers-canada-materials:A4.1", "engineers-canada-materials:A4.2", "fe-mechanical:9A", "fe-mechanical:9B", "pe-metmat:2C", "pe-metmat:3D", "pe-metmat:4H"]
     scope: core
     ideas: [DEFECT]
     topics:
@@ -118,7 +118,7 @@ units:
   - id: diffusion
     n: 4
     title: "Diffusion in solids"
-    std: ["engineers-canada-materials:A5.4"]
+    std: ["engineers-canada-materials:A5.4", "pe-metmat:1B"]
     scope: core
     ideas: [DEFECT]
     topics:
@@ -132,7 +132,7 @@ units:
   - id: phases
     n: 5
     title: "Phase diagrams and transformations"
-    std: ["engineers-canada-materials:A5.1", "engineers-canada-materials:A5.2", "engineers-canada-materials:A5.3", "engineers-canada-materials:A5.5", "engineers-canada-materials:A5.6", "engineers-canada-materials:A5.7", "fe-mechanical:9C", "fe-mechanical:9G"]
+    std: ["engineers-canada-materials:A1.1", "engineers-canada-materials:A5.1", "engineers-canada-materials:A5.2", "engineers-canada-materials:A5.3", "engineers-canada-materials:A5.5", "engineers-canada-materials:A5.6", "engineers-canada-materials:A5.7", "engineers-canada-materials:B5.1", "fe-mechanical:9C", "fe-mechanical:9G", "pe-metmat:1B", "pe-metmat:1F", "pe-metmat:1G", "pe-metmat:3G"]
     scope: core
     ideas: [PATH]
     topics:
@@ -159,7 +159,7 @@ units:
   - id: failure
     n: 6
     title: "Failure"
-    std: ["engineers-canada-materials:A4.3", "engineers-canada-materials:A4.4", "engineers-canada-materials:A4.5", "engineers-canada-materials:A4.6", "fe-mechanical:9J"]
+    std: ["engineers-canada-materials:A4.3", "engineers-canada-materials:A4.4", "engineers-canada-materials:A4.5", "engineers-canada-materials:A4.6", "fe-mechanical:9J", "pe-metmat:1C", "pe-metmat:2C", "pe-metmat:4F", "pe-metmat:4G"]
     scope: core
     ideas: [DEFECT]
     topics:
@@ -175,7 +175,7 @@ units:
   - id: classes
     n: 7
     title: "Material classes and characterisation"
-    std: ["engineers-canada-materials:B6.1", "engineers-canada-materials:B6.3", "engineers-canada-materials:B6.4", "engineers-canada-materials:B8.1", "engineers-canada-materials:B8.2", "engineers-canada-materials:B8.3", "engineers-canada-materials:B11.1", "engineers-canada-materials:B11.2", "engineers-canada-materials:A3.2", "engineers-canada-materials:A3.3", "engineers-canada-materials:A3.4", "engineers-canada-materials:A4.7", "engineers-canada-materials:A4.8", "fe-mechanical:9A", "fe-mechanical:9C", "fe-mechanical:9D", "fe-mechanical:9E", "fe-mechanical:9F"]
+    std: ["engineers-canada-materials:B6.1", "engineers-canada-materials:B6.3", "engineers-canada-materials:B6.4", "engineers-canada-materials:B8.1", "engineers-canada-materials:B8.2", "engineers-canada-materials:B8.3", "engineers-canada-materials:B11.1", "engineers-canada-materials:B11.2", "engineers-canada-materials:A3.2", "engineers-canada-materials:A3.3", "engineers-canada-materials:A3.4", "engineers-canada-materials:A3.5", "engineers-canada-materials:A4.7", "engineers-canada-materials:A4.8", "engineers-canada-materials:B4.1", "engineers-canada-materials:B5.2", "fe-mechanical:9A", "fe-mechanical:9C", "fe-mechanical:9D", "fe-mechanical:9E", "fe-mechanical:9F", "pe-metmat:1D", "pe-metmat:2D", "pe-metmat:4A", "pe-metmat:4B", "pe-metmat:4I", "pe-metmat:4J"]
     scope: core
     ideas: [LATTICE, PATH]
     topics:
@@ -211,3 +211,161 @@ units:
           - { id: A, std: ["engineers-canada-materials:A3.2"], do: "Choose between XRD, EDS and XPS.", ek: ["X-ray diffraction gives crystal structure, phases and lattice parameters. EDS in an electron microscope gives elemental composition from characteristic X-rays. XPS gives the composition and chemical state of the top few nanometres."], p: [P2], needs: [MSE-7.4.C], drills: [mse-analysis-choice, mse-analysis-facts] }
           - { id: B, std: ["engineers-canada-materials:A3.3"], do: "Choose between optical, scanning and transmission electron microscopy.", ek: ["Optical microscopes resolve about 0.2 µm and show grains on a polished, etched surface. SEM resolves nanometres with great depth of field on bulk samples. TEM passes electrons through a thin foil and images dislocations and lattice planes."], p: [P2], needs: [MSE-7.5.A], drills: [mse-microscope-choice, mse-microscopy-facts] }
           - { id: C, std: ["engineers-canada-materials:A3.4"], do: "Choose between DSC and TGA and read what each shows.", ek: ["DSC (and DTA) record heat flow against temperature: glass transitions, melting, crystallisation, heats of reaction. TGA records mass against temperature: drying, decomposition, oxidation, filler content."], p: [P2], needs: [MSE-7.5.B], drills: [mse-thermal-choice, mse-thermal-facts] }
+  - id: processing-thermo
+    n: 8
+    title: "Thermodynamics and transport in processing"
+    std: ["engineers-canada-materials:A1.2", "engineers-canada-materials:A1.3", "engineers-canada-materials:A1.4", "engineers-canada-materials:A1.5", "engineers-canada-materials:A1.6", "engineers-canada-materials:A2.1", "engineers-canada-materials:A2.2", "engineers-canada-materials:A2.3", "engineers-canada-materials:A2.4", "engineers-canada-materials:B9.1"]
+    scope: core
+    ideas: [PATH]
+    topics:
+      - n: 1
+        title: "Thermochemistry of processes"
+        los:
+          - { id: A, std: ["engineers-canada-materials:A1.2", "engineers-canada-materials:A1.6"], do: "Run a heat balance for heating and melting a charge.", ek: ["Q = m[c_p(T_m − T₀) + L_f]: sensible heat to the melting point plus latent heat. Furnace energy is this divided by the thermal efficiency."], p: [P1], needs: [MSE-5.3.B, CH-6.4.C], drills: [mse-melt-heat, mse-melt-energy] }
+          - { id: B, std: ["engineers-canada-materials:A1.3"], do: "Compute a standard free energy of oxidation and where it changes sign.", ek: ["ΔG° = ΔH° − TΔS°. On an Ellingham diagram this is a line of slope −ΔS°; an oxide decomposes on heating above the temperature where its line crosses zero."], p: [P1], needs: [MSE-8.1.A], drills: [mse-ellingham-dg, mse-ellingham-zero] }
+          - { id: C, std: ["engineers-canada-materials:A1.3", "engineers-canada-materials:A1.6"], do: "Decide from free energies of formation whether one metal reduces another's oxide.", ek: ["Compare the oxides per mole of O₂: the element whose oxide has the more negative ΔG° takes the oxygen. Carbon's line to CO slopes downward, so carbon reduces more oxides the hotter it gets."], p: [P1], needs: [MSE-8.1.B], drills: [mse-reduction-dg, mse-reduction-feasible] }
+          - { id: D, std: ["engineers-canada-materials:A1.4"], do: "Compute the entropy and enthalpy of mixing of a binary solution.", ek: ["Ideal mixing: ΔS = −R(x ln x + (1 − x) ln(1 − x)), largest at x = 0.5. A regular solution adds ΔH = Ωx(1 − x): positive Ω means like atoms prefer each other."], p: [P1], needs: [MSE-8.1.C], drills: [mse-mixing-entropy, mse-regular-enthalpy] }
+          - { id: E, std: ["engineers-canada-materials:A1.4", "engineers-canada-materials:A1.5"], do: "Link a solution model to the shape of the phase diagram.", ek: ["Phases in equilibrium share a common tangent to their free-energy curves. A regular solution with Ω > 2RT has a double-welled curve and separates into two phases; the miscibility gap closes at T_c = Ω ÷ 2R."], p: [P1], needs: [MSE-8.1.D], drills: [mse-miscibility-tc, mse-miscibility-gap] }
+      - n: 2
+        title: "Heat and flow in processing"
+        los:
+          - { id: A, std: ["engineers-canada-materials:A2.1", "pe-metmat:3B"], do: "Estimate a casting's solidification time with Chvorinov's rule.", ek: ["t = B(V ÷ A)²: freezing time goes as the square of the volume-to-surface ratio (the casting modulus). A riser must have a larger modulus than the section it feeds."], p: [P1], needs: [MSE-8.1.E], drills: [mse-chvorinov, mse-chvorinov-ratio] }
+          - { id: B, std: ["engineers-canada-materials:A2.3"], do: "Compute radiant heat loss from a hot surface.", ek: ["q = εσA(T⁴ − T_s⁴), with σ = 5.670 × 10⁻⁸ W/m²·K⁴. Because of the fourth power, radiation dominates the heat loss of hot metal."], p: [P1], needs: [MSE-8.2.A], drills: [mse-radiation-loss, mse-radiation-ratio] }
+          - { id: C, std: ["engineers-canada-materials:A2.2", "engineers-canada-materials:B9.1"], do: "Use residence time for a ladle or tundish.", ek: ["Mean residence time τ = V ÷ Q. In a well-mixed vessel a step change washes out as exp(−t ÷ τ); plug flow would deliver it all at once after τ."], p: [P1], needs: [MSE-8.2.B], drills: [mse-residence-time, mse-washout] }
+          - { id: D, std: ["engineers-canada-materials:A2.1", "engineers-canada-materials:A2.4", "engineers-canada-materials:B9.1"], do: "Use the Biot number to choose a quench model.", ek: ["Bi = hL_c ÷ k compares surface convection with conduction inside. Below about 0.1 the part is nearly uniform and a lumped model works; above it, the inside lags and a conduction solution is needed."], p: [P1], needs: [MSE-8.2.C], drills: [mse-biot, mse-lumped-valid] }
+  - id: service
+    n: 9
+    title: "Selection and degradation"
+    std: ["engineers-canada-materials:A6.1", "engineers-canada-materials:A6.2", "engineers-canada-materials:A6.3", "engineers-canada-materials:A6.4", "engineers-canada-materials:A6.5", "engineers-canada-materials:A7.1", "engineers-canada-materials:A7.2", "engineers-canada-materials:A7.3", "engineers-canada-materials:A7.4", "engineers-canada-materials:A7.5", "engineers-canada-materials:A7.6", "engineers-canada-materials:A7.7", "fe-mechanical:9H", "fe-mechanical:9I", "pe-metmat:2A", "pe-metmat:2B", "pe-metmat:2E", "pe-metmat:2I", "pe-metmat:2J", "pe-metmat:3C", "pe-metmat:4D", "pe-metmat:4E"]
+    scope: core
+    ideas: [PATH]
+    topics:
+      - n: 1
+        title: "Selecting a material"
+        los:
+          - { id: A, std: ["engineers-canada-materials:A6.1", "engineers-canada-materials:A6.3", "fe-mechanical:9H", "pe-metmat:2I"], do: "Choose and compute a material index for a light, stiff or strong part.", ek: ["Translate the design: function, constraint, objective, free variable. A light stiff tie maximises E ÷ ρ, a beam E^½ ÷ ρ, a panel E^⅓ ÷ ρ; a light strong tie σ_y ÷ ρ."], p: [P1], needs: [MSE-6.1.F, MSE-7.5.C, CH-9.8.B], drills: [mse-beam-index, mse-index-choice] }
+          - { id: B, std: ["engineers-canada-materials:A6.3", "pe-metmat:2I"], do: "Compare two materials by index and read a selection chart.", ek: ["For a tie of fixed stiffness the mass goes as ρ ÷ E. On a log-log property chart, materials on a line of slope set by the index perform equally; those above it are better."], p: [P1], needs: [MSE-9.1.A], drills: [mse-tie-mass-ratio, mse-chart-facts] }
+          - { id: C, std: ["engineers-canada-materials:A6.2"], do: "Compute a shape factor and say what limits it.", ek: ["Shape puts material far from the neutral axis. The elastic bending shape factor φ = 4πI ÷ A² is 1 for a solid round bar; for a tube it is (r_o² + r_i²) ÷ (r_o² − r_i²)."], p: [P1], needs: [MSE-9.1.B], drills: [mse-shape-factor, mse-shape-facts] }
+          - { id: D, std: ["engineers-canada-materials:A6.4", "engineers-canada-materials:A6.5", "pe-metmat:2J"], do: "Compute an embodied energy and name the stages of a life cycle assessment.", ek: ["Embodied energy is mass times the energy to make a kilogram, less with recycled content. An LCA sets a functional unit, then counts material production, manufacture, use and end of life."], p: [P1], needs: [MSE-9.1.C], drills: [mse-embodied-energy, mse-lca-facts] }
+      - n: 2
+        title: "Degradation and protection"
+        los:
+          - { id: A, std: ["engineers-canada-materials:A7.2", "engineers-canada-materials:A7.3", "fe-mechanical:9I", "pe-metmat:2A"], do: "Find the cell voltage of a galvanic couple and which metal corrodes.", ek: ["The metal with the lower (more negative) potential is the anode and corrodes; the emf is E_cathode − E_anode. A small anode joined to a large cathode corrodes fastest."], p: [P1], needs: [MSE-9.1.D], drills: [mse-galvanic-emf, mse-galvanic-anode] }
+          - { id: B, std: ["engineers-canada-materials:A7.3"], do: "Apply the Nernst equation to a metal electrode.", ek: ["E = E° + (0.0592 ÷ n) log[Mⁿ⁺] at 25 °C: a metal in a dilute solution of its ions is more active, which is what drives a concentration cell."], p: [P1], needs: [MSE-9.2.A], drills: [mse-nernst-metal, mse-nernst-concentration] }
+          - { id: C, std: ["engineers-canada-materials:A7.3", "pe-metmat:4D"], do: "Compute a corrosion rate from weight loss and from current density.", ek: ["Penetration in mm/yr = 87.6W ÷ (ρAt), with W in mg, ρ in g/cm³, A in cm², t in hours. By Faraday's law a corrosion current density i removes iM ÷ (nFρ) of depth per second."], p: [P1], needs: [MSE-9.2.B], drills: [mse-corrosion-weight-loss, mse-corrosion-current] }
+          - { id: D, std: ["engineers-canada-materials:A7.3", "engineers-canada-materials:A7.2"], do: "Read the active, passive and transpassive regions of a polarization curve.", ek: ["A passive metal (stainless steel, aluminium, titanium) forms a thin oxide film and its corrosion current falls by orders of magnitude as the potential rises; at higher potential still the film breaks down. Chlorides break the film locally and cause pitting."], p: [P2], needs: [MSE-9.2.C], drills: [mse-passivity-region, mse-passivity-facts] }
+          - { id: E, std: ["engineers-canada-materials:A7.1", "pe-metmat:2A", "pe-metmat:4F"], do: "Compute a Pilling-Bedworth ratio and judge the oxide scale.", ek: ["P-B ratio = volume of oxide formed ÷ volume of metal consumed = (M_oxide ρ_metal) ÷ (n M_metal ρ_oxide). Under 1 the scale is porous; 1 to 2 protective; well above 2 it cracks and spalls. A protective scale grows parabolically."], p: [P1], needs: [MSE-9.2.D], drills: [mse-pilling-bedworth, mse-scale-protective] }
+          - { id: F, std: ["engineers-canada-materials:A7.4", "pe-metmat:2A"], do: "Tell stress-corrosion cracking, hydrogen embrittlement and corrosion fatigue apart.", ek: ["SCC needs a tensile stress, a susceptible alloy and a specific environment together. Hydrogen embrittlement comes from atomic hydrogen entering high-strength steel. Corrosion fatigue removes the fatigue limit."], p: [P2], needs: [MSE-9.2.E], drills: [mse-stress-corrosion-type, mse-stress-corrosion-facts] }
+          - { id: G, std: ["engineers-canada-materials:A7.5", "engineers-canada-materials:A7.6", "engineers-canada-materials:A7.7", "pe-metmat:3C", "pe-metmat:4E"], do: "Choose a protection method and size a sacrificial anode.", ek: ["Cathodic protection makes the structure the cathode, by a sacrificial anode (Zn, Mg, Al) or an impressed current. Anodic protection holds a passivating alloy in its passive range. Coatings are barriers; inhibitors slow the anodic or cathodic reaction. Anode mass consumed is ItM ÷ nF."], p: [P1], needs: [MSE-9.2.F], drills: [mse-anode-mass, mse-protection-method] }
+          - { id: H, std: ["engineers-canada-materials:A7.1", "pe-metmat:2B"], do: "Describe how polymers and ceramics degrade.", ek: ["Polymers swell or dissolve in chemically similar liquids, and their chains are cut by UV, heat, oxygen and hydrolysis. Ceramics are already oxides and resist corrosion, but dissolve in molten slags and, for silicates, in hydrofluoric acid and strong alkali."], p: [P2], needs: [MSE-9.2.G], drills: [mse-nonmetal-degradation, mse-nonmetal-degradation-facts] }
+          - { id: I, std: ["pe-metmat:2E"], do: "Compute wear volume with Archard's law and name the wear modes.", ek: ["V = KFs ÷ H: wear volume grows with load and sliding distance and falls with hardness; K is a dimensionless wear coefficient found by test."], p: [P1], needs: [MSE-9.2.H], drills: [mse-archard, mse-wear-modes] }
+  - id: polymers
+    n: 10
+    title: "Polymer structure and properties"
+    std: ["engineers-canada-materials:B7.1", "engineers-canada-materials:B7.2", "engineers-canada-materials:B7.3", "engineers-canada-materials:B7.4", "engineers-canada-materials:B7.5", "engineers-canada-materials:B7.6", "engineers-canada-materials:B7.7", "engineers-canada-materials:B7.8", "pe-metmat:1A", "pe-metmat:3J", "pe-metmat:4C"]
+    scope: core
+    ideas: [LATTICE, PATH]
+    topics:
+      - n: 1
+        title: "Chains, transitions and flow"
+        los:
+          - { id: A, std: ["engineers-canada-materials:B7.1"], do: "Compute the size of a random-coil chain.", ek: ["A freely jointed chain of n links of length l has root-mean-square end-to-end distance l√n, far shorter than its contour length nl. That gap is why rubber can stretch several hundred percent."], p: [P1], needs: [MSE-5.3.B], drills: [mse-chain-rms, mse-chain-extension] }
+          - { id: B, std: ["engineers-canada-materials:B7.2", "pe-metmat:4C"], do: "Match a molar-mass method to the average it gives and use the Mark-Houwink relation.", ek: ["Colligative methods (osmometry, end-group analysis) count molecules and give M_n; light scattering weights by size and gives M_w; viscometry gives M_v through [η] = K Mᵃ; gel permeation chromatography gives the whole distribution."], p: [P1], needs: [MSE-10.1.A], drills: [mse-molar-mass-method, mse-mark-houwink] }
+          - { id: C, std: ["engineers-canada-materials:B7.3"], do: "Use the Flory-Huggins parameter to judge solvent quality.", ek: ["χ measures polymer-solvent contact energy. Below 0.5 the solvent is good and coils swell; at 0.5 (the theta condition) they are ideal; above it the polymer separates. For a chain of N segments the critical value is ½(1 + 1 ÷ √N)²."], p: [P1], needs: [MSE-10.1.B], drills: [mse-flory-critical, mse-solvent-quality] }
+          - { id: D, std: ["engineers-canada-materials:B7.4"], do: "Estimate a glass transition temperature and say what moves it.", ek: ["For a miscible blend or random copolymer the Fox equation gives 1 ÷ T_g = w₁ ÷ T_g1 + w₂ ÷ T_g2 (kelvin). T_g rises with chain stiffness, bulky or polar side groups and crosslinking, and falls with plasticizer and free volume."], p: [P1], needs: [MSE-10.1.C], drills: [mse-fox-tg, mse-tg-facts] }
+          - { id: E, std: ["engineers-canada-materials:B7.5", "pe-metmat:1A"], do: "Compute percent crystallinity from density.", ek: ["% crystallinity = ρ_c(ρ_s − ρ_a) ÷ [ρ_s(ρ_c − ρ_a)] × 100, a mass fraction from the specimen, fully crystalline and fully amorphous densities. Regular, linear chains cooled slowly crystallise most."], p: [P1], needs: [MSE-10.1.D], drills: [mse-crystallinity, mse-crystallinity-facts] }
+          - { id: F, std: ["engineers-canada-materials:B7.6"], do: "Use the Maxwell model and tell creep from stress relaxation.", ek: ["A Maxwell element (spring and dashpot in series) held at fixed strain relaxes as σ = σ₀ exp(−t ÷ τ), with relaxation time τ = η ÷ E. Creep is strain growing under constant stress; stress relaxation is stress falling at constant strain."], p: [P1], needs: [MSE-10.1.E], drills: [mse-maxwell-relaxation, mse-viscoelastic-test] }
+          - { id: G, std: ["engineers-canada-materials:B7.6"], do: "Compute a rubber's modulus and a time-temperature shift.", ek: ["Rubber elasticity is entropic: G = ρRT ÷ M_c, rising with temperature and crosslink density. The WLF equation log a_T = −17.44(T − T_g) ÷ (51.6 + T − T_g) shifts a relaxation time from T_g to T."], p: [P1], needs: [MSE-10.1.F], drills: [mse-rubber-modulus, mse-wlf] }
+          - { id: H, std: ["engineers-canada-materials:B7.7"], do: "Use the power law for a polymer melt's viscosity.", ek: ["Polymer melts shear thin: η = K γ̇ⁿ⁻¹ with n below 1, because chains disentangle and align. n = 1 is Newtonian."], p: [P1], needs: [MSE-10.1.G], drills: [mse-power-law-viscosity, mse-flow-class] }
+          - { id: I, std: ["engineers-canada-materials:B7.8", "pe-metmat:3J"], do: "Match a polymer part to its process.", ek: ["Injection moulding makes complex solid parts in a closed mould; extrusion makes continuous sections; blow moulding makes hollow containers from a tube of melt; compression moulding and casting suit thermosets, which cannot be remelted."], p: [P2], needs: [MSE-10.1.H], drills: [mse-polymer-process, mse-polymer-process-facts] }
+  - id: extraction
+    n: 11
+    title: "Extraction and refining"
+    std: ["engineers-canada-materials:B1.1", "engineers-canada-materials:B1.2", "engineers-canada-materials:B1.3", "engineers-canada-materials:B1.4", "engineers-canada-materials:B1.5", "engineers-canada-materials:B2.1", "engineers-canada-materials:B2.2", "engineers-canada-materials:B2.3", "engineers-canada-materials:B2.4", "engineers-canada-materials:B3.1", "engineers-canada-materials:B3.2", "engineers-canada-materials:B3.3", "engineers-canada-materials:B3.4", "engineers-canada-materials:B3.5", "engineers-canada-materials:B4.2", "engineers-canada-materials:B4.3", "engineers-canada-materials:B4.4", "engineers-canada-materials:A1.6"]
+    scope: core
+    ideas: [PATH]
+    topics:
+      - n: 1
+        title: "From ore to metal"
+        los:
+          - { id: A, std: ["engineers-canada-materials:B2.1"], do: "Compute grinding energy with Bond's law and order the mineral-processing steps.", ek: ["W = 10 W_i (1 ÷ √P₈₀ − 1 ÷ √F₈₀) kWh per tonne, with sizes in micrometres. Ore is crushed and ground to free the mineral, classified, concentrated (often by flotation), then dewatered."], p: [P1], needs: [MSE-8.2.D], drills: [mse-bond-energy, mse-mineral-processing-facts] }
+          - { id: B, std: ["engineers-canada-materials:B2.1", "engineers-canada-materials:B2.4"], do: "Compute recovery and concentration ratio from assays.", ek: ["A two-product balance on feed f, concentrate c and tailing t (assays in %): C ÷ F = (f − t) ÷ (c − t), and recovery = c(f − t) ÷ [f(c − t)] × 100."], p: [P1], needs: [MSE-11.1.A], drills: [mse-flotation-recovery, mse-concentration-ratio] }
+          - { id: C, std: ["engineers-canada-materials:B2.2", "engineers-canada-materials:B4.2"], do: "Name the pyrometallurgical steps for a sulphide ore.", ek: ["Roasting burns sulphur to SO₂ and makes oxide. Smelting melts the charge into a sulphide matte under a slag. Converting blows air through matte to oxidise iron and sulphur, leaving blister metal. Refining removes the last impurities, often electrolytically."], p: [P2], needs: [MSE-11.1.B], drills: [mse-pyro-step, mse-pyro-facts] }
+          - { id: D, std: ["engineers-canada-materials:B2.4", "engineers-canada-materials:A1.6"], do: "Do the stoichiometry of a roast.", ek: ["ZnS + 1.5 O₂ → ZnO + SO₂: each mole of sulphide gives one of SO₂, which can become one of H₂SO₄. Use ZnS 97.44, SO₂ 64.06, H₂SO₄ 98.08 g/mol."], p: [P1], needs: [MSE-11.1.C], drills: [mse-roast-so2, mse-roast-acid] }
+          - { id: E, std: ["engineers-canada-materials:B1.1", "engineers-canada-materials:B1.3", "engineers-canada-materials:B1.5"], do: "Name the hydrometallurgical operations and where each is used.", ek: ["Leaching dissolves the metal (acid for copper oxide and zinc calcine, alkaline for bauxite, cyanide for gold, pressure acid for laterites). The liquor is purified by solvent extraction, ion exchange or precipitation, and the metal is recovered by cementation or electrowinning."], p: [P2], needs: [MSE-11.1.D], drills: [mse-hydro-step, mse-hydro-facts] }
+          - { id: F, std: ["engineers-canada-materials:B1.2"], do: "Read the regions and lines of a Pourbaix diagram.", ek: ["A potential-pH diagram maps where the metal (immunity), a dissolved ion (corrosion) or a solid oxide or hydroxide (passivation) is stable. Horizontal lines are electron transfer alone, vertical lines acid-base alone; water is stable between the hydrogen and oxygen lines."], p: [P2], needs: [MSE-11.1.E], drills: [mse-pourbaix-region, mse-pourbaix-facts] }
+          - { id: G, std: ["engineers-canada-materials:B1.4"], do: "Compute metal deposited and energy used in electrowinning.", ek: ["Faraday: m = ItMη ÷ nF, with η the current efficiency. The energy per kilogram is VnF ÷ (Mη), so high cell voltage and low efficiency both cost power."], p: [P1], needs: [MSE-11.1.F], drills: [mse-electrowin-mass, mse-electrowin-energy] }
+          - { id: H, std: ["engineers-canada-materials:B3.1"], do: "Describe ironmaking and do its stoichiometry.", ek: ["In a blast furnace, coke burns to CO, which reduces iron oxide as the charge descends; limestone fluxes the gangue into slag; the hot metal holds about 4% carbon. Direct reduction uses reformed natural gas or hydrogen and leaves solid sponge iron."], p: [P1], needs: [MSE-11.1.G], drills: [mse-iron-from-ore, mse-ironmaking-facts] }
+          - { id: I, std: ["engineers-canada-materials:B3.2", "engineers-canada-materials:B3.3", "engineers-canada-materials:B3.4"], do: "Place a steelmaking operation and compute a deoxidation addition.", ek: ["The basic oxygen furnace blows oxygen through hot metal to burn out carbon; the electric arc furnace melts scrap. Ladle treatment adjusts composition, deoxidises (2Al + 3O → Al₂O₃), desulphurises and degasses; the continuous caster freezes the steel into slabs or billets."], p: [P1], needs: [MSE-11.1.H], drills: [mse-steelmaking-step, mse-deoxidation] }
+          - { id: J, std: ["engineers-canada-materials:B4.3", "engineers-canada-materials:B4.4"], do: "Describe fused-salt electrolysis and the Kroll process.", ek: ["Aluminium is too reactive for carbon reduction, so alumina dissolved in molten cryolite is electrolysed (Hall-Héroult); the carbon anode burns away: 2Al₂O₃ + 3C → 4Al + 3CO₂. Titanium is made by chlorinating the oxide and reducing TiCl₄ with magnesium (Kroll)."], p: [P1], needs: [MSE-11.1.I], drills: [mse-anode-carbon, mse-fused-salt-facts] }
+          - { id: K, std: ["engineers-canada-materials:B2.3", "engineers-canada-materials:B3.5"], do: "Classify refractories and compute a slag basicity.", ek: ["Acid refractories (silica, fireclay) resist acid slags; basic ones (magnesia, dolomite) resist basic slags; chromite, carbon and high alumina are close to neutral. Slag basicity is commonly %CaO ÷ %SiO₂; steelmaking slags run basic to hold phosphorus and sulphur."], p: [P1], needs: [MSE-11.1.J], drills: [mse-slag-basicity, mse-refractory-class] }
+  - id: fabrication
+    n: 12
+    title: "Fabrication"
+    std: ["engineers-canada-materials:B5.3", "engineers-canada-materials:B5.4", "engineers-canada-materials:B5.5", "engineers-canada-materials:B5.6", "engineers-canada-materials:B5.7", "engineers-canada-materials:B5.8", "pe-metmat:3A", "pe-metmat:3B", "pe-metmat:3E", "pe-metmat:3F", "pe-metmat:3G", "pe-metmat:3H", "pe-metmat:3I"]
+    scope: core
+    ideas: [PATH]
+    topics:
+      - n: 1
+        title: "Heat treating, shaping and joining"
+        los:
+          - { id: A, std: ["engineers-canada-materials:B5.3", "pe-metmat:3G"], do: "Tell the special heat treatments of steel apart.", ek: ["Austempering holds below the nose until bainite forms, with no temper needed. Martempering holds just above M_s to even out the temperature, then cools to martensite with less distortion. Process annealing softens cold-worked low-carbon steel below 727 °C; spheroidizing gives the softest high-carbon steel."], p: [P2], needs: [MSE-5.3.B, MSE-6.1.F], drills: [mse-special-heat-treatment, mse-special-treatment-facts] }
+          - { id: B, std: ["engineers-canada-materials:B5.4", "pe-metmat:3E"], do: "Choose a surface-hardening method and estimate a case depth.", ek: ["Carburizing diffuses carbon into low-carbon steel, then quenches for a hard case on a tough core. Nitriding forms hard nitrides at about 500 °C with no quench. Induction and flame hardening heat only the surface of a medium-carbon steel. Depth goes as √(Dt)."], p: [P1], needs: [MSE-12.1.A], drills: [mse-surface-hardening, mse-case-depth] }
+          - { id: C, std: ["engineers-canada-materials:B5.5", "pe-metmat:3B"], do: "Choose a casting method and size a pattern.", ek: ["Sand casting suits large or one-off parts; die casting forces low-melting alloys into steel dies for high volume; investment (lost-wax) casting gives fine detail in any alloy; continuous casting makes slab and billet. A pattern is made oversize by the solid shrinkage."], p: [P1], needs: [MSE-12.1.B], drills: [mse-casting-method, mse-pattern-size] }
+          - { id: D, std: ["engineers-canada-materials:B5.6", "pe-metmat:3A"], do: "Compute the limits and strain of a rolling pass.", ek: ["The rolls bite only if the draft is under μ²R. The true strain of a pass is ln(h₀ ÷ h_f)."], p: [P1], needs: [MSE-12.1.C], drills: [mse-rolling-draft, mse-rolling-strain] }
+          - { id: E, std: ["engineers-canada-materials:B5.6", "pe-metmat:3A"], do: "Estimate an extrusion pressure and name a bulk-forming process.", ek: ["Ideal extrusion pressure is p = Y ln(A₀ ÷ A_f), with Y the mean flow stress; friction and redundant work raise it. Rolling passes stock between rolls, forging squeezes it between dies, extrusion pushes it and drawing pulls it through a die."], p: [P1], needs: [MSE-12.1.D], drills: [mse-extrusion-pressure, mse-forming-process] }
+          - { id: F, std: ["engineers-canada-materials:B5.7", "pe-metmat:3A"], do: "Compute a blanking force and name a sheet-metal operation.", ek: ["The force to shear a blank is the shear strength times the cut area, perimeter × thickness. Deep drawing pulls a blank into a cup; stretch forming thins it over a form; hydroforming shapes it with fluid pressure."], p: [P1], needs: [MSE-12.1.E], drills: [mse-blanking-force, mse-sheet-operation] }
+          - { id: G, std: ["engineers-canada-materials:B5.8", "pe-metmat:3F"], do: "Compute a weld's heat input and choose a joining process.", ek: ["Heat input per length is ηVI ÷ v. High heat input widens the heat-affected zone and coarsens grains. Arc welding melts with an electric arc; laser welding gives a narrow deep weld; friction stir welding joins in the solid state; brazing melts only a filler."], p: [P1], needs: [MSE-12.1.F], drills: [mse-weld-heat-input, mse-joining-process] }
+          - { id: H, std: ["engineers-canada-materials:B5.8", "pe-metmat:3F"], do: "Compute a carbon equivalent and judge weldability.", ek: ["CE = C + Mn÷6 + (Cr + Mo + V)÷5 + (Ni + Cu)÷15, the IIW formula in weight percent. A high CE means a hard, crack-prone heat-affected zone: usual guidance is no preheat under about 0.40, preheat from 0.40 to 0.60, and preheat with low-hydrogen practice and post-heat above."], p: [P1], needs: [MSE-12.1.G], drills: [mse-carbon-equivalent, mse-weldability] }
+          - { id: I, std: ["pe-metmat:3H"], do: "Compute porosity and sintering shrinkage of a powder compact.", ek: ["Porosity = (1 − ρ ÷ ρ_theoretical) × 100. Mass is conserved on sintering, so linear shrinkage is 1 − (ρ_green ÷ ρ_sintered)^⅓."], p: [P1], needs: [MSE-12.1.H], drills: [mse-powder-porosity, mse-sinter-shrinkage] }
+          - { id: J, std: ["pe-metmat:3I"], do: "Name the additive-manufacturing routes and compute an energy density.", ek: ["Powder bed fusion melts thin layers of powder with a laser or electron beam; directed energy deposition feeds powder or wire into a melt pool; binder jetting glues powder for later sintering; material extrusion lays down a filament. Volumetric energy density is P ÷ (v h t)."], p: [P1], needs: [MSE-12.1.I], drills: [mse-additive-route, mse-energy-density] }
+  - id: functional
+    n: 13
+    title: "Functional materials and microfabrication"
+    std: ["engineers-canada-materials:B6.5", "engineers-canada-materials:B6.6", "engineers-canada-materials:B6.7", "engineers-canada-materials:B8.3", "engineers-canada-materials:B8.4", "engineers-canada-materials:B8.5", "engineers-canada-materials:B8.6", "engineers-canada-materials:B10.1", "engineers-canada-materials:B10.2", "engineers-canada-materials:B10.3", "engineers-canada-materials:B10.4", "engineers-canada-materials:B10.5", "engineers-canada-materials:B10.6", "pe-metmat:3H", "pe-metmat:4J"]
+    scope: core
+    ideas: [LATTICE, DEFECT]
+    topics:
+      - n: 1
+        title: "Ceramics and dielectrics in use"
+        los:
+          - { id: A, std: ["engineers-canada-materials:B6.5", "pe-metmat:3H"], do: "Compute grain growth and explain sintering.", ek: ["Sintering bonds powder below melting, driven by the fall in surface energy; finer powder sinters faster. Afterward grains coarsen by d² − d₀² = Kt."], p: [P1], needs: [MSE-7.5.C, MSE-4.1.D], drills: [mse-grain-growth, mse-sintering-facts] }
+          - { id: B, std: ["engineers-canada-materials:B6.7"], do: "Compute an ionic conductivity from a diffusion coefficient.", ek: ["The Nernst-Einstein relation ties the two: σ = n(ze)²D ÷ kT. Ceramics such as stabilised zirconia conduct by oxygen vacancies, and their conductivity rises with temperature."], p: [P1], needs: [MSE-13.1.A], drills: [mse-nernst-einstein, mse-ionic-conduction-facts] }
+          - { id: C, std: ["engineers-canada-materials:B6.6", "engineers-canada-materials:B8.4"], do: "Compute a capacitance and a breakdown voltage.", ek: ["C = ε₀ε_r A ÷ d, with ε₀ = 8.854 × 10⁻¹² F/m. The dielectric fails when the field reaches its dielectric strength, so V_max = strength × thickness."], p: [P1], needs: [MSE-13.1.B], drills: [mse-capacitance, mse-breakdown-voltage] }
+          - { id: D, std: ["engineers-canada-materials:B8.4"], do: "Tell piezoelectric, pyroelectric and ferroelectric behaviour apart.", ek: ["Piezoelectric crystals polarise under stress (and strain under a field). Pyroelectrics have a spontaneous polarisation that changes with temperature. Ferroelectrics have a spontaneous polarisation that an applied field can reverse; they lose it above the Curie temperature. Every ferroelectric is pyroelectric and piezoelectric."], p: [P2], needs: [MSE-13.1.C], drills: [mse-polar-class, mse-polar-facts] }
+          - { id: E, std: ["engineers-canada-materials:B8.4", "pe-metmat:4J"], do: "Compute a surface reflectivity and a critical angle.", ek: ["At normal incidence from air, R = [(n − 1) ÷ (n + 1)]². Light inside a material of index n is totally reflected beyond the critical angle, sin θ_c = 1 ÷ n, which is how an optical fibre guides light."], p: [P1], needs: [MSE-13.1.D], drills: [mse-reflectivity, mse-critical-angle] }
+      - n: 2
+        title: "Electrons, junctions and superconductors"
+        los:
+          - { id: A, std: ["engineers-canada-materials:B8.6"], do: "Use the Fermi-Dirac distribution.", ek: ["f(E) = 1 ÷ [exp((E − E_F) ÷ kT) + 1]: one half at the Fermi level, falling to zero a few kT above it. Only electrons within a few kT of E_F take part in conduction."], p: [P1], needs: [MSE-13.1.E], drills: [mse-fermi-dirac, mse-fermi-facts] }
+          - { id: B, std: ["engineers-canada-materials:B8.5"], do: "Compute a junction's built-in potential and say what bias does.", ek: ["V_bi = (kT ÷ q) ln(N_A N_D ÷ n_i²). Forward bias lowers the barrier and current rises exponentially; reverse bias raises it and only a small leakage flows. A solar cell is a junction that separates carriers made by light."], p: [P1], needs: [MSE-13.2.A], drills: [mse-built-in-potential, mse-junction-bias] }
+          - { id: C, std: ["engineers-canada-materials:B8.3"], do: "Compute a superconductor's critical field and tell type I from type II.", ek: ["H_c(T) = H_c(0)[1 − (T ÷ T_c)²]. Superconductivity needs temperature, field and current density all below their critical values. Type I expels flux completely up to H_c; type II lets flux in as vortices between H_c1 and a much higher H_c2, which is why magnets use it."], p: [P1], needs: [MSE-13.2.B], drills: [mse-critical-field, mse-superconductor-facts] }
+      - n: 3
+        title: "Microfabrication"
+        los:
+          - { id: A, std: ["engineers-canada-materials:B10.1"], do: "Compute lithographic resolution and depth of focus.", ek: ["Rayleigh: the smallest printable feature is k₁λ ÷ NA and the depth of focus k₂λ ÷ NA². A larger numerical aperture sharpens the image but shrinks the focus range."], p: [P1], needs: [MSE-13.2.C], drills: [mse-litho-resolution, mse-litho-focus] }
+          - { id: B, std: ["engineers-canada-materials:B10.2"], do: "Tell isotropic from anisotropic etching and use selectivity.", ek: ["Wet chemical etches usually attack equally in all directions and undercut the mask; plasma (dry) etches can cut straight down. Selectivity is the etch rate of the film over that of the mask or the layer beneath."], p: [P1], needs: [MSE-13.3.A], drills: [mse-etch-profile, mse-etch-selectivity] }
+          - { id: C, std: ["engineers-canada-materials:B10.3"], do: "Choose a deposition method and count ALD cycles.", ek: ["Sputtering and evaporation are physical: atoms travel in a line from a source. CVD reacts gases at the surface and coats more evenly. ALD alternates two self-limiting gas pulses and grows a fixed fraction of a monolayer per cycle. Electrodeposition plates metal from solution."], p: [P1], needs: [MSE-13.3.B], drills: [mse-deposition-method, mse-ald-cycles] }
+          - { id: D, std: ["engineers-canada-materials:B10.4"], do: "Compute an oxide thickness with the Deal-Grove model and the silicon it consumes.", ek: ["x² + Ax = Bt: growth is linear in time while the surface reaction limits it, parabolic once diffusion through the oxide does. The oxide takes silicon from the wafer: Si occupies 12.06 cm³/mol and SiO₂ 27.3, so 44% of the oxide thickness was silicon."], p: [P1], needs: [MSE-13.3.C], drills: [mse-deal-grove, mse-silicon-consumed] }
+          - { id: E, std: ["engineers-canada-materials:B10.5"], do: "Estimate a dopant's diffusion length and compare diffusion with implantation.", ek: ["A dopant spreads about √(Dt) in a thermal step. Ion implantation fires ions at a set energy and dose: depth is set by energy, the amount by dose, at low temperature, but the crystal damage must then be annealed."], p: [P1], needs: [MSE-13.3.D], drills: [mse-dopant-length, mse-doping-method] }
+          - { id: F, std: ["engineers-canada-materials:B10.6"], do: "Compute die yield and dies per wafer.", ek: ["The Poisson model gives yield Y = exp(−D₀A) for defect density D₀ and die area A: large dies suffer most. Gross dies per wafer ≈ π(d÷2)² ÷ A − πd ÷ √(2A), the second term allowing for the edge."], p: [P1], needs: [MSE-13.3.E], drills: [mse-die-yield, mse-dies-per-wafer] }
+  - id: practice
+    n: 14
+    title: "Composites and service practice"
+    std: ["engineers-canada-materials:B11.2", "engineers-canada-materials:B11.3", "engineers-canada-materials:B11.4", "engineers-canada-materials:B11.5", "engineers-canada-materials:B11.6", "pe-metmat:1C", "pe-metmat:2F", "pe-metmat:2G", "pe-metmat:2H", "pe-metmat:3J", "pe-metmat:4E", "pe-metmat:4I"]
+    scope: core
+    ideas: [PATH]
+    topics:
+      - n: 1
+        title: "Composites in practice"
+        los:
+          - { id: A, std: ["engineers-canada-materials:B11.3", "engineers-canada-materials:B11.6"], do: "Classify a composite by its matrix and say why it is used.", ek: ["Polymer-matrix composites give the best strength and stiffness per weight near room temperature. Metal-matrix composites add stiffness, wear resistance and temperature capability to a metal. Ceramic-matrix composites add toughness to a ceramic, by fibres bridging and pulling out of cracks."], p: [P2], needs: [MSE-7.5.C, MSE-6.1.F], drills: [mse-composite-class, mse-composite-class-facts] }
+          - { id: B, std: ["engineers-canada-materials:B11.4", "pe-metmat:3J"], do: "Choose a composite fabrication route and convert fibre weight fraction to volume fraction.", ek: ["Hand lay-up suits large one-off shapes; filament winding makes tubes and pressure vessels; pultrusion pulls constant sections through a heated die; prepreg cured in an autoclave gives the highest quality. V_f = (w_f ÷ ρ_f) ÷ (w_f ÷ ρ_f + w_m ÷ ρ_m)."], p: [P1], needs: [MSE-14.1.A], drills: [mse-composite-fabrication, mse-fibre-volume-fraction] }
+          - { id: C, std: ["engineers-canada-materials:B11.5", "pe-metmat:4I"], do: "Compute a longitudinal strength and name a composite failure mode.", ek: ["When the fibres fail first, σ_c = σ_f V_f + σ′_m(1 − V_f), with σ′_m the matrix stress at the fibre failure strain. Across the fibres or between plies the weak matrix and interface decide: matrix cracking, debonding, delamination."], p: [P1], needs: [MSE-14.1.B], drills: [mse-composite-strength, mse-composite-failure] }
+          - { id: D, std: ["engineers-canada-materials:B11.2", "pe-metmat:4I"], do: "Allow for fibre orientation with an efficiency factor.", ek: ["E_c = K E_f V_f + E_m V_m, with K = 1 for aligned fibres loaded along their length, 3/8 for fibres random in a plane and 1/5 for fibres random in three dimensions."], p: [P1], needs: [MSE-14.1.C], drills: [mse-orientation-modulus, mse-orientation-facts] }
+      - n: 2
+        title: "Inspection, failure analysis and life"
+        los:
+          - { id: A, std: ["pe-metmat:2F", "pe-metmat:4E"], do: "Choose a non-destructive test.", ek: ["Dye penetrant shows cracks open to the surface. Magnetic particle shows surface and near-surface flaws in ferromagnetic parts. Eddy current finds surface flaws and measures coating thickness on conductors. Ultrasound finds internal flaws and measures thickness. Radiography images internal voids and inclusions."], p: [P2], needs: [MSE-14.1.D], drills: [mse-ndt-choice, mse-ndt-facts] }
+          - { id: B, std: ["pe-metmat:1C", "pe-metmat:2G"], do: "Read a fracture surface and order a failure analysis.", ek: ["Beach marks and striations mean fatigue; dimples mean ductile overload; flat facets with river patterns mean cleavage; a rock-candy surface means intergranular fracture. Chevron marks point back to the origin. Preserve and document first, test non-destructively, and cut samples last."], p: [P2], needs: [MSE-14.2.A], drills: [mse-fractography, mse-failure-analysis-facts] }
+          - { id: C, std: ["pe-metmat:2H"], do: "Sum fatigue damage with Miner's rule.", ek: ["Damage from n cycles at a level where life is N is n ÷ N; failure is predicted when the fractions sum to 1."], p: [P1], needs: [MSE-14.2.B], drills: [mse-miner-damage, mse-miner-remaining] }
