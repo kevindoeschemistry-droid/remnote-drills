@@ -44,6 +44,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Managerial Accounting | CMA Content Specification Outlines (effective September 1, 2024) | exam-spec | read in part | — | — | 29 | 29 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
+| Materials Science and Engineering | Engineers Canada Examination Syllabus: Materials Engineering (2021) | exam-spec | read in part | pe-metmat, fe-mechanical | — | 144 | 144 | 0 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 25 | 15 | 10 |
 | High School Mathematics (Common Core) | CCSS Mathematics Appendix A: high school course pathways | standard | read in full | — | — | 200 | 200 | 0 |
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
@@ -112,6 +113,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Managerial Accounting**: Anchored on the IMA CMA Content Specification Outlines (2024): Part 1 planning and budgeting, performance management and cost management, and Part 2 decision analysis and capital investment, read to the lettered lines of the outline. Financial reporting, internal controls, analytics, corporate finance, risk and ethics sections of the CMA are not built here.
 - **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
+- **Materials Science and Engineering**: Anchored on the Engineers Canada materials syllabus (all eighteen exams), the PE Metallurgical and Materials specification and FE Mechanical section 9, each read to its topic lines. Dislocation geometry, Miller indices and slip systems sit under lines that say only 'crystal structures' and 'plastic deformation', so those objectives are a house list in textbook order. Asked in words and numbers: no lattice or phase-diagram figure type exists yet. Polymer chemistry and colloids are in Polymers and Materials (MT); axial stress and Mohr's circle are in Engineering Mechanics.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
@@ -168,6 +170,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Graduate Chemical Engineering Core**: course, read in full
 - **Macroeconomics**: standard, read in part
 - **Managerial Accounting**: exam-spec, read in part
+- **Materials Science and Engineering**: exam-spec, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Microbiology**: standard, read in part
 - **Microeconomics**: standard, read in part
@@ -312,7 +315,7 @@ https://ncees.org/wp-content/uploads/2022/09/FE-Che-CBT-specs.pdf
 
 https://www.bu.edu/eng/files/2020/02/FE-Mechanical-CBT-specs.pdf
 
-25 of 28 items have at least one objective answering to them.
+35 of 38 items have at least one objective answering to them.
 
 | Item | Topic | Objectives | With a drill | Where |
 |---|---|---|---|---|
@@ -344,6 +347,16 @@ https://www.bu.edu/eng/files/2020/02/FE-Mechanical-CBT-specs.pdf
 | 8I | Deformations | 9 | 9 | engineering-mechanics (9) |
 | 8J | Column buckling | 9 | 9 | engineering-mechanics (9) |
 | 8K | Statically indeterminate systems | 9 | 9 | engineering-mechanics (9) |
+| 9A | Material properties (chemical, electrical, mechanical, physical, thermal) | 44 | 44 | materials-science (44) |
+| 9B | Stress-strain diagrams | 16 | 16 | materials-science (16) |
+| 9C | Ferrous metals | 31 | 31 | materials-science (31) |
+| 9D | Nonferrous metals | 18 | 18 | materials-science (18) |
+| 9E | Engineered materials (composites, polymers) | 20 | 20 | materials-science (20) |
+| 9F | Manufacturing processes | 18 | 18 | materials-science (18) |
+| 9G | Phase diagrams, phase transformation and heat treating | 18 | 18 | materials-science (18) |
+| 9H | Materials selection | 14 | 14 | materials-science (14) |
+| 9I | Corrosion mechanisms and control | 14 | 14 | materials-science (14) |
+| 9J | Failure mechanisms (thermal failure, fatigue, fracture, creep) | 10 | 10 | materials-science (10) |
 
 ## AP Chemistry Course and Exam Description (Fall 2024)
 
@@ -4210,6 +4223,163 @@ https://apcentral.collegeboard.org/media/pdf/ap-macroeconomics-course-at-a-glanc
 | 6.4 | Effects of policies and conditions on the foreign exchange market | 5 | 5 | macroeconomics (5) |
 | 6.5 | Changes in the foreign exchange market and net exports | 5 | 5 | macroeconomics (5) |
 | 6.6 | Real interest rates and international capital flows | 5 | 5 | macroeconomics (5) |
+
+## Engineers Canada Examination Syllabus: Materials Engineering (2021)
+
+https://engineerscanada.ca/become-an-engineer/examination-syllabi/materials-engineering-syllabus
+
+102 of 102 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| A3.1 | Crystal structures of metals, ceramics and polymers | 18 | 18 | materials-science (18) |
+| A3.2 | Elemental and diffraction analysis (EDS, XPS, XRD) | 31 | 31 | materials-science (31) |
+| A3.3 | Optical and electron microscopy | 19 | 19 | materials-science (19) |
+| A3.4 | Thermal analysis (DTA, DSC, TGA) | 18 | 18 | materials-science (18) |
+| A4.1 | Elastic and plastic deformation | 37 | 37 | materials-science (37) |
+| A4.2 | Strengthening mechanisms | 31 | 31 | materials-science (31) |
+| A4.3 | Fracture mechanisms | 7 | 7 | materials-science (7) |
+| A4.4 | Introductory fracture mechanics | 9 | 9 | materials-science (9) |
+| A4.5 | High-temperature creep | 7 | 7 | materials-science (7) |
+| A4.6 | Cyclic stress and fatigue crack growth | 8 | 8 | materials-science (8) |
+| A4.7 | Thermal properties | 18 | 18 | materials-science (18) |
+| A4.8 | Electronic properties | 18 | 18 | materials-science (18) |
+| A5.1 | Binary phase diagrams | 17 | 17 | materials-science (17) |
+| A5.2 | Annealing and heat treatment | 13 | 13 | materials-science (13) |
+| A5.3 | Crystallization kinetics | 12 | 12 | materials-science (12) |
+| A5.4 | Diffusion | 9 | 9 | materials-science (9) |
+| A5.5 | Nucleation and growth | 13 | 13 | materials-science (13) |
+| A5.6 | Amorphous materials and the glass transition | 12 | 12 | materials-science (12) |
+| A5.7 | Time-temperature-transformation diagrams | 12 | 12 | materials-science (12) |
+| B6.1 | Bonding and ceramic structures | 19 | 19 | materials-science (19) |
+| B6.2 | Defects in ceramics | 12 | 12 | materials-science (12) |
+| B6.3 | Mechanical properties of ceramics | 18 | 18 | materials-science (18) |
+| B6.4 | Thermal stresses | 18 | 18 | materials-science (18) |
+| B8.1 | Band theory | 19 | 19 | materials-science (19) |
+| B8.2 | Semiconductors | 19 | 19 | materials-science (19) |
+| B8.3 | Magnetism and superconductivity | 33 | 33 | materials-science (33) |
+| B11.1 | Isostress and isostrain loading of composites | 20 | 20 | materials-science (20) |
+| B11.2 | Reinforcement type, orientation and length | 26 | 26 | materials-science (26) |
+| A1.1 | Phase relationships and the phase rule | 11 | 11 | materials-science (11) |
+| A1.2 | Laws of thermodynamics, enthalpy and heat balances | 10 | 10 | materials-science (10) |
+| A1.3 | Entropy, free energy and chemical equilibrium | 11 | 11 | materials-science (11) |
+| A1.4 | Solution models, activity and chemical potential | 11 | 11 | materials-science (11) |
+| A1.5 | Phase diagrams from thermodynamic properties | 10 | 10 | materials-science (10) |
+| A1.6 | Thermochemical analysis of materials processes | 23 | 23 | materials-science (23) |
+| A2.1 | Transport equations and interphase transport in materials processes | 11 | 11 | materials-science (11) |
+| A2.2 | Processing operations: mixed flow, plug flow, residence time | 10 | 10 | materials-science (10) |
+| A2.3 | Radiation heat transfer | 10 | 10 | materials-science (10) |
+| A2.4 | Mathematical models of transport | 10 | 10 | materials-science (10) |
+| A3.5 | Analysis of microstructure and surface morphology | 17 | 17 | materials-science (17) |
+| A6.1 | Selection for design criteria and constraints | 14 | 14 | materials-science (14) |
+| A6.2 | Shape and processing variables | 14 | 14 | materials-science (14) |
+| A6.3 | Material indices and selection charts | 15 | 15 | materials-science (15) |
+| A6.4 | Sustainable selection and design | 14 | 14 | materials-science (14) |
+| A6.5 | Life cycle assessment and end of life | 14 | 14 | materials-science (14) |
+| A7.1 | Degradation of metals, ceramics and polymers | 15 | 15 | materials-science (15) |
+| A7.2 | Basic corrosion theory | 15 | 15 | materials-science (15) |
+| A7.3 | Electrochemical corrosion theory | 17 | 17 | materials-science (17) |
+| A7.4 | Stress-assisted corrosion | 14 | 14 | materials-science (14) |
+| A7.5 | Protective coatings | 14 | 14 | materials-science (14) |
+| A7.6 | Corrosion inhibitors | 14 | 14 | materials-science (14) |
+| A7.7 | Cathodic and anodic protection | 14 | 14 | materials-science (14) |
+| B1.1 | Leaching processes | 12 | 12 | materials-science (12) |
+| B1.2 | Pourbaix diagrams | 12 | 12 | materials-science (12) |
+| B1.3 | Purification of leach liquors and solid-liquid separation | 12 | 12 | materials-science (12) |
+| B1.4 | Cementation, electrowinning and electrorefining | 12 | 12 | materials-science (12) |
+| B1.5 | Hydrometallurgy of copper, nickel, zinc, cobalt, gold and uranium | 12 | 12 | materials-science (12) |
+| B2.1 | Mineral processing | 13 | 13 | materials-science (13) |
+| B2.2 | Roasting, smelting, converting and refining | 12 | 12 | materials-science (12) |
+| B2.3 | Refractories | 12 | 12 | materials-science (12) |
+| B2.4 | Flow sheets with heat and mass balances | 13 | 13 | materials-science (13) |
+| B3.1 | Ironmaking and direct reduction | 12 | 12 | materials-science (12) |
+| B3.2 | Primary steelmaking | 12 | 12 | materials-science (12) |
+| B3.3 | Ladle metallurgy and secondary refining | 12 | 12 | materials-science (12) |
+| B3.4 | Continuous casting | 12 | 12 | materials-science (12) |
+| B3.5 | Fluxes, slags and refractories in steelmaking | 12 | 12 | materials-science (12) |
+| B4.1 | Properties and processing of non-ferrous metals | 17 | 17 | materials-science (17) |
+| B4.2 | Sulphide smelting of copper, nickel, lead and zinc | 12 | 12 | materials-science (12) |
+| B4.3 | Fused-salt electrolysis of aluminium and magnesium | 12 | 12 | materials-science (12) |
+| B4.4 | Refractory metals by chlorination | 12 | 12 | materials-science (12) |
+| B5.1 | Iron-carbon alloys and austenite transformations | 11 | 11 | materials-science (11) |
+| B5.2 | Classes of steel and cast iron | 17 | 17 | materials-science (17) |
+| B5.3 | Heat treatments of steel | 11 | 11 | materials-science (11) |
+| B5.4 | Surface hardening and modification | 11 | 11 | materials-science (11) |
+| B5.5 | Casting methods | 11 | 11 | materials-science (11) |
+| B5.6 | Hot working | 12 | 12 | materials-science (12) |
+| B5.7 | Bending and sheet-metal operations | 11 | 11 | materials-science (11) |
+| B5.8 | Welding | 12 | 12 | materials-science (12) |
+| B6.5 | Sintering and grain growth | 15 | 15 | materials-science (15) |
+| B6.6 | Dielectric properties of ceramics | 15 | 15 | materials-science (15) |
+| B6.7 | Diffusion and electrical conductivity in ceramics | 15 | 15 | materials-science (15) |
+| B7.1 | Chain architecture and dimensions | 10 | 10 | materials-science (10) |
+| B7.2 | Molar mass determination | 10 | 10 | materials-science (10) |
+| B7.3 | Polymer phase equilibria | 10 | 10 | materials-science (10) |
+| B7.4 | Polymer transitions and free volume | 10 | 10 | materials-science (10) |
+| B7.5 | Polymer crystallization | 10 | 10 | materials-science (10) |
+| B7.6 | Mechanical properties of polymers: viscoelasticity and rubber elasticity | 11 | 11 | materials-science (11) |
+| B7.7 | Polymer flow properties | 10 | 10 | materials-science (10) |
+| B7.8 | Polymer processing | 10 | 10 | materials-science (10) |
+| B8.4 | Dielectrics, polarization and optical behaviour | 17 | 17 | materials-science (17) |
+| B8.5 | Junctions and semiconductor devices | 15 | 15 | materials-science (15) |
+| B8.6 | Free electrons and Fermi-Dirac statistics | 15 | 15 | materials-science (15) |
+| B9.1 | Modelling and numerical analysis of materials processing | 11 | 11 | materials-science (11) |
+| B10.1 | Lithography | 15 | 15 | materials-science (15) |
+| B10.2 | Etching | 15 | 15 | materials-science (15) |
+| B10.3 | Physical, chemical and electrochemical deposition | 15 | 15 | materials-science (15) |
+| B10.4 | Oxidation | 15 | 15 | materials-science (15) |
+| B10.5 | Diffusion and ion implantation | 15 | 15 | materials-science (15) |
+| B10.6 | Yield and metrology | 15 | 15 | materials-science (15) |
+| B11.3 | Matrices and fillers: PMC, CMC, MMC | 8 | 8 | materials-science (8) |
+| B11.4 | Composite fabrication | 8 | 8 | materials-science (8) |
+| B11.5 | Composite failure modes | 8 | 8 | materials-science (8) |
+| B11.6 | Composite applications | 8 | 8 | materials-science (8) |
+
+## NCEES PE Metallurgical and Materials CBT Exam Specifications (effective October 2024)
+
+https://ncees.org/wp-content/uploads/2024/04/MetMat-Oct-2024.pdf
+
+37 of 37 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1A | Structures of metals, ceramics and polymers | 31 | 31 | materials-science (31) |
+| 1B | Diffusion and phase transformations | 15 | 15 | materials-science (15) |
+| 1C | Fractography | 14 | 14 | materials-science (14) |
+| 1D | Materials chemistry | 17 | 17 | materials-science (17) |
+| 1E | Microstructure and macrostructure | 11 | 11 | materials-science (11) |
+| 1F | Binary and ternary phase diagrams | 11 | 11 | materials-science (11) |
+| 1G | Non-equilibrium structures | 11 | 11 | materials-science (11) |
+| 2A | Environmental performance of metals | 16 | 16 | materials-science (16) |
+| 2B | Environmental performance of nonmetals | 14 | 14 | materials-science (14) |
+| 2C | Mechanical performance | 18 | 18 | materials-science (18) |
+| 2D | Thermal performance | 17 | 17 | materials-science (17) |
+| 2E | Wear and tribology | 14 | 14 | materials-science (14) |
+| 2F | Quality assurance | 8 | 8 | materials-science (8) |
+| 2G | Failure analysis | 8 | 8 | materials-science (8) |
+| 2H | Fitness for service and life prediction | 8 | 8 | materials-science (8) |
+| 2I | Material selection | 15 | 15 | materials-science (15) |
+| 2J | Lifecycle analysis | 14 | 14 | materials-science (14) |
+| 3A | Deformation processing | 13 | 13 | materials-science (13) |
+| 3B | Casting and molding | 12 | 12 | materials-science (12) |
+| 3C | Coating applications | 14 | 14 | materials-science (14) |
+| 3D | Cold work, stress relief and annealing | 12 | 12 | materials-science (12) |
+| 3E | Diffusion and thermal surface treatments | 11 | 11 | materials-science (11) |
+| 3F | Joining of metals and polymers | 12 | 12 | materials-science (12) |
+| 3G | Heat treatment and strengthening | 22 | 22 | materials-science (22) |
+| 3H | Powder processing | 26 | 26 | materials-science (26) |
+| 3I | Additive manufacturing | 11 | 11 | materials-science (11) |
+| 3J | Polymer and composite processing | 18 | 18 | materials-science (18) |
+| 4A | Structural analysis techniques | 27 | 27 | materials-science (27) |
+| 4B | Chemical analysis techniques | 17 | 17 | materials-science (17) |
+| 4C | Polymer characterization techniques | 10 | 10 | materials-science (10) |
+| 4D | Corrosion testing | 14 | 14 | materials-science (14) |
+| 4E | Characterization of coatings | 22 | 22 | materials-science (22) |
+| 4F | High-temperature behavior | 7 | 7 | materials-science (7) |
+| 4G | Low-temperature and cryogenic behavior | 6 | 6 | materials-science (6) |
+| 4H | Mechanical property evaluation | 12 | 12 | materials-science (12) |
+| 4I | Mechanical behavior of composites | 26 | 26 | materials-science (26) |
+| 4J | Physical properties | 32 | 32 | materials-science (32) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 
