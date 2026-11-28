@@ -41,6 +41,8 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: gc, title: "Graduate ChemE methods past Kreyszig" }
+  - { id: mech, title: "Engineering Mechanics" }
+  - { id: macro, title: "Macroeconomics" }
   - { id: ee, title: "Electric Circuits and Signals" }
   - { id: pharm, title: "Pharmacology" }
   - { id: econ, title: "Microeconomics" }
@@ -971,6 +973,14 @@ skills:
   - { id: gc.perturbation, domain: gc, title: "Perturbation and asymptotic methods", short: "Perturbation", prereqs: [gc.scaling] }
   - { id: gc.similarity, domain: gc, title: "Similarity solutions and combination of variables", short: "Similarity", prereqs: [gc.scaling] }
   - { id: gc.eigen, domain: gc, title: "Eigenfunction expansions in curvilinear geometry", short: "Curvilinear eigenfunctions", prereqs: [bvp.sl-eigenfunctions] }
+  - { id: mech.statics, domain: mech, title: "Resultants, moments, equilibrium, trusses, centroids, area moments and static friction", short: "Statics" }
+  - { id: mech.dynamics, domain: mech, title: "Curvilinear motion, friction on inclines, energy and impulse, rigid-body rotation and rolling, vibration", short: "Dynamics and vibrations", prereqs: [mech.statics] }
+  - { id: mech.materials, domain: mech, title: "Axial, thermal, torsional and bending stress, beam diagrams and deflection, Mohr's circle, pressure vessels and buckling", short: "Mechanics of materials", prereqs: [mech.statics] }
+  - { id: macro.indicators, domain: macro, title: "GDP, unemployment, price indices, real and nominal values, the business cycle", short: "Economic indicators" }
+  - { id: macro.adas, domain: macro, title: "Aggregate demand and supply, multipliers, gaps, self-adjustment and fiscal policy", short: "National income and the price level", prereqs: [macro.indicators] }
+  - { id: macro.finance, domain: macro, title: "Financial assets, interest rates, money, banking, the money market, monetary policy and loanable funds", short: "The financial sector", prereqs: [macro.adas] }
+  - { id: macro.longrun, domain: macro, title: "Policy mixes, the Phillips curve, money growth, deficits and debt, crowding out and growth", short: "Long-run consequences", prereqs: [macro.finance] }
+  - { id: macro.open, domain: macro, title: "The balance of payments, exchange rates and capital flows", short: "The open economy", prereqs: [macro.finance] }
   - { id: ee.dc, domain: ee, title: "Kirchhoff's laws, equivalent resistance, dividers, Thevenin equivalents and node analysis", short: "DC circuits" }
   - { id: ee.ac, domain: ee, title: "RMS values, reactance, impedance, phase and AC power", short: "AC steady state", prereqs: [ee.dc] }
   - { id: ee.systems, domain: ee, title: "Time constants, resonance, transfer functions and frequency response", short: "Transients and linear systems", prereqs: [ee.ac] }

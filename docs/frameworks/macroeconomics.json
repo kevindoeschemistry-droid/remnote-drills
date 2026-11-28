@@ -1,0 +1,1030 @@
+{
+ "id": "macroeconomics",
+ "title": "Macroeconomics",
+ "code": "MAC",
+ "draft": 1,
+ "track": "business",
+ "requires": [
+  "microeconomics"
+ ],
+ "level": 2,
+ "domains": [
+  "macro"
+ ],
+ "basis": {
+  "primary": "ap-macroeconomics",
+  "note": "Anchored on the AP Macroeconomics Course and Exam Description (2022), read through its topic list. AP unit 1 is left to Microeconomics. Introductory level: the Solow model, IS-LM, expectations-augmented dynamics and open-economy models belong to an intermediate course and are not built."
+ },
+ "big_ideas": [
+  {
+   "id": "MEASURE",
+   "title": "Measure before you model",
+   "text": "GDP, the unemployment rate and the price level are defined by identities; getting the definition right settles most disputes about the numbers."
+  },
+  {
+   "id": "SHIFT",
+   "title": "Find the curve that moves",
+   "text": "Almost every question is: which curve shifts, which way, and what happens to the two things on the axes."
+  },
+  {
+   "id": "RUNS",
+   "title": "Short run and long run differ",
+   "text": "Policy can move output in the short run; in the long run output returns to potential and what remains is the price level, the interest rate or the debt."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Carry a macroeconomic identity or multiplier to a number."
+  },
+  {
+   "id": "P2",
+   "title": "Predict",
+   "text": "Say which curve shifts and which way an outcome moves, or classify a case."
+  }
+ ],
+ "units": [
+  {
+   "id": "indicators",
+   "n": 1,
+   "title": "Economic indicators and the business cycle",
+   "std": [
+    "ap-macroeconomics:2.1",
+    "ap-macroeconomics:2.2",
+    "ap-macroeconomics:2.3",
+    "ap-macroeconomics:2.4",
+    "ap-macroeconomics:2.5",
+    "ap-macroeconomics:2.6",
+    "ap-macroeconomics:2.7"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MEASURE"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Measuring the economy",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-macroeconomics:2.1",
+        "ap-macroeconomics:2.2"
+       ],
+       "do": "Compute GDP by expenditure and decide what counts.",
+       "ek": [
+        "GDP is the market value of final goods and services produced within a country in a period: C + I + G + (X − M). It leaves out intermediate goods, used goods, purely financial transactions, transfer payments and unpaid household work."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.H"
+       ],
+       "drills": [
+        "mac-gdp-expenditure",
+        "mac-gdp-counts"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-macroeconomics:2.3"
+       ],
+       "do": "Compute the unemployment rate and classify unemployment.",
+       "ek": [
+        "The labour force is the employed plus the unemployed (without work and looking). Unemployment rate = unemployed ÷ labour force. Frictional unemployment is between jobs, structural is a mismatch of skills or place, cyclical comes from recessions; the natural rate is frictional plus structural."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-1.1.A"
+       ],
+       "drills": [
+        "mac-unemployment-rate",
+        "mac-unemployment-type"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-macroeconomics:2.4"
+       ],
+       "do": "Compute a price index and the inflation rate.",
+       "ek": [
+        "CPI = cost of the market basket this year ÷ cost in the base year × 100. The inflation rate is the percentage change in the index from one year to the next."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-1.1.B"
+       ],
+       "drills": [
+        "mac-cpi",
+        "mac-inflation-rate"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-macroeconomics:2.5",
+        "ap-macroeconomics:2.6"
+       ],
+       "do": "Convert nominal to real values and say who unexpected inflation helps.",
+       "ek": [
+        "Real GDP = nominal GDP ÷ GDP deflator × 100. Real values strip out price changes. Unexpected inflation moves wealth from lenders and people on fixed incomes to borrowers, because debts are repaid in cheaper dollars."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-1.1.C"
+       ],
+       "drills": [
+        "mac-real-gdp",
+        "mac-inflation-winners"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-macroeconomics:2.7"
+       ],
+       "do": "Read the business cycle and the output gap.",
+       "ek": [
+        "Output moves through expansion, peak, contraction and trough around potential output. The output gap is actual minus potential real GDP: negative (recessionary) when unemployment is above the natural rate, positive (inflationary) when it is below."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-1.1.D"
+       ],
+       "drills": [
+        "mac-output-gap",
+        "mac-cycle-phase"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "adas",
+   "n": 2,
+   "title": "National income and price determination",
+   "std": [
+    "ap-macroeconomics:3.1",
+    "ap-macroeconomics:3.2",
+    "ap-macroeconomics:3.3",
+    "ap-macroeconomics:3.4",
+    "ap-macroeconomics:3.5",
+    "ap-macroeconomics:3.6",
+    "ap-macroeconomics:3.7",
+    "ap-macroeconomics:3.8",
+    "ap-macroeconomics:3.9"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SHIFT",
+    "RUNS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Aggregate demand and supply",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-macroeconomics:3.1"
+       ],
+       "do": "Explain the slope of aggregate demand and predict its shifts.",
+       "ek": [
+        "AD slopes down through the real wealth, interest rate and exchange rate effects. It shifts with changes in consumption, investment, government purchases and net exports that are not caused by the price level."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-1.1.E"
+       ],
+       "drills": [
+        "mac-ad-shift",
+        "mac-ad-slope"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-macroeconomics:3.2"
+       ],
+       "do": "Compute spending and tax multipliers.",
+       "ek": [
+        "Spending multiplier = 1 ÷ (1 − MPC) = 1 ÷ MPS. Tax multiplier = −MPC ÷ (1 − MPC), smaller in size because part of a tax cut is saved. A balanced-budget change has a multiplier of 1."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-2.1.A"
+       ],
+       "drills": [
+        "mac-spending-multiplier",
+        "mac-tax-multiplier"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-macroeconomics:3.3",
+        "ap-macroeconomics:3.4"
+       ],
+       "do": "Predict shifts of short-run and long-run aggregate supply.",
+       "ek": [
+        "SRAS slopes up because wages and some prices are sticky; it shifts with input prices, expected inflation and productivity. LRAS is vertical at potential output and shifts only with resources, technology and institutions."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-2.1.B"
+       ],
+       "drills": [
+        "mac-as-shift",
+        "mac-as-slope"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-macroeconomics:3.5",
+        "ap-macroeconomics:3.6"
+       ],
+       "do": "Predict short-run effects of demand and supply shocks.",
+       "ek": [
+        "A rise in AD raises both the price level and real output; a fall lowers both. A leftward shift of SRAS raises the price level and lowers output (stagflation); a rightward shift does the opposite."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-2.1.C"
+       ],
+       "drills": [
+        "mac-shock-effect",
+        "mac-shock-unemployment"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-macroeconomics:3.7"
+       ],
+       "do": "Describe long-run self-adjustment.",
+       "ek": [
+        "In a recessionary gap unemployment pushes nominal wages down over time, SRAS shifts right and output returns to potential at a lower price level. In an inflationary gap wages rise, SRAS shifts left and output returns to potential at a higher price level."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-2.1.D"
+       ],
+       "drills": [
+        "mac-self-adjust",
+        "mac-long-run-result"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ap-macroeconomics:3.8",
+        "ap-macroeconomics:3.9"
+       ],
+       "do": "Choose a fiscal policy and size it with the multiplier.",
+       "ek": [
+        "Expansionary fiscal policy (more spending, lower taxes) closes a recessionary gap; contractionary policy closes an inflationary gap. The spending change needed is the gap divided by the multiplier. Automatic stabilisers (income taxes, unemployment benefits) act without new legislation."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-2.1.E"
+       ],
+       "drills": [
+        "mac-close-gap",
+        "mac-fiscal-kind"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "finance",
+   "n": 3,
+   "title": "The financial sector",
+   "std": [
+    "ap-macroeconomics:4.1",
+    "ap-macroeconomics:4.2",
+    "ap-macroeconomics:4.3",
+    "ap-macroeconomics:4.4",
+    "ap-macroeconomics:4.5",
+    "ap-macroeconomics:4.6",
+    "ap-macroeconomics:4.7"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SHIFT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Money, banks and interest",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-macroeconomics:4.1"
+       ],
+       "do": "Relate bond prices to interest rates and compare assets by liquidity.",
+       "ek": [
+        "Bond prices and interest rates move in opposite directions: a bond paying a fixed coupon is worth less when new bonds pay more. Liquidity is how easily an asset becomes spendable without loss: cash, then deposits, then bonds and stocks."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-2.1.F"
+       ],
+       "drills": [
+        "mac-perpetuity-price",
+        "mac-bond-rate"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-macroeconomics:4.2"
+       ],
+       "do": "Convert between nominal and real interest rates.",
+       "ek": [
+        "Real interest rate ≈ nominal rate − inflation. Lenders set the nominal rate from the real return they want plus the inflation they expect (the Fisher relation), so the realised real rate depends on what inflation turns out to be."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-3.1.A"
+       ],
+       "drills": [
+        "mac-real-rate",
+        "mac-nominal-rate"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-macroeconomics:4.3"
+       ],
+       "do": "Define money by its functions and its measures.",
+       "ek": [
+        "Money is a medium of exchange, a unit of account and a store of value. M1 is currency in circulation plus liquid deposits; M2 adds less liquid near-monies such as small time deposits and retail money market funds. Credit cards and stocks are not money."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-3.1.B"
+       ],
+       "drills": [
+        "mac-money-function",
+        "mac-money-measures"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-macroeconomics:4.4"
+       ],
+       "do": "Compute bank reserves and the money multiplier.",
+       "ek": [
+        "Required reserves = reserve ratio × deposits; excess reserves are what a bank may lend. With no leakages the banking system can expand deposits by the money multiplier, 1 ÷ reserve ratio, times the initial excess reserves."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-3.1.C"
+       ],
+       "drills": [
+        "mac-excess-reserves",
+        "mac-money-multiplier"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-macroeconomics:4.5"
+       ],
+       "do": "Use the money market to find the direction of the nominal interest rate.",
+       "ek": [
+        "The demand for money falls as the nominal interest rate rises; the supply is set by the central bank. An increase in the money supply lowers the nominal interest rate; an increase in money demand (higher price level or real income) raises it."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-3.1.D"
+       ],
+       "drills": [
+        "mac-money-market",
+        "mac-money-demand"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ap-macroeconomics:4.6"
+       ],
+       "do": "Classify monetary policy actions and trace their effects.",
+       "ek": [
+        "Expansionary monetary policy lowers interest rates to raise investment, aggregate demand and output; contractionary policy does the opposite. Buying bonds, lowering the rates the central bank administers or lowering reserve requirements are expansionary; the reverse actions are contractionary."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-3.1.E"
+       ],
+       "drills": [
+        "mac-monetary-kind",
+        "mac-monetary-chain"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ap-macroeconomics:4.7"
+       ],
+       "do": "Use the loanable funds market to find the direction of the real interest rate.",
+       "ek": [
+        "Savers supply loanable funds and borrowers demand them; the price is the real interest rate. Government borrowing raises demand (or reduces supply) and raises the real rate; more saving lowers it."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-3.1.F"
+       ],
+       "drills": [
+        "mac-loanable-funds",
+        "mac-two-markets"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "longrun",
+   "n": 4,
+   "title": "Long-run consequences of stabilisation policy",
+   "std": [
+    "ap-macroeconomics:5.1",
+    "ap-macroeconomics:5.2",
+    "ap-macroeconomics:5.3",
+    "ap-macroeconomics:5.4",
+    "ap-macroeconomics:5.5",
+    "ap-macroeconomics:5.6",
+    "ap-macroeconomics:5.7"
+   ],
+   "scope": "core",
+   "ideas": [
+    "RUNS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "After the short run",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-macroeconomics:5.1"
+       ],
+       "do": "Combine fiscal and monetary policy.",
+       "ek": [
+        "Expansionary fiscal and expansionary monetary policy both raise output and the price level but push interest rates in opposite directions: fiscal expansion raises them, monetary expansion lowers them. So the mix decides the interest rate when both are used."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-3.1.G"
+       ],
+       "drills": [
+        "mac-policy-mix",
+        "mac-policy-output"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-macroeconomics:5.2"
+       ],
+       "do": "Read the Phillips curve.",
+       "ek": [
+        "The short-run Phillips curve slopes down: lower unemployment comes with higher inflation. Demand shocks move the economy along it; supply shocks and changes in expected inflation shift it. The long-run curve is vertical at the natural rate of unemployment."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-4.1.A"
+       ],
+       "drills": [
+        "mac-phillips",
+        "mac-phillips-long-run"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-macroeconomics:5.3"
+       ],
+       "do": "Apply the quantity theory of money.",
+       "ek": [
+        "The equation of exchange is M × V = P × Y. With velocity and real output fixed, the price level moves in proportion to the money supply; in growth rates, inflation ≈ money growth + velocity growth − real output growth."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-4.1.B"
+       ],
+       "drills": [
+        "mac-equation-of-exchange",
+        "mac-money-growth-inflation"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-macroeconomics:5.4",
+        "ap-macroeconomics:5.5"
+       ],
+       "do": "Compute deficits and debt ratios and explain crowding out.",
+       "ek": [
+        "A deficit is one year's spending minus revenue; the debt is the accumulated total. The debt-to-GDP ratio measures the burden. Government borrowing raises the real interest rate and crowds out private investment, which slows capital accumulation and growth."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-4.1.C"
+       ],
+       "drills": [
+        "mac-debt-ratio",
+        "mac-crowding-out"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-macroeconomics:5.6",
+        "ap-macroeconomics:5.7"
+       ],
+       "do": "Measure growth and name its sources.",
+       "ek": [
+        "Growth is the rise in real GDP per person, driven by physical capital, human capital and technology, and shown as an outward shift of the PPC and a rightward shift of LRAS. A quantity growing at g% a year doubles in about 70 ÷ g years."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-4.1.D"
+       ],
+       "drills": [
+        "mac-rule-of-70",
+        "mac-growth-policy"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "open",
+   "n": 5,
+   "title": "The open economy",
+   "std": [
+    "ap-macroeconomics:6.1",
+    "ap-macroeconomics:6.2",
+    "ap-macroeconomics:6.3",
+    "ap-macroeconomics:6.4",
+    "ap-macroeconomics:6.5",
+    "ap-macroeconomics:6.6"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SHIFT"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Trade and finance",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-macroeconomics:6.1"
+       ],
+       "do": "Place transactions in the balance of payments.",
+       "ek": [
+        "The current account records trade in goods and services, income from abroad and transfers. The capital and financial account records purchases and sales of assets. Apart from measurement error the two sum to zero: a current account deficit is matched by a financial account surplus."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-3.1.G"
+       ],
+       "drills": [
+        "mac-current-account",
+        "mac-bop-account"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-macroeconomics:6.2"
+       ],
+       "do": "Convert currencies and measure appreciation.",
+       "ek": [
+        "An exchange rate is the price of one currency in terms of another. A currency appreciates when it buys more of the other currency, which makes that country's exports dearer abroad and its imports cheaper."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MAC-5.1.A"
+       ],
+       "drills": [
+        "mac-convert-currency",
+        "mac-appreciation"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-macroeconomics:6.3",
+        "ap-macroeconomics:6.4"
+       ],
+       "do": "Predict movements in the foreign exchange market.",
+       "ek": [
+        "The demand for a currency comes from foreigners buying that country's goods and assets; the supply from residents buying foreign goods and assets. Higher domestic real interest rates, lower domestic prices or stronger foreign demand for exports make the currency appreciate."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-5.1.B"
+       ],
+       "drills": [
+        "mac-forex",
+        "mac-forex-market"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-macroeconomics:6.5",
+        "ap-macroeconomics:6.6"
+       ],
+       "do": "Link exchange rates and interest rates to net exports and capital flows.",
+       "ek": [
+        "An appreciation makes exports dearer and imports cheaper, reducing net exports and aggregate demand; a depreciation raises them. A higher domestic real interest rate attracts a financial capital inflow, which appreciates the currency."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "MAC-5.1.C"
+       ],
+       "drills": [
+        "mac-net-exports",
+        "mac-capital-flow"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "MAC-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-gdp-expenditure",
+    "mac-gdp-counts"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-unemployment-rate",
+    "mac-unemployment-type"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-cpi",
+    "mac-inflation-rate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-real-gdp",
+    "mac-inflation-winners"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-1.1.E",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-output-gap",
+    "mac-cycle-phase"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-ad-shift",
+    "mac-ad-slope"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-spending-multiplier",
+    "mac-tax-multiplier"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-as-shift",
+    "mac-as-slope"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-shock-effect",
+    "mac-shock-unemployment"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-2.1.E",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-self-adjust",
+    "mac-long-run-result"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-2.1.F",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-close-gap",
+    "mac-fiscal-kind"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-perpetuity-price",
+    "mac-bond-rate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-real-rate",
+    "mac-nominal-rate"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-money-function",
+    "mac-money-measures"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-excess-reserves",
+    "mac-money-multiplier"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-3.1.E",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-money-market",
+    "mac-money-demand"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-3.1.F",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-monetary-kind",
+    "mac-monetary-chain"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-3.1.G",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-loanable-funds",
+    "mac-two-markets"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-policy-mix",
+    "mac-policy-output"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-phillips",
+    "mac-phillips-long-run"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-equation-of-exchange",
+    "mac-money-growth-inflation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-debt-ratio",
+    "mac-crowding-out"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-4.1.E",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-rule-of-70",
+    "mac-growth-policy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-current-account",
+    "mac-bop-account"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-convert-currency",
+    "mac-appreciation"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-forex",
+    "mac-forex-market"
+   ],
+   "partial": []
+  },
+  {
+   "code": "MAC-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "mac-net-exports",
+    "mac-capital-flow"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
