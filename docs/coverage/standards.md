@@ -26,6 +26,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Dental Admission Test | Dental Admission Test 2026 Candidate Guide | exam-spec | read in full | ngss-hs, ib-chemistry-2025, usnco, icho-appendix-c, acs-accm-general, acs-accm-organic | — | 205 | 205 | 0 |
 | Discrete Mathematics | MAA CUPM Curriculum Guide 2015, Discrete Mathematics and Combinatorics course area report | standard | read in part | cambridge-ia-numbers-sets, cambridge-ii-graph-theory | — | 28 | 28 | 0 |
 | Earth and Space Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | ib-physics-2025, ib-biology-2025, gre-physics | — | 18 | 18 | 0 |
+| Electric Circuits and Signals | NCEES FE Electrical and Computer CBT Exam Specifications (effective July 2020) | exam-spec | read in part | — | — | 24 | 24 | 0 |
 | Electric Double Layers | Petsev, van Swol and Frink, Molecular Theory of Electric Double Layers (IOP Publishing, 2021) | textbook | read in part | — | — | 56 | 56 | 0 |
 | Electronic Structure | Psi4NumPy interactive tutorials (Smith et al., JCTC 14 (2018) 3504) | course | read in part | molssi-qm-tools, szabo-ostlund | — | 30 | 30 | 0 |
 | Applied Engineering Mathematics | Kreyszig, Advanced Engineering Mathematics, 10th ed. | textbook | read in full | fe-chemical, webwork-opl, cambridge-ib-complex | cupm-2015-complex | 195 | 155 | 40 |
@@ -56,6 +57,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Organic Reactions: Predict the Product | ACS Exams Institute Anchoring Concepts Content Map: Organic Chemistry (Raker, Holme & Murphy, J. Chem. Educ. 2013, 90, 1443) | standard | read in full | bruice-8e, ib-chemistry-2025, icho-appendix-c, icho-syllabus, acs-accm, aamc-mcat-outline, gre-chemistry, acs-accm-general, acs-accm-inorganic | — | 72 | 68 | 4 |
 | Particle Physics | AQA AS and A-level Physics (7407/7408), section 3.2 Particles and radiation | standard | read in part | openstax-university-physics, gre-physics | — | 13 | 12 | 1 |
 | The Periodic Table from Memory | IUPAC Periodic Table of the Elements (release of 4 May 2022) | reference | read in part | ngss-hs, ib-chemistry-2025, icho-appendix-c, acs-accm-general, acs-accm-inorganic | — | 15 | 15 | 0 |
+| Pharmacology | Core concepts of pharmacology (IUPHAR Education Section; Guilding et al., British Journal of Pharmacology) | standard | read in part | — | aspet-plo-2026 | 33 | 16 | 17 |
 | Physical Chemistry | ACS Exams Institute Anchoring Concepts Content Map: Physical Chemistry (Holme, Reed, Raker & Murphy, J. Chem. Educ. 2018, 95, 238) | standard | read in full | engel-reid-3e, fe-chemical, usnco, icho-appendix-c, icho-syllabus, gre-physics, gre-chemistry, acs-accm-general, acs-accm-inorganic, acs-accm-organic, acs-accm-analytical | — | 158 | 158 | 0 |
 | Physics (AP) | AP Physics 1, 2, C: Mechanics and C: Electricity and Magnetism Course and Exam Descriptions (effective fall 2024) | standard | read in part | ngss-hs, ib-physics-2025, aamc-mcat-outline, gre-physics | — | 211 | 211 | 0 |
 | Process Design, Economics and Safety | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, nspe-ethics, osha-psm, aiche-bok | — | 62 | 62 | 0 |
@@ -91,6 +93,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: Every topic in units 1–9 cites its College Board learning objectives (92 of 92, read Nov 2026). Objectives past Unit 2 were first written from topic titles; check them against the LO text when revising.
 - **Discrete Mathematics**: Anchored on the MAA CUPM 2015 report's discrete mathematics, enumerative combinatorics and graph theory syllabi (goals and syllabi read through an extraction). Computer Science keeps the algorithmic applications; this framework is the mathematics under them.
 - **Earth and Space Science**: Units follow the NGSS HS ESS disciplinary core ideas (ESS1 Earth's place in the universe, ESS2 Earth's systems, ESS3 Earth and human activity), read in part. Objectives and their order are ours.
+- **Electric Circuits and Signals**: Anchored on the NCEES FE Electrical and Computer specification, sections 6-10 and 12, read to their lettered lines. Electromagnetics (section 11) is left to Physics and is not cited; communications, networks, digital and computer systems and software are in Computer Science or not built. Circuits are described in words because no schematic figure type exists yet.
 - **Electric Double Layers**: A course textbook, not a curriculum standard: the units follow its chapters and the objectives are ours. Colloids and DLVO at the undergraduate level live in Polymers and Materials unit 3 (Israelachvili).
 - **Electronic Structure**: No accredited standard exists at this level. The Psi4NumPy modules are the closest published curriculum and the MolSSI lesson fixes the practical units; Szabo & Ostlund is a theory reference only. Objectives are ours.
 - **Applied Engineering Mathematics**: UCI CBE 200 publishes no syllabus. The undergraduate part is anchored to fe-chemical; series, Sturm–Liouville, PDEs and transforms are past any exam spec and stand on the book.
@@ -119,6 +122,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Organic Reactions: Predict the Product**: Since Nov 2026 the primary basis is the ACS organic content map (read in full); every articulation is answered (scripts/accm_maps.py), with units 9 (physical organic, practice) and 10 (organometallics) added for those nothing reached. Families follow the reaction chapters of Bruice's Organic Chemistry (a textbook, not a standard; chapter titles 2-17 from memory). The reactions and substrates in each are a house list. Every product is mass-balanced against its reactant by the generator; regiochemistry and stereochemistry were checked by eye.
 - **Particle Physics**: Objectives follow AQA A-level Physics section 3.2 (Particles and radiation), read in this session. The Lorentz-factor items go beyond it and rest on a university textbook chapter.
 - **The Periodic Table from Memory**: Content from the IUPAC table (release note read; element list cross-checked in the verifier). Which parts to know by heart is a house decision from Kevin's organometallics course.
+- **Pharmacology**: Units 1-3 are anchored on the IUPHAR core concepts of pharmacology (24 concepts read through an extraction). Units 4-8, the drug classes, are a house list in textbook order because the ASPET Pharmacology Learning Objectives (2026) could not be fetched; rebase them when that document is read. Class, mechanism and signature adverse effect only: no dosing regimens, and nothing here is clinical advice.
 - **Physical Chemistry**: Anchored on the ACS Physical Chemistry content map (read in full): objectives cite its subdisciplinary articulations, through scripts/accm_pchem.py. Units keep Engel & Reid's order; the map's articulations no objective answers are listed in docs/coverage/standards.md.
 - **Physics (AP)**: Objective codes read for a few units only.
 - **Process Design, Economics and Safety**: Topics from FE Chemical areas 11, 13, 14, 15, 16 and 17 and PE Chemical area 7 (read in full); objectives and their order are ours. The professional-practice unit rests on the NSPE Code of Ethics (read in full) and the safety-management unit on 29 CFR 1910.119 (paragraph titles read). Particle technology has no published curriculum of its own, so that unit is a house list on the FE spec items.
@@ -151,6 +155,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Chemistry (AP)**: standard, read in part
 - **Discrete Mathematics**: standard, read in part
 - **Earth and Space Science**: standard, read in part
+- **Electric Circuits and Signals**: exam-spec, read in part
 - **Electric Double Layers**: textbook, read in part
 - **Electronic Structure**: course, read in part
 - **Applied Engineering Mathematics**: textbook, read in full; should move to MAA CUPM Curriculum Guide 2015, Complex Analysis course area report
@@ -167,6 +172,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Number Theory**: course, read in part
 - **Particle Physics**: standard, read in part
 - **The Periodic Table from Memory**: reference, read in part
+- **Pharmacology**: standard, read in part; should move to ASPET Pharmacology Learning Objectives (2026 edition; formerly the AMSPC Knowledge Objectives in Medical Pharmacology)
 - **Physics (AP)**: standard, read in part
 - **Computational Protein Design**: course, read in part
 - **Real Analysis**: course, read in part
@@ -4038,6 +4044,78 @@ https://apcentral.collegeboard.org/media/pdf/ap-microeconomics-course-and-exam-d
 | 6.3 | Public and private goods | 6 | 6 | microeconomics (6) |
 | 6.4 | Effects of government intervention in different market structures | 6 | 6 | microeconomics (6) |
 | 6.5 | Inequality | 6 | 6 | microeconomics (6) |
+
+## Core concepts of pharmacology (IUPHAR Education Section; Guilding et al., British Journal of Pharmacology)
+
+https://strathprints.strath.ac.uk/89676/7/Guilding-etal-BJP-2023-Defining-and-unpacking-the-core-concepts-of-pharmacology.pdf
+
+24 of 24 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| C1 | Drug targets | 6 | 6 | pharmacology (6) |
+| C2 | Drug-target interaction | 7 | 7 | pharmacology (7) |
+| C3 | Structure-activity relationship | 6 | 6 | pharmacology (6) |
+| C4 | Mechanism of drug action | 6 | 6 | pharmacology (6) |
+| C5 | Dose- and concentration-response relationships | 6 | 6 | pharmacology (6) |
+| C6 | Drug affinity | 6 | 6 | pharmacology (6) |
+| C7 | Drug efficacy | 6 | 6 | pharmacology (6) |
+| C8 | Drug potency | 7 | 7 | pharmacology (7) |
+| C9 | Drug selectivity | 6 | 6 | pharmacology (6) |
+| C10 | Drug absorption | 8 | 8 | pharmacology (8) |
+| C11 | Drug bioavailability | 8 | 8 | pharmacology (8) |
+| C12 | Drug distribution | 8 | 8 | pharmacology (8) |
+| C13 | Volume of distribution | 8 | 8 | pharmacology (8) |
+| C14 | Drug metabolism | 8 | 8 | pharmacology (8) |
+| C15 | First- and zero-order kinetics | 8 | 8 | pharmacology (8) |
+| C16 | Drug elimination | 8 | 8 | pharmacology (8) |
+| C17 | Elimination half-life | 8 | 8 | pharmacology (8) |
+| C18 | Drug clearance | 8 | 8 | pharmacology (8) |
+| C19 | Steady-state concentration | 8 | 8 | pharmacology (8) |
+| C20 | Drug tolerance | 5 | 5 | pharmacology (5) |
+| C21 | Adverse drug reaction | 5 | 5 | pharmacology (5) |
+| C22 | Therapeutic index | 5 | 5 | pharmacology (5) |
+| C23 | Drug interaction | 5 | 5 | pharmacology (5) |
+| C24 | Individual variation in drug response | 5 | 5 | pharmacology (5) |
+
+## NCEES FE Electrical and Computer CBT Exam Specifications (effective July 2020)
+
+https://ncees.org/wp-content/uploads/2022/09/FE-Electrical-and-Computer-CBT-specs.pdf
+
+27 of 30 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 6A | KCL and KVL | 5 | 5 | electric-circuits (5) |
+| 6B | Series and parallel equivalent circuits | 5 | 5 | electric-circuits (5) |
+| 6C | Thevenin and Norton theorems | 5 | 5 | electric-circuits (5) |
+| 6D | Node and loop analysis | 5 | 5 | electric-circuits (5) |
+| 6E | Waveform analysis: RMS, average, frequency, phase | 5 | 5 | electric-circuits (5) |
+| 6F | Phasors | 5 | 5 | electric-circuits (5) |
+| 6G | Impedance | 6 | 6 | electric-circuits (6) |
+| 7A | Frequency and transient response | 6 | 6 | electric-circuits (6) |
+| 7B | Resonance | 5 | 5 | electric-circuits (5) |
+| 7C | Laplace transforms | 5 | 5 | electric-circuits (5) |
+| 7D | Transfer functions | 6 | 6 | electric-circuits (6) |
+| 8A | Sampling: aliasing and the Nyquist theorem | 4 | 4 | electric-circuits (4) |
+| 8B | Analog filters | 4 | 4 | electric-circuits (4) |
+| 8C | Digital filters: difference equations and z-transforms | 4 | 4 | electric-circuits (4) |
+| 9A | Discrete devices: diodes, transistors, thyristors | 4 | 4 | electric-circuits (4) |
+| 9B | Amplifiers | 4 | 4 | electric-circuits (4) |
+| 9C | Operational amplifiers | 4 | 4 | electric-circuits (4) |
+| 9D | Instrumentation and data acquisition | 4 | 4 | electric-circuits (4) |
+| 9E | Power electronics | 4 | 4 | electric-circuits (4) |
+| 10A | Power theory: power factor, single and three phase | 9 | 9 | electric-circuits (9) |
+| 10B | Transmission and distribution | 4 | 4 | electric-circuits (4) |
+| 10C | Transformers | 4 | 4 | electric-circuits (4) |
+| 10D | Motors and generators | 4 | 4 | electric-circuits (4) |
+| 11A | Electrostatics and magnetostatics | — | — | **nothing yet** |
+| 11B | Electrodynamics | — | — | **nothing yet** |
+| 11C | Transmission lines | — | — | **nothing yet** |
+| 12A | Block diagrams | 4 | 4 | electric-circuits (4) |
+| 12B | Bode plots | 4 | 4 | electric-circuits (4) |
+| 12C | Closed-loop and open-loop response and stability | 5 | 5 | electric-circuits (5) |
+| 12D | Controller performance | 5 | 5 | electric-circuits (5) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 

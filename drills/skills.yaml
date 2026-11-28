@@ -41,6 +41,8 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: gc, title: "Graduate ChemE methods past Kreyszig" }
+  - { id: ee, title: "Electric Circuits and Signals" }
+  - { id: pharm, title: "Pharmacology" }
   - { id: econ, title: "Microeconomics" }
   - { id: mgmt, title: "Managerial Accounting" }
   - { id: micro, title: "Microbiology" }
@@ -969,6 +971,21 @@ skills:
   - { id: gc.perturbation, domain: gc, title: "Perturbation and asymptotic methods", short: "Perturbation", prereqs: [gc.scaling] }
   - { id: gc.similarity, domain: gc, title: "Similarity solutions and combination of variables", short: "Similarity", prereqs: [gc.scaling] }
   - { id: gc.eigen, domain: gc, title: "Eigenfunction expansions in curvilinear geometry", short: "Curvilinear eigenfunctions", prereqs: [bvp.sl-eigenfunctions] }
+  - { id: ee.dc, domain: ee, title: "Kirchhoff's laws, equivalent resistance, dividers, Thevenin equivalents and node analysis", short: "DC circuits" }
+  - { id: ee.ac, domain: ee, title: "RMS values, reactance, impedance, phase and AC power", short: "AC steady state", prereqs: [ee.dc] }
+  - { id: ee.systems, domain: ee, title: "Time constants, resonance, transfer functions and frequency response", short: "Transients and linear systems", prereqs: [ee.ac] }
+  - { id: ee.signals, domain: ee, title: "Sampling and aliasing, analog filters, difference equations", short: "Signal processing", prereqs: [ee.systems] }
+  - { id: ee.electronics, domain: ee, title: "Diodes, transistors, operational amplifiers, rectifiers and converters", short: "Electronics", prereqs: [ee.dc] }
+  - { id: ee.power, domain: ee, title: "Three-phase power, transformers and machines", short: "Power systems", prereqs: [ee.ac] }
+  - { id: ee.control, domain: ee, title: "Feedback, second-order response, stability and Bode slopes", short: "Control systems", prereqs: [ee.systems] }
+  - { id: pharm.dynamics, domain: pharm, title: "Targets, agonists and antagonists, dose-response, affinity, efficacy, potency and selectivity", short: "Pharmacodynamics" }
+  - { id: pharm.kinetics, domain: pharm, title: "Absorption, bioavailability, distribution, metabolism, elimination, half-life, clearance and steady state", short: "Pharmacokinetics", prereqs: [pharm.dynamics] }
+  - { id: pharm.safety, domain: pharm, title: "Therapeutic index, adverse reactions, tolerance, interactions and individual variation", short: "Safety and variation", prereqs: [pharm.kinetics] }
+  - { id: pharm.autonomic, domain: pharm, title: "Cholinergic and adrenergic agonists and antagonists", short: "Autonomic drugs", prereqs: [pharm.dynamics] }
+  - { id: pharm.cardio, domain: pharm, title: "Antihypertensives, diuretics, antithrombotics, lipid drugs and cardiac drugs", short: "Cardiovascular and renal drugs", prereqs: [pharm.autonomic] }
+  - { id: pharm.cns, domain: pharm, title: "Local and general anaesthetics, sedatives, psychiatric drugs, opioids and NSAIDs", short: "Central nervous system and pain", prereqs: [pharm.autonomic] }
+  - { id: pharm.antimicrobial, domain: pharm, title: "Antibacterial, antifungal, antiviral and anticancer drugs", short: "Chemotherapy", prereqs: [pharm.safety] }
+  - { id: pharm.endocrine, domain: pharm, title: "Drugs for diabetes, corticosteroids, thyroid, respiratory and gastrointestinal drugs", short: "Endocrine and other systems", prereqs: [pharm.cardio] }
   - { id: econ.basics, domain: econ, title: "Scarcity, opportunity cost, the production possibilities curve, comparative advantage and marginal analysis", short: "Basic concepts" }
   - { id: econ.markets, domain: econ, title: "Demand, supply, equilibrium, elasticity, surplus, price controls, taxes and trade", short: "Supply and demand", prereqs: [econ.basics] }
   - { id: econ.firm, domain: econ, title: "Production, short- and long-run costs, profit and the perfectly competitive firm", short: "Costs and perfect competition", prereqs: [econ.markets] }

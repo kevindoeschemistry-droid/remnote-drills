@@ -52,7 +52,7 @@ for m in [load(n) for n in sys.argv[1:]]:
     if os.path.exists(p): continue
     out = [f"# {F['title']} — curriculum framework (draft 1, for Kevin's markup)", "#"] + ["# " + ln for ln in F["header"]] + [
            f"id: {F['id']}", f"title: {F['title']}", f"code: {F['code']}", "draft: 1", f"track: {F['track']}", f"requires: [{', '.join(F['requires'])}]",
-           f"level: {F['level']}", f"domains: [{d}]", "", "basis:", f"  primary: {F['primary']}"] + ([f"  also: [{', '.join(F['also'])}]"] if F["also"] else []) + [
+           f"level: {F['level']}", f"domains: [{d}]", "", "basis:", f"  primary: {F['primary']}"] + ([f"  also: [{', '.join(F['also'])}]"] if F["also"] else []) + ([f"  wanted: [{', '.join(F['wanted'])}]"] if F.get("wanted") else []) + [
            "  note: " + q(F["note"]), "", "big_ideas:"]
     for i, ti, tx in m.IDEAS: out += [f"  - id: {i}", f"    title: {q(ti)}", f"    text: {q(tx)}"]
     out += ["", "practices:"]
