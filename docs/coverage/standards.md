@@ -38,6 +38,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Advanced Inorganic Chemistry (Cotton & Wilkinson) | ACS Exams Institute Anchoring Concepts Content Map: Inorganic Chemistry (Marek, Raker, Holme & Murphy, J. Chem. Educ. 2018, 95, 233) | standard | read in full | cotton-wilkinson-6e, icho-appendix-c, gre-chemistry, acs-accm-general, acs-accm-organic, acs-accm-analytical | — | 80 | 51 | 29 |
 | Inorganic Chemistry | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | icho-syllabus, gre-chemistry, usnco, ib-chemistry-2025, acs-accm-general, acs-accm-inorganic, acs-accm-analytical | — | 23 | 23 | 0 |
 | Linear Algebra | MAA CUPM Linear Algebra Course Area Report (August 17, 2023) | standard | read in full | cupm-2015-la, lay-5e, webwork-opl, lacsg-2 | — | 60 | 60 | 0 |
+| Managerial Accounting | CMA Content Specification Outlines (effective September 1, 2024) | exam-spec | read in part | — | — | 29 | 29 | 0 |
 | Mass Transfer | NCEES PE Chemical CBT Exam Specifications (effective January 2020) | exam-spec | read in full | — | — | 21 | 21 | 0 |
 | Material and Energy Balances | NCEES FE Chemical CBT Exam Specifications (effective July 2020) | exam-spec | read in full | pe-chemical, webwork-opl | — | 18 | 18 | 0 |
 | Polymers and Materials | Regulations of the International Chemistry Olympiad, Appendices C and D (concepts, skills and factual knowledge) | exam-spec | read in full | ib-chemistry-2025, fe-chemical, icho-syllabus, acs-accm-general, acs-accm-inorganic, acs-accm-organic | — | 25 | 15 | 10 |
@@ -45,6 +46,7 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 | Mathematics K–8 (Common Core) | Common Core State Standards for Mathematics (2010) | standard | read through a crosswalk | — | — | 258 | 258 | 0 |
 | Mental Math | UIL Number Sense Problem Sequencing Charts (High School; A+ Junior High and Elementary, rev. 2016-17) with the Number Sense Handbook rules | exam-spec | read in full | sta-mtc, mit-18-03-coverup, mit-integration-bee | — | 84 | 81 | 3 |
 | Microbiology | ASM Curriculum Guidelines for Undergraduate Microbiology (2024 revision) | standard | read in part | — | — | 25 | 25 | 0 |
+| Microeconomics | AP Microeconomics Course and Exam Description (effective fall 2022) | standard | read in part | — | — | 30 | 30 | 0 |
 | Molecular Simulation | Hayes Group New Student Orientation (RyanHayes-Lab/Orientation) | course | read in full | livecoms, livecoms-afe, alchemistry-wiki, hayes-lambda-examples | — | 121 | 50 | 71 |
 | NCLEX-RN | NCLEX-RN Test Plan, effective April 2026 | exam-spec | read in part | — | — | 67 | 67 | 0 |
 | NGSS High School Science | Next Generation Science Standards, high school performance expectations (2013) | standard | read in part | — | — | 71 | 71 | 0 |
@@ -100,12 +102,14 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Advanced Inorganic Chemistry (Cotton & Wilkinson)**: Since Nov 2026 the primary basis is the ACS inorganic content map (read in full); every articulation is answered (scripts/accm_maps.py), unit 15 holding the principles the chapter units did not reach. Units follow the chapters of Cotton & Wilkinson 6e (table of contents read); the objectives are a house list on those chapters.
 - **Inorganic Chemistry**: Units 1, 2 and 4 follow IChO Appendix D's factual-knowledge list (read in full); coordination and solids follow its preparation-only topics and the GRE inorganic area. Objectives and their order are ours.
 - **Linear Algebra**: Anchored on the MAA CUPM 2023 linear algebra course report (read in full): every essential and optional core topic is cited by objectives here. Units keep Lay's order; determinants and LU, which the 2023 list leaves out, rest on Lay and the 2015 guide.
+- **Managerial Accounting**: Anchored on the IMA CMA Content Specification Outlines (2024): Part 1 planning and budgeting, performance management and cost management, and Part 2 decision analysis and capital investment, read to the lettered lines of the outline. Financial reporting, internal controls, analytics, corporate finance, risk and ethics sections of the CMA are not built here.
 - **Mass Transfer**: PE Chemical names mass transfer as one area with two lines (6.A fundamentals, 6.B applications). No published standard lists graduate mass transfer; the objectives are a house list on Bird, Stewart & Lightfoot's mass-transport chapters.
 - **Material and Energy Balances**: Topics from FE Chemical area 8, read in full. Objectives and their order are ours and follow the usual textbook sequence; unit 1 is assumed by the spec rather than listed.
 - **Polymers and Materials**: Polymer topics from IChO Appendix C (c22, a5), IB S2.4 and FE Chemical 4.D; a house list on those items.
 - **Mathematics K–8 (Common Core)**: Codes and wording checked against a state reprint; the CCSS site was blocked.
 - **Mental Math**: Topic list and order from the UIL high-school chart. The short-cut techniques and the estimation topic are a house list. Unit 6 goes past the chart: the cover-up items follow an MIT 18.03 course note and the one-a-minute integration pace follows the MIT Integration Bee qualifier; which results belong in unit 6 is a house list. Pace comes from the UIL rules (7.5 s a problem) and the English multiplication tables check (6 s a fact).
 - **Microbiology**: Anchored on the ASM Curriculum Guidelines for Undergraduate Microbiology (2024), read through an extraction of its concept areas, fundamental statements and skills. A general course: structure, growth, genetics, ecology, control and laboratory counting. Organism-by-organism medical microbiology is not built; host defence is in Anatomy and Physiology unit 9.
+- **Microeconomics**: Anchored on the AP Microeconomics Course and Exam Description (2022), read through its unit and topic list. Introductory level with linear curves. Indifference curves, isoquants, Cournot and Bertrand models and general equilibrium belong to an intermediate course and are not built; macroeconomics has no framework yet.
 - **Molecular Simulation**: No accredited standard exists for this subject. Kevin's own group's orientation repository is the closest thing to a curriculum for the work he will actually do, and it was read in full, so it is primary; the best-practice papers and the alchemistry wiki fix the parts it assumes.
 - **NCLEX-RN**: Units are the test plan's eight Client Needs subcategories (with their weights); topics group its related-content items; the objectives are ours.
 - **NGSS High School Science**: One objective per high-school performance expectation. The PE statements were read; the evidence statements were not. Drills for PEs taught elsewhere are drawn from the subject frameworks; the engineering and design PEs have their own items.
@@ -152,8 +156,10 @@ Every objective has a house code (`HT-2.2.A`) that is ours. An objective is **an
 - **Applied Engineering Mathematics**: textbook, read in full; should move to MAA CUPM Curriculum Guide 2015, Complex Analysis course area report
 - **Geometry**: course, read in part
 - **Graduate Chemical Engineering Core**: course, read in full
+- **Managerial Accounting**: exam-spec, read in part
 - **Mathematics K–8 (Common Core)**: standard, read through a crosswalk
 - **Microbiology**: standard, read in part
+- **Microeconomics**: standard, read in part
 - **Molecular Simulation**: course, read in full
 - **NCLEX-RN**: exam-spec, read in part
 - **NGSS High School Science**: standard, read in part
@@ -3959,6 +3965,79 @@ https://escholarship.org/uc/item/9bk8b81b
 | ME | Microbial ecology: communities, biofilms, symbioses and the human microbiome | 6 | 6 | microbiology (6) |
 | IM | Impact of microbes: health and disease, control, biotechnology and the environment | 10 | 10 | microbiology (10) |
 | LAB | Scientific thinking and laboratory skills: microscopy, pure culture, counting, safety | 8 | 8 | microbiology (8) |
+
+## CMA Content Specification Outlines (effective September 1, 2024)
+
+https://accounting.uworld.com/wp-content/uploads/2025/05/2024-CMA-Content-Specification-Outlines-Final.pdf
+
+16 of 19 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1B1 | Strategic planning | — | — | **nothing yet** |
+| 1B2 | Budgeting concepts | 5 | 5 | managerial-accounting (5) |
+| 1B3 | Forecasting techniques: regression, learning curves, expected value | 5 | 5 | managerial-accounting (5) |
+| 1B4 | Budgeting methodologies: master, project, activity-based, zero-based, rolling, flexible | 5 | 5 | managerial-accounting (5) |
+| 1B5 | The annual profit plan and its schedules | 5 | 5 | managerial-accounting (5) |
+| 1B6 | Pro forma statements and cash flow projections | 5 | 5 | managerial-accounting (5) |
+| 1C1 | Cost and variance measures: flexible budgets and standard cost variances | 8 | 8 | managerial-accounting (8) |
+| 1C2 | Responsibility centres, transfer pricing and segment reporting | 7 | 7 | managerial-accounting (7) |
+| 1C3 | Performance measures: profitability, ROI, residual income, KPIs, balanced scorecard | 6 | 6 | managerial-accounting (6) |
+| 1D1 | Cost measurement: behaviour, actual, normal and standard costs, absorption and variable costing, joint costs | 8 | 8 | managerial-accounting (8) |
+| 1D2 | Costing systems: job order, activity-based, life-cycle and others | 8 | 8 | managerial-accounting (8) |
+| 1D3 | Overhead: rates, allocation bases and service departments | 7 | 7 | managerial-accounting (7) |
+| 1D4 | Supply chain management: lean, ERP, capacity | — | — | **nothing yet** |
+| 1D5 | Business process improvement: value chain, benchmarking, cost of quality | — | — | **nothing yet** |
+| 2C1 | Cost-volume-profit analysis | 6 | 6 | managerial-accounting (6) |
+| 2C2 | Marginal analysis: relevant costs and short-run decisions | 8 | 8 | managerial-accounting (8) |
+| 2C3 | Pricing | 6 | 6 | managerial-accounting (6) |
+| 2E1 | The capital budgeting process | 6 | 6 | managerial-accounting (6) |
+| 2E2 | Capital investment analysis methods | 6 | 6 | managerial-accounting (6) |
+
+## AP Microeconomics Course and Exam Description (effective fall 2022)
+
+https://apcentral.collegeboard.org/media/pdf/ap-microeconomics-course-and-exam-description.pdf
+
+36 of 36 items have at least one objective answering to them.
+
+| Item | Topic | Objectives | With a drill | Where |
+|---|---|---|---|---|
+| 1.1 | Scarcity | 5 | 5 | microeconomics (5) |
+| 1.2 | Resource allocation and economic systems | 4 | 4 | microeconomics (4) |
+| 1.3 | Production possibilities curve | 5 | 5 | microeconomics (5) |
+| 1.4 | Comparative advantage and trade | 5 | 5 | microeconomics (5) |
+| 1.5 | Cost-benefit analysis | 5 | 5 | microeconomics (5) |
+| 1.6 | Marginal analysis and consumer choice | 5 | 5 | microeconomics (5) |
+| 2.1 | Demand | 9 | 9 | microeconomics (9) |
+| 2.2 | Supply | 9 | 9 | microeconomics (9) |
+| 2.3 | Price elasticity of demand | 9 | 9 | microeconomics (9) |
+| 2.4 | Price elasticity of supply | 9 | 9 | microeconomics (9) |
+| 2.5 | Other elasticities | 9 | 9 | microeconomics (9) |
+| 2.6 | Market equilibrium and consumer and producer surplus | 10 | 10 | microeconomics (10) |
+| 2.7 | Market disequilibrium and changes in equilibrium | 9 | 9 | microeconomics (9) |
+| 2.8 | Effects of government intervention in markets | 9 | 9 | microeconomics (9) |
+| 2.9 | International trade and public policy | 9 | 9 | microeconomics (9) |
+| 3.1 | The production function | 6 | 6 | microeconomics (6) |
+| 3.2 | Short-run production costs | 6 | 6 | microeconomics (6) |
+| 3.3 | Long-run production costs | 6 | 6 | microeconomics (6) |
+| 3.4 | Types of profit | 6 | 6 | microeconomics (6) |
+| 3.5 | Profit maximisation | 6 | 6 | microeconomics (6) |
+| 3.6 | Short-run decisions to produce and long-run decisions to enter or exit | 6 | 6 | microeconomics (6) |
+| 3.7 | Perfect competition | 6 | 6 | microeconomics (6) |
+| 4.1 | Introduction to imperfectly competitive markets | 5 | 5 | microeconomics (5) |
+| 4.2 | Monopoly | 5 | 5 | microeconomics (5) |
+| 4.3 | Price discrimination | 5 | 5 | microeconomics (5) |
+| 4.4 | Monopolistic competition | 5 | 5 | microeconomics (5) |
+| 4.5 | Oligopoly and game theory | 5 | 5 | microeconomics (5) |
+| 5.1 | Introduction to factor markets | 5 | 5 | microeconomics (5) |
+| 5.2 | Changes in factor demand and factor supply | 5 | 5 | microeconomics (5) |
+| 5.3 | Profit-maximising behaviour in perfectly competitive factor markets | 6 | 6 | microeconomics (6) |
+| 5.4 | Monopsonistic markets | 5 | 5 | microeconomics (5) |
+| 6.1 | Socially efficient and inefficient market outcomes | 6 | 6 | microeconomics (6) |
+| 6.2 | Externalities | 7 | 7 | microeconomics (7) |
+| 6.3 | Public and private goods | 6 | 6 | microeconomics (6) |
+| 6.4 | Effects of government intervention in different market structures | 6 | 6 | microeconomics (6) |
+| 6.5 | Inequality | 6 | 6 | microeconomics (6) |
 
 ## ACS Exams Institute Anchoring Concepts Content Map: General Chemistry (Holme, Luxford & Murphy, J. Chem. Educ. 2015, 92, 1115)
 

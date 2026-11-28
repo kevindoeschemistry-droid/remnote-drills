@@ -41,6 +41,8 @@ domains:
   - { id: fm, title: "Fluid mechanics" }
   - { id: nm, title: "Numerical methods" }
   - { id: gc, title: "Graduate ChemE methods past Kreyszig" }
+  - { id: econ, title: "Microeconomics" }
+  - { id: mgmt, title: "Managerial Accounting" }
   - { id: micro, title: "Microbiology" }
   - { id: hap, title: "Anatomy and Physiology" }
   - { id: ngeo, title: "Geometry" }
@@ -967,6 +969,19 @@ skills:
   - { id: gc.perturbation, domain: gc, title: "Perturbation and asymptotic methods", short: "Perturbation", prereqs: [gc.scaling] }
   - { id: gc.similarity, domain: gc, title: "Similarity solutions and combination of variables", short: "Similarity", prereqs: [gc.scaling] }
   - { id: gc.eigen, domain: gc, title: "Eigenfunction expansions in curvilinear geometry", short: "Curvilinear eigenfunctions", prereqs: [bvp.sl-eigenfunctions] }
+  - { id: econ.basics, domain: econ, title: "Scarcity, opportunity cost, the production possibilities curve, comparative advantage and marginal analysis", short: "Basic concepts" }
+  - { id: econ.markets, domain: econ, title: "Demand, supply, equilibrium, elasticity, surplus, price controls, taxes and trade", short: "Supply and demand", prereqs: [econ.basics] }
+  - { id: econ.firm, domain: econ, title: "Production, short- and long-run costs, profit and the perfectly competitive firm", short: "Costs and perfect competition", prereqs: [econ.markets] }
+  - { id: econ.imperfect, domain: econ, title: "Monopoly, price discrimination, monopolistic competition and oligopoly", short: "Imperfect competition", prereqs: [econ.firm] }
+  - { id: econ.factors, domain: econ, title: "Derived demand, marginal revenue product, hiring rules and monopsony", short: "Factor markets", prereqs: [econ.firm] }
+  - { id: econ.failure, domain: econ, title: "Externalities, public goods, regulation and inequality", short: "Market failure", prereqs: [econ.imperfect] }
+  - { id: mgmt.cost-concepts, domain: mgmt, title: "Cost classification, cost behaviour, absorption and variable costing, joint costs", short: "Cost concepts" }
+  - { id: mgmt.costing-systems, domain: mgmt, title: "Overhead rates, job and process costing, activity-based costing, service departments", short: "Costing systems", prereqs: [mgmt.cost-concepts] }
+  - { id: mgmt.cvp, domain: mgmt, title: "Contribution margin, breakeven, target profit, sales mix and operating leverage", short: "Cost-volume-profit", prereqs: [mgmt.cost-concepts] }
+  - { id: mgmt.budgeting, domain: mgmt, title: "Budget types, operating and cash budgets, learning curves and expected value", short: "Budgeting and forecasting", prereqs: [mgmt.cvp] }
+  - { id: mgmt.variances, domain: mgmt, title: "Flexible budgets and standard cost variances", short: "Standard costs and variances", prereqs: [mgmt.budgeting, mgmt.costing-systems] }
+  - { id: mgmt.performance, domain: mgmt, title: "Responsibility centres, ROI, residual income, transfer pricing and the balanced scorecard", short: "Performance measurement", prereqs: [mgmt.variances] }
+  - { id: mgmt.decisions, domain: mgmt, title: "Relevant costs, short-run decisions, pricing and capital budgeting", short: "Decision analysis", prereqs: [mgmt.cvp] }
   - { id: micro.diversity, domain: micro, title: "Domains of life, classification and the evolution of microbial populations", short: "Diversity and evolution" }
   - { id: micro.structure, domain: micro, title: "Bacterial cell envelopes and appendages, eukaryotic microbes and viruses", short: "Cell structure and viruses", prereqs: [micro.diversity] }
   - { id: micro.growth, domain: micro, title: "Metabolic types, environmental limits and the arithmetic of exponential growth", short: "Metabolism and growth", prereqs: [micro.structure] }

@@ -1,0 +1,1145 @@
+{
+ "id": "microeconomics",
+ "title": "Microeconomics",
+ "code": "EC",
+ "draft": 1,
+ "track": "business",
+ "requires": [
+  "math-hs"
+ ],
+ "level": 2,
+ "domains": [
+  "econ"
+ ],
+ "basis": {
+  "primary": "ap-microeconomics",
+  "note": "Anchored on the AP Microeconomics Course and Exam Description (2022), read through its unit and topic list. Introductory level with linear curves. Indifference curves, isoquants, Cournot and Bertrand models and general equilibrium belong to an intermediate course and are not built; macroeconomics has no framework yet."
+ },
+ "big_ideas": [
+  {
+   "id": "MARGIN",
+   "title": "Decisions are made at the margin",
+   "text": "The best quantity is where the benefit of one more equals its cost: MB = MC for a consumer, MR = MC for a firm, MRP = MFC for an employer, MSB = MSC for society."
+  },
+  {
+   "id": "OPP",
+   "title": "Every choice has an opportunity cost",
+   "text": "The cost of anything is the next best thing given up, which is why trade pays even for the party who is better at everything."
+  },
+  {
+   "id": "SURPLUS",
+   "title": "Markets are judged by surplus",
+   "text": "Competitive equilibrium maximises consumer plus producer surplus; taxes, controls, market power and externalities are measured by the triangle of surplus they destroy."
+  }
+ ],
+ "practices": [
+  {
+   "id": "P1",
+   "title": "Compute",
+   "text": "Solve a linear model for a price, a quantity, an area or a marginal value."
+  },
+  {
+   "id": "P2",
+   "title": "Predict",
+   "text": "Say which way a curve shifts or an outcome moves, or classify a case."
+  }
+ ],
+ "units": [
+  {
+   "id": "basics",
+   "n": 1,
+   "title": "Basic economic concepts",
+   "std": [
+    "ap-microeconomics:1.1",
+    "ap-microeconomics:1.2",
+    "ap-microeconomics:1.3",
+    "ap-microeconomics:1.4",
+    "ap-microeconomics:1.5",
+    "ap-microeconomics:1.6"
+   ],
+   "scope": "core",
+   "ideas": [
+    "OPP",
+    "MARGIN"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Scarcity and choice",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-microeconomics:1.1",
+        "ap-microeconomics:1.5"
+       ],
+       "do": "Identify scarcity and compute an opportunity cost.",
+       "ek": [
+        "Resources are limited and wants are not, so every choice gives something up. Opportunity cost is the value of the next best alternative, including implicit costs such as forgone wages."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "MH-2.3.B"
+       ],
+       "drills": [
+        "ec-opportunity-cost",
+        "ec-scarcity"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-microeconomics:1.3"
+       ],
+       "do": "Read a production possibilities curve.",
+       "ek": [
+        "Points on the curve are efficient, points inside are inefficient (unemployed or misallocated resources), points outside are unattainable now. A bowed-out curve shows increasing opportunity cost; growth shifts the curve outward."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-1.1.A"
+       ],
+       "drills": [
+        "ec-ppc-point",
+        "ec-ppc-opportunity-cost"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-microeconomics:1.4"
+       ],
+       "do": "Find comparative advantage and acceptable terms of trade.",
+       "ek": [
+        "A producer has the comparative advantage in the good it makes at the lower opportunity cost. Both sides gain when each specialises that way and they trade at a price between their two opportunity costs."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-1.1.B"
+       ],
+       "drills": [
+        "ec-comparative-advantage",
+        "ec-terms-of-trade"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-microeconomics:1.6"
+       ],
+       "do": "Choose a quantity by marginal analysis and apply the utility-maximising rule.",
+       "ek": [
+        "Do more of an activity while marginal benefit exceeds marginal cost; stop where they are equal. A consumer maximises utility by equalising marginal utility per dollar across goods, within the budget."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-1.1.C"
+       ],
+       "drills": [
+        "ec-mb-equals-mc",
+        "ec-mu-per-dollar"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "markets",
+   "n": 2,
+   "title": "Supply and demand",
+   "std": [
+    "ap-microeconomics:2.1",
+    "ap-microeconomics:2.2",
+    "ap-microeconomics:2.3",
+    "ap-microeconomics:2.4",
+    "ap-microeconomics:2.5",
+    "ap-microeconomics:2.6",
+    "ap-microeconomics:2.7",
+    "ap-microeconomics:2.8",
+    "ap-microeconomics:2.9"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SURPLUS",
+    "MARGIN"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Markets",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-microeconomics:2.1",
+        "ap-microeconomics:2.2"
+       ],
+       "do": "Tell a shift of a curve from a movement along it.",
+       "ek": [
+        "A change in the good's own price moves along the curve (a change in quantity demanded or supplied). Demand shifts with income, tastes, prices of related goods, expectations and the number of buyers; supply shifts with input prices, technology, taxes and subsidies, expectations and the number of sellers."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-1.1.D",
+        "MH-2.7.E"
+       ],
+       "drills": [
+        "ec-shift-or-move",
+        "ec-demand-supply-laws"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-microeconomics:2.6"
+       ],
+       "do": "Solve for a linear market equilibrium.",
+       "ek": [
+        "Equilibrium is where quantity demanded equals quantity supplied. With Qd = a − bP and Qs = c + dP, set them equal and solve for P, then substitute for Q."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.A"
+       ],
+       "drills": [
+        "ec-equilibrium-price",
+        "ec-equilibrium-quantity"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-microeconomics:2.7"
+       ],
+       "do": "Predict how equilibrium price and quantity change when a curve shifts.",
+       "ek": [
+        "Demand up: price and quantity both rise. Supply up: price falls, quantity rises. When both curves shift, one of price or quantity is determined and the other is ambiguous."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-2.1.B"
+       ],
+       "drills": [
+        "ec-equilibrium-change",
+        "ec-double-shift"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-microeconomics:2.3",
+        "ap-microeconomics:2.4"
+       ],
+       "do": "Compute price elasticity by the midpoint method and link it to revenue.",
+       "ek": [
+        "Elasticity = percentage change in quantity ÷ percentage change in price, with each percentage taken on the midpoint. Above 1 in size is elastic, below 1 inelastic. When demand is elastic a price cut raises total revenue; when inelastic it lowers it."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.C"
+       ],
+       "drills": [
+        "ec-midpoint-elasticity",
+        "ec-elasticity-revenue"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-microeconomics:2.5"
+       ],
+       "do": "Use income and cross-price elasticities to classify goods.",
+       "ek": [
+        "Income elasticity is positive for normal goods and negative for inferior goods. Cross-price elasticity is positive for substitutes and negative for complements."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.D"
+       ],
+       "drills": [
+        "ec-cross-elasticity",
+        "ec-elasticity-sign"
+       ]
+      },
+      {
+       "id": "F",
+       "std": [
+        "ap-microeconomics:2.6"
+       ],
+       "do": "Measure consumer and producer surplus.",
+       "ek": [
+        "Consumer surplus is the area under the demand curve above the price; producer surplus is the area above the supply curve below the price. With straight lines each is a triangle: half base times height."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.E"
+       ],
+       "drills": [
+        "ec-consumer-surplus",
+        "ec-producer-surplus"
+       ]
+      },
+      {
+       "id": "G",
+       "std": [
+        "ap-microeconomics:2.8"
+       ],
+       "do": "Analyse price controls and a per-unit tax.",
+       "ek": [
+        "A ceiling below equilibrium causes a shortage; a floor above it causes a surplus; a control on the wrong side of equilibrium is not binding. A per-unit tax drives a wedge between the buyers' and sellers' prices, lowers quantity and creates a deadweight loss of half the tax times the fall in quantity."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.F"
+       ],
+       "drills": [
+        "ec-price-control",
+        "ec-tax-deadweight"
+       ]
+      },
+      {
+       "id": "H",
+       "std": [
+        "ap-microeconomics:2.9"
+       ],
+       "do": "Find imports at a world price and the effect of a tariff.",
+       "ek": [
+        "If the world price is below the domestic equilibrium the country imports the gap between quantity demanded and domestic quantity supplied. A tariff raises the domestic price, shrinks imports and raises revenue equal to the tariff times the imports that remain."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.G"
+       ],
+       "drills": [
+        "ec-imports",
+        "ec-tariff-revenue"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "firm",
+   "n": 3,
+   "title": "Production, cost and perfect competition",
+   "std": [
+    "ap-microeconomics:3.1",
+    "ap-microeconomics:3.2",
+    "ap-microeconomics:3.3",
+    "ap-microeconomics:3.4",
+    "ap-microeconomics:3.5",
+    "ap-microeconomics:3.6",
+    "ap-microeconomics:3.7"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MARGIN"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "The firm",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-microeconomics:3.1"
+       ],
+       "do": "Compute marginal product and recognise diminishing returns.",
+       "ek": [
+        "Marginal product is the extra output from one more unit of a variable input. With a fixed input it eventually falls (diminishing marginal returns); total product still rises while marginal product is positive."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-2.1.H"
+       ],
+       "drills": [
+        "ec-marginal-product",
+        "ec-returns-stage"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-microeconomics:3.2"
+       ],
+       "do": "Compute short-run cost measures.",
+       "ek": [
+        "Total cost = fixed + variable. ATC = TC/Q = AFC + AVC. Marginal cost is the change in total cost per extra unit; it cuts AVC and ATC at their minimum points."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-3.1.A"
+       ],
+       "drills": [
+        "ec-average-total-cost",
+        "ec-marginal-cost"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-microeconomics:3.3",
+        "ap-microeconomics:3.4"
+       ],
+       "do": "Separate economic from accounting profit and read the long-run average cost curve.",
+       "ek": [
+        "Economic profit subtracts implicit (opportunity) costs as well as explicit ones; zero economic profit is a normal profit. Falling long-run average cost is economies of scale, rising is diseconomies, flat is constant returns to scale."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-3.1.B"
+       ],
+       "drills": [
+        "ec-economic-profit",
+        "ec-scale"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-microeconomics:3.5",
+        "ap-microeconomics:3.6"
+       ],
+       "do": "Find a competitive firm's profit and decide whether it produces, shuts down or exits.",
+       "ek": [
+        "A firm maximises profit where MR = MC; for a price taker MR is the price. Profit = (P − ATC) × Q. In the short run it produces if P ≥ AVC and shuts down otherwise; in the long run it exits if P < ATC."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-3.1.C"
+       ],
+       "drills": [
+        "ec-competitive-profit",
+        "ec-shutdown"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-microeconomics:3.7"
+       ],
+       "do": "Describe long-run equilibrium in perfect competition.",
+       "ek": [
+        "Entry and exit drive economic profit to zero: price settles at the minimum of average total cost, where P = MC = minimum ATC, which is both allocatively and productively efficient."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-3.1.D"
+       ],
+       "drills": [
+        "ec-long-run-price",
+        "ec-pc-long-run"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "imperfect",
+   "n": 4,
+   "title": "Imperfect competition",
+   "std": [
+    "ap-microeconomics:4.1",
+    "ap-microeconomics:4.2",
+    "ap-microeconomics:4.3",
+    "ap-microeconomics:4.4",
+    "ap-microeconomics:4.5"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MARGIN",
+    "SURPLUS"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Market power",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-microeconomics:4.1",
+        "ap-microeconomics:4.2"
+       ],
+       "do": "Solve a linear monopoly and its deadweight loss.",
+       "ek": [
+        "With P = a − bQ, marginal revenue is MR = a − 2bQ. The monopolist sets MR = MC, then charges the price on the demand curve at that quantity. Output is below the competitive level, and the deadweight loss is the triangle between demand and marginal cost over the lost units."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-3.1.E"
+       ],
+       "drills": [
+        "ec-monopoly-price",
+        "ec-monopoly-dwl"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-microeconomics:4.3"
+       ],
+       "do": "Explain price discrimination and its effect on output and surplus.",
+       "ek": [
+        "Price discrimination charges different prices for the same good for reasons other than cost; it needs market power, a way to sort buyers and no resale. Under perfect discrimination the firm sells the competitive quantity, takes all the consumer surplus and leaves no deadweight loss."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-4.1.A"
+       ],
+       "drills": [
+        "ec-perfect-pd-profit",
+        "ec-price-discrimination"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-microeconomics:4.4"
+       ],
+       "do": "Describe monopolistic competition in the short and long run.",
+       "ek": [
+        "Many firms sell differentiated products with free entry. Each faces a downward-sloping demand curve and sets MR = MC; entry shifts each firm's demand left until price equals average total cost and economic profit is zero, with price above marginal cost and excess capacity."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-4.1.B"
+       ],
+       "drills": [
+        "ec-market-structure",
+        "ec-monopolistic-long-run"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-microeconomics:4.5"
+       ],
+       "do": "Find dominant strategies and the Nash equilibrium of a two-firm game.",
+       "ek": [
+        "A dominant strategy is best whatever the rival does. A Nash equilibrium is a pair of strategies from which neither player gains by changing alone. In a prisoners' dilemma both have a dominant strategy and the equilibrium leaves both worse off than cooperation would."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-4.1.C"
+       ],
+       "drills": [
+        "ec-nash",
+        "ec-oligopoly"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "factors",
+   "n": 5,
+   "title": "Factor markets",
+   "std": [
+    "ap-microeconomics:5.1",
+    "ap-microeconomics:5.2",
+    "ap-microeconomics:5.3",
+    "ap-microeconomics:5.4"
+   ],
+   "scope": "core",
+   "ideas": [
+    "MARGIN"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "Hiring",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-microeconomics:5.1",
+        "ap-microeconomics:5.3"
+       ],
+       "do": "Compute marginal revenue product and decide how many workers to hire.",
+       "ek": [
+        "Demand for a factor is derived from demand for what it makes. For a price-taking firm, marginal revenue product = marginal product × output price; hire as long as MRP is at least the wage."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-3.1.E"
+       ],
+       "drills": [
+        "ec-mrp",
+        "ec-hire-count"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-microeconomics:5.2"
+       ],
+       "do": "Predict shifts in factor demand and supply.",
+       "ek": [
+        "Factor demand rises with the output price, with the factor's productivity, and with the price of a substitute input; factor supply shifts with population, preferences for work and alternative opportunities."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-5.1.A"
+       ],
+       "drills": [
+        "ec-labour-shift",
+        "ec-derived-demand"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-microeconomics:5.3"
+       ],
+       "do": "Apply the least-cost rule for combining inputs.",
+       "ek": [
+        "Cost is minimised when the marginal product per dollar is equal across inputs: MP of labour ÷ wage = MP of capital ÷ rental rate. If labour's ratio is higher, use more labour and less capital."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-5.1.B"
+       ],
+       "drills": [
+        "ec-least-cost",
+        "ec-input-switch"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-microeconomics:5.4"
+       ],
+       "do": "Solve a monopsony and compare it with a competitive labour market.",
+       "ek": [
+        "A monopsonist faces the upward-sloping market supply curve, so its marginal factor cost lies above the wage. It hires where MRP = MFC and pays the wage on the supply curve at that quantity: fewer workers at a lower wage than competition."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-5.1.C"
+       ],
+       "drills": [
+        "ec-monopsony-employment",
+        "ec-monopsony"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "failure",
+   "n": 6,
+   "title": "Market failure and the role of government",
+   "std": [
+    "ap-microeconomics:6.1",
+    "ap-microeconomics:6.2",
+    "ap-microeconomics:6.3",
+    "ap-microeconomics:6.4",
+    "ap-microeconomics:6.5"
+   ],
+   "scope": "core",
+   "ideas": [
+    "SURPLUS",
+    "MARGIN"
+   ],
+   "topics": [
+    {
+     "n": 1,
+     "title": "When markets miss",
+     "los": [
+      {
+       "id": "A",
+       "std": [
+        "ap-microeconomics:6.1",
+        "ap-microeconomics:6.2"
+       ],
+       "do": "Find the socially optimal quantity and the corrective tax.",
+       "ek": [
+        "The efficient quantity is where marginal social benefit equals marginal social cost. With a constant external cost per unit, marginal social cost = marginal private cost + the external cost, and a per-unit tax equal to the external cost moves the market to the efficient quantity."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-4.1.D"
+       ],
+       "drills": [
+        "ec-social-optimum",
+        "ec-overproduction"
+       ]
+      },
+      {
+       "id": "B",
+       "std": [
+        "ap-microeconomics:6.2"
+       ],
+       "do": "Classify externalities and their remedies.",
+       "ek": [
+        "A negative externality (pollution) makes the market produce too much; a positive one (vaccination, education) too little. Taxes and subsidies equal to the external effect, or tradable permits, bring private incentives into line."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-6.1.A"
+       ],
+       "drills": [
+        "ec-externality",
+        "ec-externality-remedy"
+       ]
+      },
+      {
+       "id": "C",
+       "std": [
+        "ap-microeconomics:6.3"
+       ],
+       "do": "Classify goods by rivalry and excludability.",
+       "ek": [
+        "Private goods are rival and excludable; public goods are neither, so free riders make private provision too small; common resources are rival but not excludable and are overused; club (artificially scarce) goods are excludable but not rival."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-6.1.B"
+       ],
+       "drills": [
+        "ec-good-type",
+        "ec-free-rider"
+       ]
+      },
+      {
+       "id": "D",
+       "std": [
+        "ap-microeconomics:6.4"
+       ],
+       "do": "Predict how taxes and regulation affect a monopolist.",
+       "ek": [
+        "A lump-sum tax changes neither marginal cost nor marginal revenue, so output and price stay the same and only profit falls. A per-unit tax raises marginal cost and lowers output. Regulating price at marginal cost is efficient but may cause a loss for a natural monopoly; price at average total cost gives zero economic profit."
+       ],
+       "p": [
+        "P2"
+       ],
+       "needs": [
+        "EC-6.1.C"
+       ],
+       "drills": [
+        "ec-monopoly-tax",
+        "ec-natural-monopoly"
+       ]
+      },
+      {
+       "id": "E",
+       "std": [
+        "ap-microeconomics:6.5"
+       ],
+       "do": "Measure inequality and classify taxes.",
+       "ek": [
+        "The Lorenz curve plots cumulative income share against cumulative population share; the Gini coefficient is the area between it and the line of equality divided by the whole area under that line (0 is perfect equality, 1 perfect inequality). A tax is progressive if its average rate rises with income, regressive if it falls."
+       ],
+       "p": [
+        "P1"
+       ],
+       "needs": [
+        "EC-6.1.D"
+       ],
+       "drills": [
+        "ec-gini",
+        "ec-tax-type"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "code": "EC-1.1.A",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-opportunity-cost",
+    "ec-scarcity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-1.1.B",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-ppc-point",
+    "ec-ppc-opportunity-cost"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-1.1.C",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-comparative-advantage",
+    "ec-terms-of-trade"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-1.1.D",
+   "unit": 1,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-mb-equals-mc",
+    "ec-mu-per-dollar"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.A",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-shift-or-move",
+    "ec-demand-supply-laws"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.B",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-equilibrium-price",
+    "ec-equilibrium-quantity"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.C",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-equilibrium-change",
+    "ec-double-shift"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.D",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-midpoint-elasticity",
+    "ec-elasticity-revenue"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.E",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-cross-elasticity",
+    "ec-elasticity-sign"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.F",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-consumer-surplus",
+    "ec-producer-surplus"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.G",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-price-control",
+    "ec-tax-deadweight"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-2.1.H",
+   "unit": 2,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-imports",
+    "ec-tariff-revenue"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-3.1.A",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-marginal-product",
+    "ec-returns-stage"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-3.1.B",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-average-total-cost",
+    "ec-marginal-cost"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-3.1.C",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-economic-profit",
+    "ec-scale"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-3.1.D",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-competitive-profit",
+    "ec-shutdown"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-3.1.E",
+   "unit": 3,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-long-run-price",
+    "ec-pc-long-run"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-4.1.A",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-monopoly-price",
+    "ec-monopoly-dwl"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-4.1.B",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-perfect-pd-profit",
+    "ec-price-discrimination"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-4.1.C",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-market-structure",
+    "ec-monopolistic-long-run"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-4.1.D",
+   "unit": 4,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-nash",
+    "ec-oligopoly"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-5.1.A",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-mrp",
+    "ec-hire-count"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-5.1.B",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-labour-shift",
+    "ec-derived-demand"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-5.1.C",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-least-cost",
+    "ec-input-switch"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-5.1.D",
+   "unit": 5,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-monopsony-employment",
+    "ec-monopsony"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-6.1.A",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-social-optimum",
+    "ec-overproduction"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-6.1.B",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-externality",
+    "ec-externality-remedy"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-6.1.C",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-good-type",
+    "ec-free-rider"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-6.1.D",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-monopoly-tax",
+    "ec-natural-monopoly"
+   ],
+   "partial": []
+  },
+  {
+   "code": "EC-6.1.E",
+   "unit": 6,
+   "topic": 1,
+   "status": "ok",
+   "full": [
+    "ec-gini",
+    "ec-tax-type"
+   ],
+   "partial": []
+  }
+ ],
+ "orphanTpl": []
+}
